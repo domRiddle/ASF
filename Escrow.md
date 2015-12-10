@@ -92,13 +92,7 @@ I also suggest making a backup of SteamGuard codes, which can be done **[here](h
 
 **Q:** BUT I'M NOT LOGGED IN!
 
-**A:** No problem, you can use backup SteamGuard codes I suggested you to do in order to login, then you can disable 2FA through revocation code mentioned above.
-
-***
-
-**Q:** I AM LAZY BASTARD AND I DIDN'T GENERATE STEAMGUARD BACKUP CODES!
-
-**A:** Sigh, luckily for you, lazy bastard, you can restore access to your account also through SMS/e-mail. Go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)**
+**A:** No problem, you can use backup SteamGuard codes I suggested you to do in order to login, then you can disable 2FA through revocation code mentioned above. Alternatively, you can go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)** and disable 2FA through either SMS, or revocation code.
 
 ***
 
