@@ -34,7 +34,7 @@ To link your phone number successfully, you'll be prompted to confirm it. Confir
 After above step, assuming everything ended successfully, you should see:
 ```
 [*] INFO: LinkMobileAuthenticator() <1> Successfully linked ASF as new mobile authenticator for this account!
-<1> PLEASE WRITE DOWN YOUR REVOCATION CODE: **RXXXXX**
+<1> PLEASE WRITE DOWN YOUR REVOCATION CODE: RXXXXX
 <1> THIS IS THE ONLY WAY TO NOT GET LOCKED OUT OF YOUR ACCOUNT!
 <1> Hit enter once ready...
 ```
