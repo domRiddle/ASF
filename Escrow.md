@@ -45,41 +45,61 @@ From now onwards, ASF is able to use newly linked ASF mobile authenticator to ge
 
 I also suggest making a backup of SteamGuard codes, which can be done **[here](https://store.steampowered.com/twofactor/manage)**
 
+***
+
 **Q:** Why do you need a phone number, if 2FA is supposed to be ASF module?
 
 **A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not.
+
+***
 
 **Q:** Why account must not have 2FA enabled at the time of linking?
 
 **A:** You can have only one mobile authenticator linked to one account at given time. You can use either traditional mobile authenticator on your mobile, or ASF 2FA, not both.
 
+***
+
 **Q:** Why isn't it suggested to use ASF 2FA for primary accounts?
 
 **A:** Primary account is being used by you. ASF 2FA has been created in order to automate trade confirmations and skip requirement of 3-days trade holds. It's one giant hack which defeats the whole purpose of 2FA. Because it's possible to have only one mobile authenticator for given account (see above), I suggest to use ASF 2FA ONLY for accounts that are made purely for farming (alts).
+
+***
 
 **Q:** What if I need a 2FA token?
 
 **A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You can generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser.
 
+***
+
 **Q:** How to turn ASF 2FA off?
 
 **A:** If ASF 2FA is currently active, you can disable it completely through ```!2faoff``` and ```!2fa <BOT>``` commands, again, send to the bot through chat. This command will unlink ASF as mobile authenticator, which will result also in switching your account security from 2FA to either SteamGuard or None, depending what you had before. Keep in mind that this option will NOT remove your linked phone number, you can remove it manually **[here](https://store.steampowered.com/phone/manage)**.
+
+***
 
 **Q:** Where is ASF mobile authenticator saved?
 
 **A:** ASF mobile authenticator is saved as ```BotName.auth``` file in your config directory. Remember that this file is basically your mobile authenticator, so removing it will result the same as you'd lose your mobile phone with 2FA turned on. Therefore DO NOT REMOVE IT, if you want to turn off ASF 2FA, it is explained how above. Removing the file will do nothing apart from leaving you without mobile authenticator. BTW, it may be wise to backup that file as well, it does contain revocation code inside as well.
 
+***
+
 **Q:** HELP! I LOST MY ASF MOBILE AUTHENTICATOR!
 
 **A:** This can happen if you e.g. removed file mentioned above by accident. There's no need to panic, as long as you have **revocation code** ASF gave to you the moment it was linking itself as mobile authenticator. Simply enter **[here](https://store.steampowered.com/twofactor/manage)** from logged in account, and use your revocation code to disable 2FA from your account. You can then link ASF again (if you like), by following the same procedure.
+
+***
 
 **Q:** BUT I'M NOT LOGGED IN!
 
 **A:** No problem, you can use backup SteamGuard codes I suggested you to do in order to login, then you can disable 2FA through revocation code mentioned above.
 
+***
+
 **Q:** I AM LAZY BASTARD AND I DIDN'T GENERATE STEAMGUARD BACKUP CODES!
 
 **A:** Sigh, luckily for you, lazy bastard, you can restore access to your account also through SMS/e-mail. Go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)**
+
+***
 
 **Q:** I REMOVED ASF 2A FILE, I DIDN'T WRITE DOWN REVOCATION CODE, I DIDN'T GENERATE STEAMGUARD BACKUP CODES, I REMOVED ALL LINKED PHONE NUMBERS, AND SOMEBODY HACKED MY E-MAIL ACCOUNTS!
 
