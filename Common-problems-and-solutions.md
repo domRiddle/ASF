@@ -5,7 +5,7 @@ Unhandled Exception:
 System.Security.Cryptography.CryptographicException: Private/public key mismatch
 ```
 ```
-The authentication or decryption has failed
+Error getting response stream (Write: The authentication or decryption has failed.): SendFailure
 ```
 
 **Solution:**
