@@ -20,4 +20,4 @@ Unhandled Exception: System.TypeLoadException: A type load exception has occurre
 ```
 
 **Solution:**
-Make sure that you have ```mono-complete``` package installed, and latest Mono version. On debian-like operating systems, ```apt-get update && apt-get dist-upgrade && apt-get install mono-complete``` should do the trick.
+Make sure that you have ```mono-complete``` package installed, and latest Mono version. On debian-like operating systems, ```apt-get update && apt-get install mono-complete``` should do the trick.
