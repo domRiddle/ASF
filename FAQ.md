@@ -59,7 +59,7 @@ TL;DR - You're using this software at your own risk. It's very unlikely that you
 
 **Q:** Did somebody get banned for it?
 
-**A:** Up to today, there was only a **one** report from user who got 1 month steam market suspension on all of his alts. This is however unconfirmed and most likely not caused by ASF as he was still able to trade those cards (just not sell them on market from alts), and if I were the one suspending him, I'd make sure he won't get any profits from those cards instead of putting temporary steam market ban. Therefore, if you ask me, I don't think that suspension is ASF-related, but I'm committed to tell you that such situation did happen.
+**A:** Up to today, there was only **one** report from user who got 1 month steam market suspension on all of his alts. This is however unconfirmed and most likely not caused by ASF as he was still able to trade those cards (just not sell them on market from alts), and if I were the one suspending him, I'd make sure he won't get any profits from those cards instead of putting temporary steam market ban. Therefore, if you ask me, I don't think that suspension is ASF-related, but I'm committed to tell you that such situation did happen.
 
 ***
 
