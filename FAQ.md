@@ -49,7 +49,7 @@ Therefore, as with every Steam software. ASF is not authorized by Valve and I ca
 Especially:
 > In regard to all Subscriptions, Contents and Services, that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources. Valve does not assume any responsibility or liability for such third party content. Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
 
-ASF is licensed under Apache 2.0 Licene, which clearly states:
+ASF is licensed under Apache 2.0 License, which clearly states:
 
 > Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
