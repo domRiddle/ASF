@@ -53,7 +53,13 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 > Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-TL;DR - You're using this software at your own risk.
+TL;DR - You're using this software at your own risk. It's very unlikely that you can get banned for that, but if you do, you're the only one responsible for that.
+
+***
+
+**Q:** Did somebody get banned for it?
+
+**A:** Up to today, there was only a **one** report from user who got 1 month steam market suspension on all of his alts. This is however unconfirmed and most likely not caused by ASF as he was still able to trade those cards (just not sell them on market from alts), and if I were the one suspending him, I'd make sure he won't get any profits from those cards instead of putting temporary steam market ban. Therefore, if you ask me, I don't think that suspension is ASF-related, but I'm committed to tell you that such situation did happen.
 
 ***
 
