@@ -1,0 +1,79 @@
+# WCF
+
+Starting with version 1.3+, ASF now offers WCF (Windows Communication Foundation) inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
+
+---
+
+## Server
+
+To start WCF, ASF must be started with ```--server``` parameter.
+
+On Windows:
+```
+ASF.exe --server
+```
+
+On Linux and other Mono-powered OSes:
+```
+mono ASF.exe --server
+```
+
+If parameter was passed correctly, you should notice that WCF service is active:
+```
+[*] NOTICE: StartServer() <WCF> Starting WCF server...
+[*] NOTICE: StartServer() <WCF> WCF server ready!
+```
+
+ASF is now listening on ```http://localhost:1242/ASF``` for incoming WCF connections.
+
+---
+
+## Client
+
+To use ASF as a client, ASF must be started with ```--client``` parameter, and commands that should be executed.
+
+On Windows:
+```
+ASF.exe --client "start example" "stop example"
+```
+
+On Linux and other Mono-powered OSes:
+```
+mono ASF.exe --client "start example" "stop example"
+```
+
+**Notice:** ASF expects that every command will have a structure of <Command> <BotName> (ExtraArgs). Command should not be prefixed by ```!```, ASF client mode prefixes them for you. ExtraArgs are optional, required in some commands (e.g. ```redeem``` one).
+
+ASF in WCF mode supports all bot-targeted commands, such as ```!stop <BOT>```, ```!start <BOT>``` or ```!redeem <BOT> <KEY>```. You can view all available commands **[here](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
+
+Commands should not be prefixed by ```!```, ASF client mode prefixes them for you. This is because ```!``` is Linux-reserved character and might cause a headache to be escaped correctly.
+
+If you want to execute more than one command, consider launching them at the same time (as shown in example above), because launching process and the client is quite costly. ASF will execute all of those commands synchronously in given order.
+
+Keep in mind that ASF will exit after executing last command while in ```Client``` mode.
+
+---
+
+## Examples
+
+Commands:
+```
+mono ASF.exe --server
+mono ASF.exe --client "stop archi"
+```
+
+Results:
+
+Server:
+```
+04/01/2016 00:17:11 [*] INFO: HandleCommand() <WCF> Received command: "!stop archi"
+04/01/2016 00:17:11 [*] INFO: Stop() <archi> Stopping...
+04/01/2016 00:17:11 [*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
+04/01/2016 00:17:11 [*] INFO: OnDisconnected() <archi> Disconnected from Steam!
+```
+
+Client:
+```
+04/01/2016 00:17:10 [*] NOTICE: ParseArgs() <WCF> Command sent: stop archi
+04/01/2016 00:17:11 [*] NOTICE: ParseArgs() <WCF> Response received: Done!
+```
