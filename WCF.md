@@ -85,6 +85,7 @@ Client results:
 ```
 
 **Solution:**
+
 **Windows:** Starting with Windows Vista, user cannot create listening sockets by himself anymore. To solve this issue you'll need to start ASF.exe as administrator.
 
 **Mono:** Make sure that your OS policy allows your user to create listening sockets. This should be the case on all Linux distributions and OS X by default, but if you have more strict security policy, you may need to ask ```root``` for permission.
