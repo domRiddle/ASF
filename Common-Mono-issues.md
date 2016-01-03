@@ -1,6 +1,6 @@
 # Common Mono issues
 
-This page covers Mono-only issues, that might happens if you're running ASF under Mono. If you're running ASF natively on Windows, most likely you won't find anything useful here.
+This page covers Mono-only issues, that might happen if you're running ASF under Mono. If you're running ASF natively on Windows, most likely you won't find anything useful here.
 
 Most (if not all) of the issues are directly caused by outdated Mono version. Mono shipped with your Linux distribution is almost never the latest released Mono version, and the newer Mono you have, the bigger chance that everything will run out of the box.
 
