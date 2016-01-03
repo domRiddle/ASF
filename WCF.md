@@ -76,6 +76,18 @@ Client results:
 [*] NOTICE: ParseArgs() <WCF> Response received: "Done!"
 ```
 
+---
+
+## FAQ
+
+**Q:** Why should I consider using WCF in ASF?
+**A:** You should consider using WCF in ASF only if you have a strong reason. If you don't know what it is about, most likely you don't have one, and you can safely ignore this page along with the content. WCF provides inter-process communication, which allows you to control the ASF process during execution, e.g. through executing client via PHP script or similar. By using WCF you're able to control how ASF behaves, which might be useful if you're planning on integrating it further.
+
+**Q:** Is this secure?
+**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible.
+
+---
+
 ## Troubleshooting
 
 **Problem:**
