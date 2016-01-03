@@ -49,4 +49,4 @@ Unhandled Exception: System.TypeLoadException: A type load exception has occurre
 ```
 
 **Solution:**
-Make sure that you have ```mono-complete``` package installed, and latest Mono version. On debian-like operating systems, ```apt-get update && apt-get install mono-complete``` should do the trick.
+Make sure that you have ```mono-complete``` package installed. This issue is mostly caused by lack of some core Mono libraries required by ASF, that should be natively available. If installing ```mono-complete``` doesn't help, install latest Mono version.
