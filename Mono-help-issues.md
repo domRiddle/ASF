@@ -1,4 +1,4 @@
-# Common Mono issues
+# Mono help/issues
 
 This page covers Mono-only issues, that might happen if you're running ASF under Mono. If you're running ASF natively on Windows, most likely you won't find anything useful here.
 
