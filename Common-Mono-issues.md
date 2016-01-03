@@ -18,7 +18,7 @@ apt-get update
 apt-get install mono-complete
 ```
 
-Afterwards, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**
+Afterwards, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
 
 If you're not using Debian-like Linux distribution, and can't follow above ```apt-get``` tips, either start using one, or head over to **[official Mono installation page](http://www.mono-project.com/download/#download-lin)** to get instructions that match your Linux distribution.
 
