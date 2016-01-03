@@ -66,3 +66,9 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 **Q:** I have a question regarding ASF 2FA...
 
 **A:** Then check **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** wiki page.
+
+***
+
+**Q:** Is there any way to communicate with ASF?
+
+**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
