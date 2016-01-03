@@ -46,8 +46,6 @@ ASF expects that every command will have a structure of ```<Command> <BotName> (
 
 ASF in WCF mode supports all bot-targeted commands, such as ```!stop <BOT>```, ```!start <BOT>``` or ```!redeem <BOT> <KEY>```. You can view all available commands **[here](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
 
-Commands should not be prefixed by ```!```, ASF client mode prefixes them for you. This is because ```!``` is Linux-reserved character and might cause a headache to be escaped correctly.
-
 If you want to execute more than one command, consider launching them at the same time (as shown in example above), because launching process and the client is quite costly. ASF will execute all of those commands synchronously in given order.
 
 Keep in mind that ASF will exit after executing last command while in ```Client``` mode.
