@@ -66,14 +66,14 @@ Results:
 
 Server:
 ```
-04/01/2016 00:17:11 [*] INFO: HandleCommand() <WCF> Received command: "!stop archi"
-04/01/2016 00:17:11 [*] INFO: Stop() <archi> Stopping...
-04/01/2016 00:17:11 [*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
-04/01/2016 00:17:11 [*] INFO: OnDisconnected() <archi> Disconnected from Steam!
+[*] INFO: HandleCommand() <WCF> Received command: "!stop archi"
+[*] INFO: Stop() <archi> Stopping...
+[*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
+[*] INFO: OnDisconnected() <archi> Disconnected from Steam!
 ```
 
 Client:
 ```
-04/01/2016 00:17:10 [*] NOTICE: ParseArgs() <WCF> Command sent: stop archi
-04/01/2016 00:17:11 [*] NOTICE: ParseArgs() <WCF> Response received: Done!
+[*] NOTICE: ParseArgs() <WCF> Command sent: stop archi
+[*] NOTICE: ParseArgs() <WCF> Response received: Done!
 ```
