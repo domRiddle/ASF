@@ -72,6 +72,6 @@ Server results:
 
 Client results:
 ```
-[*] NOTICE: ParseArgs() <WCF> Command sent: stop archi
-[*] NOTICE: ParseArgs() <WCF> Response received: Done!
+[*] NOTICE: ParseArgs() <WCF> Command sent: "!stop archi"
+[*] NOTICE: ParseArgs() <WCF> Response received: "Done!"
 ```
