@@ -86,7 +86,7 @@ Client results:
 
 **Q:** Is this secure?
 
-**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible.
+**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be.
 
 ---
 
