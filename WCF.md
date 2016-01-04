@@ -64,7 +64,7 @@ Server results:
 ```
 [*] INFO: HandleCommand() <WCF> Received command: "!stop archi"
 [*] INFO: Stop() <archi> Stopping...
-[*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
+[*] INFO: HandleCommand() <WCF> Answered to command: "!stop archi" with: "Done!"
 [*] INFO: OnDisconnected() <archi> Disconnected from Steam!
 ```
 
