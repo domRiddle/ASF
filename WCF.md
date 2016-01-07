@@ -80,7 +80,7 @@ Client results:
 
 **Q:** Why should I consider using WCF in ASF?
 
-**A:** You should consider using WCF in ASF only if you have a strong reason. If you don't know what it is about, most likely you don't have one, and you can safely ignore this page along with the content. WCF provides inter-process communication, which allows you to control the ASF process during execution, e.g. through executing client via PHP script or similar. By using WCF you're able to control how ASF behaves, which might be useful if you're planning on integrating it further. If you're not running ASF on the server, and you're not planning on integrating it further with your own scripts/applications, it should be easier for you to communicate with ASF through steam chat with one of the bots. However, WCF is provided as a nice steam-independent way to communicate with ASF.
+**A:** You should consider using WCF in ASF only if you have a strong reason. If you don't know what it is about, most likely you don't have one, and you can safely ignore this page along with the content. WCF provides inter-process communication, which allows you to control the ASF process during execution, e.g. through executing client via PHP script or similar. By using WCF you're able to control how ASF behaves, which might be useful if you're planning on integrating it further. If you're not running ASF on the server, and you're not planning on integrating it further with your own scripts/applications, it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use WCF too, if you consider it useful/easier for you.
 
 ---
 
