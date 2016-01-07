@@ -62,15 +62,15 @@ mono ASF.exe --client "stop archi"
 
 Server results:
 ```
-[*] INFO: HandleCommand() <WCF> Received command: "!stop archi"
+[*] INFO: HandleCommand() <WCF> Received command: "stop archi"
 [*] INFO: Stop() <archi> Stopping...
-[*] INFO: HandleCommand() <WCF> Answered to command: "!stop archi" with: "Done!"
+[*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
 [*] INFO: OnDisconnected() <archi> Disconnected from Steam!
 ```
 
 Client results:
 ```
-[*] NOTICE: ParseArgs() <WCF> Command sent: "!stop archi"
+[*] NOTICE: ParseArgs() <WCF> Command sent: "stop archi"
 [*] NOTICE: ParseArgs() <WCF> Response received: "Done!"
 ```
 
