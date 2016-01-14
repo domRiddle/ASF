@@ -27,11 +27,13 @@ Officially, ASF requires only .NET 4.5 framework, which is supported since Mono 
 
 **All hard-to-explain issues without obvious cause are automatically ignored, if your Mono version is not latest stable one.**
 
-It's your responsiblity to ensure that ASF is run in bugless environment, and not mine to workaround all possible Mono issues, in all possible versions, on all possible variants. Latest stable ASF is always tested on up-to-date stable Mono version.
+It's your responsiblity to ensure that ASF is run in bugless environment, and not mine to workaround all possible Mono issues, in all possible versions, on all possible variants. Latest stable ASF is always tested on up-to-date stable Mono version, and always includes all crucial code changes that are required for working properly on Mono (if needed).
 
 ---
 
 # Issues and solutions
+
+**Solutions available here are workarounds for outdated Mono versions. Those issues do not exist on up-to-date Mono, and you should already know that you're on your own regarding outdated Mono versions, so consider it more like a helpful hand.**
 
 **Problem:**
 ```
