@@ -20,6 +20,12 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
+**Q:** Can ASF idle multiple games at once?
+
+**A:** **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. Your objective is to set config properties properly, ASF is supposed to make decisions based on them in order to to farm as effectively as possible. Don't try to outsmart ASF - it knows better.
+
+***
+
 **Q:** ASF doesn't automatically accept trades!
 
 **A:** Firstly, make sure that ```SteamApiKey``` config property is set, and is valid. If it is, you should notice that after sending the trade to the bot, it tries to accept it:
