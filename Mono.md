@@ -9,7 +9,7 @@ Most (if not all) of the issues are directly caused by outdated Mono. Mono shipp
 On Debian-like Linux distributions (including Ubuntu-like), add to your ```/etc/apt/sources.list``` following line:
 
 ```
-deb http://download.mono-project.com/repo/debian wheezy main
+deb http://download.mono-project.com/repo/debian wheezy main # Yes, wheezy also covers other versions and distributions
 ```
 
 Then execute (as root, or with sudo):
