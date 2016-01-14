@@ -25,6 +25,8 @@ Keep in mind that instructions above are also available on **[official Mono inst
 
 Officially, ASF requires only .NET 4.5 framework, which is supported since Mono 3.0+, which should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
 
+**All hard-to-explain issues without obvious cause are automatically ignored, if your Mono version is not latest stable one.** It's your responsiblity to ensure that ASF is run in bugless environment, and not mine to workaround all possible Mono issues on all possible versions. Latest stable ASF is always tested on up-to-date stable Mono version.
+
 ---
 
 # Issues and solutions
