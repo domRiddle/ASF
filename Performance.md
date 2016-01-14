@@ -18,6 +18,8 @@ Currently, ASF chooses cards farming algorithm based purely on ```CardDropsRestr
 
 ***
 
-**There is no one good answer which algorithm is better**. This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, which is default setting, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to 2 hours. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if it didn't reach 2 hours yet.
+**There is no obvious answer which algorithm is better**.
+
+This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, which is default setting, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to 2 hours. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if it didn't reach 2 hours yet.
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible.
