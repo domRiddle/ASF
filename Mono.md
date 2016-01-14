@@ -17,6 +17,7 @@ Then execute (as root, or with sudo):
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 apt-get update
 apt-get install mono-complete
+apt-get dist-upgrade # Not needed usually, but good to do
 ```
 
 Afterwards, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
