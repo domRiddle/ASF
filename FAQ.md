@@ -22,7 +22,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 **Q:** Can ASF idle multiple games at once?
 
-**A:** **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. Your objective is to set config properties properly, ASF is supposed to make decisions based on them in order to to farm as effectively as possible. Don't try to outsmart ASF - it knows better.
+**A:** **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. Your objective is to set config properties properly, it's ASF job to make crucial decisions based on the config in order to farm as effectively as possible. Don't try to outsmart ASF - it has more data to work with, and it knows better.
 
 ***
 
