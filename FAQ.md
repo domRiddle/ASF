@@ -2,7 +2,7 @@
 
 ***
 
-**Q:** Is ASF faster than Idle Master?
+### **Q:** Is ASF faster than Idle Master?
 
 **A:** **Yes**, although the explanation is rather complicated.
 
