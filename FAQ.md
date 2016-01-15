@@ -28,7 +28,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 **Q:** Can I get VAC ban for using this?
 
-**A:** No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor it's processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running.
+**A:** No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor it's processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running. ASF is the only farming program that can currently guarantee that.
 
 ***
 
