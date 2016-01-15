@@ -26,21 +26,6 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
-**Q:** ASF doesn't automatically accept trades!
-
-**A:** Firstly, make sure that ```SteamApiKey``` config property is set, and is valid. If it is, you should notice that after sending the trade to the bot, it tries to accept it:
-```
-[*] INFO: ParseTrade() <1> Accepting trade: XXXX
-```
-
-If you can see this, then your API key is proper.
-
-Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, then make sure that you have **[trade confirmations turned off](http://steamcommunity.com/my/edit/settings)**, as ASF can't automatically accept trade confirmations sent to your e-mail or mobile phone. Keep in mind that turning off confirmations it NOT required by ASF, it's required only if you want to accept trades automatically and you do not use ASF 2FA.
-
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work.
-
-***
-
 **Q:** Can I get VAC ban for using this?
 
 **A:** No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor it's processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running.
@@ -96,3 +81,18 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 **Q:** Is there any way to communicate with ASF?
 
 **A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+
+***
+
+**Q:** ASF doesn't automatically accept trades!
+
+**A:** Firstly, make sure that ```SteamApiKey``` config property is set, and is valid. If it is, you should notice that after sending the trade to the bot, it tries to accept it:
+```
+[*] INFO: ParseTrade() <1> Accepting trade: XXXX
+```
+
+If you can see this, then your API key is proper.
+
+Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, then make sure that you have **[trade confirmations turned off](http://steamcommunity.com/my/edit/settings)**, as ASF can't automatically accept trade confirmations sent to your e-mail or mobile phone. Keep in mind that turning off confirmations it NOT required by ASF, it's required only if you want to accept trades automatically and you do not use ASF 2FA.
+
+Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work.
