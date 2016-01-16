@@ -2,7 +2,7 @@
 
 ***
 
-This is detailed instruction dedicated for less advanced users who would like to use ASF. If you're more advanced user, probably short instructions available on the main page will be enough for you, if not, feel free to continue reading.
+This is detailed instruction dedicated for both less advanced, and more advanced users who would like to use ASF. By reading it, you'll learn how to configure and use ASF.
 
 **[Here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** you can find latest stable release of ASF. Find **ASF.zip** link on the bottom to download ASF. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to, I suggest **[7-zip](http://www.7-zip.org/)**.
 
@@ -61,6 +61,10 @@ If you're not using Windows OS, you should install **[latest Mono](https://githu
 If you did everything correctly, you should notice that ASF starts working and logs in to steam using credentials you provided in the config. If your account needs extra steps to unlock, such as **SteamGuard** or **TwoFactorAuthentication**, ASF will ask you for extra code, that you should type in the console. This has to be done only once, similar like in steam client.
 
 Congratulations, you've just finished configuration of your first account in ASF! If you need to add another account to ASF, such as your alt, simply copy either your already configured **nickname.xml** or **example.xml** to a new file, and configure it the same way you did with your previous account. You can have as many configs as you want, ASF is coded to handle many accounts at once. Also, if you didn't yet read all available config properties, it's wise to get familiar with them, because ASF offers really many neat features that can be configured.
+
+***
+
+Remember that ASF doesn't require and doesn't interfere in any way with Steam client, which means that you can be logged in to Steam client as your primary account, and launch ASF at the same time, for any number of accounts, including your main one (if needed).
 
 ***
 
