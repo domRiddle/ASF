@@ -1,7 +1,5 @@
 # Setting up
 
-***
-
 This is detailed instruction dedicated for both less advanced, and more advanced users who would like to use ASF. By reading it, you'll learn how to configure and use ASF.
 
 **[Here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** you can find latest stable release of ASF. Find **ASF.zip** link on the bottom to download ASF. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to, I suggest **[7-zip](http://www.7-zip.org/)**.
@@ -65,6 +63,22 @@ Congratulations, you've just finished configuration of your first account in ASF
 ***
 
 Remember that ASF doesn't require and doesn't interfere in any way with Steam client, which means that you can be logged in to Steam client as your primary account, and launch ASF at the same time, for any number of accounts, including your main one (if needed).
+
+***
+
+## Compatibility
+
+During development of ASF, it's top priority to assure compatibility between older configs and new ASF, therefore **unless changelog states otherwise, old configs will work properly with new versions of ASF**. Newly introduced **config properties**, which are missing in your old config, will have their **default values**, so if I decide to add e.g. two new config properties, and you use new ASF version with your old config, it will result in the same as you'd declare those two new properties in your config with their default (unchanged) values.
+
+***
+
+## Minimalistic config
+
+As you should notice, apart from **example.xml** config file, containing all currently available config properties, there is also **minimal.xml** config file, that contains only absolutely required fields.
+
+By reading **Compatibility** part above, you should know already that missing fields will have their default values used. Therefore, you **don't need to declare all those properties in your configs**, you can instead use **minimal.xml** as your config base, and instead of **editing all properties to your needs**, you need only to **add those properties from example.xml, which you want to change**. This way your configs won't be cluttered with comments and properties which you have no interest in changing. This can be useful for advanced users having many accounts, so your configs will be short and simple, and the less properties you declare, the more compatible will be the config, because there's smaller chance that ASF will introduce **breaking change** that would require from you to rebase your configs.
+
+So in short, you can base your bots either on **example.xml** (with editing all properties to your needs), or **minimal.xml** (with adding only those properties which you want to change). It's up to you which approach you prefer.
 
 ***
 
