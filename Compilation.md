@@ -21,3 +21,21 @@ Compilation on Mono-powered OSes is even easier in my opinion. Firstly you shoul
 ---
 
 If everything ended successfully, you can find your compiled binaries in ```bin``` directory.
+
+---
+
+# Components
+
+ASF uses a few additional components for compilation process.
+
+---
+
+### ILRepack
+
+ASF uses **[ILRepack](https://github.com/gluck/il-repack)** tool, which merges executable file and it's required libraries into one. ILRepack is launched only in ```Release``` builds, in ```PostBuildEvents```, which are declared in ```ArchiSteamFarm.csproj```. ILRepack is free and open-source too, but for the convenience, it's provided in executable form in ```tools``` directory, so ASF can launch the tool automatically after build finishes.
+
+---
+
+### Third-party libraries
+
+ASF also uses a few third-party libraries, which are crucial to make the program work. You can find all of them in **[packages](https://github.com/JustArchi/ArchiSteamFarm/tree/master/packages)** directory. Every third-party library is free and open-source as well, all of them are available on **[NuGet](https://www.nuget.org/)**.
