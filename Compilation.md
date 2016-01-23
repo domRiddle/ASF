@@ -12,7 +12,7 @@ On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.co
 
 ---
 
-# Linux / Mono
+## Linux / Mono
 
 Compilation on Mono-powered OSes is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**. If you do, all you need to do is navigate to the directory where ASF source is located, then execute:
 
