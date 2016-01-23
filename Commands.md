@@ -9,8 +9,8 @@ Current commands (as of ASF v1.4):
 - `!exit` Stops whole ASF
 - `!loot` Sends all Steam items of current bot instance to ```SteamMasterID```
 - `!loot <BOT>` Sends all Steam items of given bot instance to ```SteamMasterID```
-- `!play <appID>` Switches to manual farming - launches given ```appID``` on current bot instance.
-- `!play <BOT> <appID>` Switches to manual farming - launches given ```appID``` on given bot instance.
+- `!play <appID>` Switches to manual farming - launches given ```appID``` on current bot instance. Use ```0``` appID to return to automatic farming
+- `!play <BOT> <appID>` Switches to manual farming - launches given ```appID``` on given bot instance. Use ```0``` appID to return to automatic farming
 - `!redeem <KEY>` Redeems cd-key on current bot instance
 - `!redeem <BOT> <KEY>` Redeems cd-key on given bot instance
 - `!start <BOT>` Starts given bot instance
