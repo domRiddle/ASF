@@ -11,9 +11,6 @@ Current commands (as of ASF v1.4):
 - `!loot <BOT>` Sends all Steam items of given bot instance to ```SteamMasterID```
 - `!play <appID>` Switches to manual farming - launches given ```appID``` on current bot instance.
 - `!play <BOT> <appID>` Switches to manual farming - launches given ```appID``` on given bot instance.
-
-> Keep in mind that you need to own given appID, either through ```!redeem``` or ```!addlicense```
-
 - `!redeem <KEY>` Redeems cd-key on current bot instance
 - `!redeem <BOT> <KEY>` Redeems cd-key on given bot instance
 - `!start <BOT>` Starts given bot instance
