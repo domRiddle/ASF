@@ -1,14 +1,20 @@
-Current commands (as of ASF v1.3):
+Current commands (as of ASF v1.4):
 
 - `!2fa` Generates temporary 2FA token for current bot instance
 - `!2fa <BOT>` Generates temporary 2FA token for given bot instance
 - `!2faoff` Deactivates 2FA for current bot instance
 - `!2faoff <BOT>` Deactivates 2FA for given bot instance
+- `!addlicense <appID>` Activates given ```appID``` on current bot instance (free games only)
+- `!addlicense <BOT> <appID>` Activates given ```appID``` on given bot instance (free games only)
 - `!exit` Stops whole ASF
+- `!loot` Sends all Steam items of current bot instance to ```SteamMasterID```
+- `!loot <BOT>` Sends all Steam items of given bot instance to ```SteamMasterID```
 - `!redeem <KEY>` Redeems cd-key on current bot instance
 - `!redeem <BOT> <KEY>` Redeems cd-key on given bot instance
 - `!start <BOT>` Starts given bot instance
-- `!status` Prints current status of ASF
+- `!status` Prints status of current bot instance
+- `!status <BOT>` Prints status of given bot instance
+- `!statusall` Prints status of all bot instances and ASF itself
 - `!stop` Stops current bot instance
 - `!stop <BOT>` Stops given bot instance
 
