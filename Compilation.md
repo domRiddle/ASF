@@ -20,4 +20,4 @@ Compilation on Mono-powered OSes is even easier in my opinion. Firstly you shoul
 
 ---
 
-If everything ended properly, you can find your compiled binaries in ```bin``` directory.
+If everything ended successfully, you can find your compiled binaries in ```bin``` directory.
