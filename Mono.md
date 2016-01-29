@@ -24,7 +24,7 @@ Afterwards, you should notice that ```mono --version``` command returns the same
 
 Keep in mind that instructions above are also available on **[official Mono installation page for debian-like distributions](http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives)**. If you're not using Debian-like Linux distribution, and can't follow above ```apt-get``` tips, either start using one, or head over to **[official Mono installation page for other distributions](http://www.mono-project.com/download/#download-lin)** to get instructions that match your Linux distribution.
 
-Officially, ASF requires only .NET 4.5 framework, which is supported since Mono 3.0+, which should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
+Officially, ASF requires only .NET 4.6.1 framework, which is supported since Mono 4.0+, which should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
 
 **All hard-to-explain issues without obvious cause are automatically ignored, if your Mono version is not latest stable one.**
 
