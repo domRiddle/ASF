@@ -22,7 +22,7 @@ Current commands (as of ASF v1.4):
 
 Above commands can be sent to the bot through three different ways:
 - Through steam private chat, by ```SteamMasterID```
-- Through steam group chhat, by ```SteamMasterID```
+- Through steam group chat, by ```SteamMasterID```
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
 When using **WCF**, keep in mind that:
