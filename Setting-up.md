@@ -52,7 +52,7 @@ The last property you need to edit is **SteamPassword** property. At this point 
 
 In any case, after you're done with configuring your config, you should start **ASF.exe** executable, by double clicking it.
 
-If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** in order to be able to launch ASF. You can then start ASF by executing ```mono ASF.exe``` from terminal/shell.
+If you're using Windows OS, make sure you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=49981)** installed. If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** in order to be able to launch ASF, then can then start ASF by executing ```mono ASF.exe``` from terminal/shell.
 
 ***
 
