@@ -32,6 +32,28 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 ---
 
+# Nightly
+
+Apart from ```stable``` channel, Mono's repo also offers ```nightly``` channel, with the most up-to-date, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's the most recent Mono version at the time of release.
+
+Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
+
+To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
+
+```
+deb http://download.mono-project.com/repo/debian wheezy main
+```
+
+To:
+
+```
+deb http://download.mono-project.com/repo/debian nightly main
+```
+
+Then issue ```apt-get update && apt-get dist-upgrade``` to update.
+
+---
+
 # Issues and solutions
 
 **Solutions available here are workarounds for outdated Mono versions. Those issues do not exist on up-to-date Mono, and you should already know that you're on your own regarding outdated Mono versions, so consider it more like a helpful hand.**
