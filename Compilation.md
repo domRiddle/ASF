@@ -32,7 +32,7 @@ ASF uses a few additional components for compilation process.
 
 ### ILRepack
 
-ASF uses **[ILRepack](https://github.com/gluck/il-repack)** tool, which merges executable file and it's required libraries into one. ILRepack is launched only in ```Release``` builds, in ```PostBuildEvents```, which are declared in ```ArchiSteamFarm.csproj```. ILRepack is free and open-source too, but for convenience, it's provided in binary form in **[tools](https://github.com/JustArchi/ArchiSteamFarm/tree/master/tools)** directory, so ASF can launch the tool automatically after build finishes. You can compile and use it from source if you wish.
+ASF uses **[ILRepack](https://github.com/gluck/il-repack)** tool, which merges executable file and it's required libraries into one. ILRepack is launched only in ```Release``` builds, in ```PostBuildEvents```, which are declared in ```ArchiSteamFarm.csproj```. ILRepack is free and open-source too, but for convenience, it's provided in binary form in **[tools](https://github.com/JustArchi/ArchiSteamFarm/tree/master/tools)** directory, so ASF can launch the tool automatically after build finishes. You can compile and use it from source if you wish, or disable it by removing from ```PostBuildEvents```, if you for whatever reason don't want to use it.
 
 ---
 
