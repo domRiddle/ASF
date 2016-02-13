@@ -1,4 +1,4 @@
-Current commands (as of ASF v1.4):
+Current commands (as of ASF v1.5):
 
 - `!2fa` Generates temporary 2FA token for current bot instance
 - `!2fa <BOT>` Generates temporary 2FA token for given bot instance
@@ -7,10 +7,11 @@ Current commands (as of ASF v1.4):
 - `!addlicense <appID>` Activates given ```appID``` on current bot instance (free games only)
 - `!addlicense <BOT> <appID>` Activates given ```appID``` on given bot instance (free games only)
 - `!exit` Stops whole ASF
+- `!leave` Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 - `!loot` Sends all Steam items of current bot instance to ```SteamMasterID```
 - `!loot <BOT>` Sends all Steam items of given bot instance to ```SteamMasterID```
-- `!play <appID>` Switches to manual farming - launches given ```appID``` on current bot instance. Use ```0``` appID to return to automatic farming
-- `!play <BOT> <appID>` Switches to manual farming - launches given ```appID``` on given bot instance. Use ```0``` appID to return to automatic farming
+- `!play <appID1,appID2,appID3>` Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
+- `!play <BOT> <appID1,appID2,appID3>` Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
 - `!redeem <KEY>` Redeems cd-key on current bot instance
 - `!redeem <BOT> <KEY>` Redeems cd-key on given bot instance
 - `!start <BOT>` Starts given bot instance
