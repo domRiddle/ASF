@@ -50,7 +50,7 @@ To:
 deb http://download.mono-project.com/repo/debian nightly main
 ```
 
-Then issue ```apt-get update && apt-get dist-upgrade``` to update.
+Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
 ---
 
