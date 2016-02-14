@@ -24,4 +24,6 @@ This is one of the reasons why you do not choose cards farming algorithm, instea
 
 By default, ASF assumes positive scenario - our account doesn't have restricted card drops, so ```CardDropsRestricted``` is ```false``` by default.
 
-At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible.
+At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
+
+It's nice to note that ASF includes ```Manual``` farming mode that can be activated by ```!play``` command. You can read more about it in Commands.
