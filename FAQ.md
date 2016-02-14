@@ -93,6 +93,6 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 If you can see this, then your API key is proper.
 
-Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, then make sure that you have **[trade confirmations turned off](http://steamcommunity.com/my/edit/settings)**, as ASF can't automatically accept trade confirmations sent to your e-mail or mobile phone. Keep in mind that turning off confirmations it NOT required by ASF, it's required only if you want to accept trades automatically and you do not use ASF 2FA.
+Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, then make sure that you have **[trade confirmations turned off](http://steamcommunity.com/my/edit/settings)**, as ASF can't automatically accept trade confirmations sent to your e-mail or mobile phone. Keep in mind that turning off confirmations it NOT required by ASF, it's required only if you want to accept trades automatically and you do not use ASF 2FA. If you have confirmations turned on, it's possible that ASF in fact accepted trade, but you need to confirm it via your e-mail.
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work.
