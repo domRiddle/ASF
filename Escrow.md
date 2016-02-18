@@ -48,6 +48,12 @@ I also suggest making a backup of SteamGuard codes, which can be done **[here](h
 
 ***
 
+## Limitations
+
+Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PIN, you'll need to disable that feature at the time of linking, you can re-enable it after linking is done.
+
+***
+
 **Q:** Why do you need a phone number, if 2FA is supposed to be ASF module?
 
 **A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not.
@@ -99,9 +105,3 @@ I also suggest making a backup of SteamGuard codes, which can be done **[here](h
 **Q:** I REMOVED ASF 2FA FILE, I DIDN'T WRITE DOWN REVOCATION CODE, I DIDN'T GENERATE STEAMGUARD BACKUP CODES, I REMOVED ALL LINKED PHONE NUMBERS, AND SOMEBODY HACKED MY E-MAIL ACCOUNTS!
 
 **A:** A brain was listed in the ASF 2FA requirements. Try steam support, and good luck, you'll need it.
-
-***
-
-## Limitations
-
-Currently ASF 2FA can't be enabled on account restricted with Steam Parental PIN, you'll need to disable that feature at the time of linking, you can re-enable it after linking is done.
