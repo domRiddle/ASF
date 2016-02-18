@@ -54,6 +54,8 @@ Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PI
 
 ***
 
+## FAQ
+
 **Q:** Why do you need a phone number, if 2FA is supposed to be ASF module?
 
 **A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not.
