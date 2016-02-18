@@ -22,6 +22,8 @@ Compilation on Mono-powered OSes is even easier in my opinion. Firstly you shoul
 
 If everything ended successfully, you can find your compiled binaries in ```bin``` directory.
 
+ASF by default is compiled on Windows - with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
+
 ---
 
 # Components
