@@ -4,7 +4,8 @@ This page covers topics about importing data from other applications like Steam 
 
 ## Import Auth-Files from Steam Dekstop Authenticator (SDA)
 
-ASF and SDA are using the same Files for 2FA-Authentication and this said you can import the .maFile-Files from SDA as .auth-Files for ASF. All we need is a little batch-script to rename the SDA-Files so they fit ASF. Normally you would use "username.xml" in ASF. Create a folder on your desktop and Backup(!!) your .maFiles from SDA. Then copy all your .maFile-Files into this folder. Then create a textfile, give it a name and change the file-extension to ".bat". Then you can use this batch-script to rename the files from (SteamID64).(maFile) to (SteamLoginName)(.auth).
+ASF and SDA are using the same Files for 2FA-Authentication and this said you can import the .maFile-Files from SDA as .auth-Files for ASF. All we need is a little batch-script to rename the SDA-Files so they fit ASF. Normally you would use "username.xml" in ASF. Create a folder on your desktop and Backup(!!) your .maFiles from SDA. Then copy all your .maFile-Files into this folder. Then create a textfile, give it a name and change the file-extension to ".bat". Then you can copy&paste the following script and use it to rename the files from (SteamID64).(maFile) to (SteamLoginName)(.auth).
+**This will only work if you use config-files with (SteamLoginName)(.xml), but you can modify this script easily.**
 
 ```batch
 @echo off
