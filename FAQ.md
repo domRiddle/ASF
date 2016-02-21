@@ -101,4 +101,4 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 
 **Q:** What are the .key-Files used for?
 
-**A:** Alternative Password that is used to login to Steam when 2FA is enabled. It´s the same when you´re updating your Steam-Client and don´t have to insert a 2FA-Token again, except this key is used for launching instead of updating.
+**A:** Alternative password that is used to log into Steam without the need to provide a 2FA-Token.
