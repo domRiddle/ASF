@@ -96,3 +96,7 @@ If you can see this, then your API key is proper.
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, then make sure that you have **[trade confirmations turned off](http://steamcommunity.com/my/edit/settings)**, as ASF can't automatically accept trade confirmations sent to your e-mail or mobile phone. Keep in mind that turning off confirmations it NOT required by ASF, it's required only if you want to accept trades automatically and you do not use ASF 2FA. If you have confirmations turned on, it's possible that ASF in fact accepted trade, but you need to confirm it via your e-mail.
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work.
+
+**Q:** What are the .key-Files used for?
+
+**A:** Alternative Password that is used to login to Steam when 2FA is enabled. It´s the same when you´re updating your Steam-Client and don´t have to insert a 2FA-Token again, except this key is used for launching instead of updating.
