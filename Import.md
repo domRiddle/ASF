@@ -28,3 +28,18 @@ for %%F in (*.maFile) do (
 
 pause
 ```
+
+Maybe you discover that some of your xml-configs saved with lower- and uppercase usernames. Same as before, create a folder, backup your xml-Configs, copy all xml-Configs into this folder, create a textfile, name it, replace file-Extension with ".bat" and copy&paste the following script to rename all files to lowercase.
+
+```batch
+@echo off
+setlocal EnableDelayedExpansion
+
+echo This script will rename all files in this directory to lowercase.
+set /p=Hit ENTER to continue...
+
+for /f "Tokens=*" %%f in ('dir /l/b/a-d') do (ren "%%f " "%%f ")
+echo All files were renamed to lowercase. You can close this window now.
+
+pause
+```
