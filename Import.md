@@ -1,5 +1,3 @@
-# Import
-
 This page covers topics about importing data from other applications like Steam Desktop Authenticator.
 
 ## Import Auth-Files from Steam Desktop Authenticator (SDA)
