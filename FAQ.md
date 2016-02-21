@@ -97,6 +97,8 @@ Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work.
 
+***
+
 **Q:** What are the .key-Files used for?
 
 **A:** Alternative Password that is used to login to Steam when 2FA is enabled. It´s the same when you´re updating your Steam-Client and don´t have to insert a 2FA-Token again, except this key is used for launching instead of updating.
