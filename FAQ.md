@@ -102,3 +102,9 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 **Q:** What are the .key-Files used for?
 
 **A:** Alternative password that is used to log into Steam without the need to provide a 2FA-Token.
+
+***
+
+**Q:** How much bots can I run with ASF?
+
+**A:** Currently you can run 100-110 bots with one IP and 1 ASF-Instance. It is possible to run more bots with more IP´s and more ASF-Instances.
