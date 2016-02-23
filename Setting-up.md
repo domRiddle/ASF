@@ -4,7 +4,7 @@ This is detailed instruction dedicated for both less advanced, and more advanced
 
 **[Here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** you can find latest stable release of ASF. Find **ASF.zip** link on the bottom to download ASF. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to, I suggest **[7-zip](http://www.7-zip.org/)**.
 
-After unpacking archive you should notice executable file **ASF.exe**, and **config** directory, with **example.xml** config file inside. Go to the config directory and copy paste **example.xml** to new file. You should rename newly created file to anything you wish e.g. **primary.xml**, **1.xml**, or **nickname.xml**. File should have no spaces in the name. After renaming, open it using any editor you want, I suggest **[notepad++](https://notepad-plus-plus.org/)**.
+After unpacking archive you should notice executable file **ASF.exe**, and **config** directory, with **example.xml** config file inside. Go to the config directory and copy paste **example.xml** to new file. You should rename newly created file to anything you wish e.g. **primary.xml**, **1.xml**, or **nickname.xml**. File should have no spaces in the name. After renaming, open it using any editor you want, I suggest **[Notepad++](https://notepad-plus-plus.org/)**.
 
 Config file is using **[XML](https://en.wikipedia.org/wiki/XML)** language structure, although don't worry, you don't need to learn it, it's very easy and straightforward. In the file you can notice many so called **config properties**, which are used for setting up bot that will use that config file.
 
