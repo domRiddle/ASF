@@ -99,12 +99,12 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 
 ***
 
-**Q:** What are the .key-Files used for?
+**Q:** What is the purpose of ```.key``` files?
 
-**A:** Alternative password that is used to log into Steam without the need to provide a 2FA-Token.
+**A:** Key files store temporary login keys, those login keys are used as an alternative to classical passwords, and thanks to them you don't have to put 2FA token every time you try to log in to 2FA-protected accounts. Steam client uses same mechanism.
 
 ***
 
-**Q:** How much bots can I run with ASF?
+**Q:** How many bots can I run with ASF?
 
-**A:** Currently you can run 100-110 bots with one IP and 1 ASF-Instance. It is possible to run more bots with more IP´s and more ASF-Instances.
+**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
