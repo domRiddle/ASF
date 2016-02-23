@@ -101,7 +101,7 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 
 **Q:** What is the purpose of ```.key``` files?
 
-**A:** Key files store temporary login keys, those login keys are used as an alternative to classical passwords, and thanks to them you don't have to put 2FA token every time you try to log in to 2FA-protected accounts. Steam client uses same mechanism.
+**A:** Key files store temporary login keys, those login keys are used as an alternative to classical passwords, and thanks to them you don't have to put 2FA token every time you try to log in to 2FA-protected accounts. Steam client uses same mechanism. Those keys are temporary though, so they can expire with time.
 
 ***
 
