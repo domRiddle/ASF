@@ -26,4 +26,4 @@ By default, ASF assumes positive scenario - our account doesn't have restricted 
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
-It's nice to note that ASF also includes ```Manual``` farming mode that can be activated by ```!play``` command. You can read more about it in Commands.
+It's nice to note that ASF also includes ```Manual``` farming mode that can be activated by ```!play``` command. You can read more about it in **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
