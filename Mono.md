@@ -52,6 +52,8 @@ deb http://download.mono-project.com/repo/debian nightly main
 
 Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
+Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
+
 ---
 
 # Issues and solutions
