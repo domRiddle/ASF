@@ -71,7 +71,7 @@ Error getting response stream (Write: The authentication or decryption has faile
 
 **Solution:**
 - Update Mono to latest version, this issue is fixed since Mono 3.12+.
-- Alternatively you can execute ```mozroots --import --ask-remove``` manually.
+- Alternatively you can execute ```mozroots --import --sync``` manually.
 
 ---
 
