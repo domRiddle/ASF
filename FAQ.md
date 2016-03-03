@@ -108,3 +108,20 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 **Q:** How many bots can I run with ASF?
 
 **A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
+
+***
+
+**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword```
+
+**A:** ```InvalidPassword``` can mean a log of things, some of them include:
+
+- Invalid Login/Password combination (obviously)
+- Expired login key used by ASF for logging in
+- Too many failed login attempts in short period of time (anti-bruteforce)
+- Too many login attempts in short period of time (rate-limiting)
+
+In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime.
+
+In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically)
+
+And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials.
