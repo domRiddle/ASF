@@ -113,7 +113,7 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 
 **Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword```
 
-**A:** ```InvalidPassword``` can mean a log of things, some of them include:
+**A:** ```InvalidPassword``` can mean a lot of things, some of them include:
 
 - Invalid Login/Password combination (obviously)
 - Expired login key used by ASF for logging in
