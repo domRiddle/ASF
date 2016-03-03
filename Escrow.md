@@ -13,8 +13,6 @@ To use ASF 2FA, you need to have:
 - An account with **turned off 2FA**, which you want to enable in ASF 2FA
 - A brain
 
-It's also wise to make sure that you have trade confirmations turned on - it's not required for activating ASF 2FA, but to skip trade holds.
-
 Firstly make sure that you pass all the requirements above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
 
 ```
