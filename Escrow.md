@@ -71,7 +71,7 @@ Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PI
 
 **Q:** Why isn't it suggested to use ASF 2FA for primary accounts?
 
-**A:** Primary account is being used by you. ASF 2FA has been created in order to automate trade confirmations and skip requirement of 3-days trade holds. It's one giant hack which defeats the whole purpose of 2FA. Because it's possible to have only one mobile authenticator for given account (see above), I suggest to use ASF 2FA ONLY for accounts that are made purely for farming (alts).
+**A:** Primary account is being used by you. ASF 2FA has been created in order to automate trade confirmations and skip requirement of 3-days trade holds. It's one giant hack which defeats the whole purpose of 2FA. Because it's possible to have only one mobile authenticator for given account (see above), I suggest to use ASF 2FA **ONLY** for accounts that are made purely for farming (alts). It is possible to enable ASF 2FA also for primary accounts, but highly discouraged.
 
 ***
 
