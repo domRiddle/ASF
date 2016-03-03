@@ -11,10 +11,11 @@ The idea is simple. We already imitiate steam client, imitiate launching and pla
 To use ASF 2FA, you need to have:
 - A phone number **capable of receiving SMSes**
 - An account with **turned off 2FA**, which you want to enable in ASF 2FA
-- The option for accepting trades via email must be activated
 - A brain
 
-Firstly make sure that you have all of the above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
+It's also wise to make sure that you have trade confirmations turned on - it's not required for activating ASF 2FA, but to skip trade holds.
+
+Firstly make sure that you pass all the requirements above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
 
 ```
 [*] NOTICE: LinkMobileAuthenticator() <1> Linking new ASF MobileAuthenticator...
