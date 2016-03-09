@@ -74,7 +74,11 @@ Types used by ASF are native C# types, which are specified below:
 
 ```ushort``` - Unsigned short type, accepting only numbers from ```0``` to ```65535``` (inclusive)
 
+```uint``` - Unsigned integer type, accepting only numbers from ```0``` to ```4294967295``` (inclusive)
+
 ```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```
+
+```HashSet<uint>``` - Collection (set) of unique unsigned integers, accepting any number of them.
 
 ---
 
