@@ -1,6 +1,6 @@
 # **DEPRECATED**
 
-This page covers topics about importing data from other applications like Steam Desktop Authenticator.
+This page covers topics about importing data from other applications like Steam Desktop Authenticator. ASF now covers the automatic import of *.maFile-Files, which are the Standard-Authentification-Files for Steam Desktop Authenticator.
 
 ## Import Auth-Files from Steam Desktop Authenticator (SDA)
 
