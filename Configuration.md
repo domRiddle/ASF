@@ -10,17 +10,15 @@ ASF is using quite simple file structure.
 
 ```
 config
---|--
--------
-------- ASF.json
-------- ASF.db
-------- Bot1.json
-------- Bot1.db
-------- Bot1.bin
-------- Bot2.json
-------- Bot2.db
-------- Bot2.bin
-------- ...
+--|-- ASF.json
+--|-- ASF.db
+--|-- Bot1.json
+--|-- Bot1.db
+--|-- Bot1.bin
+--|-- Bot2.json
+--|-- Bot2.db
+--|-- Bot2.bin
+--|-- ...
 ASF.exe
 log.txt
 ```
