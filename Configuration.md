@@ -68,9 +68,9 @@ Every config property has it's type. Type of the property defines values that ar
 
 Types used by ASF are native C# types, which are specified below:
 
-*bool* - Boolean type accepting only ```true``` and ```false``` values.
-*byte* - Byte type, accepting only numbers from ```0``` to ```255``` (inclusive)
-*string* - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```
+```bool``` - Boolean type accepting only ```true``` and ```false``` values.
+```byte``` - Byte type, accepting only numbers from ```0``` to ```255``` (inclusive)
+```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```
 
 ---
 
