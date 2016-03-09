@@ -76,7 +76,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```uint``` - Unsigned integer type, accepting only numbers from ```0``` to ```4294967295``` (inclusive)
 
-```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```
+```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```. **Notice:** Remember that strings should be contained in quotes ```""```
 
 ```HashSet<uint>``` - Collection (set) of unique unsigned integers, accepting any number of them.
 
@@ -127,7 +127,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ---
 
-## Global config
+## Bot config
 
 ```
 {
@@ -156,3 +156,9 @@ Types used by ASF are native C# types, which are specified below:
   ]
 }
 ```
+
+```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Being enabled does not mean that bot has to start and run, being enabled means that ASF should "notice" it being a valid defined and configured bot instance, which has a potential to ```Start()``` and ```Stop()```. This property allows you to easily switch bots on and off, without a need to remove config files. By default every bot is disabled, and if you want to use it in ASF, and that's probably what you want, you should switch this property to ```true```.
+
+```StartOnLaunch``` - ```bool``` type with default value of ```true```. This property defines if bot should automatically start when it's instance is created by ASF. Usually you want to keep it at ```true```, but you may also want to keep bot ```Enabled```, yet ```Stopped```. If you decide to change this property to ```false```, you'll need to ```!start``` given bot instance manually on every ASF startup. Unless you have a reason to edit this property, you should keep it at default.
+
+```SteamLogin``` - ```string``` type with default value of ```null```. This property defines your steam login - the one you use for logging in to steam. If you use e.g. ```pablo32``` steam login, then you should change ```null``` value to ```"pablo32"```.
