@@ -175,4 +175,4 @@ Types used by ASF are native C# types, which are specified below:
 
 ```SteamMasterClanID``` - ```ulong``` type with default value of ```0```. This property is similar to above, but it defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to it's **[page](http://steamcommunity.com/groups/ascfarm)**, then adding ```/memberslistxml/?xml=1``` to the end of the link, so the link will look like **[this](http://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in ```<groupID64>``` tag. In above example it would be ```103582791440160998```. If you don't have any "farm group" for your bots, you should keep it at default.
 
-```CardDropsRestricted```
+```CardDropsRestricted``` - ```bool``` type with default value of ```false```, which will be properly documented after Archi wakes up.
