@@ -1,5 +1,7 @@
 # Configuration
 
+### Notice: This page is dedicated only for ASF V2.0+, for ASF V1.X, you should read **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**
+
 This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
 
 ---
