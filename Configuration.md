@@ -64,7 +64,7 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Every config property has it's type. Type of the property defines values that are valid for it. You can only use values that are valid for given type.
 
-**Example: ** ASF has ```AutoUpdates``` switch defined as ```bool``` type, which can be only ```true (on)``` or ```false (off)```. It wouldn't make any sense if you put a value like "password" there, right?
+**Example:** ASF has ```AutoUpdates``` switch defined as ```bool``` type, which can be only ```true (on)``` or ```false (off)```. It wouldn't make any sense if you put a value like "password" there, right?
 
 Types used by ASF are native C# types, which are specified below:
 
