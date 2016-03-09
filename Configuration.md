@@ -15,18 +15,18 @@ ASF configuration is divided into two major ports - global (process) configurati
 ASF is using quite simple file structure.
 
 ```
-config
-├── ASF.json
-├── ASF.db
-├── Bot1.json
-├── Bot1.db
-├── Bot1.bin
-├── Bot2.json
-├── Bot2.db
-├── Bot2.bin
-└── ...
-ASF.exe
-log.txt
+├── config
+│   ├── ASF.json
+│   ├── ASF.db
+│   ├── Bot1.json
+│   ├── Bot1.db
+│   ├── Bot1.bin
+│   ├── Bot2.json
+│   ├── Bot2.db
+│   ├── Bot2.bin
+│   └── ...
+├── ASF.exe
+└── log.txt
 ```
 
 **Mandatory** tag used below means that given file is absolutely crucial to launch ASF. **Generated** tag means that file does not exist by default, and may be generated in ASF process, on as-needed basis.
