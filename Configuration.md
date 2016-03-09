@@ -86,6 +86,7 @@ Types used by ASF are native C# types, which are specified below:
   "RequestLimiterDelay": 7,
   "WCFHostname": "localhost",
   "WCFPort": 1242,
+  "Statistics": true,
   "Blacklist": [
     267420,
     303700,
@@ -96,4 +97,6 @@ Types used by ASF are native C# types, which are specified below:
 }
 ```
 
-```Debug``` - ```bool``` type, which defines if process should run in debug mode. When in debug mode, ASF creates a special ```debug``` directory in the place of the executable, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode decreases performance and should not be used, unless you've been asked by developer to record a debug log. **Notice:** debug log consists of **sensitive** information such as the password you're using for logging in to steam. You shouldn't post your debug log in any public location, ASF developer should always remind you of sending it to his e-mail.
+```Debug``` - ```bool``` type with default value of ```false```. This property defines if process should run in debug mode. When in debug mode, ASF creates a special ```debug``` directory in the place of the executable, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode decreases performance and should not be used, unless you've been asked by developer to record a debug log. **Notice:** debug log consists of **sensitive** information such as the password you're using for logging in to steam. You shouldn't post your debug log in any public location, ASF developer should always remind you of sending it to his e-mail.
+
+```AutoUpdates``` - ```bool``` type with default value of ```true```. This property defines if ASF should automatically update itself when new version is available. Updates are crucial not only to receive new features, but also to receive bugfixes, performance enhancements, stability improvements and more. When enabled, ASF will automatically download, replace, and restart itself when new update is available. In addition to initial version check on startup, ASF will also check every 24 hours if new update is available. Update process of ASF always includes only replacement of core executable file (ASF.exe), and never touches any configs or other database files.
