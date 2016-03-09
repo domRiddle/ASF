@@ -76,7 +76,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```uint``` - Unsigned integer type, accepting only numbers from ```0``` to ```4294967295``` (inclusive)
 
-```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"```. **Notice:** Remember that strings should be contained in quotes ```""```
+```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"``` and ```null```. **Notice:** Remember that strings should be contained in quotes ```""```, unless you're using ```null``` value
 
 ```HashSet<uint>``` - Collection (set) of unique unsigned integers, accepting any number of them.
 
