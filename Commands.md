@@ -15,8 +15,8 @@ Current commands (as of ASF v1.5):
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
 `!redeem <KEY>`                   | Redeems cd-key on current bot instance
-`!redeem <BOT> <KEY>`             | Forces all bots with unlimited accounts to rejoin the groupchat
-`!rejoinchat`                     | Generates temporary 2FA token for current bot instance
+`!redeem <BOT> <KEY>`             | edeems cd-key on given bot instance
+`!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
 `!start <BOT>`                    | Starts given bot instance
 `!status`                         | Prints status of current bot instance
 `!status <BOT>`                   | Prints status of given bot instance
