@@ -1,4 +1,6 @@
-# **DEPRECATED**
+# Import (Legacy)
+
+### Are you lost? This is legacy wiki page for ASF versions V0.X and V1.X. For newer ASF versions starting from V2.0, ASF already includes built-in support for ```.maFile``` files. This page is no longer updated neither maintained, and it's stored for archival purposes only.
 
 This page covers topics about importing data from other applications like Steam Desktop Authenticator. ASF now covers the automatic import of *.maFile-Files, which are the Standard-Authentification-Files for Steam Desktop Authenticator.
 
