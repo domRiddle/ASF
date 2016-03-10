@@ -1,7 +1,7 @@
 Current commands (as of ASF v1.5):
-
-| Command                         | Description                                                                          |
-| ------------------------------- |:-------------------------------------------------------------------------------------|
+        
+|Command                                     | Description                                                               |
+| ------------------------------------------ |:--------------------------------------------------------------------------|
 `!2fa`                            | Generates temporary 2FA token for current bot instance
 `!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance
 `!2faoff`                         | Deactivates 2FA for current bot instance
