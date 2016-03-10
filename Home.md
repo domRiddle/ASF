@@ -15,12 +15,12 @@ Some of the subjects you might be interested in:
 
 Advanced users might be interested in:
 
-7. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-8. **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**
-9. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+2. **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**
+3. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
 Developers might be interested in:
 
-10. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 
 If you still can't find the answer to your question or issue, feel free to post it in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**.
