@@ -267,3 +267,9 @@ But what if you want to add ```CardDropsRestricted``` to that config? It's simpl
 ```
 
 Remember to keep proper JSON structure - strings should be contained in ```""```, and there should be ```,``` at the end of each config property, but not the last one.
+
+---
+
+## Compatibility
+
+It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with it's **default value**. You can always add, remove or edit config properties according to your needs, ```example.json``` will always include all currently supported config properties for you to use.
