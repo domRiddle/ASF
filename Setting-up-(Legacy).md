@@ -1,6 +1,6 @@
 # Setting up (Legacy)
 
-## Are you lost? This is legacy wiki page for ASF versions V0.X and V1.X. For newer ASF versions starting from V2.0, you should visit new **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** page instead. This page is no longer updated neither maintained, and it's stored for archival purposes only.
+### Are you lost? This is legacy wiki page for ASF versions V0.X and V1.X. For newer ASF versions starting from V2.0, you should visit new **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** page instead. This page is no longer updated neither maintained, and it's stored for archival purposes only.
 
 This is detailed instruction dedicated for both less advanced, and more advanced users who would like to use ASF. By reading it, you'll learn how to configure and use ASF.
 
