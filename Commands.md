@@ -1,9 +1,11 @@
-Current commands (as of ASF v1.5):
-        
+ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+
 |Command                                     | Description                                                               |
 | ------------------------------------------ |:--------------------------------------------------------------------------|
 `!2fa`                            | Generates temporary 2FA token for current bot instance
 `!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance
+`!2faok`                          | Accepts all pending confirmations for current bot instance
+`!2faok <BOT>`                    | Accepts all pending confirmations for given bot instance
 `!2faoff`                         | Deactivates 2FA for current bot instance
 `!2faoff <BOT>`                   | Deactivates 2FA for given bot instance
 `!addlicense <appID>`             | Activates given ```appID``` on current bot instance (free games only)
@@ -15,8 +17,9 @@ Current commands (as of ASF v1.5):
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
 `!redeem <KEY>`                   | Redeems cd-key on current bot instance
-`!redeem <BOT> <KEY>`             | edeems cd-key on given bot instance
+`!redeem <BOT> <KEY>`             | Redeems cd-key on given bot instance
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
+`!restart`                        | Restarts ASF process
 `!start <BOT>`                    | Starts given bot instance
 `!status`                         | Prints status of current bot instance
 `!status <BOT>`                   | Prints status of given bot instance
