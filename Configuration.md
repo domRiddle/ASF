@@ -163,6 +163,7 @@ Types used by ASF are native C# types, which are specified below:
   "SendOnFarmingFinished": false,
   "SteamTradeToken": null,
   "SendTradePeriod": 0,
+  "AcceptConfirmationsPeriod": 0,
   "CustomGamePlayedWhileIdle": null,
   "GamesPlayedWhileIdle": [
     0
