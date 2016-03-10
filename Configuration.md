@@ -226,3 +226,44 @@ All options are explained below:
 ---
 
 **Tip:** In order for bot to work properly, you should edit at least ```Enabled```, ```SteamLogin``` and ```SteamPassword``` properties. I also suggest to take a look at some fine-tuning such as ```CardDropsRestricted```, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
+
+---
+
+## Bot config (Minimalistic)
+
+In addition to full bot config contained in ```example.json```, ASF also offers you ```minimal.json``` config, which can be used instead. Simply **copy paste** ```minimal.json``` to your filename of choice, and open it.
+
+You should notice following structure:
+
+```
+{
+  "Enabled": false,
+  "SteamLogin": null,
+  "SteamPassword": null
+}
+```
+
+Now, as you can see - this config is pretty damn short compared to ```example.json```. This is because minimalistic config includes only properties that should be configured in order for bot to run. When given config property is not defined, such as ```CardDropsRestricted``` in above ```minimal.json```, it's the same as you'd define it with **it's default value**. This is useful for you if you want to keep your configs short and simple, as you don't need to include every property that ASF offers, but only redefine those which you want to change.
+
+For example, if you have no intention of changing anything, then you're good to go only with such very short and simple config:
+
+```
+{
+  "Enabled": true,
+  "SteamLogin": "pablo32",
+  "SteamPassword": "pass123"
+}
+```
+
+But what if you want to add ```CardDropsRestricted``` to that config? It's simple, just copy that part from ```example.json```, so it looks like this:
+
+```
+{
+  "Enabled": true,
+  "SteamLogin": "pablo32",
+  "SteamPassword": "pass123",
+  "CardDropsRestricted": true
+}
+```
+
+Remember to keep proper JSON structure - strings should be contained in ```""```, and there should be ```,``` at the end of each config property, but not the last one.
