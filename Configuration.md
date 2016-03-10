@@ -1,7 +1,5 @@
 # Configuration
 
-### Notice: This page is dedicated only for ASF V2.0+, for ASF V1.X, you should read **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**
-
 This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
 
 ---
@@ -66,8 +64,6 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Every config property has it's type. Type of the property defines values that are valid for it. You can only use values that are valid for given type.
 
-**Example:** ASF has ```AutoUpdates``` switch defined as ```bool``` type, which can be only ```true (on)``` or ```false (off)```. It wouldn't make any sense if you put a value like "password" there, right?
-
 Types used by ASF are native C# types, which are specified below:
 
 ```bool``` - Boolean type accepting only ```true``` and ```false``` values.
@@ -87,6 +83,8 @@ Types used by ASF are native C# types, which are specified below:
 ---
 
 ## Global config
+
+We start configuring ASF by opening global config - ```ASF.json```. After opening the file, you should notice following structure:
 
 ```
 {
@@ -111,6 +109,8 @@ Types used by ASF are native C# types, which are specified below:
   ]
 }
 ```
+
+All options are explained below:
 
 ```Debug``` - ```bool``` type with default value of ```false```. This property defines if process should run in debug mode. When in debug mode, ASF creates a special ```debug``` directory in the place of the executable, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode decreases performance and should not be used, unless you've been asked by developer to record a debug log. **Notice:** debug log consists of **sensitive** information such as the password you're using for logging in to steam. You shouldn't post your debug log in any public location, ASF developer should always remind you of sending it to his e-mail.
 
@@ -140,7 +140,13 @@ Types used by ASF are native C# types, which are specified below:
 
 ---
 
+Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close ```ASF.json``` and proceed to bot config.
+
+---
+
 ## Bot config
+
+As you should know already, every bot should have it's own config. Example bot config is included in ```example.json``` file, which should be used for bot configuration. Simply **copy paste** ```example.json``` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is ```primary.json```, ```1.json``` or ```YourNickname.json```. After deciding how you want to name your bot, open it's file, and start with configuration. You should notice following structure:
 
 ```
 {
@@ -170,6 +176,8 @@ Types used by ASF are native C# types, which are specified below:
   ]
 }
 ```
+
+All options are explained below:
 
 ```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Being enabled does not mean that bot has to start and run, being enabled means that ASF should "notice" it being a valid defined and configured bot instance, which has a potential to ```Start()``` and ```Stop()```. This property allows you to easily switch bots on and off, without a need to remove config files. By default every bot is disabled, and if you want to use it in ASF, and that's probably what you want, you should switch this property to ```true```.
 
@@ -214,3 +222,6 @@ Types used by ASF are native C# types, which are specified below:
 ```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. When ASF is idle, which means that it has nothing to do (as account is fully farmed), it can display itself as "Playing non-steam game: ```CustomGamePlayedWhileIdle```". Default value of ```null``` disables this feature.
 
 ```GamesPlayedWhileIdle``` - ```HashSet<uint``` type with default value of ```0```. Similar to above, if ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. Default value of ```0``` disables this feature.
+
+---
+
