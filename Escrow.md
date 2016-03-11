@@ -73,6 +73,14 @@ To do so, you must download **[SteamDesktopAuthenticator](https://github.com/Jes
 
 You should now rename ```steamID.maFile``` to ```Bot.maFile``` where ```Bot``` is the name of your bot instance (```Bot.json```). Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know ```steamID``` of your account before in fact logging in).
 
+If you did everything correctly, you should notice:
+```
+[*] INFO: OnLoggedOn() <1> Converting SDA .maFile into ASF format...
+[*] INFO: OnLoggedOn() <1> Success!
+```
+
+From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your phone to generate tokens and accept confirmations.
+
 ***
 
 ## FAQ
