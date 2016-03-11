@@ -9,12 +9,13 @@ Okay, from now on I assume you already know what Escrow is. Now as you can see a
 The idea is simple. We already imitiate steam client, imitiate launching and playing a game, so why not imitate mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip 3-days trade lock, and automatically confirm all trades. Sounds awesome, but is complicated as hell, and should be used only by advanced users.
 
 To enable ASF 2FA, you need to have:
-- A brain
 - A phone number **capable of receiving SMSes**
-
 - An account with **turned off 2FA**, which you want to enable in ASF 2FA
-OR:
+
+To enable 2FA + ASF 2FA, you need to have:
 - Android phone with classic 2FA activated already
+
+Also a brain is needed for both tasks :+1: 
 
 ***
 
