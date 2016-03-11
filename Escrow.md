@@ -81,6 +81,8 @@ If you did everything correctly, you should notice:
 
 From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your phone to generate tokens and accept confirmations.
 
+Of course, you can remove SteamDesktopAuthenticator after you've done all of that, as we won't need it anymore.
+
 ***
 
 ## FAQ
