@@ -76,7 +76,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```ulong``` - Unsigned long integer type, accepting only numbers from ```0``` to ```18446744073709551615``` (inclusive)
 
-```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"``` and ```null```. **Notice:** Remember that strings should be contained in quotes ```""```, unless you're using ```null``` value
+```string``` - String type, accepting any sequence of characters, such as ```"password"``` or ```"pablo32"``` and ```null```. **Notice:** Remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```.
 
 ```HashSet<uint>``` - Collection (set) of unique unsigned integers, accepting any number of them.
 
@@ -189,6 +189,7 @@ All options are explained below:
 ```SteamLogin``` - ```string``` type with default value of ```null```. This property defines your steam login - the one you use for logging in to steam. If you use e.g. ```pablo32``` steam login, then you should change ```null``` value to ```"pablo32"```. In addition to defining steam login here, you may also keep default value of ```null``` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 ```SteamPassword``` - ```string``` type with default value of ```null```. This property defines your steam password - the one you use for logging in to steam. If you use e.g. ```mypass123&``` steam password, then you should change ```null``` value to ```"mypass123&"```. In addition to defining steam password here, you may also keep default value of ```null``` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+Example: ```"SteamPassword": "password&\"\\",``` for ```password&"\```
 
 ```SteamParentalPIN``` - ```string``` type with default value of ```"0"```. This property defines your steam parental PIN. ASF requires accessing to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of ```"0"``` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of ```null``` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
