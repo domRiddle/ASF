@@ -18,7 +18,7 @@ OR:
 
 ***
 
-## ASF 2FA only
+## ASF 2FA (only)
 
 This part is for you if you want to use ASF 2FA only (no classic 2FA for account)
 
@@ -62,7 +62,7 @@ Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PI
 
 ***
 
-## ASF 2FA + 2FA
+## 2FA + ASF 2FA
 
 This part is for you if you want to use ASF 2FA AND 2FA for the same account.
 
