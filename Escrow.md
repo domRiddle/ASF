@@ -8,10 +8,19 @@ Okay, from now on I assume you already know what Escrow is. Now as you can see a
 
 The idea is simple. We already imitiate steam client, imitiate launching and playing a game, so why not imitate mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip 3-days trade lock, and automatically confirm all trades. Sounds awesome, but is complicated as hell, and should be used only by advanced users.
 
-To use ASF 2FA, you need to have:
-- A phone number **capable of receiving SMSes**
-- An account with **turned off 2FA**, which you want to enable in ASF 2FA
+To enable ASF 2FA, you need to have:
 - A brain
+- A phone number **capable of receiving SMSes**
+
+- An account with **turned off 2FA**, which you want to enable in ASF 2FA
+OR:
+- Android phone with classic 2FA activated already
+
+***
+
+## ASF 2FA only
+
+This part is for you if you want to use ASF 2FA only (no classic 2FA for account)
 
 Firstly make sure that you pass all the requirements above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
 
@@ -47,9 +56,21 @@ I also suggest making a backup of SteamGuard codes, which can be done **[here](h
 
 ***
 
-## Limitations
+### Limitations
 
 Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PIN, you'll need to disable that feature at the time of linking, you can re-enable it after linking is done.
+
+***
+
+## ASF 2FA + 2FA
+
+This part is for you if you want to use ASF 2FA AND 2FA for the same account.
+
+This is much more complicated than using ASF 2FA only, but still possible. You can have only one authenticator enabled for given account, so instead of linking ASF 2FA as **new** authenticator, we'll instead import your current 2FA authenticator on your phone and use it in ASF 2FA.
+
+To do so, you must download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. If you did everything properly, you should notice that there is now ```steamID.maFile``` file available in ```maFiles``` folder. Copy that file to ```config``` directory of ASF.
+
+You should now rename ```steamID.maFile``` to ```Bot.maFile``` where ```Bot``` is the name of your bot instance (```Bot.json```). Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know ```steamID``` of your account before in fact logging in).
 
 ***
 
@@ -63,31 +84,25 @@ Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PI
 
 **Q:** Why account must not have 2FA enabled at the time of linking?
 
-**A:** You can have only one mobile authenticator linked to one account at given time. You can use either traditional mobile authenticator on your mobile, or ASF 2FA, not both.
-
-***
-
-**Q:** Why isn't it suggested to use ASF 2FA for primary accounts?
-
-**A:** Primary account is being used by you. ASF 2FA has been created in order to automate trade confirmations and skip requirement of 3-days trade holds. It's one giant hack which defeats the whole purpose of 2FA. Because it's possible to have only one mobile authenticator for given account (see above), I suggest to use ASF 2FA **ONLY** for accounts that are made purely for farming (alts). It is possible to enable ASF 2FA also for primary accounts, but highly discouraged.
+**A:** You can have only one mobile authenticator linked to one account at given time. If you want to use ASF 2FA only, then you must not have any other authenticators enabled (obviously). If you want to use classic 2FA and ASF 2FA at the same time, then you should firstly set up classic authenticator on your phone, then import it to SteamDesktopAuthenticator, and then import it to ASF, as explained above.
 
 ***
 
 **Q:** What if I need a 2FA token?
 
-**A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You can generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser.
+**A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You can generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser. Of course, if you use 2FA + ASF 2FA combo, then you can generate tokens either by your phone, or by ASF.
 
 ***
 
 **Q:** How to turn ASF 2FA off?
 
-**A:** If ASF 2FA is currently active, you can disable it completely through ```!2faoff``` and ```!2faoff <BOT>``` commands, again, sent to the bot through chat. This command will unlink ASF as mobile authenticator, which will result also in switching your account security from 2FA to either SteamGuard or None, depending what you had before. Keep in mind that this option will NOT remove your linked phone number, you can remove it manually **[here](https://store.steampowered.com/phone/manage)**.
+**A:** If ASF 2FA is currently active, you can disable it completely through ```!2faoff``` and ```!2faoff <BOT>``` commands, again, sent to the bot through chat. This command will unlink ASF as mobile authenticator, which will result also in switching your account security from 2FA to either SteamGuard or None, depending what you had before. Keep in mind that this option will NOT remove your linked phone number, you can remove it manually **[here](https://store.steampowered.com/phone/manage)**. Remember that if you use 2FA + ASF 2FA combo, then this command **WILL** delink classic 2FA as well.
 
 ***
 
 **Q:** Where is ASF mobile authenticator saved?
 
-**A:** ASF mobile authenticator is saved as ```BotName.auth``` file in your config directory. Remember that this file is basically your mobile authenticator, so removing it will result the same as you'd lose your mobile phone with 2FA turned on. Therefore DO NOT REMOVE IT, if you want to turn off ASF 2FA, it is explained how above. Removing the file will do nothing apart from leaving you without mobile authenticator. BTW, it may be wise to backup that file as well, it does contain revocation code inside as well.
+**A:** ASF mobile authenticator is saved in ```BotName.db``` file in your config directory. Remember that this file is basically your mobile authenticator, so removing it will result the same as you'd lose your mobile phone with 2FA turned on. Therefore DO NOT REMOVE IT, if you want to turn off ASF 2FA, it is explained how above. Removing the file will do nothing apart from leaving you without mobile authenticator.
 
 ***
 
