@@ -10,6 +10,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!2faoff <BOT>`                   | Deactivates 2FA for given bot instance
 `!addlicense <appID>`             | Activates given ```appID``` on current bot instance (free games only)
 `!addlicense <BOT> <appID>`       | Activates given ```appID``` on given bot instance (free games only)
+`!farm`                           | Restarts cards farming module for current bot instance
+`!farm <BOT>`                     | Restarts cards farming module for given bot instance
 `!exit`                           | Stops whole ASF
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
@@ -26,6 +28,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!statusall`                      | Prints status of all bot instances and ASF itself
 `!stop`                           | Stops current bot instance
 `!stop <BOT>`                     | Stops given bot instance
+`!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours)
 
 Above commands can be sent to the bot through three different ways:
 - Through steam private chat, by ```SteamMasterID```
