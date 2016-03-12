@@ -22,12 +22,6 @@ Congratulations, you've just finished basic steps and your ASF is functional! Re
 
 ***
 
-## Compatibility
-
-During development of ASF, it's top priority to assure compatibility between older configs and new ASF, therefore **unless changelog states otherwise, old configs will work properly with new versions of ASF**. Newly introduced **config properties**, which are missing in your old config, will have their **default values**, so if I decide to add e.g. two new config properties, and you use new ASF version with your old config, it will result in the same as you'd declare those two new properties in your config with their default (unchanged) values.
-
-***
-
 ## Need more help?
 
 Head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)** :+1: 
