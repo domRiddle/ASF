@@ -21,6 +21,12 @@ Also a brain is needed for all of those tasks :+1:
 
 ***
 
+## Limitations
+
+Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PIN, you'll need to disable that feature at the time of linking, you can re-enable it after linking is done.
+
+***
+
 ## ASF 2FA (only)
 
 This part is for you if you want to use ASF 2FA only (no classic 2FA for account)
@@ -56,12 +62,6 @@ You should save your revocation code in secure place (NOT in ASF folder). This i
 From now onwards, ASF is able to use newly linked ASF mobile authenticator to generate 2FA tokens on as-needed basis.
 
 I also suggest making a backup of SteamGuard codes, which can be done **[here](https://store.steampowered.com/twofactor/manage)**
-
-***
-
-### Limitations
-
-Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PIN, you'll need to disable that feature at the time of linking, you can re-enable it after linking is done.
 
 ***
 
