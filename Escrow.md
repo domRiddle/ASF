@@ -12,10 +12,12 @@ To enable ASF 2FA, you need to have:
 - A phone number **capable of receiving SMSes**
 - An account with **turned off 2FA**, which you want to enable in ASF 2FA
 
-To enable 2FA + ASF 2FA, you need to have:
-- Android phone with classic 2FA activated already
+To enable 2FA + ASF 2FA, you need to have **either**:
+- Working steam authenticator in your Android phone
+- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
+- or working steam authenticator in **[WinAuth](https://winauth.com/)**
 
-Also a brain is needed for both tasks :+1: 
+Also a brain is needed for all of those tasks :+1: 
 
 ***
 
@@ -67,17 +69,71 @@ Currently ASF 2FA can't be enabled on accounts restricted with Steam Parental PI
 
 This part is for you if you want to use ASF 2FA AND 2FA for the same account.
 
-This is much more complicated than using ASF 2FA only, but still possible. You can have only one authenticator enabled for given account, so instead of linking ASF 2FA as **new** authenticator, we'll instead import your current 2FA authenticator on your phone and use it in ASF 2FA.
+This is much more complicated than using ASF 2FA only, but still possible. You can have only one authenticator enabled for given account, so instead of linking ASF 2FA as **new** authenticator, we'll instead import your current 2FA authenticator on your phone and use it in ASF 2FA. ASF supports three different sources of 2FA - Your Android phone, SteamDesktopAuthenticator and WinAuth.
 
-To do so, you must download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. If you did everything properly, you should notice that there is now ```steamID.maFile``` file available in ```maFiles``` folder. Copy that file to ```config``` directory of ASF.
+***
+
+### Android phone
+
+In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below.
+
+***
+
+### SteamDesktopAuthenticator
+
+If you have your authenticator running in SDA already, you should notice that there is ```steamID.maFile``` file available in ```maFiles``` folder. Copy that file to ```config``` directory of ASF. Make sure that ```.maFile``` is in unencrypted form, as ASF can't decrypt SDA files. It should have already familiar to you JSON structure :+1:.
 
 You should now rename ```steamID.maFile``` to ```Bot.maFile``` where ```Bot``` is the name of your bot instance (```Bot.json```). Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know ```steamID``` of your account before in fact logging in).
 
-If you did everything correctly, you should notice:
+If you did everything correctly, launch ASF, and you should notice:
+
 ```
-[*] INFO: OnLoggedOn() <1> Converting SDA .maFile into ASF format...
-[*] INFO: OnLoggedOn() <1> Success!
+[*] INFO: ImportAuthenticator() <1> Converting SDA .maFile into ASF format...
+[*] INFO: ImportAuthenticator() <1> Success!
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
+
+***
+
+### WinAuth (since ASF V2.0.0.8+)
+
+WinAuth import is a bit more tricky than SDA, but still possible with a little more effort.
+
+Firstly create new empty ```Bot.maFile``` file in ASF ```config``` directory. Remember that it should be ```Bot.maFile``` and NOT ```Bot.maFile.txt```, Windows likes to hide known extensions by default.
+
+Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{"shared_secret```. Copy whole text into a ```Bot.maFile``` file created by you in previous step.
+
+If you did everything correctly, launch ASF, and you should notice:
+
+```
+[*] INFO: ImportAuthenticator() <1> Converting SDA .maFile into ASF format...
+[*] INFO: ImportAuthenticator() <1> Success!
+[*] INFO: ImportAuthenticator() <1> ASF requires a few more steps to complete authenticator import...
+```
+
+This is when tricky part comes in. WinAuth is missing some required by ASF data, so you'll need to do some extra steps. Firstly you'll be prompted to enter your 2FA code, this should be done from your WinAuth.
+
+```
+<1> Please enter your 2 factor auth code from your authenticator app:
+```
+
+Then you'll be asked to put your android device ID:
+
+```
+<1> Please enter your Device ID (including "android:"):
+```
+
+Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including ```android:``` part into ASF. BTW, you can right click on console bar, select properties and enable "fast edit mode" to enable copy paste feature of the console. Your mouse right click can work as paste button in this case :+1: 
+
+If you've done that properly as well, you're now done!
+
+```
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
+
+Please confirm that accepting confirmations in fact works. If you made a mistake while entering your ```DeviceID``` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove ```Bot.db``` and start over if needed.
+
+***
 
 From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your phone to generate tokens and accept confirmations.
 
