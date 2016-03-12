@@ -75,7 +75,7 @@ This is much more complicated than using ASF 2FA only, but still possible. You c
 
 ### Android phone
 
-In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below.
+In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below. You can also use WinAuth instead of SDA for this step, likewise, after you finish import, you should follow the rest of instructions. If you're not use which program to use, use SDA, as it's faster to do import to ASF later :+1:.
 
 ***
 
