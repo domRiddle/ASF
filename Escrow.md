@@ -123,7 +123,7 @@ Then you'll be asked to put your android device ID:
 <1> Please enter your Device ID (including "android:"):
 ```
 
-Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including ```android:``` part into ASF. BTW, you can right click on console bar, select properties and enable "fast edit mode" to enable copy paste feature of the console. Your mouse right click can work as paste button in this case :+1: 
+Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including ```android:``` part into ASF.
 
 If you've done that properly as well, you're now done!
 
