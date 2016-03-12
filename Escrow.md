@@ -135,9 +135,9 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 ***
 
-From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your phone to generate tokens and accept confirmations.
+From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (android phone, SDA or WinAuth) to generate tokens and accept confirmations.
 
-Of course, you can remove SteamDesktopAuthenticator after you've done all of that, as we won't need it anymore.
+You can remove SteamDesktopAuthenticator and/or WinAuth after you're done, as we won't need it anymore, if you want to of course.
 
 ***
 
