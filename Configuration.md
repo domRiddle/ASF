@@ -97,7 +97,8 @@ We start configuring ASF by opening global config - ```ASF.json```. After openin
   "AccountPlayingDelay": 5,
   "LoginLimiterDelay": 7,
   "InventoryLimiterDelay": 3,
-  "HttpTimeout": 30,
+  "ForceHttp": false,
+  "HttpTimeout": 60,
   "WCFHostname": "localhost",
   "WCFPort": 1242,
   "Statistics": true,
@@ -131,7 +132,9 @@ All options are explained below:
 
 ```InventoryLimiterDelay``` - ```byte``` type with default value of ```3```. Similar to above, fetching steam inventory is also rate-limited and some delay should be put between each inventory request. ASF will ensure that there will be at least ```InventoryLimiterDelay``` seconds in between of two consecutive inventory requests. Default value of ```3``` was set based on looting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to ```0``` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low will result in Steam temporarily banning your IP, which will result in all inventory requests failing. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-```HttpTimeout``` - ```byte``` type with default value of ```30```. This property defines timeout for HTTP(S) requests sent by ASF, in seconds. Default value of ```30``` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher. Unless you have a **strong** reason to edit this property, you should keep it at default.
+```ForceHttp``` - ```bool``` type with default value of ```false```. By default ASF is trying to make use of secure ```https``` protocol whenever possible, which should be the preferred way of using it. However, in some rare situations, you may want to switch from ```https``` back to ```http```, which has lower overhead and is more compatible. You can do that by switching ```ForceHttp``` to ```true```. Using this option does not guarantee all requests being sent by ASF to be ```http```, as some services ASF is using (such as GitHub api) are supporting ```https``` only. If you're not debugging your network traffic, it is highly recommended to keep using secure and encrypted ```https```, instead of unsecure and unencrypted ```http```. Unless you have a **strong** reason to edit this property, you should keep it at default.
+
+```HttpTimeout``` - ```byte``` type with default value of ```60```. This property defines timeout for HTTP(S) requests sent by ASF, in seconds. Default value of ```60``` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher (like ```90```). Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ```WCFHostname``` - ```string``` type with default value of ```"localhost"```. This is a hostname, also known as "bind address", used by **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**. This property makes sense only when WCF is enabled. ASF by default listens only on ```"localhost"``` address to ensure that no other machine but your own can access it. This is a security measure, as accessing WCF interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to WCF yourself, using e.g. ```iptables```, you may change this property (at your own risk) to something less restrictive, such as ```"0.0.0.0"``` which enables WCF on all network interfaces. Remember that this property should be properly configured for both ```server``` and ```client``` machines (if they're not the same). Unless you have a **strong** reason to edit this property, you should keep it at default.
 
