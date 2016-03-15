@@ -90,6 +90,12 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** ASF seems to be stuck after ```Connected to Steam!``` and ```Logging in...```. Nothing is happening!
+
+**A:** This is an issue of SteamKit2 library that ASF is using. It was already reported and is pending to fix. Until it gets fixed, I suggest switching ```HackIgnoreMachineID``` global config property to ```true```, which works around this issue. You can read more about the issue **[here](https://github.com/JustArchi/ArchiSteamFarm/issues/154)**.
+
+*** 
+
 **Q:** ASF doesn't automatically accept trades!
 
 **A:** Firstly, make sure that ```SteamApiKey``` config property is set, and is valid. If it is, you should notice that after sending the trade to the bot, it tries to accept it:
