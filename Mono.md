@@ -52,8 +52,7 @@ Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
 Remember that alpha versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
-**TIP:** There are also other versions available
-```nightly``` > ```alpha``` > ```beta``` > ```stable```
+**TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```stable```
 
 ```nightly``` is usually very unstable and has many issues, but includes also most up-to-date bleeding edge codebase, while ```stable``` is carefully tested in order to work on as many setups as possible.
 
