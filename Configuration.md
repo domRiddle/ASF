@@ -113,6 +113,10 @@ We start configuring ASF by opening global config - ```ASF.json```. After openin
 }
 ```
 
+**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close ```ASF.json``` and proceed to bot config.
+
+---
+
 All options are explained below:
 
 ```Debug``` - ```bool``` type with default value of ```false```. This property defines if process should run in debug mode. When in debug mode, ASF creates a special ```debug``` directory in the place of the executable, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode decreases performance and should not be used, unless you've been asked by developer to record a debug log. **Notice:** debug log consists of **sensitive** information such as the password you're using for logging in to steam. You shouldn't post your debug log in any public location, ASF developer should always remind you of sending it to his e-mail.
@@ -149,10 +153,6 @@ All options are explained below:
 
 ---
 
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close ```ASF.json``` and proceed to bot config.
-
----
-
 ## Bot config
 
 As you should know already, every bot should have it's own config. Example bot config is included in ```example.json``` file, which should be used for bot configuration. Simply **copy paste** ```example.json``` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is ```primary.json```, ```1.json``` or ```YourNickname.json```. After deciding how you want to name your bot, open it's file, and start with configuration. You should notice following structure:
@@ -185,6 +185,10 @@ As you should know already, every bot should have it's own config. Example bot c
   ]
 }
 ```
+
+**Tip:** In order for bot to work properly, you should edit at least ```Enabled```, ```SteamLogin``` and ```SteamPassword``` properties. I also suggest to take a look at some fine-tuning such as ```CardDropsRestricted```, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
+
+---
 
 All options are explained below:
 
@@ -232,10 +236,6 @@ Example: ```"SteamPassword": "password&\"\\",``` for ```password&"\```
 ```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. When ASF is idle, which means that it has nothing to do (as account is fully farmed), it can display itself as "Playing non-steam game: ```CustomGamePlayedWhileIdle```". Default value of ```null``` disables this feature.
 
 ```GamesPlayedWhileIdle``` - ```HashSet<uint``` type with default value of ```0```. Similar to above, if ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. Default value of ```0``` disables this feature.
-
----
-
-**Tip:** In order for bot to work properly, you should edit at least ```Enabled```, ```SteamLogin``` and ```SteamPassword``` properties. I also suggest to take a look at some fine-tuning such as ```CardDropsRestricted```, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
 
 ---
 
