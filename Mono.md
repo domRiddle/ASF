@@ -32,7 +32,7 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 # Alpha
 
-Apart from ```stable``` channel, Mono's repo also offers ```alpha``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
+Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```alpha``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
 
 Switching to alpha is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
@@ -52,11 +52,11 @@ Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
 Remember that alpha versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
-**TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```wheezy```
+**TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```stable```
 
 ```nightly``` is usually very unstable and has many issues, but includes also most up-to-date bleeding edge codebase, while ```stable``` is carefully tested in order to work on as many setups as possible.
 
-```alpha``` and ```beta``` are a balance between ```nightly``` and ```wheezy```. Usually ```alpha``` versions are quite stable and should work on **most** machines.
+```alpha``` and ```beta``` are a balance between ```nightly``` and ```stable```. Usually ```alpha``` versions are quite stable and should work on **most** machines.
 
 ---
 
