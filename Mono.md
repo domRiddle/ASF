@@ -1,8 +1,6 @@
 # Mono
 
-This page covers Mono-only issues and provides general help, that might be useful if you're running ASF under Mono. If you're running ASF natively on Windows, most likely you won't find anything useful here.
-
-Most (if not all) of the issues are directly caused by outdated Mono. Mono shipped with your Linux distribution is almost never the latest released Mono version, and the newer Mono you have, the bigger chance that everything will run out of the box.
+This page covers Mono-related issues, instructions, questions and provides general help, that might be useful if you're running ASF under Mono. If you're running ASF natively on Windows, most likely you won't find anything useful here.
 
 # How to install latest Mono?
 
@@ -32,13 +30,13 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 ---
 
-# Nightly
+# Alpha
 
-Apart from ```stable``` channel, Mono's repo also offers ```nightly``` channel, with the most up-to-date, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's the most recent Mono version at the time of release.
+Apart from ```stable``` channel, Mono's repo also offers ```alpha``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
 
-Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
+Switching to alpha is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
-To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
+To switch to alpha versions, modify the line that you added to ```/etc/apt/sources.list```:
 
 ```
 deb http://download.mono-project.com/repo/debian wheezy main
@@ -47,16 +45,18 @@ deb http://download.mono-project.com/repo/debian wheezy main
 To:
 
 ```
-deb http://download.mono-project.com/repo/debian nightly main
+deb http://download.mono-project.com/repo/debian alpha main
 ```
 
 Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
-Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
+Remember that alpha versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
 ---
 
 # Issues and solutions
+
+Most (if not all) of the issues are directly caused by outdated Mono. Mono shipped with your Linux distribution is almost never the latest released Mono version, and the newer Mono you have, the bigger chance that everything will run out of the box.
 
 **Solutions available here are workarounds for outdated Mono versions. Those issues do not exist on up-to-date Mono, and you should already know that you're on your own regarding outdated Mono versions, so consider it more like a helpful hand.**
 
