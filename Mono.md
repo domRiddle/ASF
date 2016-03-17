@@ -56,7 +56,7 @@ Remember that alpha versions are unstable and might not work, therefore you shou
 
 ```nightly``` is usually very unstable and has many issues, but includes also most up-to-date bleeding edge codebase, while ```stable``` is carefully tested in order to work on as many setups as possible.
 
-```alpha``` and ```beta``` are a balance between ```nightly``` and ```stable```. Usually ```alpha``` versions are quite stable and should work on **most** machines.
+```alpha``` and ```beta``` are a balance between ```nightly``` and ```stable```. Usually ```alpha``` versions are quite stable and should work on **most** machines, but it's not always the case. If you're not feeling comfortable with broken packages and Linux, you should avoid using any branch other than ```stable```.
 
 ---
 
