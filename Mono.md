@@ -30,13 +30,13 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 ---
 
-# Alpha
+# Nightly
 
-Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```alpha``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
+Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
 
-Switching to alpha is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
+Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
-To switch to alpha versions, modify the line that you added to ```/etc/apt/sources.list```:
+To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
 
 ```
 deb http://download.mono-project.com/repo/debian wheezy main
@@ -45,12 +45,12 @@ deb http://download.mono-project.com/repo/debian wheezy main
 To:
 
 ```
-deb http://download.mono-project.com/repo/debian alpha main
+deb http://download.mono-project.com/repo/debian nightly main
 ```
 
 Then issue ```apt-get update && apt-get install mono-complete``` to update.
 
-Remember that alpha versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
+Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
 **TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```stable```
 
