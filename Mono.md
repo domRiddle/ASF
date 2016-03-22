@@ -32,7 +32,7 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 # Nightly
 
-Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that offers a good balance between recent codebase, and stability.
+Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
 
 Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
