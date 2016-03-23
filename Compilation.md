@@ -24,7 +24,7 @@ Compilation on Mono-powered OSes is even easier in my opinion. Firstly you shoul
 
 ---
 
-If everything ended successfully, you can find your compiled binaries in ```bin``` directory.
+If everything ended successfully, you can find your compiled binaries in ```bin``` directory of each project, and in addition to that you can find repacked ready-to-go binaries with appropriate structure in ```out``` directory. You can use either ```ArchiSteamFarm.exe``` with all required DLL libraries, or repacked ```ASF.exe``` which already contains all of them inside.
 
 ASF by default is compiled on Windows - with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
 
