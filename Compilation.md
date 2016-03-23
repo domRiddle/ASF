@@ -12,7 +12,7 @@ On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.co
 
 Alternatively, you can do the same from the console, by navigating to ASF directory and executing:
 
-```msbuild ArchiSteamFarm.sln```
+```msbuild /p:Configuration=Release ArchiSteamFarm.sln```
 
 ---
 
