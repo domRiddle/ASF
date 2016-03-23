@@ -10,6 +10,9 @@ ASF configuration is divided into two major ports - global (process) configurati
 
 Configuration can be done either manually - by creating proper JSON configs, or by using graphical config generator - **ASF-GUI.exe**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator.
 
+[Global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)
+[Bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)
+
 ---
 
 ## File structure
