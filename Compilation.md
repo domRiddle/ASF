@@ -8,7 +8,11 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ## Windows
 
-On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)**, which is now free. After installing all components, you should launch **ArchiSteamFarm.sln** file in VS, switch to ```Release``` target, then hit ```Build``` -> ```Build ArchiSteamFarm```.
+On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)**, which is now free. After installing all components, you should launch **ArchiSteamFarm.sln** file in VS, switch to ```Release``` target, then hit ```Build``` -> ```Build Solution```.
+
+Alternatively, you can do the same from the console, by navigating to ASF directory and executing:
+
+```msbuild ArchiSteamFarm.sln```
 
 ---
 
@@ -16,7 +20,7 @@ On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.co
 
 Compilation on Mono-powered OSes is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**. If you do, all you need to do is navigating to the directory where ASF source is located, then executing:
 
-```xbuild /p:Configuration=Release```
+```xbuild /p:Configuration=Release ArchiSteamFarm.sln```
 
 ---
 
