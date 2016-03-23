@@ -8,6 +8,8 @@ This page is dedicated for ASF configuration. It includes both file structure us
 
 ASF configuration is divided into two major ports - global (process) configuration, and configuration of every bot. Bot is a single steam account that is taking part in ASF process. In order to work, ASF needs at least one **enabled** bot instance. There is no process-enforced limit of supported bot instances, so you can use as many steam accounts (bots) as you want.
 
+Configuration can be done either manually - by creating proper JSON configs, or by using graphical config generator - **ASF-GUI.exe**, which should be much easier and convienent. Unless you're advanced user, I suggest using the config generator.
+
 ---
 
 ## File structure
