@@ -2,6 +2,8 @@
 
 Starting with version 1.3+, ASF now offers WCF (Windows Communication Foundation) inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
+WCF is always executed with ```SteamOwnerID``` permissions, which is ```0``` by default. In order to use it, you should set ```SteamOwnerID``` to the same non-zero value both on server and client machines (if they're not the same).
+
 ---
 
 ## Server
