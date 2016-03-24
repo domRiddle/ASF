@@ -88,7 +88,7 @@ Client results:
 
 **Q:** Is this secure?
 
-**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be.
+**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```localhost``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, both server and client must have the same matching non-zero ```SteamOwnerID```.
 
 ---
 
