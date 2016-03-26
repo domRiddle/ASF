@@ -10,9 +10,11 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!2faoff <BOT>`                   | Deactivates 2FA for given bot instance
 `!addlicense <appID>`             | Activates given ```appID``` on current bot instance (free games only)
 `!addlicense <BOT> <appID>`       | Activates given ```appID``` on given bot instance (free games only)
+`!exit`                           | Stops whole ASF
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <BOT>`                     | Restarts cards farming module for given bot instance
-`!exit`                           | Stops whole ASF
+`!help`                           | Shows help (link to this page)
+`!help <BOT>`                     | Shows help (link to this page)
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
 `!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
@@ -20,6 +22,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!owns <BOT> <appID>`             | Checks if given bot instance already owns given ```appID```
 `!owns <gameName>`                | Checks if current bot instance already owns any games named ```gameName``` (can be part of the game's name)
 `!owns <BOT> <gameName>`          | Checks if given bot instance already owns any games named ```gameName``` (can be part of the game's name)
+`!pause`                          | Pauses/Resumes automatic farming of current bot instance.
+`!pause <BOT>`                    | Pauses/Resumes automatic farming of given bot instance.
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
 `!redeem <KEY>`                   | Redeems cd-key on current bot instance
