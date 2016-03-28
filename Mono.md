@@ -24,7 +24,7 @@ Keep in mind that instructions above are also available on **[official Mono inst
 
 If you're using OS X, then you can find instructions for your Mac **[here](http://www.mono-project.com/docs/getting-started/install/mac/)**.
 
-Officially, ASF requires only .NET 4.6.1 framework, which is supported since Mono 4.0+, which should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
+Officially, ASF requires only latest .NET framework (currently 4.6.1, which is supported since Mono 4.0+) and it should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
 
 **All hard-to-explain issues without obvious cause are automatically ignored, if your Mono version is not latest stable one.**
 
