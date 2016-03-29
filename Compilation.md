@@ -12,7 +12,9 @@ On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.co
 
 Alternatively, you can do the same from the console, by navigating to ASF directory and executing:
 
-```msbuild /p:Configuration=Release ArchiSteamFarm.sln```
+```
+msbuild /p:Configuration=Release ArchiSteamFarm.sln
+```
 
 ---
 
@@ -20,7 +22,15 @@ Alternatively, you can do the same from the console, by navigating to ASF direct
 
 Compilation on Mono-powered OSes is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**. If you do, all you need to do is navigating to the directory where ASF source is located, then executing:
 
-```xbuild /p:Configuration=Release ArchiSteamFarm.sln```
+```
+xbuild /p:Configuration=Release ArchiSteamFarm.sln
+```
+
+You can also use ```cc.sh``` script, which simplifies things even further.
+
+```
+./cc.sh release
+```
 
 ---
 
