@@ -28,8 +28,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!pause <BOT>`                    | Pauses/Resumes automatic farming of given bot instance.
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
-`!redeem <KEY>`                   | Redeems cd-key on current bot instance
-`!redeem <BOT> <KEY>`             | Redeems cd-key on given bot instance
+`!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
+`!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
 `!restart`                        | Restarts ASF process
 `!start <BOT>`                    | Starts given bot instance
