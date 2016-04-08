@@ -24,7 +24,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!pause`                          | Pauses/Resumes automatic farming of current bot instance.
 `!pause <BOT>`                    | Pauses/Resumes automatic farming of given bot instance.
-`!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming | ```!play 440,570``` ```!play 0```
+`!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming | ```!play 440,570```, ```!play 0```
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
 `!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
