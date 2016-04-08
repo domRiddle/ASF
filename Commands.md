@@ -2,16 +2,16 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 
 |Command                          | Description                                            | Examples                    |
 | ------------------------------- |:-------------------------------------------------------|:----------------------------|
-`!2fa`                            | Generates temporary 2FA token for current bot instance | ```!2fa``` 
-`!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance   | ```!2fa primary```
-`!2fano`                          | Deny all pending confirmations for current bot instance | ```!2fano```
-`!2fano <BOT>`                    | Deny all pending confirmations for given bot instance   | ```!2fano primary```
+`!2fa`                            | Generates temporary 2FA token for current bot instance
+`!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance
+`!2fano`                          | Deny all pending confirmations for current bot instance
+`!2fano <BOT>`                    | Deny all pending confirmations for given bot instance
 `!2faoff`                         | Deactivates 2FA for current bot instance             
 `!2faoff <BOT>`                   | Deactivates 2FA for given bot instance
 `!2faok`                          | Accepts all pending confirmations for current bot instance
 `!2faok <BOT>`                    | Accepts all pending confirmations for given bot instance
-`!addlicense <appID>`             | Activates given ```appID``` on current bot instance (free games only)
-`!addlicense <BOT> <appID>`       | Activates given ```appID``` on given bot instance (free games only)
+`!addlicense <appID1,appID2...>`  | Activates given ```appIDs``` on current bot instance (free games only) | ```!addlicense 440,570```
+`!addlicense <BOT> <appID1,appID2...>` | Activates given ```appIDs``` on given bot instance (free games only)
 `!exit`                           | Stops whole ASF
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <BOT>`                     | Restarts cards farming module for given bot instance
@@ -20,7 +20,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
 `!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
-`!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
+`!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,dota```
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!pause`                          | Pauses/Resumes automatic farming of current bot instance.
 `!pause <BOT>`                    | Pauses/Resumes automatic farming of given bot instance.
