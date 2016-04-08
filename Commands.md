@@ -1,12 +1,12 @@
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
-|Command                                     | Description                                                               |
-| ------------------------------------------ |:--------------------------------------------------------------------------|
-`!2fa`                            | Generates temporary 2FA token for current bot instance
-`!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance
-`!2fano`                          | Deny all pending confirmations for current bot instance
-`!2fano <BOT>`                    | Deny all pending confirmations for given bot instance
-`!2faoff`                         | Deactivates 2FA for current bot instance
+|Command                          | Description                                            | Examples                    |
+| ------------------------------- |:-------------------------------------------------------|:----------------------------|
+`!2fa`                            | Generates temporary 2FA token for current bot instance | ```!2fa``` 
+`!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance   | ```!2fa primary```
+`!2fano`                          | Deny all pending confirmations for current bot instance | ```!2fano```
+`!2fano <BOT>`                    | Deny all pending confirmations for given bot instance   | ```!2fano primary```
+`!2faoff`                         | Deactivates 2FA for current bot instance             
 `!2faoff <BOT>`                   | Deactivates 2FA for given bot instance
 `!2faok`                          | Accepts all pending confirmations for current bot instance
 `!2faok <BOT>`                    | Accepts all pending confirmations for given bot instance
