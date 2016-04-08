@@ -20,10 +20,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
 `!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
-`!owns <appID>`                   | Checks if current bot instance already owns given ```appID```
-`!owns <BOT> <appID>`             | Checks if given bot instance already owns given ```appID```
-`!owns <gameName>`                | Checks if current bot instance already owns any games named ```gameName``` (can be part of the game's name)
-`!owns <BOT> <gameName>`          | Checks if given bot instance already owns any games named ```gameName``` (can be part of the game's name)
+`!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
+`!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!pause`                          | Pauses/Resumes automatic farming of current bot instance.
 `!pause <BOT>`                    | Pauses/Resumes automatic farming of given bot instance.
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming
