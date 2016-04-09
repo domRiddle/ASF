@@ -62,7 +62,7 @@ Now we move onto bot configs. Every bot has it's own config and related files.
 
 ## Configs
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing it's config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF. You can edit ASF configs using any text editor you want, I suggest **[Notepad++](https://notepad-plus-plus.org)**.
+ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing it's config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF. You can edit ASF configs using any text editor you want, I suggest **[Notepad++](https://notepad-plus-plus.org)**. Alternatively, you can use ASF graphical config generator to make that a little bit easier.
 
 ---
 
