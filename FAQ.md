@@ -117,12 +117,6 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 ***
 
-**Q:** What is the purpose of ```.key``` files?
-
-**A:** Key files store temporary login keys, those login keys are used as an alternative to classical passwords, and thanks to them you don't have to put 2FA token every time you try to log in to 2FA-protected accounts. Steam client uses same mechanism. Those keys are temporary though, so they can expire with time. ASF keeps the key file as long as it's valid.
-
-***
-
 **Q:** How many bots can I run with ASF?
 
 **A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
@@ -137,9 +131,10 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 - Expired login key used by ASF for logging in
 - Too many failed login attempts in short period of time (anti-bruteforce)
 - Too many login attempts in short period of time (rate-limiting)
+- Requirement of captcha to log in (very likely to be caused by two reasons above)
 
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime.
+In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase ```LoginLimiterDelay``` config property of ASF.
 
 In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically)
 
-And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials.
+And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on it's own whether ```InvalidPassword``` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
