@@ -2,7 +2,7 @@
 
 Starting with version 1.3+, ASF now offers WCF (Windows Communication Foundation) inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
-WCF is always executed with ```SteamOwnerID``` permissions, which is ```0``` by default. In order to use it, you should set ```SteamOwnerID``` to the same non-zero value both on server and client machines (if they're not the same). If WCF client is not authorized to use a command, he'll receive null response. For more info about ```SteamOwnerID```, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+WCF is always executed with ```SteamOwnerID``` permissions, which is ```0``` by default. In order to use it, you should set ```SteamOwnerID``` to the proper non-zero value. Default value will make WCF work, but not authorizing any client to execute any command. If WCF client is not authorized to use a command, he'll receive null response. For more info about ```SteamOwnerID```, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 
 ---
 
@@ -88,7 +88,7 @@ Client results:
 
 **Q:** Is this secure?
 
-**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```localhost``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, both server and client must have the same matching non-zero ```SteamOwnerID```.
+**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```localhost``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero ```SteamOwnerID```, otherwise it'll deny all client requests and respond with empty messages.
 
 ---
 
