@@ -72,7 +72,7 @@ mono ASF.exe
 
 Instead of calling mono manually each time, you might also want to use a script. This is especially useful for people who want to run ASF on their servers (or virtual machines).
 
-Example script provided below will ensure that ASF is always running, unless it crashes with unhandled exception. **Notice: ** you should ensure that ```AutoRestart``` is ```false``` when running this script, as ASF might restart itself otherwise (which will result in 2 processes running):
+Example script provided below will ensure that ASF is always running, unless it crashes with unhandled exception. **Notice:** you should ensure that ```AutoRestart``` is ```false``` when running this script, as ASF might restart itself otherwise (which will result in 2 processes running):
 
 ```
 #!/bin/bash
