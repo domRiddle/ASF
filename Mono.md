@@ -81,7 +81,7 @@ set -eu # Immediately abort script in case of error
 cd "$(dirname "$(readlink -f "$0")")" # Navigate to script directory
 
 while [[ -f ASF.exe ]]; do # While ASF.exe binary exists
-    if ! mono ASF.exe; then # If ASF exited with error
+    if ! mono ASF.exe; then # Start ASF, and if it exited with error
         break # Abort the loop
     fi # Otherwise
 done # Start ASF.exe again
