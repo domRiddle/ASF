@@ -62,6 +62,33 @@ Remember that nightly versions are unstable and might not work, therefore you sh
 
 ---
 
+# Usage
+
+Using Mono is pretty straightforward, the most basic usage is navigating to the directory where ASF is located (e.g. with ```cd``` command), then executing:
+
+```
+mono ASF.exe
+```
+
+Instead of calling mono manually each time, you might also want to use a script. This is especially useful for people who want to run ASF on their servers (or virtual machines).
+
+Example script provided below will ensure that ASF is always running, unless it crashes with unhandled exception. **Notice: ** you should ensure that ```AutoRestart``` is ```false``` when running this script, as ASF might restart itself otherwise (which will result in 2 processes running):
+
+```
+#!/bin/bash
+set -eu # Immediately abort script in case of error
+
+cd "$(dirname "$(readlink -f "$0")")" # Navigate to script directory
+
+while [[ -f ASF.exe ]]; do # While ASF.exe binary exists
+    if ! mono ASF.exe; then # If ASF exited with error
+        break # Abort the loop
+    fi # Otherwise
+done # Start ASF.exe again
+```
+
+---
+
 # Issues and solutions
 
 Most (if not all) of the issues are directly caused by outdated Mono. Mono shipped with your Linux distribution is almost never the latest released Mono version, and the newer Mono you have, the bigger chance that everything will run out of the box.
