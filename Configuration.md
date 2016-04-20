@@ -260,7 +260,7 @@ All options are explained below:
 
 ```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. When ASF is idle, which means that it has nothing to do (as account is fully farmed), it can display itself as "Playing non-steam game: ```CustomGamePlayedWhileIdle```". Default value of ```null``` disables this feature.
 
-```GamesPlayedWhileIdle``` - ```HashSet<uint``` type with default value of ```0```. Similar to above, if ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. Default value of ```0``` disables this feature.
+```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of ```0```. Similar to above, if ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. Default value of ```0``` disables this feature.
 
 ---
 
