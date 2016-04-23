@@ -109,11 +109,11 @@ Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/
 
 Keep in mind that new accounts start as limited. Until you unlock account by loading it's wallet or spending 5$ in the store, all dropped cards are **non-tradable**, and account itself can't accept neither send trades as well.
 
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work. That limitation includes **both** accepting **and** sending trades. For some people apparently linking ASF does not trigger 7-days trade lock and they can send and accept trades instantly, but for majority of the people the lock **will** happen, even if you can send and accept trades via your steam client on the same machine. Just wait.
+Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
 
-If nothing helped, you can always enable ```Debug``` mode and check yourself why requests are failing. Sometimes there is no reason or provided reason doesn't make any sense, it's quite common issue and the only suggested solution is to re-add account to ASF (and wait 7 days again). Sometimes it also fixes itself *magically*, the same way it breaks.
+If nothing helped, you can always enable ```Debug``` mode and check yourself why requests are failing. Sometimes there is no reason or provided reason doesn't make any sense, it's quite common issue and the only suggested solution is to re-add account to ASF (and wait 7 days again). Sometimes it also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause.
 
-In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work.
+In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF.
 
 ***
 
