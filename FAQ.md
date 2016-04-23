@@ -104,7 +104,13 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** How many bots can I run with ASF?
 
-**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
+**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself (such as making sure that all of them in fact are logging in and working at the same time).
+
+***
+
+**Q:** Can I run more ASF instances then?
+
+**A:** You can run as many ASF instances on one machine as you like, assuming every instance has it's own directory and it's own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit ```InvalidPassword``` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using it's own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and likehood of synchronizaton issues.
 
 ***
 
