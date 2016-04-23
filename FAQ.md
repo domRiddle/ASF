@@ -105,11 +105,11 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 If you can see this, then your API key is proper.
 
-Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
+Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
 Keep in mind that new accounts start as limited. Until you unlock account by loading it's wallet or spending 5$ in the store, all dropped cards are **non-tradable**, and account itself can't accept neither send trades as well.
 
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work. That limitation includes **both** accepting **and** sending trades.
+Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days. After that period, everything should work. That limitation includes **both** accepting **and** sending trades. For some people apparently linking ASF does not trigger 7-days trade lock and they can send and accept trades instantly, but for majority of the people the lock **will** happen, even if you can send and accept trades via your steam client on the same machine. Just wait.
 
 If nothing helped, you can always enable ```Debug``` mode and check yourself why requests are failing. Sometimes there is no reason or provided reason doesn't make any sense, it's quite common issue and the only suggested solution is to re-add account to ASF (and wait 7 days again). Sometimes it also fixes itself *magically*, the same way it breaks.
 
