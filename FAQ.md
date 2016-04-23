@@ -2,7 +2,7 @@
 
 ***
 
-### Idle Master comparison
+## Idle Master comparison
 
 ***
 
@@ -30,7 +30,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
-### VAC / Bans / ToS
+## VAC / Bans / ToS
 
 ***
 
@@ -80,7 +80,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-### Misc
+## Misc
 
 ***
 
@@ -108,7 +108,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-### Issues
+## Issues
 
 ***
 
