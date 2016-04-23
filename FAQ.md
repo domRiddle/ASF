@@ -166,3 +166,5 @@ In case of anti-bruteforce and rate-limiting, problem will disappear after some 
 In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically)
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on it's own whether ```InvalidPassword``` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
+
+Keep in mind that ASF has it's own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of ```InvalidPassword```, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
