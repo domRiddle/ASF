@@ -164,7 +164,7 @@ You can remove SteamDesktopAuthenticator and/or WinAuth after you're done, as we
 
 **Q:** Why account must not have 2FA enabled at the time of linking?
 
-**A:** You can have only one mobile authenticator linked to one account at given time. If you want to use ASF 2FA only, then you must not have any other authenticators enabled (obviously). If you want to use classic 2FA and ASF 2FA at the same time, then you should firstly set up classic authenticator on your phone, then import it to SteamDesktopAuthenticator, and then import it to ASF, as explained above.
+**A:** You can have only one mobile authenticator linked to one account at given time. If you want to use ASF 2FA only, then you must not have any other authenticators enabled (obviously). If you want to use classic 2FA and ASF 2FA at the same time, then you should firstly set up classic authenticator on your phone, then import it to SteamDesktopAuthenticator/WinAuth, and then import it to ASF, as explained above.
 
 ***
 
