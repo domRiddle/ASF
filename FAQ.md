@@ -2,6 +2,10 @@
 
 ***
 
+### Idle Master comparison
+
+***
+
 **Q:** Is ASF faster than Idle Master?
 
 **A:** **Yes**, although the explanation is rather complicated.
@@ -23,6 +27,10 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 **Q:** Can ASF idle multiple games at once?
 
 **A:** **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly.
+
+***
+
+### VAC / Bans / ToS
 
 ***
 
@@ -72,6 +80,10 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+### Misc
+
+***
+
 **Q:** I have a question regarding ASF 2FA...
 
 **A:** Then check **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** wiki page.
@@ -87,6 +99,16 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 **Q:** Can ASF minimize to tray?
 
 **A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)**.
+
+***
+
+**Q:** How many bots can I run with ASF?
+
+**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
+
+***
+
+### Issues
 
 ***
 
@@ -114,12 +136,6 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 If nothing helped, you can always enable ```Debug``` mode and check yourself why requests are failing. Sometimes there is no reason or provided reason doesn't make any sense, it's quite common issue and the only suggested solution is to re-add account to ASF (and wait 7 days again). Sometimes it also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause.
 
 In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF.
-
-***
-
-**Q:** How many bots can I run with ASF?
-
-**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances.
 
 ***
 
