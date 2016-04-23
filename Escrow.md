@@ -103,7 +103,7 @@ WinAuth import is a bit more tricky than SDA, but still possible with a little m
 
 Firstly create new empty ```Bot.maFile``` file in ASF ```config``` directory. Remember that it should be ```Bot.maFile``` and NOT ```Bot.maFile.txt```, Windows likes to hide known extensions by default.
 
-Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{"shared_secret```. Copy whole text into a ```Bot.maFile``` file created by you in previous step.
+Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{```. Copy whole text into a ```Bot.maFile``` file created by you in previous step.
 
 **Notice:** Under some circumstances WinAuth can actually generate wrong JSON for ASF. If you notice following property in your generated JSON:
 
