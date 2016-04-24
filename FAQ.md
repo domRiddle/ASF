@@ -137,7 +137,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 [*] INFO: ParseTrade() <1> Accepting trade: XXXX
 ```
 
-If you can see this, then your API key is proper.
+If you can see this, then your API key is proper. It's nice to note that you don't need to have ```SteamApiKey``` set if you'll only initiate Bot->Master trades, such as ```!loot```, as API key is required only for receiving trades, not sending them.
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
