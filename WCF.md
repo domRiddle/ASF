@@ -26,7 +26,7 @@ If parameter was passed correctly, you should notice that WCF service is active:
 [*] NOTICE: StartServer() <WCF> WCF server ready!
 ```
 
-ASF is now listening on ```http://localhost:1242/ASF``` for incoming WCF connections.
+ASF is now listening on ```http://localhost:1242/ASF``` for incoming WCF connections (or whatever ```WCFHostname``` and ```WCFPort``` you specified in the config).
 
 ---
 
