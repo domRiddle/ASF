@@ -89,6 +89,8 @@ done # Start ASF.exe again
 
 You might want to save above script for example as ```asf.sh```, chmod it ```755```, and execute it for example through ```screen```, which would result in command ```screen -dmS ASF /path/to/asf.sh``` or similar. This way you'll always have ASF running in your ```screen``` terminal, and you can easily check ASF output via ```screen -r```, or minimize it again with ```CTRL + A + D```. Keep in mind that those instructions are based on Linux distributions with ```bash``` shell available, instructions for other distributions or OS X might be different.
 
+Please notice that we wrap mono command in ```if``` instruction. This is important as ASF should be restarted only if it decided to exit by itself (error code 0) and not when it exited due to crash or exception (non-zero exit code). Of course nothing is stopping you from restarting ASF when it exited due to error, but you should add your own logic for keeping ```log.txt``` from the crash, so you're able to report the problem.
+
 This is only example of usage, feel free to further modify the script however you wish.
 
 ---
