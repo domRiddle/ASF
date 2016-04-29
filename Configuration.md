@@ -92,7 +92,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ## Global config
 
-We start configuring ASF by opening global config - ```ASF.json```. After opening the file, you should notice following structure:
+Global config is located in ```ASF.json``` file and has following structure:
 
 ```
 {
