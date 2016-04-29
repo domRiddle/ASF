@@ -98,7 +98,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** Can ASF minimize to tray?
 
-**A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)**.
+**A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)**. If you're using Linux or OS X, then you have **[screen](http://linux.die.net/man/1/screen)** for example.
 
 ***
 
