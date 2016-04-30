@@ -29,7 +29,7 @@ xbuild /p:Configuration=Release ArchiSteamFarm.sln
 You can also use ```cc.sh``` script, which simplifies things even further.
 
 ```
-./cc.sh release
+./cc.sh
 ```
 
 ---
