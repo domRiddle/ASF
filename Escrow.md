@@ -23,7 +23,7 @@ Also a brain is needed for all of those tasks :+1:
 
 ## Limitations
 
-Currently ASF 2FA doesn't work well with accounts restricted with steam parental PIN. You won't be able to link ASF 2FA as new authenticator if that feature is enabled, you also won't be able to confirm trades or market listing. Therefore, it's **not recommended** to use ASF 2FA with steam parental together, although if you're extremely determined then you might be able to use half-broken authenticator, as generating tokens works fine. Still, I strongly suggest to disable steam parental if you want to use ASF 2FA.
+Currently ASF 2FA doesn't work well with accounts restricted with steam parental PIN. You won't be able to link ASF 2FA as new authenticator if that feature is enabled, you also won't be able to confirm trades or market listings. Therefore, it's **not recommended** to use ASF 2FA with steam parental together, although if you're extremely determined then you might be able to use half-broken authenticator, as generating tokens works fine. Still, I strongly suggest to disable steam parental if you want to use ASF 2FA.
 
 ***
 
