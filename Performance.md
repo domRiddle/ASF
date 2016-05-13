@@ -35,7 +35,7 @@ Make sure you have some games to farm, preferably 10+, and run ASF with default 
 If you notice that **at least one** game took less than 2 hours to farm:
 
 ```
-13/05/2016 21:51:26 [*] INFO: FarmSolo() <archi> Done farming: 269250 after 01:30 hours of playtime!
+[*] INFO: FarmSolo() <archi> Done farming: 269250 after 01:30 hours of playtime!
 ```
 
 Then it means that your account is **not** restricted, so you should keep ```CardDropsRestricted``` at ```false```.
