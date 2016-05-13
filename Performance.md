@@ -26,6 +26,24 @@ Currently, ASF chooses cards farming algorithm based purely on ```CardDropsRestr
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, which is default setting, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to 2 hours. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach 2 hours yet.
 
+### What is the best way to find out if your account is restricted?
+
+Make sure you have some games to farm, preferably 10+, and run ASF with default ```CardDropsRestricted``` of false. It would be good if you didn't play anything during farming period for more accurate results. Let ASF farm those 10 games, and after that check out the log for results.
+
+If you notice that **at least one** game took less than 2 hours to farm:
+
+```
+13/05/2016 21:51:26 [*] INFO: FarmSolo() <archi> Done farming: 269250 after 01:30 hours of playtime!
+```
+
+Then it means that your account is **not** restricted, so you should keep ```CardDropsRestricted``` at ```false```.
+
+However, if you notice that every game takes more than 2 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted it's best to test at least 10 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
+
+In the end, of course, decision is up to you.
+
+***
+
 By default, ASF assumes positive scenario - our account doesn't have restricted card drops, so ```CardDropsRestricted``` is ```false``` by default.
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
