@@ -26,6 +26,8 @@ Currently, ASF chooses cards farming algorithm based purely on ```CardDropsRestr
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, which is default setting, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to 2 hours. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach 2 hours yet.
 
+***
+
 ### What is the best way to find out if your account is restricted?
 
 Make sure you have some games to farm, preferably 10+, and run ASF with default ```CardDropsRestricted``` of false. It would be good if you didn't play anything during farming period for more accurate results. Let ASF farm those 10 games, and after that check out the log for results.
