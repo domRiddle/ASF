@@ -57,7 +57,7 @@ ASF.exe --client "status archi"
 Will result in intended behaviour - executing command ```!status archi```, while executing following:
 
 ```
-ASF.exe --client "status archi"
+ASF.exe --client status archi
 ```
 
 Will result in **not intended** behaviour of executing two commands - ```!status``` and ```!archi```.
