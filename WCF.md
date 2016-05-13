@@ -62,7 +62,7 @@ ASF.exe --client status archi
 
 Will result in **not intended** behaviour of executing two commands - ```!status``` and ```!archi```.
 
-If you want to execute more than one command, consider launching them at the same time (as shown in example above), because launching process and the client is quite costly. ASF will execute all of those commands synchronously in given order.
+If you want to execute more than one command, consider launching them at the same time (as shown in start stop example above), because launching process and the client is quite costly. ASF will execute all of those commands synchronously in given order.
 
 Keep in mind that ASF will exit after executing last command while in ```Client``` mode.
 
