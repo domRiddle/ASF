@@ -54,7 +54,7 @@ Remember to **quote** the command, as shown in the example above. Quotes are ver
 ASF.exe --client "status archi"
 ```
 
-Will result in intended behaviour - executing command ```!status archi```, while executing following:
+Will result in intended behaviour - executing command ```!status archi```. However, executing following:
 
 ```
 ASF.exe --client status archi
