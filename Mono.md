@@ -93,6 +93,8 @@ Please notice that we wrap mono command in ```if``` instruction. This is importa
 
 Also keep in mind that ASF automatically exits (with zero error code) when all bots are stopped. Therefore you should ensure that you have at least one ```Enabled = true```, ```StartOnLaunch = true``` and ```ShutdownOnFarmingFinished = false``` bot. Otherwise you might run into the situation such as starting ASF in infinite loop even if there's nothing to do.
 
+If you want to run ASF in non-interactive way such as on start of your server without your attention, I strongly suggest to switch ```Headless``` property to ```true```, so ASF will be aware of the fact that it can't expect any response from you.
+
 Everything above is specific to your configuration. This is only example of usage, feel free to further modify the script however you wish.
 
 ---
