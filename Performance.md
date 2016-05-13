@@ -44,6 +44,8 @@ However, if you notice that **every** game takes more than 2 hours to farm, and 
 
 In the end, of course, decision is up to you.
 
+And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund.
+
 ***
 
 By default, ASF assumes positive scenario - our account doesn't have restricted card drops, so ```CardDropsRestricted``` is ```false``` by default.
