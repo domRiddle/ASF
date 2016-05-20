@@ -2,7 +2,7 @@
 
 Recently Valve introduced a system known as "Escrow". You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand Escrow firstly before trying to understand logic behind ASF 2FA. I suggest testing it, reading more about it, whatever you consider appropriate.
 
-Okay, from now on I assume you already know what Escrow is. Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, I found a way how to overcome that problem, the solution is called ASF 2FA.
+Okay, from now on I assume you already know what Escrow is. Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, I coded a way how to overcome that problem, the solution is called ASF 2FA.
 
 # ASF 2FA
 
