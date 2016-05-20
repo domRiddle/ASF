@@ -29,7 +29,7 @@ Currently ASF 2FA doesn't work well with accounts restricted with steam parental
 
 ## ASF 2FA (only)
 
-This part is for you if you want to use ASF 2FA only (no classic 2FA for account)
+This part is for you if you want to use ASF 2FA only (no classic 2FA for account). This is useful for alt accounts, but should be completely avoided by primary ones.
 
 Firstly make sure that you pass all the requirements above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
 
