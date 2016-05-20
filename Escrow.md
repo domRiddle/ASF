@@ -38,7 +38,7 @@ Firstly make sure that you pass all the requirements above, then you can start t
 <1> Please enter the auth code sent to your email:
 ```
 
-If you don't have any phone number linked to your account yet, you'll be prompted to enter it. Please notice that number should be in international format starting from +CC (country code).
+If you don't have any phone number linked to your account yet, you'll be prompted to enter it. ASF only asks for phone number if it's required, you might also enter it **[in your Steam settings](https://store.steampowered.com/phone/manage)** before doing this step. Please notice that number should be in international format starting from +CC (country code).
 ```
 <1> Please enter your full phone number (e.g. +1234567890):
 ```
