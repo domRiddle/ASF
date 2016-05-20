@@ -158,7 +158,7 @@ You can remove SteamDesktopAuthenticator and/or WinAuth after you're done, as we
 
 **Q:** Why do you need a phone number, if 2FA is supposed to be ASF module?
 
-**A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not. It's used only once, during linking.
+**A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not. It's used only once, during linking, and you can also put it **[in your Steam settings](https://store.steampowered.com/phone/manage)** instead of in ASF window.
 
 ***
 
