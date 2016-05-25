@@ -28,7 +28,7 @@ Officially, ASF requires only latest .NET framework (currently 4.6.1, which is s
 
 **All hard-to-explain issues without obvious cause are automatically ignored, if your Mono version is not latest stable one.**
 
-It's your responsiblity to ensure that ASF is run in bugless environment, and not mine to workaround all possible Mono issues, in all possible versions, on all possible variants. Latest stable ASF is always tested on up-to-date stable Mono version, and always includes all crucial code changes that are required for working properly on Mono (if needed).
+It's your responsiblity to ensure that ASF is run in bugless environment, and not mine to workaround all possible Mono issues, in all possible versions, on all possible variants. Latest stable ASF is always tested on latest nightly and stable Mono version, and always includes all crucial code changes that are required for working properly on Mono (if needed).
 
 ---
 
