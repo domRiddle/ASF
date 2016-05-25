@@ -125,6 +125,9 @@ Error getting response stream (Write: The authentication or decryption has faile
 ```
 Unhandled Exception: System.TypeLoadException: A type load exception has occurred
 ```
+```
+Unhandled Exception: System.TypeInitializationException: The type initializer for 'ArchiSteamFarm.Program' threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly
+```
 
 **Solution:**
 Make sure that you have ```mono-complete``` package installed. This issue is mostly caused by lack of some core Mono libraries required by ASF, that should be natively available. If installing ```mono-complete``` doesn't help, install latest Mono version.
