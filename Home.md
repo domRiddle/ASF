@@ -12,13 +12,13 @@ Some of the subjects you might be interested in:
 4. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 5. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-7. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 
 Advanced users might be interested in:
 
 1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 2. **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**
 3. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+4. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 
 Developers might be interested in:
 
