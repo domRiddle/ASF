@@ -10,6 +10,10 @@ At the moment ASF doesn't offer extra config property that would prefer to focus
 
 ***
 
+Below suggestions are divided into three categories, from simple ASF tricks, through fine-tuning the runtime, and ending at full runtime recompilation.
+
+***
+
 ## ASF (Easy)
 
 - Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
