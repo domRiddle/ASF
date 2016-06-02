@@ -51,7 +51,7 @@ PREFIX="/opt/mono-unstable"
 JOBS="$(grep -c processor /proc/cpuinfo)"
 
 ADCFLAGS=(-Os -pipe -march=native -fdata-sections -ffunction-sections -s)
-ADLDFLAGS=(-Wl,-O3 -Wl,-flto -Wl,--as-needed -Wl,--gc-sections -Wl,--relax -Wl,--sort-common)
+ADLDFLAGS=(Wl,--gc-sections)
 ADMONOCFLAGS=("--prefix=$PREFIX")
 
 # Below flags are unsupported, you use them at your own risk
