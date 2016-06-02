@@ -106,7 +106,6 @@ Global config is located in ```ASF.json``` file and has following structure:
   "MaxFarmingTime": 10,
   "IdleFarmingPeriod": 3,
   "FarmingDelay": 5,
-  "AccountPlayingDelay": 5,
   "LoginLimiterDelay": 7,
   "InventoryLimiterDelay": 3,
   "ForceHttp": false,
@@ -151,8 +150,6 @@ All options are explained below:
 ```IdleFarmingPeriod``` - ```byte``` type with default value of ```3```. When ASF has nothing to farm, it will periodically check every ```IdleFarmingPeriod``` hours if perhaps account got some new games to farm. Value of 0 disables this feature. Also check: ```ShutdownOnFarmingFinished```.
 
 ```FarmingDelay``` - ```byte``` type with default value of ```5```. In order for ASF to work, it will check currently farmed game every ```FarmingDelay``` minutes, if it perhaps dropped all cards already. Setting this property too low can result in excessive amount of steam requests being sent, while setting it too high can result in ASF still "farming" given title for up to ```FarmingDelay``` minutes after it's fully farmed. Default value should be excellent for most users, but if you have many bots running, you might consider increasing it to something like ```15``` minutes in order to limit steam requests being sent. Unless you have a reason to edit this property, you should keep it at default.
-
-```AccountPlayingDelay``` - ```byte``` type with default value of ```5```. When you decide to disconnect farming ASF by starting a game, ASF will try to resume farming, after waiting ```AccountPlayingDelay``` minutes. Remember that Steam limits number of allowed logins per hour, so you should not go too low unless you have a **very strong** reason. Default value of ```5``` minutes is very short and should satisfy most people, you may however want to increase the delay to e.g. ```15``` or ```30``` minutes, if you feel that ```5``` minutes checks are too intrusive. In addition to that, you can use a value of ```0``` which will cause ASF to shutdown bot instance immediately after noticing that account is being used elsewhere. Unless you have a reason to edit this property, you should keep it at default.
 
 ```LoginLimiterDelay``` - ```byte``` type with default value of ```7```. As noted above, Steam has some login requests limitations, that also includes too many logins in short time. ASF will ensure that there will be at least ```LoginLimiterDelay``` seconds in between of two consecutive logins (with an exception of 2FA-logins, as they need to be handled ASAP). Default value of ```7``` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to ```0``` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low will result in Steam temporarily banning your IP, which will result in all logins failing with ```InvalidPassword``` error. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
