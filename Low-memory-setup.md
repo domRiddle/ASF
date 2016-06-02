@@ -25,7 +25,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ***
 
-## Mono (Advanced)
+## Mono Runtime (Advanced)
 
 If you're running ASF on Windows, then there is nothing more that can help you, as Windows is not optimized by definition, so instead of looking at ASF, start looking at your OS. Squishing every megabyte out of runtime is pointless when your OS allocates minimum of 2 GB by definition.
 
@@ -38,7 +38,7 @@ Some interesting features that could help you:
 
 ***
 
-## Mono recompilation (Expert / Developer)
+## Mono Recompilation (Expert / Developer)
 
 Finally, you can recompile your Mono to disable some unused features and generate code that is optimized for size and not performance, which could help you even further. This is very complex process, and you should not do that in general, unless you're feeling comfortable with recompiling and using packages from source, as opposed to binary ones.
 
@@ -118,4 +118,4 @@ We're recompiling Mono with ```-Os``` - optimization for size, as opposed to def
 
 That is GCC part, Mono part is more interesting. Basically we disable all Mono features we don't need in ASF, I suggest to do ```./configure --help``` to read about them all.
 
-Last word, what works for me, might not work for you. This is only example of mono recompiling process, it's **unsupported** by both me and Mono development team, therefore if you decide to compile yourself and use any of unsupported flags, you should be an expert that doesn't require any support and is completely fine dealing with broken packages.
+Last word, what works for me, might not work for you. This is only example of mono recompiling process, it's **unsupported** by both me and Mono development team, therefore if you decide to compile yourself and use any of unsupported flags, you should be an expert that doesn't require any support and is completely fine dealing with broken packages. If you want to make ASF "just work", don't do any of that, because it doesn't even guarantee any significant gain on performance neither memory usage. Stick with ASF and Mono runtime instructions, and let maintainers do their job with compiling packages.
