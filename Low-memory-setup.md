@@ -10,7 +10,7 @@ At the moment ASF doesn't offer extra config property that would prefer to focus
 
 ***
 
-Below suggestions are divided into three categories, from simple ASF tricks, through fine-tuning the runtime, and ending at full runtime recompilation.
+Below suggestions are divided into three categories, from simple ASF tricks, through fine-tuning the runtime, and finishing at full runtime recompilation.
 
 ***
 
