@@ -4,7 +4,7 @@
 
 ASF as an application tries to be as much optimized and efficient as possible, which also takes in mind resources being used during execution. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", which can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every page, which results in concurrent fetching and parsing of remaining pages. This speeds up execution, for cost of increased memory usage. Similar thing is happening e.g. with parsing active trade offers, ASF is also parsing them all concurrently.
 
-At the moment ASF doesn't offer extra config property that would prefer to focus on keeping memory low for cost of performance, but it's entirely possible to add such property in future. If you'd be interested, make sure to add a comment.
+At the moment ASF doesn't offer extra config property that would prefer to focus on keeping memory low for cost of performance, but it's entirely possible to add such property in future. If you'd be interested, make sure to **[post an issue](https://github.com/JustArchi/ArchiSteamFarm/issues)**.
 
 ***
 
