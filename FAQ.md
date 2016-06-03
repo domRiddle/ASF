@@ -153,7 +153,7 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 **Q:** Why do I have to put 2FA code on each login?
 
-**A:** ASF uses login keys for keeping 2FA active, the same mechanism that Steam uses - 2FA token is required only once. However, due to Steam fuckups and Steam network quirks, it's entirely possible that login key is not saved in the network, I've already seen such issue not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
+**A:** ASF uses login keys for keeping 2FA active, the same mechanism that Steam uses - 2FA token is required only once. However, due to Steam fuckups and Steam network quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
 You could remove bot.db of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Sometimes the issue also magically solves itself after some time, ask GabeN.
 
