@@ -3,7 +3,7 @@
 ***
 
 ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
-
+m
 ASF as an application tries to be as much optimized and efficient as possible, which also takes in mind resources being used during execution. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", which can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every extra page, which results in concurrent fetching and parsing of remaining pages. This speeds up execution, for cost of increased memory usage. Similar thing is happening e.g. with parsing active trade offers, ASF is also parsing them all concurrently. On top of all of that, ASF (C# runtime) doesn't return unused memory back to OS immediately. Huh? What's going on?
 
 ASF is extremely well optimized, and makes use of available resources as much as possible. High memory usage of ASF doesn't mean that ASF actively **uses** that memory and **needs it**. Very often ASF will keep some memory allocated for some "room" for future actions, as by not asking OS for every memory chunk we're improving performance. The runtime (.NET, or Mono) should automatically release unused ASF memory back to OS when OS will **truly** need it. Remember - **[unused memory is wasted memory](http://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full/)**. You run into issues when the memory you **need** is higher than the memory that is available for you, not when ASF keeps some extra for having free space for functions that will execute in a moment. You run into problems when Linux kernel is killing Mono process due to OOM (out of memory), not when you see ASF as top memory consumer in ```htop```.
@@ -51,7 +51,7 @@ export MONO_GC_PARAMS="soft-heap-limit=256m,evacuation-threshold=100,save-target
 
 I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs.
 
-**Also keep in mind that above MONO_GC_PARAMS will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.**
+**Also keep in mind that above ```MONO_GC_PARAMS``` will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.**
 
 ASF by default is optimized for performance. If you use ```run.sh``` script from ASF tree, then you'll notice that Mono is started with ```--llvm --server -O=all``` arguments. Mono optimized for memory should avoid ```--llvm``` and ```-O=all```, in addition to that it should use ```--desktop``` instead of ```--server```. In the end, you should experiment a bit to find out which setup suits you best.
 
