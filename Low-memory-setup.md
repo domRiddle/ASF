@@ -46,8 +46,7 @@ Some interesting features that could help you:
 
 A good example of excellent ```MONO_GC_PARAMS``` for keeping memory as low as possible:
 ```
-export MONO_GC_PARAMS="soft-heap-limit=256m,evacuation-threshold=100,save-target-ratio=0.1,default-allowance-ratio=1.0"
-```
+export MONO_GC_PARAMS="nursery-size=1m,soft-heap-limit=256m,evacuation-threshold=90,save-target-ratio=0.1,default-allowance-ratio=1.0"```
 
 I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs. I suggest to set this parameter to 75-90% of free memory you expect to have.
 
