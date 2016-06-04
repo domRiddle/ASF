@@ -45,12 +45,12 @@ Some interesting features that could help you:
 
 A good example of excellent ```MONO_GC_PARAMS``` for keeping memory as low as possible:
 ```
-export MONO_GC_PARAMS="nursery-size=1m,soft-heap-limit=256m,evacuation-threshold=100,save-target-ratio=0.1,default-allowance-ratio=1.0"
+export MONO_GC_PARAMS="nursery-size=512,soft-heap-limit=256m,evacuation-threshold=100,save-target-ratio=0.1,default-allowance-ratio=1.0"
 ```
 
 I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs. I suggest to set this parameter to 75-90% of free memory you expect to have.
 
-**Also keep in mind that above ```MONO_GC_PARAMS``` will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.**
+**Also keep in mind that above ```MONO_GC_PARAMS``` will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.** In my case, using above MONO_GC_PARAMS decreased performance of parsing badge pages from **20** to **32** seconds, but also decreased memory footprint from maximum of **24.9%** to maximum of **19.8%**, so it's **47.5%** lower performance for **20.5%** smaller memory footprint. So as you can see, unless you **have to**, it's not really worth it.
 
 ASF by default is optimized for performance. If you use ```run.sh``` script from ASF tree, then you'll notice that Mono is started with ```--llvm --server -O=all``` arguments. Mono optimized for memory should avoid ```--llvm``` and ```-O=all```, in addition to that it should use ```--desktop``` instead of ```--server```. In the end, you should experiment a bit to find out which setup suits you best.
 
