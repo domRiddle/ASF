@@ -44,6 +44,13 @@ Some interesting features that could help you:
 - Use ```--desktop``` parameter which will tune Mono for desktop usage, slightly improving garbage collector which will act more aggressively.
 - Experiment with ```-O``` also known as ```--optimize```. Enabling optimizations in general should increase performance for cost of increased memory usage, so logically you should **avoid** using optimizations if you intend to keep memory low. However, there are certain optimizations that might improve memory efficiency, such as ```deadce``` - dead code elimination. If you want, go ahead and experiment, you can also turn on all optimizations with ```-O=all```, although that probably won't help with memory.
 
+A good example of excellent ```MONO_GC_PARAMS``` for keeping memory as low as possible:
+```
+export MONO_GC_PARAMS="soft-heap-limit=256m,evacuation-threshold=100,save-target-ratio=0.1,default-allowance-ratio=1.0"
+```
+
+I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs.
+
 ASF by default is optimized for performance. If you use ```run.sh``` script from ASF tree, then you'll notice that Mono is started with ```--llvm --server -O=all``` arguments. Mono optimized for memory should avoid ```--llvm``` and ```-O=all```, in addition to that it should use ```--desktop``` instead of ```--server```. In the end, you should experiment a bit to find out which setup suits you best.
 
 ***
