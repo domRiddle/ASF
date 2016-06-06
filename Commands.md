@@ -37,6 +37,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!stop`                           | Stops current bot instance
 `!stop <BOT>`                     | Stops given bot instance
 `!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours)
+`!version`                        | Prints version of ASF
 
 Above commands can be sent to the bot through three different ways:
 - Through steam private chat, by ```SteamMasterID```
