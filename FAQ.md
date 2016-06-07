@@ -124,6 +124,28 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** ASF is failing with ```Request failed even after 5 tries, WTF?``` errors!
+
+**A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly and other users do not have any problems.
+
+How to check if Steam is being down? **[Steam Status](https://steamstat.us/)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties, either leave ASF alone and let it do it's job after a short while, or wait yourself.
+
+That's however not always the case, as in some situations Steam issues might not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com/)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
+
+Lastly, if nothing helps you can always enable ```Debug``` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
+
+```
+[!!] ERROR: UrlRequest() <patchy> Request: https://steamcommunity.com/my/inventory/json/753/6 failed!
+[!!] ERROR: UrlRequest() <patchy> Status code: ServiceUnavailable
+[!!] ERROR: UrlRequest() <patchy> Content:
+<HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
+An error occurred while processing your request.<p>
+```
+
+Which is clearly Steam issue and nothing to fix in ASF.
+
+***
+
 **Q:** ASF seems to be stuck after ```Connected to Steam!``` and ```Logging in...```. Nothing is happening!
 
 **A:** This is an issue of SteamKit2 library that ASF is using. It was already reported and is pending to fix. Until it gets fixed, I suggest switching ```HackIgnoreMachineID``` global config property to ```true```, which works around this issue. You can read more about the issue **[here](https://github.com/JustArchi/ArchiSteamFarm/issues/154)**.
