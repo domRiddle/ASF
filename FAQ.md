@@ -142,7 +142,7 @@ Lastly, if nothing helps you can always enable ```Debug``` mode and see yourself
 An error occurred while processing your request.<p>
 ```
 
-Which is clearly Steam issue and nothing to fix in ASF. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it work for you, and error doesn't go away after an hour or two, it might be worth investigating and reporting.
+Which is clearly Steam issue and nothing to fix in ASF. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and error doesn't go away after an hour or two, it might be worth investigating and reporting.
 
 ***
 
