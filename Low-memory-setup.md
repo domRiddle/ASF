@@ -133,7 +133,7 @@ And done.
 
 We're recompiling Mono with ```-Os``` - optimization for size, as opposed to default flag of ```-O2``` - optimization for speed. We also use ```-march=native``` to instruct gcc into generating code designed specially for our current machine, therefore that Mono won't run on any other machine, but as an advantage we're making use of all our available CPU instructions, and also L1/L2 CPU cache sizes, which can improve performance and memory usage. Lastly, we disable Mono features we do not use, so resulting binary is smaller, faster and has less memory footprint.
 
-**Notice:** We also disable XEN optimizations/compatibility with ```--with-xen-opt=no```. If you plan to use your self-compiled on XEN VPS, please remove this line or switch to ```yes``` (default). Mono without XEN optimizations will be a little faster and smaller on non-XEN systems, but will run significantly worse on XEN systems.
+**Notice:** We also disable XEN optimizations/compatibility with ```--with-xen-opt=no```. If you plan to use your self-compiled Mono on XEN VPS, please remove this line or switch to ```yes``` (default). Mono without XEN optimizations will be a little faster and smaller on non-XEN systems, but will run significantly worse on XEN systems. If you have VPS and you're unsure which virtualization you're using (OpenVZ/KVM/XEN), then remove this line as well just in case.
 
 That is GCC part, Mono part is more interesting. Basically we disable all Mono features we don't need in ASF, I suggest to do ```./configure --help``` to read about them all.
 
