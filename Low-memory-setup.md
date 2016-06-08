@@ -45,7 +45,7 @@ Some interesting features that could help you:
 
 A good example of excellent ```MONO_GC_PARAMS``` for keeping memory as low as possible:
 ```
-export MONO_GC_PARAMS="nursery-size=512,soft-heap-limit=256m,evacuation-threshold=100,save-target-ratio=0.1,default-allowance-ratio=1.0"
+export MONO_GC_PARAMS="nursery-size=512k,soft-heap-limit=128m,evacuation-threshold=90,save-target-ratio=0.1,default-allowance-ratio=1.0,bridge-implementation=tarjan"
 ```
 
 I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs. I suggest to set this parameter to 75-90% of free memory you expect to have.
@@ -68,13 +68,12 @@ set -eu
 PREFIX="/opt/mono-unstable"
 JOBS="$(grep -c processor /proc/cpuinfo)"
 
-ADCFLAGS=(-Os -pipe -march=native -fdata-sections -ffunction-sections -s)
-ADLDFLAGS=(-Wl,--gc-sections)
+ADCFLAGS=(-Os -pipe -march=native -s)
 ADMONOCFLAGS=("--prefix=$PREFIX")
 
 # Below flags are unsupported, you use them at your own risk
-ADMONOFLAGS+=(--disable-boehm --disable-libraries --disable-nls --with-gc=none --with-mcs-docs=no --with-ikvm-native=no --with-shared_mono=no --with-xen-opt=no)
-ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,com,portability,attach,full_messages,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,security,sgen_remset,sgen_marksweep_par,sgen_marksweep_fixed,sgen_marksweep_fixed_par,sgen_copying)
+ADMONOFLAGS+=(--disable-boehm --disable-libraries --disable-nls --enable-system-aot --with-mcs-docs=no --with-ikvm-native=no --with-shared_mono=no --with-xen-opt=no)
+ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,com,shadowcopy,portability,attach,full_messages,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,sgen_remset,sgen_marksweep_par,sgen_marksweep_fixed,sgen_marksweep_fixed_par,sgen_copying)
 
 export PATH="$PREFIX/bin:$PATH"
 mkdir -p "$PREFIX"
@@ -132,7 +131,9 @@ And done.
 
 ### So what we're exactly doing?
 
-We're recompiling Mono with ```-Os``` - optimization for size, as opposed to default flag of ```-O2``` - optimization for speed. We use ```-march=native``` to instruct gcc into generating code designed specially for our current machine, therefore that Mono won't run on any other machine, but as an advantage we're making use of all our available CPU instructions, and also L1/L2 CPU cache sizes, which can improve performance and memory usage. Finally, we're also removing unused code via ```-ffunction-sections --fdata-sections -Wl,--gc-sections``` and stripping final binary with ```-s```.
+We're recompiling Mono with ```-Os``` - optimization for size, as opposed to default flag of ```-O2``` - optimization for speed. We also use ```-march=native``` to instruct gcc into generating code designed specially for our current machine, therefore that Mono won't run on any other machine, but as an advantage we're making use of all our available CPU instructions, and also L1/L2 CPU cache sizes, which can improve performance and memory usage. Lastly, we disable Mono features we do not use, so resulting binary is smaller, faster and has less memory footprint.
+
+**Notice:** We also disable XEN optimizations/compatibility with ```--with-xen-opt=no```. If you plan to use your self-compiled on XEN VPS, please remove this line or switch to ```yes``` (default). Mono without XEN optimizations will be a little faster and smaller on non-XEN systems, but will run significantly worse on XEN systems.
 
 That is GCC part, Mono part is more interesting. Basically we disable all Mono features we don't need in ASF, I suggest to do ```./configure --help``` to read about them all.
 
