@@ -2,7 +2,7 @@
 
 ***
 
-ASF uses common C# versioning which is A.B.C.D. Version is being incremented after releasing current one on **[GitHub](https://github.com/JustArchi/ArchiSteamFarm/releases)**. Every single version released so far is available on GitHub, in frozen state, and will not disappear with time, therefore it's always possible to roll back to any given version, without a need of making self copies.
+ASF uses common C# versioning which is A.B.C.D. Version is being incremented after releasing current one on **[GitHub](https://github.com/JustArchi/ArchiSteamFarm/releases)**. Every single version released so far is available on GitHub, in frozen state, and will not disappear with time, therefore it's always possible to roll back to any of them, without a need of making self copies.
 
 In general ASF versioning is very simple - we use numbers from 0 to 9 in place of A, B, C and D. Version bump increments D, if new D would result in number 10, we increment C instead and set D back to 0, and so on. In addition to that, ASF releases are not being released in any timely manner - release on GitHub is supposed to be treated as ASF milestone, a version with given feature set implemented and ready for tests/usage, while not causing any regressions compared to previous one.
 
