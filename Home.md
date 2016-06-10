@@ -26,4 +26,4 @@ Developers might be interested in:
 
 If you need further help, you can ask either on **[our Gitter chat](https://gitter.im/JustArchi/ArchiSteamFarm)**, or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**.
 
-[![Gitter](https://img.shields.io/gitter/room/JustArchi/ArchiSteamFarm.svg?label=Chat&maxAge=3600)](https://gitter.im/JustArchi/ArchiSteamFarm)
+[![Gitter](https://img.shields.io/gitter/room/JustArchi/ArchiSteamFarm.svg?label=Chat&maxAge=60)](https://gitter.im/JustArchi/ArchiSteamFarm)
