@@ -24,4 +24,6 @@ Developers might be interested in:
 
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 
-If you still can't find the answer to your question or issue, feel free to post it in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**.
+If you need further help, feel free to join us on chat! [![Gitter](https://badges.gitter.im/JustArchi/ArchiSteamFarm.svg)](https://gitter.im/JustArchi/ArchiSteamFarm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+Or you can also ask in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**.
