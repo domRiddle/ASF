@@ -23,6 +23,7 @@ Advanced users might be interested in:
 Developers might be interested in:
 
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 
 If you need further help, you can ask either on **[our Gitter chat](https://gitter.im/JustArchi/ArchiSteamFarm)**, or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**.
 
