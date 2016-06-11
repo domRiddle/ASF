@@ -12,6 +12,8 @@ Stable releases are supposed to be tested and without any known regressions (at 
 
 Pre-releases are more often and usually introduce work-in-progress changes, suggestions or new implementations. Pre-release is not guaranteed to be stable, although we're always trying to do some bare tests before pushing it to GitHub, so it should never be a version that is completely broken in terms of practical usage. The main point of pre-releases is to get feedback from more advanced users and catch newly introduced bugs (if any) before they hit stable release. The quality of that work highly depends on number of testers, bugs being reported on GitHub and general feedback. Pre-releases should **usually** work as good as stable releases, and the only difference between those two is simply a fact of being tested by more users. This is because ASF is a rolling project, which means that it should be possible to build and use at **any** given point of time, and versioning is made for your convenience - as a milestone of changes between one version and another.
 
+In addition to that, a pre-release version might be considered stable after some time. This is especially true if there are no changes done in the meantime, and there is no point in version bump just for the sake of stable release.
+
 In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time.
 
 The precise changelog that compares one version to another is always available on GitHub - through commits. In release we tend to document only changes we consider important between last stable and current release.
