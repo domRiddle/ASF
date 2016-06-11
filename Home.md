@@ -28,3 +28,5 @@ Developers might be interested in:
 If you need further help, you can ask either on **[our Gitter chat](https://gitter.im/JustArchi/ArchiSteamFarm)**, or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
 [![Gitter](https://img.shields.io/gitter/room/JustArchi/ArchiSteamFarm.svg?label=Chat&maxAge=60)](https://gitter.im/JustArchi/ArchiSteamFarm)
+
+GitHub **[issues](https://github.com/JustArchi/ArchiSteamFarm/issues)** page is being used for ASF TODO list, regarding both features and bugs. It has rather strict policy - GitHub is not technical support and all cases which are not suggestions or bug reports should NOT be posted there. You have ASF chat and Steam group for general discussion, questions or technical issues.
