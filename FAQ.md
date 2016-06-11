@@ -198,3 +198,9 @@ In case of expired login key - ASF will remove old one and ask for new one on ne
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on it's own whether ```InvalidPassword``` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 
 Keep in mind that ASF has it's own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of ```InvalidPassword```, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
+
+***
+
+**Q:** ASF is being detected by my AV as Trojan: Win32/Fethar.B!cl!
+
+**A:** False positive. If you're worried about accuracy of previous statement, I suggest scanning ASF binary with many different AVs, for example through **[VirusTotal](https://virustotal.com/)**. Only Microsoft AVs, including Security Essentials and Windows Defender falsely detect ASF as a trojan - I already filled a report and sent back to Microsoft but they don't seem to care, so I don't care either. If you want to solve the issue, either use another AV, add ASF to some kind of exceptions, or tell Microsoft to fix their detection engine yourself, because they don't seem to listen to me. Or, just don't use the program if you don't trust it.
