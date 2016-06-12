@@ -12,6 +12,10 @@ In addition to ```SteamMasterID```, ASF will also accept any donation trade - a 
 
 Apart from that, you can also extend ASF trading capabilities by switching ```SteamTradeMatcher``` to ```true```. When this option is active, ASF will also use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it.
 
+***
+
+## SteamTradeMatcher
+
 When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
 
 - Reject the trade if we're losing anything but non-foil Steam trading cards.
@@ -30,3 +34,5 @@ First three predicates should be obvious for everyone. Last predicate includes a
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. ASF will, however, reject any bad trade for us.
 
 Although using ASF STM module doesn't mean that you can't accept such trades. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in it or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide for you what is worth for you and what is not.
+
+It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** when you enable this option, as this function loses it's whole potential if you decide to manually confirm every trade (although it will work properly even without ability to confirm trades). Usually you might want to enable this feature only for primary accounts, but alt account which works as your "stash" is good too.
