@@ -12,6 +12,21 @@ In addition to ```SteamMasterID```, ASF will also accept any donation trade - a 
 
 Apart from that, you can also extend ASF trading capabilities by switching ```SteamTradeMatcher``` to ```true```. When this option is active, ASF will also use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it.
 
-When ```SteamTradeMatcher``` is active, ASF will also accept trades that:
-- We're losing only normal (non-foil) steam trading cards
-- TODO...
+When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+
+- Reject the trade if we're losing anything but non-foil Steam trading cards.
+- Reject the trade if we're not receiving at least the same number of cards on per-game basis.
+- Reject the trade if user asks for special Steam summer/winter sale cards, and have a trade hold.
+- Reject the trade if it's worse than neutral for us.
+
+Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property.
+
+First three predicates should be obvious for everyone. Last predicate includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+
+- Trade is good for us if the overall status of dupes decreases. Example: A A -> A B
+- Trade is neutral for us if the overall status of dupes doesn't change. Example: A B -> A C
+- Trade is bad for us if the overall status of dupes increases. Example: A B -> A A
+
+STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. ASF will, however, reject any bad trade for us.
+
+Although using ASF STM module doesn't mean that you can't accept such trades. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in it or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide for you what is worth for you and what is not.
