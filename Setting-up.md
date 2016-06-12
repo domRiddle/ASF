@@ -8,9 +8,9 @@ First step is obviously downloading latest stable release of ASF, which is locat
 
 ***
 
-After unpacking archive you should notice executable files **ASF.exe**, **ASF-ConfigGenerator.exe** and **config** directory. Prior to launching ASF you need to configure it. Configuration is really easy process, as long as you read whole documentation carefully and follow included tips.
+After unpacking archive you should notice executable files **ASF.exe**, **ASF-ConfigGenerator.exe** and **config** directory. Prior to launching ASF you need to configure it. Configuration is really easy process, as long as you read whole documentation carefully and pay attention.
 
-You can configure ASF either manually, by creating required JSON configuration files with proper content, or use **ASF-ConfigGenerator** - graphical config generator, which includes tutorial and helps you with doing that task.
+You can configure ASF either manually, by creating required JSON configuration files with proper content, or by using **ASF-ConfigGenerator** - graphical config generator, which includes tutorial and helps you with doing that task.
 
 Now go visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and continue reading when you're done :+1:.
 
