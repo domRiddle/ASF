@@ -12,6 +12,7 @@ Some of the subjects you might be interested in:
 4. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 5. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+7. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 
 Advanced users might be interested in:
 
