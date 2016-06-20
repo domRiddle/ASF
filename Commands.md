@@ -22,8 +22,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!pause`                          | Pauses automatic farming of current bot instance. Also see ```!resume```
 `!pause <BOT>`                    | Pauses automatic farming of given bot instance. Also see ```!resume```
-`!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```0``` appID to return to automatic farming | ```!play 440,570```, ```!play 0```
-`!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```0``` appID to return to automatic farming
+`!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
+`!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```!resume``` for returning to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
 `!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
