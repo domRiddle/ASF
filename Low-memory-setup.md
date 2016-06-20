@@ -101,7 +101,7 @@ make install -j "$JOBS"
 ```
 
 Firstly clone mono repository:
-```git clone https://github.com/mono/mono --depth 100```
+```git clone https://github.com/mono/mono --depth 10```
 
 Then execute my script, it's possible that you will need to install some extra dependencies required by ```autogen.sh```, so don't be afraid of getting errors at first.
 
