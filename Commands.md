@@ -28,8 +28,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
 `!restart`                        | Restarts ASF process
-`!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```
-`!resume <BOT>`                   | Resumes automatic farming of given bot instance. Also see ```!pause```
+`!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
+`!resume <BOT>`                   | Resumes automatic farming of given bot instance. Also see ```!pause```, ```!play```
 `!start <BOT>`                    | Starts given bot instance
 `!status`                         | Prints status of current bot instance
 `!status <BOT>`                   | Prints status of given bot instance
