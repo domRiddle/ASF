@@ -89,31 +89,31 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 **Q:** What if I need a 2FA token?
 
-**A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You can generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser. Of course, if you use 2FA + ASF 2FA combo, then you can generate tokens either by your phone, or by ASF.
-
-***
-
-**Q:** How to turn ASF 2FA off?
-
-**A:** If ASF 2FA is currently active, you can disable it completely through ```!2faoff``` and ```!2faoff <BOT>``` commands, again, sent to the bot through chat. This command will unlink ASF as mobile authenticator, which will result also in switching your account security from 2FA to either SteamGuard or None, depending what you had before. Keep in mind that this option will NOT remove your linked phone number, you can remove it manually **[here](https://store.steampowered.com/phone/manage)**. Remember that if you use 2FA + ASF 2FA combo, then this command **WILL** delink classic 2FA as well.
+**A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser.
 
 ***
 
 **Q:** Where is ASF mobile authenticator saved?
 
-**A:** ASF mobile authenticator is saved in ```BotName.db``` file in your config directory. Remember that this file is basically your mobile authenticator, so removing it will result the same as you'd lose your mobile phone with 2FA turned on. Therefore DO NOT REMOVE IT, if you want to turn off ASF 2FA, it is explained how above. Removing the file will do nothing apart from leaving you without mobile authenticator.
+**A:** ASF mobile authenticator is saved in ```BotName.db``` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
+
+***
+
+**Q:** How to remove ASF 2FA?
+
+**A:** Simply stop ASF and remove associated ```BotName.db``` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linkling for that via Steam website.
 
 ***
 
 **Q:** HELP! I LOST MY ASF MOBILE AUTHENTICATOR!
 
-**A:** This can happen if you e.g. removed file mentioned above by accident. There's no need to panic, as long as you have **revocation code** ASF gave to you the moment it was linking itself as mobile authenticator. Simply enter **[here](https://store.steampowered.com/twofactor/manage)** from logged in account, and use your revocation code to disable 2FA from your account. You can then link ASF again (if you like), by following the same procedure.
+**A:** This can happen if you e.g. removed file mentioned above by accident. There's no need to panic, as long as you have **revocation code** that you received during linking. Simply enter **[here](https://store.steampowered.com/twofactor/manage)** from logged in account, and use your revocation code to disable 2FA from your account. You can then link ASF again (if you like), by following the same procedure. Of course, if you still have your original authenticator, it's probably easier to delink it from there.
 
 ***
 
 **Q:** BUT I'M NOT LOGGED IN!
 
-**A:** No problem, you can use backup SteamGuard codes I suggested you to do in order to login, then you can disable 2FA through revocation code mentioned above. Alternatively, you can go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)** and disable 2FA through either SMS, or revocation code, without a need of logging in.
+**A:** No problem, you can use backup SteamGuard codes (if you have them). Alternatively, you can go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)** and disable 2FA through either SMS, or revocation code, without a need of logging in.
 
 ***
 
