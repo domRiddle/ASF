@@ -6,13 +6,9 @@ Okay, from now on I assume you already know what Escrow is. Now as you can see a
 
 # ASF 2FA
 
-The idea is simple. We already imitiate steam client, imitiate launching and playing a game, so why not imitate mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but is complicated as hell, and should be used only by advanced users.
+The idea is simple. We already imitiate steam client, imitiate launching and playing a game, so why not imitate mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but requires some effort, and should be used only by advanced users.
 
 To enable ASF 2FA, you need to have:
-- A phone number **capable of receiving SMSes**
-- An account with **turned off 2FA**, which you want to enable in ASF 2FA
-
-To enable 2FA + ASF 2FA, you need to have **either**:
 - Working steam authenticator in your Android phone
 - or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - or working steam authenticator in **[WinAuth](https://winauth.com/)**
@@ -21,61 +17,19 @@ Also a brain is needed for all of those tasks :+1:
 
 ***
 
-## Limitations
+## Import
 
-Currently ASF 2FA doesn't work well with accounts restricted with steam parental PIN. You won't be able to link ASF 2FA as new authenticator if that feature is enabled, you also won't be able to confirm trades or market listings. Therefore, it's **not recommended** to use ASF 2FA with steam parental together, although if you're extremely determined then you might be able to use half-broken authenticator, as generating tokens works fine. Still, I strongly suggest to disable steam parental if you want to use ASF 2FA. Perhaps this limitation will be solved in future releases.
-
-***
-
-## ASF 2FA (only)
-
-This part is for you if you want to use ASF 2FA only (no classic 2FA for account). This is useful for alt accounts, but should be completely avoided by primary ones.
-
-Firstly make sure that you pass all the requirements above, then you can start the fun through switching ```UseAsfAsMobileAuthenticator``` config property to ```true```. After starting ASF, and successfully logging in, you'll see ASF 2FA module becoming active. If you have classic SteamGuard active, you'll need to enter the auth code.
-
-```
-[*] NOTICE: LinkMobileAuthenticator() <1> Linking new ASF MobileAuthenticator...
-<1> Please enter the auth code sent to your email:
-```
-
-If you don't have any phone number linked to your account yet, you'll be prompted to enter it. ASF only asks for phone number if it's required, you might also enter it **[in your Steam settings](https://store.steampowered.com/phone/manage)** before doing this step. Please notice that number should be in international format starting from +CC (country code).
-```
-<1> Please enter your full phone number (e.g. +1234567890):
-```
-
-To link your phone number successfully, you'll be prompted to confirm it. Confirmation code should arrive instantly in SMS message.
-
-```
-<1> Please enter SMS code sent on your mobile:
-```
-
-After above step, assuming everything ended successfully, you should see:
-```
-[*] INFO: LinkMobileAuthenticator() <1> Successfully linked ASF as new mobile authenticator for this account!
-<1> PLEASE WRITE DOWN YOUR REVOCATION CODE: RXXXXX
-<1> THIS IS THE ONLY WAY TO NOT GET LOCKED OUT OF YOUR ACCOUNT!
-<1> Hit enter once ready...
-```
-
-You should save your revocation code in secure place (NOT in ASF folder). This is the only way to recover your account if something goes wrong, for example if you accidentally delete whole ASF folder, including your linked ASF mobile authenticator. Don't skip this step, or you'll deeply regret it later.
-
-From now onwards, ASF is able to use newly linked ASF mobile authenticator to generate 2FA tokens on as-needed basis.
-
-I also suggest making a backup of SteamGuard codes, which can be done **[here](https://store.steampowered.com/twofactor/manage)**
-
-***
-
-## 2FA + ASF 2FA
-
-This part is for you if you want to use ASF 2FA AND 2FA for the same account.
-
-This is much more complicated than using ASF 2FA only, but still possible. You can have only one authenticator enabled for given account, so instead of linking ASF 2FA as **new** authenticator, we'll instead import your current 2FA authenticator on your phone and use it in ASF 2FA. ASF supports three different sources of 2FA - Your Android phone, SteamDesktopAuthenticator and WinAuth.
+From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports three different sources of 2FA - Your Android phone, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
 
 ***
 
 ### Android phone
 
-In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below. You can also use WinAuth instead of SDA for this step, likewise, after you finish import, you should follow the rest of instructions. If you're not sure which program to use, use SDA if you don't have a rooted phone, and WinAuth if you have root access.
+In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below. You can also use WinAuth instead of SDA for this step, likewise, after you finish import, you should follow the rest of instructions.
+
+If you're not sure which program to use, use SDA if you don't have a rooted phone, and WinAuth if you have root access. SDA in general seems to cause trouble, and non-root method doesn't work for majority of the people, so most likely **root will be required to import authenticator from your phone**. You can still try SDA non-root method, but don't be shocked if it doesn't work.
+
+In any case, if you successfully imported your authenticator either into SDA (root/non-root), or WinAuth (root), proceed below.
 
 ***
 
@@ -88,53 +42,30 @@ You should now rename ```steamID.maFile``` to ```Bot.maFile``` where ```Bot``` i
 If you did everything correctly, launch ASF, and you should notice:
 
 ```
-[*] INFO: ImportAuthenticator() <1> Converting SDA .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Success!
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
+
+From now on, your ASF 2FA should be operational for this account.
 
 ***
 
 ### WinAuth
 
-WinAuth import is a bit more tricky than SDA, but still possible with a little more effort.
-
 **Make sure that you're using WinAuth in version 3.4 or higher, as older versions do not support Steam authenticator properly.**
 
-Firstly create new empty ```Bot.maFile``` file in ASF ```config``` directory. Remember that it should be ```Bot.maFile``` and NOT ```Bot.maFile.txt```, Windows likes to hide known extensions by default.
+Firstly create new empty ```Bot.maFile``` file in ASF ```config``` directory. Remember that it should be ```Bot.maFile``` and NOT ```Bot.maFile.txt```, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
 
 Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{```. Copy whole text into a ```Bot.maFile``` file created by you in previous step.
-
-**Notice:** Under some circumstances WinAuth can actually generate wrong JSON for ASF. If you notice following property in your generated JSON:
-
-```
-"status":null
-```
-
-Then you should correct it by changing ```null``` to ```1```, so it looks like this:
-```
-"status":1
-```
 
 If you did everything correctly, launch ASF, and you should notice:
 
 ```
-[*] INFO: ImportAuthenticator() <1> Converting SDA .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Success!
-[*] INFO: ImportAuthenticator() <1> ASF requires a few more steps to complete authenticator import...
-```
-
-This is when tricky part comes in. WinAuth is missing some required by ASF data, so you'll need to do some extra steps. Firstly you'll be prompted to enter your 2FA code, this should be done from your WinAuth.
-
-```
-<1> Please enter your 2 factor auth code from your authenticator app:
-```
-
-Then you'll be asked to put your android device ID:
-
-```
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 <1> Please enter your Device ID (including "android:"):
 ```
+
+This is when tricky part comes in. WinAuth is missing deviceID property that is required by ASF, so you'll need to do one more thing.
 
 Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including ```android:``` part into ASF.
 
@@ -148,25 +79,13 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 ***
 
-From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (android phone, SDA or WinAuth) to generate tokens and accept confirmations.
+From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (android phone, SDA, WinAuth, or all three) to generate tokens and accept confirmations.
 
-You can remove SteamDesktopAuthenticator and/or WinAuth after you're done, as we won't need it anymore, if you want to of course.
+If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Do as you please.
 
 ***
 
 ## FAQ
-
-**Q:** Why do you need a phone number, if 2FA is supposed to be ASF module?
-
-**A:** Becuase Valve requires confirmed phone number to enable 2FA, regardless if you like it or not. It's used only once, during linking, and you can also put it **[in your Steam settings](https://store.steampowered.com/phone/manage)** instead of in ASF window.
-
-***
-
-**Q:** Why account must not have 2FA enabled at the time of linking?
-
-**A:** You can have only one mobile authenticator linked to one account at given time. If you want to use ASF 2FA only, then you must not have any other authenticators enabled (obviously). If you want to use classic 2FA and ASF 2FA at the same time, then you should firstly set up classic authenticator on your phone, then import it to SteamDesktopAuthenticator/WinAuth, and then import it to ASF, as explained above.
-
-***
 
 **Q:** What if I need a 2FA token?
 
