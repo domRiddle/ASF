@@ -53,18 +53,18 @@ The example response of latest version has following form:
 
 ---
 
-### CardsFarmer
+### Bot
 
 ```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance.
+
+```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```.
+
+---
+
+### CardsFarmer
 
 ```GamesToFarm``` is a ```Dictionary<uint, float>``` object that maps appIDs to their current playtime, and contains games left to farm in this session. Please note that playtime is initially retrieved from Steam Community and updated only in ```Complex``` cards farming algorithm, until game reaches 2.0+. ASF won't bother updating data retrieved from Steam if there is no reason to (so when we don't need to farm hours for given appID).
 
 ```CurrentGamesFarming``` is a ```HashSet<uint>``` object that contains appIDs of the games we're farming right now. In comparison with ```GamesToFarm```, ```CurrentGamesFarming``` contains only appIDs that are being farmed at this moment (either for hours, or solo). It also doesn't contain playtime, which can be found in ```GamesToFarm```.
 
 ```ManualMode``` is a ```bool``` type that specifies if ```CardsFarmer``` is running in manual mode. Manual mode means that user is either playing his own specified game through ```!play``` command, or bot is ```!pause```d.
-
----
-
-### Bot
-
-```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```.
