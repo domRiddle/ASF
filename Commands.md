@@ -19,6 +19,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
 `!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
+`!lootall`                        | Issues ```!loot``` on all currently enabled ASF bots
 `!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!pause`                          | Pauses automatic farming of current bot instance. Also see ```!resume```
@@ -44,6 +45,8 @@ Above commands can be sent to the bot through three different ways:
 - Through steam private chat, by ```SteamMasterID```
 - Through steam group chat, by ```SteamMasterID```
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+
+Commands which are affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!statusall```, ```!lootall```, ```!update``` or ```!exit```.
 
 When using **WCF**, keep in mind that:
 - Commands should **NOT** be prefixed by ```!```
