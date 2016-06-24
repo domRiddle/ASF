@@ -86,7 +86,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```string``` - String type, accepting any sequence of characters, including empty sequence and ```null```. **Notice:** Remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```. That applies to manual way of editing configs, if you're using graphical config generator then program automatically does everything for you, just input your strings.
 
-```HashSet<uint>``` - Collection (set) of unique unsigned integers, accepting any number of them.
+```HashSet<uint>``` - Collection (set) of unique unsigned integers, separated by a comma.
 
 ---
 
