@@ -10,7 +10,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!2faok <BOT>`                    | Accepts all pending confirmations for given bot instance
 `!addlicense <appID1,appID2...>`  | Activates given ```appIDs``` on current bot instance (free games only) | ```!addlicense 440,570```
 `!addlicense <BOT> <appID1,appID2...>` | Activates given ```appIDs``` on given bot instance (free games only)
-`!api`                            | Returns ASF process status in JSON
+`!api`                            | Returns ASF process status in JSON, check **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** for more info
 `!exit`                           | Stops whole ASF
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <BOT>`                     | Restarts cards farming module for given bot instance
