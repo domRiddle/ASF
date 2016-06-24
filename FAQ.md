@@ -96,9 +96,15 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-**Q:** Can ASF minimize to tray?
+**Q:** Is there any way to communicate with ASF?
 
-**A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)** for Windows, or **[screen](http://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
+**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+
+***
+
+**Q:** ASF seems to be working, but I'm not receiving any card drops!
+
+**A:** Cards farming rate differs from game to game, as you can read in **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. It takes a while and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF switches the game in the console, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through ```DismissInventoryNotification``` bot config property. Check out **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for details.
 
 ***
 
