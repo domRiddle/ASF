@@ -212,3 +212,13 @@ Keep in mind that ASF has it's own built-in system to react accordingly to steam
 **Q:** ASF is being detected by my AV as Trojan: Win32/Fethar.B!cl!
 
 **A:** False positive. If you're worried about accuracy of previous statement, I suggest scanning ASF binary with many different AVs, for example through **[VirusTotal](https://virustotal.com/)**. A sample analysis result is available **[here](https://virustotal.com/file/0b48ba917be45cab793c343f133b3dbeaff262953d917512cb8fc92e4e9374f9/analysis/)**. Only Microsoft AVs, including Security Essentials and Windows Defender falsely detect ASF as a trojan - I already filled a report and sent back to Microsoft but they don't seem to care, so I don't care either. If you want to solve the issue, either use another AV, add ASF to some kind of exceptions, or tell Microsoft to fix their detection engine yourself, because they don't seem to listen to me. Or, just don't use the program if you don't trust it. For more info about the problem, see **[issue](https://github.com/gluck/il-repack/issues/152)**.
+
+***
+
+**Q:** ```Bot database could not be loaded, refusing to start this bot instance!```
+
+**A:** The above means that ```Bot.db``` of given bot instance is corrupted. Corruption can happen due to various reasons, including power outages, OS malfunctions, HDD problems and more. ASF can't magically fix your corrupted database, therefore you're required to fix it manually.
+
+You can do that by either restoring your previously backuped ```Bot.db```, or removing corrupted ```Bot.db```, so ASF will recreate it from scratch. ASF doesn't recreate database from scratch automatically because it doesn't know if it's appropriate or not, which is especially true if you had ```ASF 2FA``` enabled for this account, as you most likely want to import it once again.
+
+Until you fix the problem, given bot instance will be disabled and won't run, but it won't affect other configured bots functioning normally.
