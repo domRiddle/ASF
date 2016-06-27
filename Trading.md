@@ -26,7 +26,7 @@ When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of 
 
 Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property. It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
 
-First three predicates should be obvious for everyone. Last predicate includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+First 4 predicates should be obvious for everyone. Last predicate includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
 
 - Trade is good for us if the overall status of dupes decreases. Example: A A -> A B
 - Trade is neutral for us if the overall status of dupes doesn't change. Example: A B -> A C
