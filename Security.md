@@ -2,7 +2,7 @@
 
 ## SteamPassword
 
-ASF currently supports 4 types of passwords - ```PlainText```, ```AES```, ```ProtectedDataForCurrentUser``` and None (```null```/```""```).
+ASF currently supports 4 types of passwords - ```PlainText```, ```AES```, ```ProtectedDataForCurrentUser``` and None (```null``` / ```""```).
 
 ---
 
