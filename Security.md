@@ -10,7 +10,7 @@ In order to use encrypted password you should firstly generate it using ```!pass
 
 ### PlainText
 
-This is the most simple and insecure way of storing the password, defined as ```PasswordFormat``` of ```0```. ASF expects ```SteamPassword``` property to be a plain text - password being used to log in to Steam in it's direct form.
+This is the most simple and insecure way of storing the password, defined as ```PasswordFormat``` of ```0```. ASF expects ```SteamPassword``` property to be a plain text - password being used to log in to Steam in it's direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
 
 ---
 
