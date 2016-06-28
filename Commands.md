@@ -22,6 +22,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!lootall`                        | Issues ```!loot``` on all currently enabled ASF bots
 `!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
+`!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
+`!password <BOT>`                 | Prints encrypted password of given bot instance (in use with ```PasswordFormat```)
 `!pause`                          | Pauses automatic farming of current bot instance. Also see ```!resume```
 `!pause <BOT>`                    | Pauses automatic farming of given bot instance. Also see ```!resume```
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
