@@ -1,6 +1,6 @@
 # Trading
 
-ASF includes support for Steam non-interactive (offline) trades. Receiving trades as well as responding to them (accepting/declining) requires valid ```SteamApiKey``` set for given bot instance. Sending trades doesn't have any special requirements.
+ASF includes support for Steam non-interactive (offline) trades. Receiving trades as well as responding to them (accepting/declining) requires valid ```SteamApiKey``` set for given bot instance, and will not work without it. Sending trades doesn't have any special requirements.
 
 ***
 
