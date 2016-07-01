@@ -30,7 +30,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
-## VAC / Bans / ToS
+## Security / Privacy / VAC / Bans / ToS
 
 ***
 
@@ -77,6 +77,12 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 **Q:** Did somebody get banned for it?
 
 **A:** Up to today, I didn't hear of any single case where ASF would be directly responsible for any kind of steam suspension. Therefore, we can assume that Valve either doesn't care, or like I pointed above - ASF doesn't violate any terms of service. Valve didn't state whether they agree with what ASF (or IdleMaster) is doing, or not. Therefore, you should consider both programs as grey zone, and decide yourself if you're fine with using ASF or not. If you ask me, you should be perfectly fine, but nobody can guarantee that, as written above.
+
+***
+
+**Q:** What privacy information ASF discloses?
+
+**A:** ASF in default settings has ```Statistics``` option enabled. Statistics help ASF developers by providing them with information crucial to development cycle. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on. Currently statistics include only very minimalistic information - accounts being used by ASF will automatically join our **[steam group](http://steamcommunity.com/groups/ascfarm)** and the group chat. This is done for three reasons - first one, to provide **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated. Secondly, it allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. Lastly - it allows ASF developers to get some minimal data about usage of the application, especially number of actual users. Statistics are available for everyone, so you can check yourself how our steam group looks like, how many members it has, and how many bots are currently running (aka "on chat"). We're not gathering any other information, especially sensitive ones such as passwords, steam logins or even operating system you're using, and by keeping ```Statistics``` enabled you help ASF developers - which is **bare minimum** what you can (and should) do as user. It's still possible to disable even this minimalistic information, by switching ```Statistics``` to off in ASF configuration, as we respect your decision, but consider twice if you don't want to even tell us that you're ASF user - this decision might affect not only actual work being done on improving the program, but also receiving updates or support from ASF team. We leave you with a choice, and disclosing whole ASF activity, unlike many other programs that silently behind your back are selling your sensitive information to third-parties, so we hope that you also respect that we need bare minimal information to provide you with a better application. In the end - decision is upon you.
 
 ***
 
