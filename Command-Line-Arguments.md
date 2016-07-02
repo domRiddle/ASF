@@ -2,7 +2,7 @@
 
 ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of ```ASF.json``` configuration file, command-line arguments are supposed to be dynamic and not static, allowing you to e.g. use one ASF config for running both ```Server``` and ```Client``` WCF mode of ASF, without duplicating your configs. It's also preferred way when it comes to sensitive data, such as ```cryptkey```, as defining it in config defeats whole purpose of it.
 
-The order of specifying them matters, meaning that it's possible to combine e.g. ```--client exit --server``` in order to switch into client mode, execute ```!exit``` on remote ASF, then start another instance with ```--server```.
+The order of specifying them matters, meaning that it's possible to combine e.g. ```--client exit --server``` in order to switch into client mode, execute ```!exit``` on remote ASF, then start another instance with ```--server```. This can be useful in several situations, like the one above.
 
 ---
 
