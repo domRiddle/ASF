@@ -4,7 +4,7 @@
 
 ASF currently supports 4 types of passwords - ```PlainText```, ```AES```, ```ProtectedDataForCurrentUser``` and None (```null``` / ```""```).
 
-In order to use encrypted password, you should firstly log in to Steam as usual, either with ```PlainText``` or None option, then you're able to generate encrypted passwords using ```!password``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as ```SteamPassword``` bot config property, and finally don't forget to change ```PasswordFormat``` to the one that matches your chosen encryption method.
+In order to use encrypted password, you should firstly log in to Steam as usual, either with ```PlainText``` or None option, then generate encrypted passwords using ```!password``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as ```SteamPassword``` bot config property, and finally don't forget to change ```PasswordFormat``` to the one that matches your chosen encryption method.
 
 ---
 
