@@ -28,6 +28,6 @@ mono ASF.exe --argument --otherOne
 
 ```--client``` - will start ASF in ```Client``` mode. This option affects **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, and will cause ASF to shutdown after last command specified.
 
-```--cryptkey=XXX``` - will start ASF win custom cryptographic key of ```XXX``` value. This option affects **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided ```XXX``` key instead of default one hardcoded into the executable.
+```--cryptkey=XXX``` - will start ASF with custom cryptographic key of ```XXX``` value. This option affects **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided ```XXX``` key instead of default one hardcoded into the executable.
 
 ```"actual command"``` - will execute ```!actual command``` on remotely connected ASF running in ```Server``` mode. This option affects **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, and requires ```--client``` to be provided firstly. Please note that if command contains space, it should be quoted, as stated in WCF section.
