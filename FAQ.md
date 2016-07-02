@@ -215,7 +215,7 @@ Keep in mind that ASF has it's own built-in system to react accordingly to steam
 
 ***
 
-**Q:** ASF is being detected by my AV as Trojan: Win32/Fethar.B!cl!
+**Q:** ASF is being detected by my AV as Trojan: Win32/Fethar.B!cl / Trojan:Win32/Zulushal.C!cl!
 
 **A:** False positive. If you're worried about accuracy of previous statement, I suggest scanning ASF binary with many different AVs, for example through **[VirusTotal](https://virustotal.com/)**. A sample analysis result is available **[here](https://virustotal.com/file/d40cc117c485046990e9e5c4640b62571abb5c4a4b82125f2b31f43fa5499e6c/analysis/1467438651/)**. Only Microsoft AVs, including Security Essentials and Windows Defender falsely detect ASF as a trojan - I already filled a report and sent back to Microsoft but they don't seem to care, so I don't care either. If you want to solve the issue, either use another AV, add ASF to some kind of exceptions, or tell Microsoft to fix their detection engine yourself, because they don't seem to listen to me. Or, just don't use the program if you don't trust it. For more info about the problem, see **[issue](https://github.com/gluck/il-repack/issues/152)**.
 
