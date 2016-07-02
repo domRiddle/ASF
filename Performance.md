@@ -38,9 +38,9 @@ If you notice that **at least one** game took less than 2 hours to farm:
 [*] INFO: FarmSolo() <archi> Done farming: 269250 after 01:30 hours of playtime!
 ```
 
-Then it means that your account is **not** restricted, so you should keep ```CardDropsRestricted``` at ```false```.
+Then it means that your account is **not** restricted, so you should keep ```CardDropsRestricted``` at ```false```. Keep in mind that result a bit higher such as 2:30-2:40 can also be acceptable and suggest that your account is not restricted.
 
-However, if you notice that **every** game takes more than 2 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted you need to test at least 10 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
+However, if you notice that **every** game takes more than 2-4 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted you need to test at least 10 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
 
 In the end, of course, decision is up to you.
 
