@@ -94,7 +94,8 @@ while [[ -f ASF.exe ]]; do # While ASF.exe binary exists
     if ! mono ASF.exe; then # Start ASF, and if it exited with error
         break # Abort the loop
     fi # Otherwise
-done # Start ASF.exe again
+    sleep 1 # Wait a second
+done # And Start ASF.exe again
 ```
 
 You might want to save above script for example as ```asf.sh```, chmod it ```755```, and execute it for example through ```screen```, which would result in command ```screen -dmS ASF /path/to/asf.sh``` or similar. This way you'll always have ASF running in your ```screen``` terminal, and you can easily check ASF output via ```screen -r```, or minimize it again with ```CTRL + A + D```. Keep in mind that those instructions are based on Linux distributions with ```bash``` shell available, instructions for other distributions or OS X might be different.
