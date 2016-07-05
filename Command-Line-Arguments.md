@@ -26,7 +26,7 @@ mono ASF.exe --argument --otherOne
 
 ```--server``` - will start ASF in ```Server``` mode. This option affects **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, as well as disables auto-exit of ASF process when no bots are enabled (which is wanted behaviour in combination with WCF).
 
-```--client``` - will start ASF in ```Client``` mode. This option affects **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, and will cause ASF to shutdown after last command specified.
+```--client``` - will start ASF in ```Client``` mode. This option affects **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, and will cause ASF to shutdown after last command specified, unless you switch the mode back to ```--server``` after executing last command.
 
 ```--cryptkey=XXX``` - will start ASF with custom cryptographic key of ```XXX``` value. This option affects **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided ```XXX``` key instead of default one hardcoded into the executable.
 
