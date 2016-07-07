@@ -64,7 +64,7 @@ We can also modify the config to log to more than one target. Let's log to ```Co
 
 And done, we'll now log everything to ```ColoredConsole``` and ```File```. Did you notice that you can also specify custom ```fileName``` and extra options?
 
-Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything to the file, but only ```Warning``` and above **[log leve](https://github.com/nlog/nlog/wiki/Log-levels)** to the ```ColoredConsole```. We can achieve that by modifying our ```rules```:
+Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything to the file, but only ```Warning``` and above **[log level](https://github.com/nlog/nlog/wiki/Log-levels)** to the ```ColoredConsole```. We can achieve that by modifying our ```rules```:
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
