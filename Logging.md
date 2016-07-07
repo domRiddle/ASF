@@ -12,7 +12,7 @@ Using custom NLog config automatically disables default ASF one, which includes 
 
 ## Examples
 
-Let's start from something easy. We will use colored console target only. Our initial ```NLog.config``` will look like this:
+Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial ```NLog.config``` will look like this:
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -29,7 +29,7 @@ Let's start from something easy. We will use colored console target only. Our in
 
 If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` target will be active, and ASF won't write to ```File```, neither to ```EventLog```, regardless of ```ASF.json``` configuration.
 
-Now let's say that we don't like default format of ```${longdate}|${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+Now let's say that we don't like default format of ```${longdate}|${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -46,7 +46,7 @@ Now let's say that we don't like default format of ```${longdate}|${level:upperc
 
 If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of ```BotName|Function() Message```.
 
-We can also modify the config to log to more than one target. Let's log to console and file at the same time.
+We can also modify the config to log to more than one target. Let's log to ```ColoredConsole``` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
