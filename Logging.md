@@ -82,3 +82,9 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 ```
 
 That's it, now our ```ColoredConsole``` will show only warnings and above, while still logging everything to ```File```. You can further tweak it to log e.g. only ```Info``` and below, and so on.
+
+---
+
+## Advanced
+
+The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in ```Database```), logs rotation (such as removing old ```File``` logs), using custom ```Layout```s and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
