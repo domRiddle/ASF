@@ -81,4 +81,4 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 </nlog>
 ```
 
-That's it, now our ```ColoredConsole``` will show only warnings and above, while logging everything to the file. You can further tweak it to log e.g. only ```Info``` and below, and so on.
+That's it, now our ```ColoredConsole``` will show only warnings and above, while still logging everything to ```File```. You can further tweak it to log e.g. only ```Info``` and below, and so on.
