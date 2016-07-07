@@ -57,7 +57,8 @@ We can also modify the config to log to more than one target. Let's log to ```Co
   </targets>
 
   <rules>
-    <logger name="*" minlevel="Trace" writeTo="ColoredConsole,File" />
+    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Trace" writeTo="File" />
   </rules>
 </nlog>
 ```
@@ -88,3 +89,9 @@ That's it, now our ```ColoredConsole``` will show only warnings and above, while
 ## Advanced
 
 The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in ```Database```), logs rotation (such as removing old ```File``` logs), using custom ```Layout```s and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
+
+---
+
+## Limitations
+
+ASF will temporarily disable **all** rules that include ```ColoredConsole``` or ```Console``` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in ```writeTo``` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clear when waiting for user input.
