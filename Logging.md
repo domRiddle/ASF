@@ -12,7 +12,7 @@ Using custom NLog config automatically disables default ASF one, which includes 
 
 ## Examples
 
-Let's start from something easy. Let's use colored console target only. Our ```NLog.config``` will look like this:
+Let's start from something easy. We will use colored console target only. Our initial ```NLog.config``` will look like this:
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
