@@ -6,7 +6,7 @@ Starting from version V2.1.2.0, ASF now allows you to configure your own custom 
 
 ## Default logging
 
-Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```File``` (if ```LogToFile``` is ```true```) and ```EventLog``` (if ASF is started as a service). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```EventLog``` (if ASF is started as a service) and ```File``` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
 ---
 
