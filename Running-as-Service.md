@@ -4,7 +4,7 @@ ASF supports being run as Service - this mode can be especially useful on Window
 
 ---
 
-# Installation
+## Installation
 
 At the moment normal ASF binary is not capable to be used in service environment, this limitation might be solved in future (see: **[issue](https://github.com/Fody/Costura/issues/164)**). Until then, there is special ```ASF-Service.exe``` binary provided in releases that can be used for that purpose, and it should be used instead of ```ASF.exe```. It has exactly the same functionality, including auto-updates as normal ASF.exe binary, while using different repacking method suitable for being used as a service.
 
@@ -22,6 +22,12 @@ If installation went successfully, you can now find your ASF service in **[Servi
 
 ---
 
-# Functionality
+## Functionality
 
 Running ASF as a service should result in the same functionality as running ASF in usual way, with some extra integration features that make it easier for you to manage ASF. Such extras include e.g. tweaked **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)** module that will write logs to ```EventLog``` instead of ```File``` by default when ASF is running as a service. You can modify default behaviour in Logging settings linked above if you for some reason would like to customize it.
+
+---
+
+## Limitations
+
+Service mode offered in ASF comes as an extra, and is not being used in our testing environment. It should work properly, but in the end various limitations may apply. One of those is the fact that ASF doesn't seem to be able to restart itself when being run as a service, that's why it's recommended to set ```AutoRestart``` to false. Apart from that, there are no more known limitations, but because of not being carefully tested, it's possible that there might be more unknown ones.
