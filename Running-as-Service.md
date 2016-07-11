@@ -10,7 +10,7 @@ At the moment normal ASF binary is not capable to be used in service environment
 
 In order to install ```ASF-Service.exe```, you should use **[InstallUtil.exe](https://msdn.microsoft.com/library/50614e95(v=vs.110).aspx)**. Typically this binary can be found in C:\Windows\Microsoft.NET\Framework(64)\VERSION where VERSION should be latest available .NET runtime version, such as ```v4.0.30319``` right now. ```InstallUtil.exe``` must be executed with admin rights, so if you want to execute it through ```cmd```, make sure to start ```cmd``` as administrator.
 
-Complete command should look like this:
+Complete command on Windows 10 64-bit looks like this:
 
 ```
 C:\Windows\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe C:\Path\To\ASF-Service.exe
