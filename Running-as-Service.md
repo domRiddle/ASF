@@ -1,6 +1,6 @@
 # Running as Service
 
-ASF supports being run as Service - this mode can be especially useful on Windows. Running as service on Mono were not tested and most likely won't work due to many current Mono limitations, it's suggested to use classic Unix integration in this case, such as systemd.
+ASF supports being run as Service - this mode can be especially useful on Windows. Running as service on Mono was not tested and most likely won't work due to many current Mono limitations, it's suggested to use classic Unix integration in this case, such as systemd.
 
 ---
 
