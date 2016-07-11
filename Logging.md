@@ -12,6 +12,7 @@ Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
 
 ```
 ${date:format=yyyy-MM-dd HH\:mm\:ss}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}
+```
 
 ```EventLog``` already includes date and severity, therefore layout there comes without those two information:
 
