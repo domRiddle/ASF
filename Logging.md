@@ -8,6 +8,17 @@ Starting from version V2.1.2.0, ASF allows you to configure your own custom logg
 
 Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```EventLog``` (if ASF is started as a service) and ```File``` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
+Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
+
+```
+${date:format=yyyy-MM-dd HH\:mm\:ss}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}
+
+```EventLog``` already includes date and severity, therefore layout there comes without those two information:
+
+```
+${message}${onexception:inner= ${exception:format=toString,Data}}
+```
+
 ---
 
 ## Examples
