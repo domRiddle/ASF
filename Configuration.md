@@ -114,9 +114,7 @@ Global config is located in ```ASF.json``` file and has following structure:
   "HttpTimeout": 60,
   "WCFHostname": "localhost",
   "WCFPort": 1242,
-  "LogToFile": true,
   "Statistics": true,
-  "HackIgnoreMachineID": false,
   "Blacklist": [
     267420,
     303700,
@@ -170,11 +168,7 @@ All options are explained below:
 
 ```WCFPort``` - ```ushort``` type with default value of ```1242```. This is the port on which **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)** is running by default. You may want to change it to any port you want, suggested ports are above ```1024```, as ports ```0-1024``` typically require ```root``` priviledges on Unix-like operating systems. Remember that this property should be the same on both ```server``` and ```client``` machines (if they're not the same). Unless you have a reason to edit this property, you should keep it at default.
 
-```LogToFile``` - ```bool``` type with default value of ```true```. This property defines if ASF should maintain ```log.txt``` with the log of it's latest run. As explained above, log file is useful for you as it allows you to analyze what ASF is doing, and it's also crucial if you decide to report some ASF bug. On the other hand, if you have many bot instances, it's possible that log file will grow big pretty fast, and instead of letting ASF to log "everything" to it's log, you might want to redirect standard output (```stdout```) somewhere else, e.g. to the ```grep``` filters of your choice. In this case, you're not really interested anymore in the log file, as you're logging standard output of ASF yourself, therefore you can simply disable file logging provided by ASF. However, if you're not logging output yourself, consider leaving this property with default value of ```true```, even if you're sure that you have no use of generated log file - it's crucial for ASF developers to identify bugs if you decide to report one. **Notice:** This option is affected by **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)** module and will be entirely ignored if you specify your custom logging configuration file. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
 ```Statistics``` - ```bool``` type with default value of ```true```. This property defines if ASF should have statistics enabled. Statistics help ASF developers by providing them with information crucial to development cycle. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on. Currently statistics include only very minimalistic information - accounts being used by ASF will automatically join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons - first one, to provide **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated. Secondly, it allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. Lastly - it allows ASF developers to get some minimal data about usage of the application, especially number of actual users. Statistics are available for everyone, so you can check yourself how our steam group looks like, how many members it has, and how many bots are currently running (aka "on chat"). We're not gathering any other information, especially sensitive ones such as passwords, steam logins or even operating system you're using, and by keeping ```Statistics``` enabled you help ASF developers - which is **bare minimum** what you can (and should) do as user. It's still possible to disable even this minimalistic information, by switching ```Statistics``` to off in ASF configuration, as we respect your decision, but consider twice if you don't want to even tell us that you're ASF user - this decision might affect not only actual work being done on improving the program, but also receiving updates or support from ASF team. We leave you with a choice, and disclosing whole ASF activity, unlike many other programs that silently behind your back are selling your sensitive information to third-parties, so we hope that you also respect that we need bare minimal information to provide you with a better application. In the end - decision is upon you. Unless you have a reason to edit this property, you should keep it at default.
-
-```HackIgnoreMachineID``` - ```bool``` type with default value of ```false```. This property acts as a workaround for broken GenerateMachineID() function in SK2. If ASF is "stuck" right after ```Connected to Steam!``` and ```Logging in...```, then you may need to enable this option. This option is a hack, and **will be removed as soon as GenerateMachineID() bug is fixed**. Refer to https://github.com/JustArchi/ArchiSteamFarm/issues/154 and https://github.com/SteamRE/SteamKit/issues/254 for more info. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ```Blacklist``` - ```HashSet<uint>``` type with default value of ```267420, 303700, 335590, 368020, 425280, 480730``` appIDs. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ```Blacklist``` serves a purpose of marking those badges as not available for farming, so ASF can silently ignore them when deciding what to farm. ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcoded into the ASF process and not possible to edit, and normal ```Blacklist```, which is defined here. The only purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded ```GlobalBlacklist``` is being updated as fast as possible, therefore you're not required to update your own ```Blacklist``` if you're using latest ASF version, but without ```Blacklist``` you'd be forced to update in order for ASF to "keep running" when Valve releases new sale badge, therefore this property is here to allow you "fix" ASF yourself if you for some reason don't want to update to new hardcoded ```GlobalBlacklist``` in new ASF release, yet you want your old ASF to keep running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -213,10 +207,9 @@ As you should know already, every bot should have it's own config. Example bot c
   "SteamTradeToken": null,
   "SendTradePeriod": 0,
   "AcceptConfirmationsPeriod": 0,
+  "CustomGamePlayedWhileFarming": null,
   "CustomGamePlayedWhileIdle": null,
-  "GamesPlayedWhileIdle": [
-    0
-  ]
+  "GamesPlayedWhileIdle": [ ]
 }
 ```
 
@@ -272,9 +265,11 @@ All options are explained below:
 
 ```AcceptConfirmationsPeriod``` - ```byte``` type with default value of ```0```. This property makes sense only if you have **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** enabled for this account. Recently Valve introduced additional restrictions, and now every item listed on the market requires additional 2FA confirmation. This option works the same as ```!2faok``` command, ASF will automatically accept all pending confirmations every ```AcceptConfirmationsPeriod``` minutes. Default value of ```0``` disables this feature. In general it's not recommended to enable this option, but if you want to keep it enabled, you should use rather long period, such as ```30``` minutes. If you're not sure how to set this property, leave it with default value of ```0```.
 
-```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. When ASF is idle, which means that it has nothing to do (as account is fully farmed), it can display itself as "Playing non-steam game: ```CustomGamePlayedWhileIdle```". Default value of ```null``` disables this feature.
+```CustomGamePlayedWhileFarming``` - ```string``` type with default value of ```null```. When ASF is farming, it can display itself as "Playing non-steam game: ```CustomGamePlayedWhileFarming```" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use ```FarmOffline``` feature. Default value of ```null``` disables this feature.
 
-```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of ```0```. Similar to above, if ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. Including default value of ```0``` in the collection disables this feature.
+```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. Similar to above, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of ```null``` disables this feature.
+
+```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of ```0```. If ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with ```CustomGamePlayedWhileIdle``` in order to play your selected games while showing custom status in Steam Network.
 
 ---
 
