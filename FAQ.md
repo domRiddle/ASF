@@ -172,12 +172,6 @@ Which is clearly Steam issue and nothing to fix in ASF. You can always try to vi
 
 ***
 
-**Q:** ASF seems to be stuck after ```Connected to Steam!``` and ```Logging in...```. Nothing is happening!
-
-**A:** This is an issue of SteamKit2 library that ASF is using. It was already reported and is pending to fix. Until it gets fixed, I suggest switching ```HackIgnoreMachineID``` global config property to ```true```, which works around this issue. You can read more about the issue **[here](https://github.com/JustArchi/ArchiSteamFarm/issues/154)**.
-
-***
-
 **Q:** ASF seems to freeze and doesn't print anything on the console!
 
 **A:** You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](http://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
