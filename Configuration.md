@@ -310,7 +310,7 @@ But what if you want to add ```CardDropsRestricted``` to that config? It's simpl
 }
 ```
 
-Remember to keep proper JSON structure - strings should be contained in ```""```, and there should be ```,``` at the end of each config property, but not the last one.
+Remember to keep proper JSON structure - strings should be contained in ```""```, and there should be ```,``` at the end of each config property, but not the last one. If you're not sure if your config is proper, you can always **[validate it](http://jsonlint.com/)**.
 
 ---
 
