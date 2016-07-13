@@ -118,13 +118,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** Is there any way to communicate with ASF?
 
-**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
-
-***
-
-**Q:** Is there any way to communicate with ASF?
-
-**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**.
 
 ***
 
