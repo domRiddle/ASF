@@ -136,7 +136,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** How many bots can I run with ASF?
 
-**A:** ASF as a program doesn't have any upper limit of bot instances, however - steam includes some restrictions. Currently you can run up to 100-110 bots with one IP and 1 ASF instance. It is possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself (such as making sure that all of them in fact are logging in and working at the same time).
+**A:** ASF as a program doesn't have any upper limit of bot instances, however you're still being limited by Steam Network. Currently you can run up to 100-110 bots with single IP and single ASF instance. It is possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself (such as making sure that all of them in fact are logging in and working at the same time). Also notice that the limit above in general depends on many internal factors - it's approximation rather than strict limit - you will most likely be able to run more/less bots than specified above.
 
 ***
 
