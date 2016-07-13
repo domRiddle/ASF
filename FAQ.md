@@ -56,7 +56,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 **Q:** Can I get VAC ban for using this?
 
-**A:** No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor it's processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running. ASF is the only farming program that can currently guarantee that.
+**A:** No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor it's processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
 ***
 
