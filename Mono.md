@@ -121,7 +121,7 @@ Missing method...
 ```
 
 **Solution:**
-This is **almost always** the issue caused by outdated Mono, as ASF makes use of .NET features that are unavailable in your currently framework. Install latest Mono as pointed out above, and the issue should go away.
+This is **almost always** the issue caused by outdated Mono, as ASF makes use of .NET features that are unavailable in your currently installed version. Install latest Mono as pointed out above, and the issue should go away.
 
 ---
 
