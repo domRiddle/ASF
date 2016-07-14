@@ -8,7 +8,7 @@ This page covers Mono-related issues, instructions, questions and provides gener
 
 ASF is officially compatible (and supported) only with latest ```stable``` and ```nightly``` version of Mono. The program is supposed to compile, as well as run correctly with those two versions of Mono. The support also includes all necessary hacks/workarounds in the code that ensure stability and compatibility of ASF on Mono.
 
-Every version that is older than latest ```stable``` is **not** supported and may, or may not, work correctly. ASF cannot guarantee 100% compatibility and stability in this case, but unofficially it's known that ASF usually tends to works fine even on older versions, as long as runtime doesn't contain major bugs, so it's not technically "required" to always run ASF with latest stable/nightly version, but with every major revision behind you risk running into issues - issues that might not be visible right away.
+Every version that is older than latest ```stable``` is **not** supported and may, or may not, work correctly. ASF cannot guarantee 100% compatibility and stability in this case, but unofficially it's known that ASF usually tends to works fine even on older versions, as long as runtime doesn't contain major bugs. That's why it's not technically "required" to always run ASF with latest stable/nightly version, but with every major revision behind you risk running into issues - issues that might not be visible right away. Therefore, make sure you're running latest Mono if you spot some nasty thing going on before reporting an issue.
 
 ---
 
