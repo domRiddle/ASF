@@ -117,6 +117,16 @@ Most (if not all) of the issues are directly caused by outdated Mono. Mono shipp
 
 **Problem:**
 ```
+Missing method...
+```
+
+**Solution:**
+This is **almost always** the issue caused by outdated Mono, as ASF makes use of .NET features that are unavailable in your currently framework. Install latest Mono as pointed out above, and the issue should go away.
+
+---
+
+**Problem:**
+```
 Unhandled Exception:
 System.Security.Cryptography.CryptographicException: Private/public key mismatch
 ```
