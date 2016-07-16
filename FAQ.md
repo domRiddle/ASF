@@ -106,6 +106,12 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** Can ASF work on my android?
+
+**A:** ASF is a C# program and requires working implementation of .NET framework - either official one (Microsoft), or unofficial one (Mono). There is no Mono available for Android (natively), so ASF won't work on Android. It might be possible to port ASF to Android using **[Xamarin](https://www.xamarin.com/)**, but that's not on ASF roadmap and not being actively developed. Perhaps in future with progress of **[.NET Core](https://dotnet.github.io/)** it will be possible.
+
+***
+
 ## Misc
 
 ***
