@@ -158,6 +158,12 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** ```System.MissingMethodException: System.Array.Empty()```
+
+**A:** This error indicates that your .NET framework doesn't support latest 4.6 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
+
+***
+
 **Q:** ASF is failing with ```Request failed even after 5 tries, WTF?``` errors!
 
 **A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
