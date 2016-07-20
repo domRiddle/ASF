@@ -7,17 +7,17 @@ If you arrived here for the first time, welcome!
 ## Quick configuration
 
 - Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else.
-- Unpack archive to whenever you want
-- Launch ASF-ConfigGenerator.exe
-- Hit **+**
+- Unpack archive to whenever you want.
+- Launch ASF-ConfigGenerator.exe.
+- Hit **+** button on the top.
 - Name your bot however you want, I suggest ```1``` or ```Primary``` or ```Main```.
-- Switch ```Enabled``` property from ```false``` to ```true```
-- Put your steam login in ```SteamLogin```
-- Put your steam password in ```SteamPassword```
-- Close ASF-ConfigGenerator
-- Launch ASF.exe
-- If you use SteamGuard or 2FA, input tokens in the console once asked, and confirm with enter
-- ASF should be working
+- Switch ```Enabled``` property from ```false``` to ```true```.
+- Put your steam login in ```SteamLogin```.
+- Put your steam password in ```SteamPassword```.
+- Close ASF-ConfigGenerator.
+- Launch ASF.exe.
+- If you use SteamGuard or 2FA, input tokens in the console once asked, and confirm with enter.
+- ASF should be working.
 
 ***
 
