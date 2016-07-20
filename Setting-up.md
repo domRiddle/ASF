@@ -12,9 +12,9 @@ If you arrived here for the first time, welcome!
 - Skip tutorial
 - Hit **+** button on the top.
 - Name your bot however you want, I suggest ```1``` or ```Primary``` or ```Main```.
-- Switch ```Enabled``` property from ```false``` to ```true```.
 - Put your steam login in ```SteamLogin```.
 - Put your steam password in ```SteamPassword```.
+- Switch ```Enabled``` property from ```false``` to ```true```.
 - Close ASF-ConfigGenerator.
 - Launch ASF.exe.
 - If you use SteamGuard or 2FA, input tokens in the console once asked, and confirm with enter.
