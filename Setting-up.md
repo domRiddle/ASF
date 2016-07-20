@@ -6,6 +6,8 @@ If you arrived here for the first time, welcome!
 
 ## Quick configuration
 
+This is an option for those who don't want to learn how ASF works in-depth and just want to make it working. It can be achieved in less than 5 minutes.
+
 - Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else.
 - Unpack archive to whenever you want.
 - Launch ASF-ConfigGenerator.exe.
@@ -18,7 +20,9 @@ If you arrived here for the first time, welcome!
 - Close ASF-ConfigGenerator.
 - Launch ASF.exe.
 - If you use SteamGuard or 2FA, input tokens in the console once asked, and confirm with enter.
-- ASF should be working.
+- ASF should be working. Check out console output to see what is happening.
+
+If you did everything correctly, you should see that ASF is working nicely. You can keep using ASF like this, or head over to detailed configuration below to fully understand what ASF offers, together with every configurable option.
 
 ***
 
