@@ -27,7 +27,7 @@ From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode -
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** includes non-root **[method](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** of doing that as well, but it doesn't work more often than it does, so you can try that one first (if you want to) prior using root method, or start from the root method right away, up to you.
 
-Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root/)** for excellent guides on how to do that, as well as general information.
+Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root/)** for excellent guides on how to do that, as well as general information. If you can't find your device or the tutorial you need, try to find it on google.
 
 During import process we will need to access protected files. Therefore you should download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one, really). You can also use ADB (Android Debug Bridge) or any other available to you way of accessing and copying protected files to your PC.
 
