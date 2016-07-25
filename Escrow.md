@@ -25,11 +25,24 @@ From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode -
 
 ### Android phone
 
-In order to import from your Android phone, you should download **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** and **[import your account from android phone](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**. Visit those two links in order to learn how to do that in a right way. After successfully importing, follow the rest of instructions for SDA below. You can also use WinAuth instead of SDA for this step, likewise, after you finish import, you should follow the rest of instructions.
+In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS)** access. **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** includes non-root **[method](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** of doing that as well, but it doesn't work more often than it does, so you can try that one first (if you want to) prior to rooting and using root method, up to you.
 
-If you're not sure which program to use, use SDA if you don't have a rooted phone, and WinAuth if you have root access. SDA in general seems to cause trouble, and non-root method doesn't work for majority of the people, so most likely **root will be required to import authenticator from your phone**. You can still try SDA non-root method, but don't be shocked if it doesn't work.
+If you already have root, then you might choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. First option is more friendly and allows you to duplicate your authenticator also on your PC, allowing you to make confirmations and generate tokens from 3 different places - your phone, your PC and ASF. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions. When done, you can then import this authenticator from WinAuth to ASF, which is explained below.
 
-In any case, if you successfully imported your authenticator either into SDA (root/non-root), or WinAuth (root), proceed below.
+If you don't want or don't need to go through WinAuth, then simply copy ```/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX``` where XXX is your ```SteamID``` of the account you want to add (if more than one, because if you have only one then this will be the only file). You should then put this file as ```Bot.maFile``` in ASF config directory, where ```Bot``` is name of the bot you want to add 2FA to. After this step, launch ASF - it should notice the ```.maFile``` and import it.
+
+```
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+<1> Please enter your Device ID (including "android:"):
+```
+
+You will need to do only one more step - find your ```DeviceID``` property in ```/data/data/com.valvesoftware.android.steam.community/shared_prefs/steam.uuid.xml```. It will be inside XML tags and starting with ```android:```. Copy that and put it in ASF as asked. If you did everything correctly, import should be finished.
+
+```
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
+
+Please confirm that accepting confirmations in fact works. If you made a mistake while entering your ```DeviceID``` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove ```Bot.db``` and start over if needed.
 
 ***
 
