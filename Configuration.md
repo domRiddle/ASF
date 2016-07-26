@@ -269,7 +269,7 @@ All options are explained below:
 
 ```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. Similar to above, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of ```null``` disables this feature.
 
-```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with ```CustomGamePlayedWhileIdle``` in order to play your selected games while showing custom status in Steam Network.
+```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with ```CustomGamePlayedWhileIdle``` in order to play your selected games while showing custom status in Steam Network, but in this case, like in ```CustomGamePlayedWhileFarming``` case, the actual display order is not guaranteed.
 
 ---
 
