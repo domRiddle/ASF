@@ -11,7 +11,7 @@ This is an option for those who don't want to learn how ASF works in-depth and j
 - Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else.
 - Unpack archive to whenever you want.
 - Launch ASF-ConfigGenerator.exe.
-- Skip tutorial
+- Follow the tutorial (if you want to)
 - Hit **+** button on the top.
 - Name your bot however you want, I suggest ```1``` or ```Primary``` or ```Main```.
 - Put your steam login in ```SteamLogin```.
