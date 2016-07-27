@@ -49,7 +49,7 @@ export MONO_GC_PARAMS="nursery-size=512k,soft-heap-limit=128m,save-target-ratio=
 
 I suggest to further tune ```soft-heap-limit``` to size that you expect from ASF to occupy at most, and also read about other variables I put in ```man mono```. **Note:** ```soft-heap-limit``` doesn't specify maximum allowed memory for ASF to use, as we can't put any hard limit on GC, we can only suggest GC how much we can expect from ASF to use, but if there will be a need, GC is free to ignore our tip to satisfy ASF needs. I suggest to set this parameter to 75-90% of free memory you expect to have.
 
-For optimal performance, you should also adapt ```nursery-size``` to fit ```soft-heap-limit```. I suggest ```nursery-size``` of ```512k``` for ```128m``` soft-heap-limit, ```1m``` for ```256m```, ```2m``` for ```512m``` and ```4m``` for above.
+For optimal performance, you should also adapt ```nursery-size``` to fit ```soft-heap-limit```. I suggest ```nursery-size``` of ```512k``` for ```128m``` soft-heap-limit, ```1m``` for ```256m```, ```2m``` for ```512m``` and ```4m``` for above (although you probably don't have memory problems when you're going that high).
 
 **Also keep in mind that above ```MONO_GC_PARAMS``` will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.** In my case, using above MONO_GC_PARAMS decreased performance of parsing badge pages from **20** to **32** seconds, but also decreased memory footprint from maximum of **24.9%** to maximum of **19.8%**, so it's **47.5%** lower performance for **20.5%** smaller memory footprint. Decide yourself if it's a good tradeoff for you.
 
