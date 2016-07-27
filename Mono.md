@@ -107,6 +107,8 @@ If you want to run ASF in non-interactive way such as on start of your server wi
 
 Everything above is specific to your configuration. This is only example of usage, feel free to further modify the script however you wish.
 
+**Notice:** If you're using ASF on a machine with low amount of memory (512 MB or less), you might be interested in tuning the Mono to your needs. Visiting **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** might help.
+
 ---
 
 # Issues and solutions
