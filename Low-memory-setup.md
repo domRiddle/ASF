@@ -111,6 +111,10 @@ If your compilation succeeded, then you can find your brand new mono in ```$PREF
 #!/bin/bash
 
 MONO_PREFIX=/opt/mono-unstable
+
+# Don't forget to tune these
+export MONO_GC_PARAMS="nursery-size=512k,soft-heap-limit=128m,save-target-ratio=0.1,default-allowance-ratio=1.0"
+
 export DYLD_FALLBACK_LIBRARY_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
 export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
 export C_INCLUDE_PATH=$MONO_PREFIX/include
