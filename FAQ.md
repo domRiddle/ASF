@@ -164,9 +164,9 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-**Q:** ```System.MissingMethodException: System.Array.Empty()```
+**Q:** ```System.MissingMethodException```
 
-**A:** This error indicates that your .NET framework doesn't support latest 4.6 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
+**A:** This error indicates that your .NET framework doesn't support latest 4.6.1 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
 
 ***
 
