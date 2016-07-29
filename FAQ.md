@@ -3,7 +3,6 @@
 ***
 
 # Table of contents
-=================
 
 * [General](#general)
 * [Idle Master comparison](#idle-master-comparison)
