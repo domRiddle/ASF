@@ -26,6 +26,12 @@ ASF still fully depends on Steam Network - it can't farm games that account does
 
 ***
 
+**Q:** Can ASF work on my android?
+
+**A:** ASF is a C# program and requires working implementation of .NET framework - either official one (Microsoft), or unofficial one (Mono). There is no Mono available for Android (natively), so ASF won't work on Android. It might be possible to port ASF to Android using **[Xamarin](https://www.xamarin.com/)**, but that's not on ASF roadmap and not being actively developed. Perhaps in future with progress of **[.NET Core](https://dotnet.github.io/)** it will be possible.
+
+***
+
 ## Idle Master comparison
 
 ***
@@ -115,12 +121,6 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 **Q:** What privacy information ASF discloses?
 
 **A:** ASF in default settings has ```Statistics``` option enabled. Statistics help ASF developers by providing them with information crucial to development cycle. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on. Currently statistics include only very minimalistic information - accounts being used by ASF will automatically join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons - first one, to provide **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated. Secondly, it allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. Lastly - it allows ASF developers to get some minimal data about usage of the application, especially number of actual users. Statistics are available for everyone, so you can check yourself how our steam group looks like or how many members it has. We're not gathering any other information, especially sensitive ones such as passwords, steam logins or even operating system you're using, and by keeping ```Statistics``` enabled you help ASF developers - which is **bare minimum** what you can (and should) do as user. It's still possible to disable even this minimalistic information, by switching ```Statistics``` to off in ASF configuration, as we respect your decision, but consider twice if you don't want to even tell us that you're ASF user - this decision might affect not only actual work being done on improving the program, but also receiving updates or support from ASF team. We leave you with a choice, and disclosing whole ASF activity, unlike many other programs that silently behind your back are selling your sensitive information to third-parties, so we hope that you also respect that we need bare minimal information to provide you with a better application. In the end - decision is upon you.
-
-***
-
-**Q:** Can ASF work on my android?
-
-**A:** ASF is a C# program and requires working implementation of .NET framework - either official one (Microsoft), or unofficial one (Mono). There is no Mono available for Android (natively), so ASF won't work on Android. It might be possible to port ASF to Android using **[Xamarin](https://www.xamarin.com/)**, but that's not on ASF roadmap and not being actively developed. Perhaps in future with progress of **[.NET Core](https://dotnet.github.io/)** it will be possible.
 
 ***
 
