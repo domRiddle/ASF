@@ -108,7 +108,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** Did somebody get banned for it?
 
-**A:** Up to today, I didn't hear of any single case where ASF would be directly responsible for any kind of steam suspension. Therefore, we can assume that Valve either doesn't care, or like I pointed above - ASF doesn't violate any terms of service. Valve didn't state whether they agree with what ASF (or IdleMaster) is doing, or not. Therefore, you should consider both programs as grey zone, and decide yourself if you're fine with using ASF or not. If you ask me, you should be perfectly fine, but nobody can guarantee that, as written above. Therefore, in the end, it's your decision, and nobody's else.
+**A:** Up to today, I didn't hear of any single case where ASF would be directly responsible for any kind of steam suspension. Therefore, we can assume that Valve either doesn't care, or like I pointed above - ASF doesn't violate any terms of service. Valve didn't state whether they agree with what ASF (or IdleMaster) is doing, or not. Therefore, you should consider both programs as gray zone, and decide yourself if you're fine with using ASF or not. If you ask me, you should be perfectly fine, but nobody can guarantee that, as written above. Therefore, in the end, it's your decision, and nobody's else.
 
 ***
 
