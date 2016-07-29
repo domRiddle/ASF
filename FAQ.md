@@ -2,6 +2,17 @@
 
 ***
 
+Table of contents
+=================
+
+* [General](#general)
+* [Idle Master comparison](#idle-master-comparison)
+* [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+* [Misc](#misc)
+* [Issues](#issues)
+
+***
+
 ## General
 
 **Q:** So how it exactly works?
