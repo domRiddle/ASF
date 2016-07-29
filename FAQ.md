@@ -2,7 +2,7 @@
 
 ***
 
-Table of contents
+# Table of contents
 =================
 
 * [General](#general)
