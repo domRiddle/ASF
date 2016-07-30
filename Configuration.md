@@ -195,6 +195,7 @@ As you should know already, every bot should have it's own config. Example bot c
   "SteamMasterClanID": 0,
   "CardDropsRestricted": false,
   "DismissInventoryNotifications": true,
+  "FarmingOrder": 0,
   "FarmOffline": false,
   "HandleOfflineMessages": false,
   "AcceptGifts": false,
@@ -240,6 +241,20 @@ All options are explained below:
 ```CardDropsRestricted``` - ```bool``` type with default value of ```false```. This property defines if account has card drops restricted. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least 2 hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is **no obvious answer** whether you should set this to ```true``` or ```false```. If you're not sure if your account is restricted or not, I suggest to keep default value of ```false```, then if you notice that no cards are dropping until game reaches 2 hours of playtime, consider switching it to ```true``` in order to speedup farming. It seems that older accounts which never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule.
 
 ```DismissInventoryNotifications``` - ```bool``` type with default value of ```true```. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF by default automatically dismisses those notifications. If you for some reason would like to still receive and manually mark those notifications as read, consider switching this option to ```false```. It's nice to note that this option affects all item drops - including items you obtained through trading, and not only card drops.
+
+```FarmingOrder``` - ```byte``` type with default value of ```0```. This property defines the **preferred** farming order of ASF. This property is only a suggestion that will be respected as long as it doesn't affect ASF **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. There are currently 9 orders available:
+
+Value | Name  | Description
+--- | --- | ---
+0 | Unordered | No sorting, slightly improving performance
+1 | AppIDsAscending | Try to farm games with lowest ```appID```s first
+2 | AppIDsDescending | Try to farm games with highest ```appID```s first
+3 | CardDropsAscending | Try to farm games with lowest number of card drops remaining first
+4 | CardDropsDescending | Try to farm games with highest number of card drops remaining first
+5 | HoursAscending | Try to farm games with lowest number of hours played first
+6 | HoursDescending | Try to farm games with highest number of hours played first
+7 | NamesAscending | Try to farm games in alphabetical order, starting from A
+8 | NamesDescending | Try to farm games in reverse alphabetical order, starting from Z
 
 ```FarmOffline``` - ```bool``` type with default value of ```false```. Offline farming is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to "sign in" to steamcommunity in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile. Also, bots with ```FarmOffline``` feature enabled can't react to commands (directly), which is important if you decide to use that feature with alt accounts. See: ```HandleOfflineMessages```
 
