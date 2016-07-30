@@ -242,7 +242,7 @@ All options are explained below:
 
 ```DismissInventoryNotifications``` - ```bool``` type with default value of ```true```. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF by default automatically dismisses those notifications. If you for some reason would like to still receive and manually mark those notifications as read, consider switching this option to ```false```. It's nice to note that this option affects all item drops - including items you obtained through trading, and not only card drops.
 
-```FarmingOrder``` - ```byte``` type with default value of ```0```. This property defines the **preferred** farming order of ASF. This property is only a suggestion that will be respected as long as it doesn't affect ASF **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. There are currently 9 orders available:
+```FarmingOrder``` - ```byte``` type with default value of ```0```. This property defines the **preferred** farming order of ASF. There are currently 9 farming orders available:
 
 Value | Name  | Description
 --- | --- | ---
