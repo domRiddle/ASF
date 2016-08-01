@@ -182,7 +182,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-**Q:** ASF is failing with ```Request failed even after 5 tries, WTF?``` errors!
+**Q:** ASF is failing with ```Request failed even after 5 tries``` errors!
 
 **A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
 
