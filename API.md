@@ -17,18 +17,6 @@ The example response of latest version has following form:
 ```
 {
    "Bots":{
-      "2":{
-         "CardsFarmer":{
-            "GamesToFarm":[
-
-            ],
-            "CurrentGamesFarming":[
-
-            ],
-            "ManualMode":false
-         },
-         "KeepRunning":true
-      },
       "archi":{
          "CardsFarmer":{
             "GamesToFarm":[
