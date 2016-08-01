@@ -35,12 +35,17 @@ The example response of latest version has following form:
                {
                   "AppID":403850,
                   "GameName":"Sky To Fly: Faster Than Wind",
-                  "HoursPlayed":0.0,
-                  "CardsRemaining":3
+                  "HoursPlayed":0.7
+                  "CardsRemaining":2
                }
             ],
             "CurrentGamesFarming":[
-               403850
+               {
+                  "AppID":403850,
+                  "GameName":"Sky To Fly: Faster Than Wind",
+                  "HoursPlayed":0.7
+                  "CardsRemaining":2
+               }
             ],
             "ManualMode":false
          },
@@ -82,7 +87,7 @@ The example response of latest version has following form:
 
 ```GamesToFarm``` is a ```ConcurrentHashSet<Game>``` object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, in ```Simple``` cards farming algorithm ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
-```CurrentGamesFarming``` is a ```ConcurrentHashSet<uint>``` object that contains appIDs of the games we're farming right now. In comparison with ```GamesToFarm```, ```CurrentGamesFarming``` contains only appIDs that are being farmed at this moment (either for hours, or solo). This can be useful for stating what ASF is doing right now, and not what it has to do (GamesToFarm).
+```CurrentGamesFarming``` is a ```ConcurrentHashSet<Game>``` object that contains games being farmed right now. In comparison with ```GamesToFarm```, this property defines current status instead of pending queue and it can include only up to ```32``` elements (```MaxGamesPlayedConcurrently``` defined by Steam Network).
 
 ```ManualMode``` is a ```bool``` type that specifies if ```CardsFarmer``` is running in manual mode. Manual mode means that user is either playing his own specified game through ```!play``` command, or bot is ```!pause```d.
 
