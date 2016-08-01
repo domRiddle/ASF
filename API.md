@@ -16,42 +16,39 @@ The example response of latest version has following form:
 
 ```
 {
-   "Bots":{
-      "archi":{
-         "CardsFarmer":{
-            "GamesToFarm":[
-               {
-                  "AppID":403850,
-                  "GameName":"Sky To Fly: Faster Than Wind",
-                  "HoursPlayed":0.7
-                  "CardsRemaining":2
-               }
-            ],
-            "CurrentGamesFarming":[
-               {
-                  "AppID":403850,
-                  "GameName":"Sky To Fly: Faster Than Wind",
-                  "HoursPlayed":0.7
-                  "CardsRemaining":2
-               }
-            ],
-            "ManualMode":false
-         },
-         "KeepRunning":true
-      },
-      "1":{
-         "CardsFarmer":{
-            "GamesToFarm":[
-
-            ],
-            "CurrentGamesFarming":[
-
-            ],
-            "ManualMode":false
-         },
-         "KeepRunning":true
-      }
-   }
+	"Bots": {
+		"archi": {
+			"CardsFarmer": {
+				"GamesToFarm": [{
+					"AppID": 403850,
+					"GameName": "Sky To Fly: Faster Than Wind",
+					"HoursPlayed": 0.7,
+					"CardsRemaining": 2
+				}, {
+					"AppID": 467460,
+					"GameName": "ZombieRush",
+					"HoursPlayed": 0.0,
+					"CardsRemaining": 3
+				}],
+				"CurrentGamesFarming": [{
+					"AppID": 403850,
+					"GameName": "Sky To Fly: Faster Than Wind",
+					"HoursPlayed": 0.7,
+					"CardsRemaining": 2
+				}],
+				"ManualMode": false
+			},
+			"KeepRunning": true
+		},
+		"1": {
+			"CardsFarmer": {
+				"GamesToFarm": [],
+				"CurrentGamesFarming": [],
+				"ManualMode": false
+			},
+			"KeepRunning": true
+		}
+	}
 }
 ```
 
