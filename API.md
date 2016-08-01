@@ -79,7 +79,7 @@ The example response of latest version has following form:
 
 ```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance.
 
-```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```.
+```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not.
 
 ---
 
