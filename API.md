@@ -19,9 +19,9 @@ The example response of latest version has following form:
    "Bots":{
       "1":{
          "CardsFarmer":{
-            "GamesToFarm":{
+            "GamesToFarm":[
 
-            },
+            ],
             "CurrentGamesFarming":[
 
             ],
@@ -31,9 +31,9 @@ The example response of latest version has following form:
       },
       "archi":{
          "CardsFarmer":{
-            "GamesToFarm":{
-               "429280":0.0
-            },
+            "GamesToFarm":[
+               // TODO
+            ],
             "CurrentGamesFarming":[
                429280
             ],
