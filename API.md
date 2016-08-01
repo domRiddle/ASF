@@ -86,6 +86,8 @@ The example response of latest version has following form:
 
 ```ManualMode``` is a ```bool``` type that specifies if ```CardsFarmer``` is running in manual mode. Manual mode means that user is either playing his own specified game through ```!play``` command, or bot is ```!pause```d.
 
+---
+
 ### Game
 
 ```AppID``` is ```uint``` type that in unique way identifies game being played. ASF uses this identifier in ```PlayGames()``` request. ASF enforces this to be greater than ```0```.
