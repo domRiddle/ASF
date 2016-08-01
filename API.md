@@ -17,7 +17,7 @@ The example response of latest version has following form:
 ```
 {
    "Bots":{
-      "1":{
+      "2":{
          "CardsFarmer":{
             "GamesToFarm":[
 
@@ -32,10 +32,27 @@ The example response of latest version has following form:
       "archi":{
          "CardsFarmer":{
             "GamesToFarm":[
-               // TODO
+               {
+                  "AppID":403850,
+                  "GameName":"Sky To Fly: Faster Than Wind",
+                  "HoursPlayed":0.0,
+                  "CardsRemaining":3
+               }
             ],
             "CurrentGamesFarming":[
-               429280
+               403850
+            ],
+            "ManualMode":false
+         },
+         "KeepRunning":true
+      },
+      "1":{
+         "CardsFarmer":{
+            "GamesToFarm":[
+
+            ],
+            "CurrentGamesFarming":[
+
             ],
             "ManualMode":false
          },
@@ -49,7 +66,7 @@ The example response of latest version has following form:
 
 ## Documentation
 
-```Bots``` is a ```Dictionary<string, Bot>``` object which maps bot name to it's reference. In JSON, bot instances are displayed with their unique names.
+```Bots``` is a ```ConcurrentDictionary<string, Bot>``` object which maps bot name to it's reference. In JSON, bot instances are displayed with their unique names.
 
 ---
 
@@ -63,8 +80,18 @@ The example response of latest version has following form:
 
 ### CardsFarmer
 
-```GamesToFarm``` is a ```Dictionary<uint, float>``` object that maps appIDs to their current playtime, and contains games left to farm in this session. Please note that playtime is initially retrieved from Steam Community and updated only in ```Complex``` cards farming algorithm, until game reaches 2.0+. ASF won't bother updating data retrieved from Steam if there is no reason to (so when we don't need to farm hours for given appID).
+```GamesToFarm``` is a ```ConcurrentHashSet<Game>``` object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, in ```Simple``` cards farming algorithm ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
-```CurrentGamesFarming``` is a ```HashSet<uint>``` object that contains appIDs of the games we're farming right now. In comparison with ```GamesToFarm```, ```CurrentGamesFarming``` contains only appIDs that are being farmed at this moment (either for hours, or solo). It also doesn't contain playtime, which can be found in ```GamesToFarm```.
+```CurrentGamesFarming``` is a ```ConcurrentHashSet<uint>``` object that contains appIDs of the games we're farming right now. In comparison with ```GamesToFarm```, ```CurrentGamesFarming``` contains only appIDs that are being farmed at this moment (either for hours, or solo). This can be useful for stating what ASF is doing right now, and not what it has to do (GamesToFarm).
 
 ```ManualMode``` is a ```bool``` type that specifies if ```CardsFarmer``` is running in manual mode. Manual mode means that user is either playing his own specified game through ```!play``` command, or bot is ```!pause```d.
+
+### Game
+
+```AppID``` is ```uint``` type that in unique way identifies game being played. ASF uses this identifier in ```PlayGames()``` request. ASF enforces this to be greater than ```0```.
+
+```GameName``` is ```string``` type that provides name of game identified by ```AppID```. This is data returned by Steam Community. ASF enforces this to be ```non-null``` and ```non-empty```.
+
+```HoursPlayed``` is ```float``` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per ```FarmingDelay``` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches ```2.0``` value. ASF enforces this property to be at least ```0.0```.
+
+```CardsRemaining``` is ```byte``` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than ```0```. However, it is possible for this property to have ```0``` value for a short moment when ASF is switching game.
