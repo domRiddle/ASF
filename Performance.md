@@ -44,6 +44,17 @@ Then it means that your account is **not** restricted, so you should keep ```Car
 
 However, if you notice that **every** game takes more than 2-4 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted you need to test at least 10 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
 
+ASF also tells you status of card drops remaining, so you can easily check if any card dropped in less than 2 hours since start.
+
+```
+2016-08-03 04:40:46|INFO|archi|ShouldFarm() Status for 440540 (Ara Fell): 3 cards remaining
+(...)
+2016-08-03 05:10:54|INFO|archi|ShouldFarm() Status for 440540 (Ara Fell): 2 cards remaining
+```
+
+The mentioned game didn't pass 2 hours yet, and the first card dropped after around 30 minutes, so **definitely** our ```CardDropsRestricted``` should be ```false```.
+
+
 In the end, of course, decision is up to you.
 
 And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you're not sure, you can always switch to default value and test if your account is restricted (or not) using the same method explained above whenever you feel like it.
