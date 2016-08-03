@@ -50,7 +50,7 @@ And to make it even worse - I experienced cases when people switched from restri
 
 ***
 
-By default, ASF assumes positive scenario - our account doesn't have restricted card drops, so ```CardDropsRestricted``` is ```false``` by default.
+By default, ASF assumes that ```CardDropsRestricted``` is ```true``` as the negative effect of setting this to ```true``` when it's ```false``` in reality is smaller than the other way.
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
