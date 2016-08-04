@@ -87,3 +87,7 @@ The example response of latest version has following form:
 ```HoursPlayed``` is ```float``` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per ```FarmingDelay``` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches ```2.0``` value. ASF enforces this property to be at least ```0.0```.
 
 ```CardsRemaining``` is ```byte``` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than ```0```. However, it is possible for this property to have ```0``` value for a short moment when ASF is switching game.
+
+---
+
+**Notice:** You can use standard ```Dictionary``` and ```HashSet``` types in place of ASF concurrent versions, as underlying data model is the same. This is especially useful if you use your data in single-threaded environment and you don't need concurrent access - there is no need for bringing overhead of concurrent versions then. ASF uses concurrent versions as it's multi-threaded and those collections can be accessed by multiple threads at the same time.
