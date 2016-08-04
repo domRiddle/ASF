@@ -90,4 +90,4 @@ The example response of latest version has following form:
 
 ---
 
-**Notice:** You can use standard ```Dictionary``` and ```HashSet``` types in place of ASF concurrent versions, as underlying data model is the same. This is especially useful if you use your data in single-threaded environment and you don't need concurrent access - there is no need for bringing overhead of concurrent versions then. ASF uses concurrent versions as it's multi-threaded and those collections can be accessed by multiple threads at the same time.
+**Notice:** You can use standard ```Dictionary``` and ```HashSet``` types in place of ASF concurrent versions, as underlying data model is the same. This is especially useful if you use your data in single-threaded environment and you don't need concurrent access - there is no need for concurrent overhead then. ASF uses concurrent versions as it's multi-threaded and those collections can be accessed by multiple threads at the same time - you should serialize the data to types you find appropriate for your application.
