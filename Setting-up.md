@@ -8,7 +8,7 @@ If you arrived here for the first time, welcome!
 
 This is an option for those who don't want to learn how ASF works in-depth and just want to make it working. It can be achieved in less than 5 minutes.
 
-- Install latest **[.NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=49981)**. No, don't skip this step.
+- Install latest **[.NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. No, don't skip this step.
 - Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else.
 - Unpack archive to whenever you want.
 - Launch ASF-ConfigGenerator.exe.
@@ -45,7 +45,7 @@ Now go visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/
 
 After you're done with configuration part, you should start **ASF.exe** executable, by double clicking it.
 
-If you're using Windows OS, make sure you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=49981)** installed. If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**, then you can start ASF by executing ```mono ASF.exe``` from terminal/shell.
+If you're using Windows OS, make sure you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)** installed. If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**, then you can start ASF by executing ```mono ASF.exe``` from terminal/shell.
 
 ***
 
