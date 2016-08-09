@@ -316,14 +316,14 @@ For example, if you have no intention of changing anything, then you're good to 
 }
 ```
 
-But what if you want to add ```CardDropsRestricted``` to that config? It's simple, just copy that part from ```example.json```, so it looks like this:
+But what if you want to change ```CardDropsRestricted``` from default value of ```true``` to ```false```? It's simple, just add that part from ```example.json``` and edit accordingly, so it looks like this:
 
 ```
 {
   "Enabled": true,
   "SteamLogin": "pablo32",
   "SteamPassword": "pass123",
-  "CardDropsRestricted": true
+  "CardDropsRestricted": false
 }
 ```
 
