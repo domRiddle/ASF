@@ -178,7 +178,7 @@ All options are explained below:
 
 As you should know already, every bot should have it's own config. Example bot config is included in ```example.json``` file, which should be used for bot configuration. Simply **copy paste** ```example.json``` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is ```primary.json```, ```1.json``` or ```YourNickname.json```.
 
-**Notice:** There are several names which are reserved and can't be used for bot configs. Those are: **ASF**, **Main**, **example** and **minimal**. ASF will ignore such configuration files.
+**Notice:** There are several names which are reserved and can't be used for bot configs. Those are: **ASF**, **example** and **minimal**. ASF will ignore such configuration files.
 
  After deciding how you want to name your bot, open it's file, and start with configuration. You should notice following structure:
 
