@@ -182,6 +182,18 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** ```Unhandled Exception: System.MissingMethodException```
+
+**A:** This error indicates that your .NET framework doesn't support latest 4.6.1 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
+
+***
+
+**Q:** ```No bots are running, exiting```
+
+**A:** Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in ```--server``` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments**).
+
+***
+
 **Q:** ASF is failing with ```Request failed even after 5 tries``` errors!
 
 **A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
