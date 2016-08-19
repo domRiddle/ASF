@@ -28,7 +28,7 @@ ASF still fully depends on Steam Network - **it can't farm games that account do
 
 **Q:** How long do I have to wait for cards to drop?
 
-**A:** **As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. Do not attempt to make guesses how long ASF should farm given title - it's not up to ASF to decide.
+**A:** **As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide.
 
 ***
 
