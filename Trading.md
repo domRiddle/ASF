@@ -28,9 +28,11 @@ Notice: "Reject" of the trade will be either ignore, or decline, depending on co
 
 First 4 predicates should be obvious for everyone. Last predicate includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
 
-- Trade is good for us if our progress towards badge completion advances. Example: A A -> A B
-- Trade is neutral for us if our progress towards badge completion is the same. Example: A B -> A C
-- Trade is bad for us if our progress towards badge completion declines. Example: A B -> A A
+- Trade is **good** for us if our progress towards badge completion advances. A A -> A B
+- Trade is **neutral** for us if our progress towards badge completion doesn't change. A B -> A C
+- Trade is **bad** for us if our progress towards badge completion declines. A B -> A A
+
+ASF accepts neutral+ trades, which means that it will accept both **good** as well as **neutral** trades, but **won't** accept **bad** ones.
 
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. ASF will, however, reject any bad trade for us.
 
