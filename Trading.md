@@ -32,9 +32,9 @@ First 4 predicates should be obvious for everyone. Last predicate includes actua
 - Trade is **neutral** for us if our progress towards badge completion doesn't change. A B -> A C
 - Trade is **bad** for us if our progress towards badge completion declines. A B -> A A
 
-ASF accepts neutral+ trades, which means that it will accept both **good** as well as **neutral** trades, but **won't** accept **bad** ones.
-
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. ASF will, however, reject any bad trade for us.
+
+In short, ASF accepts neutral+ trades - it will accept both **good** as well as **neutral** trades, but **won't** accept **bad** ones.
 
 Although using ASF STM module doesn't mean that you can't accept such trades. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in it or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide for you what is worth for you and what is not.
 
