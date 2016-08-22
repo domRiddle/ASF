@@ -125,21 +125,3 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 **Q:** I linked authenticator in SDA/WinAuth, then imported to ASF. Can I now delink it and link it again on my phone?
 
 **A:** **No**. ASF **imports** your authenticator data in order to use it. If you delink your authenticator then you'll also cause ASF 2FA to stop functioning, regardless if you remove it firstly like stated in above question or not. If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and it's data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid.
-
-***
-
-**Q:** HELP! I LOST MY ASF MOBILE AUTHENTICATOR!
-
-**A:** This can happen if you e.g. removed file mentioned above by accident. There's no need to panic, as long as you have **revocation code** that you received during linking. Simply enter **[here](https://store.steampowered.com/twofactor/manage)** from logged in account, and use your revocation code to disable 2FA from your account. You can then link ASF again (if you like), by following the same procedure. Of course, if you still have your original authenticator, it's probably easier to delink it from there.
-
-***
-
-**Q:** BUT I'M NOT LOGGED IN!
-
-**A:** No problem, you can use backup SteamGuard codes (if you have them). Alternatively, you can go **[here](https://help.steampowered.com/#HelpWithLoginInfo?nav=authenticator)** and disable 2FA through either SMS, or revocation code, without a need of logging in.
-
-***
-
-**Q:** I REMOVED ASF 2FA FILE, I DIDN'T WRITE DOWN REVOCATION CODE, I DIDN'T GENERATE STEAMGUARD BACKUP CODES, I REMOVED ALL LINKED PHONE NUMBERS, AND SOMEBODY HACKED MY E-MAIL ACCOUNTS!
-
-**A:** A brain was listed in the ASF 2FA requirements. Try steam support, and good luck, you'll need it.
