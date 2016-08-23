@@ -16,6 +16,6 @@ In addition to that, a pre-release version might be considered stable after some
 
 In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time.
 
-The precise changelog that compares one version to another is always available on GitHub - through commits. In release we tend to document only changes we consider important between last stable and current release.
+The precise changelog that compares one version to another is always available on GitHub - through commits. In release we tend to document only changes we consider important between last stable and current release. Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another - please use GitHub for that.
 
 ASF project is powered by continuous integration process and tested by two independent services - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** which tests ASF on Windows via native .NET, and **[Travis](https://travis-ci.org/JustArchi/ArchiSteamFarm)** which tests ASF on Linux via Mono (latest and weekly). Every build is supposed to be reproduciable, therefore it should not be a problem to grab source (included in release) of given version and compile yourself receiving the same result as the one available through a binary.
