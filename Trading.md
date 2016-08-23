@@ -23,10 +23,11 @@ When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of 
 - Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
 - Reject the trade if trade hold duration exceeds ```MaxTradeHoldDuration``` global config property.
 - Reject the trade if it's worse than neutral for us.
+- Accept the trade as passing all our requirements specified above.
 
 Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property. It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
 
-First 4 predicates should be obvious for everyone. Last predicate includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
 
 - Trade is **good** for us if our progress towards badge completion advances. A A -> A B
 - Trade is **neutral** for us if our progress towards badge completion doesn't change. A B -> A C
