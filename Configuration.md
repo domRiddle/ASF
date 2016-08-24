@@ -270,7 +270,7 @@ Notice the word "try" in all above descriptions - the actual order is heavily af
 --- | --- | ---
 Invalid trades | Ignored | Rejected
 Invalid friend invites | Ignored | Rejected
-Looting foil cards | Ignored | Permitted
+```!loot``` | Trading cards + Booster packs | Trading cards (including foils) + Booster packs
 
 For example, invalid trades will be ignored on primary accounts, which allows you to decide yourself if you want to accept/decline them or not. On bot accounts, those trades will be immediately rejected, as there is nobody taking care of them.
 
