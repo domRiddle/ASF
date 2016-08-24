@@ -267,7 +267,7 @@ Notice the word "try" in all above descriptions - the actual order is heavily af
 ```IsBotAccount``` - ```bool``` type with default value of ```false```. This property defines if account used for this bot instance should be considered a primary one (```false```), or bot/alt one (```true```). ASF tries to be as much compatible with both types as possible, therefore switching this option to ```true``` for alts is not technically required for ASF to work, but doing so will allow ASF to tune the logic better for alt accounts. At the moment, it affects following things:
 
 ```Event``` | ```IsBotAccount: false``` | ```IsBotAccount: true```
-- | - | -
+--- | --- | ---
 Invalid trades | Ignored | Rejected
 Invalid friend invites | Ignored | Rejected
 Looting foil cards | Ignored | Permitted
