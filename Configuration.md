@@ -264,7 +264,17 @@ Notice the word "try" in all above descriptions - the actual order is heavily af
 
 ```AcceptGifts``` - ```bool``` type with default value of ```false```. When enabled, ASF will automatically accept and redeem all steam gifts received by the bot. This includes also gifts from users different than ```SteamMasterID```. If bot already owns the game, he'll instead accept gift and add it to his inventory. This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those gifts (without your help), therefore you should be sending steam gifts to your bots directly. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
 
-```IsBotAccount``` - ```bool``` type with default value of ```false```. This property defines if account used for this bot instance should be considered a primary one (```false```), or bot/alt one (```true```). ASF tries to be as much compatible with both types as possible, therefore switching this option to ```true``` for alts is not technically required for ASF to work, but doing so will allow ASF to tune the logic better for alt accounts. At the moment, default value of ```false``` will tell ASF to ignore both invalid trades and friend requests not from ```SteamMasterID```, as this is what we want for primary accounts. Switching this option to ```true``` will cause invalid trades and those friend requests to be rejected instead, which is better for alts. The logic might get extended in future releases, if needed. If you're not sure how to set this property, leave it with default value of ```false```.
+```IsBotAccount``` - ```bool``` type with default value of ```false```. This property defines if account used for this bot instance should be considered a primary one (```false```), or bot/alt one (```true```). ASF tries to be as much compatible with both types as possible, therefore switching this option to ```true``` for alts is not technically required for ASF to work, but doing so will allow ASF to tune the logic better for alt accounts. At the moment, it affects following things:
+
+```Event | IsBotAccount: false``` | ```IsBotAccount: true```
+- | - | -
+Invalid trades | Ignored | Rejected
+Invalid friend invites | Ignored | Rejected
+Looting foil cards | Ignored | Permitted
+
+For example, invalid trades will be ignored on primary accounts, which allows you to decide yourself if you want to accept/decline them or not. On bot accounts, those trades will be immediately rejected, as there is nobody taking care of them.
+
+The logic might get extended in future releases if needed. If you're not sure how to set this property, leave it with default value of ```false```.
 
 ```SteamTradeMatcher``` - ```bool``` type with default value of ```false```. When ```true```, ASF in addition to accepting donations and trades coming from ```SteamMasterID``` will also accept trades considering duplicate cards. This option is especially useful for integration with public listing of **[STM](http://www.steamtradematcher.com/)**, but it can also work without it. For more details, please visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
 
