@@ -154,4 +154,4 @@ Unhandled Exception: System.TypeInitializationException: The type initializer fo
 ```
 
 **Solution:**
-Make sure that you have ```mono-complete``` package installed. This issue is mostly caused by lack of some core Mono libraries required by ASF, that should be natively available. If installing ```mono-complete``` doesn't help, install latest Mono version.
+Make sure that you have ```mono-complete``` package installed. This issue is mostly caused by lack of some core Mono libraries required by ASF, that should be natively available. Usual reason for such situation is installing ```mono``` instead of ```mono-complete```, which includes all natively available assemblies. If installing ```mono-complete``` doesn't help, install latest Mono version.
