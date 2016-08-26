@@ -24,7 +24,7 @@ Then execute (as root, or with sudo):
 ```
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 apt-get update
-apt-get install ca-certificates mono-complete
+apt-get install ca-certificates-mono mono-complete
 ```
 
 Afterwards, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
@@ -139,7 +139,7 @@ Error getting response stream (Write: The authentication or decryption has faile
 ```
 
 **Solution:**
-- Make sure that you have ```ca-certificates``` (or equivalent on your OS) installed.
+- Make sure that you have ```ca-certificates-mono``` (or equivalent on your OS) installed.
 - Update Mono to latest version, this issue is fixed since Mono 3.12+.
 - Alternatively you can execute ```mozroots --import --sync``` manually (only on old Mono versions lower than 3.12).
 
