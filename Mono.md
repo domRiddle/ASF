@@ -49,7 +49,7 @@ Using Mono is pretty straightforward, the most basic usage is navigating to the 
 mono ASF.exe
 ```
 
-The above command can be also used for creating various shortcuts or scripts, according to your needs and possibilities.
+The above command can be also used for creating various shortcuts or aliases, according to your needs and possibilities.
 
 Instead of calling mono manually each time, you might also want to use a script. This is especially useful for people who want to run ASF on their servers (or virtual machines).
 
