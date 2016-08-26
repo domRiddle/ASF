@@ -178,6 +178,16 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
+**Q:** Are you affiliated with getsteam.cards or any other cards farming service?
+
+**A:** **No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](http://store.steampowered.com/subscriber_agreement/english/)** that:
+
+> Any use of your Account with your login and/or password is deemed made by you and you are responsible for it and for the security of your computer system
+
+ASF is licenses on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](http://store.steampowered.com/subscriber_agreement/english/)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our important notice above**.
+
+***
+
 ## Issues
 
 ***
