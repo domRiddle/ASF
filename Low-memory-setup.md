@@ -76,7 +76,7 @@ ADMONOCFLAGS=("--prefix=$PREFIX")
 
 # Below flags are unsupported, you use them at your own risk
 ADMONOFLAGS+=(--disable-boehm --disable-libraries --disable-nls --enable-system-aot --with-mcs-docs=no --with-ikvm-native=no --with-shared_mono=no --with-xen-opt=no)
-ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,com,shadowcopy,portability,attach,full_messages,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,sgen_remset,sgen_marksweep_par,sgen_marksweep_fixed,sgen_marksweep_fixed_par,sgen_copying)
+ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,com,shadowcopy,attach,full_messages,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,sgen_remset,sgen_marksweep_par,sgen_marksweep_fixed,sgen_marksweep_fixed_par,sgen_copying)
 
 export PATH="$PREFIX/bin:$PATH"
 mkdir -p "$PREFIX"
