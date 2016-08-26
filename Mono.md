@@ -41,36 +41,6 @@ It's your responsiblity to ensure that ASF is run in bugless environment, and no
 
 ---
 
-# Nightly
-
-Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
-
-Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
-
-To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
-
-```
-deb http://download.mono-project.com/repo/debian wheezy main
-```
-
-To:
-
-```
-deb http://download.mono-project.com/repo/debian nightly main
-```
-
-Then issue ```apt-get update && apt-get install mono-complete``` to update.
-
-Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
-
-**TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```stable```
-
-```nightly``` is usually very unstable and has many issues, but includes also most up-to-date bleeding edge codebase, while ```stable``` is carefully tested in order to work on as many setups as possible.
-
-```alpha``` and ```beta``` are a balance between ```nightly``` and ```stable```. Usually ```alpha``` versions are quite stable and should work on **most** machines, but it's not always the case. If you're not feeling comfortable with broken packages and Linux, you should avoid using any branch other than ```stable```.
-
----
-
 # Usage
 
 Using Mono is pretty straightforward, the most basic usage is navigating to the directory where ASF is located (e.g. with ```cd``` command), then executing:
@@ -108,6 +78,36 @@ If you want to run ASF in non-interactive way such as on start of your server wi
 Everything above is specific to your configuration. This is only example of usage, feel free to further modify the script however you wish. If you're looking for something more advanced, check out ASF **[run.sh](https://github.com/JustArchi/ArchiSteamFarm/blob/master/run.sh)**.
 
 **Notice:** If you're using ASF on a machine with low amount of memory (512 MB or less), you might be interested in tuning the Mono to your needs. Visiting **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** might help.
+
+---
+
+# Nightly
+
+Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
+
+Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
+
+To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
+
+```
+deb http://download.mono-project.com/repo/debian wheezy main
+```
+
+To:
+
+```
+deb http://download.mono-project.com/repo/debian nightly main
+```
+
+Then issue ```apt-get update && apt-get install mono-complete``` to update.
+
+Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
+
+**TIP:** There are also other versions available: ```nightly``` > ```alpha``` > ```beta``` > ```stable```
+
+```nightly``` is usually very unstable and has many issues, but includes also most up-to-date bleeding edge codebase, while ```stable``` is carefully tested in order to work on as many setups as possible.
+
+```alpha``` and ```beta``` are a balance between ```nightly``` and ```stable```. Usually ```alpha``` versions are quite stable and should work on **most** machines, but it's not always the case. If you're not feeling comfortable with broken packages and Linux, you should avoid using any branch other than ```stable```.
 
 ---
 
