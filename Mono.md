@@ -141,7 +141,7 @@ Error getting response stream (Write: The authentication or decryption has faile
 **Solution:**
 - Make sure that you have ```ca-certificates-mono``` (or equivalent on your OS) installed.
 - Update Mono to latest version, this issue is fixed since Mono 3.12+.
-- Alternatively you can execute ```mozroots --import --sync``` manually (only on old Mono versions lower than 3.12).
+- Alternatively you can execute ```mozroots --import --sync``` manually (only on old Mono versions lower than 3.12). This should **never** be needed if you have ```ca-certificates-mono``` package installed.
 
 ---
 
