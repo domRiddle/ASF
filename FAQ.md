@@ -188,7 +188,7 @@ ASF is licensed on liberal Apache 2.0 License, which allows other developers to 
 
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve
 
-Your account, your choice.
+Your account, your choice. Just don't say that nobody warned you.
 
 ***
 
