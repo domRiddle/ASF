@@ -15,7 +15,6 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <BOT>`                     | Restarts cards farming module for given bot instance
 `!help`                           | Shows help (link to this page)
-`!help <BOT>`                     | Shows help (link to this page)
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
 `!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
