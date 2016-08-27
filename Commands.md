@@ -40,7 +40,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!statusall`                      | Prints status of all bot instances and ASF itself
 `!stop`                           | Stops current bot instance
 `!stop <BOT>`                     | Stops given bot instance
-`!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours)
+`!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours if ```AutoUpdates```)
 `!version`                        | Prints version of ASF
 
 Above commands can be sent to the bot through three different ways:
