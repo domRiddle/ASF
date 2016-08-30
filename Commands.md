@@ -2,12 +2,12 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 
 |Command                          | Description                                            | Examples                    |
 | ------------------------------- |:-------------------------------------------------------|:----------------------------|
-`!2fa`                            | Generates temporary 2FA token for current bot instance
-`!2fa <BOT>`                      | Generates temporary 2FA token for given bot instance
-`!2fano`                          | Deny all pending confirmations for current bot instance
-`!2fano <BOT>`                    | Deny all pending confirmations for given bot instance
-`!2faok`                          | Accepts all pending confirmations for current bot instance
-`!2faok <BOT>`                    | Accepts all pending confirmations for given bot instance
+`!2fa`                            | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance
+`!2fa <BOT>`                      | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instance
+`!2fano`                          | Deny all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
+`!2fano <BOT>`                    | Deny all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instance
+`!2faok`                          | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
+`!2faok <BOT>`                    | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instance
 `!addlicense <appID1,appID2...>`  | Activates given ```appIDs``` on current bot instance (free games only) | ```!addlicense 440,570```
 `!addlicense <BOT> <appID1,appID2...>` | Activates given ```appIDs``` on given bot instance (free games only)
 `!api`                            | Returns ASF process status in JSON, check **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** for more info
