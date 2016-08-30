@@ -4,6 +4,8 @@ Recently Valve introduced a system known as "Escrow". You can read more about it
 
 Okay, from now on I assume you already know what Escrow is. Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, I coded a way how to overcome that problem, the solution is called ASF 2FA.
 
+---
+
 # ASF 2FA
 
 The idea is simple. We already imitiate steam client, imitiate launching and playing a game, so why not imitate mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but requires some effort, and should be used only by advanced users.
