@@ -278,6 +278,7 @@ You could remove bot.db of affected account and try to link ASF to your account 
 - Too many failed login attempts in short period of time (anti-bruteforce)
 - Too many login attempts in short period of time (rate-limiting)
 - Requirement of captcha to log in (very likely to be caused by two reasons above)
+- Any other reason Steam Network might have preventing you from logging in.
 
 In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase ```LoginLimiterDelay``` config property of ASF.
 
