@@ -290,6 +290,8 @@ And lastly, if you used wrong login + password combination, obviously you need t
 
 Keep in mind that ASF has it's own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of ```InvalidPassword```, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
 
+Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF, and nothing can be fixed neither improved in this regard.
+
 ***
 
 **Q:** ASF is being detected by my AV as Trojan: Win32/Fethar.B!cl / Win32/Zulushal.C!cl!
