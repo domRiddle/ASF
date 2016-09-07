@@ -16,7 +16,7 @@
 
 **Q:** So how it exactly works?
 
-**A:** Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, which is nicely described in official FAQ **[here](http://steamcommunity.com/tradingcards/faq)**.
+**A:** Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](http://steamcommunity.com/tradingcards/faq)**.
 
 ASF as a program is quite complex and full technical explanation should be available in **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**. Much simplified explanation is easier to understand: ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](http://steamcommunity.com/my/badges)** in order to find games that are available for farming (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available for farming, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it contains of playing eligible game and periodically (plus on each item drop) checking if game is fully farmed already - if yes, ASF can proceed with the next title, until all games are fully farmed.
 
