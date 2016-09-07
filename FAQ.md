@@ -39,6 +39,12 @@ ASF still fully depends on Steam Network - **it can't farm games that account do
 
 ***
 
+**Q:** Do I have to put my account credentials?
+
+**A:** **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with ```null```/empty ```SteamLogin``` and/or ```SteamPassword```, and input that data on each ASF run, when required. This way your credentials are not saved anywhere, but of course ASF can't autostart without your help.
+
+***
+
 **Q:** Farming takes too long, can I somehow speed it up?
 
 **A:** The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as ```FarmingDelay``` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do it's job - I can assure you that it's doing it in the most effective way I could come up with :+1:.
