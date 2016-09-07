@@ -199,9 +199,11 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](http://store.steampowered.com/subscriber_agreement/english/)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
 
+In addition to that, official Steam ToS clearly states that:
+
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve
 
-Your account, your choice. Just don't say that nobody warned you.
+It's your account and your choice. Just don't say that nobody warned you.
 
 ***
 
