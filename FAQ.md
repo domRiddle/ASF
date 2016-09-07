@@ -155,12 +155,6 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 ***
 
-**Q:** Can ASF minimize to tray?
- 
-**A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)** for Windows, or **[screen](http://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
-
-***
-
 **Q:** Does using ASF preserves eligibility for receiving booster packs?
 
 **A:** **Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep ```FarmOffline``` on ```false```, at least until somebody confirms that using Steam network alone is enough.
