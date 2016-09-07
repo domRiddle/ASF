@@ -157,7 +157,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** Does using ASF preserves eligibility for receiving booster packs?
 
-**A:** **Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep ```FarmOffline``` on ```false```, at least until somebody confirms that using Steam network alone is enough.
+**A:** **Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep ```FarmOffline``` on ```false```, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 ***
 
