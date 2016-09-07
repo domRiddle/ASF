@@ -18,6 +18,12 @@
 
 **A:** Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](http://steamcommunity.com/tradingcards/faq)**.
 
+Core points are repeated once again here, because people are either too blind to see them, or don't want to see them:
+**- Yes, you need to own the game in order to be eligible for any card drops from it.**
+**- No, you can't farm the game infinitely, every game has fixed number of card drops.**
+**- No, you can't drop cards from F2P games without spending any money in them.**
+**- No, ASF doesn't lie when it stated that you don't have anything to farm. You can [check yourself](http://steamcommunity.com/my/badges/)**
+
 ASF as a program is quite complex and full technical explanation should be available in **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**. Much simplified explanation is easier to understand: ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](http://steamcommunity.com/my/badges)** in order to find games that are available for farming (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available for farming, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it contains of playing eligible game and periodically (plus on each item drop) checking if game is fully farmed already - if yes, ASF can proceed with the next title, until all games are fully farmed.
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** and **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)** if you want to know every ASF detail.
