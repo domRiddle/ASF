@@ -41,7 +41,7 @@ ASF still fully depends on Steam Network - **it can't farm games that account do
 
 **Q:** Do I have to put my account credentials?
 
-**A:** **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with ```null```/empty ```SteamLogin``` and/or ```SteamPassword```, and input that data on each ASF run, when required. This way your credentials are not saved anywhere, but of course ASF can't autostart without your help.
+**A:** **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with ```null```/empty ```SteamLogin``` and/or ```SteamPassword```, and input that data on each ASF run, when required. This way your credentials are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user.
 
 ***
 
