@@ -32,7 +32,7 @@ Don't blindly set ```CardDropsRestricted``` only because somebody told you to - 
 
 ### What is the best way to find out if your account is restricted?
 
-Make sure you have some games to farm, preferably 10+, and run ASF with ```CardDropsRestricted``` of ```false```. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 10 games, and after that check out the log for results.
+Make sure you have some games to farm, preferably 5+, and run ASF with ```CardDropsRestricted``` of ```false```. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 
 If you notice that **at least one** game took less than 2 hours to farm:
 
@@ -42,7 +42,7 @@ If you notice that **at least one** game took less than 2 hours to farm:
 
 Then it means that your account is **not** restricted, so you should keep ```CardDropsRestricted``` at ```false```. Keep in mind that result a bit higher such as 2:30-2:40 can also be acceptable and suggest that your account is not restricted.
 
-However, if you notice that **every** game takes more than 2-4 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted you need to test at least 10 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
+However, if you notice that **every** game takes more than 2-4 hours to farm, and you're not getting any card drops before game hits those 2 hours, then your account is **probably** restricted and you should set ```CardDropsRestricted``` to ```true```. Keep in mind I said **probably** - every game has different "difficulty" of farming, and time required for farming varies from game to game. That's why you should not make a decision based on one game only - one game being farmed in less than 2 hours is enough to say that your account is not restricted, but to confirm that your account is restricted you need to test at least 5 or more games, to ensure that it's truly a case and not a coincidence of farming specific game with harder difficulty.
 
 ASF also tells you status of card drops remaining, so you can easily check if any card dropped in less than 2 hours since start.
 
