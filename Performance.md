@@ -32,7 +32,7 @@ Don't blindly set ```CardDropsRestricted``` only because somebody told you to - 
 
 ### What is the best way to find out if your account is restricted?
 
-Make sure you have some games to farm, preferably 10+, and run ASF with default ```CardDropsRestricted``` of ```false```. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 10 games, and after that check out the log for results.
+Make sure you have some games to farm, preferably 10+, and run ASF with ```CardDropsRestricted``` of ```false```. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 10 games, and after that check out the log for results.
 
 If you notice that **at least one** game took less than 2 hours to farm:
 
