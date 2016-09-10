@@ -20,7 +20,7 @@
 
 Core points are repeated once again here, because people are either too blind to see them, or don't want to see them:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it.**
+- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops.**
 - **No, you can't drop cards from F2P games without spending any money in them.**
 
