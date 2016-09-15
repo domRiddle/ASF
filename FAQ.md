@@ -222,6 +222,12 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
+**Q:** ```I'm using Steam parental function and I lock access to my account with PIN - ASF doesn't seem to find any games available for farming.```
+
+**A:** ASF requires full account access, that also includes unlocking account access with parental PIN in order to work properly. You must valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+
+***
+
 **Q:** ASF is failing with ```Request failed even after 5 tries``` errors!
 
 **A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
