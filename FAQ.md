@@ -222,9 +222,11 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
-**Q:** I'm using Steam parental function and I lock access to my account with PIN - ASF doesn't seem to find any games available for farming.
+**Q:** ```IsAnythingToFarm() Could not get badges information, will try again later!```
 
-**A:** ASF requires full account access, that also includes unlocking account access with parental PIN in order to work properly. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+
+Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
 
 ***
 
