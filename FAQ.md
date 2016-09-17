@@ -96,7 +96,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 **Q:** I'm Linux / OS X user, will ASF idle games that are not available for my OS?
 
-**A:** Yes, ASF is not even bothering with downloading actual game files, and it will work with all your licenses tied to your Steam account, regardless of any platform requirements.
+**A:** Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform requirements.
 
 ***
 
