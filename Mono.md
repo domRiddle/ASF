@@ -145,7 +145,6 @@ ln -s /usr/lib64/libMonoPosixHelper.so /usr/lib/libMonoPosixHelper.so
 
 **Problem:**
 ```
-Unhandled Exception:
 System.Security.Cryptography.CryptographicException: Private/public key mismatch
 ```
 ```
@@ -161,10 +160,10 @@ Error getting response stream (Write: The authentication or decryption has faile
 
 **Problem:**
 ```
-Unhandled Exception: System.TypeLoadException: A type load exception has occurred
+System.TypeLoadException: A type load exception has occurred
 ```
 ```
-Unhandled Exception: System.TypeInitializationException: The type initializer for 'ArchiSteamFarm.Program' threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly
+System.TypeInitializationException: The type initializer for 'ArchiSteamFarm.Program' threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly
 ```
 
 **Solution:**
