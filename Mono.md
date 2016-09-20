@@ -131,6 +131,20 @@ This is **almost always** the issue caused by outdated Mono, as ASF makes use of
 
 **Problem:**
 ```
+System.DllNotFoundException: /usr/lib/libMonoPosixHelper.so
+```
+
+**Solution:**
+The problem is caused by lack of symbolic link, and it should be solved since version 4.6+. For now, I suggest to do:
+
+```
+ln -s /usr/lib64/libMonoPosixHelper.so /usr/lib/libMonoPosixHelper.so
+```
+
+---
+
+**Problem:**
+```
 Unhandled Exception:
 System.Security.Cryptography.CryptographicException: Private/public key mismatch
 ```
