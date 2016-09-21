@@ -28,7 +28,7 @@ If you want to use default ASF logging without any modifications, you don't need
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="EventLog" name="EventLog" layout="${message}${onexception:inner= ${exception:format=toString,Data}}"  log="ArchiSteamFarm" source="Logger"/>
-    <target xsi:type="File" name="File" fileName="log.txt" deleteOldFileOnStartup="true" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
   </targets>
 
   <rules>
