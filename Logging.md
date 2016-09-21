@@ -11,14 +11,35 @@ Using custom NLog config automatically disables default ASF one, which includes 
 Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
 
 ```
-${date:format=yyyy-MM-dd HH\:mm\:ss}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}
+${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}
 ```
 
-```EventLog``` already includes date and severity, therefore layout there comes without those two information:
+```EventLog``` layout is a bit simplified, as mechanism already includes core information:
 
 ```
 ${message}${onexception:inner= ${exception:format=toString,Data}}
 ```
+
+If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. For reference though, equivalent of hardcoded ASF default logging would be:
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <targets>
+    <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" fileName="log.txt" deleteOldFileOnStartup="true" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="EventLog" name="EventLog" log="ArchiSteamFarm" source="Logger" layout="${message}${onexception:inner= ${exception:format=toString,Data}}" />
+  </targets>
+
+  <rules>
+    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Trace" writeTo="File" />
+    <logger name="*" minlevel="Trace" writeTo="EventLog" />
+  </rules>
+</nlog>
+```
+
+**Notice:** Remember that ASF uses either ```EventLog```, or ```File```, depending of whether it was started as Windows service (EventLog), or not (File), but never both at the same time. In custom NLog above, both of these are included for completion.
 
 ---
 
