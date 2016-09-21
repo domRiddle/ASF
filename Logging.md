@@ -27,7 +27,7 @@ If you want to use default ASF logging without any modifications, you don't need
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="EventLog" name="EventLog" log="ArchiSteamFarm" source="Logger" layout="${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="EventLog" name="EventLog" layout="${message}${onexception:inner= ${exception:format=toString,Data}}"  log="ArchiSteamFarm" source="Logger"/>
     <target xsi:type="File" name="File" fileName="log.txt" deleteOldFileOnStartup="true" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
   </targets>
 
