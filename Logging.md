@@ -39,7 +39,7 @@ If you want to use default ASF logging without any modifications, you don't need
 </nlog>
 ```
 
-**Notice:** Remember that ASF uses either ```EventLog```, or ```File```, depending of whether it was started as Windows service (EventLog), or not (File), but never both at the same time. In custom NLog above, both of these are included for completion.
+**Notice:** Remember that ASF uses either ```EventLog```, or ```File```, depending of whether it was started as Windows service (```EventLog```), or not (```File```), but never both at the same time. In custom NLog above, both targets were included for completion.
 
 ---
 
