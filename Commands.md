@@ -30,8 +30,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```!resume``` for returning to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
 `!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
-`!redeem^ <key1,key2,...>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (same as ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
-`!redeem^ <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on given bot instance, never forwards keys to other bots (same as ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
+`!redeem^ <key1,key2,...>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
+`!redeem^ <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on given bot instance, never forwards keys to other bots (like ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
 `!restart`                        | Restarts ASF process
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
