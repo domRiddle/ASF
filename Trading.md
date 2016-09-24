@@ -37,6 +37,6 @@ STM operates only on good trades, which means that user using STM for dupes matc
 
 In short, ASF accepts neutral+ trades - it will accept both **good** as well as **neutral** trades, but **won't** accept **bad** ones.
 
-Although using ASF STM module doesn't mean that you can't accept such trades. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
+Although using ASF STM module doesn't mean that you can't accept such trades yourself. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
 
 It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** when you enable this option, as this function loses it's whole potential if you decide to manually confirm every trade. ```SteamTradeMatcher``` will work properly even without ability to confirm trades, but manually confirming everything defeats the whole purpose of this option.
