@@ -56,7 +56,7 @@ The mentioned game didn't pass 2 hours yet, and the first card dropped after aro
 
 In the end, of course, decision is up to you.
 
-And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you're not sure, you can always switch to default value and test if your account is restricted (or not) using the same method explained above whenever you feel like it.
+And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you're not sure, you can always switch to ```false``` and test again if your account is restricted (or not) using the same method explained above whenever you feel like it.
 
 ***
 
