@@ -52,7 +52,7 @@ ASF also tells you status of card drops remaining, so you can easily check if an
 2016-08-03 05:10:54|INFO|archi|ShouldFarm() Status for 440540 (Ara Fell): 2 cards remaining
 ```
 
-The mentioned game didn't pass 2 hours yet, and the first card dropped after around 30 minutes, so **definitely** our ```CardDropsRestricted``` should be ```false```. If on the other hand you'd see that no card dropped between 2h mark, and you can reproduce that with several other games (preferably 5+), then **probably** you should set ```CardDropsRestricted``` to ```true```.
+The mentioned game didn't pass 2 hours yet, and the first card dropped after around 30 minutes, so **definitely** our ```CardDropsRestricted``` should be ```false```. If on the other hand you'd see that no card dropped before 2h mark, and you can reproduce that with several other games (preferably 5+), then **probably** you should set ```CardDropsRestricted``` to ```true```.
 
 In the end, of course, decision is up to you.
 
