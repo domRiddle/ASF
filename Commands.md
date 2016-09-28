@@ -16,12 +16,12 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!farm <BOT>`                     | Restarts cards farming module for given bot instance
 `!help`                           | Shows help (link to this page)
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
-`!loot`                           | Sends all Steam items of current bot instance to ```SteamMasterID```
-`!loot <BOT>`                     | Sends all Steam items of given bot instance to ```SteamMasterID```
+`!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
+`!loot <BOT>`                     | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instance to ```SteamMasterID```
 `!lootall`                        | Issues ```!loot``` on all currently enabled ASF bots
 `!owns <appID,gameName...>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```
 `!owns <BOT> <appID,gameName...>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
-`!ownsall <appID,gameName...>`    | Checks all bot instances for owning given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
+`!ownsall <appID,gameName...>`    | Checks all currently enabled ASF bots for owning given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <BOT>`                 | Prints encrypted password of given bot instance (in use with ```PasswordFormat```)
 `!pause`                          | Pauses automatic farming of current bot instance. Also see ```!resume```
