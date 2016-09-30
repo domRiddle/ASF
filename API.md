@@ -75,6 +75,7 @@ The example response of latest version has following form:
 ```CurrentGamesFarming``` is a ```ConcurrentHashSet<Game>``` (collection of ```Game``` elements) object that contains games being farmed right now. In comparison with ```GamesToFarm```, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to ```32``` games (```MaxGamesPlayedConcurrently``` enforced by Steam Network).
 
 ```Paused``` is a ```bool``` type that specifies if ```CardsFarmer``` is currently paused. CardsFarmer can be paused due to various events, mainly ```!pause``` and ```!play``` commands.
+
 ---
 
 ### Game
