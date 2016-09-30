@@ -50,6 +50,8 @@ Above commands can be sent to the bot through three different ways:
 - Through steam group chat, by ```SteamMasterID```
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
+In addition to that, ```!pause``` command can also be executed by all users that have **[access to our shared library](https://store.steampowered.com/account/managedevices)**.
+
 When using **WCF**, keep in mind that:
 - Commands should **NOT** be prefixed by ```!```
 - When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead
