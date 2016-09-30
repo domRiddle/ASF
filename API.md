@@ -36,7 +36,7 @@ The example response of latest version has following form:
 					"HoursPlayed": 0.7,
 					"CardsRemaining": 2
 				}],
-				"ManualMode": false
+				"Paused": false
 			},
 			"KeepRunning": true
 		},
@@ -44,7 +44,7 @@ The example response of latest version has following form:
 			"CardsFarmer": {
 				"GamesToFarm": [],
 				"CurrentGamesFarming": [],
-				"ManualMode": false
+				"Paused": false
 			},
 			"KeepRunning": true
 		}
@@ -74,8 +74,7 @@ The example response of latest version has following form:
 
 ```CurrentGamesFarming``` is a ```ConcurrentHashSet<Game>``` (collection of ```Game``` elements) object that contains games being farmed right now. In comparison with ```GamesToFarm```, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to ```32``` games (```MaxGamesPlayedConcurrently``` enforced by Steam Network).
 
-```ManualMode``` is a ```bool``` type that specifies if ```CardsFarmer``` is running in manual mode. Manual mode means that user is either playing his own specified game through ```!play``` command, or bot is ```!pause```d.
-
+```Paused``` is a ```bool``` type that specifies if ```CardsFarmer``` is currently paused. CardsFarmer can be paused due to various events, mainly ```!pause``` and ```!play``` commands.
 ---
 
 ### Game
