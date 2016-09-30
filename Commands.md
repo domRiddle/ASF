@@ -37,6 +37,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
 `!resume <BOT>`                   | Resumes automatic farming of given bot instance. Also see ```!pause```, ```!play```
 `!start <BOT>`                    | Starts given bot instance
+`!startall`                       | Starts all inactive bot instances
 `!status`                         | Prints status of current bot instance
 `!status <BOT>`                   | Prints status of given bot instance
 `!statusall`                      | Prints status of all bot instances and ASF itself
