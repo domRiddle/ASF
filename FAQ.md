@@ -153,7 +153,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 > It looks like this account was used to manage a network of bot accounts.
 > Botting is a violation of the Steam Subscriber Agreement.
 
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing ```!lootall``` on over 1k of bots can be easily consdered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and most likely you'll be fine.
+Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing ```!lootall``` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and most likely you'll be fine.
 
 ***
 
