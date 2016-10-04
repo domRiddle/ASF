@@ -146,7 +146,14 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 **Q:** Did somebody get banned for it?
 
-**A:** Up to today, I didn't hear of any single case where ASF would be directly responsible for any kind of steam suspension. Therefore, we can assume that Valve either doesn't care, or like I pointed above - ASF doesn't violate any terms of service. Valve didn't state whether they agree with what ASF (or IdleMaster) is doing, or not. Therefore, you should consider both programs as grey zone, and decide yourself if you're fine with using ASF or not. If you ask me, you should be perfectly fine, but nobody can guarantee that, as written above. Therefore, in the end, it's your decision, and nobody's else.
+**A:** Up to today, we had a single accident of guy with over 1000 bots getting trade banned (together with all bots), most likely due to excessive usage of ```!lootall``` executed on all bots at once.
+
+> Hello XXX,
+> Thank you for contacting Steam Support.
+> It looks like this account was used to manage a network of bot accounts.
+> Botting is a violation of the Steam Subscriber Agreement."
+
+Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing ```!lootall``` on over 1k of bots can be easily consdered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and most likely you'll be fine.
 
 ***
 
