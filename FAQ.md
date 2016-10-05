@@ -155,7 +155,7 @@ ASF is licensed under Apache 2.0 License, which clearly states:
 
 Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing ```!lootall``` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
 
-_Most likely_, because ASF is just a tool and it's **your** decision how to use it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself how you want to use it. I'm not hiding any information that could help you, e.g. the fact that ASF got somebody trade-banned, as I have no reason to - it's your choice what you want to do with that information.
+_Most likely_, because ASF is just a tool and it's **your** decision how to use it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself how you want to use it. I'm not hiding any information that could help you, e.g. the fact that ASF got somebody trade-banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, and I doubt you'll get in trouble.
 
 ***
 
