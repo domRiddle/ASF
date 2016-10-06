@@ -12,7 +12,7 @@ First important logic bit is family sharing recognition - ASF is aware of librar
 
 Second logic bit is extra support - After logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 ```steamID```s allowed to use your library. Those users are permitted to use ```!pause``` command on bot account that is sharing games with them, which allows them to pause automatic cards farming module in order to launch a game that can be shared. After they're done playing, automatic cards farming module will automatically issue ```!resume``` process in order to keep farming.
 
-Connecting both bits described above allows your friends to ```!pause``` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process is automatically resumed by ASF. Of course, issuing ```!pause``` is not needed if ASF is currently not farming anything actively, because they can launch the game right away, and bit #1 ensures that they won't be kicked out of the session.
+Connecting both bits described above allows your friends to ```!pause``` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process is automatically resumed by ASF. Of course, issuing ```!pause``` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and bit #1 ensures that they won't be kicked out of the session.
 
 ---
 
