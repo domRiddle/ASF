@@ -8,7 +8,7 @@ ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand
 
 Support for that feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it just works out of the box as an extra.
 
-First important logic bit is family sharing recognition - ASF is aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for lock being released.
+First important logic bit is family sharing recognition - ASF is aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
 
 Second logic bit is extra support - After logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 ```steamID```s allowed to use your library. Those users are permitted to use ```!pause``` command on bot account that is sharing games with them, which allows them to pause automatic cards farming module in order to launch a game that can be shared. After they're done playing, automatic cards farming module will automatically issue ```!resume``` process in order to keep farming.
 
