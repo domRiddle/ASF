@@ -14,6 +14,7 @@ Some of the subjects you might be interested in:
 6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 7. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 8. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+9. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 
 Advanced users might be interested in:
 
