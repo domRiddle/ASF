@@ -62,7 +62,7 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
 
 The explanation of above config is rather simple - we define one **logging target**, which is ```ColoredConsole```, then we redirect **all loggers** of level ```Trace``` and higher to ```ColoredConsole``` target we defined earlier. That's it.
 
-If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` target will be active, and ASF won't write to ```File```, neither to ```EventLog```, regardless of ```ASF.json``` configuration.
+If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` target will be active, and ASF won't write to ```File```, neither to ```EventLog```, regardless of hardcoded ASF NLog configuration.
 
 Now let's say that we don't like default format of ```${longdate}|${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
