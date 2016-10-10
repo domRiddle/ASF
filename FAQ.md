@@ -58,6 +58,12 @@ However, keep in mind that Android is simply-put Unix on ARM platform. Mono supp
 
 ***
 
+**Q:** I'm Linux / OS X user, will ASF idle games that are not available for my OS?
+
+**A:** Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements.
+
+***
+
 ## Idle Master comparison
 
 ***
@@ -91,12 +97,6 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 **A:** **No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
-
-***
-
-**Q:** I'm Linux / OS X user, will ASF idle games that are not available for my OS?
-
-**A:** Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform requirements.
 
 ***
 
