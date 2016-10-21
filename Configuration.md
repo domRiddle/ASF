@@ -369,3 +369,16 @@ Remember to keep proper JSON structure - strings should be contained in ```""```
 ## Compatibility
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with it's **default value**. You can always add, remove or edit config properties according to your needs, ```ASF.json``` will always include all currently supported global config properties, while ```example.json``` will always include all currently supported bot config properties for you to use. There's no need to "regenerate" configs when new property gets added, unless you want to switch it from it's default value to something else. Especially advanced users are encouraged to keep minimalistic file structure and define only those properties, in both global and bot configs, which they **require** to change, instead of copying entire ```example.json``` and changing only 3 variables. You can always add missing properties later, ```example.json``` is always available for you.
+
+---
+
+## Auto-reload
+
+Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+- Create (and start, if needed) new bot instance, when you create it's config
+- Stop old bot instance, when you delete it's config
+- Stop and (and start, if needed) any bot instance, when you edit it's config
+
+All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+
+In addition to that, ASF will also restart itself (if ```AutoRestart permits```) if you modify core ASF ```ASF.json``` config.
