@@ -8,7 +8,7 @@ ASF supports being run as Service - this mode can be especially useful on Window
 
 At the moment normal ASF binary is not capable to be used in service environment, this limitation might be solved in future (see: **[issue](https://github.com/Fody/Costura/issues/164)**). Until then, there is special ```ASF-Service.exe``` binary provided in releases that can be used for that purpose, and it should be used instead of ```ASF.exe```. It has exactly the same functionality, including auto-updates as normal ASF.exe binary, while using different repacking method suitable for being used as a service.
 
-In order to install ```ASF-Service.exe```, you should use **[InstallUtil.exe](https://msdn.microsoft.com/library/50614e95(v=vs.110).aspx)**. Typically this binary can be found in C:\Windows\Microsoft.NET\Framework(64)\VERSION where VERSION should be latest available .NET runtime version, such as ```v4.0.30319``` right now. ```InstallUtil.exe``` must be executed with admin rights, so if you want to execute it through ```cmd```, make sure to start ```cmd``` as administrator.
+In order to install ```ASF-Service.exe```, you should use **[InstallUtil.exe](https://msdn.microsoft.com/library/50614e95(v=vs.110).aspx)**. Typically this binary can be found in ```C:\Windows\Microsoft.NET\Framework(64)\VERSION``` where VERSION should be latest available .NET runtime version, such as ```v4.0.30319``` right now. ```InstallUtil.exe``` must be executed with admin rights, so if you want to execute it through ```cmd```, make sure to start ```cmd``` as administrator.
 
 Complete command on Windows 10 64-bit looks like this:
 
