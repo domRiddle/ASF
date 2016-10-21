@@ -88,6 +88,19 @@ Types used by ASF are native C# types, which are specified below:
 
 ```HashSet<uint>``` - Collection (set) of unique unsigned integers, separated by a comma.
 
+```flags``` - Some types might use ```flags attributes```, for example ```TradingPreferences```. Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combinations of various different allowed values at the same time. The final value is constructed as sum of values of all enabled options.
+
+For example, given following values:
+
+Value | Name
+--- | ---
+0 | None
+1 | A
+2 | B
+4 | C
+
+Using ```B + C``` would result in value of ```6```, using ```A + C``` would result in value of ```5```, using ```C``` would result in value of 4 and so on.
+
 ---
 
 ## Global config
