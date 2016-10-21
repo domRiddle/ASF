@@ -10,7 +10,7 @@ ASF will always allow ```SteamMasterID``` of given bot instance to ```!loot``` i
 
 In addition to ```SteamMasterID```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This allows you to not only accept donations from other people, but also send bot -> bot trades even when other bot doesn't match configured ```SteamMasterID```.
 
-Apart from that, you can also extend ASF trading capabilities by switching ```SteamTradeMatcher``` to ```true```. When this option is active, ASF will also use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it.
+Apart from that, you can also extend ASF trading capabilities by enabling ```SteamTradeMatcher``` in your ```TradingPreferences```. When that option is active, ASF will also use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it.
 
 ***
 
