@@ -304,15 +304,13 @@ The logic might get extended in future releases if needed. If you're not sure ho
 
 ```SendTradePeriod``` - ```byte``` type with default value of ```0```. This property works very similar to ```SendOnFarmingFinished``` explained above, with one difference - instead of sending trade when farming is done, we can also send it every ```SendTradePeriod``` hours, regardless of how much we have to farm left. This is useful if you want to ```!loot``` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of ```0``` disables this feature, if you want your bot to send you trade e.g. every day, you should put ```24``` here. If you're not sure how to set this property, leave it with default value of ```0```.
 
-```TradingPreferences``` - ```byte``` type with default value of ```1```. This property is flags attribute, and is defined as below:
+```TradingPreferences``` - ```byte flags``` type with default value of ```1```. This property defines ASF behaviour when in trading, and is defined as below:
 
 Value | Name  | Description
 --- | --- | ---
 0 | None | No trading preferences
 1 | AcceptDonations | Accepts trades in which we're not losing anything
 2 | SteamTradeMatcher | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info
-
-Please notice that this property is flags attribute, which means that resulting number is flags combination of all enabled fields. For example, if you want to enable both ```AcceptDonations``` (```1```) and ```SteamTradeMatcher``` (```2```) at the same time, you should use value of ```3``` (```1``` + ```2```). If you use graphical config generator, ASF automatically translates your checkbox-like preferences into appropriate value.
 
 ```AcceptConfirmationsPeriod``` - ```byte``` type with default value of ```0```. This property makes sense only if you have **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** enabled for this account. Recently Valve introduced additional restrictions, and now every item listed on the market requires additional 2FA confirmation. This option works the same as ```!2faok``` command, ASF will automatically accept all pending confirmations every ```AcceptConfirmationsPeriod``` minutes. Default value of ```0``` disables this feature. In general it's not recommended to enable this option, but if you want to keep it enabled, you should use rather long period, such as ```30``` minutes. If you're not sure how to set this property, leave it with default value of ```0```.
 
