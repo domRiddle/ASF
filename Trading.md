@@ -22,7 +22,7 @@ When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of 
 - Reject the trade if we're not receiving at least the same number of cards on per-game basis.
 - Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
 - Reject the trade if trade hold duration exceeds ```MaxTradeHoldDuration``` global config property.
-- Reject the trade if it's worse than neutral for us.
+- Reject the trade if we don't accept matching everything, and it's worse than neutral for us.
 - Accept the trade if we didn't reject it through any of the points above.
 
 Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property. It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
@@ -33,10 +33,10 @@ First 4 reject predicates should be obvious for everyone. The final one includes
 - Trade is **neutral** for us if our progress towards badge completion doesn't change. A B -> A C
 - Trade is **bad** for us if our progress towards badge completion declines. A B -> A A
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. ASF will, however, reject any bad trade for us.
+STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade.
 
-In short, ASF accepts neutral+ trades - it will accept both **good** as well as **neutral** trades, but **won't** accept **bad** ones.
+By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable ```MatchEverything``` in your ```TradingPreferences``` in order to make ASF accept all dupe trades, including bad ones. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that ASF will no longer help you progress towards badge completion.
 
-Although using ASF STM module doesn't mean that you can't accept such trades yourself. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
+Regardless of your chosen ```TradingPreferences```, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
 
 It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** when you enable this option, as this function loses it's whole potential if you decide to manually confirm every trade. ```SteamTradeMatcher``` will work properly even without ability to confirm trades, but manually confirming everything defeats the whole purpose of this option.
