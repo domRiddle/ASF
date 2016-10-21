@@ -311,6 +311,7 @@ Value | Name  | Description
 0 | None | No trading preferences
 1 | AcceptDonations | Accepts trades in which we're not losing anything
 2 | SteamTradeMatcher | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info
+4 | MatchEverything | In combination with ```SteamTradeMatcher```, also accepts bad trades in addition to good and neutral ones
 
 Please notice that this property is ```flags``` field, therefore it's possible to choose any combination of available values.
 
