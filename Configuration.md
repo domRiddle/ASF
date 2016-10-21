@@ -376,8 +376,8 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 - Create (and start, if needed) new bot instance, when you create it's config
-- Stop old bot instance, when you delete it's config
-- Stop and (and start, if needed) any bot instance, when you edit it's config
+- Stop (if needed) and remove old bot instance, when you delete it's config
+- Stop (and start, if needed) any bot instance, when you edit it's config
 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
