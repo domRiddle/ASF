@@ -53,7 +53,7 @@ Above commands can be sent to the bot through three different ways:
 - Through steam group chat, by ```SteamMasterID```
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
-In addition to that, ```!pause``` command can also be executed by up to 5 users that have **[access to our shared library](https://store.steampowered.com/account/managedevices)** enabled.
+In addition to that, ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**.
 
 When using **WCF**, keep in mind that:
 - Commands should **NOT** be prefixed by ```!```
