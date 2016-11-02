@@ -6,7 +6,7 @@ You can find currently available help pages on the right of this page ->
 
 Some of the subjects you might be interested in:
 
-1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** [Start here]
+1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **[Start here]**
 2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 4. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
