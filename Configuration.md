@@ -233,7 +233,7 @@ As you should know already, every bot should have it's own config. Example bot c
 
 All options are explained below:
 
-```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Enabled bot instance (```true```) will automatically start on ASF run, while disabled bot instance (```false```) will need to be ```!start```ed manually. By default every bot is disabled, so you probably want to switch this property to ```true```.
+```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Enabled bot instance (```true```) will automatically start on ASF run, while disabled bot instance (```false```) will need to be ```!start```ed manually. By default every bot is disabled, so you probably want to switch this property to ```true``` for all of your bots that should be started automatically.
 
 ```Paused``` - ```bool``` type with default value of ```false```. This property defines initial state of ```CardsFarmer``` module. With default value of ```false```, bot will automatically start farming when it's started, either because of ```Enabled``` or ```!start``` command. Switching this property to ```true``` should be done only if you want to manually ```!resume``` automatic farming process, for example because you want to use ```!play``` all the time and never use automatic ```CardsFarmer``` module - this works exactly the same as ```!pause^``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
 
