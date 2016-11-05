@@ -24,8 +24,10 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!ownsall <appID,gameName...>`    | Checks all currently enabled ASF bots for owning given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <BOT>`                 | Prints encrypted password of given bot instance (in use with ```PasswordFormat```)
-`!pause`                          | Pauses automatic farming of current bot instance. Also see ```!resume```
-`!pause <BOT>`                    | Pauses automatic farming of given bot instance. Also see ```!resume```
+`!pause`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause <BOT>`                    | Temporarily pauses automatic farming of given bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause^`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process.
+`!pause^ <BOT>`                   | Permanently pauses automatic farming of given bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process.
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```!resume``` for returning to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
