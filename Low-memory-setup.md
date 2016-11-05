@@ -55,7 +55,7 @@ For optimal performance, you should also adapt ```nursery-size``` to fit ```soft
 
 **Also keep in mind that above ```MONO_GC_PARAMS``` will heavily affect ASF performance, you can't expect ASF to be fast if you expect from GC to be as conservative as possible at the same time. I strongly suggest to fine-tune ```MONO_GC_PARAMS``` to your needs.** In my case, using above MONO_GC_PARAMS decreased performance of parsing badge pages from **20** to **32** seconds, but also decreased memory footprint from maximum of **24.9%** to maximum of **19.8%**, so it's **47.5%** lower performance for **20.5%** smaller memory footprint. Decide yourself if it's a good tradeoff for you.
 
-ASF by default is optimized for performance. If you use ```run.sh``` script from ASF tree, then you'll notice that Mono is started with ```--llvm --server -O=all``` arguments. Mono optimized for memory should avoid ```--llvm``` and ```-O=all```, in addition to that it should use ```--desktop``` instead of ```--server```. In the end, you should experiment a bit to find out which setup suits you best.
+ASF by default is optimized for performance. If you use ```run.sh``` script from ASF tree, then you'll notice that Mono is started with ```--server -O=all``` arguments. Mono optimized for memory should avoid ```-O=all```, in addition to that it should use ```--desktop``` instead of ```--server```. In the end, you should experiment a bit to find out which setup suits you best.
 
 ***
 
