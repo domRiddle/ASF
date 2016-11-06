@@ -11,13 +11,13 @@ Using custom NLog config automatically disables default ASF one, which includes 
 Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
 
 ```
-${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}
+${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
 ```
 
 ```EventLog``` layout is a bit simplified, as mechanism already includes core information:
 
 ```
-${message}${onexception:inner= ${exception:format=toString,Data}}
+${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
 ```
 
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. For reference though, equivalent of hardcoded ASF default logging would be:
@@ -26,9 +26,9 @@ If you want to use default ASF logging without any modifications, you don't need
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
-    <target xsi:type="ColoredConsole" name="ColoredConsole" detectConsoleAvailable="false" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="EventLog" name="EventLog" layout="${message}${onexception:inner= ${exception:format=toString,Data}}" log="ArchiSteamFarm" source="Logger" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="ColoredConsole" name="ColoredConsole" detectConsoleAvailable="false" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="EventLog" name="EventLog" layout="${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" log="ArchiSteamFarm" source="Logger" />
+    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
   </targets>
 
   <rules>
@@ -79,7 +79,7 @@ Now let's say that we don't like default format of ```${longdate}|${level:upperc
 </nlog>
 ```
 
-If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of ```BotName|Function() Message```.
+If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of ```Function() Message```.
 
 We can also modify the config to log to more than one target. Let's log to ```ColoredConsole``` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
 
