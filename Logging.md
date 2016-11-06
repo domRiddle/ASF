@@ -4,6 +4,18 @@ Starting from version V2.1.2.0, ASF allows you to configure your own custom logg
 
 ---
 
+## ASF integration
+
+ASF includes some nice code tricks that enhance it's integration with NLog, allowing you to catch specific messages more easily.
+
+NLog-specific ```${logger}``` variable will always distinguish the source of the message - it will be either ```BotName``` of one of your bots, or ```"ASF"``` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on name of the logger.
+
+ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them.
+
+ASF logs extra info, such as user/chat messages on ```Trace``` logging level. Default ASF logging logs only ```Debug``` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling ```Trace``` logging level, especially in combination with logging only one specific bot of your choice.
+
+---
+
 ## Default logging
 
 Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```EventLog``` (if ASF is started as a service) and ```File``` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
@@ -32,9 +44,9 @@ If you want to use default ASF logging without any modifications, you don't need
   </targets>
 
   <rules>
-    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
-    <logger name="*" minlevel="Trace" writeTo="EventLog" />
-    <logger name="*" minlevel="Trace" writeTo="File" />
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Debug" writeTo="EventLog" />
+    <logger name="*" minlevel="Debug" writeTo="File" />
   </rules>
 </nlog>
 ```
@@ -55,12 +67,12 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
   </targets>
 
   <rules>
-    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
   </rules>
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is ```ColoredConsole```, then we redirect **all loggers** of level ```Trace``` and higher to ```ColoredConsole``` target we defined earlier. That's it.
+The explanation of above config is rather simple - we define one **logging target**, which is ```ColoredConsole```, then we redirect **all loggers** of level ```Debug``` and higher to ```ColoredConsole``` target we defined earlier. That's it.
 
 If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` target will be active, and ASF won't write to ```File```, neither to ```EventLog```, regardless of hardcoded ASF NLog configuration.
 
@@ -74,7 +86,7 @@ Now let's say that we don't like default format of ```${longdate}|${level:upperc
   </targets>
 
   <rules>
-    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
   </rules>
 </nlog>
 ```
@@ -92,15 +104,15 @@ We can also modify the config to log to more than one target. Let's log to ```Co
   </targets>
 
   <rules>
-    <logger name="*" minlevel="Trace" writeTo="ColoredConsole" />
-    <logger name="*" minlevel="Trace" writeTo="File" />
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+    <logger name="*" minlevel="Debug" writeTo="File" />
   </rules>
 </nlog>
 ```
 
 And done, we'll now log everything to ```ColoredConsole``` and ```File```. Did you notice that you can also specify custom ```fileName``` and extra options?
 
-Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything to ```File```, but only ```Warning``` and above **[log level](https://github.com/nlog/nlog/wiki/Log-levels)** to the ```ColoredConsole```. We can achieve that by modifying our ```rules```:
+Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything (```Trace```) to ```File```, but only ```Warning``` and above **[log level](https://github.com/nlog/nlog/wiki/Log-levels)** to the ```ColoredConsole```. We can achieve that by modifying our ```rules```:
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
