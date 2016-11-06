@@ -8,7 +8,7 @@ Starting from version V2.1.2.0, ASF allows you to configure your own custom logg
 
 ASF includes some nice code tricks that enhance it's integration with NLog, allowing you to catch specific messages more easily.
 
-NLog-specific ```${logger}``` variable will always distinguish the source of the message - it will be either ```BotName``` of one of your bots, or ```"ASF"``` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on name of the logger.
+NLog-specific ```${logger}``` variable will always distinguish the source of the message - it will be either ```BotName``` of one of your bots, or ```ASF``` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on name of the logger.
 
 ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them.
 
