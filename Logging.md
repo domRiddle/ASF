@@ -28,7 +28,7 @@ Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
 ${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
 ```
 
-```EventLog``` layout is a bit simplified, as mechanism already includes core information:
+```EventLog``` layout is a bit simplified, as this target already includes core information we add to other ones:
 
 ```
 ${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
