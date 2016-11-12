@@ -65,6 +65,8 @@ Commands affecting ASF as a process, or more than one bot, typically require ```
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command | Alias |
-|---------|-------|
-`!redeem` | `!r`  |
+| Command  | Alias  |
+|----------|--------|
+`!redeem`  | `!r`   |
+`!redeem^` | `!r^`  |
+`!redeem&` | `!r&`  |
