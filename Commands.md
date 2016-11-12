@@ -57,6 +57,8 @@ Above commands can be sent to the bot through three different ways:
 
 In addition to that, ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**.
 
+All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+
 When using **WCF**, keep in mind that:
 - Commands should **NOT** be prefixed by ```!```
 - When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead
