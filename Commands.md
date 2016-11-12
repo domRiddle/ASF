@@ -59,10 +59,6 @@ In addition to that, ```!pause``` command can also be executed by up to 5 users 
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
-When using **WCF**, keep in mind that:
-- Commands should **NOT** be prefixed by ```!```
-- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead
-
 Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!statusall```, ```!lootall```, ```!update``` or ```!exit```.
 
 Some commands are also available with their aliases, to save you on typing:
@@ -72,3 +68,7 @@ Some commands are also available with their aliases, to save you on typing:
 `!redeem`  | `!r`   |
 `!redeem^` | `!r^`  |
 `!redeem&` | `!r&`  |
+
+When using **WCF**, keep in mind that:
+- Commands should **NOT** be prefixed by ```!```
+- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead
