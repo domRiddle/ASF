@@ -110,6 +110,9 @@ Client results:
 
 **Problem:**
 ```
+System.ServiceModel.AddressAccessDeniedException
+```
+```
 [!] WARNING: StartServer() <WCF> WCF service could not be started because of AddressAccessDeniedException
 [!] WARNING: StartServer() <WCF> If you want to use WCF service provided by ASF, consider starting ASF as administrator, or giving proper permissions
 ```
