@@ -8,8 +8,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!2fano <BOT>`                    | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instance
 `!2faok`                          | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
 `!2faok <BOT>`                    | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instance
-`!addlicense <appID1,appID2...>`  | Activates given ```appIDs``` on current bot instance (free games only) | ```!addlicense 440,570```
-`!addlicense <BOT> <appID1,appID2...>` | Activates given ```appIDs``` on given bot instance (free games only)
+`!addlicense <appID1,appID2...>`  | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on current bot instance (free games only) | ```!addlicense 440,570```
+`!addlicense <BOT> <appID1,appID2...>` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on given bot instance (free games only)
 `!api`                            | Returns ASF process status in JSON, check **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** for more info
 `!exit`                           | Stops whole ASF
 `!farm`                           | Restarts cards farming module for current bot instance
