@@ -36,7 +36,7 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!redeem^ <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on given bot instance, never forwards keys to other bots (like ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
 `!redeem& <key1,key2,...>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (forces ```ForwardKeysToOtherBots``` of ```true```)
 `!redeem& <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (forces ```ForwardKeysToOtherBots``` of ```true```)
-`!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the groupchat
+`!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
 `!restart`                        | Restarts ASF process
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
 `!resume <BOT>`                   | Resumes automatic farming of given bot instance. Also see ```!pause```, ```!play```
