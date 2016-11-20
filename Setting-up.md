@@ -9,7 +9,7 @@ If you arrived here for the first time, welcome!
 This is an option for those who don't want to learn how ASF works in-depth and just want to make it working. It can be achieved in less than 5 minutes.
 
 - Install latest **[.NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. No, don't skip this step.
-- Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else.
+- Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else (as you don't need it).
 - Unpack archive to wherever you want.
 - Launch ASF-ConfigGenerator.exe.
 - Follow the tutorial (if you want to)
