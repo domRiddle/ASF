@@ -170,6 +170,12 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
+**Q:** Can ASF farm steam cards obtained via Steam discovery during summer/winter sale?
+ 
+**A:** **No**, that's out of the scope of the program and not planned to be added anytime soon.
+
+***
+
 **Q:** Can ASF minimize to tray?
  
 **A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)** for Windows, or **[screen](http://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
