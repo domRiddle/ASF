@@ -23,7 +23,7 @@ Core points are repeated once again here, because people are either too blind to
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops.**
 - **No, you can't drop cards from F2P games without spending any money in them.**
-- **It's no longer possible to drop any cards on limited accounts (those that never spent 5$ in steam store).**
+- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store) anymore. It was possible in the past, but it's no longer the case.**
 
 ASF as a program is quite complex and full technical explanation should be available in **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**. Much simplified explanation is easier to understand: ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](http://steamcommunity.com/my/badges)** in order to find games that are available for farming (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available for farming, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully farmed already - if yes, ASF can proceed with the next title, until all games are fully farmed.
 
