@@ -73,7 +73,7 @@ You might want to save above script for example as ```asf.sh```, chmod it ```755
 
 Please notice that we wrap mono command in ```if``` instruction. This is important as ASF should be restarted only if it decided to exit by itself (error code 0) and not when it exited due to crash or exception (non-zero exit code). Of course nothing is stopping you from restarting ASF when it exited due to error, but you should add your own logic for keeping ```log.txt``` from the crash, so you're able to report the problem. Default behaviour assumes that you do not want to restart ASF if crash happened, and restart it only if ASF decided to exit by itself, e.g. due to update or ```!exit``` command.
 
-Also keep in mind that ASF automatically exits (with zero error code) when all bots are stopped. Therefore you should ensure that you have at least one ```Enabled = true```, ```StartOnLaunch = true``` and ```ShutdownOnFarmingFinished = false``` bot. Otherwise you might run into the situation such as starting ASF in infinite loop even if there's nothing to do.
+Also keep in mind that ASF automatically exits (with zero error code) when all bots are stopped. Therefore you should ensure that you have at least one ```Enabled = true``` and ```ShutdownOnFarmingFinished = false``` bot. Otherwise you might run into the situation such as starting ASF in infinite loop even if there's nothing to do.
 
 If you want to run ASF in non-interactive way such as on start of your server without your attention, I strongly suggest to switch ```Headless``` property to ```true```, so ASF will be aware of the fact that it can't expect any response from you.
 
