@@ -73,6 +73,8 @@ The example response of latest version has following form:
 
 ```SteamID``` is ```ulong``` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of ```0``` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
+```BotConfig``` is specialized C# object used by Bot for accessing to it's config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes all config variables available. This property can be used for determining with what options the bot is configured to work. Keep in mind that bot might also have invalid/broken config, in this case this property will be ```null```.
+
 ```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what ```SteamID``` can be used for).
 
 ---
