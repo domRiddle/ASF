@@ -38,6 +38,11 @@ The example response of latest version has following form:
 				}],
 				"Paused": false
 			},
+			"SteamID": 76561198006963719,
+			"BotConfig": {
+				"SteamLogin": null,
+				"SteamPassword": null
+			},
 			"KeepRunning": true
 		},
 		"1": {
@@ -46,6 +51,8 @@ The example response of latest version has following form:
 				"CurrentGamesFarming": [],
 				"Paused": false
 			},
+			"SteamID": 0,
+			"BotConfig": null,
 			"KeepRunning": true
 		}
 	}
@@ -64,7 +71,9 @@ The example response of latest version has following form:
 
 ```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance.
 
-```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not.
+```SteamID``` is ```ulong``` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of ```0``` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
+
+```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what ```SteamID``` can be used for).
 
 ---
 
