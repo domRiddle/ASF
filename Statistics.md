@@ -9,6 +9,7 @@ ASF development is supported by 3 major things: donations, users feedback, and s
 When ```Statistics``` are active, following things will happen:
 
 1. Every account being used in ASF will join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
+
 * It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
 * It allows us to see how many actual steam accounts are being used by ASF
