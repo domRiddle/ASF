@@ -31,6 +31,8 @@ ASF will **not** gather any other non-listed-above data without prior important 
 
 Your SteamID, Avatar, ASF 2FA status, SteamTradeMatcher status and MatchEverything status is being used for our **[public database of ASF-powered SteamTradeMatcher bots with ASF 2FA](https://asf.justarchi.net/STM)**. This way every interested user can easily notice bots that are currently active, and send STM trade offer, which helps that user as well as **you**, as both of you are getting rid of duplicate cards and heading towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability.
 
+Please note that you will **not** be displayed on the website if you do not have ASF 2FA, or SteamTradeMatcher option enabled. In this case your data is entirely private.
+
 ---
 
 ## Opting out
