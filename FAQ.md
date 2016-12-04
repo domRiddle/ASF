@@ -330,7 +330,7 @@ You could remove bot.db of affected account and try to link ASF to your account 
 - Requirement of captcha to log in (very likely to be caused by two reasons above)
 - Any other reason Steam Network might have preventing you from logging in.
 
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase ```LoginLimiterDelay``` config property of ASF.
+In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase ```LoginLimiterDelay``` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
 In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in issue above.
 
