@@ -15,6 +15,7 @@ When ```Statistics``` are active, following things will happen:
 * It allows us to see how many actual steam accounts are being used by ASF
 
 2. ASF will periodically send useful data about your accounts to our **[server](https://asf.justarchi.net)**. Actual data consists of following account-related information:
+
 * Your SteamID (in 64-bit form)
 * Your Avatar (hash)
 * Value specifying if you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
