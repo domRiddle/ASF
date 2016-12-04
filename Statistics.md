@@ -18,6 +18,7 @@ a) Every account being used in ASF will join our **[steam group](http://steamcom
 b) ASF will periodically send useful data about your accounts to our **[server](https://asf.justarchi.net)**. Actual data consists of following account-related information:
 
 * Your SteamID (in 64-bit form)
+* Your Nickname
 * Your Avatar (hash)
 * Value specifying if you have valid ```SteamApiKey``` and you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * Value specifying if you've enabled ```SteamTradeMatcher``` in your ```TradingPreferences```
@@ -29,7 +30,7 @@ ASF will **not** gather any other non-listed-above data without prior important 
 
 ## Usage of data
 
-Your SteamID, Avatar, automated trading (API key + ASF 2FA) status, SteamTradeMatcher status and MatchEverything status is being used for our **Public ASF STM listing** explained below.
+Your SteamID, Nickname, Avatar, automated trading (API key + ASF 2FA) status, SteamTradeMatcher status and MatchEverything status is being used for our **Public ASF STM listing** explained below.
 
 ---
 
