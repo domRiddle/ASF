@@ -19,7 +19,7 @@ b) ASF will periodically send useful data about your accounts to our **[server](
 
 * Your SteamID (in 64-bit form)
 * Your Avatar (hash)
-* Value specifying if you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* Value specifying if you have valid ```SteamApiKey``` and you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * Value specifying if you've enabled ```SteamTradeMatcher``` in your ```TradingPreferences```
 * Value specifying if you've enabled ```MatchEverything``` in your ```TradingPreferences```
 
@@ -29,7 +29,7 @@ ASF will **not** gather any other non-listed-above data without prior important 
 
 ## Usage of data
 
-Your SteamID, Avatar, ASF 2FA status, SteamTradeMatcher status and MatchEverything status is being used for our **[public database of ASF-powered SteamTradeMatcher bots with ASF 2FA](https://asf.justarchi.net/STM)**.
+Your SteamID, Avatar, automated trading (API key + ASF 2FA) status, SteamTradeMatcher status and MatchEverything status is being used for our **[public database of ASF-powered SteamTradeMatcher bots with ASF 2FA](https://asf.justarchi.net/STM)**.
 
 ---
 
@@ -41,9 +41,9 @@ Thanks to our listing, every interested ASF and non-ASF user can easily notice b
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 5 minutes ASF sends one, very tiny "HeartBeat" request that notifies the server that bot is still up.
 
-This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**, appropriately with green shadow if MatchEverything is active, 
+This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**, appropriately with green shadow if ```MatchEverything``` is active, and with orange shadow otherwise. 
 
-Please note that you will **not** be displayed on the website if you do not have ASF 2FA, or SteamTradeMatcher option enabled. In this case your data is entirely private. ```MatchEverything``` is used as an extra for marking trade bots.
+Please note that you will **not** be displayed on the website if you do not have automated trading, or SteamTradeMatcher option enabled. In this case your data is entirely private.
 
 ---
 
