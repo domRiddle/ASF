@@ -9,16 +9,16 @@ ASF development is supported by 3 major things: donations, users feedback, and s
 When ```Statistics``` are active, following things will happen:
 
 1. Every account being used in ASF will join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
-- - It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated
-- - It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
-- - It allows us to see how many actual steam accounts are being used by ASF
+* It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated
+* It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
+* It allows us to see how many actual steam accounts are being used by ASF
 
 2. ASF will periodically send useful data about your accounts to our **[server](https://asf.justarchi.net)**. Actual data consists of following account-related information:
-- Your SteamID (in 64-bit form)
-- Your Avatar (hash)
-- Value specifying if you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-- Value specifying if you've enabled ```SteamTradeMatcher``` in your ```TradingPreferences```
-- Value specifying if you've enabled ```MatchEverything``` in your ```TradingPreferences```
+* Your SteamID (in 64-bit form)
+* Your Avatar (hash)
+* Value specifying if you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* Value specifying if you've enabled ```SteamTradeMatcher``` in your ```TradingPreferences```
+* Value specifying if you've enabled ```MatchEverything``` in your ```TradingPreferences```
 
 ASF will **not** gather any other non-listed-above data without prior important ([!]) notice in the changelog.
 
