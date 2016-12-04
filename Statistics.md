@@ -37,7 +37,7 @@ Your SteamID, Avatar, automated trading (API key + ASF 2FA) status, SteamTradeMa
 
 Our listing is located **[here](https://asf.justarchi.net/STM)**.
 
-Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, including **you** to help get rid of duplicated cards and head towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
+Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
 
 **How it exactly works:**
 
