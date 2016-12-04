@@ -14,6 +14,7 @@ When ```Statistics``` are active, following things will happen:
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
 * It allows us to see how many actual steam accounts are being used by ASF
 
+
 2. ASF will periodically send useful data about your accounts to our **[server](https://asf.justarchi.net)**. Actual data consists of following account-related information:
 
 * Your SteamID (in 64-bit form)
