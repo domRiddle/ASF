@@ -48,7 +48,7 @@ This allows our website to record which account can be used for matching, as wel
 
 Please note that you will **not** be displayed on the website if you do not have automated trading, or SteamTradeMatcher option enabled. In this case your data is entirely private.
 
-*The entire concept, together with website integration and ASF reporting is still in beta - it can be improved over time.*
+*The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interested for this feature.*
 
 ---
 
