@@ -1,6 +1,8 @@
 # Statistics
 
-ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, as well as being able to see actual users using our application. ASF in default settings has ```Statistics``` global config property enabled. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, because this is what our current statistics are mainly doing.
+ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
+
+ASF in default settings has ```Statistics``` global config property enabled. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, because this is what our current statistics are mainly doing.
 
 ---
 
