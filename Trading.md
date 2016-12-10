@@ -22,7 +22,7 @@ When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of 
 - Reject the trade if we're not receiving at least the same number of cards on per-game basis.
 - Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
 - Reject the trade if trade hold duration exceeds ```MaxTradeHoldDuration``` global config property.
-- Reject the trade if we don't accept matching everything, and it's worse than neutral for us.
+- Reject the trade if we don't have ```MatchEverything``` set, and it's worse than neutral for us.
 - Accept the trade if we didn't reject it through any of the points above.
 
 Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property. It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
