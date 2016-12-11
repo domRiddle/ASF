@@ -2,7 +2,7 @@
 
 Starting with version 1.3+, ASF now offers WCF (Windows Communication Foundation) inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
-WCF is always executed with ```SteamOwnerID``` permissions, which is ```0``` by default. In order to use it, you should set ```SteamOwnerID``` to the proper non-zero value. Default value will make WCF work, but not authorizing any client to execute any command. If WCF client is not authorized to use a command, he'll receive null response. For more info about ```SteamOwnerID```, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+WCF is always executed with ```SteamOwnerID``` permissions, which is ```0``` by default. In order to use it, you should set ```SteamOwnerID``` to the proper non-zero value. Default value will make WCF work, but not authorizing any client to execute any command. For more info about ```SteamOwnerID```, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 
 ---
 
@@ -22,11 +22,11 @@ mono ASF.exe --server
 
 If parameter was passed correctly, you should notice that WCF service is active:
 ```
-[*] NOTICE: StartServer() <WCF> Starting WCF server...
-[*] NOTICE: StartServer() <WCF> WCF server ready!
+INFO|ASF|StartServer() Starting WCF server on net.tcp://127.0.0.1:1242/ASF ...
+INFO|ASF|StartServer() WCF server ready!
 ```
 
-ASF is now listening on ```http://localhost:1242/ASF``` for incoming WCF connections (or whatever ```WCFHostname``` and ```WCFPort``` you specified in the config).
+ASF is now listening on ```net.tcp://127.0.0.1:1242/ASF``` for incoming WCF connections (or whatever ```WCFHost``` and ```WCFPort``` you specified in the config).
 
 ---
 
@@ -78,16 +78,16 @@ mono ASF.exe --client "stop archi"
 
 Server results:
 ```
-[*] INFO: HandleCommand() <WCF> Received command: "stop archi"
-[*] INFO: Stop() <archi> Stopping...
-[*] INFO: HandleCommand() <WCF> Answered to command: "stop archi" with: "Done!"
-[*] INFO: OnDisconnected() <archi> Disconnected from Steam!
+INFO|ASF|HandleCommand() Received command: "stop archi"
+INFO|archi|Stop() Stopping...
+INFO|ASF|HandleCommand() Answered to command: "stop archi" with: "Done!"
+INFO|archi|OnDisconnected() Disconnected from Steam!
 ```
 
 Client results:
 ```
-[*] NOTICE: ParseArgs() <WCF> Command sent: "stop archi"
-[*] NOTICE: ParseArgs() <WCF> Response received: "Done!"
+INFO|ASF|ParseArgs() Command sent: "stop archi"
+INFO|ASF|ParseArgs() Response received: "Done!"
 ```
 
 ---
