@@ -284,10 +284,12 @@ Notice the word "try" in all above descriptions - the actual order is heavily af
 ```Event``` | ```IsBotAccount: false``` | ```IsBotAccount: true```
 --- | --- | ---
 Invalid trades | Ignored | Rejected
-Invalid friend invites | Ignored | Rejected
+Invalid friend/clan invites | Ignored | Rejected
 ```!loot``` | Cards (without foils) + Boosters | Cards (with foils) + Boosters
 
 For example, invalid trades will be ignored on primary accounts, which allows you to decide yourself if you want to accept/decline them or not. On bot accounts, those trades will be immediately rejected, as there is nobody taking care of them.
+
+Invalid friend invite is the one that doesn't come from ```SteamMasterID```. Likewise - invalid clan invite is the one that doesn't come from ```SteamMasterClanID```.
 
 The logic might get extended in future releases if needed. If you're not sure how to set this property, leave it with default value of ```false```.
 
