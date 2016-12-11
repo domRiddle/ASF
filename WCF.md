@@ -102,7 +102,7 @@ INFO|ASF|ParseArgs() Response received: "Done!"
 
 **Q:** Is this secure?
 
-**A:** ASF by default listens only on ```localhost``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```localhost``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero ```SteamOwnerID```, otherwise it'll deny all client requests and respond with empty messages.
+**A:** ASF by default listens only on ```127.0.0.1``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```127.0.0.1``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero ```SteamOwnerID```, otherwise it'll refuse to execute any command, as an extra security measure.
 
 ---
 
@@ -113,8 +113,8 @@ INFO|ASF|ParseArgs() Response received: "Done!"
 System.ServiceModel.AddressAccessDeniedException
 ```
 ```
-[!] WARNING: StartServer() <WCF> WCF service could not be started because of AddressAccessDeniedException
-[!] WARNING: StartServer() <WCF> If you want to use WCF service provided by ASF, consider starting ASF as administrator, or giving proper permissions
+ERROR|ASF|StartServer() WCF service could not be started because of AddressAccessDeniedException!
+ERROR|ASF|StartServer() If you want to use WCF service provided by ASF, consider starting ASF as administrator, or giving proper permissions!
 ```
 
 **Solution:**
