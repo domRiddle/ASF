@@ -32,7 +32,7 @@ ASF will **not** gather any other non-listed-above data without prior important 
 
 ## Usage of data
 
-All values specified in point b) are being used for our **Public ASF STM listing** explained below.
+All values specified in point b) are being used for our **Public ASF STM listing** explained below, and only for that.
 
 ---
 
