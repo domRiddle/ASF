@@ -1,5 +1,10 @@
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
+Below commands can be sent to the bot through three different ways:
+- Through steam private chat, by ```SteamMasterID```
+- Through steam group chat, by ```SteamMasterID```
+- Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+
 |Command                          | Description                                            | Examples                    |
 | ------------------------------- |:-------------------------------------------------------|:----------------------------|
 `!2fa`                            | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance
@@ -50,14 +55,13 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 `!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours if ```AutoUpdates```)
 `!version`                        | Prints version of ASF
 
-Above commands can be sent to the bot through three different ways:
-- Through steam private chat, by ```SteamMasterID```
-- Through steam group chat, by ```SteamMasterID```
-- Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+---
 
-In addition to that, ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**.
+### Notes
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+
+```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
 
 Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!statusall```, ```!lootall```, ```!update``` or ```!exit```.
 
