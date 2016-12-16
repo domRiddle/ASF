@@ -136,7 +136,8 @@ Global config is located in ```ASF.json``` file and has following structure:
     335590,
     368020,
     425280,
-    480730
+    480730,
+    566020
   ]
 }
 ```
@@ -185,7 +186,7 @@ All options are explained below:
 
 ```Statistics``` - ```bool``` type with default value of ```true```. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
-```Blacklist``` - ```HashSet<uint>``` type with default value of ```267420, 303700, 335590, 368020, 425280, 480730``` appIDs. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ```Blacklist``` serves a purpose of marking those badges as not available for farming, so ASF can silently ignore them when deciding what to farm. ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcoded into the ASF process and not possible to edit, and normal ```Blacklist```, which is defined here. The only purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded ```GlobalBlacklist``` is being updated as fast as possible, therefore you're not required to update your own ```Blacklist``` if you're using latest ASF version, but without ```Blacklist``` you'd be forced to update in order for ASF to "keep running" when Valve releases new sale badge, therefore this property is here to allow you "fix" ASF yourself if you for some reason don't want to update to new hardcoded ```GlobalBlacklist``` in new ASF release, yet you want your old ASF to keep running. Unless you have a **strong** reason to edit this property, you should keep it at default.
+```Blacklist``` - ```HashSet<uint>``` type with default value of ```267420, 303700, 335590, 368020, 425280, 480730, 566020``` appIDs. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ```Blacklist``` serves a purpose of marking those badges as not available for farming, so ASF can silently ignore them when deciding what to farm. ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcoded into the ASF process and not possible to edit, and normal ```Blacklist```, which is defined here. The only purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded ```GlobalBlacklist``` is being updated as fast as possible, therefore you're not required to update your own ```Blacklist``` if you're using latest ASF version, but without ```Blacklist``` you'd be forced to update in order for ASF to "keep running" when Valve releases new sale badge, therefore this property is here to allow you "fix" ASF yourself if you for some reason don't want to update to new hardcoded ```GlobalBlacklist``` in new ASF release, yet you want your old ASF to keep running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
