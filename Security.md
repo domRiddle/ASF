@@ -41,3 +41,9 @@ If compatibility is not an issue for you, and you're fine with the way how ```Pr
 Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted password, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. ```ProtectedDataForCurrentUser``` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
 
 For people launching ASF rarily or those who are not bothered with entering the password on each ASF startup, ```None``` way is the most secure as Steam password is not saved anywhere.
+
+---
+
+# Decryption
+
+ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using ```ProtectedDataForCurrentUser```, then simply switch your ```PasswordFormat``` back to ```0``` (PlainText), and fill ```SteamPassword``` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.
