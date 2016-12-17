@@ -75,4 +75,6 @@ Some commands are also available with their aliases, to save you on typing:
 
 When using **WCF**, keep in mind that:
 - Commands should **NOT** be prefixed by ```!```
-- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead
+- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead.
+
+It's not required to have any extra account for executing commands though Steam chat - you can create a group, set ```SteamMasterClanID``` properly to that newly created group, then set ```SteamMasterID``` as yourself. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
