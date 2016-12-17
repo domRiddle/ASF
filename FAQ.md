@@ -196,7 +196,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** I have only one (main) account added to ASF, can I still issue commands through steam chat?
 
-**A:** Yes, you can do that by creating a group, setting ```SteamMasterClanID``` properly and setting ```SteamMasterID``` as yourself. This way ASF bot will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, but chatroom way is much easier, and having an alt in ASF even easier.
+**A:** **Yes**, it's explained in **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#notes)** section.
 
 ***
 
