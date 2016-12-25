@@ -203,11 +203,9 @@ As you should know already, every bot should have it's own config. Example bot c
   "CustomGamePlayedWhileFarming": null,
   "CustomGamePlayedWhileIdle": null,
   "DismissInventoryNotifications": true,
-  "DistributeKeys": false,
   "Enabled": false,
   "FarmingOrder": 0,
   "FarmOffline": false,
-  "ForwardKeysToOtherBots": false,
   "GamesPlayedWhileIdle": [],
   "HandleOfflineMessages": false,
   "IsBotAccount": false,
@@ -218,6 +216,7 @@ As you should know already, every bot should have it's own config. Example bot c
   ],
   "PasswordFormat": 0,
   "Paused": false,
+  "RedeemingPreferences": 0,
   "SendOnFarmingFinished": false,
   "SendTradePeriod": 0,
   "ShutdownOnFarmingFinished": false,
@@ -250,8 +249,6 @@ All options are explained below:
 
 ```DismissInventoryNotifications``` - ```bool``` type with default value of ```true```. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF by default automatically dismisses those notifications. If you for some reason would like to still receive and manually mark those notifications as read, consider switching this option to ```false```. It's nice to note that this option affects all item drops - including items you obtained through trading, and not only card drops.
 
-```DistributeKeys``` - ```bool``` type with default value of ```false```. When ```ForwardKeysToOtherBots``` is enabled, a bot receiving 3 keys will firstly try to redeem key on it's own account, then forward that key to other bots, until it gets redeemed, then proceed with second key in the same manner. However, you might want to alter this behaviour, so when you send 3 keys to given bot, it will use one on itself, second one on bot2, and third one on bot3. This can be useful if you have many keys for the same game and you want to "distribute" all of those keys to your bots. It can be faster and more successful way in this case, as bots have lower chance of getting ```OnCooldown```, as every bot is trying to redeem only one key (instead of all 3 of them). Keep in mind that ```ForwardKeysToOtherBots``` also affects this property, and most likely you want to use **only one** of those two, not both at the same time. If you however use both, bots in addition to receiving that one distributed key will also try to forward it further if they have the game already, which is basically only useful if you're distributing less keys than your bots count. The actual redeeming order is alphabetical according to names of the bots, excluding bots that are not connected. ASF will do it's best to avoid pointless redeem tries, therefore it will not forward/distribute keys to bots that own the game already (first try is always needed in order to find out what is the game behind the key). If you're not sure how to set this property, leave it with default value of ```false```.
-
 ```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Enabled bot instance (```true```) will automatically start on ASF run, while disabled bot instance (```false```) will need to be ```!start```ed manually. By default every bot is disabled, so you probably want to switch this property to ```true``` for all of your bots that should be started automatically.
 
 ```FarmingOrder``` - ```byte``` type with default value of ```0```. This property defines the **preferred** farming order of ASF. There are currently 9 farming orders available:
@@ -271,8 +268,6 @@ Value | Name  | Description
 Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in ```Simple``` algorithm, selected ```FarmingOrder``` should be entirely respected in current farming session (as every game is treated the same), while in ```Complex``` algorithm actual order is affected by hours and then sorted according to chosen ```FarmingOrder```. This will lead to different results, as post-2h games have higher priority over pre-2h ones. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over ```FarmingOrder```).
 
 ```FarmOffline``` - ```bool``` type with default value of ```false```. Offline farming is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to "sign in" to steamcommunity in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile. Also, bots with ```FarmOffline``` feature enabled can't react to commands (directly), which is important if you decide to use that feature with alt accounts. See: ```HandleOfflineMessages```
-
-```ForwardKeysToOtherBots``` - ```bool``` type with default value of ```false```. Forwarding key is useful if you have at least 2 or more bots enabled in ASF. This option serves the purpose of "I have key X, I want to farm cards off it, and it doesn't matter for me on which bot the key will be redeemed". When you switch this property to ```true```, bot will firstly try to redeem key on it's own account, and if it fails for any reason (such as bot already owning the game), bot will forward the key to other bots, so they can redeem it instead. ASF will do it's best to ensure that key will be forwarded to bot that doesn't own it yet, but it's still a very fast way to reach ```OnCooldown``` status, therefore this option can be a nice addition if you don't want to check if all of your bots own given game, but it should not be overused. The actual redeeming order is alphabetical according to names of the bots, excluding bots that are not connected. ASF will do it's best to avoid pointless redeem tries, therefore it will not forward/distribute keys to bots that own the game already (first try is always needed in order to find out what is the game behind the key). If you're not sure how to set this property, leave it with default value of ```false```.
 
 ```GamesPlayedWhileIdle``` - ```HashSet<uint>``` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (```appID```s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with ```CustomGamePlayedWhileIdle``` in order to play your selected games while showing custom status in Steam network, but in this case, like in ```CustomGamePlayedWhileFarming``` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to ```32``` ```appID```s, therefore if you put more games than that, only first ```32``` will be respected (and extra ones being ignored).
 
@@ -295,6 +290,22 @@ The logic might get extended in future releases if needed. If you're not sure ho
 ```PasswordFormat``` - ```byte``` type with default value of ```0```. This property defines format of ```SteamPassword``` property above, and currently supports - ```0``` for ```PlainText```, ```1``` for ```AES``` and ```2``` for ```ProtectedDataForCurrentUser```. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that ```SteamPassword``` property defined above indeed includes password in matching ```PasswordFormat```. Unless you know what you're doing, you should keep it with default value of ```0```.
 
 ```Paused``` - ```bool``` type with default value of ```false```. This property defines initial state of ```CardsFarmer``` module. With default value of ```false```, bot will automatically start farming when it's started, either because of ```Enabled``` or ```!start``` command. Switching this property to ```true``` should be done only if you want to manually ```!resume``` automatic farming process, for example because you want to use ```!play``` all the time and never use automatic ```CardsFarmer``` module - this works exactly the same as ```!pause^``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
+
+```RedeemingPreferences``` - ```byte flags``` type with default value of ```0```. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
+
+Value | Name  | Description
+--- | --- | ---
+0 | None | No redeeming preferences, typical
+1 | Forwarding | Forward keys unavailable to redeem to other bots
+2 | Distributing | Distribute all keys among itself and other bots
+
+Please notice that this property is ```flags``` field, therefore it's possible to choose any combination of available values. Check out **[flags explanation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)** if you'd like to learn more. Not enabling any of flags results in ```None``` option.
+
+**Forwarding** will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding ```AlreadyOwned``` game to another bot that is missing that particular game, but this option also covers other scenarios, such as ```BaseGameRequired```, ```OnCooldown``` or ```RegionLocked```.
+
+**Distributing** will cause bot to distribute all received keys among itself and other bots. This alters default behaviour of getting 3 keys and trying to redeem all of them on itself, into taking one for itself, giving one to bot #2, and giving last one to bot #3. Typically this is used only when you're redeeming many keys for the same game, and you want to evenly distribute them among your bot, as opposed to redeeming keys for various different games.
+
+Enabling both **Forwarding** and **Distributing** will add forwarding feature on top of distributing one, meaning that distributed key can be forwarded further, if needed, instead of being kept unused (which is what happens when distributing is enabled alone, as distributed key is kept unused).
 
 ```SendOnFarmingFinished``` - ```bool``` type with default value of ```false```. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to ```SteamMasterID```, which is very convenient if you don't want to bother with trades yourself. This option works the same as ```!loot``` command, therefore keep in mind that it requires ```SteamMasterID``` properly set. You may also need to set ```SteamTradeToken```, which is described below. Account should also be eligible for trading, and you will need to manually confirm trade on your authenticator/e-mail, unless you're using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, which does that automatically for you. In addition to initiating ```!loot``` after finishing farming, ASF will also initiate ```!loot``` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account. If you're not sure how to set this property, leave it with default value of ```false```.
 
