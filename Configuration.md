@@ -287,6 +287,22 @@ Invalid friend invite is the one that doesn't come from ```SteamMasterID```. Lik
 
 The logic might get extended in future releases if needed. If you're not sure how to set this property, leave it with default value of ```false```.
 
+```LootableTypes``` - ```HashSet<Steam.Item.EType>``` type with default value of ```BoosterPack, FoilTradingCard, TradingCard``` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from ```LootableTypes``` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+
+Value | Name  | Description
+--- | --- | ---
+0 | Unknown | Every type that doesn't fit in any of the below
+1 | BoosterPack | Unpacked booster pack
+2 | Coupon | Discount coupon to use in Steam Store
+3 | Emoticon | Emoticon to use in Steam Chat
+4 | Gift | Redeemable Steam Gift bought from Steam Store
+5 | FoilTradingCard | Foil variant of ```TradingCard```
+6 | ProfileBackground | Profile background to use on your Steam profile
+7 | TradingCard | Steam trading card, being used for crafting badges
+8 | SteamGems | Steam gems being used for crafting boosters, sacks included
+
+Default ASF setting is based on most common usage of farm bot, with looting only booster packs, and trading cards (including foils). This property allows you to alter than in whatever combination that satisfies you. Please keep in mind that all types not defined above will show as ```Unknown``` type, which is especially important when Valve releases some new Steam item, which will be marked as ```Unknown``` by ASF until added here. That's why in general it's not recommended to include ```Unknown``` type in your ```LootableTypes```, unless you know what you're doing.
+
 ```PasswordFormat``` - ```byte``` type with default value of ```0```. This property defines format of ```SteamPassword``` property above, and currently supports - ```0``` for ```PlainText```, ```1``` for ```AES``` and ```2``` for ```ProtectedDataForCurrentUser```. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that ```SteamPassword``` property defined above indeed includes password in matching ```PasswordFormat```. Unless you know what you're doing, you should keep it with default value of ```0```.
 
 ```Paused``` - ```bool``` type with default value of ```false```. This property defines initial state of ```CardsFarmer``` module. With default value of ```false```, bot will automatically start farming when it's started, either because of ```Enabled``` or ```!start``` command. Switching this property to ```true``` should be done only if you want to manually ```!resume``` automatic farming process, for example because you want to use ```!play``` all the time and never use automatic ```CardsFarmer``` module - this works exactly the same as ```!pause^``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
