@@ -76,15 +76,19 @@ Types used by ASF are native C# types, which are specified below:
 
 ```bool``` - Boolean type accepting only ```true``` and ```false``` values.
 
-```byte``` - Byte type, accepting only numbers from ```0``` to ```255``` (inclusive)
+```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive)
 
-```ushort``` - Unsigned short type, accepting only numbers from ```0``` to ```65535``` (inclusive)
+```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive)
 
-```uint``` - Unsigned integer type, accepting only numbers from ```0``` to ```4294967295``` (inclusive)
+```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
 
-```ulong``` - Unsigned long integer type, accepting only numbers from ```0``` to ```18446744073709551615``` (inclusive)
+```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
 
-```string``` - String type, accepting any sequence of characters, including empty sequence and ```null```. **Notice:** Remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```. That applies to manual way of editing configs, if you're using graphical config generator then program automatically does everything for you, just input your strings.
+```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
+
+**Notice:** If you're manually editing your configs, please remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```. That applies **only** to manual way of editing configs, if you're using our graphical config generator then program automatically does everything for you, just input your strings in a box like usual.
+
+```HashSet<byte>``` - Collection (set) of unique unsigned bytes, separated by a comma.
 
 ```HashSet<uint>``` - Collection (set) of unique unsigned integers, separated by a comma.
 
