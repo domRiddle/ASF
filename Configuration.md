@@ -215,8 +215,8 @@ As you should know already, every bot should have it's own config. Example bot c
   "IsBotAccount": false,
   "LootableTypes": [
     1,
-    5,
-    7
+    3,
+    5
   ],
   "PasswordFormat": 0,
   "Paused": false,
@@ -296,13 +296,11 @@ Value | Name  | Description
 --- | --- | ---
 0 | Unknown | Every type that doesn't fit in any of the below
 1 | BoosterPack | Unpacked booster pack
-2 | Coupon | Discount coupon to use in Steam Store
-3 | Emoticon | Emoticon to use in Steam Chat
-4 | Gift | Redeemable Steam Gift bought from Steam Store
-5 | FoilTradingCard | Foil variant of ```TradingCard```
-6 | ProfileBackground | Profile background to use on your Steam profile
-7 | TradingCard | Steam trading card, being used for crafting badges
-8 | SteamGems | Steam gems being used for crafting boosters, sacks included
+2 | Emoticon | Emoticon to use in Steam Chat
+3 | FoilTradingCard | Foil variant of ```TradingCard```
+4 | ProfileBackground | Profile background to use on your Steam profile
+5 | TradingCard | Steam trading card, being used for crafting badges
+6 | SteamGems | Steam gems being used for crafting boosters, sacks included
 
 Please note that regardless of the settings above, ASF will only ask for Steam (```appID``` of 753) community (```contextID``` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
