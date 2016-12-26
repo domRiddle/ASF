@@ -290,7 +290,7 @@ Invalid friend invite is the one that doesn't come from ```SteamMasterID```. Lik
 
 The logic might get extended in future releases if needed. If you're not sure how to set this property, leave it with default value of ```false```.
 
-```LootableTypes``` - ```HashSet<byte>``` type with default value of ```1, 5, 7``` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from ```LootableTypes``` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+```LootableTypes``` - ```HashSet<byte>``` type with default value of ```1, 3, 5``` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from ```LootableTypes``` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
 Value | Name  | Description
 --- | --- | ---
