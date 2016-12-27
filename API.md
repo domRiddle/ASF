@@ -36,7 +36,7 @@ The example response of latest version has following form:
 					"HoursPlayed": 0.7,
 					"CardsRemaining": 2
 				}],
-				"TimeRemaining":"03:30:00",
+				"TimeRemaining":"02:30:00",
 				"Paused": false
 			},
 			"SteamID": 76561198006963719,
