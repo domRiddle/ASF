@@ -36,6 +36,7 @@ The example response of latest version has following form:
 					"HoursPlayed": 0.7,
 					"CardsRemaining": 2
 				}],
+				"TimeRemaining":"03:30:00",
 				"Paused": false
 			},
 			"SteamID": 76561198006963719,
@@ -50,6 +51,7 @@ The example response of latest version has following form:
 			"CardsFarmer": {
 				"GamesToFarm": [],
 				"CurrentGamesFarming": [],
+				"TimeRemaining":"00:00:00",
 				"Paused": false
 			},
 			"SteamID": 0,
@@ -88,6 +90,8 @@ The example response of latest version has following form:
 ```GamesToFarm``` is a ```ConcurrentHashSet<Game>``` (collection of ```Game``` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, in ```Simple``` cards farming algorithm ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
 ```CurrentGamesFarming``` is a ```ConcurrentHashSet<Game>``` (collection of ```Game``` elements) object that contains games being farmed right now. In comparison with ```GamesToFarm```, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to ```32``` games (```MaxGamesPlayedConcurrently``` enforced by Steam Network).
+
+```TimeRemaining``` is a ```TimeSpan``` type that specifies approximated time required to farm all games specified in ```GamesToFarm``` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current status, therefore it's updated the moment ```CardsRemaining``` of any game gets decreased.
 
 ```Paused``` is a ```bool``` type that specifies if ```CardsFarmer``` is currently paused. CardsFarmer can be paused due to various events, mainly ```!pause``` and ```!play``` commands. Paused CardsFarmer will not attempt to farm anything in automatic mode, neither will check badges every ```IdleFarmingPeriod``` hours.
 
