@@ -1,6 +1,6 @@
 # API
 
-ASF supports API-like response through ```!api``` command, which can be used for easily integrating ASF process status with third-party wrappers. If you can implement ASF's **[IWCF](https://github.com/JustArchi/ArchiSteamFarm/blob/master/ArchiSteamFarm/WCF.cs#L33)** interface, then you can access it even easier with ```string GetStatus()``` operation contract.
+ASF supports API-like response through ```!api``` command, which can be used for easily integrating ASF process status with third-party wrappers. If you can implement ASF's **[IWCF](https://github.com/JustArchi/ArchiSteamFarm/blob/master/ArchiSteamFarm/WCF.cs#L33)** interface, then you can access it even easier with ```string GetStatus()``` operation contract. Otherwise, you can use ASF built-in **[WCF client](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF#client)** and parse it's standard output.
 
 ---
 
