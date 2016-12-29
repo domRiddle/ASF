@@ -305,7 +305,7 @@ Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/
 
 Keep in mind that new accounts start as limited. Until you unlock account by loading it's wallet or spending 5$ in the store, all dropped cards are **non-tradable**, and account itself can't accept neither send trades as well. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable.
 
-Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as ```!loot```, then you need to either have ```SteamMasterID``` on Bot's friendlist, or ```SteamTradeToken``` of ```SteamMasterID``` set in Bot's config. Otherwise, you won't be able to send such trade.
+Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as ```!loot```, then you need to either have ```SteamMasterID``` on Bot's friendlist, or ```SteamTradeToken``` of ```SteamMasterID``` set in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
 
