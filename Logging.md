@@ -22,18 +22,6 @@ In general, ASF tries to make it as easy and convenient for you as possible, to 
 
 Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```EventLog``` (if ASF is started as a service) and ```File``` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
-Default layout used in ASF for ```ColoredConsole``` and ```File``` is:
-
-```
-${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
-```
-
-```EventLog``` layout is a bit simplified, as this target already includes core information we add to other ones:
-
-```
-${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}
-```
-
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. For reference though, equivalent of hardcoded ASF default logging would be:
 
 ```
