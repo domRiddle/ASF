@@ -10,7 +10,7 @@ ASF includes some nice code tricks that enhance it's integration with NLog, allo
 
 NLog-specific ```${logger}``` variable will always distinguish the source of the message - it will be either ```BotName``` of one of your bots, or ```ASF``` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them.
+ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is.
 
 ASF logs extra info, such as user/chat messages on ```Trace``` logging level. Default ASF logging logs only ```Debug``` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling ```Trace``` logging level, especially in combination with logging only one specific bot of your choice.
 
