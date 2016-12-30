@@ -16,6 +16,8 @@ ASF logs extra info, such as user/chat messages on ```Trace``` logging level. De
 
 In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as ```grep``` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
 
+Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in active development, assuming you're also using up-to-date ASF.
+
 ---
 
 ## Default logging
