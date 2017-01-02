@@ -1,3 +1,29 @@
 # License
 
 Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchi/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[TLDRLegal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+
+ASF license is very permissive and you're allowed to do much more than standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by TLDRLegal:
+
+> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+
+-----
+
+## Remarks
+
+If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+
+> 6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+
+You **can't**:
+- Claim that your software/service is (or is powered by) ASF
+- Refer to your software/service as ASF
+- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+
+You **can**:
+- Claim that your software/service is based on ASF (or its code)
+- Refer to your software/service as ASF fork
+- Use ASF for various reference purposes, such as linking software/service origin, or wiki
+
+If in doubt, please contact with us, and we'll be happy to answer your legal/licensing question.
