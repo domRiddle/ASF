@@ -32,6 +32,7 @@ Developers might be interested in:
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 3. **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)**
+4. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 
 If you need further help, you can ask either on **[our Gitter chat](https://gitter.im/JustArchi/ArchiSteamFarm)**, or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
