@@ -244,7 +244,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
-**Q:** ```Unhandled Exception: System.MissingMethodException```
+**Q:** ```Unhandled Exception: System.MissingMethodException: Method not found```
 
 **A:** This error indicates that your .NET framework doesn't support latest 4.6.1 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
 
