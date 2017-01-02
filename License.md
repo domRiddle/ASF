@@ -6,6 +6,8 @@ ASF license is very permissive and you're allowed to do much more than standard 
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
+Please note that various **[ASF components](https://github.com/JustArchi/ArchiSteamFarm/tree/master/packages)** might be licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**.
+
 -----
 
 ## Remarks
