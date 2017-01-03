@@ -51,6 +51,8 @@ mono ASF.exe
 
 The above command can be also used for creating various shortcuts or aliases, according to your needs and possibilities.
 
+In the same way you can execute other ```.exe``` files provided by ASF. Keep in mind that some of them might require GUI to be available (e.g. ```ASF-ConfigGenerator.exe```).
+
 Instead of calling mono manually each time, you might also want to use a script. This is especially useful for people who want to run ASF on their servers (or virtual machines).
 
 Example script provided below will ensure that ASF is always running, unless it crashes with unhandled exception. **Notice:** you should ensure that ```AutoRestart``` is ```false``` when running this script, as ASF might restart itself otherwise (which will result in 2 processes running):
