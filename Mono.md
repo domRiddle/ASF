@@ -27,7 +27,30 @@ apt-get update
 apt-get install ca-certificates-mono mono-complete
 ```
 
-Afterwards, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
+If you get an issue during installing ```mono-complete```, similar to below:
+
+```
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ mono-complete(...)
+```
+
+Then additionally, add this to your ```sources.list```:
+
+```
+deb http://download.mono-project.com/repo/debian wheezy-libjpeg62-compat main
+```
+
+And execute ```apt-get update``` and ```apt-get install``` like stated above once again.
+
+---
+
+After successful installation, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
 
 Keep in mind that instructions above are also available on **[official Mono installation page for debian-like distributions](http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives)**. If you're not using Debian-like Linux distribution, and can't follow above ```apt-get``` tips, either start using one, or head over to **[official Mono installation page for other distributions](http://www.mono-project.com/download/#download-lin)** to get instructions that match your Linux distribution.
 
