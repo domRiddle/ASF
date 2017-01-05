@@ -107,12 +107,6 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ***
 
-**Q:** I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
-
-**A:** Yes, you must set it in ```SteamParentalPIN``` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
-
-***
-
 ## Security / Privacy / VAC / Bans / ToS
 
 ***
@@ -179,6 +173,12 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 ***
 
 ## Misc
+
+***
+
+**Q:** I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
+
+**A:** Yes, you must set it in ```SteamParentalPIN``` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
 
 ***
 
