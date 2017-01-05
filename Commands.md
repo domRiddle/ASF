@@ -71,6 +71,10 @@ Commands affecting ASF as a process, or more than one bot, typically require ```
 
 ---
 
+Please note that sending a command to the group chat acts like a relay - if you're saying ```!redeem X``` to 3 of your bots sitting together with you on the group chat, it'd result in the same as you'd say ```!redeem X``` to every single one of them privately. In most cases **this is not what you want**, and you should use ```given bot``` commands instead that are being sent to a single bot privately.
+
+---
+
 Some commands are also available with their aliases, to save you on typing:
 
 | Command  | Alias  |
