@@ -31,8 +31,8 @@ Below commands can be sent to the bot through three different ways:
 `!password <BOT>`                 | Prints encrypted password of given bot instance (in use with ```PasswordFormat```)
 `!pause`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
 `!pause <BOT>`                    | Temporarily pauses automatic farming of given bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause^`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process.
-`!pause^ <BOT>`                   | Permanently pauses automatic farming of given bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process.
+`!pause^`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause^ <BOT>`                   | Permanently pauses automatic farming of given bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
 `!play <appID1,appID2,...>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```!resume``` for returning to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
