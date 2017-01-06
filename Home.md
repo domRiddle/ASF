@@ -26,6 +26,7 @@ Advanced users might be interested in:
 5. **[Command-Line Arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**
 6. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 7. **[Running as Service](https://github.com/JustArchi/ArchiSteamFarm/wiki/Running-as-Service)**
+8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 
 Developers might be interested in:
 
