@@ -2,7 +2,7 @@
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro/)**.
 
-If you're interested what is currently going on, you can check **[ASF Crowdin activity](http://l10n.asf.justarchi.net/project/archisteamfarm/activity_stream)**.
+If you're interested in what is currently going on, you can check **[ASF Crowdin activity](http://l10n.asf.justarchi.net/project/archisteamfarm/activity_stream)**.
 
 ---
 
