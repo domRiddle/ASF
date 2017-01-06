@@ -16,6 +16,8 @@ If you'd like to help with ASF, either by translating, reviewing or approving tr
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as ```{0}```. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format.
 
+If you have trouble understanding the context of the string, e.g. because you're not sure what is the purpose of the message, or when it happens, feel free to leave a comment under specific string, mark it with "Issue", and one of the developers will get back to you with help 👍 
+
 ---
 
 ### Reviewing
