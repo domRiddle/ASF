@@ -18,7 +18,7 @@ If the language of your choice is still missing some strings, you can grab them 
 
 If you have trouble understanding the context of the string, e.g. because you're not sure what is the purpose of the message, or when it happens, feel free to leave a comment under specific string, mark it with "Issue", and one of the developers will get back to you with help 👍
 
-**Please avoid using issue mark if you do not need technical/development explanation**.
+**Please avoid using issue mark if you do not need technical/development explanation**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation, and it will typically involve somebody who do not even speak the language you're translating, so please write the question in english when using issue.
 
 ---
 
