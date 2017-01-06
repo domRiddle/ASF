@@ -26,7 +26,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 ## Missing languages
 
-By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or adding a local dialect to already available one), please let us know (Gitter/Steam group) and we'll add it ASAP.
+By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or adding a local dialect to already available one), please **[let us know](http://l10n.asf.justarchi.net/mail/compose/JustArchi)** and we'll add it ASAP.
 
 ---
 
