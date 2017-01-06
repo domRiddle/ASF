@@ -1,0 +1,31 @@
+# Localization
+
+ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into languages other than default one(English). For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro/)**.
+
+---
+
+## Signing up
+
+If you'd like to help, either by translating, reviewing or approving translation, please sign up on our **[Crowdin project page](http://l10n.asf.justarchi.net/)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community to translate ASF into all most popular languages!
+
+---
+
+### Translating
+
+If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as ```{0}```. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context.
+
+---
+
+### Reviewing
+
+If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion, which enhances translating quality. You can vote on already available suggestions, or suggest your own translation, which will go through the same process.
+
+---
+
+## Missing languages
+
+By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one, including a local dialect of given language, please let us know (Gitter/Steam group) and we'll add it ASAP.
+
+---
+
+Thank you for translating ASF! 👍 
