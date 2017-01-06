@@ -6,7 +6,7 @@ ASF is powered by Crowdin service, which makes it possible for everybody to help
 
 ## Signing up
 
-If you'd like to help, either by translating, reviewing or approving translation, please sign up on our **[Crowdin project page](http://l10n.asf.justarchi.net/)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community to translate ASF into all most popular languages!
+If you'd like to help with ASF, either by translating, reviewing or approving translation, please sign up on our **[Crowdin project page](http://l10n.asf.justarchi.net/)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community to translate ASF into all most popular languages!
 
 ---
 
