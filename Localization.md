@@ -20,7 +20,7 @@ If the language of your choice is still missing some strings, you can grab them 
 
 ### Reviewing
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion, which enhances translating quality. You can vote on already available suggestions, or suggest your own translation, which will go through the same process.
+If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion, which enhances translating quality. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
 ---
 
