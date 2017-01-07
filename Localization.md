@@ -40,9 +40,11 @@ If the case needs language correction, e.g. when dealing with incorrect translat
 
 Every language that was included for translation can have one of three states:
 
-- **Needs Translation**, some strings are still left in English, initial translations needed
-- **Translated, but Needs to be Validated**, all required strings are translated, but there is still room for improvement through voting and suggesting better ones
-- **Approved**, Chosen proofreader verified the translation to be correct, but further improvements are still possible
+**Needs Translation** - some strings are still left in English, initial translations needed.
+
+**Translated, but Needs to be Validated** - all required strings are translated, but there is still room for improvement through voting and suggesting better ones. This will be the most common state, as it simply means that "translation is completed and being improved by community now".
+
+**Approved** - chosen proofreader verified the translation to be correct, and picked final version of the strings, while still accepting future improvements. Quite rare, usually involves some trusted member to review community effort made in two points above, or solve conflicts.
 
 ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual string that will be used is always the most popular one in terms of the votes, unless chosen proofreader decided otherwise (rarily).
 
