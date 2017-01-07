@@ -36,6 +36,18 @@ If the case needs language correction, e.g. when dealing with incorrect translat
 
 ---
 
+### States
+
+Every language that was included for translation can have one of three states:
+
+- **Needs Translation**, some strings are still left in English, initial translations needed
+- **Translated, but Needs to be Validated**, all required strings are translated, but there is still room for improvement through voting and suggesting better ones
+- **Approved**, Chosen proofreader verified the translation to be correct, but further improvements are still possible
+
+ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual string that will be used is always the most popular one in terms of the votes, unless chosen proofreader decided otherwise (rarily).
+
+---
+
 ## Missing languages
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](http://l10n.asf.justarchi.net/mail/compose/JustArchi)** and we'll add it ASAP.
