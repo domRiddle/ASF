@@ -40,7 +40,7 @@ If the case needs language correction, e.g. when dealing with incorrect translat
 
 Every language that was included for translation can have one of three states:
 
-**Needs Translation** - some strings are still left in English, initial translations needed.
+**Needs Translation** - some strings are still left in English, initial translations needed. If you speak given language and can help, please do!
 
 **Translated, but Needs to be Validated** - all required strings are translated, but there is still room for improvement through voting and suggesting better ones. This will be the most common state, as it simply means that "translation is completed and being improved by community now".
 
