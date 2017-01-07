@@ -16,10 +16,6 @@ If you'd like to help with ASF, either by translating, reviewing or approving tr
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as ```{0}```. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format.
 
-If you have trouble understanding the context of the string, e.g. because you're not sure what is the purpose of the message, or when it happens, feel free to leave a comment under specific string, mark it with "Issue", and one of the developers will get back to you with help 👍
-
-**Please avoid using issue mark if you do not need technical/development explanation**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment.
-
 ---
 
 ### Reviewing
@@ -27,6 +23,16 @@ If you have trouble understanding the context of the string, e.g. because you're
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion, which enhances translating quality. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
 **You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for better one, or suggest one yourself! 👍 
+
+---
+
+### Issues
+
+If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
+
+**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment (so we can understand what the issue is).
+
+If the case needs language correction, e.g. when dealing with incorrect translations that were approved already, typically proofreader will re-evaluate the case and change approval into another one (if needed).
 
 ---
 
