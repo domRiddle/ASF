@@ -120,7 +120,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 **Q:** How to remove ASF 2FA?
 
-**A:** Simply stop ASF and remove associated ```BotName.db``` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linkling for that via Steam website.
+**A:** Simply stop ASF and remove associated ```BotName.db``` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linkling that authenticator, on the Steam website.
 
 ***
 
