@@ -37,10 +37,10 @@ Below commands can be sent to the bot through three different ways:
 `!play <BOT> <appID1,appID2,...>` | Switches to manual farming - launches given ```appIDs``` on given bot instance. Use ```!resume``` for returning to automatic farming
 `!redeem <key1,key2,...>`         | Redeems given ```cd-keys``` on current bot instance
 `!redeem <BOT> <key1,key2,...>`   | Redeems given ```cd-keys``` on given bot instance
-`!redeem^ <key1,key2,...>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
-`!redeem^ <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on given bot instance, never forwards keys to other bots (like ```ForwardKeysToOtherBots``` and ```DistributeKeys``` of ```false```)
-`!redeem& <key1,key2,...>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (forces ```ForwardKeysToOtherBots``` of ```true```)
-`!redeem& <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (forces ```ForwardKeysToOtherBots``` of ```true```)
+`!redeem^ <key1,key2,...>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
+`!redeem^ <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on given bot instance, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
+`!redeem& <key1,key2,...>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (forces ```RedeemingPreferences``` of ```Forwarding```)
+`!redeem& <BOT> <key1,key2,...>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (forces ```RedeemingPreferences``` of ```Forwarding```)
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
 `!restart`                        | Restarts ASF process
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
