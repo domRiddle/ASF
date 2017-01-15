@@ -102,9 +102,9 @@ Also keep in mind that ASF automatically exits (with zero error code) when all b
 
 If you want to run ASF in non-interactive way such as on start of your server without your attention, I strongly suggest to switch ```Headless``` property to ```true```, so ASF will be aware of the fact that it can't expect any response from you.
 
-If you just want to launch ASF in background, without dealing with a script, it's probably best to start it via ```screen -dmS ASF "mono /path/to/ASF.exe"``` instead, although in this scenario you should still use ```AutoRestart``` of ```false```. This is because restarted ASF will detach from your screen session on self-restart. Setting ```Headless``` to ```true``` is not mandatory in this case, as ```screen``` has capabilities of standard input, but if you don't plan to return back to it, it's wise to set it to ```true``` as well.
-
 Everything above is specific to your configuration. This is only example of usage, feel free to further modify the script however you wish. If you're looking for something more advanced, check out ASF **[run.sh](https://github.com/JustArchi/ArchiSteamFarm/blob/master/run.sh)**. It's a bit more advanced way of running ASF, allowing you to pass extra **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)** as well as other options.
+
+If you just want to launch ASF in background, without dealing with a script, it's probably best to start it via ```screen -dmS ASF "mono /path/to/ASF.exe"``` instead, although in this scenario you should still use ```AutoRestart``` of ```false```. This is because restarted ASF will detach from your screen session on self-restart. Setting ```Headless``` to ```true``` is not mandatory in this case, as ```screen``` has capabilities of standard input, but if you don't plan to return back to it, it's wise to set it to ```true``` as well.
 
 **Notice:** If you're using ASF on a machine with low amount of memory (512 MB or less), you might be interested in tuning the Mono to your needs. Visiting **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** might help.
 
