@@ -54,6 +54,8 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](http://l10n.asf.justarchi.net/mail/compose/JustArchi)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
 
+For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes/)**.
+
 ---
 
 Thank you for translating ASF! 👍 
