@@ -46,7 +46,7 @@ Every language that was included for translation can have one of three states:
 
 **Completed** - chosen proofreader verified the translation to be correct, and picked final version of the strings, while still accepting future improvements. Quite rare, usually involves some trusted member to review community effort made in two points above, or solve conflicts.
 
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual string that will be used is always the most popular one in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin.
+ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual string that will be used is always the most popular one in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we merge localization updates typically the moment we're about to release new ASF version.
 
 ---
 
