@@ -26,6 +26,7 @@ You **can't**:
 
 You **can**:
 - Claim that your software/service is based on ASF (or its code)
+- Claim that your software/service is powered by ASF, if you didn't do any changes to the source code
 - Refer to your software/service as ASF fork
 - Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
 
