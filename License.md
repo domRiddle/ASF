@@ -19,7 +19,8 @@ If you're creating your own software/service based on ASF or part of its code, p
 We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
 
 You **can't**:
-- Claim that your software/service is (or is powered by) ASF
+- Claim that your software/service is ASF
+- Claim that your software/service is powered by ASF, if you did any changes to the source code
 - Refer to your software/service as ASF
 - Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
 
