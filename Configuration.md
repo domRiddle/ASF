@@ -117,34 +117,34 @@ Global config is located in ```ASF.json``` file and has following structure:
 
 ```
 {
-  "AutoRestart": true,
-  "AutoUpdates": true,
-  "Blacklist": [
-    267420,
-    303700,
-    335590,
-    368020,
-    425280,
-    480730,
-    566020
-  ],
-  "CurrentCulture": null,
-  "Debug": false,
-  "FarmingDelay": 15,
-  "GiftsLimiterDelay": 1,
-  "Headless": false,
-  "HttpTimeout": 60,
-  "IdleFarmingPeriod": 3,
-  "InventoryLimiterDelay": 3,
-  "LoginLimiterDelay": 10,
-  "MaxFarmingTime": 10,
-  "MaxTradeHoldDuration": 15,
-  "Statistics": true,
-  "SteamOwnerID": 0,
-  "SteamProtocol": 6,
-  "UpdateChannel": 1,
-  "WCFHost": "127.0.0.1",
-  "WCFPort": 1242
+	"AutoRestart": true,
+	"AutoUpdates": true,
+	"Blacklist": [
+		267420,
+		303700,
+		335590,
+		368020,
+		425280,
+		480730,
+		566020
+	],
+	"ConnectionTimeout": 60,
+	"CurrentCulture": null,
+	"Debug": false,
+	"FarmingDelay": 15,
+	"GiftsLimiterDelay": 1,
+	"Headless": false,
+	"IdleFarmingPeriod": 3,
+	"InventoryLimiterDelay": 3,
+	"LoginLimiterDelay": 10,
+	"MaxFarmingTime": 10,
+	"MaxTradeHoldDuration": 15,
+	"Statistics": true,
+	"SteamOwnerID": 0,
+	"SteamProtocol": 6,
+	"UpdateChannel": 1,
+	"WCFHost": "127.0.0.1",
+	"WCFPort": 1242
 }
 ```
 
@@ -160,6 +160,8 @@ All options are explained below:
 
 ```Blacklist``` - ```HashSet<uint>``` type with default value of ```267420, 303700, 335590, 368020, 425280, 480730, 566020``` appIDs. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap. ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcoded into the ASF code and not possible to edit, and normal ```Blacklist```, which is defined here. ```GlobalBlacklist``` is updated together with ASF version, therefore it's nice to note that if you're using up-to-date ASF then you do not need to maintain your own ```Blacklist``` which is defined here. The only purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded ```GlobalBlacklist``` is being updated as fast as possible, therefore you're not required to update your own ```Blacklist``` if you're using latest ASF version, but without ```Blacklist``` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded ```GlobalBlacklist``` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
+```ConnectionTimeout``` - ```byte``` type with default value of ```60```. This property defines timeouts for various network actions done by ASF, in seconds. In particular, ```ConnectionTimeout``` defines timeout in seconds for HTTP and WCF requests, ```ConnectionTimeout / 10``` defines maximum number of failed heartbeats, while ```ConnectionTimeout / 30``` defines number of minutes we allow for initial Steam network connection request. Default value of ```60``` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher (like ```90```). Keep in mind that bigger values will not magically fix slow or even inacessible Steam servers, so we shouldn't infinitely wait for something that won't happen and simply try again later. Setting this value too high will result in excessive delay in catching network issues, as well as in decrease of overall performance. Setting this value lower than default has no advantage in general, and can even decrease overall stability, as Steam servers tend to be slow from time to time, and might require more time for parsing ASF requests. Default value is a balance between believing that our network connection is stable, and doubting in Steam network to handle our request in given timeout. If you want to detect issues sooner and make ASF reconnect/respond faster, default value should do (or very slightly below). If you instead notice that ASF is running into network issues, such as failing requests, heartbeats or losing connection to Steam, it might make sense to increase this value if you're sure that it's **not** caused by your network, but by Steam itself, as increasing timeouts make ASF more "patient" and not deciding to reconnect right away. Unless you have a reason to edit this property, you should keep it at default.
+
 ```CurrentCulture``` - ```string``` type with default value of ```null```. By default ASF attempts to use your operating system language, and will prefer to use translated strings in that language if available. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. If for some reason you don't want to use your OS native language, you can use this config property to pick any valid language you'd want to use instead. For a list of all available cultures, please visit **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** and look for ```Language tag```. It's nice to note that ASF accepts both specific cultures, such as ```"en-GB"```, but also neutral ones, such as ```"en"```. Specifying current culture might also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you might need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. Typically you want to make use use of this config property if you prefer ASF in English instead of your native language.
 
 ```Debug``` - ```bool``` type with default value of ```false```. This property defines if process should run in debug mode. When in debug mode, ASF creates a special ```debug``` directory in the place of the executable, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as ```WebBrowser``` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **crapload** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and it's quirks if you decide to analyze all of that yourself, as not everything is relevant. **Notice:** ```debug``` directory consists of **sensitive** information such as the password you're using for logging in to steam. You should not post content of your ```debug``` directory in any public location, ASF developer should always remind you of sending it to his e-mail, or other secure location.
@@ -169,8 +171,6 @@ All options are explained below:
 ```GiftsLimiterDelay``` - ```byte``` type with default value of ```1```. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least ```GiftsLimiterDelay``` seconds in between of two consecutive gift handling (accepting) requests. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ```Headless``` - ```bool``` type with default value of ```false```. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server, therefore it will not attempt to read crucial account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate. This mode is useful for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require your "helpful hand" during starting. This is useful for servers, as ASF can abort trying to log into the account when asked for credentials, instead of waiting (infinitely) for user to provide those. If you're not sure how to set this property, leave it with default value of ```false```.
-
-```HttpTimeout``` - ```byte``` type with default value of ```60```. This property defines timeout for HTTP(S) requests sent by ASF, in seconds. Default value of ```60``` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher (like ```90```). Keep in mind that bigger values will not magically fix slow or even inacessible steam servers, there is a moment when we must simply accept the fact that steam server is not responding and try again later. Setting this value too high will result in waiting for something that will not happen, and decrease overall performance instead of accepting the fact of request timing out and retrying. Setting this value lower has no advantage in general, and can even decrease overall stability, as Steam servers tend to be slow from time to time, and might require more time for parsing ASF requests. As a side note, this property also affects operation timeout of **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ```IdleFarmingPeriod``` - ```byte``` type with default value of ```3```. When ASF has nothing to farm, it will periodically check every ```IdleFarmingPeriod``` hours if perhaps account got some new games to farm. Value of 0 disables this feature. Also check: ```ShutdownOnFarmingFinished```.
 
@@ -206,37 +206,36 @@ As you should know already, every bot should have it's own config. Example bot c
 
 ```
 {
-  "AcceptConfirmationsPeriod": 0,
-  "AcceptGifts": false,
-  "CardDropsRestricted": true,
-  "CustomGamePlayedWhileFarming": null,
-  "CustomGamePlayedWhileIdle": null,
-  "DismissInventoryNotifications": true,
-  "Enabled": false,
-  "FarmingOrder": 0,
-  "FarmOffline": false,
-  "GamesPlayedWhileIdle": [],
-  "HandleOfflineMessages": false,
-  "IsBotAccount": false,
-  "LootableTypes": [
-    1,
-    3,
-    5
-  ],
-  "PasswordFormat": 0,
-  "Paused": false,
-  "RedeemingPreferences": 0,
-  "SendOnFarmingFinished": false,
-  "SendTradePeriod": 0,
-  "ShutdownOnFarmingFinished": false,
-  "SteamApiKey": null,
-  "SteamLogin": null,
-  "SteamMasterClanID": 0,
-  "SteamMasterID": 0,
-  "SteamParentalPIN": "0",
-  "SteamPassword": null,
-  "SteamTradeToken": null,
-  "TradingPreferences": 1
+	"AcceptConfirmationsPeriod": 0,
+	"AcceptGifts": false,
+	"CardDropsRestricted": true,
+	"CustomGamePlayedWhileFarming": null,
+	"CustomGamePlayedWhileIdle": null,
+	"DismissInventoryNotifications": true,
+	"Enabled": false,
+	"FarmingOrder": 0,
+	"FarmOffline": false,
+	"GamesPlayedWhileIdle": [],
+	"HandleOfflineMessages": false,
+	"IsBotAccount": false,
+	"LootableTypes": [
+		1,
+		3,
+		5
+	],
+	"PasswordFormat": 0,
+	"Paused": false,
+	"RedeemingPreferences": 0,
+	"SendOnFarmingFinished": false,
+	"SendTradePeriod": 0,
+	"ShutdownOnFarmingFinished": false,
+	"SteamLogin": null,
+	"SteamMasterClanID": 0,
+	"SteamMasterID": 0,
+	"SteamParentalPIN": "0",
+	"SteamPassword": null,
+	"SteamTradeToken": null,
+	"TradingPreferences": 1
 }
 ```
 
