@@ -16,7 +16,7 @@ Alternatively, you can do the same from the console, by navigating to ASF direct
 msbuild /p:Configuration=Release ArchiSteamFarm.sln
 ```
 
-Of course, you need ```msbuild``` in your ```PATH```.
+Of course, you need ```msbuild``` in your ```PATH``` if you don't want to provide full path to it.
 
 ---
 
