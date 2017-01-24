@@ -8,7 +8,7 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ## Windows
 
-On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)**, which is now free. After installing all components, you should launch **ArchiSteamFarm.sln** file in VS, switch to ```Release``` target, then hit ```Build``` -> ```Build Solution```.
+On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.com/vs/community)**, which is now free. After installing all components, you should launch **ArchiSteamFarm.sln** file in VS, switch to ```Release``` target, then hit ```Build``` -> ```Build Solution```.
 
 Alternatively, you can do the same from the console, by navigating to ASF directory and executing:
 
