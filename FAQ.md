@@ -308,16 +308,9 @@ Which is clearly Steam issue and nothing to fix in ASF. You can always try to vi
 
 **Q:** ASF can't accept or send trades!
 
-**A:** For accepting trades, firstly, make sure that ```SteamApiKey``` config property is set, and is valid. If it is, you should notice that after sending the trade to the bot, it tries to accept it:
-```
-[*] INFO: ParseTrade() <1> Accepting trade: XXXX
-```
-
-If you can see this, then your API key is proper. It's nice to note that you don't need to have ```SteamApiKey``` set if you'll only initiate Bot->Master trades, such as ```!loot```, as API key is required only for receiving trades, not sending them.
+**A:** Obvious thing first - new accounts start as limited. Until you unlock account by loading it's wallet or spending 5$ in the store, account itself can't accept neither send trades. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
-
-Keep in mind that new accounts start as limited. Until you unlock account by loading it's wallet or spending 5$ in the store, all dropped cards are **non-tradable**, and account itself can't accept neither send trades as well. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable.
 
 Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as ```!loot```, then you need to either have ```SteamMasterID``` on Bot's friendlist, or ```SteamTradeToken``` of ```SteamMasterID``` set in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
