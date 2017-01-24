@@ -22,7 +22,7 @@ Of course, you need ```msbuild``` in your ```PATH``` if you don't want to provid
 
 ## Linux / Mono
 
-Compilation on Mono-powered OSes is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**. If you do, all you need to do is navigating to the directory where ASF source is located, then executing:
+Compilation on Mono-powered OSes is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**, which is a requirement for using ASF in the first place. If you do, all you need to do is navigating to the directory where ASF source is located, then executing:
 
 ```
 xbuild /p:Configuration=Release ArchiSteamFarm.sln
