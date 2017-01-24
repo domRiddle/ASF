@@ -1,6 +1,6 @@
 # Trading
 
-ASF includes support for Steam non-interactive (offline) trades. Receiving trades as well as responding to them (accepting/declining) requires valid Steam API key for given bot instance, which is automatically fetched by ASF, if your account is not restricted. Sending trades doesn't have any special requirements.
+ASF includes support for Steam non-interactive (offline) trades. Both receiving (and accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
 
 ***
 
