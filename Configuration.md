@@ -2,7 +2,7 @@
 
 This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
 
-This page in it's "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
+This page in it's "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
 
 ---
 
