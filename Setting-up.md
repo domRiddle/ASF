@@ -36,6 +36,12 @@ First step is obviously downloading latest stable release of ASF, which is locat
 
 ***
 
+First step is ensuring that your OS can launch ASF properly. ASF is written in C# and typically uses framework functions that might not be available in your OS right away. If you're using Windows OS, make sure that you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)** installed. .NET framework is runtime used by ASF for execution, and for flawless experience you must ensure that your Windows OS has at least minimum supported .NET framework version by ASF - currently 4.6.1, but it might change with future releases.
+
+If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** that supports many other OSes - including Linux and OS X (but not only). After installing mono you can start ASF by executing ```mono ASF.exe``` from your terminal/shell.
+
+***
+
 After unpacking archive you should notice executable files **ASF.exe**, **ASF-ConfigGenerator.exe** and **config** directory. Prior to launching ASF you need to configure it. Configuration is really easy process, as long as you read whole documentation carefully and pay attention.
 
 You can configure ASF either manually, by creating required JSON configuration files with proper content, or by using **ASF-ConfigGenerator** - graphical config generator, which includes tutorial and helps you with doing that task.
@@ -45,10 +51,6 @@ Now go visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/
 ***
 
 After you're done with configuration part, you should start **ASF.exe** executable, by double clicking it.
-
-If you're using Windows OS, make sure you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)** installed. If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**, then you can start ASF by executing ```mono ASF.exe``` from terminal/shell.
-
-***
 
 If you did everything correctly, you should notice that ASF starts working and logs in to steam using credentials you provided in the config. If your account needs extra steps to unlock, such as **SteamGuard** or **TwoFactorAuthentication**, ASF will ask you for extra code, that you should type in the console. This has to be done only once, similar like in steam client.
 
