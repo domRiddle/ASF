@@ -32,7 +32,7 @@ If you did everything correctly, you should see that ASF is working nicely. You 
 
 This is detailed instruction dedicated for both less advanced, and more advanced users who would like to use ASF. By reading it, you'll learn how to configure and use ASF.
 
-First step is obviously downloading latest stable release of ASF, which is located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Find **ASF.zip** link on the bottom of the page to start download process. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to, personally I suggest **[7-zip](http://www.7-zip.org/)**. You can even use native ZIP unpack tool for your OS if you want to.
+First step is obviously downloading latest stable release of ASF, which is located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Find **ASF.zip** link on the bottom of the page to start download process. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to, personally I suggest **[7-zip](http://www.7-zip.org/)**, but any tool capable of reading ZIP files will do.
 
 ***
 
