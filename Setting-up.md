@@ -15,8 +15,8 @@ This is an option for those who don't want to learn how ASF works in-depth and j
 - Follow the tutorial (if you want to)
 - Hit **+** button on the top.
 - Name your bot however you want, I suggest ```1``` or ```Primary``` or ```Main```.
-- Put your steam login in ```SteamLogin``` (optional if you don't want to put it on each ASF start).
-- Put your steam password in ```SteamPassword``` (optional if you don't want to put it on each ASF start).
+- Put your steam login in ```SteamLogin``` (optional - if you don't want to put it on each ASF start).
+- Put your steam password in ```SteamPassword``` (optional - if you don't want to put it on each ASF start).
 - If you're using Steam parental PIN to protect your account, put it in ```SteamParentalPIN```.
 - Switch ```Enabled``` property from ```false``` to ```true```.
 - Close ASF-ConfigGenerator.
