@@ -36,7 +36,7 @@ This is detailed instruction dedicated for both less advanced, and more advanced
 
 First step is ensuring that your OS can launch ASF properly. ASF is written in C# and typically uses framework functions that might not be available in your OS right away. If you're using Windows OS, make sure that you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)** installed. .NET framework is runtime used by ASF for execution, and for flawless experience you must ensure that your Windows OS has at least minimum supported .NET framework version used by ASF - currently 4.6.1, but it might change with future releases.
 
-If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** that supports many other OSes - including Linux and OS X (but not only). After installing mono you can start all ASF executables by executing ```mono ExecutableName.exe``` from your favourite terminal/shell.
+If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** that supports many other OSes - including Linux and OS X (but not only). After installing mono you can start all ASF executables by executing ```mono ExecutableName.exe``` from your favourite terminal/shell. Like with .NET, you must ensure that your Mono is at least in the minimum supported version used by ASF, currently 4.6 but it might also change with future releases.
 
 ***
 
