@@ -32,8 +32,6 @@ If you did everything correctly, you should see that ASF is working nicely. You 
 
 This is detailed instruction dedicated for both less advanced, and more advanced users who would like to use ASF. By reading it, you'll learn how to configure and use ASF.
 
-First step is obviously downloading latest stable release of ASF, which is located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Find **ASF.zip** link on the bottom of the page to start download process. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to. Personally I suggest **[7-zip](http://www.7-zip.org/)**, but any tool capable of reading ZIP files will do.
-
 ***
 
 First step is ensuring that your OS can launch ASF properly. ASF is written in C# and typically uses framework functions that might not be available in your OS right away. If you're using Windows OS, make sure that you have **[latest .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)** installed. .NET framework is runtime used by ASF for execution, and for flawless experience you must ensure that your Windows OS has at least minimum supported .NET framework version by ASF - currently 4.6.1, but it might change with future releases.
@@ -41,6 +39,8 @@ First step is ensuring that your OS can launch ASF properly. ASF is written in C
 If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** that supports many other OSes - including Linux and OS X (but not only). After installing mono you can start ASF by executing ```mono ASF.exe``` from your terminal/shell.
 
 ***
+
+Second step is downloading latest stable release of ASF, which is located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Find **ASF.zip** link on the bottom of the page to start download process. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to. Personally I suggest **[7-zip](http://www.7-zip.org/)**, but any tool capable of reading ZIP files will do.
 
 After unpacking archive you should notice executable files **ASF.exe**, **ASF-ConfigGenerator.exe** and **config** directory. Prior to launching ASF you need to configure it. Configuration is really easy process, as long as you read whole documentation carefully and pay attention.
 
