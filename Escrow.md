@@ -106,6 +106,12 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ## FAQ
 
+**Q:** How is ASF making use of 2FA module?
+
+**A:** If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables ```!2fa*``` commands for you to use. Finally it also makes it possible for you to use several extra ASF features, such as ```AcceptConfirmationsPeriod```. That should be all for now, if I didn't forget about anything.
+
+***
+
 **Q:** What if I need a 2FA token?
 
 **A:** You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through ```!2fa``` command sent via the chat to given bot. You can also use ```!2fa <BOT>``` command to generate temporary token for given bot instance. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, SDA or WinAuth) instead.
