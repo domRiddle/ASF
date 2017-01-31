@@ -61,11 +61,9 @@ Below commands can be sent to the bot through three different ways:
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
----
+Plural arguments, such as ```<Bots>``` or ```<appIDs``` means that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. In addition to that, there is special ```ASF``` keyword which acts as "all bots in the process", so ```!status ASF``` is equal to ```!status all,your,bots,listed,here```.
 
 ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
-
----
 
 Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!statusall```, ```!lootall```, ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```.
 
