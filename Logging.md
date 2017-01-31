@@ -70,7 +70,7 @@ The explanation of above config is rather simple - we define one **logging targe
 
 If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` target will be active, and ASF won't write to ```File```, neither to ```EventLog```, regardless of hardcoded ASF NLog configuration.
 
-Now let's say that we don't like default format of ```${longdate}|${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+Now let's say that we don't like default format of ```${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
