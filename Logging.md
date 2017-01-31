@@ -141,7 +141,9 @@ Writes log messages to specific SteamID, from specific Bot.
 
 Supported in all environments when ASF works, including: .NET, Silverlight, Compact Framework and Mono.
 
-####Configuration Syntax
+---
+
+#### Configuration Syntax
 ```xml
 <targets>
   <target type="Steam"
@@ -154,20 +156,28 @@ Supported in all environments when ASF works, including: .NET, Silverlight, Comp
 
 Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-####Parameters
+---
 
-#####General Options
+#### Parameters
+
+##### General Options
 _name_ - Name of the target.
 
-#####Layout Options
+---
+
+##### Layout Options
 _layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${longdate}|${level:uppercase=true}|${logger}|${message}`
 
-#####SteamTarget Options
+---
+
+##### SteamTarget Options
 _steamID_ - SteamID declared as 64-bit long unsigned integer of target Steam user (like ```SteamMasterID```), or target group chat (like ```SteamMasterClanID```) where messages will be sent. Required. Defaults to 0 which disables logging target entirely.
 
 _botName_ - Name of the bot (as it's recognized by ASF) of target bot that will be sending messages to ```steamID``` declared above. Not required. Defaults to ```null``` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as ```SteamTarget``` does not take in account many Steam limitations, such as the fact that you must have ```steamID``` of the target on your friendlist.
 
-##### SteamTarget Examples
+---
+
+#### SteamTarget Examples
 
 In order to write all messages of ```Debug``` level and above, from bot named ```MyBot``` to steamID of ```76561198006963719```, you should use ```NLog.config``` similar to below:
 
