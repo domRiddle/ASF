@@ -202,7 +202,9 @@ Of course, ```SteamTarget``` has all typical functions that you could expect fro
 
 ---
 
-#### Screenshots // TODO
+#### Screenshots
+
+![Screenshot](http://i.imgur.com/5juKHMt.png)
 
 ---
 
