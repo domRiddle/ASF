@@ -196,7 +196,11 @@ In order to write all messages of ```Debug``` level and above, from bot named ``
 
 **Notice:** Our ```SteamTarget``` is custom target, so you should make sure that you're declaring it as ```type="Steam"```, NOT ```xsi:type="Steam"```, as xsi is reserved for official targets supported by NLog.
 
-Screenshots // TODO
+Of course, keep in mind that ```SteamTarget``` has all typical functions that you could expect from generic ```TargetWithLayout```, so you can use it in conjuction with e.g. custom layouts, names or advanced logging rules. The example above is only the most basic one.
+
+---
+
+#### Screenshots // TODO
 
 ---
 
