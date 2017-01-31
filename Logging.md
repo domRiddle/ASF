@@ -194,7 +194,7 @@ In order to write all messages of ```Debug``` level and above, from bot named ``
 </nlog>
 ```
 
-**Notice: ** Our ```SteamTarget``` is custom target, so you should make sure that you're declaring it as ```type="Steam"```, NOT ```xsi:type="Steam"```, as xsi is reserved for official targets supported by NLog.
+**Notice:** Our ```SteamTarget``` is custom target, so you should make sure that you're declaring it as ```type="Steam"```, NOT ```xsi:type="Steam"```, as xsi is reserved for official targets supported by NLog.
 
 Screenshots // TODO
 
