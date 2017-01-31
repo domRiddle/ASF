@@ -18,6 +18,8 @@ In general, ASF tries to make it as easy and convenient for you as possible, to 
 
 Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
 
+As part of ASF integration, ASF also includes support for one additional ```SteamTarget``` NLog logging target, which will be explained below.
+
 ---
 
 ## Default logging
@@ -122,6 +124,48 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 ```
 
 That's it, now our ```ColoredConsole``` will show only warnings and above, while still logging everything to ```File```. You can further tweak it to log e.g. only ```Info``` and below, and so on.
+
+---
+
+## ASF targets
+
+Starting with version 2.2.1.7, in addition to standard NLog logging targets (such as ```ColoredConsole``` and ```File``` explained above), you can also use custom ASF ```SteamTarget``` logging target. As you can guess, this target uses Steam chat messages for logging ASF messages.
+
+For maximum completeness, definition of ASF ```SteamTarget``` will follow NLog documentation convention.
+
+---
+
+### SteamTarget
+
+Writes log messages to specific SteamID, from specific Bot.
+
+Supported in all environments when ASF works, including: .NET, Silverlight, Compact Framework and Mono.
+
+####Configuration Syntax
+```xml
+<targets>
+  <target type="Steam"
+          name="String"
+          layout="Layout"
+          steamID="Ulong"
+          botName="String"  />
+</targets>
+```
+
+Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+
+####Parameters
+
+#####General Options
+_name_ - Name of the target.
+
+#####Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: ${longdate}|${level:uppercase=true}|${logger}|${message}
+
+#####SteamTarget Options
+_steamID_ - SteamID declared as 64-bit long unsigned integer of target Steam user (like ```SteamMasterID```), or target group chat (like ```SteamMasterClanID```) where messages will be sent. Required. Defaults to 0 which disables logging target entirely.
+
+_botName_ - Name of the bot (as it's recognized by ASF) of target bot that will be sending messages to ```steamID``` declared above. Not required. Defaults to ```null``` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as ```SteamTarget``` does not take in account many Steam limitations, such as the fact that you must have ```steamID``` of the target on your friendlist.
 
 ---
 
