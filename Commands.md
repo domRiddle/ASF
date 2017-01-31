@@ -61,7 +61,7 @@ Plural arguments, such as ```<Bots>``` or ```<appIDs``` means that command suppo
 
 ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
 
-Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```.
+Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```. Typically commands that do not support ```<Bots>``` parameter require ```SteamOwnerID``` permission.
 
 ---
 
