@@ -23,10 +23,8 @@ Below commands can be sent to the bot through three different ways:
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
 `!loot <Bots>`                     | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instance to ```SteamMasterID```
-`!lootall`                        | Issues ```!loot``` on all currently enabled ASF bots
 `!owns <appIDsOrGameNames>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```
 `!owns <Bots> <appIDsOrGameNames>` | Checks if given bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
-`!ownsall <appID,gameName...>`    | Checks all currently enabled ASF bots for owning given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <Bots>`                 | Prints encrypted password of given bot instance (in use with ```PasswordFormat```)
 `!pause`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
@@ -46,10 +44,8 @@ Below commands can be sent to the bot through three different ways:
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
 `!resume <Bots>`                   | Resumes automatic farming of given bot instance. Also see ```!pause```, ```!play```
 `!start <Bots>`                    | Starts given bot instance
-`!startall`                       | Starts all inactive bot instances
 `!status`                         | Prints status of current bot instance
 `!status <Bots>`                   | Prints status of given bot instance
-`!statusall`                      | Prints status of all bot instances and ASF itself
 `!stop`                           | Stops current bot instance
 `!stop <Bots>`                     | Stops given bot instance
 `!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours if ```AutoUpdates```)
@@ -65,7 +61,7 @@ Plural arguments, such as ```<Bots>``` or ```<appIDs``` means that command suppo
 
 ```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
 
-Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!statusall```, ```!lootall```, ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```.
+Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```.
 
 ---
 
