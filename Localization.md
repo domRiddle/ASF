@@ -26,6 +26,14 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 ---
 
+### Proof-reading
+
+It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
+
+If you have past history of contributions on Crowdin or any other localization platform/service that I can verify and assume trustworthy, I'm happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but I understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](http://l10n.asf.justarchi.net/mail/compose/JustArchi)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify. We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to write the best translation.
+
+---
+
 ### Issues
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
