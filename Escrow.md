@@ -148,4 +148,4 @@ If you're advanced user, you can also generate maFile manually. It should have a
 }
 ```
 
-```device_id``` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it. Of course, you need to replace ```"STRING"``` with valid content.
+```device_id``` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it. Of course, you need to replace ```"STRING"``` with valid content in each field.
