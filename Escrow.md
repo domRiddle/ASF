@@ -138,14 +138,14 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ## Advanced
 
-If you're advanced user, you can also generate maFile automatically. It should have a **[valid JSON structure](http://jsonlint.com/)** of:
+If you're advanced user, you can also generate maFile manually. It should have a **[valid JSON structure](http://jsonlint.com/)** of:
 
 ```
 {
   "shared_secret": "STRING",
-  "identity_secret": "STRING=",
+  "identity_secret": "STRING",
   "device_id": "STRING"
 }
 ```
 
-```device_id``` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it.
+```device_id``` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it. Of course, you need to replace ```"STRING"``` with valid content.
