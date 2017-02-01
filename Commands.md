@@ -71,13 +71,13 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias    |
-|--------------|----------|
-`!owns ASF <>` | `oa <>`  |
-`!status ASF`  | `sa`     |
-`!redeem`      | `!r`     |
-`!redeem^`     | `!r^`    |
-`!redeem&`     | `!r&`    |
+| Command      | Alias     |
+|--------------|-----------|
+`!owns ASF <>` | `!oa <>`  |
+`!status ASF`  | `!sa`     |
+`!redeem`      | `!r`      |
+`!redeem^`     | `!r^`     |
+`!redeem&`     | `!r&`     |
 
 ---
 
