@@ -57,7 +57,7 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
 
-Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can simply copy generated json starting from ```{``` ending on ```}``` into Bot.maFile and proceed like normally.
+Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from ```{``` ending on ```}``` into Bot.maFile and proceed like usual).
 
 For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/go/comment/fwzzlNV)**.
 
