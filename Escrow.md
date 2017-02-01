@@ -14,6 +14,7 @@ To enable ASF 2FA, you need to have:
 - Working steam authenticator in your Android phone
 - or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - or working steam authenticator in **[WinAuth](https://winauth.com/)**
+- or working steam authenticator in your iOS (a bit harder to extract)
 
 Also a brain is needed for all of those tasks :+1: 
 
@@ -95,6 +96,18 @@ If you've done that properly as well, you're now done!
 ```
 
 Please confirm that accepting confirmations in fact works. If you made a mistake while entering your ```DeviceID``` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove ```Bot.db``` and start over if needed.
+
+***
+
+### iOS
+
+For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
+
+Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can simply copy generated json starting from ```{``` ending on ```}``` into Bot.maFile and proceed like normally.
+
+For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/go/comment/fwzzlNV)**.
+
+*Keep in mind that above tool is unofficial, you're using it at your own risk.*
 
 ***
 
