@@ -166,7 +166,7 @@ _name_ - Name of the target.
 ---
 
 ##### Layout Options
-_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${longdate}|${level:uppercase=true}|${logger}|${message}`
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
 
 ---
 
