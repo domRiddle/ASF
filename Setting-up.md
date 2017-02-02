@@ -38,6 +38,8 @@ First step is ensuring that your OS can launch ASF properly. ASF is written in C
 
 If you're not using Windows OS, you should install **[latest Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** that supports many other OSes - including Linux and OS X (but not only). After installing mono you can start all ASF executables by executing ```mono ExecutableName.exe``` from your favourite terminal/shell. Like with .NET, you must ensure that your Mono is at least in the minimum supported version used by ASF, currently 4.6 but it might also change with future releases.
 
+Not using minimum **required** runtime version automatically leads to issues and lack of support - don't ask for support and don't report any bugs if you're not using supported runtime, noone of them will be fixed - you should fix yourself instead.
+
 ***
 
 Second step is downloading latest stable release of ASF, which is located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Find **ASF.zip** link on the bottom of the page to start download process. ASF comes in zipped archive format, therefore prior to launching it you should unpack the archive, using any tool you want to. Personally I suggest **[7-zip](http://www.7-zip.org/)**, but any tool capable of reading ZIP files will do.
