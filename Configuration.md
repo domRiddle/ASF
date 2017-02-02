@@ -306,7 +306,7 @@ Value | Name  | Description
 2 | Emoticon | Emoticon to use in Steam Chat
 3 | FoilTradingCard | Foil variant of ```TradingCard```
 4 | ProfileBackground | Profile background to use on your Steam profile
-5 | TradingCard | Steam trading card, being used for crafting badges
+5 | TradingCard | Steam trading card, being used for crafting badges (non-foil)
 6 | SteamGems | Steam gems being used for crafting boosters, sacks included
 
 Please note that regardless of the settings above, ASF will only ask for Steam (```appID``` of 753) community (```contextID``` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
