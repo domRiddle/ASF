@@ -104,6 +104,8 @@ INFO|ASF|ParseArgs() Response received: "Done!"
 
 **A:** ASF by default listens only on ```127.0.0.1``` address, which means that accessing ASF WCF from any other machine but your own is impossible. Therefore, it's as secure as WCF can be. If you decide to change default ```127.0.0.1``` bind address to something else, such as ```0.0.0.0```, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero ```SteamOwnerID```, otherwise it'll refuse to execute any command, as an extra security measure.
 
+Also keep in mind that listening on ```127.0.0.1``` is possible only in ```NetTcp``` ```WCFBinding```. If you're using any ```Http``` binding then ASF is listening on ```0.0.0.0```, even if you specified ```127.0.0.1``` as your ```WCFHost```.
+
 ---
 
 ## Troubleshooting
