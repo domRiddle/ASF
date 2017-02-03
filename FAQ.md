@@ -278,9 +278,11 @@ Other reasons might include temporary Steam problem, network issue or likewise. 
 
 ***
 
-**Q:** ASF is failing with ```Request failed even after 5 tries``` errors!
+**Q:** ASF is failing with ```Request failed despite of 5 tries``` errors!
 
-**A:** This is most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
+**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+
+If parental PIN is not the reason, then this is a most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
 
 How to check if Steam is being down? **[Steam Status](https://steamstat.us/)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties, either leave ASF alone and let it do it's job after a short while, or wait yourself.
 
