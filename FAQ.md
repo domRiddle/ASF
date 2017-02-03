@@ -21,7 +21,7 @@
 Core points are repeated once again here, because people are either too blind to see them, or don't want to see them:
 
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops.**
+- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
 - **No, you can't drop cards from F2P games without spending any money in them.**
 - **No, you can't drop cards on limited accounts anymore (those that never spent 5$ in steam store). It was possible in the past, but it's no longer the case.**
 
