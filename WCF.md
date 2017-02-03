@@ -26,7 +26,7 @@ INFO|ASF|StartServer() Starting WCF server on net.tcp://127.0.0.1:1242/ASF ...
 INFO|ASF|StartServer() WCF server ready!
 ```
 
-ASF is now listening on ```net.tcp://127.0.0.1:1242/ASF``` for incoming WCF connections (or whatever ```WCFHost``` and ```WCFPort``` you specified in the config).
+ASF is now listening on ```net.tcp://127.0.0.1:1242/ASF``` for incoming WCF connections (or whatever ```WCFBinding```, ```WCFHost``` and ```WCFPort``` you specified in the config).
 
 ---
 
