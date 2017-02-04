@@ -6,9 +6,9 @@ ASF includes support for Steam non-interactive (offline) trades. Both receiving 
 
 ## Logic
 
-ASF will always allow ```SteamMasterID``` of given bot instance to ```!loot``` it, as well as accept all trades, regardless of items, sent from ```SteamMasterID``` to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF will always allow ```SteamMasterID``` of given bot instance to ```!loot``` it, as well as accept all trades, regardless of items, sent from ```SteamMasterID``` to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory. In addition to that, ASF will also accept all ```!loot``` trades being sent across bots, regardless of ```AcceptDonations``` setting specified in ```TradingPreferences```. In short, default ```TradingPreferences``` of ```None``` will cause ASF to automatically accept trades from ```SteamMasterID```, as well as all donation trades from other bots that are taking part in ASF process - this **does not** include strangers - they have ```AcceptDonations``` setting.
 
-With default ```TradingPreferences``` of ```AcceptDonations```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This allows you to not only accept donations from other people, but also send bot -> bot trades even when other bot doesn't match configured ```SteamMasterID```.
+When you enable ```AcceptDonations``` in your ```TradingPreferences```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
 
 Apart from that, you can configure ASF trading capabilities by modifying ```TradingPreferences``` accordingly. One of the main ```TradingPreferences``` features is ```SteamTradeMatcher``` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
 
