@@ -361,7 +361,7 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 Value | Name  | Description
 --- | --- | ---
 0 | None | No trading preferences
-1 | AcceptDonations | Accepts trades in which we're not losing anything
+1 | AcceptDonations | Accepts trades from other people in which we're not losing anything
 2 | SteamTradeMatcher | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info
 4 | MatchEverything | Requires ```SteamTradeMatcher``` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones
 
