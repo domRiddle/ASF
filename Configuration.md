@@ -364,7 +364,7 @@ Value | Name  | Description
 1 | AcceptDonations | Accepts trades in which we're not losing anything (overrides ```DontAcceptBotTrades```)
 2 | SteamTradeMatcher | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info
 4 | MatchEverything | Requires ```SteamTradeMatcher``` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones
-8 | DontAcceptBotTrades | Doesn't automatically accept ```!loot``` trades from other bot instances
+8 | DontAcceptBotTrades | Doesn't automatically accept ```!loot``` trades from other bot instances (requires lack of ```AcceptDonations```)
 
 Please notice that this property is ```flags``` field, therefore it's possible to choose any combination of available values. Check out **[flags explanation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)** if you'd like to learn more. Not enabling any of flags results in ```None``` option.
 
