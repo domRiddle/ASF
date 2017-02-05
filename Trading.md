@@ -12,6 +12,8 @@ In addition to that, ASF will also accept all ```!loot``` trades being sent acro
 
 When you enable ```AcceptDonations``` in your ```TradingPreferences```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This allows you to easily accept donations from other people, and also bots that are not taking part in ASF process. ```AcceptDonations``` setting is mainly for accounts that we do not control.
 
+It's nice to note that ```AcceptDonations``` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, as there is no confirmation needed if we're not losing any items.
+
 Apart from that, you can configure ASF trading capabilities by modifying ```TradingPreferences``` accordingly. One of the main ```TradingPreferences``` features is ```SteamTradeMatcher``` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
 
 ***
