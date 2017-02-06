@@ -57,7 +57,7 @@ Below commands can be sent to the bot through three different ways:
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
-Plural arguments, such as ```<Bots>``` or ```<appIDs``` means that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. In addition to that, there is special ```ASF``` keyword which acts as "all bots in the process", so ```!status ASF``` is equal to ```!status all,your,bots,listed,here```.
+Plural arguments, such as ```<Bots>``` or ```<appIDs>``` mean that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. In addition to that, there is special ```ASF``` keyword which acts as "all bots in the process", so ```!status ASF``` is equal to ```!status all,your,bots,listed,here```.
 
 It's nice to note that ```<Bots>``` also supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for ```<Bots>``` in this case is ```firstBot..lastBot```. For example, if you have bots named ```A, B, C, D, E, F```, you can execute ```!status B..E```, which is equal to ```!status B,C,D,E``` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both ```firstBot``` and ```lastBot``` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
