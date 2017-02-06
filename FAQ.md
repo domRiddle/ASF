@@ -71,6 +71,14 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 However, keep in mind that Android is simply-put Unix on ARM platform. Mono supports ARM platform, so it **is** possible to run ASF on Android, by rooting your device, installing any Linux OS next to your Android for example with **[this](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** application, then installing and running Mono as described in the wiki. It's not easy task, but if you have courage to try it, there is nothing really stopping you. ASF supports Mono on ARM, and it should work properly (even though it's not carefully tested).
 
+However, keep in mind that Android is simply-put Unix on ARM platform. Mono supports ARM platform, so it **is** possible to run ASF on Android, by rooting your device, installing any Linux OS next to your Android for example with **[this](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** application, then installing and running Mono as described in the wiki. It's not easy task, but if you have courage to try it, there is nothing really stopping you. ASF supports Mono on ARM, and it should work properly (even though it's not carefully tested).
+
+***
+
+**Q:** Can ASF idle items from Steam games, such as CS:GO or Unturned?
+
+**A:** **No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask us about this.
+
 ***
 
 **Q:** I'm Linux / OS X user, will ASF idle games that are not available for my OS?
