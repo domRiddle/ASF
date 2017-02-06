@@ -75,7 +75,7 @@ However, keep in mind that Android is simply-put Unix on ARM platform. Mono supp
 
 **Q:** Can ASF idle items from Steam games, such as CS:GO or Unturned?
 
-**A:** **No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask us about this.
+**A:** **No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems.
 
 ***
 
