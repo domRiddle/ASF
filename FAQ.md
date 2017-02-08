@@ -346,9 +346,9 @@ You could remove bot.db (+ bot.bin, if exists) of affected account and try to li
 
 ***
 
-**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword```
+**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword/InvalidPassword or RateLimitExceeded/RateLimitExceeded```
 
-**A:** ```InvalidPassword``` can mean a lot of things, some of them include:
+**A:** This error can mean a lot of things, some of them include:
 
 - Invalid Login/Password combination (obviously)
 - Expired login key used by ASF for logging in
