@@ -246,7 +246,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** Can I run more ASF instances then?
 
-**A:** You can run as many ASF instances on one machine as you like, assuming every instance has it's own directory and it's own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit ```InvalidPassword``` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using it's own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues. You won't gain anything from launching more than 1 instance per a single IP/interface.
+**A:** You can run as many ASF instances on one machine as you like, assuming every instance has it's own directory and it's own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit ```InvalidPassword/RateLimitExceeded``` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using it's own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues. You won't gain anything from launching more than 1 instance per a single IP/interface.
 
 ***
 
@@ -346,7 +346,7 @@ You could remove bot.db (+ bot.bin, if exists) of affected account and try to li
 
 ***
 
-**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword/InvalidPassword or RateLimitExceeded/RateLimitExceeded```
+**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword or RateLimitExceeded```
 
 **A:** This error can mean a lot of things, some of them include:
 
@@ -363,7 +363,7 @@ In case of expired login key - ASF will remove old one and ask for new one on ne
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on it's own whether ```InvalidPassword``` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 
-Keep in mind that ASF has it's own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of ```InvalidPassword```, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
+Keep in mind that ASF has it's own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
 
 Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF, and nothing can be fixed neither improved in this regard.
 
