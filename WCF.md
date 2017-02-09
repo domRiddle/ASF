@@ -44,7 +44,7 @@ On Linux and other Mono-powered OSes:
 mono ASF.exe --client "start example" "stop example"
 ```
 
-ASF expects that every command will have a structure of ```<Command> (BotName) (ExtraArgs)```. Commands should not be prefixed by ```!```, ASF prefixes them for you. ExtraArgs are optional, required by some commands (e.g. ```redeem``` one).
+ASF expects that every command will have a structure of ```<Command> (BotName) (ExtraArgs)```. Commands don't have to be prefixed by ```!```, ASF prefixes them for you if needed (useful on Unix). ExtraArgs are optional, required by some commands (e.g. ```redeem``` one).
 
 ASF in WCF mode supports all commands, such as ```!stop <BOT>```, ```!start <BOT>``` or ```!redeem <BOT> <KEY>```. You can view all available commands **[here](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
 
