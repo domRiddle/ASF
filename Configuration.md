@@ -217,7 +217,7 @@ As you should know already, every bot should have it's own config. Example bot c
 	"CardDropsRestricted": true,
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
-	"DismissInventoryNotifications": true,
+	"DismissInventoryNotifications": false,
 	"Enabled": false,
 	"FarmingOrder": 0,
 	"FarmOffline": false,
@@ -261,7 +261,7 @@ All options are explained below:
 
 ```CustomGamePlayedWhileIdle``` - ```string``` type with default value of ```null```. Similar to ```CustomGamePlayedWhileFarming```, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of ```null``` disables this feature.
 
-```DismissInventoryNotifications``` - ```bool``` type with default value of ```true```. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF by default automatically dismisses those notifications. If you for some reason would like to still receive and manually mark those notifications as read, consider switching this option to ```false```. It's nice to note that this option affects all item drops - including items you obtained through trading, and not only card drops. Of course, it affects only inventory notifications, so all other notification types, e.g. profile comments notifications, will stay in-tact.
+```DismissInventoryNotifications``` - ```bool``` type with default value of ```false```. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF offers dismissing those notifications automatically. When you enable this option, ASF will automatically dismiss all notifications related to new items being received - this also includes items you obtained through trading and other ways. Of course, this option affects only inventory notifications, so all other notification types, e.g. profile comments notifications, will stay in-tact.
 
 ```Enabled``` - ```bool``` type with default value of ```false```. This property defines if bot is enabled. Enabled bot instance (```true```) will automatically start on ASF run, while disabled bot instance (```false```) will need to be ```!start```ed manually. By default every bot is disabled, so you probably want to switch this property to ```true``` for all of your bots that should be started automatically.
 
