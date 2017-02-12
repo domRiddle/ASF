@@ -250,6 +250,22 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
+**Q:** What is the meaning of status when redeeming a key?
+
+**A:** Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
+
+Status | Description
+NoDetail | "OK" status indicating success - the key was successfully redemeed.
+Timeout | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).
+BadActivationCode | The provided key is invalid (not recognized as any valid key by Steam network).
+DuplicateActivationCode | The provided key was already redeemed by some other account.
+AlreadyPurchased | Your account already owns ```packageID``` that is connected with this key.
+RestrictedCountry | This is region-locked key and your account is not in the valid region that is permitted to redeem it.
+DoesNotOwnRequiredApp | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.
+RateLimited | You exceeded the limit of key attempts and all your future attempts have been temporarily blocked. Try again in 30-60 minutes.
+
+***
+
 **Q:** Are you affiliated with getsteam.cards or any other cards farming service?
 
 **A:** **No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](http://store.steampowered.com/subscriber_agreement/english/)** that:
