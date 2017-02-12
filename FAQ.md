@@ -263,7 +263,7 @@ DuplicateActivationCode | The provided key was already redeemed by some other ac
 AlreadyPurchased | Your account already owns ```packageID``` that is connected with this key.
 RestrictedCountry | This is region-locked key and your account is not in the valid region that is permitted to redeem it.
 DoesNotOwnRequiredApp | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.
-RateLimited | You exceeded the limit of key attempts and all your future attempts have been temporarily blocked. Try again in 30-60 minutes.
+RateLimited | You made too many failed (anything but ```NoDetail```) attempts and your account was temporarily blocked. Try again in 30-60 minutes.
 
 ***
 
