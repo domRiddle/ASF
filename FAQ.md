@@ -255,6 +255,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 **A:** Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
 Status | Description
+--- | ---
 NoDetail | "OK" status indicating success - the key was successfully redemeed.
 Timeout | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).
 BadActivationCode | The provided key is invalid (not recognized as any valid key by Steam network).
