@@ -60,7 +60,7 @@ Will result in intended behaviour - executing command ```!status archi```. Howev
 ASF.exe --client status archi
 ```
 
-Will result in **not intended** behaviour of executing two commands - ```!status``` and ```!archi```.
+Will result in **not intended** behaviour of executing two commands - ```!status``` and ```!archi```. This is because in this case you're exeucuting three different arguments: ```--client```, ```status``` and ```archi```, instead of ```--client``` and ```status archi```. Quoting is what allows shell to understand that given string with space in it should be used as a single argument, instead of two different arguments.
 
 If you want to execute more than one command, consider launching them at the same time (as shown in start stop example above), because launching process and the client is quite costly. ASF will execute all of those commands synchronously in given order.
 
