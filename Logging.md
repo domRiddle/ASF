@@ -26,7 +26,7 @@ As part of ASF integration, ASF also includes support for one additional ```Stea
 
 Using custom NLog config automatically disables default ASF one, which includes ```ColoredConsole```, ```EventLog``` (if ASF is started as a service) and ```File``` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep ```ColoredConsole``` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. For reference though, equivalent of hardcoded ASF default logging would be:
+If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. Don't use custom ```NLog.config``` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
