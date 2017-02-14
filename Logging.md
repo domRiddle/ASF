@@ -28,7 +28,7 @@ Using custom NLog config automatically disables default ASF one, which includes 
 
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom ```NLog.config```. For reference though, equivalent of hardcoded ASF default logging would be:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
@@ -57,7 +57,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial ```NLog.config``` will look like this:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
@@ -76,7 +76,7 @@ If you start ASF with above ```NLog.config``` now, only ```ColoredConsole``` tar
 
 Now let's say that we don't like default format of ```${level:uppercase=true}|${logger}|${message}``` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
@@ -93,7 +93,7 @@ If you launch ASF now, you'll notice that date, level and logger name disappeare
 
 We can also modify the config to log to more than one target. Let's log to ```ColoredConsole``` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
@@ -112,7 +112,7 @@ And done, we'll now log everything to ```ColoredConsole``` and ```File```. Did y
 
 Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything (```Trace```) to ```File```, but only ```Warning``` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the ```ColoredConsole```. We can achieve that by modifying our ```rules```:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
@@ -185,7 +185,7 @@ _botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) of targe
 
 In order to write all messages of ```Debug``` level and above, from bot named ```MyBot``` to steamID of ```76561198006963719```, you should use ```NLog.config``` similar to below:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
