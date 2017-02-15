@@ -6,7 +6,7 @@ ASF supports API-like response through ```!api``` command, which can be used for
 
 ## Notice
 
-API is a subject to change and can contain more/less information between different ASF versions. The objective of the API is to provide enough information about what ASF is doing, but not exposing every single property used by the program. It should work as equivalent to ```!statusall``` done in API-like way.
+API is a subject to change and can contain more/less information between different ASF versions. The objective of the API is to provide enough information about what ASF is doing, but not exposing every single property used by the program. It should work as equivalent to ```!status ASF``` done in API-like way. Of course, due to the fact that the output is supposed to be parsed and not read by humans, it also includes far more info.
 
 ---
 
