@@ -43,7 +43,7 @@ Thanks to our listing, every interested ASF and non-ASF user can easily notice b
 
 **How it exactly works:**
 
-ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 5 minutes ASF sends one, very tiny "HeartBeat" request that notifies the server that bot is still up.
+ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "HeartBeat" request that notifies the server that bot is still up. If for some reason HeartBeat didn't arrive, ASF will retry sending it each minute, until server registers it.
 
 This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**, appropriately with green shadow if ```MatchEverything``` is active, and with orange shadow otherwise. Users are sorted according to their last report, most recent ones being on top.
 
