@@ -12,7 +12,7 @@ When ```Statistics``` are active, following things will happen:
 
 a) Every account being used in ASF will join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
 
-* It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no unrelated to ASF spam guaranteed)
+* It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
 * It allows us to see how many actual steam accounts are being used by ASF
 
