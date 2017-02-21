@@ -40,7 +40,7 @@ If everything ended successfully, you can find your compiled binaries in ```bin`
 
 Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**, on Windows, with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
 
-Official releases are working with both .NET, as well as Mono, so there is no need to compile yourself if you simply want to use ASF with Mono, e.g. on Linux or OS X.
+Our releases are working with both .NET, as well as Mono, so there is no need to compile yourself if you simply want to use ASF with Mono, e.g. on Linux or OS X.
 
 ---
 
