@@ -38,7 +38,7 @@ You can also use ```cc.sh``` script, which simplifies things even further.
 
 If everything ended successfully, you can find your compiled binaries in ```bin``` directory of each project, and in addition to that you can find repacked ready-to-go binaries with appropriate structure in ```out``` directory. You can use either ```ArchiSteamFarm.exe``` with all required DLL libraries, or repacked ```ASF.exe``` which already contains all of them inside. If you're not shipping your binaries and you just want to use ASF from source tree, I highly recommend launching ```ArchiSteamFarm.exe``` instead of ```ASF.exe```, simply because it's smaller, more optimized, can load DLLs on as-needed basis and doesn't automatically update to the version found on GitHub.
 
-ASF by default is compiled on Windows - with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
+Official ASF releases are by default compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**,  on Windows, with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
 
 ---
 
