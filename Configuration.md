@@ -212,7 +212,6 @@ As you should know already, every bot should have it's own config. Example bot c
 
 ```
 {
-	"AcceptConfirmationsPeriod": 0,
 	"AcceptGifts": false,
 	"CardDropsRestricted": true,
 	"CustomGamePlayedWhileFarming": null,
@@ -250,8 +249,6 @@ As you should know already, every bot should have it's own config. Example bot c
 ---
 
 All options are explained below:
-
-```AcceptConfirmationsPeriod``` - ```byte``` type with default value of ```0```. This property makes sense only if you have **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** enabled for this account. Recently Valve introduced additional restrictions, and now every item listed on the market requires additional 2FA confirmation. This option works the same as ```!2faok``` command, ASF will automatically accept all pending confirmations every ```AcceptConfirmationsPeriod``` minutes. Default value of ```0``` disables this feature. In general it's not recommended to enable this option, but if you want to keep it enabled, you should use rather long period, such as ```30``` minutes. If you're not sure how to set this property, leave it with default value of ```0```.
 
 ```AcceptGifts``` - ```bool``` type with default value of ```false```. When enabled, ASF will automatically accept and redeem all steam gifts received by the bot. This includes also gifts from users different than ```SteamMasterID```. This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those gifts (without your help), therefore you should be sending steam gifts to your bots directly. ASF will accept (and redeem) only gifts that can be directly associated with the account. If you're unsure whether you want this feature enabled or not, keep it with default value of ```false```.
 
