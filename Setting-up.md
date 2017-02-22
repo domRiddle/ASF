@@ -2,6 +2,8 @@
 
 If you arrived here for the first time, welcome!
 
+ASF is a console app, which means that program itself doesn't have a friendly GUI (yet) that you're in general used to. This means that ASF is standalone executable file that doesn't need installation, but requires configuration prior to launching it.
+
 ***
 
 ## Quick configuration
