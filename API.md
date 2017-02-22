@@ -67,17 +67,17 @@ The example response of latest version has following form:
 
 ## Documentation
 
-```Bots``` is a ```ConcurrentDictionary<string, Bot>``` object which maps bot name to it's reference. In JSON, bot instances are displayed with their unique names.
+```Bots``` is a ```ConcurrentDictionary<string, Bot>``` object which maps bot name to its reference. In JSON, bot instances are displayed with their unique names.
 
 ---
 
 ### Bot
 
-```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. It's structure is explained **[below](#cardsfarmer)**.
+```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
 ```SteamID``` is ```ulong``` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of ```0``` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
-```BotConfig``` is specialized C# object used by Bot for accessing to it's config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes all config variables available. This property can be used for determining with what options the bot is configured to work. Keep in mind that bot might also have invalid/broken config, in this case this property will be ```null```.
+```BotConfig``` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes all config variables available. This property can be used for determining with what options the bot is configured to work. Keep in mind that bot might also have invalid/broken config, in this case this property will be ```null```.
 
 ```IsLimitedUser``` is a ```bool``` type that specifies if bot account is limited. Limited bot accounts will not attempt to farm automatically, as they're not eligible for any card drops. Check out **[Steam FAQ](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** for more info.
 
