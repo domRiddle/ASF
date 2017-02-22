@@ -8,7 +8,7 @@ ASF is a console app, which means that program itself doesn't have a friendly GU
 
 ## Quick configuration
 
-This is an option for those who don't want to learn how ASF works in-depth and just want to make it working. It can be achieved in less than 5 minutes.
+This is an option for those who don't want to learn how ASF works in-depth and just want to make it working. It can be achieved in less than 5 minutes. This guide is compacted to the maximum - if something is unclear, visit **[detailed configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#detailed-configuration)** instead.
 
 - Install latest **[.NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. No, don't skip this step.
 - Download **ASF.zip** located **[here](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. Don't download source code or anything else (as you don't need it).
