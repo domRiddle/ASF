@@ -6,7 +6,7 @@ Starting with version V2.1.2.0, ASF allows you to configure your own custom logg
 
 ## ASF integration
 
-ASF includes some nice code tricks that enhance it's integration with NLog, allowing you to catch specific messages more easily.
+ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 
 NLog-specific ```${logger}``` variable will always distinguish the source of the message - it will be either ```BotName``` of one of your bots, or ```ASF``` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
 
