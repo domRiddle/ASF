@@ -17,7 +17,7 @@ The example response of latest version has following form:
 ```
 {
 	"Bots": {
-		"archi": {
+		"primary": {
 			"CardsFarmer": {
 				"GamesToFarm": [{
 					"AppID": 403850,
@@ -39,24 +39,24 @@ The example response of latest version has following form:
 				"TimeRemaining":"02:30:00",
 				"Paused": false
 			},
+			"AccountFlags":271073413,
 			"SteamID": 76561198006963719,
 			"BotConfig": {
 				"SteamLogin": null,
 				"SteamPassword": null
 			},
-			"IsLimitedUser": false,
 			"KeepRunning": true
 		},
-		"1": {
+		"secondary": {
 			"CardsFarmer": {
 				"GamesToFarm": [],
 				"CurrentGamesFarming": [],
 				"TimeRemaining":"00:00:00",
 				"Paused": false
 			},
+			"AccountFlags":268976261,
 			"SteamID": 0,
 			"BotConfig": null,
-			"IsLimitedUser": true,
 			"KeepRunning": true
 		}
 	}
@@ -75,11 +75,11 @@ The example response of latest version has following form:
 
 ```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
+```AccountFlags``` is ```EAccountFlags``` (integer flags) type (which is defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/afda0753a3894c5c1fc4056aaf27ecc3f83426cb/Resources/SteamLanguage/enums.steamd#L81)** that specifies Steam account flags of given account. This property can be used for getting more information about Steam account being used by the bot, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if ```LimitedUser``` or ```LimitedUserForce``` flags are set.
+
 ```SteamID``` is ```ulong``` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of ```0``` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
 ```BotConfig``` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes all config variables available. This property can be used for determining with what options the bot is configured to work. Keep in mind that bot might also have invalid/broken config, in this case this property will be ```null```.
-
-```IsLimitedUser``` is a ```bool``` type that specifies if bot account is limited. Limited bot accounts will not attempt to farm automatically, as they're not eligible for any card drops. Check out **[Steam FAQ](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** for more info.
 
 ```KeepRunning``` is a ```bool``` type that specifies if bot is active. Active bot is a bot that has been ```!start```ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be ```false```. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what ```SteamID``` can be used for).
 
