@@ -89,4 +89,4 @@ It's not required to have any extra account for executing commands though Steam 
 
 When using **WCF**, keep in mind that:
 - Commands don't have to be prefixed by ```!```, ASF prefixes them for you if needed (useful on Unix)
-- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instance``` commands instead.
+- When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instances``` commands instead.
