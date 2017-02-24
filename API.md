@@ -54,7 +54,7 @@ The example response of latest version has following form:
 				"TimeRemaining":"00:00:00",
 				"Paused": false
 			},
-			"AccountFlags":268976261,
+			"AccountFlags":0,
 			"SteamID": 0,
 			"BotConfig": null,
 			"KeepRunning": true
@@ -75,7 +75,7 @@ The example response of latest version has following form:
 
 ```CardsFarmer``` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
-```AccountFlags``` is ```EAccountFlags``` (```uint``` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/afda0753a3894c5c1fc4056aaf27ecc3f83426cb/Resources/SteamLanguage/enums.steamd#L81)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if ```LimitedUser``` or ```LimitedUserForce``` flags are set.
+```AccountFlags``` is ```EAccountFlags``` (```uint``` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/afda0753a3894c5c1fc4056aaf27ecc3f83426cb/Resources/SteamLanguage/enums.steamd#L81)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if ```LimitedUser``` or ```LimitedUserForce``` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of ```0``` before first login.
 
 ```SteamID``` is ```ulong``` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of ```0``` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
