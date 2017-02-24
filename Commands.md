@@ -37,8 +37,8 @@ Below commands can be sent to the bot through three different ways:
 `!redeem <Bots> <Keys>`   | Redeems given ```cd-keys``` on given bot instances
 `!redeem^ <Keys>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
 `!redeem^ <Bots> <Keys>`  | Redeems given ```cd-keys``` on given bot instances, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
-`!redeem& <Keys>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (enables ```Forwarding``` in ```RedeemingPreferences```)
-`!redeem& <Bots> <Keys>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (enables ```Forwarding``` in ```RedeemingPreferences```)
+`!redeem& <Keys>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
+`!redeem& <Bots> <Keys>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
 `!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
 `!restart`                        | Restarts ASF process
 `!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
