@@ -36,4 +36,4 @@ Service mode offered in ASF comes as an extra, and is not being used in our test
 
 ## Issues
 
-```InstallUtil.exe``` may fail to install ASF as a service, if ASF file is untrusted. This will result in unusual ```System.IO.FileLoadException: Could not load file``` exception, even if provided path is in fact correct. In order to solve this issue, you need to right-click ASF executable, and in properties tab click "unblock" to allow Windows installing ASF as a service.
+```InstallUtil.exe``` may fail to install ASF as a service, if ASF file is untrusted. This will result in unusual ```System.IO.FileLoadException: Could not load file``` exception, even if provided path is in fact correct. In order to solve this issue, you need to right-click ASF executable, and in properties tab find "unblock" to allow your OS installing ASF as a service.
