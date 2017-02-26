@@ -31,3 +31,9 @@ Running ASF as a service should result in the same functionality as running ASF 
 ## Limitations
 
 Service mode offered in ASF comes as an extra, and is not being used in our testing environment. It should work properly, but in the end various limitations may apply. One of those is the fact that ASF doesn't seem to be able to restart itself when being run as a service, that's why it's recommended to set ```AutoRestart``` to false. Apart from that, there are no more known limitations, but it's still possible that there might be some unknown ones - you tell us.
+
+---
+
+## Issues
+
+```InstallUtil.exe``` may fail to install ASF as a service, if ASF file is untrusted. This will result in unusual ```System.IO.FileLoadException: Could not load file``` exception, even if provided path is in fact correct. In order to solve this issue, you need to right-click ASF executable, and in properties tab click "unblock" to allow Windows installing ASF as a service.
