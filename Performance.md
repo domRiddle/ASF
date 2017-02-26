@@ -60,7 +60,7 @@ And to make it even worse - I experienced cases when people switched from restri
 
 ***
 
-By default, ASF assumes that ```CardDropsRestricted``` is ```true```, as the negative effect of setting this to ```true``` when it should be ```false``` is smaller than done the other way. However, you should still tune this variable to match your account for maximum efficiency, as this is only a guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
+By default, ASF assumes that ```CardDropsRestricted``` is ```true```, as the negative effect of setting this to ```true``` when it should be ```false``` is smaller than done the other way. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
