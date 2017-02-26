@@ -4,7 +4,7 @@
 
 The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on it's own, and larger set of data which can be automatically checked by ASF.
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible. Your objective is to set config properties properly, as ASF can't guess them on it's own, everything else is covered.
+In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on it's own, everything else is covered.
 
 ***
 
