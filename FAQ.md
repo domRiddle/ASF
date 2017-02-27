@@ -232,6 +232,12 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
+**Q:** I'd like to help translating ASF, what do I need to do?
+
+**A:** Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)** section.
+
+***
+
 **Q:** I have only one (main) account added to ASF, can I still issue commands through steam chat?
 
 **A:** **Yes**, it's explained in **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#notes)** section.
