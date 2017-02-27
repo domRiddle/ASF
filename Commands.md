@@ -20,8 +20,8 @@ Below commands can be sent to the bot through three different ways:
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <Bots>`                    | Restarts cards farming module for given bot instances
 `!help`                           | Shows help (link to this page)
-`!input <Type> <Value>`           | Sets given input type to given value for current bot instance, works only in ```Headless``` mode
-`!input <Bots> <Type> <Value>`    | Sets given input type to given value for given bot instances, works only in ```Headless``` mode
+`!input <Type> <Value>`           | Sets given input type to given value for current bot instance, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
+`!input <Bots> <Type> <Value>`    | Sets given input type to given value for given bot instances, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
 `!loot <Bots>`                    | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
