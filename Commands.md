@@ -126,4 +126,6 @@ In order to do that, we need to execute following commands:
 
 ```!input MySteamGuardBot SteamGuard ABCDE``` -> We set ```SteamGuard``` input of ```MySteamGuardBot``` bot to ```ABCDE```. Of course, ```ABCDE``` in this case is auth code that we got on our e-mail.
 
-```!start MySteamGuardBot``` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in.
+```!start MySteamGuardBot``` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+
+In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
