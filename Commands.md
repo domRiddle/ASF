@@ -99,6 +99,8 @@ When using **WCF**, keep in mind that:
 
 Input command can be used only in ```Headless``` mode, for inputting given data via WCF or Steam chat when ASF is running without support for user interaction.
 
+General syntax is ```!input <Bots> <Type> <Value>```.
+
 ```<Type>``` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
 | Type                    | Description                                                                |
