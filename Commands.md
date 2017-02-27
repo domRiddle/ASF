@@ -20,6 +20,8 @@ Below commands can be sent to the bot through three different ways:
 `!farm`                           | Restarts cards farming module for current bot instance
 `!farm <Bots>`                    | Restarts cards farming module for given bot instances
 `!help`                           | Shows help (link to this page)
+`!input <Type> <Value>`           | Sets given input type to given value for current bot instance, works only in ```Headless``` mode
+`!input <Bots> <Type> <Value>`    | Sets given input type to given value for given bot instances, works only in ```Headless``` mode
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
 `!loot <Bots>`                    | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
@@ -90,3 +92,34 @@ It's not required to have any extra account for executing commands though Steam 
 When using **WCF**, keep in mind that:
 - Commands don't have to be prefixed by ```!```, ASF prefixes them for you if needed (useful on Unix)
 - When using commands that are based on ```current bot instance```, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use ```given bot instances``` commands instead.
+
+---
+
+## ```!input``` command
+
+Input command can be used only in ```Headless``` mode, for inputting given data via WCF or Steam chat when ASF is running without support for user interaction.
+
+```<Type>``` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+
+| Type                    | Description                                                                |
+| ----------------------- | -------------------------------------------------------------------------- |
+| DeviceID                | 2FA device identificator, if missing from ```.maFile```.                   |
+| Login                   | ```SteamLogin``` bot config property, if set to ```null```.                |
+| Password                | ```SteamPassword``` bot config property, if set to ```null```.             |
+| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
+| SteamParentalPIN        | ```SteamParentalPIN``` bot config property, if set to ```null```.          |
+| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+
+```<Value>``` is value set for given type. Currently all values are strings.
+
+---
+
+### Example
+
+Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with ```Headless``` set to true.
+
+In order to do that, we need to execute following commands:
+
+```!start MySteamGuardBot``` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in ```Headless``` mode.
+```!input MySteamGuardBot SteamGuard ABCDE``` -> We set ```SteamGuard``` input of ```MySteamGuardBot``` bot to ```ABCDE```. Of course, ```ABCDE``` in this case is auth code that we got on our e-mail.
+```!start MySteamGuardBot``` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in.
