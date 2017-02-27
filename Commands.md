@@ -123,5 +123,7 @@ Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We
 In order to do that, we need to execute following commands:
 
 ```!start MySteamGuardBot``` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in ```Headless``` mode.
+
 ```!input MySteamGuardBot SteamGuard ABCDE``` -> We set ```SteamGuard``` input of ```MySteamGuardBot``` bot to ```ABCDE```. Of course, ```ABCDE``` in this case is auth code that we got on our e-mail.
+
 ```!start MySteamGuardBot``` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in.
