@@ -76,7 +76,7 @@ This section is mainly for people that are wondering why ASF doesn't do **X**, s
 
 What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks that are supposed to guess when glitch is happening and how to fight with it / abuse it.
 
-A good example of what I consider a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
+A good example of what is considered as a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
 
 - **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped.
 - **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
@@ -92,8 +92,8 @@ Now once we realized what Steam glitch is, and the fact that cards being dropped
 >
 > Institute attacks upon a Steam server or otherwise disrupt Steam.
 
-It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you consider such behaviour as DoS attack like me, or not - it's up to Valve to judge this, but if I consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
+It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
 
-ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that I deem as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)** article.
+ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)** section.
 
-If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have ```!play``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction - just keep in mind that we warned you.
+If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have ```!play``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.
