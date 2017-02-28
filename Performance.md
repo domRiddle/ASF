@@ -65,3 +65,31 @@ By default, ASF assumes that ```CardDropsRestricted``` is ```true```, as the neg
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
 It's nice to note that ASF also includes ```Manual``` farming mode that can be activated by ```!play``` command. You can read more about it in **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
+
+---
+
+## Steam glitches
+
+Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, and likewise.
+
+What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks and exploiting the abuse.
+
+A good example of what I consider a **Steam glitch** is somehow not that uncommon situation of dropping a card when game is being closed.
+
+a) **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped.
+b) **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
+c) **Undocumented** - it's clearly documented on Steam website how cards are being obtained, and **in every single place** it's clearly stated that it's obtained through **playing**, NOT closing games, getting achievements, games switching or launching 32 games concurrently.
+d) **Considered as a logic flaw** - Closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
+e) **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it might no longer work for the second time.
+
+Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](http://store.steampowered.com/online_conduct/?l=english)**
+
+> As a Steam subscriber you agree to abide by the following conduct rules.
+> You will not:
+> Institute attacks upon a Steam server or otherwise disrupt Steam.
+
+It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you consider such behaviour as DoS attack like me, or not - it's up to Valve to judge this, but if I consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
+
+ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that I deem as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)** section on the wiki.
+
+If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have ```!play``` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction - just keep in mind that we warned you.
