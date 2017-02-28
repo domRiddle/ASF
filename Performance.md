@@ -70,11 +70,11 @@ It's nice to note that ASF also includes ```Manual``` farming mode that can be a
 
 ## Steam glitches
 
-Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, and likewise.
+Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 
 What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks and exploiting the abuse.
 
-A good example of what I consider a **Steam glitch** is somehow not that uncommon situation of dropping a card when game is being closed.
+A good example of what I consider a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
 
 a) **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped.
 b) **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
