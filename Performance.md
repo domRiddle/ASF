@@ -78,7 +78,7 @@ What is a **Steam glitch** - a specific action triggering **undefined** behaviou
 
 A good example of what is considered as a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
 
-- **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped.
+- **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped when you trigger the glitch.
 - **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
 - **Undocumented** - it's clearly documented on Steam website how cards are being obtained, and **in every single place** it's clearly stated that it's obtained through **playing**, NOT closing games, getting achievements, games switching or launching 32 games concurrently.
 - **Considered as a logic flaw** - closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
