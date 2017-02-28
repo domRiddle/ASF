@@ -72,6 +72,8 @@ It's nice to note that ASF also includes ```Manual``` farming mode that can be a
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 
+This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to idle cards faster.
+
 What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks and exploiting the abuse.
 
 A good example of what I consider a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
@@ -85,7 +87,9 @@ A good example of what I consider a **Steam glitch** is not that uncommon situat
 Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](http://store.steampowered.com/online_conduct/?l=english)**
 
 > As a Steam subscriber you agree to abide by the following conduct rules.
+>
 > You will not:
+>
 > Institute attacks upon a Steam server or otherwise disrupt Steam.
 
 It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you consider such behaviour as DoS attack like me, or not - it's up to Valve to judge this, but if I consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
