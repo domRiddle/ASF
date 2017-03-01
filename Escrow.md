@@ -38,7 +38,7 @@ During import process we will need to access protected files. Therefore you shou
 
 Now, you might choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. First option is more friendly and allows you to duplicate your authenticator also on your PC, allowing you to make confirmations and generate tokens from 3 different places - your phone, your PC and ASF. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions. When done, you can then import this authenticator from WinAuth to ASF, which is explained below.
 
-If you don't want or don't need to go through WinAuth, then simply copy ```/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX``` where XXX is your ```SteamID``` of the account you want to add (if more than one, because if you have only one then this will be the only file). Keep in mind that ```/data/data``` directory is protected and you won't be able to access it without root access. Once you get your file on your PC, put it as ```Bot.maFile``` in ASF config directory, where ```Bot``` is name of the bot you want to add 2FA to. After this step, launch ASF - it should notice the ```.maFile``` and import it.
+If you don't want or don't need to go through WinAuth, then simply copy ```/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX``` where XXX is your ```SteamID``` of the account you want to add (if more than one, because if you have only one then this will be the only file). Keep in mind that ```/data/data``` directory is protected and you won't be able to access it without root access. Once you get your file on your PC, put it as ```BotName.maFile``` in ASF config directory, where ```BotName``` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the ```.maFile``` and import it.
 
 ```
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
@@ -59,7 +59,7 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
 
-Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from ```{``` ending on ```}``` into ```Bot.maFile``` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from ```{``` ending on ```}``` into ```BotName.maFile``` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
 
 For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/go/comment/fwzzlNV)**.
 
@@ -71,7 +71,7 @@ For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/
 
 If you have your authenticator running in SDA already, you should notice that there is ```steamID.maFile``` file available in ```maFiles``` folder. Copy that file to ```config``` directory of ASF. Make sure that ```.maFile``` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with ```{``` character.
 
-You should now rename ```steamID.maFile``` to ```Bot.maFile``` where ```Bot``` is name of the bot you want to add 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know ```steamID``` of your account before in fact logging in).
+You should now rename ```steamID.maFile``` to ```BotName.maFile``` in ASF config directory, where ```BotName``` is the name of your bot you're adding ASF 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know ```steamID``` of your account before in fact logging in).
 
 If you did everything correctly, launch ASF, and you should notice:
 
@@ -88,9 +88,9 @@ From now on, your ASF 2FA should be operational for this account.
 
 **Make sure that you're using WinAuth in version 3.4 or higher, as older versions do not support Steam authenticator properly.**
 
-Firstly create new empty ```Bot.maFile``` file in ASF ```config``` directory where ```Bot``` is name of the bot you want to add 2FA to. Remember that it should be ```Bot.maFile``` and NOT ```Bot.maFile.txt```, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
+Firstly create new empty ```BotName.maFile``` in ASF config directory, where ```BotName``` is the name of your bot you're adding ASF 2FA to. Remember that it should be ```BotName.maFile``` and NOT ```BotName.maFile.txt```, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
 
-Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{```. Copy whole text into a ```Bot.maFile``` file created by you in previous step.
+Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with ```{```. Copy whole text into a ```BotName.maFile``` file created by you in previous step.
 
 If you did everything correctly, launch ASF, and you should notice:
 
