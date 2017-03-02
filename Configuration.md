@@ -119,15 +119,7 @@ Global config is located in ```ASF.json``` file and has following structure:
 {
 	"AutoRestart": true,
 	"AutoUpdates": true,
-	"Blacklist": [
-		267420,
-		303700,
-		335590,
-		368020,
-		425280,
-		480730,
-		566020
-	],
+	"Blacklist": [],
 	"ConnectionTimeout": 60,
 	"CurrentCulture": null,
 	"Debug": false,
@@ -160,7 +152,7 @@ All options are explained below:
 
 ```AutoUpdates``` - ```bool``` type with default value of ```true```. This property defines if ASF should automatically update itself when new version is available. Updates are crucial not only to receive new features, but also to receive bugfixes, performance enhancements, stability improvements and more. When enabled, ASF will automatically download, replace, and restart itself when new update is available. In addition to initial version check on startup, ASF will also check every 24 hours if new update is available. Update process of ASF always includes only replacement of core executable file (ASF.exe) - it never touches any configs or other database files. You might be also interested in editing ```UpdateChannel``` property in order to choose which update channel ```AutoUpdates``` should follow. Unless you have **strong** reason to disable this feature, you should keep it enabled.
 
-```Blacklist``` - ```HashSet<uint>``` type with default value of ```267420, 303700, 335590, 368020, 425280, 480730, 566020``` appIDs. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Default value of this property includes appIDs being used as Steam winter/summer sale. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
+```Blacklist``` - ```HashSet<uint>``` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
 
 ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcoded into the ASF code and not possible to edit, and normal ```Blacklist```, which is defined here. ```GlobalBlacklist``` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own ```Blacklist```. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded ```GlobalBlacklist``` is being updated as fast as possible, therefore you're not required to update your own ```Blacklist``` if you're using latest ASF version, but without ```Blacklist``` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded ```GlobalBlacklist``` in new ASF release, yet you want to keep your old ASF running. This property can be also "unofficially" used for skipping given games, although doing that is not a primary purpose and should be rather seen as a workaround if you don't want to idle some specific appIDs (games), yet you still want to use automatic idling provided by ASF. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
