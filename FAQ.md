@@ -141,7 +141,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 **A:** ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
 
-According to users and best of my knowledge, this is the case right now, as nobody reported any issues like stated in the link above while using ASF. We also couldn't reproduce the issue above with ASF, while clearly reproducing it with Idle Master.
+According to users and best of my knowledge, this is the case right now, as nobody reported any issues like stated in the link above while using ASF. We couldn't reproduce the issue above with ASF as well, while clearly reproducing it with Idle Master.
 
 However, keep in mind that Valve might still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason.
 
