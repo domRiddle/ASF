@@ -14,7 +14,7 @@ Some time ago Valve changed the algorithm for card drops. From that point onward
 
 ASF currently includes two farming algorithms:
 
-**Simple** algorithm works best for accounts which are not restricted by 2 hours cards drop. This is primary and default algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped.
+**Simple** algorithm works best for accounts which are not restricted by 2 hours cards drop. This is primary algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped.
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed 2 hours of playtime, then, if no games with >= 2 hours are left, it will farm all games (up to ```32``` limit) with < 2 hours left simultaneously, until any of them hits 2 hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < 2 etc.)
 
