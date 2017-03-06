@@ -29,10 +29,10 @@ Below commands can be sent to the bot through three different ways:
 `!owns <Bots> <appIDsOrGameNames>` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
 `!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <Bots>`                | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
-`!pause`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause <Bots>`                    | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause^`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause^ <Bots>`                   | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause <Bots>`                   | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause~`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause~ <Bots>`                    | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
 `!play <appIDs>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
 `!play <Bots> <appIDs>` | Switches to manual farming - launches given ```appIDs``` on given bot instances. Use ```!resume``` for returning to automatic farming
 `!redeem <Keys>`         | Redeems given ```cd-keys``` on current bot instance
@@ -63,7 +63,7 @@ Plural arguments, such as ```<Bots>``` or ```<appIDs>``` mean that command suppo
 
 It's nice to note that ```<Bots>``` also supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for ```<Bots>``` in this case is ```firstBot..lastBot```. For example, if you have bots named ```A, B, C, D, E, F```, you can execute ```!status B..E```, which is equal to ```!status B,C,D,E``` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both ```firstBot``` and ```lastBot``` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-```!pause``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
+```!pause~``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
 
 Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```. Typically commands that do not support ```<Bots>``` parameter require ```SteamOwnerID``` permission.
 
