@@ -212,7 +212,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
-**Q:** Does using ASF alters in any way Windows sleeping settings?
+**Q:** Does using ASF alter in any way Windows sleeping settings?
  
 **A:** Yes, ASF is a service application and user launching it expects from it to work also when he's not using PC actively - because of that, ASF gives a hint to Windows OS that it should not enter sleep mode when ASF is running, which ensures that ASF can work on uninterrupted basis while it's active.
 
