@@ -212,17 +212,6 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
-**Q:** Does using ASF alter in any way Windows sleeping settings?
- 
-**A:** Yes, ASF is a service application and user launching it expects from it to work also when he's not using PC actively - because of that, ASF gives a hint to Windows OS that it should not enter sleep mode when ASF is running, which ensures that ASF can work on uninterrupted basis while it's active.
-
-If that behaviour is unwanted, you can:
-- Close ASF when you expect your OS to enter sleep.
-- Use `ShutdownOnFarmingFinished` that will automatically close ASF when there is nothing to do.
-- Use any third-party tool/script that will close ASF process whenever you want to.
-
-***
-
 **Q:** Can ASF farm steam cards obtained via Steam discovery during summer/winter sale?
  
 **A:** **No**, that's out of the scope of the program and not planned to be added anytime soon.
