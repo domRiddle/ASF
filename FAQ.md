@@ -410,7 +410,7 @@ Finally, as with every Steam request - ASF can only **try** to log in, using you
 
 **Q:** ASF is being detected by my AntiVirus (for example as: Win32/Fethar.B!cl, Win32/Zulushal.C!cl or Trojan.MSIL.Crypt)
 
-**A:** **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always come from us.
+**A:** **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 
 If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. ASF uses exe repacking method for bundling it together with all required libraries, which can trigger some heuristics mechanics in AVs. This **happened in the past**, **is happening right now**, and **will happen in the future**. We're already used to that and you shouldn't notify us about new false positives - notify developers of your AV instead, since it's not ASF issue in the first place.
 
