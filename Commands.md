@@ -25,8 +25,8 @@ Below commands can be sent to the bot through three different ways:
 `!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
 `!loot <Bots>`                    | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
-`!owns <appIDsOrGameNames>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name) | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```
-`!owns <Bots> <appIDsOrGameNames>` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name)
+`!owns <appIDsOrGameNames>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available. | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```, ```!owns *```
+`!owns <Bots> <appIDsOrGameNames>` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
 `!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <Bots>`                | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
 `!pause`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
