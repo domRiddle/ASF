@@ -14,4 +14,79 @@ ASF changes **rapidly**, therefore keeping this documentation up-to-date with co
 
 ---
 
-## ASF
+## Steam services
+
+In documentation there will be often references to various Steam services, and you should know the difference between then.
+
+- Steam Network, is that part of Steam that is restricted to Steam clients only, inacessible without its implementation.
+- Steam API, is the most common part of Steam that is available for majority of third-party services.
+- Steam Community, is the part designed for Steam end-users only, providing you with web-based functionality.
+- Steam Store, is very similar to Steam Community, but has functions related to licenses mainly.
+
+---
+
+## Integration
+
+The primary difference when comparing ASF to other similar tools, such as Idle Master, is the fact that those two programs work in totally different way. IM is accessing Steam Community badge page, reading from it which games need to be farmed, then emulating those games being launched, which triggers official Steam Client into sending appropriate request with "hey I'm playing these games" to Steam Network. Probably you can already notice various limitations of that method:
+- We can't access Steam Network at all
+- We can't operate without Steam client at all
+- We can't make Steam client do what we want, we must "trick" it into thinking that something is happening
+
+For example, redeeming keys with IM is impossible by definition, since you can't really trick Steam client into redeeming the key in any possible way, so you must either do that manually, or with third-party tool that will **still** do it manually, but semi-automatically just for you.
+
+ASF is based on SteamKit2 - project that aims to create open-source implementation of Steam client that could be used in C#-based applications. Without SK2 ASF would not exist, as it's the entire "heart" that allows ASF to communicate with Steam Network and fix all IM flaws mentioned above. This basically means that we're not on official Steam client's mercy, we can communicate with Steam Network directly, and we don't even need official Steam client to be installed or running, which means that ASF is a standalone app that can work fully by itself, with no extra dependencies (apart from all dependencies required to run the binary properly, that is).
+
+---
+
+## Authentication
+
+ASF maintains two sessions - Steam Network session, and Steam Web session (`ISteamUserAuth`). Steam Web session is **binded** to Steam Network session, so it's automatically invalidated the moment Steam Network session is gone. As you can guess, Steam Web session is required for communicating with Steam Community or Steam Store.
+
+ASF uses login keys mechanism - the same one that is being used in official Steam Client. This mechanism is very simple and allows ASF to skip password/2FA/SteamGuard authentication, if previous session was already authenticated successfully. When we don't have any old login key, for example on first ASF run, we need to log in through standard login + password combination, and extra 2FA/SteamGuard code (if needed). Once we log in successfully, ASF automatically receives from Steam Network special login key, which can be used for next login **instead** of password. Every login key can be used only once, which means that ASF automatically gets new one from Steam Network once we log in again using our current one. Login key is saved in `BotName.db` and encrypted using your chosen `PasswordFormat`. Login keys can't be used outside of Steam Network.
+
+---
+
+## Cards farming
+
+Cards farming process might look simple, but it's very complex code-wise. After logging in, we must check all our badge pages in Steam Community to get list of games that can be idled. After that setup, we must exclude known false-positive apps, such as Steam Winter/Summer sale - those are hardcoded into the app, but user can also add them in `Blacklist`.
+
+At this step we have a full list ready, so we sort it according to `FarmingOrder` (if needed). Then we start idling, depending on chosen cards farming algorithm.
+
+When we get to the point of farming a single game, ASF will also check if farming it is even possible, by asking Steam Network about release state of that game. If game is not released yet, it's temporarily purged from the list, as we're not able to idle it yet. Sadly it's not possible to ask this for multiple games, as various Steam glitches are happening, so we can't really ask that earlier, for example before deciding to farm hours of that game.
+
+Idling game consists of sending `GamesPlayed` request to Steam network in which we include `appID`s of games we're playing. ASF then periodically (and on each item dropped event) checks if given game is idled already - if yes, we can purge it from the list and move on, until all games are fully farmed.
+
+---
+
+## Steam Integration rant (offtopic)
+
+This is probably the most interesting thing in entire ASF - **how** it manages to do everything so smoothly?
+
+Steam is a **big pile of spaghetti code**. I could write entire master thesis (and in fact I'm writing one, kind of) about how everything is either unavailable, hidden, unreliable, broken, glitchy, or very often - all of the above combined. In order to achieve given goal, very often you need to combine several reverse-engineered methods of several Steam services to even have something to work with (not necessarily something that makes sense in the first place). That's why ASF integrates all of that spaghetti into one single program with given functionality, but the way how ASF achieves certain goal is often awful, as ASF while having a beautiful C# code that could be used as a reference, suffers a lot from broken fundaments - trying to work reliably with Steam, which is unreliable by definition. It's like trying to build a decent car from 90% of broken parts.
+
+Current ASF code integrates with several **independent** services, such as:
+- Steam Network, this one is restricted to Steam clients only
+- Steam API
+- Steam Store
+- Steam Community
+
+Now you should ask a very important question - **why** ASF has to access anything apart from Steam Network alone, doesn't Steam Network offers everything that is needed? How our life would be much easier if it was the case...
+
+Let's say you want to accept all incoming trades. Very simple action that you probably did many times in the past, how ASF actually does that:
+- Firstly we connect with Steam Network
+- Then we use our Steam Network session for authenticating to Steam API in order to get Steam Web session
+- Then we ask for active trades through Steam API
+- Then we ask for trade hold duration through Steam Community, because API request above misses that info - of course we need Steam Web session for that
+- Then we either accept trade through Steam Community, or reject it with Steam API. Why we can't do both with the same service? Well, Steam API doesn't offer accepting the trade, only rejecting it...
+- Finally we wait a short moment, then ask Steam community for pending confirmations (if using ASF 2FA)
+- And confirm them also with Steam community (if using ASF 2FA)
+
+This example is not the worst one, this example is also not meant to show Steam is bad light, this is actually the first thing that came to my mind when analyzing a very simple ASF functionality - accepting trades from `SteamMasterID`. If I asked any programmer about function responsible for accepting/rejecting the trade then I'd get similar response each time:
+
+> Well, you probably have some function receiving a tradeID and a boolean whether to accept or reject trade, then sending appropriate request based on that ID and the boolean
+
+Welcome to Steam - we accept trade through Steam Community, we reject trade through Steam API, we add licenses through Steam Store, and we play games through Steam Network. Nothing makes sense, nothing follows any kind of convention, even freaking **game type** can sometimes be "app", sometimes "App", sometimes missing, sometimes labelled as "Game", sometimes entire request is failing and there is no response whatsoever. Oh yeah, and sometimes Steam might respond with game status for entirely different game, just like that, randomly.
+
+Because of that, ASF while working nicely at first, has gigantic amount of code and integration behind, as even the most simple action might require access to several independent services, and you can't even assume that your actions will succeed - if that was the only problem, I wouldn't even complain about it, problem is when a simple function that should return list of owned games, returns **3 different lists** depending on **which of the 3 service providers** you'll ask. And best thing is - there is no one general provider that makes sense to ask each time, you must actually ask all 3, then merge all responses together, retry requests that failed with a Steam glitch, remove duplicates, remove invalid data that doesn't make any sense, assume that Steam is broken and it lied in several places to us (such as stating non-owned game as bought for 19.99$ only because we got a free weekend for it half a year ago), and bam - you're done, you got list of owned games! Wait no, you forgot about... DAMN IT.
+
+Let's end here, I could talk hours about how gigantic pile of spaghetti code Steam is, but it has no point whatsoever, and doesn't really make sense being in ASF documentation. It's more like ASF dev rant...
