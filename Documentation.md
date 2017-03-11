@@ -58,35 +58,4 @@ Idling game consists of sending `GamesPlayed` request to Steam network in which 
 
 ---
 
-## Steam Integration rant (offtopic)
-
-This is probably the most interesting thing in entire ASF - **how** it manages to do everything so smoothly?
-
-Steam is a **big pile of spaghetti code**. I could write entire master thesis (and in fact I'm writing one, kind of) about how everything is either unavailable, hidden, unreliable, broken, glitchy, or very often - all of the above combined. In order to achieve given goal, very often you need to combine several reverse-engineered methods of several Steam services to even have something to work with (not necessarily something that makes sense in the first place). That's why ASF integrates all of that spaghetti into one single program with given functionality, but the way how ASF achieves certain goal is often awful, as ASF while having a beautiful C# code that could be used as a reference, suffers a lot from broken fundaments - trying to work reliably with Steam, which is unreliable by definition. It's like trying to build a decent car from 90% of broken parts.
-
-Current ASF code integrates with several **independent** services, such as:
-- Steam Network, this one is restricted to Steam clients only
-- Steam API
-- Steam Store
-- Steam Community
-
-Now you should ask a very important question - **why** ASF has to access anything apart from Steam Network alone, doesn't Steam Network offers everything that is needed? How our life would be much easier if it was the case...
-
-Let's say you want to accept all incoming trades. Very simple action that you probably did many times in the past, how ASF actually does that:
-- Firstly we connect with Steam Network
-- Then we use our Steam Network session for authenticating to Steam API in order to get Steam Web session
-- Then we ask for active trades through Steam API
-- Then we ask for trade hold duration through Steam Community, because API request above misses that info - of course we need Steam Web session for that
-- Then we either accept trade through Steam Community, or reject it with Steam API. Why we can't do both with the same service? Well, Steam API doesn't offer accepting the trade, only rejecting it...
-- Finally we wait a short moment, then ask Steam community for pending confirmations (if using ASF 2FA)
-- And confirm them also with Steam community (if using ASF 2FA)
-
-This example is not the worst one, this example is also not meant to show Steam is bad light, this is actually the first thing that came to my mind when analyzing a very simple ASF functionality - accepting trades from `SteamMasterID`. If I asked any programmer about function responsible for accepting/rejecting the trade then I'd get similar response each time:
-
-> Well, you probably have some function receiving a tradeID and a boolean whether to accept or reject trade, then sending appropriate request based on that ID and the boolean
-
-Welcome to Steam - we accept trade through Steam Community, we reject trade through Steam API, we add licenses through Steam Store, and we play games through Steam Network. Nothing makes sense, nothing follows any kind of convention, even freaking **game type** can sometimes be "app", sometimes "App", sometimes missing, sometimes labelled as "Game", sometimes entire request is failing and there is no response whatsoever. Oh yeah, and sometimes Steam might respond with game status for entirely different game, just like that, randomly.
-
-Because of that, ASF while working nicely at first, has gigantic amount of code and integration behind, as even the most simple action might require access to several independent services, and you can't even assume that your actions will succeed - if that was the only problem, I wouldn't even complain about it, problem is when a simple function that should return list of owned games, returns **3 different lists** depending on **which of the 3 service providers** you'll ask. And best thing is - there is no one general provider that makes sense to ask each time, you must actually ask all 3, then merge all responses together, retry requests that failed with a Steam glitch, remove duplicates, remove invalid data that doesn't make any sense, assume that Steam is broken and it lied in several places to us (such as stating non-owned game as bought for 19.99$ only because we got a free weekend for it half a year ago), and bam - you're done, you got list of owned games! Wait no, you forgot about... DAMN IT.
-
-Let's end here, I could talk hours about how gigantic pile of spaghetti code Steam is, but it has no point whatsoever, and doesn't really make sense being in ASF documentation. It's more like ASF dev rant...
+## TODO
