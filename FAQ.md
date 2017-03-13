@@ -95,6 +95,20 @@ However, keep in mind that Android is simply-put Unix on ARM platform. Mono supp
 
 ***
 
+**Q:** Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
+
+**A:** **Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+
+ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and return back to them later when they are.
+
+ASF also has proper logic of **series** videos. There are many videos on Steam that have cards, yet are announced with wrong `appID` on the badges page, such as **[Double Fine Adventure](http://store.steampowered.com/app/402590)** - IM will falsely idle wrong `appID`, which will yield no drops and process being stuck together. Once again, you'll need to either blacklist it or skip manually, both requiring your attention. ASF automatically discovers proper `appID` for idling which does result in card drops.
+
+In addition to that, ASF is **much more stable and reliable** when it comes to network problems and Steam quirks - it works most of the time and don't require your attention at all once configured, while IM often breaks for many people, requires extra fixes or simply doesn't work regardless. ASF is working properly as long as it can connect to Steam network.
+
+Those are 3 **very important** points why you should consider using ASF, and they directly affect everybody idling Steam cards. There are dozen of extra less and more important reasons which you might learn about in the rest of the FAQ. So shortly speaking, **yes**, you should use ASF even when you don't need any extra ASF feature that is available when compared to IM.
+
+***
+
 **Q:** Is ASF faster than Idle Master?
 
 **A:** **Yes**, although the explanation is rather complicated.
