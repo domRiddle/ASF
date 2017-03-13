@@ -220,6 +220,12 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
+**Q:** ASF is great! Can I make a donation?
+
+**A:** Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**, or also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance! 👍 
+
+***
+
 **Q:** I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
 
 **A:** Yes, you must set it in ```SteamParentalPIN``` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
