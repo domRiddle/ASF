@@ -72,7 +72,7 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 ## Types
 
-Every config property has it's type. Type of the property defines values that are valid for it. You can only use values that are valid for given type.
+Every config property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
 Types used by ASF are native C# types, which are specified below:
 
@@ -90,9 +90,9 @@ Types used by ASF are native C# types, which are specified below:
 
 **Notice:** If you're manually editing your configs, please remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```. That applies **only** to manual way of editing configs, if you're using our graphical config generator then program automatically does everything for you, just input your strings in a box like usual.
 
-```HashSet<byte>``` - Collection (set) of unique unsigned bytes, separated by a comma.
+```HashSet<valueType>``` - Collection (set) of unique values of given type.
 
-```HashSet<uint>``` - Collection (set) of unique unsigned integers, separated by a comma.
+`Dictionary<keyType, valueType>` - A map that maps a key specified in given key type, to value specified in given value type.
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
