@@ -352,7 +352,16 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 
 ```SteamTradeToken``` - ```string``` type with default value of ```null```. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of ```null```. If you however decide to NOT have your bot on your friend list, then you will need to generate and input your trade token here. As logged in user with `Master` permission, navigate **[here](http://steamcommunity.com/id/me/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after ```&token=``` part in your trade URL. You should copy and put those 8 characters here, as ```SteamTradeToken```. Do not put whole trading URL, only token.
 
-`SteamUserPermissions` - `Dictionary<ulong, EPermission>` type with default value of being empty. TODO
+`SteamUserPermissions` - `Dictionary<ulong, EPermission>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined below:
+
+Value | Name  | Description
+--- | --- | ---
+0 | None | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission
+1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library
+2 | Operator | Provides basic access to given bot instances, mainly adding licenses and redeeming keys
+3 | Master | Provides full access to given bot instance
+
+In short, this property allows you to handle permissions for given users. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for `!stop`ping it. We recommend to set exactly one user as `Master`, and any mount you wish as `Operator`s and below. While it's technically possible to set multiple `Master`s and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a`!loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `!loot` request will always send items to the first `Master`, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme.
 
 ```TradingPreferences``` - ```byte flags``` type with default value of ```0```. This property defines ASF behaviour when in trading, and is defined as below:
 
