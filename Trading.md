@@ -6,9 +6,9 @@ ASF includes support for Steam non-interactive (offline) trades. Both receiving 
 
 ## Logic
 
-ASF will always accept all trades, regardless of items, sent from ```SteamMasterID``` to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF will always accept all trades, regardless of items, sent from user with `Master` access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
 
-In addition to that, ASF will also accept all ```!loot``` trades being sent across bots, unless ```DontAcceptBotTrades``` is specified in ```TradingPreferences```. In short, default ```TradingPreferences``` of ```None``` will cause ASF to automatically accept trades from ```SteamMasterID``` (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what ```DontAcceptBotTrades``` in your ```TradingPreferences``` is for.
+In addition to that, ASF will also accept all ```!loot``` trades being sent across bots, unless ```DontAcceptBotTrades``` is specified in ```TradingPreferences```. In short, default ```TradingPreferences``` of ```None``` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what ```DontAcceptBotTrades``` in your ```TradingPreferences``` is for.
 
 When you enable ```AcceptDonations``` in your ```TradingPreferences```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by ```DontAcceptBotTrades```. ```AcceptDonations``` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
 
