@@ -42,7 +42,8 @@ Below commands can be sent to the bot through three different ways:
 `!redeem^ <Bots> <Keys>` | `Operator` | Redeems given ```cd-keys``` on given bot instances, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
 `!redeem& <Keys>` | `Operator` | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
 `!redeem& <Bots> <Keys>` | `Operator` | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
-`!rejoinchat` | `Owner` | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
+`!rejoinchat` | `Operator` | Forces current bot instance to rejoin its ```SteamMasterClanID``` groupchat
+`!rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their ```SteamMasterClanID``` groupchat
 `!restart` | `Owner` | Restarts ASF process
 `!resume` | `FamilySharing` | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
 `!resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see ```!pause```, ```!play```
