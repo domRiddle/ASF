@@ -5,54 +5,54 @@ Below commands can be sent to the bot through three different ways:
 - Through steam group chat, by ```SteamMasterID```
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
-|Command                          | Description                                            | Examples                    |
-| ------------------------------- |:-------------------------------------------------------|:----------------------------|
-`!2fa`                            | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance
-`!2fa <Bots>`                      | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances
-`!2fano`                          | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
-`!2fano <Bots>`                    | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
-`!2faok`                          | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
-`!2faok <Bots>`                    | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
-`!addlicense <appIDs>`  | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on current bot instance (free games only) | ```!addlicense 440,570```
-`!addlicense <Bots> <appIDs>` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on given bot instances (free games only)
-`!api`                            | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for all bot instances.
-`!api <Bots>`                     | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
-`!exit`                           | Stops whole ASF
-`!farm`                           | Restarts cards farming module for current bot instance
-`!farm <Bots>`                    | Restarts cards farming module for given bot instances
-`!help`                           | Shows help (link to this page)
-`!input <Type> <Value>`           | Sets given input type to given value for current bot instance, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
-`!input <Bots> <Type> <Value>`    | Sets given input type to given value for given bot instances, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
-`!leave`                          | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
-`!loot`                           | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
-`!loot <Bots>`                    | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
-`!owns <appIDsOrGameNames>`       | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available. | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```, ```!owns *```
-`!owns <Bots> <appIDsOrGameNames>` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
-`!password`                       | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
-`!password <Bots>`                | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
-`!pause`                         | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause <Bots>`                   | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause~`                          | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause~ <Bots>`                    | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!play <appIDs>`       | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | ```!play 440,570```, ```!play 570```
-`!play <Bots> <appIDs>` | Switches to manual farming - launches given ```appIDs``` on given bot instances. Use ```!resume``` for returning to automatic farming
-`!redeem <Keys>`         | Redeems given ```cd-keys``` on current bot instance
-`!redeem <Bots> <Keys>`   | Redeems given ```cd-keys``` on given bot instances
-`!redeem^ <Keys>`        | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
-`!redeem^ <Bots> <Keys>`  | Redeems given ```cd-keys``` on given bot instances, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
-`!redeem& <Keys>`        | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
-`!redeem& <Bots> <Keys>`  | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
-`!rejoinchat`                     | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
-`!restart`                        | Restarts ASF process
-`!resume`                         | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
-`!resume <Bots>`                   | Resumes automatic farming of given bot instances. Also see ```!pause```, ```!play```
-`!start <Bots>`                    | Starts given bot instances
-`!status`                         | Prints status of current bot instance
-`!status <Bots>`                   | Prints status of given bot instances
-`!stop`                           | Stops current bot instance
-`!stop <Bots>`                     | Stops given bot instances
-`!update`                         | Checks GitHub for ASF updates (this is done automatically every 24 hours if ```AutoUpdates```)
-`!version`                        | Prints version of ASF
+| Command | Access | Description |
+| ------- | ------ |-------------|
+`!2fa` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance
+`!2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances
+`!2fano` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
+`!2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
+`!2faok` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
+`!2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
+`!addlicense <appIDs>` | `Operator` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on current bot instance (free games only) | `FamilySharing` | ```!addlicense 440,570```
+`!addlicense <Bots> <appIDs>` | `Operator` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on given bot instances (free games only)
+`!api` | `Owner` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for all bot instances.
+`!api <Bots>` | `Owner` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
+`!exit` | `Owner` | Stops whole ASF
+`!farm` | `Master` | Restarts cards farming module for current bot instance
+`!farm <Bots>` | `Master` | Restarts cards farming module for given bot instances
+`!help` | `FamilySharing` | Shows help (link to this page)
+`!input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
+`!input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
+`!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
+`!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
+`!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
+`!owns <appIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available. | `FamilySharing` | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```, ```!owns *```
+`!owns <Bots> <appIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
+`!password` | `Master` | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
+`!password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
+`!pause` | `Master` | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause <Bots>` | `Master` | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause~` | `Operator` | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause~ <Bots>` | `Operator` | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!play <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | `FamilySharing` | ```!play 440,570```, ```!play 570```
+`!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on given bot instances. Use ```!resume``` for returning to automatic farming
+`!redeem <Keys>` | `Operator` | Redeems given ```cd-keys``` on current bot instance
+`!redeem <Bots> <Keys>` | `Operator` | Redeems given ```cd-keys``` on given bot instances
+`!redeem^ <Keys>` | `Operator` | Redeems given ```cd-keys``` on current bot instance, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
+`!redeem^ <Bots> <Keys>` | `Operator` | Redeems given ```cd-keys``` on given bot instances, never forwards keys to other bots (like ```RedeemingPreferences``` of ```None```)
+`!redeem& <Keys>` | `Operator` | Redeems given ```cd-keys``` on **any** bot instance **apart from** current one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
+`!redeem& <Bots> <Keys>` | `Operator` | Redeems given ```cd-keys``` on **any** bot instance **apart from** given one (enforces one-time ```Forwarding``` in ```RedeemingPreferences```, even if it's not enabled)
+`!rejoinchat` | `Owner` | Forces all bots with unlimited accounts to rejoin the ```SteamMasterClanID``` groupchat
+`!restart` | `Owner` | Restarts ASF process
+`!resume` | `FamilySharing` | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
+`!resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see ```!pause```, ```!play```
+`!start <Bots>` | `Master` | Starts given bot instances
+`!status` | `FamilySharing` | Prints status of current bot instance
+`!status <Bots>` | `FamilySharing` | Prints status of given bot instances
+`!stop` | `Master` | Stops current bot instance
+`!stop <Bots>` | `Master` | Stops given bot instances
+`!update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if ```AutoUpdates```)
+`!version` | `FamilySharing` | Prints version of ASF
 
 ---
 
