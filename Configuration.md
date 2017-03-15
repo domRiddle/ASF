@@ -66,13 +66,19 @@ Now we move onto bot configs. Every bot has it's own config and related files.
 
 ## Configs
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing it's config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF. You can edit ASF configs using any text editor you want, I suggest **[Notepad++](https://notepad-plus-plus.org)**. Alternatively, you can use ASF graphical config generator to make that a little bit easier.
+ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing it's config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF.
+
+**We strongly recommend to use ASF ConfigGenerator for generating configs** - it simplifies the process a lot, ensures that you can't generate invalid config or use invalid value for given property. Unless you're expert user that knows what he's doing, you shouldn't edit configs by hand.
+
+If you're expert user that doesn't need neither want to use our CG frontend, then you can edit/create configs by hand, using any tool, script or text editor, such as **[Notepad++](https://notepad-plus-plus.org)**. Ensure that your config is **[valid](http://jsonlint.com/)** after you're done with it, unless tool of your choice automativally validates it (such as ASF CG).
 
 ---
 
 ## Types
 
 Every config property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+
+**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually.
 
 Types used by ASF are native C# types, which are specified below:
 
@@ -88,11 +94,9 @@ Types used by ASF are native C# types, which are specified below:
 
 ```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
 
-**Notice:** If you're manually editing your configs, please remember that strings should be contained in quotes ```""```, unless you're using ```null``` value. Also keep in mind that you need to escape some special characters if your string contains them - use ```\"``` instead of ```"``` and ```\\``` instead of ```\```. That applies **only** to manual way of editing configs, if you're using our graphical config generator then program automatically does everything for you, just input your strings in a box like usual.
+```HashSet<valueType>``` - Collection (set) of unique values of given type. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]`.
 
-```HashSet<valueType>``` - Collection (set) of unique values of given type.
-
-`Dictionary<keyType, valueType>` - A map that maps a key specified in given key type, to value specified in given value type.
+`Dictionary<keyType, valueType>` - A map that maps a key specified in given key type, to value specified in given value type. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }`
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
