@@ -15,8 +15,8 @@ Below commands can be sent to the bot through three different ways:
 `!2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
 `!addlicense <appIDs>` | `Operator` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on current bot instance (free games only) | `FamilySharing` | ```!addlicense 440,570```
 `!addlicense <Bots> <appIDs>` | `Operator` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on given bot instances (free games only)
-`!api` | `Owner` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for all bot instances.
-`!api <Bots>` | `Owner` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
+`!api` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for current bot instance.
+`!api <Bots>` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
 `!exit` | `Owner` | Stops whole ASF
 `!farm` | `Master` | Restarts cards farming module for current bot instance
 `!farm <Bots>` | `Master` | Restarts cards farming module for given bot instances
