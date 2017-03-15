@@ -32,8 +32,8 @@ Below commands can be sent to the bot through three different ways:
 `!password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
 `!pause` | `Master` | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
 `!pause <Bots>` | `Master` | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause~` | `Operator` | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause~ <Bots>` | `Operator` | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause~` | `FamilySharing` | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
 `!play <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | `FamilySharing` | ```!play 440,570```, ```!play 570```
 `!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on given bot instances. Use ```!resume``` for returning to automatic farming
 `!redeem <Keys>` | `Operator` | Redeems given ```cd-keys``` on current bot instance
