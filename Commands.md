@@ -1,8 +1,8 @@
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
 Below commands can be sent to the bot through three different ways:
-- Through steam private chat, by ```SteamMasterID```
-- Through steam group chat, by ```SteamMasterID```
+- Through steam private chat
+- Through steam group chat
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
 | Command | Access | Description |
@@ -24,8 +24,8 @@ Below commands can be sent to the bot through three different ways:
 `!input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in ```Headless``` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
-`!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to ```SteamMasterID```
-`!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to ```SteamMasterID```
+`!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to first `Master` defined in its bot config.
+`!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to first `Master` defined in their bot configs.
 `!owns <appIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available. | `FamilySharing` | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```, ```!owns *```
 `!owns <Bots> <appIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
 `!password` | `Master` | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
@@ -60,13 +60,11 @@ Below commands can be sent to the bot through three different ways:
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
+**Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file.
+
 Plural arguments, such as ```<Bots>``` or ```<appIDs>``` mean that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. In addition to that, there is special ```ASF``` keyword which acts as "all bots in the process", so ```!status ASF``` is equal to ```!status all,your,bots,listed,here```.
 
 It's nice to note that ```<Bots>``` also supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for ```<Bots>``` in this case is ```firstBot..lastBot```. For example, if you have bots named ```A, B, C, D, E, F```, you can execute ```!status B..E```, which is equal to ```!status B,C,D,E``` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both ```firstBot``` and ```lastBot``` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
-
-```!pause~``` command can also be executed by up to 5 users that **[have access to our shared library](https://store.steampowered.com/account/managedevices)**, in addition to usual ```SteamMasterID```.
-
-Commands affecting ASF as a process, or more than one bot, typically require ```SteamOwnerID``` permission, for example ```!update``` or ```!exit```. ```SteamMasterID``` has access only to his bot instances, while entire ASF process is owned by ```SteamOwnerID```. Typically commands that do not support ```<Bots>``` parameter require ```SteamOwnerID``` permission.
 
 ---
 
@@ -86,7 +84,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 ---
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set ```SteamMasterClanID``` properly to that newly created group, then set ```SteamMasterID``` as yourself. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+It's not required to have any extra account for executing commands though Steam chat - you can create a group, set ```SteamMasterClanID``` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
 
 ---
 
