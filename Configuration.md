@@ -440,7 +440,7 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 
 ***
 
-`SteamUserPermissions` - `Dictionary<ulong, EPermission>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined below:
+`SteamUserPermissions` - `Dictionary<ulong, EPermission>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
 Value | Name  | Description
 --- | --- | ---
