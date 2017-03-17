@@ -38,7 +38,7 @@ Mono installation is carefully explained in our **[Mono](https://github.com/Just
 
 While technically Mono also supports **[many other OSes and setups](http://www.mono-project.com/docs/about-mono/supported-platforms/)**, we're not capable of testing all of them, so officially we support Mono only on OS X and Linux, although you shouldn't have any problems running ASF with Mono on any other officially-supported by Mono setup, as long as Mono port is in fact working correctly on it.
 
-Of course, in terms of Linux and OS X it's really hard to find incompatible version so you should be able to run ASF on nearly everything - we confirmed that ASF works properly at least with:
+Of course, in terms of Linux and OS X it's really hard to find incompatible version so you should be able to run ASF on nearly anything - we confirmed that ASF works properly at least with:
 
 - Arch Linux (March 2017)
 - CentOS 7.3
@@ -51,6 +51,10 @@ Of course, in terms of Linux and OS X it's really hard to find incompatible vers
 - Gentoo (March 2017)
 - OS X 10.12.3
 - OS X 10.11
+- Raspbian Stretch
+- Raspbian Jessie
 - Ubuntu 17.04 Zesty Zapus
 - Ubuntu 16.10 Yakkety Yak
 - Ubuntu 16.04 Xenial Xerus
+
+This list is nowhere close to being complete, and it's very likely that you can run ASF even on much older (not to mention newer) OS versions than listed above, so just give it a try!
