@@ -8,13 +8,13 @@ This also means that ASF has **no specific OS requirement**, because it requires
 
 ## Runtime requirements
 
-Currently ASF as a program is targetting **.NET 4.6.1 platform** and should work just fine with any working implementation of that platform. Currently we have two implementations that are passing that requirement, and it's official **[.NET framework](https://en.wikipedia.org/wiki/.NET_Framework)** by Microsoft, and unofficial .NET framework implementation called **[Mono](https://en.wikipedia.org/wiki/Mono_(software))**.
+Currently ASF as a program is targetting **.NET 4.6.1 platform** and should work just fine with any working implementation of that platform. Currently we have two implementations that are passing that requirement, and it's official **[.NET Framework](https://en.wikipedia.org/wiki/.NET_Framework)** by Microsoft, and unofficial .NET Framework implementation called **[Mono](https://en.wikipedia.org/wiki/Mono_(software))**.
 
 ---
 
-### .NET framework
+### .NET Framework
 
-Currently latest version of .NET framework is **[4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. Together with previous **[4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)** release, it creates following list of supported OSes in official .NET framework implementation by Microsoft:
+Currently latest version of .NET Framework is **[4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. Together with previous **[4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)** release, it creates following list of supported OSes in official .NET Framework implementation by Microsoft:
 
 - Windows 7 SP1 (x86 and x64)
 - Windows 8 (x86 and x64)
@@ -24,7 +24,7 @@ Currently latest version of .NET framework is **[4.6.2](https://www.microsoft.co
 - Windows Server 2012 (x64)
 - Windows Server 2012 R2 (x64)
 
-This means that ASF with .NET framework **does not** support any older Windows versions that weren't listed above, especially **Windows 7 without SP1**, **Windows Vista** or **Windows XP**. If you can't use any recent version of Windows, for example due to pricing, keep in mind that you can still use ASF on Linux without any issues (and it's free too).
+This means that ASF with .NET Framework **does not** support any older Windows versions that weren't listed above, especially **Windows 7 without SP1**, **Windows Vista** or **Windows XP**. If you can't use any recent version of Windows, for example due to pricing, keep in mind that you can still use ASF on Linux without any issues (and it's free too).
 
 ---
 
@@ -32,7 +32,7 @@ This means that ASF with .NET framework **does not** support any older Windows v
 
 Technically .NET 4.6.1 instructions were implemented firstly in **[Mono 4.4.0](http://www.mono-project.com/docs/about-mono/releases/4.4.0/#class-libraries)** and that version is absolute minimum for ASF to work properly, but due to stability reasons we bumped official requirement to minimum of **[Mono 4.6.0](http://www.mono-project.com/docs/about-mono/releases/4.6.0/)** or newer.
 
-Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET framework from Microsoft, although Mono could still be interesting alternative for unsupported by official .NET framework Windows versions, such as **Windows Vista**.
+Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET Framework from Microsoft, although Mono could still be interesting alternative for unsupported by official .NET Framework Windows versions, such as **Windows Vista**.
 
 Mono installation/usage is carefully explained in our **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** section, so feel free to visit that page if you're interesting in running ASF with Mono.
 
