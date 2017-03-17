@@ -63,7 +63,7 @@ Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extr
 
 For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/go/comment/fwzzlNV)**.
 
-*Keep in mind that above tool is unofficial, you're using it at your own risk.*
+*Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly.*
 
 ***
 
