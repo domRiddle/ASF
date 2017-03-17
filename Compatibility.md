@@ -32,7 +32,7 @@ This means that ASF with .NET framework **does not** support any older Windows v
 
 Technically .NET 4.6.1 instructions were implemented firstly in **[Mono 4.4.0](http://www.mono-project.com/docs/about-mono/releases/4.4.0/#class-libraries)** and that version is absolute minimum for ASF to work properly, but due to stability reasons we bumped official requirement to minimum of **[Mono 4.6.0](http://www.mono-project.com/docs/about-mono/releases/4.6.0/)** or newer.
 
-Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET framework for microsoft, although Mono could still be interesting alternative for unsupported by official .NET framework Windows versions, such as **Windows Vista**.
+Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET framework from Microsoft, although Mono could still be interesting alternative for unsupported by official .NET framework Windows versions, such as **Windows Vista**.
 
 Mono installation is carefully explained in our **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** section, so feel free to visit that one if you're not sure how to install latest Mono for your OS.
 
