@@ -16,13 +16,13 @@ Currently ASF as a program is targetting **.NET 4.6.1 platform** and should work
 
 Currently latest version of .NET Framework is **[4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**. Together with previous **[4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)** release, it creates following list of supported OSes in official .NET Framework implementation by Microsoft:
 
-- Windows 7 SP1 (x86 and x64)
-- Windows 8 (x86 and x64)
-- Windows 8.1 (x86 and x64)
 - Windows 10
-- Windows Server 2008 R2 SP1 (x64)
-- Windows Server 2012 (x64)
+- Windows 8.1 (x86 and x64)
+- Windows 8 (x86 and x64)
+- Windows 7 SP1 (x86 and x64)
 - Windows Server 2012 R2 (x64)
+- Windows Server 2012 (x64)
+- Windows Server 2008 R2 SP1 (x64)
 
 This means that ASF with .NET Framework **does not** support any older Windows versions that weren't listed above, especially **Windows 7 without SP1**, **Windows Vista** or **Windows XP**. If you can't use any recent version of Windows, for example due to pricing, keep in mind that you can still use ASF on Linux without any issues (and it's free too).
 
