@@ -20,6 +20,7 @@ Currently latest version of .NET Framework is **[4.6.2](https://www.microsoft.co
 - Windows 8.1 (x86 and x64)
 - Windows 8 (x86 and x64)
 - Windows 7 SP1 (x86 and x64)
+- Windows Server 2016
 - Windows Server 2012 R2 (x64)
 - Windows Server 2012 (x64)
 - Windows Server 2008 R2 SP1 (x64)
