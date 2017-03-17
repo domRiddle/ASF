@@ -34,7 +34,7 @@ Technically .NET 4.6.1 instructions were implemented firstly in **[Mono 4.4.0](h
 
 Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET framework from Microsoft, although Mono could still be interesting alternative for unsupported by official .NET framework Windows versions, such as **Windows Vista**.
 
-Mono installation is carefully explained in our **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** section, so feel free to visit that one if you're not sure how to install latest Mono for your OS.
+Mono installation/usage is carefully explained in our **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** section, so feel free to visit that page if you're interesting in running ASF with Mono.
 
 While technically Mono also supports **[many other OSes and setups](http://www.mono-project.com/docs/about-mono/supported-platforms/)**, we're not capable of testing all of them, so officially we support Mono only on OS X and Linux, although you shouldn't have any problems running ASF with Mono on any other officially-supported by Mono setup, as long as Mono port is in fact working correctly on it.
 
