@@ -37,7 +37,7 @@ All values specified in point b) are being used for our **Public ASF STM listing
 
 ### Public ASF STM listing
 
-Our listing is located **[here](https://asf.justarchi.net/STM)**.
+Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** and serves a very simple purpose of allowing all users to quickly match ASF bots for dupes.
 
 Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
 
