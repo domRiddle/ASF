@@ -35,7 +35,7 @@ First 4 reject predicates should be obvious for everyone. The final one includes
 
 - Trade is **good** for us if our progress towards badge completion advances. A A -> A B
 - Trade is **neutral** for us if our progress towards badge completion doesn't change. A B -> A C
-- Trade is **bad** for us if our progress towards badge completion declines. A B -> A A
+- Trade is **bad** for us if our progress towards badge completion declines. A C -> A A
 
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade.
 
