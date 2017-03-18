@@ -32,7 +32,7 @@ It's a good idea to have a consistent translation, even if it could potentially 
 
 If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](http://l10n.asf.justarchi.net/mail/compose/JustArchi)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify. We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
 
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse. After all, we're aiming for a better translation after proof-reading step, not for the worse one 👍.
+General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
 
 ---
 
