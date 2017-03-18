@@ -25,7 +25,7 @@ b) If your account is unrestricted, using ASF 2FA, has public inventory with Ste
 * Value specifying if you've enabled ```MatchEverything``` in your ```TradingPreferences```
 * Number of Steam trading cards in your inventory
 
-ASF will **not** gather any other non-listed-above data without prior important notice in the changelog.
+ASF will **not** gather any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place.
 
 ---
 
