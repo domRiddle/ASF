@@ -8,7 +8,7 @@ This also means that ASF has **no specific OS requirement**, because it requires
 
 ## Runtime requirements
 
-Currently ASF as a program is targetting **.NET 4.6.1 platform** and should work just fine with any working implementation of that platform. Currently we have two implementations that are passing that requirement, and it's official **[.NET Framework](https://en.wikipedia.org/wiki/.NET_Framework)** by Microsoft, and unofficial .NET Framework implementation called **[Mono](https://en.wikipedia.org/wiki/Mono_(software))**.
+ASF as a program is targetting **.NET 4.6.1 platform** right now, and should work just fine with any working implementation of that platform. Currently we have two implementations that are passing that requirement, and it's official **[.NET Framework](https://en.wikipedia.org/wiki/.NET_Framework)** by Microsoft, and unofficial .NET Framework implementation called **[Mono](https://en.wikipedia.org/wiki/Mono_(software))**.
 
 ---
 
