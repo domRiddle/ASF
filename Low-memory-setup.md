@@ -117,6 +117,7 @@ MONO_PREFIX=/opt/mono-unstable
 
 # Don't forget to tune these
 export MONO_GC_PARAMS="nursery-size=1m,soft-heap-limit=128m,evacuation-threshold=90,save-target-ratio=0.1,default-allowance-ratio=1.0"
+export MONO_ENV_OPTIONS="--desktop"
 
 export DYLD_FALLBACK_LIBRARY_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
 export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
@@ -130,7 +131,7 @@ Now when you will want to run ASF with our self-compiled stripped Mono, simply e
 
 ```
 source /opt/mono-unstable/envsetup.sh
-mono --desktop ASF.exe
+mono ASF.exe
 ```
 
 And done.
