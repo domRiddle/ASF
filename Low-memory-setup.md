@@ -80,7 +80,7 @@ ADMONOFLAGS+=(--disable-boehm --disable-libraries --disable-nls --with-gc=none -
 ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,generics,shadowcopy,attach,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,lldb,mdb)
 
 export PATH="$PREFIX/bin:$PATH"
-mkdir -p "$PREFIX"
+mkdir -p "$PREFIX" "${HOME}/.mono"
 
 git pull
 git submodule update --init --recursive
