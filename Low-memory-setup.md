@@ -36,7 +36,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 If you're running ASF on Windows, then there is nothing more that can help you, as Windows is not optimized by definition, so instead of looking at ASF, start looking at your OS. Squishing every megabyte out of runtime is pointless when your OS allocates minimum of 2 GB by definition.
 
-If you're not using Windows, then you should know that Mono is highly customizable and you can use many switches and parameters to keep its memory low. I strongly suggest to check out ```man mono``` to find out which of the recommended options are available for you, because they can differ from one version or another.
+If you're not using Windows, then you should know that Mono is highly customizable and you can use many switches and parameters to keep its memory low. I strongly suggest to check out ```man mono``` to find out which of the recommended options are available for you, because they can differ from one version to another.
 
 Some interesting features that could help you:
 - Take a look at ```MONO_GC_PARAMS```. This is the most important thing that directly affects how GC operates, properly setting things such as ```nursery-size```, ```soft-heap-limit``` or ```evacuation-threshold``` can really help you, by tuning GC to be more aggressive and try to keep memory low, as opposed to default tuning for performance.
