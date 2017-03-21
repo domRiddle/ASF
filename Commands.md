@@ -26,6 +26,8 @@ Below commands can be sent to the bot through three different ways:
 `!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of current bot instance to first `Master` defined in its bot config.
 `!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if ```IsBotAccount```) of given bot instances to first `Master` defined in their bot configs.
+`!nickname <nickname>` | `Master` | Changes nickname of current bot instance to `<nickname>`.
+`!nickname <Bots> <nickname>` | `Master` | Changes nickname of given bot instances to `<nickname>`.
 `!owns <appIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available. | `FamilySharing` | ```!owns 440,570```, ```!owns 440,dota```, ```!owns roach```, ```!owns *```
 `!owns <Bots> <appIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
 `!password` | `Master` | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
