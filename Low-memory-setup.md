@@ -83,7 +83,7 @@ export PATH="$PREFIX/bin:$PATH"
 mkdir -p "$PREFIX" "${HOME}/.mono"
 
 git pull
-git submodule update --init --recursive
+git submodule update -j "$JOBS" --init --recursive
 
 export CFLAGS="${ADCFLAGS[@]} -std=gnu11"
 export CXXFLAGS="${ADCFLAGS[@]} -std=gnu++14 -fvisibility=hidden"
