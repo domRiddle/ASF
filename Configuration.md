@@ -404,7 +404,7 @@ Please notice that this property is ```flags``` field, therefore it's possible t
 
 Enabling both ```Forwarding``` and ```Distributing``` will add forwarding feature on top of distributing one, meaning that distributed key can be forwarded further, if needed, instead of being kept unused (which is what happens when distributing is enabled alone, as distributed key is kept unused in this case).
 
-The actual bots order for all of the redeeming scenarios is alphabetical, excluding bots that are unavailable (not connected, stopped or likewise). Please keep in mind that there is per-IP and per-account hourly limit of redeeming tries, and every redeem try that didn't end with ```OK``` contributes to failed tries. ASF will do it's best to minimize number of ```AlreadyPurchased``` failures, e.g. by not attempting to forward a key to another bot that also owns that particular game, but using any of extra redeeming flags will increase your likehood to hit ```RateLimited```, regardless.
+The actual bots order for all of the redeeming scenarios is alphabetical, excluding bots that are unavailable (not connected, stopped or likewise). Please keep in mind that there is per-IP and per-account hourly limit of redeeming tries, and every redeem try that didn't end with ```NoDetail``` contributes to failed tries. ASF will do it's best to minimize number of ```AlreadyPurchased``` failures, e.g. by not attempting to forward a key to another bot that also owns that particular game, but using any of extra redeeming flags will increase your likehood to hit ```RateLimited```, regardless.
 
 ***
 
