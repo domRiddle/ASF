@@ -27,7 +27,7 @@ From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode -
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 - You can generate tokens and those tokens are accepted by Steam network
 - You can fetch confirmations, and they are arriving on your mobile authenticator
-- You can accept those confirmations, and it's properly recognized by Steam network
+- You can accept those confirmations, and they're properly recognized by Steam network
 
 Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either.
 
