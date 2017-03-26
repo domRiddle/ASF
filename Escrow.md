@@ -24,7 +24,12 @@ Also a brain is needed for all of those tasks :+1:
 
 From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
 
-All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it.
+All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
+- You can generate tokens and those tokens are accepted by Steam network
+- You can fetch confirmations, and they are arriving on your mobile authenticator
+- You can accept those confirmations, and it's properly recognized by Steam network
+
+Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either.
 
 ***
 
