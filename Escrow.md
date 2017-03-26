@@ -11,7 +11,7 @@ Okay, from now on I assume you already know what Escrow is. Now as you can see a
 The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but requires some effort, and should be used only by advanced users.
 
 To enable ASF 2FA, you need to have:
-- Working steam authenticator in your Android phone
+- Working steam authenticator in your Android
 - or working steam authenticator in your iOS
 - or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - or working steam authenticator in **[WinAuth](https://winauth.com/)**
