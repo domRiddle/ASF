@@ -11,12 +11,11 @@ Some of the subjects you might be interested in:
 3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 4. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 5. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-6. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-7. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-8. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-10. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-11. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+7. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+8. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+9. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+10. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 Advanced users might be interested in:
 
@@ -28,6 +27,7 @@ Advanced users might be interested in:
 6. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 7. **[Running as Service](https://github.com/JustArchi/ArchiSteamFarm/wiki/Running-as-Service)**
 8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+9. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
 Developers might be interested in:
 
