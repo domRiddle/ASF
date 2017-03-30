@@ -144,7 +144,13 @@ Remember that nightly versions are unstable and might not work, therefore you sh
 
 Most (if not all) of the issues are directly caused by outdated Mono. Mono shipped with your Linux distribution is almost never the latest released Mono version, and the newer Mono you have, the bigger chance that everything will run out of the box.
 
-**Solutions available here are workarounds for outdated Mono versions. Those issues do not exist on up-to-date Mono, and you should already know that you're on your own regarding outdated Mono versions, so consider it more like a helpful hand.**
+---
+
+**Problem:** I'm unable to edit `SteamUserPermissions` property in ASF-ConfigGenerator when launching the program with Mono
+
+**Solution:** This is known Mono problem with no available workaround right now. I suggest to edit `SteamUserPermissions` property in JSON file manually, valid JSON structure for `Dictionary` type is specified in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)**.
+
+---
 
 **Problem:**
 ```
