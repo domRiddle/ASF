@@ -146,7 +146,7 @@ Most (if not all) of the issues are directly caused by outdated Mono. Mono shipp
 
 ---
 
-**Problem:** I'm unable to edit `SteamUserPermissions` property in ASF-ConfigGenerator when launching the program with Mono
+**Problem:** I'm unable to edit `SteamUserPermissions` property in ASF-ConfigGenerator when launching the program with Mono.
 
 **Solution:** This is known Mono problem with no available workaround right now. I suggest to edit `SteamUserPermissions` property in JSON file manually, valid JSON structure for `Dictionary` type is specified in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)**.
 
