@@ -77,7 +77,7 @@ ADMONOCFLAGS=("--prefix=$PREFIX")
 
 # Below flags are unsupported, you use them at your own risk
 ADMONOFLAGS+=(--disable-boehm --disable-libraries --disable-nls --with-gc=none --with-mcs-docs=no --with-ikvm-native=no --with-shared_mono=no --with-xen-opt=no)
-ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,generics,shadowcopy,attach,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,lldb,mdb)
+ADMONOFLAGS+=(--enable-minimal=profiler,pinvoke,debug,reflection_emit_save,large_code,logging,shadowcopy,attach,verifier,soft_debug,perfcounters,normalization,shared_perfcounters,appdomains,security,lldb,mdb)
 
 export PATH="$PREFIX/bin:$PATH"
 mkdir -p "$PREFIX" "${HOME}/.mono"
