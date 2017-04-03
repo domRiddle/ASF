@@ -133,6 +133,12 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
+**Q:** Can ASF idle multiple games at once for longer than 2 hours or skip through games fast?
+
+**A:** **No**, ASF **[doesn't support Steam glitches](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+
+***
+
 **Q:** Can I play a game while ASF is farming?
 
 **A:** **No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
