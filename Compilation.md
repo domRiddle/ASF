@@ -34,6 +34,8 @@ You can also use ```cc.sh``` script, which simplifies things even further.
 ./cc.sh
 ```
 
+Please note that Mono version required to compile ASF might be in higher version than Mono version that is required to run already pre-compiled ASF binary. If you use `cc.sh` script, you'll get a notification of your current version and required version in order to compile ASF.
+
 ---
 
 If everything ended successfully, you can find your compiled binaries in ```bin``` directory of each project, and in addition to that you can find repacked ready-to-go binaries with appropriate structure in ```out``` directory. You can use either ```ArchiSteamFarm.exe``` with all required DLL libraries, or repacked ```ASF.exe``` which already contains all of them inside. If you're not shipping your binaries and you just want to use ASF from source tree, I highly recommend launching ```ArchiSteamFarm.exe``` instead of ```ASF.exe```, simply because it's smaller, more optimized, can load DLLs on as-needed basis and doesn't automatically update to the version found on GitHub.
