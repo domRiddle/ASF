@@ -31,11 +31,11 @@ This means that ASF with .NET Framework **does not** support any older Windows v
 
 ### Mono
 
-Technically .NET 4.6.1 instructions were implemented firstly in **[Mono 4.4.0](http://www.mono-project.com/docs/about-mono/releases/4.4.0/#class-libraries)** and that version is absolute minimum for ASF to work properly, but due to stability reasons we bumped official requirement to minimum of **[Mono 4.6.0](http://www.mono-project.com/docs/about-mono/releases/4.6.0/)** or newer.
-
 Mono is available **[here](http://www.mono-project.com/download/)** with an installer for Windows, Linux and OS X. In general if you're using Windows OS, then you probably should stick with official .NET Framework from Microsoft, although Mono could still be interesting alternative for unsupported by official .NET Framework Windows versions, such as **Windows Vista**.
 
 Mono installation/usage is carefully explained in our **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)** section, so feel free to visit that page if you're interesting in running ASF with Mono.
+
+.NET 4.6.1 instructions were implemented firstly in **[Mono 4.4.0](http://www.mono-project.com/docs/about-mono/releases/4.4.0/#class-libraries)** and that version is absolute minimum for ASF to even launch, but due to rapid development and stability reasons, we will **always** recommend to use latest stable and not anything older. This is mainly because Mono improves its codebase with every revision, and **we do not actively test if ASF still works in new version with any other Mono version than latest stable and nightly**. This means that if you want to use latest ASF, you **must also use latest Mono** that is available at the time of release. Otherwise, **[you might run into issues](https://github.com/JustArchi/ArchiSteamFarm/issues/529)** even if the Mono version you were using worked just fine a moment ago.
 
 While technically Mono also supports **[many other OSes and setups](http://www.mono-project.com/docs/about-mono/supported-platforms/)**, we're not capable of testing all of them, so officially we support Mono only on OS X and Linux, although you shouldn't have any problems running ASF with Mono on any other officially-supported setup, as long as Mono port is in fact working correctly on it.
 
