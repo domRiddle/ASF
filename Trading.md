@@ -2,11 +2,15 @@
 
 ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
 
+Notice: All "reject" trading actions will be either ignoring, or declining, depending on configured ```IsBotAccount``` property.
+
 ***
 
 ## Logic
 
 ASF will always accept all trades, regardless of items, sent from user with `Master` access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+
+ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `!bl`, `!bladd` and `!blrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
 In addition to that, ASF will also accept all ```!loot``` trades being sent across bots, unless ```DontAcceptBotTrades``` is specified in ```TradingPreferences```. In short, default ```TradingPreferences``` of ```None``` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what ```DontAcceptBotTrades``` in your ```TradingPreferences``` is for.
 
@@ -29,7 +33,7 @@ When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of 
 - Reject the trade if we don't have ```MatchEverything``` set, and it's worse than neutral for us.
 - Accept the trade if we didn't reject it through any of the points above.
 
-Notice: "Reject" of the trade will be either ignore, or decline, depending on configured ```IsBotAccount``` property. It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
 
 First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
 
