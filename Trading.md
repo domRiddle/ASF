@@ -2,7 +2,7 @@
 
 ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
 
-Notice: Every time "reject" word is user, it means either ignoring, or declining, depending on configured ```IsBotAccount``` property.
+Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured ```IsBotAccount``` property.
 
 ***
 
