@@ -17,6 +17,12 @@ Below commands can be sent to the bot through three different ways:
 `!addlicense <Bots> <appIDs>` | `Operator` | Activates given ```appIDs``` (Steam Network) or ```subIDs``` (Steam Store) on given bot instances (free games only)
 `!api` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for current bot instance.
 `!api <Bots>` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
+`!bl` | `Master` | Lists blacklisted users from trading module of current bot instance.
+`!bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
+`!bladd <steamID64>` | `Master` | Blacklists given `steamID` from trading module of current bot instance.
+`!bladd <Bots> <steamID64>` | `Master` | Blacklists given `steamID` from trading module of given bot instances.
+`!blrm <steamID64>` | `Master` | Removes blacklist of given `steamID` from trading module of current bot instance.
+`!blrm <Bots> <steamID64>` | `Master` | Removes blacklist of given `steamID` from trading module of given bot instances.
 `!exit` | `Owner` | Stops whole ASF
 `!farm` | `Master` | Restarts cards farming module for current bot instance
 `!farm <Bots>` | `Master` | Restarts cards farming module for given bot instances
