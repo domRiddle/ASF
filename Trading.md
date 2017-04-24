@@ -43,7 +43,7 @@ First 4 reject predicates should be obvious for everyone. The final one includes
 
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade.
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable ```MatchEverything``` in your ```TradingPreferences``` in order to make ASF accept all dupe trades, including bad ones. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that ASF will no longer help you progress towards badge completion.
+By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable ```MatchEverything``` in your ```TradingPreferences``` in order to make ASF accept all dupe trades, including bad ones. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card.
 
 Regardless of your chosen ```TradingPreferences```, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
 
