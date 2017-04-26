@@ -5,6 +5,34 @@ Below commands can be sent to the bot through three different ways:
 - Through steam group chat
 - Through **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
 
+Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+
+---
+
+### Steam private chat
+
+Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process.
+
+![Screenshot](http://i.imgur.com/PPxx7qV.png)
+
+---
+
+### Steam group chat
+
+Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually.
+
+---
+
+### WCF
+
+Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command (such as another ASF process).
+
+![Screenshot](http://i.imgur.com/VinFVjl.png)
+
+---
+
+## Commands
+
 | Command | Access | Description |
 | ------- | ------ |-------------|
 `!2fa` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance
