@@ -266,7 +266,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** Is there any way to communicate with ASF?
 
-**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**.
+**A:** Yes, through steam chat, or by using **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**. Check out **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** section for more info.
 
 ***
 
