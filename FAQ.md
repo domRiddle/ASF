@@ -230,7 +230,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** ASF is great! Can I make a donation?
 
-**A:** Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**, or also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance! 👍 
+**A:** Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance! 👍 
 
 ***
 
