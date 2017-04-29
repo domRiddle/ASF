@@ -164,14 +164,13 @@ This issue is caused by invalid/outdated cert-store manager, and is most often c
 
 **Problem:**
 ```
-System.TypeLoadException: A type load exception has occurred
-```
-```
-System.TypeInitializationException: The type initializer for 'ArchiSteamFarm.Program' threw an exception. ---> System.IO.FileNotFoundException: Could not load file or assembly
+Missing method...
 ```
 
 **Solution:**
-Make sure that you have ```mono-complete``` package installed. This issue is mostly caused by lack of some core Mono libraries required by ASF, that should be natively available. Usual reason for such situation is installing ```mono``` instead of ```mono-complete```, which includes all natively available assemblies. If installing ```mono-complete``` doesn't help, install latest Mono version.
+This is **almost always** the issue caused by outdated Mono, as ASF makes use of .NET features that are unavailable in your currently installed version. Install latest Mono as pointed out above, and the issue should go away. There is no other available solution, apart from trying to run older unsupported ASF versions, but in this case you're on your own.
+
+---
 
 **Problem:**
 ```
