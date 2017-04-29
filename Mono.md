@@ -162,8 +162,6 @@ This issue is caused by invalid/outdated cert-store manager, and is most often c
 
 ---
 
----
-
 **Problem:**
 ```
 System.TypeLoadException: A type load exception has occurred
