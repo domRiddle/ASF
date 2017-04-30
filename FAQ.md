@@ -349,6 +349,14 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
+**Q:** ```Disconnected from Steam!``` - I can't establish connection with Steam servers.
+
+**A:** ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
+
+ASF will do its best to establish connection, which includes not only asking about updated list of servers but also trying another IP when last one fails, so if it's truly a temporary problem with some specific server or route, ASF will connect sooner or later. However, if you're behind firewall or in some other way unable to reach Steam servers, then obviously you need to fix it yourself, with help of `Debug` mode and perhaps `SteamProtocol`.
+
+***
+
 **Q:** ```IsAnythingToFarm() Could not get badges information, will try again later!```
 
 **A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
