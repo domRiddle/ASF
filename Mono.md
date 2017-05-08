@@ -6,7 +6,7 @@ This page covers Mono-related issues, instructions, questions and provides gener
 
 # Compatibility
 
-ASF is officially compatible (and supported) only with latest ```stable``` and ```nightly``` versions of Mono. The program is supposed to compile, as well as run correctly with both self-compiled and **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** binary on those two version variants of Mono. The support also includes all necessary hacks/workarounds in the code that ensure stability and compatibility of ASF on Mono making it possible to run.
+ASF is officially compatible (and supported) only with latest ```stable``` and ```nightly``` version of Mono. The program is supposed to compile, as well as run correctly with both self-compiled and **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** binary on those two version variants of Mono. The support also includes all necessary hacks/workarounds in the code that ensure stability and compatibility of ASF on Mono making it possible to run.
 
 Every version that is older than latest ```stable``` is **not** supported and may, or may not, work correctly. ASF cannot guarantee 100% compatibility and stability in this case, but unofficially it's known that ASF usually tends to work fine even on older versions, as long as runtime doesn't contain major bugs. That's why it's not technically "required" to always run ASF with latest stable/nightly version, but with every major revision behind you risk running into issues - issues that might not be visible right away. Therefore, make sure you're running latest Mono if you spot some nasty thing going on before reporting an issue - using Mono at least in version declared as **required** during launching ASF is the absolute minimum, but we recommend latest stable regardless.
 
@@ -112,7 +112,7 @@ If you just want to launch ASF in background, without dealing with a script, it'
 
 # Nightly
 
-Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono versions. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
+Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono version. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
 
 Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
