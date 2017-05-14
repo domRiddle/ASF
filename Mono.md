@@ -14,47 +14,17 @@ Every version that is older than latest ```stable``` is **not** supported and ma
 
 # How to install latest Mono?
 
-On Debian-like Linux distributions (including Ubuntu-like), add to your ```/etc/apt/sources.list``` following line:
+If you're using Linux, then you should follow original **[instructions](http://www.mono-project.com/download/#download-lin)** which are available for most common Linux distributions (including Debian and Ubuntu). After you're done adding a repository to your sources, you should ensure that you install `mono-complete` and `ca-certificates-mono` packages. For example, on Debian/Ubuntu flasvour using `apt` it would be:
 
 ```
-deb http://download.mono-project.com/repo/debian wheezy main # Yes, wheezy also covers other versions and distributions
+apt-get install mono-complete ca-certificates-mono
 ```
 
-Then execute (as root, or with sudo):
-```
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-apt-get update
-apt-get install ca-certificates-mono mono-complete
-```
-
-If you get an issue during installing ```mono-complete```, similar to below:
-
-```
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
-
-The following packages have unmet dependencies:
- mono-complete(...)
-```
-
-Then additionally, add this to your ```sources.list```:
-
-```
-deb http://download.mono-project.com/repo/debian wheezy-libjpeg62-compat main
-```
-
-And execute ```apt-get update``` and ```apt-get install``` like stated above once again.
+If you're using OS X, then you can find instructions for your Mac **[here](http://www.mono-project.com/docs/getting-started/install/mac/)**.
 
 ---
 
 After successful installation, you should notice that ```mono --version``` command returns the same version that is currently marked as latest stable on **[official Mono page](http://www.mono-project.com/download/)**.
-
-Keep in mind that instructions above are also available on **[official Mono installation page for debian-like distributions](http://www.mono-project.com/docs/getting-started/install/linux/#debian-ubuntu-and-derivatives)**. If you're not using Debian-like Linux distribution, and can't follow above ```apt-get``` tips, either start using one, or head over to **[official Mono installation page for other distributions](http://www.mono-project.com/download/#download-lin)** to get instructions that match your Linux distribution.
-
-If you're using OS X, then you can find instructions for your Mac **[here](http://www.mono-project.com/docs/getting-started/install/mac/)**.
 
 Officially, ASF requires only latest .NET framework (currently 4.6.1, which is supported since Mono 4.0+) and it should be available in all current Linux distributions. However, only latest Mono guarantees bugless experience. In case of uncovered bugs without any available solution, or bugs with solutions that don't help, the only suggestion is to use latest Mono.
 
