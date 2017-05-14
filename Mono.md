@@ -98,7 +98,7 @@ You should change `jessie` to `nightly` in this case, so your repository looks l
 deb http://download.mono-project.com/repo/debian nightly main
 ```
 
-Then you should update your repo and upgrade your `mono-complete` packahe, for example by executing `apt-get update && apt-get install mono-complete` on Debian/Ubuntu distros.
+Then you should update your repo and upgrade your `mono-complete` package, for example by executing `apt-get update && apt-get install mono-complete` on Debian/Ubuntu distros.
 
 Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
