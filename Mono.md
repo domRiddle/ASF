@@ -14,7 +14,7 @@ Every version that is older than latest ```stable``` is **not** supported and ma
 
 # How to install latest Mono?
 
-If you're using Linux, then you should follow original **[instructions](http://www.mono-project.com/download/#download-lin)** that are available for most common Linux distributions (including Debian and Ubuntu). After you're done adding a repository to your sources, you should ensure that you install `mono-complete` and `ca-certificates-mono` packages. For example, on Debian/Ubuntu distributions that using `apt`, it would be:
+If you're using Linux, then you should follow original **[instructions](http://www.mono-project.com/download/#download-lin)** that are available for most common Linux distributions (including Debian and Ubuntu). After you're done adding a repository to your sources, you should ensure that you install `mono-complete` and `ca-certificates-mono` packages. For example, on Debian/Ubuntu distributions using `apt` package manager, it would be:
 
 ```
 apt-get install mono-complete ca-certificates-mono
