@@ -82,23 +82,23 @@ If you just want to launch ASF in background, without dealing with a script, it'
 
 # Nightly
 
-Apart from ```stable``` channel (currently: ```wheezy```), Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono version. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
+Apart from ```stable``` channel, Mono's repo also offers ```nightly``` channel, with more recent, not yet stable Mono version. This is the Mono version that is officially tested before releasing stable ASF, as it's a Mono version that is most recent at the time of release.
 
 Switching to nightly is not recommended in general, as Mono included there may not be always stable, but it may be needed to update if you for some reason require e.g. bugfix which was not yet released on stable channel.
 
-To switch to nightly versions, modify the line that you added to ```/etc/apt/sources.list```:
+To switch to nightly versions, you should edit distro target that you've added to your sources into `nightly`. For example, Debian 8 Jessie repo that you added looks like this:
 
 ```
-deb http://download.mono-project.com/repo/debian wheezy main
+deb http://download.mono-project.com/repo/debian jessie main
 ```
 
-To:
+You should change `jessie` to `nightly` in this case, so your repository looks like this:
 
 ```
 deb http://download.mono-project.com/repo/debian nightly main
 ```
 
-Then issue ```apt-get update && apt-get install mono-complete``` to update.
+Then you should update your repo and upgrade your `mono-complete` packahe, for example by executing `apt-get update && apt-get install mono-complete` on Debian/Ubuntu distros.
 
 Remember that nightly versions are unstable and might not work, therefore you should avoid them unless you want to live on the bleeding edge.
 
