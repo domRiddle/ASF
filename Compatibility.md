@@ -14,11 +14,10 @@ ASF as a program is targetting **.NET 4.6.1 platform** right now, and should wor
 
 ### .NET Framework
 
-Currently latest version of .NET Framework is **[4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345)**, and it can be installed on following Windows OSes:
+Currently latest version of .NET Framework is **[4.7](https://www.microsoft.com/en-us/download/details.aspx?id=55170)**, and it can be installed on following Windows OSes:
 
 - Windows 10
 - Windows 8.1 (x86 and x64)
-- Windows 8 (x86 and x64)
 - Windows 7 SP1 (x86 and x64)
 - Windows Server 2016
 - Windows Server 2012 R2 (x64)
