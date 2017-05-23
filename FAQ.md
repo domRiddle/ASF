@@ -87,7 +87,7 @@ However, keep in mind that Android is simply-put Unix on ARM platform. Mono supp
 
 **Q:** I'm Linux / OS X user, do I need to compile ASF to use it?
 
-**A:** No, binaries that are provided in official **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** are OS-independent, and work with both .NET framework (Windows), as well as Mono (Linux, OS X and other OSes). Of course, you **can** **[compile and use ASF from source](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)** if you have a reason to do so, but it's absolutely not required, neither recommended if you're typical user that simply wants to launch ASF.
+**A:** No, binaries that are provided in official **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** are OS-independent, and work with both .NET framework (Windows), as well as Mono (Linux, OS X and other OSes). Of course, you **can** **[compile and use ASF from source](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)** if you have a reason to do so, but it's absolutely not required, neither recommended if you're typical user that simply wants to launch ASF. Just download latest release and launch with Mono.
 
 ***
 
