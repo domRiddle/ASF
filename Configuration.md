@@ -436,7 +436,7 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 
 ***
 
-```SteamTradeToken``` - ```string``` type with default value of ```null```. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of ```null```. If you however decide to NOT have your bot on your friend list, then you will need to generate and input your trade token here. As logged in user with `Master` permission, navigate **[here](http://steamcommunity.com/id/me/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after ```&token=``` part in your trade URL. You should copy and put those 8 characters here, as ```SteamTradeToken```. Do not put whole trading URL, only token.
+```SteamTradeToken``` - ```string``` type with default value of ```null```. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of ```null```. If you however decide to NOT have your bot on your friend list, then you will need to generate and input your trade token here. As logged in user with `Master` permission, navigate **[here](http://steamcommunity.com/id/me/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after ```&token=``` part in your trade URL. You should copy and put those 8 characters here, as ```SteamTradeToken```. Do not include whole trading URL, neither ```&token=``` part, only token itself.
 
 ***
 
