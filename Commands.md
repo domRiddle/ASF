@@ -66,10 +66,10 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!owns <Bots> <appIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given ```appIDs``` and/or ```gameNames``` (can be part of the game's name). It can also be `*` to show all games available.
 `!password` | `Master` | Prints encrypted password of current bot instance (in use with ```PasswordFormat```)
 `!password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with ```PasswordFormat```)
-`!pause` | `Operator` | Permanently pauses automatic farming of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause <Bots>` | `Operator` | Permanently pauses automatic farming of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
-`!pause~` | `FamilySharing` | Temporarily pauses automatic farming of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
-`!pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic farming of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause` | `Operator` | Permanently pauses automatic cards farming module of current bot instance. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually ```!resume``` it, or restart the process. Also called sticky pause.
+`!pause~` | `FamilySharing` | Temporarily pauses automatic cards farming module of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
+`!pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can ```!resume``` farming to unpause it.
 `!play <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on current bot instance. Use ```!resume``` for returning to automatic farming | `FamilySharing` | ```!play 440,570```, ```!play 570```
 `!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given ```appIDs``` on given bot instances. Use ```!resume``` for returning to automatic farming
 `!redeem <Keys>` | `Operator` | Redeems given ```cd-keys``` on current bot instance
