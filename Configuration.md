@@ -2,7 +2,7 @@
 
 This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
 
-This page in it's "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
+This page in its "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
 
 ---
 
@@ -54,7 +54,7 @@ In order to move ASF to new location, or another PC, it's enough to move entire 
 ```ASF.db (generated)``` is global ASF database file. It acts as ASF global persistent storage and is used for saving some important information. **You should not edit this file**.
 
 
-Now we move onto bot configs. Every bot has it's own config and related files.
+Now we move onto bot configs. Every bot has its own config and related files.
 
 ```Bot.json (mandatory)``` is config of given bot instance. This config is used for specifying how given bot instance behaves, including all potentially needed details for it to run properly. Config properties defined in this file affect only given bot instance, so you can have many bots operating in different ways (as opposed to global ASF config which affects the whole process and every bot)
 
@@ -66,7 +66,7 @@ Now we move onto bot configs. Every bot has it's own config and related files.
 
 ## Configs
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing it's config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF.
+ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF.
 
 **We strongly recommend to use ASF ConfigGenerator for generating configs** - it simplifies the process a lot, ensures that you can't generate invalid config or use invalid value for given property. Unless you're expert user that knows what he's doing, you shouldn't edit configs by hand.
 
@@ -244,11 +244,11 @@ ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcod
 
 ## Bot config
 
-As you should know already, every bot should have it's own config. Example bot config is included in ```example.json``` file, which should be used for bot configuration. Simply **copy paste** ```example.json``` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is ```primary.json```, ```1.json``` or ```YourNickname.json```.
+As you should know already, every bot should have its own config. Example bot config is included in ```example.json``` file, which should be used for bot configuration. Simply **copy paste** ```example.json``` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is ```primary.json```, ```1.json``` or ```YourNickname.json```.
 
 **Notice:** There are several names which are reserved and can't be used for bot configs. Those are: **ASF**, **example** and **minimal**. ASF will ignore such configuration files.
 
- After deciding how you want to name your bot, open it's file, and start with configuration. You should notice following structure:
+ After deciding how you want to name your bot, open its file, and start with configuration. You should notice following structure:
 
 ```
 {
@@ -426,7 +426,7 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 
 ***
 
-```SteamMasterClanID``` - ```ulong``` type with default value of ```0```. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to it's **[page](http://steamcommunity.com/groups/ascfarm)**, then adding ```/memberslistxml/?xml=1``` to the end of the link, so the link will look like **[this](http://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in ```<groupID64>``` tag. In above example it would be ```103582791440160998```. If you don't have any "farm group" for your bots, you should keep it at default.
+```SteamMasterClanID``` - ```ulong``` type with default value of ```0```. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](http://steamcommunity.com/groups/ascfarm)**, then adding ```/memberslistxml/?xml=1``` to the end of the link, so the link will look like **[this](http://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in ```<groupID64>``` tag. In above example it would be ```103582791440160998```. If you don't have any "farm group" for your bots, you should keep it at default.
 
 ***
 
@@ -489,7 +489,7 @@ You should notice following structure:
 }
 ```
 
-Now, as you can see - this config is pretty damn short compared to ```example.json```. This is because minimalistic config includes only properties that should be configured in order for bot to run. When given config property is not defined, such as ```CardDropsRestricted``` in above ```minimal.json```, it's the same as you'd define it with **it's default value**. This is useful for you if you want to keep your configs short and simple, as you don't need to include every property that ASF offers, but only redefine those which you want to change.
+Now, as you can see - this config is pretty damn short compared to ```example.json```. This is because minimalistic config includes only properties that should be configured in order for bot to run. When given config property is not defined, such as ```CardDropsRestricted``` in above ```minimal.json```, it's the same as you'd define it with **its default value**. This is useful for you if you want to keep your configs short and simple, as you don't need to include every property that ASF offers, but only redefine those which you want to change.
 
 For example, if you have no intention of changing anything, then you're good to go only with such very short and simple config:
 
@@ -518,16 +518,16 @@ Remember to keep proper JSON structure - strings should be contained in ```""```
 
 ## Compatibility
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with it's **default value**. You can always add, remove or edit config properties according to your needs, ```ASF.json``` will always include all currently supported global config properties, while ```example.json``` will always include all currently supported bot config properties for you to use. There's no need to "regenerate" configs when new property gets added, unless you want to switch it from it's default value to something else. Especially advanced users are encouraged to keep minimalistic file structure and define only those properties, in both global and bot configs, which they **require** to change, instead of copying entire ```example.json``` and changing only 3 variables. You can always add missing properties later, ```example.json``` is always available for you.
+It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs, ```ASF.json``` will always include all currently supported global config properties, while ```example.json``` will always include all currently supported bot config properties for you to use. There's no need to "regenerate" configs when new property gets added, unless you want to switch it from its default value to something else. Especially advanced users are encouraged to keep minimalistic file structure and define only those properties, in both global and bot configs, which they **require** to change, instead of copying entire ```example.json``` and changing only 3 variables. You can always add missing properties later, ```example.json``` is always available for you.
 
 ---
 
 ## Auto-reload
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
-- Create (and start, if needed) new bot instance, when you create it's config
-- Stop (if needed) and remove old bot instance, when you delete it's config
-- Stop (and start, if needed) any bot instance, when you edit it's config
+- Create (and start, if needed) new bot instance, when you create its config
+- Stop (if needed) and remove old bot instance, when you delete its config
+- Stop (and start, if needed) any bot instance, when you edit its config
 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
