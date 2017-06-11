@@ -96,7 +96,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
 
-```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]`.
+```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]` for `HashSet<byte>`.
 
 `Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }`.
 
