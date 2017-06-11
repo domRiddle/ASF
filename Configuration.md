@@ -39,7 +39,7 @@ ASF is using quite simple file structure.
 └── log.txt
 ```
 
-**Mandatory** tag used below means that given file is absolutely crucial to launch ASF. **Generated** tag means that file does not exist by default, and may be generated in ASF process, on as-needed basis.
+**Mandatory** tag used below means that given file is absolutely crucial to launch ASF. **Generated** tag means that file does not exist by default, and may be generated in ASF process, on as-needed basis (and therefore used). **Optional** tag means that file is recognized by ASF, but not crucial for the process.
 
 In order to move ASF to new location, or another PC, it's enough to move entire file structure mentioned above. No further action is required.
 
@@ -49,18 +49,20 @@ In order to move ASF to new location, or another PC, it's enough to move entire 
 
 ```config (mandatory)``` is the directory which holds configuration for ASF process, and all the bots.
 
-```ASF.json (mandatory)``` is global ASF configuration file. This config is used for specifying how ASF process behaves, which affects program as a whole. You can (and should) edit global config according to your needs. It is well explained below.
+```ASF.json (mandatory)``` is a global ASF configuration file. This config is used for specifying how ASF process behaves, which affects program as a whole. You can (and should) edit global config according to your needs. It is well explained below.
 
-```ASF.db (generated)``` is global ASF database file. It acts as ASF global persistent storage and is used for saving some important information. **You should not edit this file**.
+```ASF.db (generated)``` is a global ASF database file. It acts as ASF global persistent storage and is used for saving some important information. **You should not edit this file**.
 
 
 Now we move onto bot configs. Every bot has its own config and related files.
 
-```Bot.json (mandatory)``` is config of given bot instance. This config is used for specifying how given bot instance behaves, including all potentially needed details for it to run properly. Config properties defined in this file affect only given bot instance, so you can have many bots operating in different ways (as opposed to global ASF config which affects the whole process and every bot)
+```BotName.json (mandatory)``` is a config of given bot instance. This config is used for specifying how given bot instance behaves, including all potentially needed details for it to run properly. Config properties defined in this file affect only given bot instance, so you can have many bots operating in different ways (as opposed to global ASF config which affects the whole process and every bot)
 
-```Bot.db (generated)``` is database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage. **You should not edit this file**.
+```BotName.db (generated)``` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage. **You should not edit this file**.
 
-```Bot.bin (generated)``` is special file of given bot instance, which holds information of Steam sentry hash. Sentry hash is used for authenticating using ```SteamGuard``` mechanism. **You should not edit this file**.
+```BotName.bin (generated)``` is a special file of given bot instance, which holds information of Steam sentry hash. Sentry hash is used for authenticating using ```SteamGuard``` mechanism. **You should not edit this file**.
+
+```BotName.maFile (optional)``` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's automatically being deleted after ASF 2FA is successfully imported.
 
 ---
 
