@@ -98,7 +98,7 @@ Types used by ASF are native C# types, which are specified below:
 
 ```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]` for `HashSet<byte>`.
 
-`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }`.
+`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }` for `Dictionary<string, byte>`.
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
