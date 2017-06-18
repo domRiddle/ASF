@@ -48,7 +48,7 @@ Thanks to our listing, every interested ASF and non-ASF user can easily notice b
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "HeartBeat" request that notifies the server that bot is still up. If for some reason HeartBeat didn't arrive, ASF will retry sending it each minute, until server registers it.
 
-This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**. Users are sorted according to `MatchEverything`-enabled bots (annotated with `Any` sign) and number of cards in their inventory, with most "heavy" inventories being on top.
+This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**. Users are sorted according to number of cards in their inventory (descending), with addition of `MatchEverything` bots being listed on top with `Any` banner.
 
 Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so point b) is entirely skipped for you if you didn't intentionally enable ```SteamTradeMatcher``` in order to help yourself match dupes.
 
