@@ -184,7 +184,7 @@ ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcod
 
 ***
 
-```GiftsLimiterDelay``` - ```byte``` type with default value of ```1```. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least ```GiftsLimiterDelay``` seconds in between of two consecutive gift/key handling (redeeming) requests. Unless you have a **strong** reason to edit this property, you should keep it at default.
+```GiftsLimiterDelay``` - ```byte``` type with default value of ```1```. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least ```GiftsLimiterDelay``` seconds in between of two consecutive gift/key/license handling (redeeming) requests. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ***
 
