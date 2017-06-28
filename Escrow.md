@@ -27,9 +27,9 @@ From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode -
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 - You can generate tokens and those tokens are accepted by Steam network
 - You can fetch confirmations, and they are arriving on your mobile authenticator
-- You can accept those confirmations, and they're properly recognized by Steam network
+- You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either.
+Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only cause yourself trouble.
 
 ***
 
@@ -120,7 +120,7 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 From that moment, all ```!2fa``` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
 
-If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Do as you please.
+If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have.
 
 ***
 
