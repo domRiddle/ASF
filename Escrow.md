@@ -66,7 +66,7 @@ For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/io
 
 Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from ```{``` ending on ```}``` into ```BotName.maFile``` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
 
-For questions/issues, please visit **[comment on SG](https://www.steamgifts.com/go/comment/fwzzlNV)**.
+For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
 *Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly.*
 
