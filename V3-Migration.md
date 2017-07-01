@@ -72,7 +72,7 @@ Of course, there are some changes that are important to mention, here is the lis
 
 ### Packaging changed
 
-ASF V2 had very complex packaging that resulted in a very nice structure I liked a lot - a single EXE library to "rule them all".
+ASF V2 had very complex packaging that resulted in a very nice structure I liked a lot - a single EXE file to "rule them all".
 
 Sadly, existing packaging tools are incompatible with .NET Core and it's unknown if we ever get to the point of being able to produce a single binary. Because of that, ASF folder is now a huge "mess" of executables, libraries, localization folders, runtime configurations and more. Of course it's as organized as possible, but it's no longer a single binary - it's entire folder with a lot of dependencies that were nicely packed previously.
 
