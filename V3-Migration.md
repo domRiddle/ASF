@@ -2,7 +2,7 @@
 
 ## Everything you should know about next major ASF version
 
-![:3](http://i2.kym-cdn.com/photos/images/original/000/114/873/meh.ro4758.jpg)
+![:3](http://1.bp.blogspot.com/-w1LcChYTikU/UMDTX33sKYI/AAAAAAAABcI/wgc3YGotuD4/s1600/ohgodhow.jpg)
 
 ---
 
