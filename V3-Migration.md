@@ -2,6 +2,8 @@
 
 ## Everything you should know about next major ASF version
 
+![:3](http://i2.kym-cdn.com/photos/images/original/000/114/873/meh.ro4758.jpg)
+
 ---
 
 ## What is ASF V3 about?
