@@ -86,7 +86,7 @@ Of course, even if you don't have OS-specific package available for your OS-arch
 
 ---
 
-### Auto-update were rewritten
+### Auto-update was rewritten
 
 This is not a change that considers you as an user specifically, but entire auto-update code was rewritten and might contain new bugs or issues that are yet to be discovered and corrected. In practice, ASF update works exactly the same as before, but now it updates whole structure (see packaging changes above), which is much more problematic than a single exe only.
 
