@@ -16,7 +16,9 @@ The rewrite was justified with far more than "enough" reasons. The first and pri
 
 However, apart from the above there is also another huge file of ASF-specific reasons. Here are some of them:
 
-#### Finally we're getting PROPER cross-OS support!
+---
+
+### Finally we're getting PROPER cross-OS support!
 
 If you're using ASF on Windows then it might be shocking to you but you're a "second class" citizen. I tend to remind people from time to time that ASF was never coded for Windows - it was targetting running on Linux from the very start, and Windows support was always offered as "an extra". Thanks to official implementation of .NET Framework on Windows, as long as you were running ASF with supported .NET Framework then you couldn't run into runtime issues, you were all fine.
 
@@ -28,7 +30,7 @@ This reason has also many development implications that make my life much easier
 
 ---
 
-#### .NET Core is open-source
+### .NET Core is open-source
 
 Once again something people don't care about in general, but this has long-term side-effects that are crucial for future of ASF. Let's say it loudly - everything is slowly moving to .NET Standard and .NET Core. From small libraries to core ASF modules such as SteamKit2. Because of proper support, many developers are ditching .NET Framework and half-official support for Mono in favour of .NET Core. This means that the longer we stay with .NET Framework, the harder it will be to develop ASF. Case in point - SteamKit2 developers will probably drop support for Mono **entirely** after SK2 in version 2.0.0 gets released, which means that I won't only have to deal with Steam itself, but fix extra libraries on my own, spending even more time on ASF than I should. As they say, you either go with the flow, or you stay behind. I want the best for my project, so this decision is crucial for the future of the program.
 
