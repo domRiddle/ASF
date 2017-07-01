@@ -6,7 +6,7 @@
 
 ### What is ASF V3 about?
 
-ASF V3 is next major iteration of ASF that will come as direct replacement of ASF V2. The major version bump is about entire program rewrite from .NET Framework 4.6.1 into .NET Core 2.0.
+ASF V3 is next major iteration of ASF that will come as a direct replacement of ASF V2. The major version bump is about entire program rewrite from .NET Framework 4.6.1 into .NET Core 2.0.
 
 ---
 
