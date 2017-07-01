@@ -90,7 +90,7 @@ Of course, even if you don't have OS-specific package available for your OS-arch
 
 This is not a change that considers you as an user specifically, but entire auto-update code was rewritten and might contain new bugs or issues that are yet to be discovered and corrected. In practice, ASF update works exactly the same as before, but now it updates whole structure (see packaging changes above), which is much more problematic than a single exe only.
 
-Of course, your config directory, like previously, is never touched by update process (apart from `example` and `minimal` files that are now appropriately updated too).
+Of course, your config directory, like previously, is never touched by update process (apart from `example.json` and `minimal.json` files that are now appropriately updated too).
 
 ---
 
