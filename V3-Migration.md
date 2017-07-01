@@ -110,7 +110,9 @@ Server-based WCF is not available in .NET Core, and it doesn't look like being c
 
 When you start ASF V3 in `--server` mode, ASF now creates special http listener listening on `http://127.0.0.1:1242/IPC` address (or whatever else you put as `IPCHostname` and `IPCPort`). It's even easier to use it now, since executing command is as easy as launching `http://127.0.0.1:1242/IPC?command=version` in your favourite browser. Because of that, `--client` was entirely removed as being now-useless since you can access the link in your favourite way now, be it via browser or `curl`.
 
-Please note that while new IPC works fine, it's rather low-level and not really suitable for building a full ASF API over it. That's why basically you can only call commands with it. It's very likely that it'll be rewritten once again at some point, when there will be enough interest and a good idea how we can improve it further.
+Please note that while new IPC works fine, it's rather low-level and not really suitable for building a full ASF API over it. That's why basically you can only call commands with it. It's very likely that it'll be rewritten once again at some point, when there will be enough interest and a good idea how we can improve it further. For now it "just works".
+
+As a side-note, this change will also break compatibility with anything that depended on WCF previously, such as **[ASFui](https://www.steamgifts.com/discussion/eT97I/asfui-archisteamfarm-user-interface-asf-gui)**. Of course all developers that made use of ASF WCF in their apps previously can very easily adapt their apps to use http-based IPC now, but it requires some changes nonetheless.
 
 ---
 
