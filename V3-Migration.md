@@ -46,9 +46,9 @@ Another more "idealistic" view on the entire situation is obvious - I love open-
 
 Try to guess how much memory ASF is using for running 3 bots in the process. Yes, the memory that ASF allocates for all connections, structures, keeping up with networking and everything else. Answer is: **4 MB**. No, there is no typo, 4 megabytes.
 
-Of course, that is **managed** memory, aka what ASF truly allocates/uses. Entire process memory is made out of many other things such as runtime itself that is running ASF in the first place.
+Of course, that is **managed** memory, aka what ASF truly allocates/uses. Entire process memory is made out of many other things such as runtime itself that is running ASF in the first place. It's not a lot, but end result together with some "room" for ASF actions is around 40-100 MB of process memory usage.
 
-In comparison with Mono, ASF process can now take **up to 2x less memory than previously**, like in my case when ASF V2 used **7.9%** of memory, while ASF V3 for the same config uses as low as **4.4%**. I know that I'm probably some dinosaur that I even care about optimization of my program in 2017 (I'm looking at you, Unity), but it really feels awesome how tiny and fast ASF in fact is. People running ASF on low-memory VPSes with limited power should definitely appreciate more room for other services.
+In comparison with Mono, ASF process can now take **up to 2x less memory than previously**, like in my case when ASF V2 used **7.9%** of memory, while ASF V3 for the same config uses as low as **4.4%**. I know that I'm probably some dinosaur that I even care about optimization of my program in 2017 (I'm looking at you, Unity), but it really feels awesome how tiny and fast ASF in fact is. People running ASF on low-memory VPSes with limited power should definitely appreciate more room for other services, while everybody else will appreciate the fact that ASF is even more lightweight, even faster and even more reliable than before. Proprietary .NET Framework was fast, Mono was only a bit slower, .NET Core is faster than both. It could as well be the fastest and most optimized platform that ever existed, but I don't really have time neither willings to compare, so the fact that it's **faster than anything we had before** while **far more lightweight** is more than enough for me.
 
 ---
 
