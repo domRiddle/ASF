@@ -16,7 +16,7 @@ In a single TL;DR sentence it's about entire ASF code rewrite from **[.NET Frame
 
 The rewrite was justified with far more than "enough" reasons. The first and primary one was **[.NET Core itself](https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/)** with further **[extra](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/)** that Microsoft nicely documented, so go check that if you're interested in "technical/development" reasons. There is no reason for me to explain what .NET Core is if Microsoft folks did that much better than me.
 
-However, apart from the above there is also another huge file of ASF-specific reasons. Here are some of them:
+However, apart from the above there is also another huge file of ASF-specific reasons. Here are some of them.
 
 ---
 
@@ -66,7 +66,7 @@ Luckily for you - **not at all!**
 
 In terms of differences, this change is a very huge step forward, but in terms of practical differences ASF V3 mainly changed **low-level things**, those that are often implementation details and not necessary for you to touch in the first place.
 
-Of course, there are some changes that are important to mention, here is the list of changes I consider important, as well as what to do with them:
+Of course, there are some changes that are important to mention, here is the list of changes I consider important, as well as what to do with them.
 
 ---
 
