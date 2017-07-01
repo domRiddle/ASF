@@ -4,13 +4,13 @@
 
 ---
 
-### What is ASF V3 about?
+## What is ASF V3 about?
 
 ASF V3 is next major iteration of ASF that will come as a direct replacement of ASF V2. In a single TL;DR sentence it's about entire ASF code rewrite from **[.NET Framework](https://en.wikipedia.org/wiki/.NET_Framework)** 4.6.1 into **[.NET Core](https://www.microsoft.com/net/core/platform)** 2.0.
 
 ---
 
-### But why?
+## But why?
 
 The rewrite was justified with far more than "enough" reasons. The first and primary one was **[.NET Core itself](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/)** which Microsoft nicely documented, so go check that if you're interested in "technical/development" reasons.
 
