@@ -4,7 +4,7 @@ ASF development is supported by 3 major things: donations, users feedback, and s
 
 ASF in default settings has ```Statistics``` global config property enabled. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, as this is what our current statistics are mainly doing.
 
-We keep usage of statistics to bare minimum, and every single information being collected requires practical explanation - what we collect, for what purpose, and how it's supposed to help.
+We keep usage of statistics to bare minimum, and every single information being collected requires practical explanation - what we collect, for what purpose, and how it's supposed to help. All of that can be found below.
 
 ---
 
