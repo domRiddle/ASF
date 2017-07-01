@@ -1,6 +1,6 @@
 # ASF V3 Migration (WORK IN PROGRESS)
 
-## AKA everything you should know about next major ASF version
+## Everything you should know about next major ASF version
 
 ---
 
