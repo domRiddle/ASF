@@ -98,7 +98,7 @@ Of course, your config directory, like previously, is never touched by update pr
 
 As funny as it can sound, cross-OS GUI (graphical user interface) is not available in .NET Core in any form yet. This means that old ConfigGenerator can't be ported to .NET Core, so I either could force you to **still** use old .NET Framework/Mono one, or rewrite entire thing in some other multi-platform technology, as CG always was independent of ASF and optional.
 
-Of course I decided to go with second option and together with my friend @Aareksio we coded for you brand new browser-based ConfigGenerator coded mainly in javascript. It can now be used for generating valid ASF V3 configs easily.
+Of course I decided to go with second option and together with my friend **[@Aareksio](https://github.com/Aareksio)** we coded for you brand new browser-based ConfigGenerator coded mainly in javascript. It can now be used for generating valid ASF V3 configs easily.
 
 // TODO: JS-based CG is still work-in-progress, it'll be here once its available
 
