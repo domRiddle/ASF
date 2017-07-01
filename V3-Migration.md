@@ -46,6 +46,14 @@ In comparison with Mono, ASF process can now take **up to 2x less memory than pr
 
 ---
 
+### .NET Core is the future
+
+Regardless how you look at it, Microsoft dedicated a lot of money, time, people and support into their new platform. After all they've decided to rewrite platform that they've been working on **for the last 15 years**. This is not some side-project done in a few weeks, it's probably one of the biggest coding efforts that happened in the last decade, if not longer. It has **A LOT** of more potential than .NET Framework which Microsoft is slowly dropping in favour of .NET Core.
+
+I want the best for my project, and this is probably the best thing that happened for ASF since its first 0.1 version until this day.
+
+---
+
 ### When ASF V3 will be available?
 
 Pre-releases should start becoming available around mid-July, with stable release depending on feedback and progress, sometime in August (mid-August planned, maybe earlier).
