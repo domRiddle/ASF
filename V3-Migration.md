@@ -96,7 +96,7 @@ Of course, your config directory, like previously, is never touched by update pr
 
 ---
 
-### Config-Generator you know is dead
+### Config-Generator was rewritten
 
 As funny as it can sound, cross-OS GUI (graphical user interface) is not available in .NET Core in any form yet. This means that old ConfigGenerator can't be ported to .NET Core, so I either could force you to **still** use old .NET Framework/Mono one, or rewrite entire thing in some other multi-platform technology, as CG always was independent of ASF and optional.
 
@@ -106,7 +106,7 @@ Of course I decided to go with second option and together with my friend **[@Aar
 
 ---
 
-### WCF is dead
+### IPC was rewritten / WCF is dead
 
 Server-based WCF is not available in .NET Core, and it doesn't look like being considered anytime soon. Luckily for you, this doesn't mean that ASF `--server` option is going anywhere. WCF was **implementation detail** of how ASF handled **inter-process communication**. Because of being implementation detail, it was simply rewritten from being `WCF-based` into being `Http-based`. `WCFHostname` and `WCFPort` were changed into `IPCHostname` and `IPCPort`, while `WCFBinding` was removed.
 
@@ -123,6 +123,14 @@ As a side-note, this change will also break compatibility with anything that dep
 Windows services are not supported in .NET Core and it doesn't look like they're coming anytime soon. While I like the fact that ASF could be installed as a service on Windows, it was never the primary objective of ASF and was added in **[#268](https://github.com/JustArchi/ArchiSteamFarm/pull/268)** by one of the interested developers.
 
 Sadly it's no longer available and it's the only ASF V3 change that has no real workaround, as this feature is simply not available. If it ever comes back, for sure it'll be implemented, but for now I suggest to use ASF as usual, many services-based things such as auto-start or auto-restart can be easily enabled without ASF-Service in the first place. I know that it's more troublesome, but sadly I don't have a good solution for those few folks that actually made use of it 🙁.
+
+---
+
+### `ProtectedDataForCurrentUser` is available only on Windows
+
+If you previously used `ProtectedDataForCurrentUser` `PasswordFormat` on Mono, then sadly you must "downgrade" yourself, for example to `AES`. This feature is available only on Windows OS for now, and you'll get a `PlatformNotSupportedException` if you try to use it on Linux or OS X.
+
+It's unknown for now whether this feature will come to Linux or OS X in the future, but very likely **[it will happen](https://github.com/NuGet/Home/issues/1851)** sooner or later. For now, just stick with `AES`.
 
 ---
 
