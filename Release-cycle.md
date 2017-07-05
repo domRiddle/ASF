@@ -17,7 +17,7 @@ Please note that newly introduced features and changes might be undocumented (e.
 A pre-release version might be considered stable after some time. This is especially true if there are no changes done in the meantime, and there is no point in version bump just for the sake of stable release. It's also done very often when pre-release is considered "stable release candidate", as it allows advanced users to test it before it gets marked as stable, so the risk of introducing bugs is much lower, therefore this is the most common pattern when it comes to ASF releases:
 
 ```
-Stable 0.1 -> Pre 0.2 -> Pre 0.3 -> ... -> Pre 0.7 (RC) -> Stable 0.7 (same as Pre 0.7)
+Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
 ```
 
 In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time (a few days) since pre-release became available. We're aiming for **at least one stable release per month**, unless there are some critical issues to deal with or likewise.
