@@ -122,7 +122,7 @@ As a side-note, this change will also break compatibility with anything that dep
 
 Windows services are not supported in .NET Core and it doesn't look like they're coming anytime soon. While I like the fact that ASF could be installed as a service on Windows, it was never the primary objective of ASF and was added in **[#268](https://github.com/JustArchi/ArchiSteamFarm/pull/268)** by one of the interested developers.
 
-Sadly it's no longer available and it's the only ASF V3 change that has no real workaround, as this feature is simply non-existant. If it ever comes back, for sure it'll be implemented, but for now I suggest to use ASF as usual, many services-based things such as auto-start or auto-restart can be easily enabled without ASF-Service in the first place. I know that it's more troublesome, but sadly I don't have a good solution for those few folks that actually made use of it 🙁.
+Sadly it's no longer available and it's the only ASF V3 change that has no real workaround, as this feature is simply non-existent. If it ever comes back, for sure it'll be implemented, but for now I suggest to use ASF as usual, many services-based things such as auto-start or auto-restart can be easily enabled without ASF-Service in the first place. I know that it's more troublesome, but sadly I don't have a good solution for those few folks that actually made use of it 🙁.
 
 ---
 
