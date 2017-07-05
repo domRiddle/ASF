@@ -16,7 +16,7 @@ In a single TL;DR sentence it's about entire ASF code rewrite from **[.NET Frame
 
 ## But why?
 
-The rewrite was justified with far more than "enough" reasons. The first and primary one was **[.NET Core itself](https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/)** with further **[extra](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/)** that Microsoft nicely documented, so go check that if you're interested in "technical/development" reasons. There is no reason for me to explain what .NET Core is if Microsoft folks did that much better than me.
+The rewrite was justified with a far more than "enough" reasons. The first and primary one was **[.NET Core itself](https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/)** with further **[extra](https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/)** that Microsoft nicely documented, so go check that if you're interested in "technical/development" reasons. There is no reason for me to explain what .NET Core is if Microsoft folks did that much better than me.
 
 However, apart from the above there is also another huge file of ASF-specific reasons. Here are some of them.
 
