@@ -100,7 +100,7 @@ All commands are case-insensitive, but their arguments (such as bot names) are u
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
-Plural arguments, such as ```<Bots>``` or ```<appIDs>``` mean that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. This will cause given command to be executed on **all targeted bots** in the same way as you'd send `!status` to each bot in a separate chat window.
+Plural arguments, such as ```<Bots>``` or ```<appIDs>``` mean that command supports multiple arguments of given type, separated by a comma. For example, ```!status <Bots>``` can be used as ```!status MyBot,MyOtherBot,Primary```. This will cause given command to be executed on **all targeted bots** in the same way as you'd send `!status` to each bot in a separate chat window. Please notice that there is no space after `,` - it's simply a delimiter for a single string.
 
 In addition to that, there is a special ```ASF``` keyword which acts as "all bots in the process", so ```!status ASF``` is equal to ```!status all,your,bots,listed,here```.
 
