@@ -134,12 +134,6 @@ It's unknown for now whether this feature will come to Linux or OS X in the futu
 
 ---
 
-## When ASF V3 will be available?
-
-Pre-releases should start becoming available around mid-July, with stable release depending on feedback and progress, sometime in August (mid-August planned, maybe earlier).
-
----
-
 ## Complete migration guide
 
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine.
@@ -149,3 +143,9 @@ Pre-releases should start becoming available around mid-July, with stable releas
 - Run `ArchiSteamFarm`, confirm that everything works, and delete your old ASF V2 from its location.
 
 If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**.
+
+---
+
+## EXTRA DEV: When ASF V3 will be available?
+
+Pre-releases should start becoming available around mid-July, with stable release depending on feedback and progress, sometime in August (mid-August planned, maybe earlier).
