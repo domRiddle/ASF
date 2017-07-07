@@ -102,7 +102,7 @@ As funny as it can sound, cross-OS GUI (graphical user interface) is not availab
 
 Of course I decided to go with second option and together with my friend **[@Aareksio](https://github.com/Aareksio)** we coded for you brand new browser-based ConfigGenerator, mainly in javascript. It can now be used for generating valid ASF V3 configs easily from your favourite browser, simplifying things a lot and allowing for future improvements.
 
-// TODO: JS-based CG is still work-in-progress, it'll be here once its available
+In order to use the new ConfigGenerator, simply navigate to its **[page](https://justarchi.github.io/ArchiSteamFarm/)**. From there you can easily generate config files compatible with ASF V3.
 
 ---
 
@@ -137,3 +137,15 @@ It's unknown for now whether this feature will come to Linux or OS X in the futu
 ## When ASF V3 will be available?
 
 Pre-releases should start becoming available around mid-July, with stable release depending on feedback and progress, sometime in August (mid-August planned, maybe earlier).
+
+---
+
+## Complete migration guide
+
+- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine.
+- Download OS-specific package for your machine.
+- Unpack entire archive into new location.
+- Copy entire `config` directory from ASF V2 into new location, overwrite existing files.
+- Run `ArchiSteamFarm`.
+
+If you need/want to regenerate your configs, feel free to use our new ConfigGenerator.
