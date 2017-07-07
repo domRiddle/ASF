@@ -143,7 +143,7 @@ Pre-releases should start becoming available around mid-July, with stable releas
 ## Complete migration guide
 
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine.
-- Download OS-specific package for your machine.
+- Download OS-specific ASF package for your machine, such as `win-x64` for 64-bit Windows.
 - Unpack entire archive into new location.
 - Copy entire `config` directory from ASF V2 into new location, overwrite existing files.
 - Run `ArchiSteamFarm`.
