@@ -148,4 +148,4 @@ Pre-releases should start becoming available around mid-July, with stable releas
 - Copy entire `config` directory from ASF V2 into new location, overwrite existing files.
 - Run `ArchiSteamFarm`.
 
-If you need/want to regenerate your configs, feel free to use our new ConfigGenerator.
+If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**.
