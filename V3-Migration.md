@@ -146,6 +146,6 @@ Pre-releases should start becoming available around mid-July, with stable releas
 - Download OS-specific ASF package for your machine, such as `win-x64` for 64-bit Windows.
 - Unpack downloaded archive into new location.
 - Copy entire `config` directory from old ASF V2 location into new ASF V3 location, overwriting existing files.
-- Run `ArchiSteamFarm`, confirm that everything works, and delete your old ASF V2 location.
+- Run `ArchiSteamFarm`, confirm that everything works, and delete your old ASF V2 from its location.
 
 If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**.
