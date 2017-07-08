@@ -84,7 +84,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!resume` | `FamilySharing` | Resumes automatic farming of current bot instance. Also see ```!pause```, ```!play```
 `!resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see ```!pause```, ```!play```
 `!start <Bots>` | `Master` | Starts given bot instances
-`!stats` | `Owner` | Prints process statistics, such as memory usage
+`!stats` | `Owner` | Prints process statistics, such as managed memory usage
 `!status` | `FamilySharing` | Prints status of current bot instance
 `!status <Bots>` | `FamilySharing` | Prints status of given bot instances
 `!stop` | `Master` | Stops current bot instance
