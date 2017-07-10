@@ -104,6 +104,10 @@ Of course I decided to go with second option and together with my friend **[@Aar
 
 In order to use the new ConfigGenerator, simply navigate to its **[page](https://justarchi.github.io/ArchiSteamFarm/)**. From there you can easily generate config files compatible with ASF V3.
 
+Apart from much more user-friendly structure, there is now proper support for versioning so CG is never fixed to one specific version - you can use it for generating proper configs for any ASF version from V3 upwards.
+
+CG source is available **[here](https://github.com/JustArchi/ArchiSteamFarm/tree/gh-pages)** and any improvements are welcome. We'll also try to improve it a bit as the time goes.
+
 ---
 
 ### IPC was rewritten / WCF is dead
