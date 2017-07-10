@@ -42,6 +42,8 @@ Another more "idealistic" view on the entire situation is obvious - I love open-
 
 .NET Core once again solves this problem entirely - it's fully open-source and possible to build on any platform, which compared to .NET Framework, will probably result in major community gathering around it, with me being the prime example.
 
+As a side effect ASF can finally be built on any supported platform, not like previously only on Windows because Mono-built builds worked on Mono only.
+
 ---
 
 ### .NET Core is optimized
