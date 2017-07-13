@@ -8,7 +8,7 @@ This page in its "live" version applies only to **[latest release of ASF](https:
 
 1. **[Introduction](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**
 * **[Web-based ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#web-based-configgenerator)**
-* **[Manual configs](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#manual-configs)**
+* **[Manual configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#manual-configuration)**
 2. **[Global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**
 3. **[Bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**
 4. **[File structure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#file-structure)**
@@ -62,7 +62,7 @@ I encourage you to read below what is the exact purpose of everything you've con
 
 ---
 
-## Manual configs
+## Manual configuration
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation itself.
 
