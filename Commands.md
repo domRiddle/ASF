@@ -29,7 +29,7 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through IPC interface.
+Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
 
 ---
 
@@ -140,7 +140,7 @@ When using **IPC**, keep in mind that:
 
 ## `!input` command
 
-Input command can be used only in `Headless` mode, for inputting given data via IPC or Steam chat when ASF is running without support for user interaction.
+Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
 General syntax is `!input <Bots> <Type> <Value>`.
 
