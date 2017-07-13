@@ -493,9 +493,11 @@ Types used by ASF are native C# types, which are specified below:
 Example: `"Enabled": true`.
 
 
+
 ```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive).
 
 Example: `"FarmingOrder": 1`.
+
 
 
 ```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive).
@@ -503,7 +505,9 @@ Example: `"FarmingOrder": 1`.
 Example: `"IPCPort": 1242`.
 
 
+
 ```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
+
 
 
 ```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
@@ -511,9 +515,11 @@ Example: `"IPCPort": 1242`.
 Example: `"SteamMasterClanID": 103582791440160998`
 
 
+
 ```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+
 
 
 ```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
@@ -521,9 +527,11 @@ Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountNam
 Example for `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 
+
 `Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs.
 
 Example for `Dictionary<string, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+
 
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
