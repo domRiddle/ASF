@@ -41,7 +41,6 @@ Some legacy wiki pages we still keep for a while:
 1. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
 2. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
 3. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
-
 4. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
 5. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
