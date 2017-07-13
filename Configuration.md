@@ -74,7 +74,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 Global config is located in `ASF.json` file and has following structure:
 
-`
+```
 {
 	"AutoRestart": true,
 	"AutoUpdates": true,
@@ -99,7 +99,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"WCFHost": "127.0.0.1",
 	"WCFPort": 1242
 }
-`
+```
 
 **Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
 
@@ -207,7 +207,7 @@ As you should know already, every bot should have its own config. Example bot co
 
  After deciding how you want to name your bot, open its file, and start with configuration. You should notice following structure:
 
-`
+```
 {
 	"AcceptGifts": false,
 	"CardDropsRestricted": true,
@@ -239,7 +239,7 @@ As you should know already, every bot should have its own config. Example bot co
 	"SteamUserPermissions": {},
 	"TradingPreferences": 0
 }
-`
+```
 
 **Tip:** In order for bot to work properly, you should edit at least `Enabled`, `SteamLogin` and `SteamPassword` properties. I also suggest to take a look at some fine-tuning such as `CardDropsRestricted`, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
 
