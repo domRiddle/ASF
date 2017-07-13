@@ -1,5 +1,7 @@
 # Home
 
+## Our wiki is currently going through major rewrite to fit ASF V3, if you're looking for ASF V2 resources, please check out legacy section below.
+
 Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
 
 Some of the subjects you might be interested in:
@@ -35,8 +37,10 @@ Developers might be interested in:
 4. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 
 Some legacy wiki pages we still keep for a while:
-1. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
-2. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
+
+1. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
+2. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
+3. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/HStsVSB)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
