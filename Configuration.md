@@ -26,7 +26,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 ---
 
-## Creating configs through web-based ConfigGenerator
+## Web-based ConfigGenerator
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. We'll start from something very easy. Open **[ASF ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm)** page and switch to bot tab.
 
@@ -56,7 +56,7 @@ I encourage you to read below what is the exact purpose of everything you've con
 
 ---
 
-## Creating configs by hand
+## Manual configs
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation itself.
 
