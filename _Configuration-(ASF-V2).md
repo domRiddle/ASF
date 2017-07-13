@@ -1,4 +1,4 @@
-# Configuration (for ASF V2)
+# Configuration (ASF V2)
 
 This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
 
