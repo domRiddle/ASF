@@ -1,5 +1,7 @@
 # Configuration
 
+## This configuration applies only to ASF V3. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))** configuration page instead.
+
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
 This page in its "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
