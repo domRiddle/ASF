@@ -488,51 +488,53 @@ Every configuration property has its type. Type of the property defines values t
 
 Types used by ASF are native C# types, which are specified below:
 
+***
+
 ```bool``` - Boolean type accepting only ```true``` and ```false``` values.
 
 Example: `"Enabled": true`.
 
-
+***
 
 ```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive).
 
 Example: `"FarmingOrder": 1`.
 
-
+***
 
 ```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive).
 
 Example: `"IPCPort": 1242`.
 
-
+***
 
 ```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
 
-
+***
 
 ```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
 
 Example: `"SteamMasterClanID": 103582791440160998`
 
-
+***
 
 ```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
-
+***
 
 ```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
 
 Example for `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
-
+***
 
 `Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs.
 
 Example for `Dictionary<string, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
-
+***
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
@@ -548,6 +550,8 @@ Value | Name
 Using ```B + C``` would result in value of ```6```, using ```A + C``` would result in value of ```5```, using ```C``` would result in value of ```4``` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making ```None + A + B + C```, you'd get value of ```7```. Also notice that flag with value of ```0``` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as ```None```).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 7 possible values overall (`None`, `A`, `B`, `C`, `A+B`, `A+C`, `A+B+C`).
+
+***
 
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
