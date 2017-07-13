@@ -34,6 +34,10 @@ Developers might be interested in:
 3. **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)**
 4. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 
+Some legacy wiki pages we still keep for a while:
+1. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
+2. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
+
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/HStsVSB)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
 GitHub **[issues](https://github.com/JustArchi/ArchiSteamFarm/issues)** page is being used for ASF TODO list, regarding both features and bugs. It has rather strict policy - GitHub is not technical support and all cases that are not suggestions or bug reports should NOT be posted there. You have ASF discord and Steam group for general discussion, questions or technical issues. Please avoid using GitHub issues, unless you indeed want to report a bug or suggest an enhancement. Even prior to doing that, please make sure that you're indeed dealing with a bug, or your suggestion makes sense, preferably by asking on discord/steam group first. Invalid issues will be closed immediately.
