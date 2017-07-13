@@ -6,6 +6,10 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 This page in its "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
 
+1. **[Introduction](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**
+2. **[Web-based ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#web-based-configgenerator)**
+3. **[Manual configs](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#manual-configs)**
+
 ---
 
 ## Introduction
