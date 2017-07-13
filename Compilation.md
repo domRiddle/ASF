@@ -8,41 +8,59 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ---
 
-## Windows
+## .NET Core SDK
 
-On Windows I suggest to use **[latest Visual Studio](https://www.visualstudio.com/vs/community)**, which is now free. ASF requires at least Visual Studio in 2017 version, but latest released one is recommended regardless. After installing all components, you should launch **ArchiSteamFarm.sln** file in VS, switch to ```Release``` target, then hit ```Build``` -> ```Build Solution```.
-
-Alternatively, you can do the same from the console, by navigating to ASF directory and executing:
+Regardless of platform, you need full .NET Core SDK in order to compile ASF. Instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/core/preview)**. In any case, you must have `dotnet` command operative after installation. You can verify if it works with `dotnet --info`.
 
 ```
-msbuild /p:Configuration=Release ArchiSteamFarm.sln
-```
+C:\Users\Archi>dotnet --info
+.NET Command Line Tools (2.0.0-preview2-006497)
 
-Of course, you need ```msbuild``` in your ```PATH``` if you don't want to provide full path to it.
+Product Information:
+ Version:            2.0.0-preview2-006497
+ Commit SHA-1 hash:  06a2093335
+
+Runtime Environment:
+ OS Name:     Windows
+ OS Version:  10.0.15063
+ OS Platform: Windows
+ RID:         win10-x64
+ Base Path:   C:\Program Files\dotnet\sdk\2.0.0-preview2-006497\
+
+Microsoft .NET Core Shared Framework Host
+
+  Version  : 2.0.0-preview2-25407-01
+  Build    : 40c565230930ead58a50719c0ec799df77bddee9
+```
 
 ---
 
-## Mono
+## Unofficial compilation
 
-Compilation on Mono-powered OSes (Linux and OS X) is even easier in my opinion. Firstly you should make sure that you have **[latest Mono installed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**, which is a requirement for using ASF in the first place. If you do, all you need to do is navigating to the directory where ASF source is located, then executing:
-
-```
-xbuild /p:Configuration=Release ArchiSteamFarm.sln
-```
-
-On Linux, you can also use ```cc.sh``` script, which simplifies things even further.
+Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
 ```
-./cc.sh
+dotnet restore
+dotnet build -c "Release" -o "out"
 ```
 
-Please note that Mono version required to compile ASF might be in higher version than Mono version that is required to run already pre-compiled ASF binary. If you use `cc.sh` script, you'll get a notification of your current version and required version in order to compile ASF.
+If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+
+If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same flavour as `generic`, but it has forced `AutoUpdates` of `false` and `UpdateChannel` of `0`.
+
+You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `generic` flavour, but in case you want to:
+
+```
+dotnet publish -c "Release" -r "TARGET_RUNTIME" -o "out2"
+```
+
+Of course, replace `TARGET_RUNTIME` with OS-architecture you want to target, such as `win-x64`.
 
 ---
 
-If everything ended successfully, you can find your compiled binaries in ```bin``` directory of each project, and in addition to that you can find repacked ready-to-go binaries with appropriate structure in ```out``` directory. You can use either ```ArchiSteamFarm.exe``` with all required DLL libraries, or repacked ```ASF.exe``` which already contains all of them inside. If you're not shipping your binaries and you just want to use ASF from source tree, I highly recommend launching ```ArchiSteamFarm.exe``` instead of ```ASF.exe```, simply because it's smaller, more optimized, can load DLLs on as-needed basis and doesn't automatically update to the version found on GitHub.
+## Official compilation
 
-Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**, on Windows, with latest Visual Studio, as Mono-powered builds may not work correctly on non-Mono platforms, so if you decide to compile with Mono, make sure that you're running output binary with Mono as well.
+Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**, on Windows, with .NET Core SDK included in latest Visual Studio Preview.
 
 Our releases are working with both .NET, as well as Mono, so **there is no need to compile yourself if you simply want to use ASF with Mono**, e.g. on Linux or OS X. You can simply download **[latest release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and run it with Mono right away.
 
