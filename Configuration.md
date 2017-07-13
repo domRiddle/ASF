@@ -1,6 +1,6 @@
 # Configuration
 
-This page is dedicated for ASF configuration. It includes both file structure used by ASF, as well as fine-tuning ASF to your needs.
+This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
 This page in its "live" version applies only to **[latest release of ASF](https://github.com/JustArchi/ArchiSteamFarm/releases)**, so it might not describe correctly behaviour of older ASF releases. If you need older version of the wiki, then head over to **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration/_history)** and pick the one that matches the date of your ASF release.
 
@@ -8,112 +8,46 @@ This page in its "live" version applies only to **[latest release of ASF](https:
 
 ## Introduction
 
-ASF configuration is divided into two major ports - global (process) configuration, and configuration of every bot. Bot is a single steam account that is taking part in ASF process. In order to work, ASF needs at least one **enabled** bot instance. There is no process-enforced limit of supported bot instances, so you can use as many steam accounts (bots) as you want.
+ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
-Configuration can be done either manually - by creating proper JSON configs, or by using graphical config generator - **ASF-ConfigGenerator.exe**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator. Simply double-click **ASF-ConfigGenerator.exe** to launch it, then follow tutorial that ASF will offer to you. 
+A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
 
-Alternatively, you can create proper configs yourself in config directory if you decided to go with manual way (check example.json for a good start). This is recommended only for advanced users though.
+ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF.
 
-[**Global config**](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)
-
-[**Bot config**](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)
+Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm/)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
 
 ---
 
-## File structure
+## Creating configs through web-based ConfigGenerator
 
-ASF is using quite simple file structure.
+The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. We'll start from something very easy. Open **[ASF ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm)** page and switch to bot tab.
 
-```
-├── config
-│   ├── ASF.json
-│   ├── ASF.db
-│   ├── Bot1.json
-│   ├── Bot1.db
-│   ├── Bot1.bin
-│   ├── Bot2.json
-│   ├── Bot2.db
-│   ├── Bot2.bin
-│   └── ...
-├── ASF.exe
-└── log.txt
-```
+Now you should do following things in order to generate first valid bot config:
 
-**Mandatory** tag used below means that given file is absolutely crucial to launch ASF. **Generated** tag means that file does not exist by default, and may be generated in ASF process, on as-needed basis (and therefore used). **Optional** tag means that file is recognized by ASF, but not crucial for the process.
+- Put a friendly name under `Name`, this can be your nickname or anything else you want to name your bot. Please avoid spaces, you can use `_` as a word separator.
+- Turn on `Enabled` switch.
+- Fill `Steam Login` with your Steam account name that you use for logging in (optional).
+- Fill `Steam Password` with your Steam password that you use for logging in (optional).
 
-In order to move ASF to new location, or another PC, it's enough to move entire file structure mentioned above. No further action is required.
+Please note that Steam login and passwords are optional - if you omit them, ASF will ask for those on as-needed basis during runtime. If you provide them, ASF won't need to ask, making it possible for auto-run and saving your time.
 
-``ASF.exe (mandatory)`` is the core executable (binary) file, which is starting the program.
+![Example](http://i.imgur.com/VW5vhXZ.png)
 
-```log.txt (generated)``` is the log file of ASF process. Log file holds only last ASF run, and is being automatically cleared on every launch. The purpose of the log file is to log the information about potential bug or crash, that could help ASF developers to find and fix the culprit. Log does not contain any sensitive information, and is mostly used for debugging and informational purposes.
+Now hit `Download` button and if you did everything properly a new `BotName.json` file will be downloaded. Locate that file and put it into `config` directory (inside ASF directory).
 
-```config (mandatory)``` is the directory which holds configuration for ASF process, and all the bots.
+![Example](http://i.imgur.com/4lgBuLa.png)
 
-```ASF.json (mandatory)``` is a global ASF configuration file. This config is used for specifying how ASF process behaves, which affects program as a whole. You can (and should) edit global config according to your needs. It is well explained below.
+Now you're ready to start ASF. Simply start `ArchiSteamFarm` binary and you should notice that ASF starts logging in into your account and idling cards. If you didn't provide Steam login/password, you'll be asked for that, as well as for SteamGuard/2FA code if you use it. ASF makes use of Steam login keys, so you won't need to input SteamPassword/SteamGuard/2FA code on each run.
 
-```ASF.db (generated)``` is a global ASF database file. It acts as ASF global persistent storage and is used for saving some important information. **You should not edit this file**.
+Congratulations, you've just learnt the basics of using web-based ConfigGenerator. If you want to add another account, simnply do the same, just use different name for your bot. In the same way you can generate global ASF config (by switching to ASF tab).
 
-
-Now we move onto bot configs. Every bot has its own config and related files.
-
-```BotName.json (mandatory)``` is a config of given bot instance. This config is used for specifying how given bot instance behaves, including all potentially needed details for it to run properly. Config properties defined in this file affect only given bot instance, so you can have many bots operating in different ways (as opposed to global ASF config which affects the whole process and every bot)
-
-```BotName.db (generated)``` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage. **You should not edit this file**.
-
-```BotName.bin (generated)``` is a special file of given bot instance, which holds information of Steam sentry hash. Sentry hash is used for authenticating using ```SteamGuard``` mechanism. **You should not edit this file**.
-
-```BotName.maFile (optional)``` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's automatically being deleted after ASF 2FA is successfully imported.
+I encourage you to read below what is the exact purpose of everything you've configured so far. This was a very simplified tutorial that didn't cover a lot of extra features that ASF offers, such as offline farming, SteamTradeMatcher or dismissing inventory notifications.
 
 ---
 
-## Configs
+## Creating configs by hand
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure global and bot configs for ASF.
-
-**We strongly recommend to use ASF ConfigGenerator for generating configs** - it simplifies the process a lot, ensures that you can't generate invalid config or use invalid value for given property. Unless you're expert user that knows what he's doing, you shouldn't edit configs by hand.
-
-If you're expert user that doesn't need neither want to use our CG frontend, then you can edit/create configs by hand, using any tool, script or text editor, such as **[Notepad++](https://notepad-plus-plus.org)**. Ensure that your config is **[valid](http://jsonlint.com/)** after you're done with it, unless tool of your choice automativally validates it (such as ASF CG).
-
----
-
-## Types
-
-Every config property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
-
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually.
-
-Types used by ASF are native C# types, which are specified below:
-
-```bool``` - Boolean type accepting only ```true``` and ```false``` values.
-
-```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive)
-
-```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive)
-
-```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
-
-```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
-
-```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
-
-```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]` for `HashSet<byte>`.
-
-`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }` for `Dictionary<string, byte>`.
-
-```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
-
-For example, given following values:
-
-Value | Name
---- | ---
-0 | None
-1 | A
-2 | B
-4 | C
-
-Using ```B + C``` would result in value of ```6```, using ```A + C``` would result in value of ```5```, using ```C``` would result in value of ```4``` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making ```None + A + B + C```, you'd get value of ```7```. Also notice that flag with value of ```0``` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as ```None```).
-
-*Pro tip: To avoid all that mess and calculating final value yourself, just use ConfigGenerator and pick appropriate checkboxes, it's much easier!*
+I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to JSON mapping section and documentation itself.
 
 ---
 
@@ -476,6 +410,89 @@ Value | Name  | Description
 Please notice that this property is ```flags``` field, therefore it's possible to choose any combination of available values. Check out **[flags explanation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)** if you'd like to learn more. Not enabling any of flags results in ```None``` option.
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section.
+
+---
+
+## File structure
+
+ASF is using quite simple file structure.
+
+```
+├── config
+│   ├── ASF.json
+│   ├── ASF.db
+│   ├── Bot1.json
+│   ├── Bot1.db
+│   ├── Bot1.bin
+│   ├── Bot2.json
+│   ├── Bot2.db
+│   ├── Bot2.bin
+│   └── ...
+├── ArchiSteamFarm(.exe)
+└── log.txt
+└── ...
+```
+
+In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+
+`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+
+`config` directory is the place that holds configuration for ASF, including all of its bots.
+
+`ASF.json` is a global ASF configuration file. This config is used for specifying how ASF behaves as a process, which affects all of the bots and program itself. You can find global properties there, such as ASF process owner, auto-updates or debugging.
+
+`BotName.json` is a config of given bot instance. This config is used for specifying how given bot instance behaves, therefore those settings are specific to that bot only and not shared across other ones. This allows you to configure bots with various different settings and not necessarily all of them working in exactly the same way.
+
+Apart from config files, ASF also uses `config` directory for storing databases.
+
+`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+
+`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+
+`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using ```SteamGuard``` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+
+`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**. It's not optional and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+
+---
+
+## JSON mapping
+
+Every config property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+
+**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually.
+
+Types used by ASF are native C# types, which are specified below:
+
+```bool``` - Boolean type accepting only ```true``` and ```false``` values.
+
+```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive)
+
+```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive)
+
+```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
+
+```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
+
+```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
+
+```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]` for `HashSet<byte>`.
+
+`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }` for `Dictionary<string, byte>`.
+
+```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
+
+For example, given following values:
+
+Value | Name
+--- | ---
+0 | None
+1 | A
+2 | B
+4 | C
+
+Using ```B + C``` would result in value of ```6```, using ```A + C``` would result in value of ```5```, using ```C``` would result in value of ```4``` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making ```None + A + B + C```, you'd get value of ```7```. Also notice that flag with value of ```0``` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as ```None```).
+
+*Pro tip: To avoid all that mess and calculating final value yourself, just use ConfigGenerator and pick appropriate checkboxes, it's much easier!*
 
 ---
 
