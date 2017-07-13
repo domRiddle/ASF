@@ -1,6 +1,6 @@
 # Setting up
 
-## This page applies to ASF V3 only. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))** configuration page instead.
+## This page applies to ASF V3 only. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))** page instead.
 
 If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - there is a steep learning curve involved here. ASF is not just some toy program with friendly GUI, one click installer and fancy window, it's a very sophisticated and complex Steam tool that can do almost anything, as long as **you care enough** to learn how to configure and use it. As long as you care, we've got you covered with our wiki and usual wall of text. And if you don't care, just use **[Idle master](http://www.steamidlemaster.com/)** or something, we won't do homework for you.
 
