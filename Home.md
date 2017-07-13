@@ -40,10 +40,11 @@ Some legacy wiki pages we still keep for a while:
 
 1. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
 2. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
-3. **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
-4. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
-5. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
-6. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
+3. **[Commands (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))**
+4. **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
+5. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
+6. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
+7. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/HStsVSB)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
