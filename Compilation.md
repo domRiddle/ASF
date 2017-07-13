@@ -60,4 +60,4 @@ Of course, replace `TARGET_RUNTIME` with OS-architecture you want to target, suc
 
 ## Official compilation
 
-Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**, on Windows, with .NET Core SDK included in latest Visual Studio Preview. After building all required packages and passing tests, those are later on deployed on GitHub.
+Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with .NET Core SDK included in latest Visual Studio Preview. After passing tests, they're deployed on GitHub.
