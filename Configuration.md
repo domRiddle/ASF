@@ -18,6 +18,8 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm/)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
 
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+
 ---
 
 ## Creating configs through web-based ConfigGenerator
@@ -46,11 +48,15 @@ Congratulations, you've just learnt the basics of using web-based ConfigGenerato
 
 I encourage you to read below what is the exact purpose of everything you've configured so far. This was a very simplified tutorial that didn't cover a lot of extra features that ASF offers, such as offline farming, SteamTradeMatcher or dismissing inventory notifications.
 
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+
 ---
 
 ## Creating configs by hand
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation itself.
+
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
 
@@ -178,6 +184,8 @@ ASF includes two blacklists by default - ```GlobalBlacklist```, which is hardcod
 ***
 
 ```WCFPort``` - ```ushort``` type with default value of ```1242```. This is the port on which **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)** is running by default. You may want to change it to any port you want, suggested ports are above ```1024```, as ports ```0-1024``` typically require ```root``` privileges on Unix-like operating systems. Remember that this property should be the same on both ```server``` and ```client``` machines (if they're not the same). Unless you have a reason to edit this property, you should keep it at default.
+
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
 
@@ -414,6 +422,8 @@ Please notice that this property is ```flags``` field, therefore it's possible t
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section.
 
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+
 ---
 
 ## File structure
@@ -455,6 +465,8 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 `BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using ```SteamGuard``` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**. It's not optional and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
 
@@ -511,52 +523,15 @@ Using ```B + C``` would result in value of ```6```, using ```A + C``` would resu
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 7 possible values overall (`None`, `A`, `B`, `C`, `A+B`, `A+C`, `A+B+C`).
 
----
-
-## Bot config (Minimalistic)
-
-In addition to full bot config contained in ```example.json```, ASF also offers you ```minimal.json``` config, which can be used instead. Simply **copy paste** ```minimal.json``` to your filename of choice, and open it.
-
-You should notice following structure:
-
-```
-{
-  "Enabled": false,
-  "SteamLogin": null,
-  "SteamPassword": null
-}
-```
-
-Now, as you can see - this config is pretty damn short compared to ```example.json```. This is because minimalistic config includes only properties that should be configured in order for bot to run. When given config property is not defined, such as ```CardDropsRestricted``` in above ```minimal.json```, it's the same as you'd define it with **its default value**. This is useful for you if you want to keep your configs short and simple, as you don't need to include every property that ASF offers, but only redefine those which you want to change.
-
-For example, if you have no intention of changing anything, then you're good to go only with such very short and simple config:
-
-```
-{
-  "Enabled": true,
-  "SteamLogin": "pablo32",
-  "SteamPassword": "pass123"
-}
-```
-
-But what if you want to change ```CardDropsRestricted``` from default value of ```true``` to ```false```? It's simple, just add that part from ```example.json``` and edit accordingly, so it looks like this:
-
-```
-{
-  "Enabled": true,
-  "SteamLogin": "pablo32",
-  "SteamPassword": "pass123",
-  "CardDropsRestricted": false
-}
-```
-
-Remember to keep proper JSON structure - strings should be contained in ```""```, and there should be ```,``` at the end of each config property, but not the last one. If you're not sure if your config is proper, you can always **[validate it](http://jsonlint.com/)**.
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
 
 ## Compatibility
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs, ```ASF.json``` will always include all currently supported global config properties, while ```example.json``` will always include all currently supported bot config properties for you to use. There's no need to "regenerate" configs when new property gets added, unless you want to switch it from its default value to something else. Especially advanced users are encouraged to keep minimalistic file structure and define only those properties, in both global and bot configs, which they **require** to change, instead of copying entire ```example.json``` and changing only 3 variables. You can always add missing properties later, ```example.json``` is always available for you.
+
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
 
@@ -570,3 +545,5 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
 In addition to that, ASF will also restart itself (if ```AutoRestart``` permits) if you modify core ASF ```ASF.json``` config. Likewise, program will quit if you delete or rename it.
+
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
