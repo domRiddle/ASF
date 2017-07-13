@@ -49,7 +49,7 @@ I encourage you to read below what is the exact purpose of everything you've con
 
 ## Creating configs by hand
 
-I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to JSON mapping section and documentation itself.
+I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation itself.
 
 ---
 
@@ -459,27 +459,41 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## JSON mapping
 
-Every config property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually.
+**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
 
 Types used by ASF are native C# types, which are specified below:
 
 ```bool``` - Boolean type accepting only ```true``` and ```false``` values.
 
-```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive)
+Example: `"Enabled": true`.
 
-```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive)
+```byte``` - Unsigned byte type, accepting only integers from ```0``` to ```255``` (inclusive).
+
+Example: `"FarmingOrder": 1`.
+
+```ushort``` - Unsigned short type, accepting only integers from ```0``` to ```65535``` (inclusive).
+
+Example: `"IPCPort": 1242`.
 
 ```uint``` - Unsigned integer type, accepting only integers from ```0``` to ```4294967295``` (inclusive)
 
 ```ulong``` - Unsigned long integer type, accepting only integers from ```0``` to ```18446744073709551615``` (inclusive)
 
+Example: `"SteamMasterClanID": 103582791440160998`
+
 ```string``` - String type, accepting any sequence of characters, including empty sequence ```""``` and ```null```. 
 
-```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements, such as `[ 1, 2, 9 ]` for `HashSet<byte>`.
+Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
-`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs, such as `{ "key1": 7, "key2": 18 }` for `Dictionary<string, byte>`.
+```HashSet<valueType>``` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
+
+Example for `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+
+`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs.
+
+Example for `Dictionary<string, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 ```flags``` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
@@ -494,7 +508,7 @@ Value | Name
 
 Using ```B + C``` would result in value of ```6```, using ```A + C``` would result in value of ```5```, using ```C``` would result in value of ```4``` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making ```None + A + B + C```, you'd get value of ```7```. Also notice that flag with value of ```0``` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as ```None```).
 
-*Pro tip: To avoid all that mess and calculating final value yourself, just use ConfigGenerator and pick appropriate checkboxes, it's much easier!*
+So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 7 possible values overall (`None`, `A`, `B`, `C`, `A+B`, `A+C`, `A+B+C`).
 
 ---
 
