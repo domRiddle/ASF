@@ -45,4 +45,6 @@ If you're using OS-specific package then you don't need to worry about runtime r
 
 However, if you're running generic package then you must ensure that your .NET Core runtime supports platform required by ASF.
 
-ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. We like preview builds, so very likely you'll need to have latest .NET Core preview runtime available if you want to use latest ASF code.
+ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/core/preview)** available for your machine.
+
+As you can see, we also like preview builds, so very often you'd need latest **preview** SDK in order to compile latest ASF code.
