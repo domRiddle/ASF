@@ -10,7 +10,7 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ## .NET Core SDK
 
-Regardless of platform, you need full .NET Core SDK in order to compile ASF. Instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/core/preview)**. In any case, you must have `dotnet` command operative after installation. You can verify if it works with `dotnet --info`.
+Regardless of platform, you need full .NET Core SDK in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/core/preview)**. In any case, you must have `dotnet` command operative after installation. You can verify if it works with `dotnet --info`.
 
 ```
 C:\Users\Archi>dotnet --info
