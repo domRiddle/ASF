@@ -35,7 +35,7 @@ Microsoft .NET Core Shared Framework Host
 
 ---
 
-## Unofficial compilation
+## Compilation
 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
@@ -58,6 +58,6 @@ Of course, replace `TARGET_RUNTIME` with OS-architecture you want to target, suc
 
 ---
 
-## Official compilation
+## Official releases
 
 Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with .NET Core SDK included in latest Visual Studio Preview. After passing tests, they're deployed on GitHub.
