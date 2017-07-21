@@ -43,7 +43,7 @@ Of course, even if you don't have OS-specific package available for your OS-arch
 
 If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed and up-to-date.
 
-However, if you're running generic package then you must ensure that your .NET Core runtime supports platform required by ASF.
+However, if you're trying to run generic ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
 
 ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/core/preview)** available for your machine.
 
