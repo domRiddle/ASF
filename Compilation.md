@@ -10,7 +10,7 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ## .NET Core SDK
 
-Regardless of platform, you need full .NET Core SDK in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/core/preview)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Regardless of platform, you need full .NET Core SDK in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/core/preview)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
 ```
 C:\Users\Archi>dotnet --info
