@@ -29,6 +29,6 @@ All done? Great, simply launch `ArchiSteamFarm` binary, put extra details if ask
 
 ***
 
-## Need more help?
+## Want to learn more?
 
 Head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)**.
