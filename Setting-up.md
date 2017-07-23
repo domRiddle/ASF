@@ -23,6 +23,8 @@ Next step is downloading **[latest ASF release](https://github.com/JustArchi/Arc
 
 Once you get your package and extract the zip file, you'll have a bunch of files, folders and everything. Ignore all of that for now, since it's configuration time. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and follow instructions - you should at least generate one bot config file that you put in `config` directory.
 
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file.
+
 All done? Great, simply launch `ArchiSteamFarm` binary, put extra details if asked (such as your 2FA code), and have fun. Reading more about ASF while it's doing its job is a great thing to consider.
 
 ***
