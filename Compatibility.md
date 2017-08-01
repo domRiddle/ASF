@@ -37,6 +37,8 @@ For more information about RIDs, visit **[RID catalog](https://docs.microsoft.co
 
 Of course, even if you don't have OS-specific package available for your OS-architecture combination, you can always install appropriate .NET Core runtime yourself and run generic ASF flavour, which is also the main reason why it exists in the first place. Generic ASF build is platform-agnostic and will run on any platform that has a working .NET Core runtime. This is important to note - ASF requires .NET Core 2.0+, not some specific OS or architecture. For example, if you're running 32-bit Windows then despite of no dedicated `win-x86` ASF version, you can still install .NET Core 2.0 in `win-x86` version and run generic ASF just fine. We simply can't target every OS-architecture combination that exists and is used by somebody, so we have to draw a line somewhere.
 
+For a complete list of all supported platforms and OSes by .NET Core 2.0, visit **[roadmap](https://github.com/dotnet/core/blob/master/roadmap.md#net-core-20---supported-os-versions)**.
+
 ---
 
 ## Runtime requirements
