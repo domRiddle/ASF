@@ -530,9 +530,9 @@ Example for `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 ***
 
-`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs.
+`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in min that `keyType` is always quoted in this case, even if it's value type such as `ulong`.
 
-Example for `Dictionary<string, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+Example for `Dictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 ***
 
