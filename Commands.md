@@ -97,6 +97,9 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!status <Bots>` | `FamilySharing` | Prints status of given bot instances
 `!stop` | `Master` | Stops current bot instance
 `!stop <Bots>` | `Master` | Stops given bot instances
+`!unpack` | `Master` | Unpacks all booster packs stored in the inventory of current bot instance
+`!unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances
+`!stop <Bots>` | `Master` | Stops given bot instances
 `!update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`)
 `!version` | `FamilySharing` | Prints version of ASF
 
