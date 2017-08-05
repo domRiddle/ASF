@@ -54,7 +54,7 @@ Now hit `Download` button and if you did everything properly a new `BotName.json
 
 Now you're ready to start ASF. Simply start `ArchiSteamFarm(.exe)` binary and you should notice that ASF starts logging in into your account and idling cards. If you didn't provide Steam login/password, you'll be asked for that, as well as for SteamGuard/2FA code if you use it. ASF makes use of Steam login keys, so you won't need to input SteamPassword/SteamGuard/2FA code on each run.
 
-Congratulations, you've just learnt the basics of using web-based ConfigGenerator. If you want to add another account, simnply do the same, just use different name for your bot. In the same way you can generate global ASF config (by switching to ASF tab).
+Congratulations, you've just learnt the basics of using web-based ConfigGenerator. If you want to add another account, simply do the same, just use different name for your bot. In the same way you can generate global ASF config (by switching to ASF tab).
 
 I encourage you to read below what is the exact purpose of everything you've configured so far. This was a very simplified tutorial that didn't cover a lot of extra features that ASF offers, such as offline farming, SteamTradeMatcher or dismissing inventory notifications.
 
