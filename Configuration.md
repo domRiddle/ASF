@@ -480,7 +480,7 @@ For further explanation of ASF trading logic, and description of every available
 
 ASF is using quite simple file structure.
 
-`
+```
 ├── config
 │   ├── ASF.json
 │   ├── ASF.db
@@ -494,7 +494,7 @@ ASF is using quite simple file structure.
 ├── ArchiSteamFarm(.exe)
 └── log.txt
 └── ...
-`
+```
 
 In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
 
