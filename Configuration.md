@@ -87,17 +87,16 @@ Global config is located in `ASF.json` file and has following structure:
 	"Headless": false,
 	"IdleFarmingPeriod": 3,
 	"InventoryLimiterDelay": 3,
+	"IPCHost": "127.0.0.1",
+	"IPCPort": 1242,
 	"LoginLimiterDelay": 10,
 	"MaxFarmingTime": 10,
 	"MaxTradeHoldDuration": 15,
 	"OptimizationMode": 0,
 	"Statistics": true,
 	"SteamOwnerID": 0,
-	"SteamProtocol": 6,
-	"UpdateChannel": 1,
-	"WCFBinding": 0,
-	"WCFHost": "127.0.0.1",
-	"WCFPort": 1242
+	"SteamProtocols": 7,
+	"UpdateChannel": 1
 }
 ```
 
@@ -153,6 +152,14 @@ ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded i
 
 ***
 
+`IPCHost` - `string` type with default value of `127.0.0.1`. This is a host, also known as "bind address", used by **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**. This property makes sense only when IPC is enabled. ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing IPC interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to IPC yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `0.0.0.0` which enables IPC on all network interfaces. Remember that this property should be properly configured for both `server` and `client` machines (if they're not the same). In addition to that, you can use a value of `null`, which will cause ASF to ask you about that property on each startup (which might be useful security measure if you don't want to expose IP of your server). Unless you have a **strong** reason to edit this property, you should keep it at default.
+
+***
+
+`IPCPort` - `ushort` type with default value of `1242`. This is the port on which **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** is running by default. You may want to change it to any port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Remember that this property should be the same on both `server` and `client` machines (if they're not the same). Unless you have a reason to edit this property, you should keep it at default.
+
+***
+
 `LoginLimiterDelay` - `byte` type with default value of `10`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ***
@@ -177,23 +184,22 @@ ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded i
 
 ***
 
-`SteamProtocol` - `byte` type with default value of `6`. This property defines network protocol that will be used for built-in steam client being used by ASF. Currently only 2 values are supported - `6` which specifies `TCP` protocol, and `17` which specifies `UDP` protocol. Using any other value will result in using default value of `6`. Switching from `TCP` to `UDP` might be useful if you're trying to work around some kind of firewall, or you're trying to set up a proxy. UDP steam protocol is currently **EXPERIMENTAL**, and **[contains bugs](https://github.com/JustArchi/ArchiSteamFarm/issues/186)**, so use it at your own risk. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`SteamProtocols` - `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+
+Value | Name  | Description
+--- | --- | ---
+0 | None | No protocol
+1 | TCP | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)**
+2 | UDP | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**
+4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**
+
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags explanation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#types)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+
+By default ASF uses all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ***
 
 `UpdateChannel` - `byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `AutoUpdates` is `true`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (None), if you want to completely remove all version checks, although this is not recommended, unless for some reason you don't want to even receive notifications about new versions.
-
-***
-
-`WCFBinding` - `byte` type with default value of `0`. This property defines the type of binding that is being used for **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**. Currently ASF supports three bindings - `0` which will use `NetTcp` binding, `1`, which will use `BasicHttp` binding, and `2`, which will use `WSHttp` binding. The only real advantage in switching from `NetTcp` binding to any of `Http` bindings is potential compatibility with third-party scripts and programs, mainly those that are not written in C# and can't implement `NetTcp` binding used by default in ASF. If you can, it's **strongly** recommended to keep `NetTcp` binding, as it's the most secure binding allowing binding to `127.0.0.1` address which ensures that ASF WCF is accessible only from your own machine. `Http` bindings are by default listening on `0.0.0.0` address, even when `WCFHost` is configured to `127.0.0.1`, therefore you will need to add extra security, as stated in `WCFHost` property documentation. For a nice overview and comparison of all available bindings, visit **[MSDN](https://msdn.microsoft.com/library/ms730879(v=vs.110).aspx)**. Remember that this property should be properly configured for both `server` and `client` machines (if they're not the same). Unless you have a **strong** reason to edit this property, you should keep it at default.
-
-***
-
-`WCFHost` - `string` type with default value of `127.0.0.1`. This is a host, also known as "bind address", used by **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**. This property makes sense only when WCF is enabled. ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing WCF interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to WCF yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `0.0.0.0` which enables WCF on all network interfaces. Remember that this property should be properly configured for both `server` and `client` machines (if they're not the same). In addition to that, you can use a value of `null`, which will cause ASF to ask you about that property on each startup (which might be useful security measure if you don't want to expose IP of your server). Unless you have a **strong** reason to edit this property, you should keep it at default.
-
-***
-
-`WCFPort` - `ushort` type with default value of `1242`. This is the port on which **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)** is running by default. You may want to change it to any port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Remember that this property should be the same on both `server` and `client` machines (if they're not the same). Unless you have a reason to edit this property, you should keep it at default.
 
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
@@ -210,6 +216,7 @@ As you should know already, every bot should have its own config. Example bot co
 ```
 {
 	"AcceptGifts": false,
+	"AutoDiscoveryQueue": false,
 	"CardDropsRestricted": true,
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
@@ -219,10 +226,14 @@ As you should know already, every bot should have its own config. Example bot co
 	"FarmOffline": false,
 	"GamesPlayedWhileIdle": [],
 	"HandleOfflineMessages": false,
+	"IdleRefundableGames": true,
 	"IsBotAccount": false,
 	"LootableTypes": [
 		1,
 		3,
+		5
+	],
+	"MatchableTypes": [
 		5
 	],
 	"PasswordFormat": 0,
@@ -248,6 +259,10 @@ As you should know already, every bot should have its own config. Example bot co
 All options are explained below:
 
 `AcceptGifts` - `bool` type with default value of `false`. When enabled, ASF will automatically accept and redeem all steam gifts received by the bot. This includes also gifts from users different than defined in `SteamUserPermissions`. This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those gifts (without your help), therefore you should be sending steam gifts to your bots directly. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+
+***
+
+`AutoDiscoveryQueue` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam discovery queue is known for providing you extra cards each day for browsing it each day. When this option is enabled, ASF will automatically check Steam discovery queue each 6 hours, and clear it if needed. This option is not recommended if you want to browse your queue yourself, and typically it should make sense only on bot accounts. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 ***
 
@@ -284,6 +299,11 @@ Value | Name  | Description
 6 | HoursDescending | Try to farm games with highest number of hours played first
 7 | NamesAscending | Try to farm games in alphabetical order, starting from A
 8 | NamesDescending | Try to farm games in reverse alphabetical order, starting from Z
+9 | Random | Try to farm games in totally random order
+10 | BadgeLevelsAscending | Try to farm games with lowest badge levels first
+11 | BadgeLevelsDescending | Try to farm games with highest badge levels first
+12 | RedeemDateTimesAscending | Try to farm oldest games on our account first
+13 | RedeemDateTimesDescending | Try to farm newest games on our account first
 
 Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrder` should be entirely respected in current farming session (as every game is treated the same), while in `Complex` algorithm actual order is affected by hours and then sorted according to chosen `FarmingOrder`. This will lead to different results, as post-2h games have higher priority over pre-2h ones. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over `FarmingOrder`).
 
@@ -300,6 +320,10 @@ Notice the word "try" in all above descriptions - the actual order is heavily af
 `HandleOfflineMessages` - `bool` type with default value of `false`. When `FarmOffline` feature is enabled, bot is not able to receive commands in usual way, as it's not logged into steamcommunity. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `FarmOffline` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
 
 It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situation when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you disable `FarmOffline` altogether. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+
+***
+
+`IdleRefundableGames` - `bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that we bought in last 2 weeks through Steam Store and we didn't play it for longer than 2 hours yet, as stated **[here](http://store.steampowered.com/steam_refunds/)**. By default when this option is set to `true`, ASF ignores Steam refunds entirely and idles everything, as most people expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
 
 ***
 
@@ -333,6 +357,22 @@ Value | Name  | Description
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 Default ASF setting is based on most common usage of the bot, with looting only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything.
+
+***
+
+`MatchableTypes` - `HashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
+
+Value | Name  | Description
+--- | --- | ---
+0 | Unknown | Every type that doesn't fit in any of the below
+1 | BoosterPack | Unpacked booster pack
+2 | Emoticon | Emoticon to use in Steam Chat
+3 | FoilTradingCard | Foil variant of `TradingCard`
+4 | ProfileBackground | Profile background to use on your Steam profile
+5 | TradingCard | Steam trading card, being used for crafting badges (non-foil)
+6 | SteamGems | Steam gems being used for crafting boosters, sacks included
+
+Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
 ***
 
