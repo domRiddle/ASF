@@ -59,6 +59,12 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!help` | `FamilySharing` | Shows help (link to this page)
 `!input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
+`!iq` | `Master` | Lists priority idling queue of current bot instance.
+`!iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
+`!iqadd <appIDs>` | `Master` | Adds given `appIDs` to priority idling queue of current bot instance.
+`!iqadd <Bots> <appIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
+`!iqrm <appIDs>` | `Master` | Removes given `appIDs` from priority idling queue of current bot instance.
+`!iqrm <Bots> <appIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of current bot instance to first `Master` defined in its bot config.
 `!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of given bot instances to first `Master` defined in their bot configs.
@@ -72,14 +78,14 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `!resume` it, or restart the process. Also called sticky pause.
 `!pause~` | `FamilySharing` | Temporarily pauses automatic cards farming module of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `!resume` farming to unpause it.
 `!pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `!resume` farming to unpause it.
+`!pause& <seconds>` | `Operator` | Temporarily pauses automatic cards farming module of current bot instance for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
+`!pause& <Bots> <seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
 `!play <appIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on current bot instance. Use `!resume` for returning to automatic farming | `FamilySharing` | `!play 440,570`, `!play 570`
 `!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on given bot instances. Use `!resume` for returning to automatic farming
 `!redeem <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance
 `!redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances
-`!redeem^ <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance, never forwards keys to other bots (like `RedeemingPreferences` of `None`)
-`!redeem^ <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, never forwards keys to other bots (like `RedeemingPreferences` of `None`)
-`!redeem& <Keys>` | `Operator` | Redeems given `cd-keys` on **any** bot instance **apart from** current one (enforces one-time `Forwarding` in `RedeemingPreferences`, even if it's not enabled)
-`!redeem& <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on **any** bot instance **apart from** given one (enforces one-time `Forwarding` in `RedeemingPreferences`, even if it's not enabled)
+`!redeem^ <Keys> <Modes>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained below
+`!redeem^ <Bots> <Keys> <Modes>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained below
 `!rejoinchat` | `Operator` | Forces current bot instance to rejoin its `SteamMasterClanID` groupchat
 `!rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` groupchat
 `!restart` | `Owner` | Restarts ASF process
