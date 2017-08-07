@@ -18,11 +18,11 @@ Or in generic package on any platform:
 dotnet ArchiSteamFarm.dll --server
 ```
 
-If parameter was passed correctly, you should notice that WCF service is active:
-`
+If parameter was passed correctly, you should notice that IPC service is active:
+```
 INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/IPC...
 INFO|ASF|StartServer() IPC server ready!
-`
+```
 
 ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections (or whatever `IPCHost` and `IPCPort` you specified in the config).
 
