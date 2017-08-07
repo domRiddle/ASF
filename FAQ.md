@@ -240,12 +240,6 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
-**Q:** Can ASF farm steam cards obtained via Steam discovery during summer/winter sale?
- 
-**A:** **No**, that's out of the scope of the program and not planned to be added anytime soon.
-
-***
-
 **Q:** Why ASF-ConfigGenerator states version mismatch between ASF binary and CG binary?
  
 **A:** Because ASF-ConfigGenerator intentionally doesn't include auto-update function, as auto-update is a feature of ASF, not CG. CG is not required for ASF to run, therefore it's not part of ASF auto-updates. If you attempt to use outdated CG with ASF, then it'll refuse to start as config structure might not match given ASF version, leading to broken/invalid configs being generated. It's not planned to add auto-update feature to CG, as CG functionality should be included together with ASF functionality in upcoming ASF-GUI binary, once it's finished. Until then, you need to update CG manually if you wish to use it.
