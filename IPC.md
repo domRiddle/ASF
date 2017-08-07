@@ -20,7 +20,7 @@ dotnet ArchiSteamFarm.dll -- --server
 
 If parameter was passed correctly, you should notice that IPC service is active:
 ```
-INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/IPC...
+INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/IPC/...
 INFO|ASF|StartServer() IPC server ready!
 ```
 
