@@ -38,6 +38,12 @@ ASF in IPC mode supports all commands that are available, you can review them in
 
 ---
 
+## Examples
+
+![Image](http://i.imgur.com/Ue8q3uZ.png)
+
+---
+
 ## FAQ
 
 **Q:** Why should I consider using IPC in ASF?
