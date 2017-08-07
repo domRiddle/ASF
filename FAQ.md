@@ -325,12 +325,6 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
-**Q:** ```Unhandled Exception: System.MissingMethodException: Method not found```
-
-**A:** This error indicates that your .NET framework doesn't support latest 4.6.1 instructions, as in - it's outdated. You should make sure that you're using latest .NET framework available for your platform, or latest Mono if you're using it instead. Head over to **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** for more information.
-
-***
-
 **Q:** ```No bots are running, exiting```
 
 **A:** Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in ```--server``` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**).
