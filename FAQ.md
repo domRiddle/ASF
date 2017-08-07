@@ -240,12 +240,6 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
-**Q:** Why ASF-ConfigGenerator states version mismatch between ASF binary and CG binary?
- 
-**A:** Because ASF-ConfigGenerator intentionally doesn't include auto-update function, as auto-update is a feature of ASF, not CG. CG is not required for ASF to run, therefore it's not part of ASF auto-updates. If you attempt to use outdated CG with ASF, then it'll refuse to start as config structure might not match given ASF version, leading to broken/invalid configs being generated. It's not planned to add auto-update feature to CG, as CG functionality should be included together with ASF functionality in upcoming ASF-GUI binary, once it's finished. Until then, you need to update CG manually if you wish to use it.
-
-***
-
 **Q:** Can ASF minimize to tray?
  
 **A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)** for Windows, or **[screen](http://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
