@@ -24,7 +24,7 @@ As part of ASF integration, ASF also includes support for one additional `SteamT
 
 ## Default logging
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole`, `EventLog` (if ASF is started as a service) and `File` (otherwise). In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
 
@@ -33,23 +33,15 @@ If you want to use default ASF logging without any modifications, you don't need
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" detectConsoleAvailable="false" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-<!--
-    <target xsi:type="EventLog" name="EventLog" layout="${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" log="ArchiSteamFarm" source="Logger" />
--->
     <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-<!--
-    <logger name="*" minlevel="Debug" writeTo="EventLog" />
--->
     <logger name="*" minlevel="Debug" writeTo="File" />
   </rules>
 </nlog>
 ```
-
-**Notice:** Remember that ASF uses either `EventLog`, or `File`, depending of whether it was started as Windows service (`EventLog`), or not (`File`), but never both at the same time. In custom NLog above, both targets were included for completion.
 
 ---
 
@@ -72,7 +64,7 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
 
 The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** of level `Debug` and higher to `ColoredConsole` target we defined earlier. That's it.
 
-If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, neither to `EventLog`, regardless of hardcoded ASF NLog configuration.
+If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, regardless of hardcoded ASF NLog configuration.
 
 Now let's say that we don't like default format of `${level:uppercase=true}|${logger}|${message}` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
