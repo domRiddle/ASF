@@ -67,9 +67,9 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 **Q:** Can ASF work on my android/smartphone?
 
-**A:** ASF is a C# program and requires working implementation of .NET framework - either official one (Microsoft), or unofficial one (Mono). There is no Mono available for Android (natively), so ASF won't work on Android. It might be possible to port ASF to Android using **[Xamarin](https://www.xamarin.com/)**, but that's not on ASF roadmap and not being actively developed. Perhaps in future with progress of **[.NET Core](https://dotnet.github.io/)** it will be possible, but there are no plans for doing this at the moment.
+**A:** ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
-However, keep in mind that Android is simply-put Unix on ARM platform. Mono supports ARM platform, so it **is** possible to run ASF on Android, by rooting your device, installing any Linux OS next to your Android for example with **[this](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** application, then installing and running Mono as described in the wiki. It's not easy task, but if you have courage to try it, there is nothing really stopping you. ASF supports Mono on ARM, and it should work properly (even though it's not carefully tested).
+It's very likely that in the future we'll see working .NET Core for Android itself.
 
 ***
 
