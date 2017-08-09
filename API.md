@@ -43,6 +43,10 @@ The example response of latest version has following form:
 			},
 			"AccountFlags":271073413,
 			"SteamID": 76561198006963719,
+			"BotConfig": {
+				"SteamLogin": null,
+				"SteamPassword": null
+			},
 			"KeepRunning": true
 		},
 		"secondary": {
@@ -54,6 +58,7 @@ The example response of latest version has following form:
 			},
 			"AccountFlags":0,
 			"SteamID": 0,
+			"BotConfig": null,
 			"KeepRunning": true
 		}
 	}
@@ -75,6 +80,8 @@ The example response of latest version has following form:
 `AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
 
 `SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
+
+`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes all config variables available. This property can be used for determining with what options the bot is configured to work.
 
 `KeepRunning` is a `bool` type that specifies if bot is active. Active bot is a bot that has been `!start`ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be `false`. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what `SteamID` can be used for).
 
