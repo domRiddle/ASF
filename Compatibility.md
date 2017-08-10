@@ -18,7 +18,7 @@ ASF comes in 2 main flavours - generic package and OS-specific.
 
 ### Generic
 
-Generic package is platform-agnostic build that doesn't include anything but managed code. This setup requires from you to have .NET Core already installed on your OS **in appropriate version**. We all know how troublesome it is to keep dependencies up-to-date, therefore this package is here mainly for people that **already use** .NET Core and don't want to duplicate their runtime solely for ASF if they can make use of what they have installed already. I do not recommend using generic flavour if you're casual or even advanced user that just want to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, use it, otherwise just use OS-specific package explained below.
+Generic package is platform-agnostic build that doesn't include any machine-specific code. This setup requires from you to have .NET Core already installed on your OS **in appropriate version**. We all know how troublesome it is to keep dependencies up-to-date, therefore this package is here mainly for people that **already use** .NET Core and don't want to duplicate their runtime solely for ASF if they can make use of what they have installed already. I do not recommend using generic flavour if you're casual or even advanced user that just want to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, use it, otherwise just use OS-specific package explained below.
 
 ---
 
