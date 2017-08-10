@@ -84,8 +84,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on given bot instances. Use `!resume` for returning to automatic farming
 `!redeem <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance
 `!redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances
-`!redeem^ <Keys> <Modes>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**
-`!redeem^ <Bots> <Keys> <Modes>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**
+`!redeem^ <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**
+`!redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**
 `!rejoinchat` | `Operator` | Forces current bot instance to rejoin its `SteamMasterClanID` groupchat
 `!rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` groupchat
 `!restart` | `Owner` | Restarts ASF process
@@ -165,7 +165,7 @@ V | Validate | Validates keys for proper format and automatically skips invalid 
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
-`!redeem^ primary key1,key2,key3 FF,SI`
+`!redeem^ primary FF,SI key1,key2,key3`
 
 ---
 
