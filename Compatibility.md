@@ -49,4 +49,4 @@ However, if you're trying to run generic ASF package then you must ensure that y
 
 ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/core/preview)** available for your machine.
 
-As you can see, we also like preview builds, so very often you'd need latest **preview** SDK in order to use generic ASF package. If in doubt, check what our continuous integration uses for compiling and deploying ASF releases on GitHub.
+As you can see, we also like preview builds, so very often you might need latest **preview** SDK in order to use generic ASF package. If in doubt, check what our continuous integration uses for compiling and deploying ASF releases on GitHub.
