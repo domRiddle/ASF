@@ -150,7 +150,7 @@ When using **IPC**, keep in mind that:
 
 `!redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
-`<modes>` argument accepts multiple mode values, separates as usual by a comma `,`. Available mode values are specified below:
+`<modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
 
 Value | Name  | Description
 --- | --- | ---
