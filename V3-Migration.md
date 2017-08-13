@@ -66,7 +66,7 @@ I want the best for ASF, and .NET Core is probably the best thing that happened 
 
 Luckily for you - **not at all!**
 
-In terms of differences, this change is a very huge step forward, but in terms of practical differences ASF V3 mainly changed **low-level things**, those that are often implementation details and not necessary for you to touch in the first place.
+In terms of technical differences, this change is a very huge step forward, but in terms of practical differences ASF V3 mainly changed **low-level things**, those that are often implementation details and not necessary for you to touch in the first place.
 
 Of course, there are some changes that are important to mention, here is the list of changes I consider important, as well as what to do with them.
 
