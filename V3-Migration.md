@@ -144,7 +144,7 @@ ASF V2 **could** in theory upgrade itself to ASF V3 automatically, as there are 
 
 Luckily for you, like pointed above, installation/migration guide is very easy. Just follow points below:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine.
+- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine. For Windows this is just Visual C++ Redistributable, for other OSes this is a set of standard libraries. Very likely you might have majority or even all requirements already installed.
 - Download OS-specific ASF package for your machine, such as `win-x64` for 64-bit Windows.
 - Unpack downloaded archive into new location.
 - Copy entire `config` directory from old ASF V2 location into new ASF V3 location, overwriting existing files.
