@@ -4,7 +4,7 @@
 
 If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - there is a steep learning curve involved here. ASF is not just some toy program with friendly GUI, one click installer and fancy window, it's a very sophisticated and complex Steam tool that can do almost anything, as long as **you care enough** to learn how to configure and use it. If you do, we've got you covered with our wiki and usual wall of text. And if you don't care, just use **[Idle Master](http://www.steamidlemaster.com/)** or something, we won't do homework for you.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped it, then you're going to have **[a bad time](Ihttps://www.youtube.com/watch?v=x1RSS7BdvCI)**... Anyway, ASF is a console app, which means that program itself doesn't have a friendly GUI that you're in general used to. This means that ASF is a standalone executable file that doesn't need installation, and actually works out of the box, but requires configuration prior to launching it.
+If you're still here then it means that you endured our text above, which is nice. Unless you skipped it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=x1RSS7BdvCI)**... Anyway, ASF is a console app, which means that program itself doesn't have a friendly GUI that you're in general used to. This means that ASF is a standalone executable file that doesn't need installation, and actually works out of the box, but requires configuration prior to launching it.
 
 ***
 
