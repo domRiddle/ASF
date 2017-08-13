@@ -150,4 +150,4 @@ Luckily for you, like pointed above, installation/migration guide is very easy. 
 - Copy entire `config` directory from old ASF V2 location into new ASF V3 location, overwriting existing files.
 - Run `ArchiSteamFarm`, confirm that everything works, and delete your old ASF V2 from its location.
 
-If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**.
+If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**. And if you require more detailed explanation, visit **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**.
