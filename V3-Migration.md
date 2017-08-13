@@ -140,6 +140,10 @@ It's unknown for now whether this feature will come to Linux or OS X in the futu
 
 ## Complete migration guide
 
+ASF V2 **could** in theory upgrade itself to ASF V3 automatically, as there are no breaking changes in terms of configs or general usage, but intentionally this **won't happen**, as V3 is a major replacement and I want everybody to carefully proceed with a manual upgrade in order to ensure that everything works fine for them.
+
+Luckily for you, like pointed above, installation/migration guide is very easy. Just follow points below:
+
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** for your machine.
 - Download OS-specific ASF package for your machine, such as `win-x64` for 64-bit Windows.
 - Unpack downloaded archive into new location.
