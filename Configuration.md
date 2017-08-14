@@ -286,7 +286,7 @@ All options are explained below:
 
 ***
 
-`FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. There are currently 9 farming orders available:
+`FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
 
 Value | Name  | Description
 --- | --- | ---
