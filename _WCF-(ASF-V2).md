@@ -1,4 +1,4 @@
-# WCF
+# WCF (ASF V2)
 
 Starting with version 1.3+, ASF now offers WCF (Windows Communication Foundation) inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
