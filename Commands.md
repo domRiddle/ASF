@@ -97,6 +97,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!status <Bots>` | `FamilySharing` | Prints status of given bot instances
 `!stop` | `Master` | Stops current bot instance
 `!stop <Bots>` | `Master` | Stops given bot instances
+`!transfer <Modes> <Bot>` | `Master` | Sends from current bot instance to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**
+`!transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**
 `!unpack` | `Master` | Unpacks all booster packs stored in the inventory of current bot instance
 `!unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances
 `!stop <Bots>` | `Master` | Stops given bot instances
@@ -166,6 +168,27 @@ V | Validate | Validates keys for proper format and automatically skips invalid 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
 `!redeem^ primary FF,SI key1,key2,key3`
+
+---
+
+## `!transfer` modes
+
+`<modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
+
+Value | Alias | Description
+--- | --- | --- | ---
+All | A | Same as enabling all item types below
+Background | BG | Profile background to use on your Steam profile
+Booster | BO | Booster pack
+Card | C | Steam trading card, being used for crafting badges (non-foil)
+Emoticon | E | Emoticon to use in Steam Chat
+Foil | F | Foil variant of `Card`
+Gems | G | Steam gems being used for crafting boosters, sacks included
+Unknown | U | Every type that doesn't fit in any of the above
+
+For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
+
+`!transfer MyBot C,F MyMain`
 
 ---
 
