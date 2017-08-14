@@ -27,7 +27,7 @@ You can also further customize ASF trading capabilities by modifying `TradingPre
 When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
 
 - Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of cards on per-game basis.
+- Reject the trade if we're not receiving at least the same number of cards on per-game and per-type basis.
 - Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
 - Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
 - Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
