@@ -19,7 +19,7 @@ Some of the subjects you might be interested in:
 Advanced users might be interested in:
 
 1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-2. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+2. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 3. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 4. **[Command-Line Arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**
 5. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
@@ -46,6 +46,7 @@ Some legacy wiki pages we still keep for a while:
 8. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
 9. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
 10. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
+11. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
 11. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
 12. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
