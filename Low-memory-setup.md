@@ -40,6 +40,6 @@ TODO
 
 ***
 
-## .NET Core Recompilation (Expert / Developer)
+## .NET Core recompilation (Expert / Developer)
 
 TODO
