@@ -12,7 +12,7 @@ ASF is extremely well optimized, and makes use of available resources as much as
 
 ***
 
-Below suggestions are divided into three categories, from simple ASF tricks, through fine-tuning the runtime, and finishing at full runtime recompilation.
+Below suggestions are divided into two categories - simple ASF tricks, and runtime tuning.
 
 ***
 
@@ -65,9 +65,3 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ```
 
 To the best of my knowledge I'm not even sure if this option works properly. It definitely won't hurt to try though.
-
-***
-
-## .NET Core recompilation (expert / developer)
-
-TODO
