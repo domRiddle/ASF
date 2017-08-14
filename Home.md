@@ -19,15 +19,14 @@ Some of the subjects you might be interested in:
 Advanced users might be interested in:
 
 1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-2. **[Mono](https://github.com/JustArchi/ArchiSteamFarm/wiki/Mono)**
-3. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
-4. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-5. **[Command-Line Arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**
-6. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-7. **[Running as Service](https://github.com/JustArchi/ArchiSteamFarm/wiki/Running-as-Service)**
-8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+2. **[WCF](https://github.com/JustArchi/ArchiSteamFarm/wiki/WCF)**
+3. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+4. **[Command-Line Arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**
+5. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+6. **[Running as Service](https://github.com/JustArchi/ArchiSteamFarm/wiki/Running-as-Service)**
+7. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+8. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+9. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
 Developers might be interested in:
 
@@ -46,8 +45,9 @@ Some legacy wiki pages we still keep for a while:
 6. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
 7. **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
 8. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
-9. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
-10. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
+9. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
+10. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
+11. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/HStsVSB)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
