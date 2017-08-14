@@ -51,7 +51,7 @@ ASF is using server garbage collection by default. This is dictated mainly by th
 
 Server GC itself does not result in a very huge memory increase by just being active, but it is far more lazy when it comes to giving memory back to OS, that's why usually just setting `BackgroundGCPeriod` to `1` or `2` should be enough in order to still keep awesome performance that comes from server GC, while forcing it to give back more unused memory to OS in fixed intervals. However, if your situation requires it, you can disable server GC entirely by changing `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `true` to `false`. This will force usage of traditional workstation GC. If you decided to do this, you should probably turn off `BackgroundGCPeriod` as it won't bring a big improvement anymore - workstation GC is pretty conservative as it is.
 
-While this was an option worth mentioning, you shouldn't disable server GC unless you have a strong reason for doing so. It can result in major ASF performance drop, basically limiting ASF processing power to just 2 cores at a time. If possible, try to keep server GC enabled, as this is second biggest performance drop, with `MinMemoryUsage` `OptimizationMode` being the biggest one.
+While this was an option worth mentioning, you shouldn't disable server GC unless you have a strong reason for doing so. It can result in major ASF performance drop, basically limiting ASF processing power to just 2 cores at a time. If possible, try to keep server GC enabled. Properly tuned `BackgroundGCPeriod` should be good enough for keeping server GC under control.
 
 ***
 
