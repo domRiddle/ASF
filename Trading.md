@@ -2,7 +2,7 @@
 
 ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
 
-Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured ```IsBotAccount``` property.
+Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured `IsBotAccount` property.
 
 ***
 
@@ -12,25 +12,25 @@ ASF will always accept all trades, regardless of items, sent from user with `Mas
 
 ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `!bl`, `!bladd` and `!blrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
-ASF will accept all ```!loot``` trades being sent across bots, unless ```DontAcceptBotTrades``` is specified in ```TradingPreferences```. In short, default ```TradingPreferences``` of ```None``` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what ```DontAcceptBotTrades``` in your ```TradingPreferences``` is for.
+ASF will accept all `!loot` trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
 
-When you enable ```AcceptDonations``` in your ```TradingPreferences```, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by ```DontAcceptBotTrades```. ```AcceptDonations``` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
+When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
 
-It's nice to note that ```AcceptDonations``` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, as there is no confirmation needed if we're not losing any items.
+It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, as there is no confirmation needed if we're not losing any items.
 
-You can also further customize ASF trading capabilities by modifying ```TradingPreferences``` accordingly. One of the main ```TradingPreferences``` features is ```SteamTradeMatcher``` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
+You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
 
 ***
 
 ## SteamTradeMatcher
 
-When ```SteamTradeMatcher``` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
 
 - Reject the trade if we're losing anything but non-foil Steam trading cards.
 - Reject the trade if we're not receiving at least the same number of cards on per-game basis.
 - Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds ```MaxTradeHoldDuration``` global config property.
-- Reject the trade if we don't have ```MatchEverything``` set, and it's worse than neutral for us.
+- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
+- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
 - Accept the trade if we didn't reject it through any of the points above.
 
 It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
@@ -43,8 +43,8 @@ First 4 reject predicates should be obvious for everyone. The final one includes
 
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade.
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable ```MatchEverything``` in your ```TradingPreferences``` in order to make ASF accept all dupe trades, including bad ones. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card.
+By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including bad ones. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card.
 
-Regardless of your chosen ```TradingPreferences```, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of ```IsBotAccount``` which is ```false```, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
+Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `IsBotAccount` which is `false`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for backgrounds/emoticons trades, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not.
 
-It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** when you enable this option, as this function loses it's whole potential if you decide to manually confirm every trade. ```SteamTradeMatcher``` will work properly even without ability to confirm trades, but manually confirming everything defeats the whole purpose of this option.
+It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** when you enable this option, as this function loses it's whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but manually confirming everything defeats the whole purpose of this option.
