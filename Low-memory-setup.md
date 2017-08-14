@@ -12,7 +12,7 @@ ASF is extremely well optimized, and makes use of available resources as much as
 
 ***
 
-Below suggestions are divided into two categories - simple ASF tricks, and runtime tuning.
+Below suggestions are divided into two categories - simple ASF tricks and runtime tuning.
 
 ***
 
