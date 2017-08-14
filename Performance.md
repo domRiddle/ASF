@@ -36,9 +36,9 @@ Make sure you have some games to farm, preferably 5+, and run ASF with `CardDrop
 
 If you notice that **at least one** game took less than 2 hours to farm:
 
-`
+```
 [*] INFO: FarmSolo() <archi> Done farming: 269250 after 01:30 hours of playtime!
-`
+```
 
 Then it means that your account is **not** restricted, so you should keep `CardDropsRestricted` at `false`. Keep in mind that result a bit higher such as 2:30-2:40 can also be acceptable and suggest that your account is not restricted.
 
@@ -46,11 +46,11 @@ However, if you notice that **every** game takes more than 2-4 hours to farm, an
 
 ASF also tells you status of card drops remaining, so you can easily check if any card dropped in less than 2 hours since start.
 
-`
+```
 2016-08-03 04:40:46|INFO|archi|ShouldFarm() Status for 440540 (Ara Fell): 3 cards remaining
 (...)
 2016-08-03 05:10:54|INFO|archi|ShouldFarm() Status for 440540 (Ara Fell): 2 cards remaining
-`
+```
 
 The mentioned game didn't pass 2 hours yet, and the first card dropped after around 30 minutes, so **definitely** our `CardDropsRestricted` should be `false`. If on the other hand you'd see that no card dropped before 2h mark, and you can reproduce that with several other games (preferably 5+), then **probably** you should set `CardDropsRestricted` to `true`.
 
