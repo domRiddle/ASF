@@ -27,11 +27,11 @@ Core points are repeated once again here, because people are either too blind to
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
 
-ASF as a program is quite complex to understand fully, so I'll skip technical details that should be available in **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**, and offer a very simplified explanation.
+ASF as a program is quite complex to understand fully, so I'll skip technical details that should be available in **[documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**, and offer a very simplified explanation.
 
 ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](http://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** and **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** and **[documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
 Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
 
@@ -49,13 +49,13 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 **Q:** Do I have to put my account credentials?
 
-**A:** **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with ```null```/empty ```SteamLogin``` and/or ```SteamPassword```, and input that data on each ASF run, when required. This way your credentials are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**A:** **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required. This way your credentials are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 ***
 
 **Q:** Farming takes too long, can I somehow speed it up?
 
-**A:** The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as ```FarmingDelay``` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+**A:** The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
 ***
 
@@ -205,14 +205,14 @@ Please note that above is only our interpretation of Steam ToS and various point
 
 **Q:** Did somebody get banned for it?
 
-**A:** Up to today, we had a single accident of guy with over 1000 bots getting trade banned (together with all bots), most likely due to excessive usage of ```!loot ASF``` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
+**A:** Up to today, we had a single accident of guy with over 1000 bots getting trade banned (together with all bots), most likely due to excessive usage of `!loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
 
 > Hello XXX,
 > Thank you for contacting Steam Support.
 > It looks like this account was used to manage a network of bot accounts.
 > Botting is a violation of the Steam Subscriber Agreement.
 
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing ```!loot ASF``` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
+Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `!loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
 
 _Most likely_, because ASF is just a tool and it's **your** decision how to use it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself how you want to use it. I'm not hiding any information that could help you, e.g. the fact that ASF got somebody trade-banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, and I doubt you'll get in trouble.
 
@@ -236,7 +236,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
 
-**A:** Yes, you must set it in ```SteamParentalPIN``` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
+**A:** Yes, you must set it in `SteamParentalPIN` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
 
 ***
 
@@ -248,7 +248,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** Does using ASF preserves eligibility for receiving booster packs?
 
-**A:** **Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep ```FarmOffline``` on ```false```, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**A:** **Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 ***
 
@@ -272,7 +272,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** ASF seems to be working, but I'm not receiving any card drops!
 
-**A:** Cards farming rate differs from game to game, as you can read in **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through ```DismissInventoryNotifications``` bot config property. Check out **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for details.
+**A:** Cards farming rate differs from game to game, as you can read in **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `DismissInventoryNotifications` bot config property. Check out **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for details.
 
 ***
 
@@ -284,7 +284,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** Can I run more ASF instances then?
 
-**A:** You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit ```InvalidPassword/RateLimitExceeded``` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using its own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues. You won't gain anything from launching more than 1 instance per a single IP/interface.
+**A:** You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit `InvalidPassword/RateLimitExceeded` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using its own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues. You won't gain anything from launching more than 1 instance per a single IP/interface.
 
 ***
 
@@ -298,10 +298,10 @@ NoDetail | "OK" status indicating success - the key was successfully redemeed.
 Timeout | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).
 BadActivationCode | The provided key is invalid (not recognized as any valid key by Steam network).
 DuplicateActivationCode | The provided key was already redeemed by some other account.
-AlreadyPurchased | Your account already owns ```packageID``` that is connected with this key. This does not indicate whether key is ```DuplicateActivationCode``` or not - only that it's valid.
+AlreadyPurchased | Your account already owns `packageID` that is connected with this key. This does not indicate whether key is `DuplicateActivationCode` or not - only that it's valid.
 RestrictedCountry | This is region-locked key and your account is not in the valid region that is permitted to redeem it.
 DoesNotOwnRequiredApp | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.
-RateLimited | You made too many failed (anything but ```NoDetail```) attempts and your account was temporarily blocked. Try again in 30-60 minutes.
+RateLimited | You made too many failed (anything but `NoDetail`) attempts and your account was temporarily blocked. Try again in 30-60 minutes.
 
 ***
 
@@ -325,13 +325,13 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
-**Q:** ```No bots are running, exiting```
+**Q:** `No bots are running, exiting`
 
-**A:** Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in ```--server``` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**).
+**A:** Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in `--server` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**).
 
 ***
 
-**Q:** ```Disconnected from Steam!``` - I can't establish connection with Steam servers.
+**Q:** `Disconnected from Steam!` - I can't establish connection with Steam servers.
 
 **A:** ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
 
@@ -339,17 +339,17 @@ ASF will do its best to establish connection, which includes not only asking abo
 
 ***
 
-**Q:** ```IsAnythingToFarm() Could not get badges information, will try again later!```
+**Q:** `IsAnythingToFarm() Could not get badges information, will try again later!`
 
-**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalPIN` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalPIN`.
 
 Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
 
 ***
 
-**Q:** ASF is failing with ```Request failed despite of 5 tries``` errors!
+**Q:** ASF is failing with `Request failed despite of 5 tries` errors!
 
-**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in ```SteamParentalPIN``` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about ```SteamParentalPIN```.
+**A:** Usually it means that you're using Steam parental PIN to access your acount, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalPIN` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalPIN`.
 
 If parental PIN is not the reason, then this is a most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
 
@@ -357,15 +357,15 @@ How to check if Steam is being down? **[Steam Status](https://steamstat.us/)** i
 
 That's however not always the case, as in some situations Steam issues might not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com/)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
 
-Lastly, if nothing helps you can always enable ```Debug``` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
+Lastly, if nothing helps you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
 
-```
+`
 [!!] ERROR: UrlRequest() <patchy> Request: https://steamcommunity.com/my/inventory/json/753/6 failed!
 [!!] ERROR: UrlRequest() <patchy> Status code: ServiceUnavailable
 [!!] ERROR: UrlRequest() <patchy> Content:
 <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
 An error occurred while processing your request.<p>
-```
+`
 
 Which is clearly Steam issue and nothing to fix in ASF. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and error doesn't go away after an hour or two, it might be worth investigating and reporting.
 
@@ -383,19 +383,19 @@ Which is clearly Steam issue and nothing to fix in ASF. You can always try to vi
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
-Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as ```!loot```, then you need to either have your bot on your friendlist, or your ```SteamTradeToken``` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
+Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `!loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
 
 And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarily a problem, but it's also worth mentioning.
 
-If nothing helped, you can always enable ```Debug``` mode and check yourself why requests are failing. Please note that Steam talks crap most of the time, and provided reason might not make any sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and it's quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightlest).
+If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks crap most of the time, and provided reason might not make any sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and it's quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightlest).
 
 In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself 💀.
 
 ***
 
-**Q:** Why do I have to put 2FA/SteamGuard code on each login? / ```Removed expired login key```
+**Q:** Why do I have to put 2FA/SteamGuard code on each login? / `Removed expired login key`
 
 **A:** ASF uses login keys for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam fuckups and Steam network quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
@@ -403,7 +403,7 @@ You could remove bot.db (+ bot.bin, if exists) of affected account and try to li
 
 ***
 
-**Q:** I'm getting error: ```Unable to login to Steam: InvalidPassword or RateLimitExceeded```
+**Q:** I'm getting error: `Unable to login to Steam: InvalidPassword or RateLimitExceeded`
 
 **A:** This error can mean a lot of things, some of them include:
 
@@ -414,11 +414,11 @@ You could remove bot.db (+ bot.bin, if exists) of affected account and try to li
 - Requirement of captcha to log in (very likely to be caused by two reasons above)
 - Any other reason Steam Network might have preventing you from logging in.
 
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase ```LoginLimiterDelay``` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
+In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
 In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in issue above.
 
-And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether ```InvalidPassword``` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
+And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 
 Keep in mind that ASF has its own built-in system to react accordingly to steam quirks, eventually it will connect and resume it's job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
 
