@@ -45,7 +45,7 @@ Some legacy wiki pages we still keep for a while:
 7. **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
 8. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
 9. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
-10. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/Running-as-Service-(ASF-V2))**
+10. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
 11. **[Import (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Import-(ASF-V1))**
 12. **[Setting up (ASF V1)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V1))**
 
