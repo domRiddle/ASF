@@ -1,4 +1,4 @@
-# Command-Line Arguments
+# Command-line arguments
 
 ## This page applies to ASF V3 only. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))** page instead.
 
