@@ -37,9 +37,9 @@ It's nice to note that ASF also supports overpaying - the logic will work proper
 
 First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
 
-- Trade is **good** if our progress towards set completion advances. A A (us) <-> A B (them)
-- Trade is **neutral** if our progress towards set completion stays in-tact. A B (us) <-> A C (them)
-- Trade is **bad** if our progress towards set completion declines. A C (us) <-> A A (them)
+- Trade is **good** if our progress towards set completion advances. A A (before) <-> A B (after)
+- Trade is **neutral** if our progress towards set completion stays in-tact. A B (before) <-> A C (after)
+- Trade is **bad** if our progress towards set completion declines. A C (before) <-> A A (after)
 
 STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade.
 
