@@ -30,7 +30,7 @@ Linux/OS X
 
 ## Arguments
 
-`--cryptkey=XXX` - will start ASF with custom cryptographic key of `XXX` value. This option affects **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `XXX` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey=XXX` - will start ASF with custom cryptographic key of `XXX` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `XXX` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
 
 `--path=XXX` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom directory for `config` and `log.txt` without a need of duplicating binary in that directory. It might come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute.
 
