@@ -22,6 +22,7 @@ Below suggestions are divided into three categories, from simple ASF tricks, thr
 - Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
 - Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `!start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `!start` it without rename and ASF restart, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
 - Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
+- Enable `BackgroundGCPeriod` by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so.
 - As last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits.
 
 Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
@@ -36,7 +37,19 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ## Runtime tuning (Advanced)
 
-TODO
+`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+
+> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+>
+> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcServer> element in the runtime configuration schema.
+>
+> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+
+More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+
+ASF is using server garbage collection by default. This is dictated mainly by the fact that today we have a lot of CPU cores (4+) and ASF can greatly benefit from increased performance by having a dedicated thread per each CPU core that is available.
+
+Server GC itself does not result in a very huge memory increase by just being active, but it is far more lazy when it comes to giving memory back to OS, that's why usually just setting `BackgroundGCPeriod` to `1` or `2` should be enough in order to still keep awesome performance that comes from server GC, while forcing it to give back more unused memory to OS in fixed intervals. However, if your situation requires it, you can disable server GC entirely by changing `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `true` to `false`. This will force usage of traditional workstation GC. If you decided to do this, you should probably turn off `BackgroundGCPeriod` as it won't bring a big improvement anymore - workstation GC is pretty conservative as it is.
 
 ***
 
