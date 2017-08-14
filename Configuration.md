@@ -262,7 +262,7 @@ All options are explained below:
 
 ***
 
-`AutoDiscoveryQueue` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam discovery queue is known for providing you extra cards each day for browsing it each day. When this option is enabled, ASF will automatically check Steam discovery queue each 6 hours, and clear it if needed. This option is not recommended if you want to browse your queue yourself, and typically it should make sense only on bot accounts. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`AutoDiscoveryQueue` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam discovery queue is known for providing you extra cards for browsing it each day. When this option is enabled, ASF will automatically check Steam discovery queue each 6 hours, and clear it if needed. This option is not recommended if you want to browse your queue yourself, and typically it should make sense only on bot accounts. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 ***
 
