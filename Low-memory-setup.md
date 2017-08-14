@@ -35,7 +35,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ***
 
-## Runtime tuning (Advanced)
+## Runtime tuning (advanced)
 
 `ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
 
@@ -53,6 +53,6 @@ Server GC itself does not result in a very huge memory increase by just being ac
 
 ***
 
-## .NET Core recompilation (Expert / Developer)
+## .NET Core recompilation (expert / developer)
 
 TODO
