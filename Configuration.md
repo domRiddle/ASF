@@ -78,6 +78,7 @@ Global config is located in `ASF.json` file and has following structure:
 {
 	"AutoRestart": true,
 	"AutoUpdates": true,
+	"BackgroundGCPeriod": 0,
 	"Blacklist": [],
 	"ConnectionTimeout": 60,
 	"CurrentCulture": null,
@@ -111,6 +112,10 @@ All options are explained below:
 ***
 
 `AutoUpdates` - `bool` type with default value of `true`. This property defines if ASF should automatically update itself when new version is available. Updates are crucial not only to receive new features, but also to receive bugfixes, performance enhancements, stability improvements and more. When enabled, ASF will automatically download, replace, and restart itself (if `AutoRestart` permits) when new update is available. In addition to initial version check on startup, ASF will also check every 24 hours if new update is available. Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory. You might be also interested in editing `UpdateChannel` property in order to choose which update channel `AutoUpdates` should follow. Unless you have **strong** reason to disable this feature, you should keep it enabled.
+
+***
+
+`BackgroundGCPeriod` - `byte` type with default value of `0`. This property is specifically designed to help with **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and should not be enabled unless needed. When changed from default value of `0`, ASF will perform full garbage collection each `BackgroundGCPeriod` seconds, and large object heap compaction each `BackgroundGCPeriod` minutes. This approach can result in decreased memory usage as well as making runtime less "greedy" by giving more unused memory back to the OS in fixed intervals. However, such forced garbage collection in fixed intervals will affect ASF performance negatively, as well as cause extra CPU usage that comes from excessive collections. You should only enable this feature if you truly need it, while reading **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** before doing so. Unless you have **strong** reason to enable this feature, you should keep it disabled with default value of `0`.
 
 ***
 
