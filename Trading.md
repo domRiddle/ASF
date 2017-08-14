@@ -8,7 +8,7 @@ Notice: Every time "reject" word is used, it means either ignoring, or declining
 
 ## Logic
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
 
 ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `!bl`, `!bladd` and `!blrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
