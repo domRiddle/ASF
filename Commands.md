@@ -176,7 +176,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 `<modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
 
 Value | Alias | Description
---- | --- | --- | ---
+--- | --- | ---
 All | A | Same as enabling all item types below
 Background | BG | Profile background to use on your Steam profile
 Booster | BO | Booster pack
