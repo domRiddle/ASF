@@ -53,6 +53,19 @@ Server GC itself does not result in a very huge memory increase by just being ac
 
 While this was an option worth mentioning, you shouldn't disable server GC unless you have a strong reason for doing so. It can result in major ASF performance drop, basically limiting ASF processing power to just 2 cores at a time. If possible, try to keep server GC enabled. Properly tuned `BackgroundGCPeriod` should be good enough for keeping server GC under control.
 
+In addition to changing between server and workstation GC, there is also an interesting **[configuration knob](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory`.
+
+> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible
+
+You can enable it by setting `COMPlus_gcConcurrent` to `1`. For example on Linux with:
+
+```
+export COMPlus_gcTrimCommitOnLowMemory=1
+./ArchiSteamFarm
+```
+
+To the best of my knowledge I'm not even sure if this option works properly. It definitely won't hurt to try though.
+
 ***
 
 ## .NET Core recompilation (expert / developer)
