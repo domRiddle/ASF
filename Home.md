@@ -20,7 +20,7 @@ Advanced users might be interested in:
 
 1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 2. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-3. **[Low memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+3. **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 4. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 5. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 6. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
