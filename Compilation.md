@@ -51,10 +51,10 @@ If compilation ended successfully, you can find your ASF in `generic` flavour in
 You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `generic` flavour, but in case you want to:
 
 ```
-dotnet publish -c "Release" -r "TARGET_RUNTIME" -o "out2"
+dotnet publish -c "Release" -r "linux-x64" -o "out2"
 ```
 
-Of course, replace `TARGET_RUNTIME` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
+Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
 
 ---
 
