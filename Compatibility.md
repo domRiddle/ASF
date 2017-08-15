@@ -12,7 +12,7 @@ However, regardless of where you run ASF, you must ensure that your target platf
 
 ## ASF packaging
 
-ASF comes in 2 main flavours - generic package and OS-specific.
+ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are working exactly the same, they're both also capable of automatically updating themselves.
 
 ---
 
