@@ -54,3 +54,11 @@ However, if you're trying to run generic ASF package then you must ensure that y
 ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/core/preview)** available for your machine.
 
 As you can see, we also like preview builds, so very often you might need latest **preview** SDK in order to use generic ASF package. If in doubt, check what our continuous integration uses for compiling and deploying ASF releases on GitHub.
+
+---
+
+## Issues and solutions
+
+### Debian
+
+If you updated from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package doesn't exist by definition on clean Debian 9 setups - https://github.com/dotnet/corefx/issues/8951
