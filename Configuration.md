@@ -86,7 +86,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"FarmingDelay": 15,
 	"GiftsLimiterDelay": 1,
 	"Headless": false,
-	"IdleFarmingPeriod": 3,
+	"IdleFarmingPeriod": 8,
 	"InventoryLimiterDelay": 3,
 	"IPCHost": "127.0.0.1",
 	"IPCPort": 1242,
@@ -149,7 +149,7 @@ ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded i
 
 ***
 
-`IdleFarmingPeriod` - `byte` type with default value of `3`. When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. Value of 0 disables this feature. Also check: `ShutdownOnFarmingFinished`.
+`IdleFarmingPeriod` - `byte` type with default value of `8`. When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. Value of `0` disables this feature. Also check: `ShutdownOnFarmingFinished`.
 
 ***
 
