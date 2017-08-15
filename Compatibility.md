@@ -61,4 +61,4 @@ As you can see, we also like preview builds, so very often you might need latest
 
 ### Debian
 
-If you updated from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package doesn't exist by definition on clean Debian 9 setups - https://github.com/dotnet/corefx/issues/8951
+If you updated from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition on clean Debian 9 setups - https://github.com/dotnet/corefx/issues/8951
