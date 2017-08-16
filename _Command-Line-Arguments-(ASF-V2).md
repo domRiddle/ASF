@@ -1,4 +1,4 @@
-# Command-Line Arguments
+# Command-Line Arguments (ASF V2)
 
 ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of ```ASF.json``` configuration file, command-line arguments are supposed to be dynamic and not static, allowing you to e.g. use one ASF config for running both ```Server``` and ```Client``` WCF mode of ASF, without duplicating your configs. It's also preferred way when it comes to sensitive data, such as ```cryptkey```, as defining it in config defeats whole purpose of it. They're also used for core ASF initialization, such as when specifying ```path```, as config can't be loaded without knowing it.
 
