@@ -1,4 +1,4 @@
-# Setting up
+# Setting up (ASF V2)
 
 If you arrived here for the first time, welcome!
 
