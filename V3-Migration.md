@@ -151,3 +151,11 @@ Luckily for you, like pointed above, installation/migration guide is very easy. 
 - Run `ArchiSteamFarm`, confirm that everything works, and delete your old ASF V2 from its location.
 
 If you need/want to regenerate your configs, feel free to use our new **[ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration#config-generator-was-rewritten)**. And if you require more detailed explanation, visit **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**.
+
+---
+
+## Can I still use ASF V2?
+
+Of course you can, same as you can still use ASF V1 or even ASF V0. Releases on GitHub are frozen and will never disappear, so it's always possible to fallback to any ever released ASF version, both binary-wise and source-wise.
+
+However, keep in mind that ASF V2, like previously V1 and V0 **will no longer receive updates or support**. Even if it still works right now, nothing guarantees you that Valve won't bring another Steam breaking change soon that will break one or more of ASF functionalities. **We do not recommend using obsolete ASF versions**, the sooner you switch, the smoother the process will be with less issues, hassle and stuff to learn. There is also no guarantee that e.g. old ASF V2 configs will still work in one of the future ASF V3 versions, so if you want our advice - it's best to update right away to new stable and don't look back. The upgrade process involves almost no effort, and even could be done automatically if we didn't want you to read this article.
