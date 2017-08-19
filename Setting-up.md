@@ -10,7 +10,7 @@ If you're still here then it means that you endured our text above, which is nic
 
 In general, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate format.
+- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific format.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X)
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF and relax.
