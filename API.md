@@ -1,7 +1,5 @@
 # API
 
-## This page applies to ASF V3 only. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))** page instead.
-
 ASF supports API-like response through `!api` and `!api <Bots>` commands, which can be used for easily integrating ASF process status with third-party wrappers.
 
 ---
