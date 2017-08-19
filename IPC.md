@@ -30,7 +30,7 @@ ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections
 
 ## Client
 
-Communication with IPC server provided by ASF can be done via any web browser, including CLI utilities such as `curl`. Currently ASF supports only one type of communication - sending a command. In order to send a command to IPC, you should send `http://127.0.0.1:1242/IPC?command=` `GET` request, including your command in `command` argument. For example, **[http://127.0.0.1:1242/IPC?command=version](http://127.0.0.1:1242/IPC?command=version)**.
+Communication with IPC server provided by ASF can be done via any web browser, including CLI utilities such as `curl`. Currently ASF supports only one type of communication - sending a command. In order to send a command to IPC, you should send `http://127.0.0.1:1242/IPC?command=` `GET` request, including your command in `command` argument. For example, **[http://127.0.0.1:1242/IPC?command=version](http://127.0.0.1:1242/IPC?command=version)** or **[http://127.0.0.1:1242/IPC?command=status%20ASF](http://127.0.0.1:1242/IPC?command=status%20ASF)**.
 
 ASF expects that every command will have a structure of `<Command> (BotName) (ExtraArgs)`. Commands don't have to be prefixed by `!`, ASF prefixes them for you if needed (useful on Unix). ExtraArgs are optional, required by some commands (e.g. `redeem` one).
 
