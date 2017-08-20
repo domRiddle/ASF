@@ -11,7 +11,7 @@ If you're still here then it means that you endured our text above, which is nic
 In general, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific format.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X)
+- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF and relax.
 
@@ -31,7 +31,19 @@ All done? Great, simply launch `ArchiSteamFarm(.exe)`, put extra details if aske
 
 ## Generic setup
 
-This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended
+This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for majority of people, especially if you can use **[OS-specific setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** instead.
+
+Generic setup makes sense only for valid released .NET Core variants that we decided to not build OS-specific package for (such as `win-x86`), as well as work-in-progress OSes/platforms that didn't have any official release yet.
+
+For generic package, you should:
+- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** appropriate for your OS. You want to use an installer.
+- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic format.
+- Extract the archive into new location.
+- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+- Launch ASF by executing `dotnet /path/to/ArchiSteamFarm.dll` command from your favourite terminal (such as `cmd` on Windows).
+
+It's recommended to create a shortcut if you don't want to execute the command each time.
 
 ***
 
