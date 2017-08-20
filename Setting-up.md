@@ -37,7 +37,7 @@ Generic setup makes sense only for valid released .NET Core variants that we dec
 
 For generic package, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** appropriate for your OS. You want to use an installer.
+- Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** appropriate for your OS. You most likely want to use an installer.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic format.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
