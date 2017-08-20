@@ -6,6 +6,8 @@ If you're still here then it means that you endured our text above, which is nic
 
 ***
 
+## OS-specific setup
+
 In general, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific format.
@@ -24,6 +26,12 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file.
 
 All done? Great, simply launch `ArchiSteamFarm(.exe)`, put extra details if asked (such as your 2FA code), and have fun. Reading more about ASF while it's doing its job is a great thing to consider.
+
+***
+
+## Generic setup
+
+This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended
 
 ***
 
