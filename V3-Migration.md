@@ -154,6 +154,14 @@ If you need/want to regenerate your configs, feel free to use our new **[ConfigG
 
 ---
 
+## Performance improvements
+
+ASF V3 is now using more optimized (server) garbage collector, which might result in the process taking more memory than ASF V2 used to. This results in superior performance, and is not a problem for most people, as the memory requirement of ASF did not change, only the internals of garbage collector that now prefers to keep more memory for future ASF actions.
+
+If you're heavily constrained by available memory, visiting up-to-date **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** can greatly help you, especially newly-introduced `BackgroundGCPeriod `.
+
+---
+
 ## Can I still use ASF V2?
 
 Of course you can, same as you can still use ASF V1 or even ASF V0. Releases on GitHub are frozen and will never disappear, so it's always possible to fallback to any ever released ASF version, both binary-wise and source-wise.
