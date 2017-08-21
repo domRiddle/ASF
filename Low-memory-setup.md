@@ -12,18 +12,20 @@ Server GC being used in ASF by default is smart enough to take into account not 
 
 ***
 
-Below suggestions are divided into two categories - simple ASF tricks and runtime tuning.
+Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let server GC work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
+
+Below suggestions are divided into a few categories, with varied difficulty.
 
 ***
 
-## ASF (Easy)
+## ASF setup (easy)
+
+Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
 - Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
 - Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
 - Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `!start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `!start` it without rename and ASF restart, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
 - Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
-- Enable `BackgroundGCPeriod` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
 Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
 
@@ -31,11 +33,22 @@ The most resources-heavy functions are:
 - Badge page parsing
 - Inventory parsing
 
-Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or dealing with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can help :+1: 
+Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
+
+***
+
+## ASF tuning (intermediate)
+
+Below tricks **involve performance degradation** and should be used with caution.
+
+- Enable `BackgroundGCPeriod` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
+- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
 ***
 
 ## Runtime tuning (advanced)
+
+Below tricks **involve serious performance degradation** and should be used with caution.
 
 `ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
 
