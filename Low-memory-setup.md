@@ -88,4 +88,6 @@ To the best of my knowledge I'm not even sure if this option works properly. It 
 - If it's still not enough, enable `gcTrimCommitOnLowMemory` configuration knob by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`.
 - In 99.9% cases you don't want to go further, even if you have strict memory environment. At this point we're bringing serious performance degradation by disabling server GC and enabling workstation GC. Disable previously enabled `BackgroundGCPeriod` and set `System.GC.Server` to `false`.
 - If despite of that memory usage spikes still above your expectations, re-enable `BackgroundGCPeriod` despite of already using workstation GC.
-- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ 😆.
+- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on threadpool to balance things out when it comes to parallel execution.
+
+It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ 😆.
