@@ -78,3 +78,14 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ```
 
 To the best of my knowledge I'm not even sure if this option works properly. It definitely won't hurt to try though.
+
+***
+
+## Recommended optimization
+
+- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
+- If simple ASF setup tricks didn't help, experiment with `BackgroundGCPeriod`, this brings "the best of both worlds", by not affecting performance nearly at all, while shrinking memory usage in fixed intervals. A value such as `10` is sane enough to recommend it, although if you have more strict memory environment then you can go as low as `1` or `2`.
+- If it's still not enough, enable `gcTrimCommitOnLowMemory` configuration knob by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`.
+- In 99.9% cases you don't want to go further, even if you have strict memory environment. At this point we're bringing serious performance degradation by disabling server GC and enabling workstation GC. Disable previously enabled `BackgroundGCPeriod` and set `System.GC.Server` to `false`.
+- If despite of that memory usage spikes still above your expectations, re-enable `BackgroundGCPeriod` despite of already using workstation GC.
+- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ 😆.
