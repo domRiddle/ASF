@@ -49,7 +49,7 @@ For generic package, you should:
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic format.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF by executing `dotnet /path/to/ArchiSteamFarm.dll` command from your favourite terminal (such as `cmd` on Windows).
+- Launch ASF by executing `dotnet /path/to/ArchiSteamFarm.dll` command from your favourite terminal (such as `cmd` on Windows). If you used an installer for SDK, this command should be available right away, otherwise you might need to find it in your .NET Core SDK path.
 
 It's recommended to create a shortcut if you don't want to execute the command each time.
 
