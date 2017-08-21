@@ -8,7 +8,7 @@ If you're still here then it means that you endured our text above, which is nic
 
 ## Quick video setup
 
-For people that prefer watching over reading. Huge thanks for **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
+For people that prefer watching over reading. Huge thanks to **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
 
 ### **[YouTube](https://www.youtube.com/watch?v=gi2UjXtGWgc)**
 
