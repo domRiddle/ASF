@@ -170,6 +170,8 @@ However, keep in mind that ASF V2, like previously V1 and V0 **will no longer re
 
 ---
 
-## Further help
+## Video
 
-[![Video](https://img.youtube.com/vi/gi2UjXtGWgc/0.jpg)](https://www.youtube.com/watch?v=gi2UjXtGWgc)
+For people that prefer watching over reading. Huge thanks to **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
+
+### **[YouTube](https://www.youtube.com/watch?v=gi2UjXtGWgc)**
