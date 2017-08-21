@@ -8,6 +8,8 @@ ASF as an application tries to be as much optimized and efficient as possible, w
 
 ASF is extremely well optimized, and makes use of available resources as much as possible. High memory usage of ASF doesn't mean that ASF actively **uses** that memory and **needs it**. Very often ASF will keep some memory allocated for some "room" for future actions, as by not asking OS for every memory chunk we're improving performance. The runtime should automatically release unused ASF memory back to OS when OS will **truly** need it. Remember - **[unused memory is wasted memory](http://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full/)**. You run into issues when the memory you **need** is higher than the memory that is available for you, not when ASF keeps some extra for having free space for functions that will execute in a moment. You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
 
+Server GC being used in ASF by default is smart enough to take into account not only ASF itself, but also your OS. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB. When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in ASF memory as low as 50 MB.
+
 ***
 
 Below suggestions are divided into two categories - simple ASF tricks and runtime tuning.
