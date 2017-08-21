@@ -6,6 +6,14 @@ If you're still here then it means that you endured our text above, which is nic
 
 ***
 
+## Quick video setup
+
+For people that prefer watching over reading. Huge thanks for **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
+
+[![Video](https://img.youtube.com/vi/gi2UjXtGWgc/0.jpg)](https://www.youtube.com/watch?v=gi2UjXtGWgc)
+
+***
+
 ## OS-specific setup
 
 In general, you should:
