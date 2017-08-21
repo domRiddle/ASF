@@ -167,3 +167,9 @@ If you're heavily constrained by available memory, visiting up-to-date **[low-me
 Of course you can, same as you can still use ASF V1 or even ASF V0. Releases on GitHub are frozen and will never disappear, so it's always possible to fallback to any ever released ASF version, both binary-wise and source-wise.
 
 However, keep in mind that ASF V2, like previously V1 and V0 **will no longer receive updates or support**. Even if it still works right now, nothing guarantees you that Valve won't bring another Steam breaking change soon that will affect one or more of ASF functionalities. **We do not recommend using obsolete ASF versions**, the sooner you switch, the smoother the process will be with less issues, hassle and stuff to learn. There is also no guarantee that e.g. old ASF V2 configs will still work in one of the future ASF V3 versions, so if you want our advice - it's best to upgrade right away to new stable and don't look back. The upgrade process involves almost no effort, and even could be done automatically if we didn't want you to read this article.
+
+---
+
+## Further help
+
+[![Video](https://img.youtube.com/vi/gi2UjXtGWgc/0.jpg)](https://www.youtube.com/watch?v=gi2UjXtGWgc)
