@@ -10,7 +10,7 @@ If you're still here then it means that you endured our text above, which is nic
 
 For people that prefer watching over reading. Huge thanks for **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
 
-[![Video](http://i.imgur.com/kIRwkJH.png)](https://www.youtube.com/watch?v=gi2UjXtGWgc)
+### **[YouTube](https://www.youtube.com/watch?v=gi2UjXtGWgc)**
 
 ***
 
