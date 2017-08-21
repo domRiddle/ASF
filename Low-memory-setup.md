@@ -57,7 +57,7 @@ In addition to changing between server and workstation GC, there is also an inte
 
 > When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible
 
-You can enable it by setting `COMPlus_gcConcurrent` to `1`. For example on Linux with:
+You can enable it by setting `COMPlus_gcTrimCommitOnLowMemory` to `1`. For example on Linux with:
 
 ```
 export COMPlus_gcTrimCommitOnLowMemory=1
