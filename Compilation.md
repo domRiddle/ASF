@@ -36,7 +36,6 @@ Microsoft .NET Core Shared Framework Host
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
 ```
-dotnet restore
 dotnet build -c "Release" -o "out"
 ```
 
