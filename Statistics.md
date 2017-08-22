@@ -27,7 +27,7 @@ b) If your account is unrestricted, using ASF 2FA, has public inventory with at 
 * Your **[trading token](http://steamcommunity.com/id/ArchiPL/tradeoffers/privacy)** (so people can send you trades)
 * Your `MatchableTypes` (for display purposes)
 * Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
-* Number of Steam trading cards in your inventory (for display purposes and sorting)
+* Number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
 
 ASF will **not** gather any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place.
 
