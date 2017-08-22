@@ -41,7 +41,7 @@ All done? Great, simply launch `ArchiSteamFarm(.exe)`, put extra details if aske
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for majority of people, especially if you can use **[OS-specific setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** instead.
 
-Generic setup makes sense only for valid released .NET Core variants that we decided to not build OS-specific package for (such as `win-x86`), as well as **[work-in-progress OSes/platforms](https://github.com/dotnet/core/blob/master/roadmap.md#supported-os-versions)** that didn't have any official release yet.
+Generic setup makes main sense only for valid released .NET Core variants that we decided to not build OS-specific package for (such as `win-x86`), as well as **[work-in-progress OSes/platforms](https://github.com/dotnet/core/blob/master/roadmap.md#supported-os-versions)** that didn't have any official release yet. Of course, it can also be used in every other setup, especially if you don't want to download much bigger OS-specific package on each update. However, keep in mind that you're in charge of .NET Core runtime in this case.
 
 For generic package, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
