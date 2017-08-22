@@ -51,7 +51,7 @@ ASF sends initial data once after logging in, that contains all properties publi
 
 This allows our website to record which account can be used for matching, as well as if that account is still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**. Users are sorted according to number of cards in their inventory (descending), with addition of `MatchEverything` bots being listed on top with `Any` banner.
 
-Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so point b) is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes.
+Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so point b) is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and might refuse to display outdated bots, especially if they're missing core functionality that can be found in newer versions.
 
 *The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
 
