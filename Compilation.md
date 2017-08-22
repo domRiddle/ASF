@@ -55,4 +55,4 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 ## Official releases
 
-Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with .NET Core SDK included in latest Visual Studio Preview. After passing tests, they're deployed on GitHub.
+Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, generic and OS-specific packages are compiled and deployed on GitHub.
