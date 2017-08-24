@@ -62,13 +62,9 @@ Below tricks **involve serious performance degradation** and should be used with
 
 More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
-ASF is using server garbage collection by default. This is dictated mainly by the fact that today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU core that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory. Server GC is recommended for machines with 3 cores and more, workstation GC is automatically forced if your machine has just 1 core, and if you have exactly 2 then you can consider trying both.
+ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
-Server GC itself does not result in a very huge memory increase by just being active, but it is far more lazy when it comes to giving memory back to OS, that's why usually just setting `BackgroundGCPeriod` to `1` or `2` should be enough in order to still keep awesome performance that comes from server GC, while forcing it to give back more unused memory to OS in fixed intervals. However, if your situation requires it, you can disable server GC entirely by changing `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `true` to `false`. This will force usage of traditional workstation GC. If you decided to do this, you should probably turn off `BackgroundGCPeriod` as well, because it won't bring a big improvement anymore - workstation GC is pretty conservative as it is.
-
-While this was an option worth mentioning, you shouldn't disable server GC unless you have a strong reason for doing so. It can result in major ASF performance drop, basically limiting ASF processing power to just 2 cores at a time. If possible, try to keep server GC enabled. Properly tuned `BackgroundGCPeriod` should be good enough for keeping server GC under control.
-
-In addition to changing between server and workstation GC, there is also an interesting **[configuration knob](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory`.
+In addition to verifying that workstation GC is active, there is also an interesting **[configuration knob](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory`.
 
 > When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible
 
@@ -86,10 +82,8 @@ To the best of my knowledge I'm not even sure if this option works properly. It 
 ## Recommended optimization
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If simple ASF setup tricks didn't help, experiment with `BackgroundGCPeriod`, this brings "the best of both worlds", by not affecting performance nearly at all, while shrinking memory usage in fixed intervals. A value such as `10` is sane enough to recommend it, although if you have more strict memory environment then you can go as low as `1` or `2`.
 - If it's still not enough, enable `gcTrimCommitOnLowMemory` configuration knob by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`.
-- In 99.9% cases you don't want to go further, even if you have strict memory environment. At this point we're bringing serious performance degradation by disabling server GC and enabling workstation GC. Disable previously enabled `BackgroundGCPeriod` and set `System.GC.Server` to `false`.
-- If despite of that memory usage spikes still above your expectations, re-enable `BackgroundGCPeriod` despite of already using workstation GC.
+- If above tips didn't help, experiment with `BackgroundGCPeriod`, this brings "the best of both worlds", by not affecting performance nearly at all, while shrinking memory usage in fixed intervals. A value such as `10` is sane enough to recommend it, although if you have more strict memory environment then you can go as low as `1` or `2`.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on threadpool to balance things out when it comes to parallel execution.
 
 It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ 😆.
