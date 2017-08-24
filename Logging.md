@@ -135,7 +135,7 @@ For maximum completeness, definition of ASF `SteamTarget` will follow NLog docum
 
 Writes log messages to specific SteamID, from specific Bot.
 
-Supported in all environments used by ASF, including: .NET, Silverlight, Compact Framework and Mono.
+Supported in all environments used by ASF.
 
 ---
 
