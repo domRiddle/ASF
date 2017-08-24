@@ -1,5 +1,7 @@
 # Low-memory setup
 
+This is exact opposite of **[high-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage.
+
 ***
 
 ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
