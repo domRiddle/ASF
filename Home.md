@@ -19,11 +19,12 @@ Advanced users might be interested in:
 1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 2. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 3. **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-4. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-5. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-6. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-7. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-8. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+4. **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+5. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+6. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+7. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+8. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+9. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
 Developers might be interested in:
 
