@@ -33,7 +33,7 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 
 If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file.
 
-All done? Great, simply launch `ArchiSteamFarm(.exe)`, put extra details if asked (such as your 2FA code), and have fun. Reading more about ASF while it's doing its job is a great thing to consider.
+All done? Great, simply launch `ArchiSteamFarm` - either by double clicking on the .exe if you're on Windows, or via navigating to ASF directory (e.g. with `cd`) command and executing `./ArchiSteamFarm` if you're on Linux/OS X. Put extra details if ASF asks for them (such as your 2FA code) and have fun. Reading more about ASF while it's doing its job is a great thing to consider.
 
 ***
 
