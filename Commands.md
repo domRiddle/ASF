@@ -43,16 +43,16 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
 `!2faok` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance
 `!2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances
-`!addlicense <gameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on current bot instance (free games only) | `FamilySharing` | `!addlicense 440,570`
-`!addlicense <Bots> <gameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only)
+`!addlicense <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on current bot instance (free games only) | `FamilySharing` | `!addlicense 440,570`
+`!addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only)
 `!api` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for current bot instance.
 `!api <Bots>` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
 `!bl` | `Master` | Lists blacklisted users from trading module of current bot instance.
 `!bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
-`!bladd <steamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of current bot instance.
-`!bladd <Bots> <steamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
-`!blrm <steamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of current bot instance.
-`!blrm <Bots> <steamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
+`!bladd <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of current bot instance.
+`!bladd <Bots> <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
+`!blrm <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of current bot instance.
+`!blrm <Bots> <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
 `!exit` | `Owner` | Stops whole ASF
 `!farm` | `Master` | Restarts cards farming module for current bot instance
 `!farm <Bots>` | `Master` | Restarts cards farming module for given bot instances
@@ -61,27 +61,27 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!iq` | `Master` | Lists priority idling queue of current bot instance.
 `!iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
-`!iqadd <appIDs>` | `Master` | Adds given `appIDs` to priority idling queue of current bot instance.
-`!iqadd <Bots> <appIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
-`!iqrm <appIDs>` | `Master` | Removes given `appIDs` from priority idling queue of current bot instance.
-`!iqrm <Bots> <appIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
+`!iqadd <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of current bot instance.
+`!iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
+`!iqrm <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of current bot instance.
+`!iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
 `!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of current bot instance to first `Master` defined in its bot config.
 `!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of given bot instances to first `Master` defined in their bot configs.
-`!nickname <nickname>` | `Master` | Changes Steam nickname of current bot instance to `<nickname>`.
-`!nickname <Bots> <nickname>` | `Master` | Changes Steam nickname of given bot instances to `<nickname>`.
-`!owns <appIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available. | `FamilySharing` | `!owns 440,570`, `!owns 440,dota`, `!owns roach`, `!owns *`
-`!owns <Bots> <appIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
+`!nickname <Nickname>` | `Master` | Changes Steam nickname of current bot instance to given `nickname`.
+`!nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
+`!owns <AppIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available. | `FamilySharing` | `!owns 440,570`, `!owns 440,dota`, `!owns roach`, `!owns *`
+`!owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
 `!password` | `Master` | Prints encrypted password of current bot instance (in use with `PasswordFormat`)
 `!password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`)
 `!pause` | `Operator` | Permanently pauses automatic cards farming module of current bot instance. ASF will not attempt to farm current account in this session, unless you manually `!resume` it, or restart the process. Also called sticky pause.
 `!pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `!resume` it, or restart the process. Also called sticky pause.
 `!pause~` | `FamilySharing` | Temporarily pauses automatic cards farming module of current bot instance. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `!resume` farming to unpause it.
 `!pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `!resume` farming to unpause it.
-`!pause& <seconds>` | `Operator` | Temporarily pauses automatic cards farming module of current bot instance for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
-`!pause& <Bots> <seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
-`!play <appIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on current bot instance. Use `!resume` for returning to automatic farming | `FamilySharing` | `!play 440,570`, `!play 570`
-`!play <Bots> <appIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on given bot instances. Use `!resume` for returning to automatic farming
+`!pause& <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of current bot instance for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
+`!pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically `!resume`d.
+`!play <AppIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on current bot instance. Use `!resume` for returning to automatic farming | `FamilySharing` | `!play 440,570`, `!play 570`
+`!play <Bots> <AppIDs>` | `Master` | Switches to manual farming - launches given `appIDs` on given bot instances. Use `!resume` for returning to automatic farming
 `!redeem <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance
 `!redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances
 `!redeem^ <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**
@@ -154,7 +154,7 @@ When using **IPC**, keep in mind that:
 
 `!redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
-`<modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
+`<Modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
 
 Value | Name  | Description
 --- | --- | ---
@@ -175,7 +175,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 ## `!transfer` modes
 
-`<modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
+`<Modes>` argument accepts multiple mode values, separates as usual by a comma. Available mode values are specified below:
 
 Value | Alias | Description
 --- | --- | ---
