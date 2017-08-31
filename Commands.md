@@ -113,7 +113,9 @@ All commands are case-insensitive, but their arguments (such as bot names) are u
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
-Plural arguments, such as `<Bots>` or `<appIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `!status <Bots>` can be used as `!status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all targeted bots** in the same way as you'd send `!status` to each bot in a separate chat window. Please notice that there is no space after `,` - it's simply a delimiter for a single string.
+Plural arguments, such as `<bots>`, `<keys>` or `<appIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `!status <bots>` can be used as `!status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `!status` to each bot in a separate chat window. Please notice that there is no space after `,` - it's simply a delimiter for a single string.
+
+A space is being used as delimiter for a command, therefore it can't be used in arguments. ASF supports mapping of '_' into a space character in some selected commands, namely `!nickname` and `!owns`. You can use this mapping in order to put spaces in your argument, for example by executing `!owns 7_wonders` for checking if bot owns game named "7 wonders".
 
 In addition to that, there is a special `ASF` keyword which acts as "all bots in the process", so `!status ASF` is equal to `!status all,your,bots,listed,here`.
 
