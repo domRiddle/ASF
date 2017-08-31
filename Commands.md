@@ -113,11 +113,11 @@ All commands are case-insensitive, but their arguments (such as bot names) are u
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
-Plural arguments, such as `<bots>`, `<keys>` or `<appIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `!status <bots>` can be used as `!status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `!status` to each bot in a separate chat window. Please notice that there is no space after `,` - it's simply a delimiter for a single string.
+Plural arguments, such as `<Bots>`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `!status <bots>` can be used as `!status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `!status` to each bot in a separate chat window. Please notice that there is no space after `,` - it's simply a delimiter for a single string.
 
-A space is being used as delimiter for a command, therefore it can't be used in arguments. ASF supports mapping of `_` character into a space character in some selected commands, namely `!nickname` and `!owns`. You can use this mapping in order to put spaces in your argument, for example by executing `!owns 7_wonders` for checking if bot owns game named "7 wonders".
+A space is being used as a delimiter for a command, therefore it can't be used in arguments. ASF supports mapping of `_` character into a space character in some selected commands, namely `!nickname` and `!owns`. You can use this mapping in order to use spaces in your argument, for example by executing `!owns 7_wonders` in order to check if bot owns game named "7 wonders".
 
-In addition to that, there is a special `ASF` keyword which acts as "all bots in the process", so `!status ASF` is equal to `!status all,your,bots,listed,here`.
+For `<Bots>` argument, there is a special `ASF` keyword which acts as "all bots in the process", so `!status ASF` is equal to `!status all,your,bots,listed,here`.
 
 It's nice to note that `<Bots>` also supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `!status B..E`, which is equal to `!status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
