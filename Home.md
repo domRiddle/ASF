@@ -5,14 +5,15 @@ Welcome to ASF wiki. Wiki is an online help that covers many different subjects 
 Some of the subjects you might be interested in:
 
 1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
-4. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-5. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-7. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-8. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-9. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+2. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration)** (if you're ASF V2 user)
+3. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+4. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+5. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+6. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+7. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+8. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+9. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+10. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 Advanced users might be interested in:
 
