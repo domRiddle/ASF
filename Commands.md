@@ -63,7 +63,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
 `!iqrm <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of current bot instance.
 `!iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
-`!leave` | `Master` | Makes bot leave the current group chat. For obvious reasons, this command works only in group chats
+`!leave` | `Master` | Makes current bot instance leave the group chat. For obvious reasons, this command works only in group chats.
+`!leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
 `!loot` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of current bot instance to first `Master` defined in its bot config.
 `!loot <Bots>` | `Master` | Sends all booster packs and Steam trading cards (including foils if `IsBotAccount`) of given bot instances to first `Master` defined in their bot configs.
 `!nickname <Nickname>` | `Master` | Changes Steam nickname of current bot instance to given `nickname`.
