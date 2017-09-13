@@ -1,7 +1,5 @@
 # Commands
 
-## This page applies to ASF V3 only. If you're using ASF V2, please visit **[ASF V2](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))** page instead.
-
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
 Below commands can be sent to the bot through three different ways:
