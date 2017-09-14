@@ -325,6 +325,12 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
+**Q:** ASF can't start, the program window immediately closes after being launched!
+
+**A:** If even `log.txt` is not being generated then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide. Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies.
+
+***
+
 **Q:** `No bots are running, exiting`
 
 **A:** Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in `--server` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**).
