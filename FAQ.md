@@ -448,6 +448,12 @@ Finally, as with every Steam request - ASF can only **try** to log in, using you
 
 ***
 
+**Q:** `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+
+**A:** This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and it should solve itself sooner or later automatically. Reporting this issue makes no sense, as ASF can't force Steam to respond to its requests.
+
+***
+
 **Q:** ASF is being detected by my AntiVirus (for example as: Win32/Fethar.B!cl, Win32/Zulushal.C!cl, Trojan.MSIL.Crypt, Variant.MSILPerseus and crapload of other false-positives we stopped listing after first 4)
 
 **A:** **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
