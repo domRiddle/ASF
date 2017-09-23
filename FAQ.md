@@ -246,6 +246,12 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 ***
 
+**Q:** I don't want ASF to farm any games by default, yet I want to use extra ASF features. Is this possible?
+
+**A:** Yes, you can set `Paused` bot config property to `true` in order to launch ASF with paused cards farming module.
+
+***
+
 **Q:** Can ASF minimize to tray?
  
 **A:** ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net/)** for Windows, or **[screen](http://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
