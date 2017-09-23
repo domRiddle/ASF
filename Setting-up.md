@@ -18,7 +18,7 @@ For people that prefer watching over reading. Huge thanks to **[@GamingTaylor](h
 
 In general, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific format.
+- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF and relax.
@@ -27,7 +27,7 @@ The above was TL;DR, most likely you'd want to read actual explanation of above 
 
 First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** that you should follow. Simply follow those instructions, there is a chance that you already have all required libraries, but you should double check. For example on Windows, all you need to do is to download & install `Visual C++ Redistributable for Visual Studio`, which could even be already installed by some other game/software that you're using.
 
-Next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many formats, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
+Next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
 
 Once you get your package and extract the zip file, you'll have a bunch of files, folders and everything. Ignore all of that for now, since it's configuration time. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and follow instructions - you should at least generate one bot config file that you put in `config` directory.
 
@@ -46,7 +46,7 @@ Generic setup makes main sense only for valid released .NET Core variants that w
 For generic package, you should:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** appropriate for your OS. You most likely want to use an installer.
-- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic format.
+- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
