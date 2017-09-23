@@ -51,7 +51,7 @@ For generic package, you should:
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts are located next to `ArchiSteamFarm.dll` binary, for example `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X. You can use them if you don't want to execute `dotnet` command manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary. You can use them if you don't want to execute `dotnet` command manually.
 
 ***
 
