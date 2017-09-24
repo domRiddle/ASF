@@ -49,9 +49,9 @@ For generic package, you should:
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF by either using helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
+- Launch ASF by either using a helper script or by executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary. You can use them if you don't want to execute `dotnet` command manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary. You can use them if you don't want to execute `dotnet` command manually. Obviously they won't work if you didn't install .NET Core SDK and you don't have `dotnet` library available in your `PATH`.
 
 ***
 
