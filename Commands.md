@@ -118,7 +118,7 @@ ASF uses many whitespace characters as possible delimiters for a command, such a
 
 As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. ASF supports mapping of `_` character into a space character in some selected commands, namely `!nickname` and `!owns`. You can use this mapping in order to use spaces in your argument, for example by executing `!owns 7_wonders` in order to check if bot owns game named "7 wonders".
 
-ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `!redeem bot key1 key2 key3` for `!redeem <Bots> <Keys>` will work exactly the same as `!redeem bot key1,key2,key2`. Together with accepting newline as command delimiter, this makes it possible for you to write `!redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter.
+ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `!redeem bot key1 key2 key3` for `!redeem <Bots> <Keys>` will work exactly the same as `!redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `!redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter.
 
 For `<Bots>` argument, there is a special `ASF` keyword which acts as "all bots in the process", so `!status ASF` is equal to `!status all,your,bots,listed,here`.
 
