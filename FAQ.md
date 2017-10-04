@@ -468,7 +468,7 @@ Finally, as with every Steam request - ASF can only **try** to log in, using you
 
 **Q:** `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
-**A:** This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and it should solve itself sooner or later automatically. Reporting this issue makes no sense, as ASF can't force Steam to respond to its requests.
+**A:** This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way (such as when awaiting confirmation to status update in `OnAccountInfo()`). In other cases it's the same as request failing despite of 5 tries. Reporting this issue makes no sense, as we can't force Steam to respond to our requests.
 
 ***
 
