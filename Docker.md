@@ -25,3 +25,11 @@ In addition to `master` and `latest` tags that will typically change with time a
 ---
 
 ## Usage
+
+Firstly we should verify if our Docker is even working correctly, this will serve as our ASF "hello world":
+
+```
+docker run -it --name asf justarchi/archisteamfarm
+```
+
+If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `dotnet stop asf`.
