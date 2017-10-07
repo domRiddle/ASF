@@ -72,6 +72,17 @@ Of course, this is just one specific way to achieve what we want, nothing is sto
 
 ---
 
+## Command-line arguments
+
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
+
+```
+docker pull justarchi/archisteamfarm
+docker run -dit -e "ASF_ARGS=--server" -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+```
+
+---
+
 ## Pro tips
 
 When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image.
