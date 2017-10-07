@@ -16,7 +16,7 @@ This tag always points to the ASF built from latest commit in master branch, whi
 
 ### `latest`
 
-This tag always points to the latest **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** ASF version, including pre-releases. It's the default and therefore recommended tag for grabbing latest ASF version for Docker container.
+This tag always points to the latest **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** ASF version, including pre-releases. It's the default and therefore recommended tag for grabbing latest ASF version for usage in Docker container.
 
 ### `A.B.C.D`
 
