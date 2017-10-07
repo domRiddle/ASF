@@ -33,10 +33,13 @@ For complete reference you should use **[official docker documentation](https://
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
 ```
+docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`.
+`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground.
+
+If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
 
 
 ### Using a volume
@@ -46,6 +49,7 @@ If you're using ASF in docker container then obviously you need to configure the
 For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 
 ```
+docker pull justarchi/archisteamfarm
 docker run -dit -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
@@ -57,5 +61,8 @@ Of course, this is just one specific way to achieve what we want, nothing is sto
 
 ## Pro tips
 
-- You should typically run ASF in docker container with `AutoRestart: false` and `Headless: true` global settings.
-- ASF included in docker container won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo.
+When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Although keep in mind that updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use latest version.
+
+As hinted by above, ASF included in docker container won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. At least for now, as we might bring auto-update feature eventually.
+
+You should typically run ASF in docker container with `AutoRestart: false` and `Headless: true` global settings. This will clearly tell ASF that you don't want ASF to spawn new processes and that it should not expect user input from you.
