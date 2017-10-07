@@ -1,6 +1,6 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as Docker container. Our repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Starting with version 3.0.3.2, ASF is now also available as **[Docker container](https://www.docker.com/what-container)**. Our Docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 ---
 
