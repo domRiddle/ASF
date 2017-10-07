@@ -6,21 +6,34 @@ Starting with version 3.0.3.2, ASF is now also available as **[docker container]
 
 ## Tags
 
-ASF is available through 3 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
 
 ### `master`
 
-This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes.
+This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the master GitHub branch, therefore you can expect very often updates, just like in our AppVeyor build. Dedicated to developers and advanced users, only for development reasons.
+
+
+### `released`
+
+Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced and power users that love to live on the edge of what can be considered stable and fresh at the same time.
 
 
 ### `latest`
 
-This tag always points to the latest **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** ASF version, including pre-releases. It's the default and therefore recommended tag for grabbing latest ASF version for usage in docker container.
+This tag in comparison with previous two, as the first one includes ASF `AutoUpdates` feature and will typically point to one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `AutoUpdates` feature can be safely turned off, but in this case you should probably use frozen `A.B.C.D` release.
 
 ### `A.B.C.D`
 
-In addition to `master` and `latest` tags that will typically change with time and always point to appropriate releases, ASF Docker repo also provides you with fixed frozen release that you can use if you want to have specific version installed. This version, once built, is considered frozen and will not be modified in any way, just like our GitHub releases.
+In comparison with above tags, this tag is completely frozen, which means that the image won't be updated once published. This works similar to our GitHub releases that are never touched after the initial release, which guarantees you stable and frozen environment. Typically you should use this tag when you want to use some specific ASF release and you don't want to use `AutoUpdates` that are offered in `latest` tag.
+
+---
+
+## Which tag is the best for me?
+
+That depends what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to the given release are welcome to use `released` tag. If you instead want some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fallback to.
+
+We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly.
 
 ---
 
