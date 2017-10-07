@@ -39,7 +39,7 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ## Usage
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic usage in this guide.
+For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic usage in this guide, based on using `latest` tag.
 
 ### Hello ASF!
 
