@@ -56,4 +56,4 @@ And that's it, now your ASF Docker container will use shared directory with your
 ## Pro tips
 
 - You should typically run ASF in Docker container with `AutoRestart: false` and `Headless: true` global settings.
-- ASF included in Docker container won't automatically update itself, which means that you're in charge of using up-to-date `justarchi/archisteamfarm` repo.
+- ASF included in Docker container won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo.
