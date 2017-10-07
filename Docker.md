@@ -46,10 +46,12 @@ If you're using ASF in Docker container then obviously you need to configure the
 For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply to attach that directory as shared volume in our Docker container, where ASF expects its config directory (`/app/config`).
 
 ```
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -dit -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-And that's it, now your ASF Docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF Docker container.
+And that's it, now your ASF Docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. We also added `-d` option in order to start ASF container in detached mode.
+
+Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF Docker container.
 
 ---
 
