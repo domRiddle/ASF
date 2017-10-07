@@ -1,6 +1,6 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as **[Docker container](https://www.docker.com/what-container)**. Our Docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Starting with version 3.0.3.2, ASF is now also available as **[Docker container](https://www.docker.com/what-container)**. Running ASF in Docker container typically has no advantages for casual users, but it might be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our Docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 ---
 
