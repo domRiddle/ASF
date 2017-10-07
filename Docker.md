@@ -26,7 +26,7 @@ In addition to `master` and `latest` tags that will typically change with time a
 
 ## Usage
 
-For complete reference you should use **[docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic usage in this guide.
+For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic usage in this guide.
 
 ### Hello ASF!
 
