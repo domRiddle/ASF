@@ -78,7 +78,7 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/A
 
 ```
 docker pull justarchi/archisteamfarm
-docker run -dit -e "ASF_ARGS=--server" -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
 ```
 
 ---
