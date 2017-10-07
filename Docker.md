@@ -43,7 +43,7 @@ If everything ended successfully, after pulling all layers and starting containe
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as shared volume in ASF docker container.
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply to attach that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
+For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 
 ```
 docker run -dit -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
