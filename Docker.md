@@ -81,6 +81,8 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
 ```
 
+Of course, if you're advanced docker user you can always modify default `ENTRYPOINT` of ASF container to run `ENTRYPOINT ["dotnet", "ArchiSteamFarm.dll", "--server"]` or whatever you need, although if you just want to run ASF and not create your own container based on ASF image then `ASF_ARGS` should be enough.
+
 ---
 
 ## Pro tips
