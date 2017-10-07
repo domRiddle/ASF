@@ -17,15 +17,16 @@ Some of the subjects you might be interested in:
 
 Advanced users might be interested in:
 
-1. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-2. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-3. **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-4. **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-5. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-6. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-7. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-8. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-9. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+1. **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+2. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+3. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+4. **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+5. **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+6. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+7. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
 Developers might be interested in:
 
