@@ -11,7 +11,7 @@ Usage depends on your OS and ASF flavour.
 Generic:
 
 ```
-dotnet ArchiSteamFarm.dll -- --argument --otherOne
+dotnet ArchiSteamFarm.dll --argument --otherOne
 ```
 
 Windows:
