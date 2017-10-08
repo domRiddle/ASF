@@ -20,7 +20,7 @@ Or on Linux/OS X:
 
 Or in generic package on any platform:
 ```
-dotnet ArchiSteamFarm.dll -- --server
+dotnet ArchiSteamFarm.dll --server
 ```
 
 If parameter was passed correctly, you should notice that IPC service is active:
