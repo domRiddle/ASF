@@ -34,4 +34,4 @@ Linux/OS X
 
 `--server` - will start ASF in `Server` mode. This option affects **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, as well as disables auto-exit of ASF process when no bots are enabled (which is wanted behaviour in combination with IPC). It also tweaks runtime to be better suited for server usage, for example by not allowing Windows OS to go into sleep mode.
 
-`--service` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and causes ASF to force `AutoRestart: false` and not exiting when all bots are stopped (like in `--server`). 
+`--service` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and causes ASF to force `AutoRestart: false` and not exiting when all bots are stopped (like in `--server`).
