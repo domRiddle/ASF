@@ -13,6 +13,11 @@ To start IPC, ASF must be started with `--server` parameter. For example in OS-s
 ArchiSteamFarm.exe --server
 ```
 
+Or on Linux/OS X:
+```
+./ArchiSteamFarm --server
+```
+
 Or in generic package on any platform:
 ```
 dotnet ArchiSteamFarm.dll -- --server
