@@ -50,7 +50,7 @@ docker pull justarchi/archisteamfarm:released-arm
 docker run -it --name asf justarchi/archisteamfarm:released-arm
 ```
 
---
+---
 
 ## Usage
 
