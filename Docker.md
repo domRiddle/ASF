@@ -78,10 +78,10 @@ For example, we'll assume that your ASF config folder is in `/home/archi/ASF/con
 
 ```
 docker pull justarchi/archisteamfarm
-docker run -dit -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. We also added `-d` option in order to start ASF container in detached mode - you can attach to your container easily with `docker attach asf`.
+And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF.
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container.
 
