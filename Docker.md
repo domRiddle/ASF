@@ -37,6 +37,21 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ---
 
+## Architectures
+
+ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
+
+Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name.
+
+Here is an example of pulling and using `released` tag for `arm` architecture:
+
+```
+docker pull justarchi/archisteamfarm:released-arm
+docker run -it --name asf justarchi/archisteamfarm:released-arm
+```
+
+--
+
 ## Usage
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic `latest` tag usage in this guide, you're more than welcome to dig deeper.
