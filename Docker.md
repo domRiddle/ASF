@@ -41,14 +41,7 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
 
-Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name.
-
-Here is an example of pulling and using `released` tag for `arm` architecture:
-
-```
-docker pull justarchi/archisteamfarm:released-arm
-docker run -it --name asf justarchi/archisteamfarm:released-arm
-```
+Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
 
 ---
 
@@ -68,6 +61,15 @@ docker run -it --name asf justarchi/archisteamfarm
 `docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground.
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
+
+If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+
+Here is an example of pulling and using `released` tag for `arm` architecture:
+
+```
+docker pull justarchi/archisteamfarm:released-arm
+docker run -it --name asf justarchi/archisteamfarm:released-arm
+```
 
 
 ### Using a volume
