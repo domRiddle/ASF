@@ -64,8 +64,6 @@ If everything ended successfully, after pulling all layers and starting containe
 
 If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
 
-Here is an example of pulling and using `released` tag for `arm` architecture:
-
 ```
 docker pull justarchi/archisteamfarm:released-arm
 docker run -it --name asf justarchi/archisteamfarm:released-arm
