@@ -48,7 +48,7 @@ Please note that Steam login and password are optional - if you omit them, ASF w
 
 ![Example](https://i.imgur.com/xWF6NHd.png)
 
-Now hit `Download` button and if you did everything properly a new `BotName.json` file will be downloaded. Locate that file and put it into `config` directory (inside ASF directory). I named my bot `Main`, so the file that was downloaded is named `Main.json`.
+Now hit `Download` button and if you did everything properly a new `BotName.json` file will be downloaded, where `BotName` will be the value you put in the name field above. Locate that file and put it into `config` directory (inside ASF directory). I named my bot `Main`, so the file that was downloaded is named `Main.json`.
 
 ![Example](http://i.imgur.com/4lgBuLa.png)
 
