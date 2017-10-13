@@ -40,7 +40,7 @@ Now you should do following things in order to generate first valid bot config:
 
 - Put a friendly name under `Name`, this can be your nickname or anything else you want to name your bot. Please avoid spaces, you can use `_` as a word separator.
 - Turn on `Enabled` switch.
-- If you use Steam Parental PIN to unlock your account, put it in `Parental PIN`. You'll need to `Toogle advanced` settings for that.
+- If you use Steam Parental PIN to unlock your account, put it in `Parental PIN`. You'll need to toogle advanced settings for that.
 - Fill `Steam Login` with your Steam account name that you use for logging in (optional).
 - Fill `Steam Password` with your Steam password that you use for logging in (optional).
 
