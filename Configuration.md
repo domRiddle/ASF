@@ -46,7 +46,7 @@ Now you should do following things in order to generate first valid bot config:
 
 Please note that Steam login and password are optional - if you omit them, ASF will ask for those on as-needed basis during runtime. If you provide them, ASF won't need to ask, making it possible for auto-run and saving your time.
 
-![Example](http://i.imgur.com/VW5vhXZ.png)
+![Example](https://i.imgur.com/xWF6NHd.png)
 
 Now hit `Download` button and if you did everything properly a new `BotName.json` file will be downloaded. Locate that file and put it into `config` directory (inside ASF directory). I named my bot `Main`, so the file that was downloaded is named `Main.json`.
 
