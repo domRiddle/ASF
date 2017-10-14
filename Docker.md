@@ -103,8 +103,6 @@ Of course, if you're advanced docker user you can always modify default `ENTRYPO
 
 ## IPC
 
-ASF docker container by default does not expose any ports, as using IPC is optional and therefore not required.
-
 For using IPC, firstly you should configure ASF to launch it properly, which would be starting it with `ASF_ARGS=--server` explained above, as well as setting `IPCHost` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** to something like `*`.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
