@@ -47,7 +47,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 ## Usage
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic `latest` tag usage in this guide, you're more than welcome to dig deeper.
+For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/run/)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
 ### Hello ASF!
 
