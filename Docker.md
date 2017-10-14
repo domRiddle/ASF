@@ -69,8 +69,9 @@ docker pull justarchi/archisteamfarm:latest-arm
 docker run -it --name asf justarchi/archisteamfarm:latest-arm
 ```
 
+---
 
-### Using a volume
+## Using a volume
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
@@ -97,6 +98,25 @@ docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
 ```
 
 Of course, if you're advanced docker user you can always modify default `ENTRYPOINT` of ASF container to run `ENTRYPOINT ["dotnet", "ArchiSteamFarm.dll", "--server"]` or whatever you need, although if you just want to run ASF and not create your own build based on ASF image then `ASF_ARGS` should be enough.
+
+---
+
+## IPC
+
+ASF docker container by default does not expose any ports, as using IPC is optional and therefore not required.
+
+For using IPC, firstly you should configure ASF to launch it properly, which would be starting it with `ASF_ARGS=--server` explained above, as well as setting `IPCHost` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** to something like `*`.
+
+Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
+
+For example, this command would expose ASF IPC interface to host machine (only):
+
+```
+docker pull justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--server" -p localhost:1242:1242 --name asf justarchi/archisteamfarm
+```
+
+Assuming you set `IPCHost` properly to something like `*`, the above command will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from the host machine.
 
 ---
 
