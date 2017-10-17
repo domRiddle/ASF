@@ -100,7 +100,7 @@ docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf jus
 Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for `AutoUpdates` feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
 
 ```
-docker exec asf chown -hR 1000:1000 /app
+docker exec -u root asf chown -hR 1000:1000 /app
 ```
 
 This has to be done only once after you create your container with `docker run`, and only if you decided to use custom user for ASF process.
