@@ -86,6 +86,25 @@ And that's it, now your ASF docker container will use shared directory with your
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
 
+### Volume permissions
+
+ASF is by default run with default `root` user inside a container. This is not a problem security-wise, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which might not be desired situation.
+
+Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your uid and gid for example with `id` command, then pass it to the rest of the command. For example, if you user has `uid` and `gid` of 1000:
+
+```
+docker pull justarchi/archisteamfarm
+docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+```
+
+Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user (anything other than `root`), then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for `AutoUpdates` feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
+
+```
+docker exec asf chown -hR 1000:1000 /app
+```
+
+This has to be done only once after you create your container with `docker run`, and only if you decided to use custom user for ASF process.
+
 ---
 
 ## Command-line arguments
