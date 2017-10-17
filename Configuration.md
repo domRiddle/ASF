@@ -32,7 +32,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 ## Web-based ConfigGenerator
 
-The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/gh-pages/_src/dist)** if you downloaded all files and ran `index.html` in your favourite browser.
+The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/gh-pages/WebConfigGenerator/dist)** if you downloaded all files and ran `index.html` in your favourite browser.
 
 We'll start from something very easy. Open **[ASF ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm)** page and switch to bot tab.
 
