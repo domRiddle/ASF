@@ -337,6 +337,14 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ***
 
+**Q:** ASF doesn't detect game `X` as available for farming, yet I know it includes Steam trading cards!
+
+**A:** There are two main reasons here. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply stated that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**. In short, check your **[badge pages](https://steamcommunity.com/my/badges)** for confirmation whether a game has card drops or not - this is also what ASF is using.
+
+Second issue is less obvious, and it's the situation when you can see that your game indeed is available as available with card drops on your badge page, yet it's not being idled by ASF. Unless you're hitting some other bug, such as ASF being unable to check badge pages (described below), it's simply a cache effect and on ASF side Steam is still reporting outdated badges page. This issue should solve itself sooner or later. There is also no way to fix this on our side.
+
+***
+
 **Q:** What is the difference between a warning and an error in the log?
 
 **A:** ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
