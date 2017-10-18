@@ -42,7 +42,7 @@ The example response of latest version has following form:
 			"AccountFlags":271073413,
 			"SteamID": 76561198006963719,
 			"BotConfig": {
-				"CardDropsRestricted": false,
+				"HoursUntilCardDrops": 0,
 				"TradingPreferences": 0
 			},
 			"KeepRunning": true
