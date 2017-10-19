@@ -57,6 +57,12 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!help` | `FamilySharing` | Shows help (link to this page)
 `!input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
 `!input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**
+`!ib` | `Master` | Lists apps blacklisted from automatic idling of current bot instance.
+`!ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances.
+`!ibadd <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of current bot instance.
+`!ibadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.
+`!ibrm <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of current bot instance.
+`!ibrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.
 `!iq` | `Master` | Lists priority idling queue of current bot instance.
 `!iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
 `!iqadd <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of current bot instance.
