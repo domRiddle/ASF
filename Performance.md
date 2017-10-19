@@ -80,7 +80,7 @@ Now once we realized what Steam glitch is, and the fact that cards being dropped
 >
 > Institute attacks upon a Steam server or otherwise disrupt Steam.
 
-It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
+It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you agree with us and consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
 
 ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)** section.
 
