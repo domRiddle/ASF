@@ -103,7 +103,7 @@ Remember that by default `/app` directory used by ASF is still owned by `root`. 
 docker exec -u root asf chown -hR 1000:1000 /app
 ```
 
-This has to be done only once after you create your container with `docker run`, and only if you decided to use custom user for ASF process.
+This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process.
 
 ---
 
