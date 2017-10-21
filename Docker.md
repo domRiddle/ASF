@@ -122,7 +122,7 @@ This will properly pass `--server` argument to ASF process being run inside dock
 
 ## IPC
 
-For using IPC, firstly you should configure ASF to launch it properly, which would be starting it with `ASF_ARGS=--server` explained above, as well as setting `IPCHost` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** to something like `*`.
+For using IPC, firstly you should configure ASF to launch it properly, which would be starting it with `ASF_ARGS=--server` explained above, as well as setting `IPCHost` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
 
