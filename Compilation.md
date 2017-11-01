@@ -43,9 +43,9 @@ dotnet build -c "Release" -o "out"
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
 
-If compilation ended successfully, you can find your ASF in `generic` flavour in `ArchiSteamFarm/out` directory. This is the same as official ASF build, but it has forced `AutoUpdates` of `false` and `UpdateChannel` of `0`.
+If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `AutoUpdates` of `false` and `UpdateChannel` of `0`.
 
-You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `generic` flavour, but in case you want to:
+You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `source` flavour, but in case you want to:
 
 ```
 dotnet publish -c "Release" -r "linux-x64" -o "out2"
