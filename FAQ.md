@@ -127,7 +127,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ***
 
-**Q:** Can ASF idle multiple games at once for longer than 2 hours or skip through games fast?
+**Q:** Can ASF skip through games fast?
 
 **A:** **No**, ASF **[doesn't support Steam glitches](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
 
