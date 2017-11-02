@@ -230,7 +230,7 @@ _Most likely_, because ASF is just a tool and it's **your** decision how to use 
 
 **Q:** I'm using unsupported OS such as 32-bit Windows, can I still use ASF V3?
 
-**A:** Yes, check out **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
+**A:** Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section for generic variant.
 
 ***
 
