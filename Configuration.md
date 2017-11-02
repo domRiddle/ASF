@@ -295,7 +295,7 @@ All options are explained below:
 
 Value | Name  | Description
 --- | --- | ---
-0 | Unordered | No sorting, slightly improving performance
+0 | Unordered | No sorting, slightly improving CPU performance
 1 | AppIDsAscending | Try to farm games with lowest `appID`s first
 2 | AppIDsDescending | Try to farm games with highest `appID`s first
 3 | CardDropsAscending | Try to farm games with lowest number of card drops remaining first
