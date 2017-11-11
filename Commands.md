@@ -71,7 +71,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `!leave` | `Master` | Makes current bot instance leave the group chat. For obvious reasons, this command works only in group chats.
 `!leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
-`!loot` | `Master` | Sends all `MatchableTypes` items of current bot instance to `Master` user defined in `SteamUserPermissions` (with lowest steamID if more than one).
+`!loot` | `Master` | Sends all `MatchableTypes` items of current bot instance to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
 `!loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `!nickname <Nickname>` | `Master` | Changes Steam nickname of current bot instance to given `nickname`.
 `!nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
