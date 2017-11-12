@@ -24,7 +24,7 @@ b) If your account is unrestricted, using ASF 2FA, has public inventory with at 
 * Your Steam identificator (in 64-bit form, for generating links)
 * Your nickname (for display purposes)
 * Your avatar (hash, for display purposes)
-* Your **[trading token](http://steamcommunity.com/id/ArchiPL/tradeoffers/privacy)** (so people can send you trades)
+* Your **[trading token](http://steamcommunity.com/my/tradeoffers/privacy)** (so people can send you trades)
 * Your `MatchableTypes` (for display purposes)
 * Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
 * Number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
