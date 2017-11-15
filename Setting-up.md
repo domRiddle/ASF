@@ -36,9 +36,9 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 ```
 C:\ASF
 ├── ASF shortcut.lnk
-├── config shortcut.lnk
-├── MyExtraScript.bat
+├── Config shortcut.lnk
 ├── Commands.txt
+├── MyExtraScript.bat
 └── Main
     ├── ArchiSteamFarm.exe
     ├── config
