@@ -33,7 +33,7 @@ Next step is downloading **[latest ASF release](https://github.com/JustArchi/Arc
 
 Once you get your package and extract the zip file, you'll have a bunch of files, folders and everything. If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file (this has to be done only once).
 
-Remember to put ASF in **its own directory** and not in any existing directory you're already using for something else - ASF's `AutoUpdates` feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above, for example:
+Be advised to put ASF in **its own directory** and not in any existing directory you're already using for something else - ASF's `AutoUpdates` feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above, for example:
 
 ```
 C:\ASF
