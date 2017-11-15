@@ -35,14 +35,14 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 
 ```
 C:\ASF
-   ├── ASF shortcut.lnk
-   ├── Config shortcut.lnk
-   ├── Commands.txt
-   ├── MyExtraScript.bat
-   └── Main
-        ├── ArchiSteamFarm.exe
-        ├── config
-        └── (...)
+    ├── ASF shortcut.lnk
+    ├── Config shortcut.lnk
+    ├── Commands.txt
+    ├── MyExtraScript.bat
+    └── Main
+         ├── ArchiSteamFarm.exe
+         ├── config
+         └── (...)
 ```
 
 Next step is ASF configuration. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and follow instructions - you should at least generate one bot config file that you put in `config` directory.
