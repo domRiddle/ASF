@@ -35,12 +35,12 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 
 ```
 C:\ASF
-├── ASF shortcut
-├── config shortcut
-├── MyExtraScript.sh
+├── ASF shortcut.lnk
+├── config shortcut.lnk
+├── MyExtraScript.bat
 ├── Commands.txt
 └── Main
-    ├── ArchiSteamFarm(.exe)
+    ├── ArchiSteamFarm.exe
     ├── config
     └── (...)
 ```
