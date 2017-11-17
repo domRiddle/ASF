@@ -612,6 +612,8 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using Web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
+**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+
 ---
 
 ## Compatibility
