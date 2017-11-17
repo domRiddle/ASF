@@ -11,8 +11,9 @@ This page in its "live" version applies only to **[latest release of ASF](https:
 3. **[Bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**
 4. **[File structure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#file-structure)**
 5. **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)**
-6. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#compatibility)**
-7. **[Auto-reload](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#auto-reload)**
+6. **[Compatibility mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#compatibility-mapping)**
+7. **[Configs compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configs-compatibility)**
+8. **[Auto-reload](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#auto-reload)**
 
 ---
 
@@ -616,7 +617,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ---
 
-## Compatibility
+## Configs compatibility
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs.
 
