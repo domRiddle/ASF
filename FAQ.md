@@ -129,7 +129,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### Can ASF skip through games fast?
 
-**No**, ASF **[doesn't support Steam glitches](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
 
 ***
 
