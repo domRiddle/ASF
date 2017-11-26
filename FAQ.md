@@ -379,6 +379,8 @@ The issue on the ASF side is actually very hard to workaround, as ASF simply res
 
 The only proper solution to this problem is manually pausing your bot with `!pause` before you start playing, and resuming it with `!resume` once you're done.
 
+This issue might also happen if your network connection is down while you're playing and ASF will be faster to start idling than your Steam client asking for game lock after disconnection.
+
 ***
 
 ### `Disconnected from Steam!` - I can't establish connection with Steam servers.
