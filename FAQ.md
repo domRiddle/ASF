@@ -14,7 +14,7 @@
 
 ## General
 
-#### So how it exactly works?
+### So how it exactly works?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](http://steamcommunity.com/tradingcards/faq)**.
 
