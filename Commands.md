@@ -106,7 +106,6 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**.
 `!unpack` | `Master` | Unpacks all booster packs stored in the inventory of current bot instance.
 `!unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
-`!stop <Bots>` | `Master` | Stops given bot instances.
 `!update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).
 `!version` | `FamilySharing` | Prints version of ASF.
 
