@@ -371,12 +371,6 @@ If even `log.txt` is not being generated then you most likely forgot to install 
 
 ***
 
-### `No bots are running, exiting`
-
-Either you didn't **[configure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** ASF, or you didn't enable any configured bot instance. When all bots exit, ASF will shutdown as well, as it has nothing to do (unless it's being run in `--server` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**).
-
-***
-
 ### ASF is kicking my Steam Client session while I'm playing!
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. The issue can happen only with broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE.
