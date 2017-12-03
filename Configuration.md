@@ -89,6 +89,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"IdleFarmingPeriod": 8,
 	"InventoryLimiterDelay": 3,
 	"IPCHost": "127.0.0.1",
+	"IPCPassword": null,
 	"IPCPort": 1242,
 	"LoginLimiterDelay": 10,
 	"MaxFarmingTime": 10,
@@ -96,7 +97,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"OptimizationMode": 0,
 	"Statistics": true,
 	"SteamOwnerID": 0,
-	"SteamProtocols": 1,
+	"SteamProtocols": 3,
 	"UpdateChannel": 1,
 	"UpdatePeriod": 24
 }
@@ -160,6 +161,10 @@ If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd
 
 ***
 
+`IPCPassword` - `string` type with default value of `null`. This property defines mandatory password for every call done voa IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. Unless you have a reason to edit this property, you should keep it at default.
+
+***
+
 `IPCPort` - `ushort` type with default value of `1242`. This is the port on which **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** is running by default. You may want to change it to any port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Unless you have a reason to edit this property, you should keep it at default.
 
 ***
@@ -201,7 +206,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-Right now this property is set to TCP only due to **[#186](https://github.com/JustArchi/ArchiSteamFarm/issues/186)** and **[#612](https://github.com/JustArchi/ArchiSteamFarm/issues/612)**. Sadly even TCP isn't flawless, with **[#576](https://github.com/JustArchi/ArchiSteamFarm/issues/576)**.
+Right now this property is set to TCP + UDP only due to **[#612](https://github.com/JustArchi/ArchiSteamFarm/issues/612)**.
 
 ***
 
