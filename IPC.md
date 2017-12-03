@@ -49,6 +49,12 @@ ASF in IPC mode supports all commands that are available, you can review them in
 
 ---
 
+## Cross-Origin Resource Sharing
+
+ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. javascript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script will want to access ASF's IPC interface, it'll require from you to input `IPCPassword`. If you enable that option, you'll also need to provide `password` on each call, for example by adding `&password=myIPCPassword` after your `?command=`.
+
+---
+
 ## FAQ
 
 **Q:** Why should I consider using IPC in ASF?
