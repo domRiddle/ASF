@@ -375,11 +375,11 @@ If even `log.txt` is not being generated then you most likely forgot to install 
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. The issue can happen only with broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE.
 
+The issue can also come up if you're playing on your PC while ASF is waiting and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock, which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF) and shows the same message.
+
 The issue on the ASF side is actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running.
 
 The only proper solution to this problem is manually pausing your bot with `!pause` before you start playing, and resuming it with `!resume` once you're done.
-
-This issue might also happen if your network connection is down while you're playing and ASF will be faster to start idling than your Steam client asking for game lock after disconnection.
 
 ***
 
