@@ -371,7 +371,7 @@ If even `log.txt` is not being generated then you most likely forgot to install 
 
 ***
 
-### ASF is kicking my Steam Client session while I'm playing!
+### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. The issue can happen only with broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE.
 
