@@ -43,8 +43,6 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
 `!addlicense <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on current bot instance (free games only).
 `!addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).
-`!api` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for current bot instance.
-`!api <Bots>` | `Master` | Returns ASF **[API](https://github.com/JustArchi/ArchiSteamFarm/wiki/API)** response in JSON, for given bot instances.
 `!bl` | `Master` | Lists blacklisted users from trading module of current bot instance.
 `!bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
 `!bladd <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of current bot instance.
