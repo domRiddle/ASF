@@ -37,7 +37,7 @@ ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections
 
 Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
 
-Currently ASF IPC offers minimalistic API for bots management that can be accessed by appropriate endpoints. In the future perhaps we'll succeed in making fully-featured IPC GUI that will access that API in user-friendly way (**[#610](https://github.com/JustArchi/ArchiSteamFarm/issues/610)**), but until then you'll need to access those endpoints manually.
+Currently ASF IPC offers minimalistic API for bots management that can be accessed by appropriate endpoints. In the future perhaps we'll succeed in making fully-featured IPC GUI that will access that API in user-friendly way (**[#610](https://github.com/JustArchi/ArchiSteamFarm/issues/610)**), but until then you need to access those endpoints manually.
 
 ---
 
@@ -125,7 +125,7 @@ You can append `password` parameter to the end of the URL you're about to call, 
 
 ### `Authentication` header
 
-Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you'll use for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword` as a parameter.
+Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword` as a parameter.
 
 ---
 
