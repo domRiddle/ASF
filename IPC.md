@@ -84,16 +84,16 @@ Currently following endpoints are available:
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This command accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots (just like !status **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**). Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots (just like !status **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**). Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
 
 ```
 GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
-### `DELETE /Api/Bot/{BotName}`
+### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bot specified by its `BotName`, together with all its files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots (just like !status **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**). Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
 
 ```
 DELETE /Api/Bot/archi
