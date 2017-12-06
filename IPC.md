@@ -68,7 +68,7 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Currently following endpoints are available:
 
-### `GET /Api/Bot/{botName}`
+### `GET /Api/Bot/{BotName}`
 
 Returns basic information about 
 
