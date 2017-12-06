@@ -6,6 +6,14 @@ IPC is always executed with `SteamOwnerID` permissions, which is `0` by default.
 
 ---
 
+## FAQ
+
+**Q:** Why should I consider using IPC in ASF?
+
+**A:** You should consider using IPC in ASF only if you have a strong reason. If you don't know what it is about, most likely you don't have one, and you can safely ignore this page along with the content. IPC stands for inter-process communication, which allows you to control the ASF process during execution, e.g. through a PHP script or similar. By using IPC you're able to control how ASF behaves, which might be useful if you're planning on integrating it further. If you're not running ASF on the server, and you're not planning on integrating it further with your own scripts/applications, it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
+
+---
+
 ## Server
 
 To start IPC, ASF must be started with `--server` parameter. For example in OS-specific package on Windows:
@@ -136,14 +144,6 @@ Both ways are supported in exactly the same way and it's totally up to you which
 ## Cross-Origin Resource Sharing
 
 ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request, as described above.
-
----
-
-## FAQ
-
-**Q:** Why should I consider using IPC in ASF?
-
-**A:** You should consider using IPC in ASF only if you have a strong reason. If you don't know what it is about, most likely you don't have one, and you can safely ignore this page along with the content. IPC stands for inter-process communication, which allows you to control the ASF process during execution, e.g. through a PHP script or similar. By using IPC you're able to control how ASF behaves, which might be useful if you're planning on integrating it further. If you're not running ASF on the server, and you're not planning on integrating it further with your own scripts/applications, it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
 
 ---
 
