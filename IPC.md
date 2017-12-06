@@ -56,15 +56,21 @@ Our API makes use of following HTTP status codes:
 
 ---
 
+## Screenshots
+
+TODO
+
+---
+
 ## API
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
 
----
+Currently following endpoints are available:
 
-## Screenshots
+### `GET /Api/Bot/{botName}`
 
-TODO
+Returns basic information about 
 
 ---
 
@@ -105,3 +111,88 @@ ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows 
 **Q:** Is this secure?
 
 **A:** ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
+
+---
+
+## Structures
+
+In case of numbers, we always provide maximum allowed value in example structures, so you can specify strong-defined expected type.
+
+### GenericResponse
+
+```
+{
+	"Message": "string",
+	"Result": {},
+	"Success": true
+}
+```
+
+`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve.
+
+`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be `BotResult` defined below. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, API guarantees that there can be only on fixed type per API endpoint, so you're always guaranteed parsable strong-typed output. Can be null if we don't have any specific result for you to retrieve.
+
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`.
+
+---
+
+### BotResult
+
+```
+{
+	"CardsFarmer": {
+		"GamesToFarm": [{
+			"AppID": 4294967295,
+			"GameName": "string",
+			"HoursPlayed": 3.40282347E+38,
+			"CardsRemaining": 65535
+		}],
+		"CurrentGamesFarming": [{
+			"AppID": 4294967295,
+			"GameName": "string",
+			"HoursPlayed": 3.40282347E+38,
+			"CardsRemaining": 65535
+		}],
+		"TimeRemaining":"02:30:00",
+		"Paused": false
+	},
+	"AccountFlags": 4294967295,
+	"SteamID": 18446744073709551615,
+	"BotConfig": {
+		"Enabled": true,
+		"SteamLogin": null,
+		"SteamPassword": null
+	},
+	"KeepRunning": true
+}
+```
+
+`CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
+
+`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
+
+`SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
+
+`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes majority of available config variables. This property can be used for determining with what options the bot is configured to work. Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are intentionally omitted from being included. In example structure above, only a subset of all properties is shown in order to keep it clean.
+
+`KeepRunning` is a `bool` type that specifies if bot is active. Active bot is a bot that has been `!start`ed, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be `false`. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what `SteamID` can be used for).
+
+#### CardsFarmer
+
+`GamesToFarm` is a `ConcurrentHashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, in `Simple` cards farming algorithm ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
+
+`CurrentGamesFarming` is a `ConcurrentHashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network).
+
+`TimeRemaining` is a `TimeSpan` type that specifies approximated time required to farm all games specified in `GamesToFarm` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current `GamesToFarm` status, therefore it's re-calculated the moment `CardsRemaining` of any game changes.
+
+`Paused` is a `bool` type that specifies if `CardsFarmer` is currently paused. CardsFarmer can be paused due to various events, mainly `!pause` and `!play` commands. Paused CardsFarmer will not attempt to farm anything in automatic mode, neither will check badges every `IdleFarmingPeriod` hours.
+
+#### Game
+
+`AppID` is `uint` type that in unique way identifies game being played. ASF enforces this to be greater than `0`.
+
+`GameName` is `string` type that provides friendly name of game identified by `AppID`. This is data returned by Steam Community. ASF enforces this to be `non-null` and `non-empty`.
+
+`HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `2.0` value. ASF enforces this property to be at least `0.0`.
+
+`CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
