@@ -74,13 +74,9 @@ ASF IPC interface by default does not require any sort of authentication, as `IP
 
 Authentication can be done through two generally-acceptable ways.
 
----
-
 ### `password` parameter in query string
 
 You can append `password` parameter to the end of the URL you're about to call, for example by calling `/API/Command/version?password=MyPassword` instead of `/API/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily appropriate for all cases.
-
----
 
 ### `Authentication` header
 
