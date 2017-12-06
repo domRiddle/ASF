@@ -70,13 +70,13 @@ Some API endpoints might require from you to specify extra data, such as providi
 
 Currently following endpoints are available:
 
-### `GET /Api/Bot/{BotName}`
+### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bot specified by its `BotName` - it returns basic status of the bot. Refer to **[BotResult](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#botresult)** definition for details. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[BotResult](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#botresult)** - bot status.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This command accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots (just like !status **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**). Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
 
 ```
 GET /Api/Bot/archi
-{"Message":"OK","Result":{"CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false},"Success":true}
+{"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
 ### `DELETE /Api/Bot/{BotName}`
@@ -157,10 +157,11 @@ ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows 
 
 In case of numbers, we always provide maximum allowed value in example structures, so you can specify strong-defined expected type.
 
-### BotResult
+### Bot
 
 ```
 {
+	"BotName":"string",
 	"CardsFarmer": {
 		"GamesToFarm": [{
 			"AppID": 4294967295,
@@ -187,6 +188,8 @@ In case of numbers, we always provide maximum allowed value in example structure
 	"KeepRunning": true
 }
 ```
+
+`BotName` is `string` type that defines name of the bot. This is the same identifier that is used for commands and all other identification-related bot activity.
 
 `CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
