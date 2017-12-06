@@ -109,7 +109,7 @@ POST /Api/Command/version
 {"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.1","Success":true}
 ```
 
-**We recommend accessing this API endpoint via POST request only - GET request is designed as user-friendly version and will be considered for removal when IPC GUI is ready.
+**We recommend accessing this API endpoint via POST request only - GET request is designed as user-friendly version and will be considered for removal when IPC GUI is ready.**
 
 ---
 
