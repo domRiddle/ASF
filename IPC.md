@@ -35,23 +35,66 @@ ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections
 
 ## Client
 
-Communication with IPC server provided by ASF can be done via any web browser, including CLI utilities such as `curl`. Currently ASF supports only one type of communication - sending a command. In order to send a command to IPC, you should send `http://127.0.0.1:1242/IPC?command=` `GET` request, including your command in `command` argument. For example, **[http://127.0.0.1:1242/IPC?command=version](http://127.0.0.1:1242/IPC?command=version)** or **[http://127.0.0.1:1242/IPC?command=status%20ASF](http://127.0.0.1:1242/IPC?command=status%20ASF)**.
+Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
 
-ASF expects that every command will have a structure of `<Command> (BotName) (ExtraArgs)`. Commands don't have to be prefixed by `!`, ASF prefixes them for you if needed (useful on Unix). ExtraArgs are optional, required by some commands (e.g. `redeem` one).
+Currently ASF IPC offers minimalistic API for bots management that can be accessed by appropriate endpoints. In the future perhaps we'll succeed in making fully-featured IPC GUI that will access that API in user-friendly way (**[#610](https://github.com/JustArchi/ArchiSteamFarm/issues/610)**), but until then you'll need to access those endpoints manually.
 
-ASF in IPC mode supports all commands that are available, you can review them in **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** section.
+---
+
+## HTTP status codes
+
+Our API makes use of following HTTP status codes:
+
+- `200 OK` - the request completed successfully.
+- `400 BadRequest` - the request failed because of an error, parse response body for actual reason.
+- `401 Unauthorized` - ASF has `IPCPassword` set and you failed to authenticate properly. This issue is 
+- `404 NotFound` - the URL you're trying to reach does not exist.
+- `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint.
+- `406 NotAcceptable` - your `ContentType` header is not acceptable for this endpoint.
+- `501 NotImplemented` - this URL is reserved for future use, not implemented yet.
+- `503 ServiceUnavailable` - ASF doesn't have `SteamOwnerID` properly set, command access is prohibited.
+
+---
+
+## API
+
+In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
 
 ---
 
 ## Screenshots
 
-![Image](http://i.imgur.com/Ue8q3uZ.png)
+TODO
+
+---
+
+## Authentication
+
+ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error.
+
+Authentication can be done through two generally-acceptable ways.
+
+---
+
+### `password` parameter in query string
+
+You can append `password` parameter to the end of the URL you're about to call, for example by calling `/API/Command/version?password=MyPassword` instead of `/API/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily appropriate for all cases.
+
+---
+
+### `Authentication` header
+
+Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you'll use for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword` as a parameter.
+
+---
+
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We recommend query string for users that just want to access protected ASF IPC interface or save link as a bookmark, and we recommend http header for all tools, code, scripts and otherwise dev-related things where you have more freedom in terms of http headers and actual communication.
 
 ---
 
 ## Cross-Origin Resource Sharing
 
-ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. javascript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll require from you to input `IPCPassword`. If you enable that option, you'll also need to provide `password` on each call, for example by adding `&password=myIPCPassword` after your `?command=`.
+ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request, as described above.
 
 ---
 
