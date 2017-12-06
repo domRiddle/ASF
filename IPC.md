@@ -50,7 +50,7 @@ Our API makes use of following HTTP status codes:
 - `401 Unauthorized` - ASF has `IPCPassword` set and you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
 - `404 NotFound` - the URL you're trying to reach does not exist.
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint.
-- `406 NotAcceptable` - your `ContentType` header is not acceptable for this endpoint.
+- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this endpoint.
 - `501 NotImplemented` - this URL is reserved for future use, not implemented yet.
 - `503 ServiceUnavailable` - ASF doesn't have `SteamOwnerID` properly set, command access is prohibited.
 
@@ -66,11 +66,50 @@ TODO
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
 
+Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`.
+
 Currently following endpoints are available:
 
 ### `GET /Api/Bot/{BotName}`
 
-Returns basic information about 
+This API endpoint can be used for fetching status of given bot specified by its `BotName` - it returns basic status of the bot. Refer to **[BotResult](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#botresult)** definition for details. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[BotResult](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#botresult)** - bot status.
+
+```
+GET /Api/Bot/archi
+{"Message":"OK","Result":{"CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false},"Success":true}
+```
+
+### `DELETE /Api/Bot/{BotName}`
+
+This API endpoint can be used for completely erasing given bot specified by its `BotName`, together with all its files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+
+```
+DELETE /Api/Bot/archi
+{"Message":"OK","Result":null,"Success":true}
+```
+
+### `POST /Api/Bot/{BotName}`
+#### Body: **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**
+#### Content-Type: application/json
+
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of your `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+
+```
+POST /Api/Bot/archi
+{"Message":"OK","Result":null,"Success":true}
+```
+
+### `GET /Api/Command/{Command}` **[Obsolete]**
+### `POST /Api/Command/{Command}`
+
+This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `string` - the output of the executed command.
+
+```
+POST /Api/Command/version
+{"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.1","Success":true}
+```
+
+**We recommend accessing this API endpoint via POST request only - GET request is designed as user-friendly version and will be considered for removal when IPC GUI is ready.
 
 ---
 
@@ -117,24 +156,6 @@ ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows 
 ## Structures
 
 In case of numbers, we always provide maximum allowed value in example structures, so you can specify strong-defined expected type.
-
-### GenericResponse
-
-```
-{
-	"Message": "string",
-	"Result": {},
-	"Success": true
-}
-```
-
-`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve.
-
-`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be `BotResult` defined below. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, API guarantees that there can be only on fixed type per API endpoint, so you're always guaranteed parsable strong-typed output. Can be null if we don't have any specific result for you to retrieve.
-
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`.
-
----
 
 ### BotResult
 
@@ -196,3 +217,21 @@ In case of numbers, we always provide maximum allowed value in example structure
 `HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `2.0` value. ASF enforces this property to be at least `0.0`.
 
 `CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
+
+---
+
+### GenericResponse
+
+```
+{
+	"Message": "string",
+	"Result": {},
+	"Success": true
+}
+```
+
+`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve.
+
+`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be `BotResult` defined below. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, API guarantees that there can be only on fixed type per API endpoint, so you're always guaranteed parsable strong-typed output. Can be null if we don't have any specific result for you to retrieve.
+
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`.
