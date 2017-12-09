@@ -180,8 +180,7 @@ In case of numbers, we always provide maximum allowed value in example structure
 	"SteamID": 18446744073709551615,
 	"BotConfig": {
 		"Enabled": true,
-		"SteamLogin": null,
-		"SteamPassword": null
+		"Paused": false
 	},
 	"KeepRunning": true
 }
