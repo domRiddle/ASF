@@ -63,6 +63,7 @@ Our API makes use of following HTTP status codes:
 - `404 NotFound` - the URL you're trying to reach does not exist.
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint.
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this endpoint.
+- `411 LengthRequired` - your request is missing `Content-Length` header.
 - `501 NotImplemented` - this URL is reserved for future use, not implemented yet.
 - `503 ServiceUnavailable` - ASF doesn't have `SteamOwnerID` properly set, command access is prohibited.
 
