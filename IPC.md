@@ -153,7 +153,7 @@ This API endpoint can be used for fetching structure of given JSON object specif
 
 Currently, following structures are supported: `BotConfig`, `GlobalConfig`.
 
-In the example below resulting structure was trimmed to keep it clean - normally you'll get entire structure returned, which is the main purpose of this command.
+In the example below resulting structure was trimmed to keep it clean - normally you'll get entire structure returned, which is the main purpose of this endpoint.
 
 ```
 curl -X GET /Api/Structure/BotConfig
