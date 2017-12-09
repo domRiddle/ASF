@@ -81,6 +81,8 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. Provided examples of requests/responses show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` for your ASF usage, such as `http://127.0.0.1:1242`.
 
+---
+
 ### `GET /Api/Bot/{BotNames}`
 
 This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
@@ -90,6 +92,8 @@ curl -X GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
+---
+
 ### `DELETE /Api/Bot/{BotNames}`
 
 This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
@@ -98,6 +102,8 @@ This API endpoint can be used for completely erasing given bots specified by the
 curl -X DELETE /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
+
+---
 
 ### `POST /Api/Bot/{BotName}`
 
@@ -124,6 +130,8 @@ Currently, following properties are considered sensitive and can be set to `null
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false,"Paused":true}}' /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
+
+---
 
 ### **[Obsolete]** `GET /Api/Command/{Command}`
 ### `POST /Api/Command/{Command}`
