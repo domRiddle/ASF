@@ -142,7 +142,7 @@ Alternatively you can use HTTP request headers, by setting `Authentication` fiel
 
 ---
 
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We recommend query string for users that just want to access protected ASF IPC interface or save link as a bookmark, and we recommend http header for all tools, code, scripts and otherwise dev-related things where you have more freedom in terms of http headers and actual communication.
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We recommend query string for users that just want to access protected ASF IPC interface or save link as a bookmark, and we recommend HTTP header for all tools, code, scripts and otherwise dev-related things where you have more freedom in terms of HTTP headers and actual communication. The generally-acceptable way is using `Authentication` header.
 
 ---
 
