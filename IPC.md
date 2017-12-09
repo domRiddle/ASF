@@ -151,7 +151,7 @@ curl -X POST -d '' /Api/Command/version
 
 This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
 
-Currently, following structures are supported: `BotConfig, `GlobalConfig`.
+Currently, following structures are supported: `BotConfig`, `GlobalConfig`.
 
 In the example below resulting structure was trimmed to keep it clean - normally you'll get entire structure returned, which is the main purpose of this command.
 
