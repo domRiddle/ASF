@@ -79,7 +79,7 @@ TODO
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
 
-Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. Provided examples of requests/responses assume GNU version of `curl`.
+Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. Provided examples of requests/responses show possible usage with **[curl](https://curl.haxx.se/)** tool.
 
 Currently following endpoints are available:
 
