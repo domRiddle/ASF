@@ -79,7 +79,7 @@ TODO
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
 
-Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`.
+Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. Provided examples of requests/responses assume GNU version of `curl`.
 
 Currently following endpoints are available:
 
@@ -88,7 +88,7 @@ Currently following endpoints are available:
 This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
 
 ```
-GET /Api/Bot/archi
+curl -X GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
@@ -97,7 +97,7 @@ GET /Api/Bot/archi
 This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
 
 ```
-DELETE /Api/Bot/archi
+curl -X DELETE /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
 
@@ -123,7 +123,7 @@ This API endpoint can be used for creating/updating **[BotConfig](https://github
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword, `SteamParentalPIN`.
 
 ```
-POST /Api/Bot/archi
+curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false,"Paused":true}}' /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
 
@@ -133,8 +133,8 @@ POST /Api/Bot/archi
 This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `string` - the output of the executed command.
 
 ```
-POST /Api/Command/version
-{"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.1","Success":true}
+curl -X POST -d '' /Api/Command/version
+{"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.3","Success":true}
 ```
 
 **We recommend accessing this API endpoint via POST request only - GET request is designed as user-friendly version and will be considered for removal when IPC GUI is ready.**
