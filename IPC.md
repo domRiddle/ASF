@@ -127,7 +127,7 @@ This API endpoint can be used for creating/updating **[BotConfig](https://github
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword, `SteamParentalPIN`.
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false,"Paused":true}}' /Api/Bot/archi
+curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false, "Paused": true}}' /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
 
