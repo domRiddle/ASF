@@ -147,6 +147,21 @@ curl -X POST -d '' /Api/Command/version
 
 ---
 
+### `GET /Api/Structure/{Structure}`
+
+This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
+
+Currently, following structures are supported: `BotConfig, `GlobalConfig`.
+
+In the example below resulting structure was trimmed to keep it clean - normally you'll get entire structure returned, which is the main purpose of this command.
+
+```
+curl -X GET /Api/Structure/BotConfig
+{"Message":"OK","Result":{"AcceptGifts":false,"AutoDiscoveryQueue":false},"Success":true}
+```
+
+---
+
 ## Authentication
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error.
