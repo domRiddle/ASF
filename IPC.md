@@ -81,8 +81,6 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. Provided examples of requests/responses show possible usage with **[curl](https://curl.haxx.se/)** tool.
 
-Currently following endpoints are available:
-
 ### `GET /Api/Bot/{BotNames}`
 
 This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
