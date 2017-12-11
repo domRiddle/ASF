@@ -124,7 +124,7 @@ This API endpoint can be used for creating/updating **[BotConfig](https://github
 
 `KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `SteamLogin` or `SteamPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
 
-Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword, `SteamParentalPIN`.
+Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false, "Paused": true}}' /Api/Bot/archi
