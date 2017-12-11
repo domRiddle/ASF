@@ -2,7 +2,7 @@
 
 Starting with version 3.0, ASF offers http-based inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
-IPC is always executed with `SteamOwnerID` permissions, which is `0` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing any client to access web interface (`403 AccessDenied`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+IPC is always executed with `SteamOwnerID` permissions, which is `0` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing any client to access web interface (`403 Forbidden`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 
 ---
 
@@ -59,13 +59,13 @@ Our API makes use of following HTTP status codes:
 
 - `200 OK` - the request completed successfully.
 - `400 BadRequest` - the request failed because of an error, parse response body for actual reason.
-- `401 Unauthorized` - ASF has `IPCPassword` set and you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
+- `401 Unauthorized` - ASF has `IPCPassword` set, you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
+- `403 Forbidden` - ASF doesn't have `SteamOwnerID` properly set, IPC access is prohibited.
 - `404 NotFound` - the URL you're trying to reach does not exist.
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint.
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this endpoint.
-- `411 LengthRequired` - your request is missing `Content-Length` header.
+- `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
 - `501 NotImplemented` - this URL is reserved for future use, not implemented yet.
-- `503 ServiceUnavailable` - ASF doesn't have `SteamOwnerID` properly set, command access is prohibited.
 
 ---
 
