@@ -190,8 +190,6 @@ ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows 
 
 ## Structures
 
-In case of numbers, we always provide maximum allowed value in example structures, so you can specify strong-defined expected type.
-
 ### Bot
 
 ```
