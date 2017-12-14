@@ -162,7 +162,7 @@ curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
 
 ---
 
-### `GET /Api/Structure/{Type}`
+### `GET /Api/Type/{Type}`
 
 This API endpoint can be used for fetching structure types of given JSON object specified by its `Type` name - it returns JSON-serialized object for given structure with values encoded as string representation of types used for them. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
 
