@@ -151,13 +151,28 @@ curl -X POST -d '' /Api/Command/version
 
 This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
 
-Currently, following structures are supported: `BotConfig`, `GlobalConfig`.
+`{Structure}` can be any ASF or .NET Core structure qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
 
-In the example below resulting structure was trimmed to keep it clean - normally you'll get entire structure returned, which is the main purpose of this endpoint. In comparison with `BotConfig` returned by `/Api/Bot/{BotNames}`, config returned by this endpoint includes sensitive fields (with their default values), so it can also be used for comparison of config structures.
+In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
 ```
-curl -X GET /Api/Structure/BotConfig
+curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":false,"AutoDiscoveryQueue":false},"Success":true}
+```
+
+---
+
+### `GET /Api/Structure/{Type}`
+
+This API endpoint can be used for fetching structure types of given JSON object specified by its `Type` name - it returns JSON-serialized object for given structure with values encoded as string representation of types used for them. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
+
+`{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
+
+In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
+
+```
+curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
+{"Message":"OK","Result":{"AcceptGifts":"System.Boolean","AutoDiscoveryQueue":"System.Boolean"},"Success":true}
 ```
 
 ---
