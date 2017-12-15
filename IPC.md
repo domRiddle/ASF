@@ -83,12 +83,6 @@ Our API makes use of following HTTP status codes:
 
 ---
 
-## Screenshots
-
-TODO
-
----
-
 ## API
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
