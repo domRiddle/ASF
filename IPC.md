@@ -16,6 +16,20 @@ You should consider using IPC in ASF only if you have a strong reason. If you do
 
 ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
 
+### Can I use HTTPS protocol with proper encryption?
+
+ASF itself deploys only very minimalistic `HttpServer`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse-proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. A sample `location` block for nginx can be found below.
+
+```
+location / {
+	proxy_pass http://127.0.0.1:1242;
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
 ---
 
 ## Server
