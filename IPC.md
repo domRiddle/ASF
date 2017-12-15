@@ -203,7 +203,7 @@ You can append `password` parameter to the end of the URL you're about to call, 
 
 ### `Authentication` header
 
-Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword` as a parameter.
+Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter.
 
 ---
 
