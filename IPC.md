@@ -146,6 +146,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": fa
 ### **[Obsolete]** `GET /Api/Command/{Command}`
 ### `POST /Api/Command/{Command}`
 
+#### Body: empty
+
 This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `string` - the output of the executed command.
 
 ```
