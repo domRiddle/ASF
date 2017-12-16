@@ -167,7 +167,7 @@ In the example below the actual result was trimmed to keep it clean - normally y
 
 ```
 curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
-{"Message":"OK","Result":{"AcceptGifts":false,"AutoDiscoveryQueue":false},"Success":true}
+{"Message":"OK","Result":{"AcceptGifts":false,"TradingPreferences":0},"Success":true}
 ```
 
 In comparison with `GET /Api/Type`, this endpoint returns JSON representation of an object of given type.
@@ -184,7 +184,7 @@ In the example below the actual result was trimmed to keep it clean - normally y
 
 ```
 curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
-{"Message":"OK","Result":{"AcceptGifts":"System.Boolean","AutoDiscoveryQueue":"System.Boolean"},"Success":true}
+{"Message":"OK","Result":{"AcceptGifts":"System.Boolean","TradingPreferences":"ArchiSteamFarm.BotConfig+ETradingPreferences"},"Success":true}
 ```
 
 In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property.
