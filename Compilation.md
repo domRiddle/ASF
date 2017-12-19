@@ -38,7 +38,7 @@ Microsoft .NET Core Shared Framework Host
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
 ```
-dotnet build ArchiSteamFarm -c "Release" -o "out"
+dotnet publish ArchiSteamFarm -c "Release" -o "out"
 ```
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
