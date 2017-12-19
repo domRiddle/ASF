@@ -199,17 +199,17 @@ ASF IPC interface by default does not require any sort of authentication, as `IP
 
 Authentication can be done through two generally-acceptable ways.
 
-### `password` parameter in query string
-
-You can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/Command/version?password=MyPassword` instead of `/Api/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily appropriate for all cases. In addition to that it's extra argument in the query string, which complicates the look of the URL.
-
 ### `Authentication` header
 
-Alternatively you can use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter.
+In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+
+### `password` parameter in query string
+
+Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/Command/version?password=MyPassword` instead of `/Api/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while it applies to the entire IPC communication.
 
 ---
 
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We recommend query string for users that just want to access protected ASF IPC interface or save link as a bookmark, and we recommend HTTP header for all tools, code, scripts and otherwise dev-related things where you have more freedom in terms of HTTP headers and actual communication. It's recommended to use `Authentication` header whenever possible.
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
 
 ---
 
