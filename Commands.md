@@ -121,7 +121,7 @@ ASF uses all whitespace characters as possible delimiters for a command, such as
 
 ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `!redeem bot key1 key2 key3` for `!redeem <Bots> <Keys>` will work exactly the same as `!redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `!redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter.
 
-As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `!nickname bob Great Bob" will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `!owns` command.
+As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `!nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `!owns` command.
 
 For `<Bots>` argument, there is a special `ASF` keyword which acts as "all bots in the process", so `!status ASF` is equal to `!status all,your,bots,listed,here`.
 
