@@ -79,7 +79,7 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint.
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint.
 - `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected.
+- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use of this status anywhere in the code.
 - `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
 
 ---
