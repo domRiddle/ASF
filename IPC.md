@@ -83,6 +83,32 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 
 ---
 
+## Authentication
+
+ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error.
+
+Authentication can be done through two generally-acceptable ways.
+
+### `Authentication` header
+
+In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+
+### `password` parameter in query string
+
+Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/Command/version?password=MyPassword` instead of `/Api/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while it applies to the entire IPC communication.
+
+---
+
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
+
+---
+
+## Cross-Origin Resource Sharing
+
+ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request, as described above.
+
+---
+
 ## API
 
 In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
@@ -190,32 +216,6 @@ curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 ```
 
 In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property.
-
----
-
-## Authentication
-
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error.
-
-Authentication can be done through two generally-acceptable ways.
-
-### `Authentication` header
-
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
-
-### `password` parameter in query string
-
-Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/Command/version?password=MyPassword` instead of `/Api/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while it applies to the entire IPC communication.
-
----
-
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
-
----
-
-## Cross-Origin Resource Sharing
-
-ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request, as described above.
 
 ---
 
