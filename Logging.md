@@ -219,3 +219,5 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 ## Caveats
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` and `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
+
+In short, if your `steamID` is taking part in the same ASF process, then the minimum level of your `SteamTarget` should be `Info`, or `Debug` if you're not running ASF in `Debug` mode.
