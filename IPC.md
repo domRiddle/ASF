@@ -69,7 +69,7 @@ Currently ASF IPC offers minimalistic API for bots management that can be access
 
 ## HTTP status codes
 
-Our API makes use of following HTTP status codes:
+Our API makes use of standard HTTP status codes, and they're used according to the RFC. Currently ASF can return following status codes:
 
 - `200 OK` - the request completed successfully.
 - `400 BadRequest` - the request failed because of an error, parse response body for actual reason.
