@@ -205,7 +205,9 @@ Please note that above is only our interpretation of Steam ToS and various point
 
 ### Did somebody get banned for it?
 
-Up to today, we had a single accident of guy with over 1000 bots getting trade banned (together with all bots), most likely due to excessive usage of `!loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
+**Yes**, we had two incidents so far that resulted in Steam suspension.
+
+First case was a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `!loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
 
 > Hello XXX,
 > Thank you for contacting Steam Support.
@@ -214,7 +216,16 @@ Up to today, we had a single accident of guy with over 1000 bots getting trade b
 
 Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `!loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
 
-_Most likely_, because ASF is just a tool and it's **your** decision how to use it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself how you want to use it. I'm not hiding any information that could help you, e.g. the fact that ASF got somebody trade-banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, and I doubt you'll get in trouble.
+Second case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
+
+> Your account was blocked for violation of the agreement of the subscriber Steam. Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities.
+> The account has been permanently blocked and Steam Support can not provide additional support on this issue.
+
+This case is once again very hard to analyze, because of vague response where even Steam support is not entirely sure what happened(?) Personally I believe that once again somebody sent massive amount of one-sided trades in a very short timespan, triggering Steam's anti-abuse mechanics.
+
+---
+
+ASF is just a tool and it's **your** decision how to use it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself how you want to use it. I'm not hiding any information that could help you, e.g. the fact that ASF got some people banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, avoid creating a massive network of bots that contains over hundred of accounts, do not trigger hundreds of trades at the same time, and you _should_ be fine. Every single incident of this nature for **some reason** always happened to people running massive amount of bots in the first place. Whether it's just a coincidence or some actual factor, that's up to you to decide. I'm not offering any legal advice, only giving you my thoughts that you can consider useful, or disregard them entirely and operate only on facts linked above.
 
 ***
 
