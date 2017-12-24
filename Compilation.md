@@ -59,7 +59,7 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 ## Tags
 
-`master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF run in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchi/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and also flawless execution (if build was marked as stable release).
+`master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchi/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and also flawless execution (if build was marked as stable release).
 
 ---
 
