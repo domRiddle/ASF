@@ -57,6 +57,12 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 ---
 
+## Tags
+
+`master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF run in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchi/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and also flawless execution (if build was marked as stable release).
+
+---
+
 ## Official releases
 
 Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, generic and OS-specific packages are deployed on GitHub.
