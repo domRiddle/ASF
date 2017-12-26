@@ -218,8 +218,6 @@ Update process of ASF involves update of entire folder structure that ASF is usi
 
  Unless you have a **strong** reason to disable this feature, you should keep auto-updates enabled within reasonable `UpdatePeriod` **for your own good**. This is not only because we don't support anything but latest stable ASF release, but also because **we give our security guarantee only for latest version**. If you're using outdated ASF version then you're on your own, including a need to deal with all potential unpatched bugs, such as **[notifications loop](https://github.com/JustArchi/ArchiSteamFarm/commit/2d767c41aacb33dda35a98fa4b41efb7d33f5ffe)** that was triggered by Steam network protocol change. This quickly made ASF flood Steam network infinitely, being an easy way to get a Steam community ban in notime due to **[DoS](https://en.wikipedia.org/wiki/Denial-of-service_attack)** potential.
 
-***
-
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
@@ -504,8 +502,6 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-***
-
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 ---
@@ -624,8 +620,6 @@ Value | Name
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None`, `A`, `B`, `A+B`, `C`, `A+C`, `B+C`, `A+B+C`).
-
-***
 
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
