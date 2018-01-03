@@ -56,7 +56,7 @@ Every language that was included for translation can have one of three states:
 
 **Needs translation** - some strings are still left in English, initial translations needed. If you speak given language and can help, please do!
 
-**Translated, but needs to be voted** - all required strings are translated, but there is still room for improvement through voting and suggesting better ones. This will be the most common state, as it simply means that "translation is completed and being improved by the community now". Please note that this state is temporary and might quickly change into previous one if any new strings will be added or modified.
+**Translated, but needs to be voted** - all required strings are translated, but there is still room for improvement through voting and suggesting better ones. This will be the most common state, as it simply means that "translation is completed and being improved by the community now". Please note that this state is temporary and might quickly change into previous one if any strings will be added or modified.
 
 **Completed** - chosen proofreader verified the translation to be correct, and picked final version of the strings, while still accepting future improvements. Quite rare, usually involves some trusted member to review community effort made in two points above, or solve conflicts.
 
