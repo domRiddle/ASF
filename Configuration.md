@@ -233,7 +233,7 @@ As you should know already, every bot should have its own config. Example bot co
 ```
 {
 	"AcceptGifts": false,
-	"AutoDiscoveryQueue": false,
+	"AutoSteamSaleEvent": false,
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
 	"DismissInventoryNotifications": false,
@@ -280,7 +280,7 @@ All options are explained below:
 
 ***
 
-`AutoDiscoveryQueue` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam discovery queue is known for providing you extra cards for browsing it each day. When this option is enabled, ASF will automatically check Steam discovery queue each 6 hours, and clear it if needed. This option is not recommended if you want to browse your queue yourself, and typically it should make sense only on bot accounts. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`AutoSteamSaleEvent` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours, and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
