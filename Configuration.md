@@ -159,7 +159,7 @@ If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd
 
 ***
 
-`IPCPassword` - `string` type with default value of `null`. This property defines mandatory password for every call done voa IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. Unless you have a reason to edit this property, you should keep it at default.
+`IPCPassword` - `string` type with default value of `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
