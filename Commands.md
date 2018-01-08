@@ -71,6 +71,10 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
 `!loot` | `Master` | Sends all `MatchableTypes` items of current bot instance to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
 `!loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`!loot^ <AppID> <ContextID>` | `Master` | Sends all items of current bot instance from given `AppID` and `ContextID` to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
+`!loot^ <Bots>` | `Master` | Sends all items of given bot instances from given `AppID` and `ContextID` to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
+`!loot&` | `Master` | Switches looting of current bot instance between enabled/disabled mode.
+`!loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode.
 `!nickname <Nickname>` | `Master` | Changes Steam nickname of current bot instance to given `nickname`.
 `!nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
 `!owns <AppIDsOrGameNames>` | `Operator` | Checks if current bot instance already owns given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
