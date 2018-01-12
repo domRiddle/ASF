@@ -78,6 +78,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"AutoRestart": true,
 	"BackgroundGCPeriod": 0,
 	"Blacklist": [],
+	"ConfirmationsLimiterDelay": 10,
 	"ConnectionTimeout": 60,
 	"CurrentCulture": null,
 	"Debug": false,
@@ -120,6 +121,10 @@ All options are explained below:
 ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd` and `!ibrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
+
+***
+
+`ConfirmationsLimiterDelay` - `byte` type with default value of `10`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `ConfirmationsLimiterDelay` seconds in between of two consecutive 2FA confirmations fetching requests - those are being used by ASF 2FA during `!2faok` command, as well as on as-needed basis during various trading-related operations. Default value was set as a sane default based on our tests and should not be lowered if you don't want to run into issues. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ***
 
