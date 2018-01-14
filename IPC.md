@@ -216,7 +216,7 @@ curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":"System.Boolean","TradingPreferences":"ArchiSteamFarm.BotConfig+ETradingPreferences"},"Success":true}
 ```
 
-In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property.
+In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property. You can also use this endpoint recursively, for example by checking how `ArchiSteamFarm.BotConfig+ETradingPreferences` in example above is exactly defined.
 
 ---
 
