@@ -12,7 +12,7 @@ For people that prefer watching over reading. Huge thanks to **[@GamingTaylor](h
 
 ### **[YouTube link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**
 
-Please note that you should still refer to the wiki for further explanation or up-to-date setting up guide.
+Please note that you should still refer to the wiki for further explanation or up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only.
 
 ***
 
