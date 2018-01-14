@@ -7,15 +7,14 @@ All wiki pages always apply to **[latest ASF release](https://github.com/JustArc
 Some of the subjects you might be interested in:
 
 1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-2. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/V3-Migration)** (if you're ASF V2 user)
-3. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-4. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
-5. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-6. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-7. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-8. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-9. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-10. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+4. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+5. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+6. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+7. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+8. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+9. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 Advanced users might be interested in:
 
@@ -38,17 +37,18 @@ Developers might be interested in:
 
 Some legacy wiki pages we still keep for a while:
 
-1. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
-2. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
-3. **[Commands (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))**
-4. **[Compatibility (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compatibility-(ASF-V2))**
-5. **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
-6. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
-7. **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
-8. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
-9. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
-10. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
-11. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
+1. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/_V3-Migration)** (if you're ASF V2 user)
+2. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
+3. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
+4. **[Commands (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))**
+5. **[Compatibility (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compatibility-(ASF-V2))**
+6. **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
+7. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
+8. **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
+9. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
+10. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
+11. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
+12. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
 
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/hSQgt8j)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
