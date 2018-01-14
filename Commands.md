@@ -72,7 +72,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `!loot` | `Master` | Sends all `MatchableTypes` items of current bot instance to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
 `!loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `!loot^ <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` and `ContextID` of current bot instance to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
-`!loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` and `ContextID` of given bot instances to `Master` user defined in its `SteamUserPermissions` (with lowest steamID if more than one).
+`!loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` and `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `!loot&` | `Master` | Switches looting of current bot instance between enabled/disabled mode.
 `!loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode.
 `!nickname <Nickname>` | `Master` | Changes Steam nickname of current bot instance to given `nickname`.
