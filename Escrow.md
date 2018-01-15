@@ -14,7 +14,7 @@ To enable ASF 2FA, you need to have:
 - Working steam authenticator in your Android
 - or working steam authenticator in your iOS
 - or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.com/)**
+- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
 
 Also a brain is needed for all of those tasks :+1: 
 
