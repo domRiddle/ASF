@@ -45,7 +45,7 @@ If you're using Linux/OS X, you can instead use `cc.sh` script which will do the
 
 `/p:LinkDuringPublish=false` tells our IL linker to not apply link-time optimizations. Link-time optimizations should be applied only to OS-specific builds. Since we're building `source` variant to run with our SDK, we can't apply link-time optimizations.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `AutoUpdates` of `false` and `UpdateChannel` of `0`.
+If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `UpdatePeriod` and `UpdateChannel` of `0`.
 
 You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `source` flavour, but in case you want to:
 
