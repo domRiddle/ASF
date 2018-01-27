@@ -43,7 +43,7 @@ dotnet publish ArchiSteamFarm -c "Release" -o "out" /p:LinkDuringPublish=false
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
 
-`/p:LinkDuringPublish=false` tells our IL linker to not apply link-time optimizations. Link-time optimizations should be applied only to OS-specific builds.
+`/p:LinkDuringPublish=false` tells our IL linker to not apply link-time optimizations. Link-time optimizations should be applied only to OS-specific builds. Since we're building generic build to run with our SDK, we can't apply link-time optimizations.
 
 If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `AutoUpdates` of `false` and `UpdateChannel` of `0`.
 
