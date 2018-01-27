@@ -34,20 +34,7 @@ location / {
 
 ## Server
 
-To start IPC, ASF must be started with `--server` parameter. For example in OS-specific package on Windows:
-```
-ArchiSteamFarm.exe --server
-```
-
-Or on Linux/OS X:
-```
-./ArchiSteamFarm --server
-```
-
-Or in generic package on any platform:
-```
-dotnet ArchiSteamFarm.dll --server
-```
+To start IPC, ASF must be started with `--server` parameter. Refer to **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** for more info.
 
 If parameter was passed correctly, you should notice that IPC service is active:
 ```
