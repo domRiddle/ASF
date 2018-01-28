@@ -296,7 +296,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
 
-`Version` - `version` value that specifies version of the currently running ASF binary. `Major`, `Minor`, `Build` and `Revision` properties correspond to appropriate digits in ASF `A.B.C.D` version string.
+`Version` - `version` value that specifies version of the currently running ASF binary. `Major`, `Minor`, `Build` and `Revision` properties correspond to appropriate digits in ASF `A.B.C.D` notation.
 
 ---
 
