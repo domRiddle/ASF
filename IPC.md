@@ -107,6 +107,17 @@ Provided examples of requests/responses below show possible usage with **[curl](
 
 ---
 
+### `GET /Api/ASF`
+
+This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `ASFResponse`.
+
+```
+curl -X GET /Api/ASF
+{"Message":"OK","Result":{"MemoryUsage":3846,"Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
+```
+
+---
+
 ### `DELETE /Api/Bot/{BotNames}`
 
 This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
@@ -271,6 +282,21 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 `HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `2.0` value. ASF enforces this property to be at least `0.0`.
 
 `CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
+
+---
+
+### ASFResponse
+
+```
+{
+	"MemoryUsage": 4294967295
+	"Version": {"Major":2147483647,"Minor":2147483647,"Build":2147483647,"Revision":2147483647,"MajorRevision":32767,"MinorRevision":32767}
+}
+```
+
+`MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
+
+`Version` - `version` value that specifies version of the currently running ASF binary. `Major`, `Minor`, `Build` and `Revision` properties correspond to appropriate digits in ASF `A.B.C.D` version string.
 
 ---
 
