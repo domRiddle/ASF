@@ -290,7 +290,14 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 ```
 {
 	"MemoryUsage": 4294967295,
-	"Version": {"Major":2147483647,"Minor":2147483647,"Build":2147483647,"Revision":2147483647,"MajorRevision":32767,"MinorRevision":32767}
+	"Version": {
+		"Major": 2147483647,
+		"Minor": 2147483647,
+		"Build": 2147483647,
+		"Revision": 2147483647,
+		"MajorRevision": 32767,
+		"MinorRevision": 32767
+	}
 }
 ```
 
