@@ -224,7 +224,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ```
 {
-	"BotName":"string",
+	"BotName": "string",
 	"CardsFarmer": {
 		"GamesToFarm": [{
 			"AppID": 4294967295,
@@ -238,7 +238,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 			"HoursPlayed": 3.40282347E+38,
 			"CardsRemaining": 65535
 		}],
-		"TimeRemaining":"02:30:00",
+		"TimeRemaining": "02:30:00",
 		"Paused": false
 	},
 	"AccountFlags": 4294967295,
