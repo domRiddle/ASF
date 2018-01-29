@@ -103,7 +103,7 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
 
-Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` for your ASF usage, such as `http://127.0.0.1:1242`.
+Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
 
 ---
 
