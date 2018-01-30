@@ -113,7 +113,7 @@ This API endpoint can be used for fetching general data about ASF process as a w
 
 ```
 curl -X GET /Api/ASF
-{"Message":"OK","Result":{"MemoryUsage":3846,"Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
+{"Message":"OK","Result":{"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
 
 ---
@@ -290,6 +290,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 ```
 {
 	"MemoryUsage": 4294967295,
+	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
 	"Version": {
 		"Major": 2147483647,
 		"Minor": 2147483647,
@@ -302,6 +303,8 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 ```
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
+
+`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string.
 
 `Version` - `version` value that specifies version of the currently running ASF binary. `Major`, `Minor`, `Build` and `Revision` properties correspond to appropriate digits in ASF `A.B.C.D` notation.
 
