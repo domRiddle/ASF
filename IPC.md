@@ -304,7 +304,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
 
-`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string.
+`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string that contains date, time, as well as timezone being used.
 
 `Version` - `version` value that specifies version of the currently running ASF binary. `Major`, `Minor`, `Build` and `Revision` properties correspond to appropriate digits in ASF `A.B.C.D` notation.
 
