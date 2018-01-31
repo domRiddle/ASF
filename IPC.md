@@ -184,6 +184,20 @@ curl -X POST -d '' /Api/Command/version
 
 ---
 
+### `GET /Api/Log`
+
+This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few messages for you as a short history.
+
+```
+curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
+HTTP/1.1 200 OK
+
+# Example of message being sent by ASF
+{"Message":"OK","Result":"2018-01-31 03:19:34|dotnet-2884|INFO|ASF|Start() IPC server ready!","Success":true}
+```
+
+---
+
 ### `GET /Api/Structure/{Structure}`
 
 This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
