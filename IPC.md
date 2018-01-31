@@ -135,7 +135,7 @@ This API endpoint can be used for fetching status of given bots specified by the
 
 ```
 curl -X GET /Api/Bot/archi
-{"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
+{"Message":"OK","Result":[{"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
 ---
@@ -240,6 +240,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ```
 {
+	"AvatarHash": "string",
 	"BotName": "string",
 	"CardsFarmer": {
 		"GamesToFarm": [{
@@ -266,6 +267,8 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 	"KeepRunning": true
 }
 ```
+
+`AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
 
 `BotName` is `string` type that defines name of the bot. This is the same identifier that is used for commands and all other identification-related bot activity.
 
