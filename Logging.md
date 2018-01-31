@@ -125,15 +125,15 @@ That's it, now our `ColoredConsole` will show only warnings and above, while sti
 
 ## ASF targets
 
-Starting with version 2.2.1.7, in addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF `SteamTarget` logging target. As you can guess, this target uses Steam chat messages for logging ASF messages.
+Starting with version 2.2.1.7, in addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
 
-For maximum completeness, definition of ASF `SteamTarget` will follow NLog documentation convention.
+For maximum completeness, definition of ASF targets will follow NLog documentation convention.
 
 ---
 
 ### SteamTarget
 
-Writes log messages to specific SteamID, from specific Bot.
+As you can guess, this target uses Steam chat messages for logging ASF messages. It writes log messages to specific `steamID`, from specific `botName`. 
 
 Supported in all environments used by ASF.
 
@@ -201,6 +201,46 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 #### Screenshots
 
 ![Screenshot](http://i.imgur.com/5juKHMt.png)
+
+---
+
+### HistoryTarget
+
+This target is used internally by ASF for providing fixed-size logging history for IPC GUI usage. In general you should define this target only if you're using custom NLog config for other customizations and you also want logging history in IPC GUI. It can also be declared when you'd want to modify default value of `maxCount`.
+
+Supported in all environments used by ASF.
+
+---
+
+#### Configuration Syntax
+```xml
+<targets>
+  <target type="History"
+          name="String"
+          layout="Layout"
+          maxCount="Byte"  />
+</targets>
+```
+
+Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+
+---
+
+#### Parameters
+
+##### General Options
+_name_ - Name of the target.
+
+---
+
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+
+---
+
+##### HistoryTarget Options
+
+_maxCount_ - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements.
 
 ---
 
