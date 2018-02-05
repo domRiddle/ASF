@@ -24,7 +24,7 @@ A pre-release version might be considered stable after some time. This is especi
 Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
 ```
 
-In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time (a few days) since pre-release became available. We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise.
+In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time (a few days) since pre-release became available. We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise. Pre-releases are happening on as-needed basis when we feel like there is enough of stuff that needs to be tested since the release of the last one. Depending on how busy ASF development is in given moment, this can be from a few to a dozen of pre-releases between each stable release.
 
 The precise changelog that compares one version to another is always available on GitHub - through commits and code changes. In release we tend to document only changes we consider important between last stable and current release. Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another - please use GitHub for that.
 
