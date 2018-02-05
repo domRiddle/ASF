@@ -135,7 +135,7 @@ This API endpoint can be used for fetching status of given bots specified by the
 
 ```
 curl -X GET /Api/Bot/archi
-{"Message":"OK","Result":[{"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
+{"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","IsPlayingPossible":true,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
 ---
@@ -240,7 +240,6 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ```
 {
-	"AvatarHash": "string",
 	"BotName": "string",
 	"CardsFarmer": {
 		"GamesToFarm": [{
@@ -259,6 +258,8 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 		"Paused": false
 	},
 	"AccountFlags": 4294967295,
+	"AvatarHash": "string",
+	"IsPlayingPossible": true,
 	"SteamID": 18446744073709551615,
 	"BotConfig": {
 		"Enabled": true,
@@ -268,13 +269,15 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 }
 ```
 
-`AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
-
 `BotName` is `string` type that defines name of the bot. This is the same identifier that is used for commands and all other identification-related bot activity.
 
 `CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
 `AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
+
+`AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
+
+`IsPlayingPossible` is `bool` type that specifies if account being used by a bot can be used for automatic idling. This property will be `false` when Steam library of the account is being used elsewhere, either normally, or via family sharing.
 
 `SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
