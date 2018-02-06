@@ -234,7 +234,9 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ---
 
-## Structures
+## Result structures
+
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`.
 
 ### Bot
 
