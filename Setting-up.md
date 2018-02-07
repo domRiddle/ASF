@@ -23,7 +23,7 @@ In general, you should:
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and relax.
+- Launch ASF and have fun.
 
 The above was TL;DR, most likely you'd want to read actual explanation of above steps, which is available below.
 
