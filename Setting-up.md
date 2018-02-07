@@ -42,7 +42,7 @@ C:\ASF (where you put your own things)
     ├── Commands.txt
     ├── MyExtraScript.bat
     └── Core (dedicated to ASF only)
-         ├── ArchiSteamFarm.exe
+         ├── ArchiSteamFarm.dll
          ├── config
          └── (...)
 ```
