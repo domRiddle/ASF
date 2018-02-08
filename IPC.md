@@ -66,7 +66,7 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used for trying to access websocket endpoint without initiating a websocket connection (upgrade).
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint.
 - `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code.
+- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code. For expected errors we use `503` instead.
 - `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
 - `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request, and can't fulfill it. Check ASF log for actual reason.
 
