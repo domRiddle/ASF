@@ -68,6 +68,7 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 - `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
 - `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code.
 - `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
+- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request, and can't fulfill it. Check ASF log for actual reason.
 
 ---
 
