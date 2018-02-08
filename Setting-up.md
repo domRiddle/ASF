@@ -52,7 +52,7 @@ Package name depends on distribution, we listed most common ones. You should obt
 At least a few of those should be already natively available on your system (such as zlib1g).
 
 ### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
-- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**
+- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**.
 
 ---
 
