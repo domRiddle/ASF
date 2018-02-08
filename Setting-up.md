@@ -34,7 +34,7 @@ Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-
 ### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 
-It's possible that this package was already installed by some other software/game you're using, but please double-check by running installer.
+It's possible that this package was already installed by some other software/game you're using, but please double-check by running the installer to be sure.
 
 ### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)** (package name depends on distribution, we listed most common ones):
 - libunwind8 (libunwind)
