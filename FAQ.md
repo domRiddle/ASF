@@ -305,7 +305,7 @@ Cards farming rate differs from game to game, as you can read in **[performance]
 
 ### How to completely stop ASF process for my account?
 
-Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `!stop` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paussed` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** and `!pause` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** is for.
+Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `!stop` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** and `!pause` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** is for.
 
 ***
 
