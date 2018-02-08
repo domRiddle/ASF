@@ -27,7 +27,25 @@ In general, you should:
 
 The above was TL;DR, most likely you'd want to read actual explanation of above steps, which is available below.
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** that you should follow. Simply follow those instructions, there is a chance that you already have all required libraries, but you should double check. For example on Windows, all you need to do is to download & install `Microsoft Visual C++ 2015 Redistributable Update 3`, which could even be already installed by some other game/software that you're using. On Linux, you have a list of libraries that can be obtained with `apt-get install` or anything you're using as your package manager. Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-specific package includes them already, you need only .NET Core prerequisites (dependencies).
+First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** that you should follow. Simply follow those instructions, there is a chance that you already have all required libraries, but you should double check. For example on Windows, all you need to do is to download & install `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, which could even be already installed by some other game/software that you're using. On Linux, you have a list of libraries that can be obtained with `apt-get install` or anything you're using as your package manager. OS X doesn't have any mandatory dependencies for now, but it might change in the future.
+
+Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-specific package includes them already, you need only .NET Core prerequisites (dependencies). Since it might be hard to extract the info you're looking for, we listed required dependencies also here, but please refer to original .NET Core source as those might get changed in the future.
+
+Windows:
+- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)**
+
+Linux (package name depends on distribution):
+- libunwind8 (libunwind)
+- liblttng-ust0 (lttng-ust)
+- libcurl3 (libcurl)
+- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version)
+- libuuid1 (libuuid)
+- libkrb5-3 (krb5-libs)
+- libicu57 (libicu, newest version, right now 57)
+- zlib1g (zlib)
+
+OS X:
+- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**
 
 Next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
 
