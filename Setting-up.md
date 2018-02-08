@@ -39,7 +39,7 @@ Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-
 It's possible that this package was already installed by some other software/game you're using, but please double-check by running the installer to be sure.
 
 ### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
-Package names depends on distribution, we listed most common ones.
+Package name depends on distribution, we listed most common ones. You should obtain them with package manager of your distribution (such as `apt-get` on Debian family)
 - libunwind8 (libunwind)
 - liblttng-ust0 (lttng-ust)
 - libcurl3 (libcurl)
