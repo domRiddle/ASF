@@ -68,7 +68,7 @@ C:\ASF (where you put your own things)
     ├── Config shortcut.lnk
     ├── Commands.txt
     ├── MyExtraScript.bat
-    └── Core (dedicated to ASF only)
+    └── Core (dedicated to ASF only, where you extract the archive)
          ├── ArchiSteamFarm.dll
          ├── config
          └── (...)
