@@ -338,7 +338,7 @@ RateLimited | You made too many redeem attempts and your account was temporarily
 
 ***
 
-### Are you affiliated with getsteam.cards or any other cards farming service?
+### Are you affiliated with any cards farming/level up service?
 
 **No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](http://store.steampowered.com/subscriber_agreement/english/)** that:
 
