@@ -31,12 +31,12 @@ First step is ensuring that your OS can even launch ASF properly. ASF is written
 
 Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-specific package includes them already, you need only .NET Core prerequisites (dependencies). Since it might be hard to extract the info you're looking for, we listed required dependencies also here, but please refer to original .NET Core source as those might get changed in the future.
 
-#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
+### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 
 It's possible that this package was already installed by some other software/game you're using, but please double-check by running installer.
 
-#### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)** (package name depends on distribution, we listed most common ones):
+### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)** (package name depends on distribution, we listed most common ones):
 - libunwind8 (libunwind)
 - liblttng-ust0 (lttng-ust)
 - libcurl3 (libcurl)
@@ -48,7 +48,7 @@ It's possible that this package was already installed by some other software/gam
 
 At least a few of those should be already natively available on your system (such as zlib1g).
 
-#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
+### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
 - None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**
 
 Next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
