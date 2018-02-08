@@ -18,6 +18,8 @@
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](http://steamcommunity.com/tradingcards/faq)**.
 
+In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+
 Core points are repeated once again here, because people are either too blind to see them, or don't want to see them:
 
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
