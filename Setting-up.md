@@ -41,7 +41,7 @@ Keep in mind that you don't need entire .NET Core SDK or even runtime, since OS-
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version)
 - libuuid1 (libuuid)
 - libkrb5-3 (krb5-libs)
-- libicu57 (libicu, newest version, right now 57)
+- libicu57 (libicu, latest version, right now 57)
 - zlib1g (zlib)
 
 **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
