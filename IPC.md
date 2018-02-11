@@ -112,7 +112,7 @@ Provided examples of requests/responses below show possible usage with **[curl](
 
 This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[ASFResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#asfresponse)**.
 
-```sh
+```shell
 curl -X GET /Api/ASF
 {"Message":"OK","Result":{"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
@@ -123,7 +123,7 @@ curl -X GET /Api/ASF
 
 This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
 
-```sh
+```shell
 curl -X DELETE /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
@@ -134,7 +134,7 @@ curl -X DELETE /Api/Bot/archi
 
 This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as HashSet<**[Bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#bot)**> - collection of bot statuses.
 
-```sh
+```shell
 curl -X GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","IsPlayingPossible":true,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
@@ -162,7 +162,7 @@ This API endpoint can be used for creating/updating **[BotConfig](https://github
 
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
 
-```sh
+```shell
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false, "Paused": true}}' /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
@@ -176,7 +176,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": fa
 
 This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `string` - the output of the executed command.
 
-```sh
+```shell
 curl -X POST -d '' /Api/Command/version
 {"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.3","Success":true}
 ```
@@ -191,7 +191,7 @@ This API endpoint can be used for fetching real-time log messages being written 
 
 The websocket connection established with this endpoint is **read-only** - ASF will accept only `Close` **[frame](https://tools.ietf.org/html/rfc6455#section-5.5.1)** indicating that websocket connection should be gracefully closed. Any other data frame will result in connection being terminated.
 
-```sh
+```shell
 curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
 HTTP/1.1 200 OK
 
@@ -209,7 +209,7 @@ This API endpoint can be used for fetching structure of given JSON object specif
 
 In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
-```sh
+```shell
 curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":false,"TradingPreferences":0},"Success":true}
 ```
@@ -226,7 +226,7 @@ This API endpoint can be used for fetching structure types of given JSON object 
 
 In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
-```sh
+```shell
 curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":"System.Boolean","TradingPreferences":"ArchiSteamFarm.BotConfig+ETradingPreferences"},"Success":true}
 ```
