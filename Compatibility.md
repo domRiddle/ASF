@@ -71,7 +71,7 @@ OnUnhandledException() System.TypeInitializationException: The type initializer 
 
 If you stumble upon the issue above, then you might need to manually tell .NET Core runtime to pick up proper library in this case. Locate `libcurl.so.3` on your system and add it to `LD_PRELOAD` before starting ASF:
 
-```sh
+```shell
 LD_PRELOAD=/usr/lib/libcurl.so.3 ./ArchiSteamFarm
 ```
 
