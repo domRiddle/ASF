@@ -73,7 +73,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 Global config is located in `ASF.json` file and has following structure:
 
-```
+```json
 {
 	"AutoRestart": true,
 	"BackgroundGCPeriod": 0,
@@ -237,7 +237,7 @@ As you should know already, every bot should have its own config. Example bot co
 
  After deciding how you want to name your bot, open its file, and start with configuration. You should notice following structure:
 
-```
+```json
 {
 	"AcceptGifts": false,
 	"AutoSteamSaleEvent": false,
