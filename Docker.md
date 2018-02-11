@@ -53,7 +53,7 @@ For complete reference you should use **[official docker documentation](https://
 
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
-```
+```sh
 docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
@@ -64,7 +64,7 @@ If everything ended successfully, after pulling all layers and starting containe
 
 If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
 
-```
+```sh
 docker pull justarchi/archisteamfarm:latest-arm
 docker run -it --name asf justarchi/archisteamfarm:latest-arm
 ```
@@ -77,7 +77,7 @@ If you're using ASF in docker container then obviously you need to configure the
 
 For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 
-```
+```sh
 docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
@@ -92,14 +92,14 @@ ASF is by default run with default `root` user inside a container. This is not a
 
 Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
 
-```
+```sh
 docker pull justarchi/archisteamfarm
 docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
 Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
 
-```
+```sh
 docker exec -u root asf chown -hR 1000:1000 /app
 ```
 
@@ -111,7 +111,7 @@ This has to be done only once after you created your container with `docker run`
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
 
-```
+```sh
 docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
 ```
@@ -128,7 +128,7 @@ Once we achieve that and ASF properly brings up IPC interface, we need to tell d
 
 For example, this command would expose ASF IPC interface to host machine (only):
 
-```
+```sh
 docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--server" -p localhost:1242:1242 --name asf justarchi/archisteamfarm
 ```
