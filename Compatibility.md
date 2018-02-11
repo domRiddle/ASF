@@ -65,13 +65,13 @@ If you updated from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that 
 
 If you have both `libcurl.so.3` and `libcurl.so.4` on your system then .NET Core might decide to pick second one, which will lead to ASF crash the moment it'll try to initialize its http client.
 
-```
+```csharp
 OnUnhandledException() System.TypeInitializationException: The type initializer for 'System.Net.Http.CurlHandler' threw an exception. ---> System.TypeInitializationException: The type initializer for 'Http' threw an exception. ---> System.TypeInitializationException: The type initializer for 'HttpInitializer' threw an exception. ---> System.DllNotFoundException: Unable to load DLL 'System.Net.Http.Native': The specified module or one of its dependencies could not be found.
 ```
 
 If you stumble upon the issue above, then you might need to manually tell .NET Core runtime to pick up proper library in this case. Locate `libcurl.so.3` on your system and add it to `LD_PRELOAD` before starting ASF:
 
-```
+```sh
 LD_PRELOAD=/usr/lib/libcurl.so.3 ./ArchiSteamFarm
 ```
 
