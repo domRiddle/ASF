@@ -138,6 +138,12 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ***
 
+**Q:** Can I use my original authenticator after importing it as ASF 2FA?
+
+**A:** Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
+
+***
+
 **Q:** Where is ASF mobile authenticator saved?
 
 **A:** ASF mobile authenticator is saved in ```BotName.db``` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
