@@ -37,7 +37,7 @@ Microsoft .NET Core Shared Framework Host
 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
-```sh
+```shell
 dotnet publish ArchiSteamFarm -c "Release" -o "out" /p:LinkDuringPublish=false
 ```
 
@@ -49,7 +49,7 @@ If compilation ended successfully, you can find your ASF in `source` flavour in 
 
 You can also generate OS-specific package if you have a specific need. In general you shouldn't do that if you have .NET Core SDK already installed, since you've just compiled `source` flavour, but in case you want to:
 
-```sh
+```shell
 dotnet publish ArchiSteamFarm -c "Release" -r "linux-x64" -o "out2"
 ```
 
