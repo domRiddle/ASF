@@ -62,7 +62,7 @@ Once you get your package and extract the zip file, you'll have a bunch of files
 
 Be advised to put ASF in **its own directory** and not in any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
-```powershell
+```
 C:\ASF (where you put your own things)
     ├── ASF shortcut.lnk
     ├── Config shortcut.lnk
