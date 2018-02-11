@@ -237,7 +237,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ## Result structures
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields that can be consumed by JavaScript (and other languages with similar limitations), which can't represent 64-bit numbers precisely.
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields that can be consumed by JavaScript (and other languages with similar limitations) that can't represent 64-bit numbers precisely.
 
 ### Bot
 
