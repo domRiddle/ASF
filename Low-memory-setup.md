@@ -70,7 +70,7 @@ In addition to verifying that workstation GC is active, there is also an interes
 
 You can enable it by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`. For example on Linux with:
 
-```
+```shell
 export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
