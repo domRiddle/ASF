@@ -10,19 +10,19 @@ Usage depends on your OS and ASF flavour.
 
 Generic:
 
-```
+```sh
 dotnet ArchiSteamFarm.dll --argument --otherOne
 ```
 
 Windows:
 
-```
+```powershell
 ArchiSteamFarm.exe --argument --otherOne
 ```
 
 Linux/OS X
 
-```
+```sh
 ./ArchiSteamFarm --argument --otherOne
 ```
 
