@@ -10,7 +10,7 @@ Usage depends on your OS and ASF flavour.
 
 Generic:
 
-```sh
+```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
 ```
 
@@ -22,7 +22,7 @@ ArchiSteamFarm.exe --argument --otherOne
 
 Linux/OS X
 
-```sh
+```shell
 ./ArchiSteamFarm --argument --otherOne
 ```
 
