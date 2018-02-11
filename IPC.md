@@ -20,7 +20,7 @@ ASF by default listens only on `127.0.0.1` address, which means that accessing A
 
 ASF itself deploys only very minimalistic `HttpServer`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse-proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpServer` decided to support. A sample `location` block for nginx can be found below.
 
-```nginx
+```text
 location / {
 	proxy_pass http://127.0.0.1:1242;
 	proxy_set_header Host $host;
