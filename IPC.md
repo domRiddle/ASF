@@ -360,7 +360,7 @@ Numeric properties are defined with their maximum values, so you can also use st
 	"Body": {},
 	"Properties": {
 		"BaseType": "string",
-		"CustomAttributes": ["string"],
+		"CustomAttributes": [ "string" ],
 		"UnderlyingType": "string"
 	}
 }
