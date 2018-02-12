@@ -368,7 +368,7 @@ Numeric properties are defined with their maximum values, so you can also use st
 
 `Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
 
-`Properties` - `TypeProperties` type defined below that holds metadata information about given type.
+`Properties` - `TypeProperties` type defined **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeproperties)** that holds metadata information about given type.
 
 ### TypeProperties
 
