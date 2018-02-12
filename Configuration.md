@@ -87,9 +87,10 @@ Global config is located in `ASF.json` file and has following structure:
 	"Headless": false,
 	"IdleFarmingPeriod": 8,
 	"InventoryLimiterDelay": 3,
-	"IPCHost": "127.0.0.1",
 	"IPCPassword": null,
-	"IPCPort": 1242,
+	"IPCPrefixes": [
+		"http://127.0.0.1:1242/"
+	],
 	"LoginLimiterDelay": 10,
 	"MaxFarmingTime": 10,
 	"MaxTradeHoldDuration": 15,
@@ -160,17 +161,25 @@ If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd
 
 ***
 
-`IPCHost` - `string` type with default value of `127.0.0.1`. This is a host, also known as "bind address", used by **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**. This property makes sense only when IPC is enabled. ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing IPC interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to IPC yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `*` which enables IPC on all network interfaces. In addition to that, you can use a value of `null`, which will cause ASF to ask you about that property on each startup (which might be useful security measure if you don't want to expose IP of your server). Unless you have a **strong** reason to edit this property, you should keep it at default.
-
-Also keep in mind that listening on addresses other than `127.0.0.1` might require special OS permissions. For example on Windows, ASF will be needed to be started as administrator, otherwise you'll get access denied exception. On Linux/OS X, local security policy applies.
-
-***
-
 `IPCPassword` - `string` type with default value of `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
-`IPCPort` - `ushort` type with default value of `1242`. This is the port on which **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** is running by default. You may want to change it to any port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Unless you have a reason to edit this property, you should keep it at default.
+`IPCPrefixes` - `HashSet<string>` type with default value of `http://127.0.0.1:1242/` item. This property specifies prefixes that will be used by ASF's `HttpListener` in **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface. Every prefix is made out of protocol, hostname, port, and root directory. Prefixes must end in a forward slash ("/").
+
+For general information about `HttpListener` prefixes, please refer to **[MSDN](https://msdn.microsoft.com/en-us/library/system.net.httplistener(v=vs.110).aspx)**.
+
+```
+A URI prefix string is composed of a scheme (http or https), a host, an optional port, and an optional path. An example of a complete prefix string is "http://www.contoso.com:8080/customerData/". Prefixes must end in a forward slash ("/"). The HttpListener object with the prefix that most closely matches a requested URI responds to the request. Multiple HttpListener objects cannot add the same prefix; a Win32Exception exception is thrown if a HttpListener adds a prefix that is already in use.
+
+When a port is specified, the host element can be replaced with "*" to indicate that the HttpListener accepts requests sent to the port if the requested URI does not match any other prefix. For example, to receive all requests sent to port 8080 when the requested URI is not handled by any HttpListener, the prefix is "http://*:8080/". Similarly, to specify that the HttpListener accepts all requests sent to a port, replace the host element with the "+" character, "https://+:8080". The "*" and "+" characters can be present in prefixes that include paths.
+
+Starting with .NET 4.5.3 and Windows 10, wildcard subdomains are supported in URI prefixes that are managed by an HttpListener object. To specify a wildcard subdomain, use the "*" character as part of the hostname in a URI prefix: for example, http://*.foo.com/, and pass this as the argument to the HttpListenerPrefixCollection.Add method. This will work on .NET 4.5.3 and Windows 10; in earlier versions, this would generate an HttpListenerException
+```
+
+ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing IPC interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to IPC yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `*` which enables IPC on all network interfaces. You may also want to change default ASF IPC port to any other port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems.
+
+Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
