@@ -360,12 +360,20 @@ Numeric properties are defined with their maximum values, so you can also use st
 	"Body": {},
 	"Properties": {
 		"BaseType": "string",
-		"CustomAttributes": [],
-		"UnderlyingType": null
+		"CustomAttributes": ["string"],
+		"UnderlyingType": "string"
 	}
 }
 ```
 
 `Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here.
 
-`Properties` - `` TODO.
+`Properties` - `TypeProperties` type defined below that holds metadata information about given type.
+
+### TypeProperties
+
+`BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it.
+
+`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that this enum is `byte flags` enum.
+
+`UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in `ArchiSteamFarm.BotConfig+ETradingPreferences`, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that this enum is `byte flags` enum.
