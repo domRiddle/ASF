@@ -49,7 +49,7 @@ If you're using OS-specific package then you don't need to worry about runtime r
 
 However, if you're trying to run generic ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
 
-ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/download/core#/sdk)** available for your machine.
+ASF as a program is targetting **.NET Core 2.0** (`netcoreapp2.0`) right now, but it might target newer platform in the future. `netcoreapp2.0` is supported since .NET Core 2.0.0-preview1 SDK, although we recommend using **[latest SDK](https://www.microsoft.com/net/download/core#/sdk)** (current) available for your machine.
 
 If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm#L1)** for compiling and deploying ASF releases on GitHub.
 
