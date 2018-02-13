@@ -42,7 +42,7 @@ INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/IPC/...
 INFO|ASF|StartServer() IPC server ready!
 ```
 
-ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections (or whatever `IPCHost` and `IPCPort` you specified in the config).
+ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
 
 ---
 
