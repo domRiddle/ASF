@@ -263,7 +263,7 @@ Yes, you must set it in `SteamParentalPIN` bot config property. This is mainly b
 
 ### I don't want ASF to farm any games by default, yet I want to use extra ASF features. Is this possible?
 
-Yes, you can set `Paused` bot config property to `true` in order to launch ASF with paused cards farming module.
+Yes, you can set `Paused` bot config property to `true` in order to launch ASF with paused cards farming module, then you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
 
 ***
 
