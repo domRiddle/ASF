@@ -193,7 +193,9 @@ Content-Type: application/json
 
 ```json
 {
-	"GamesToRedeemInBackground": {}
+	"GamesToRedeemInBackground": {
+		"key": "value"
+	}
 }
 ```
 
