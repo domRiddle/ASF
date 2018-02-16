@@ -10,7 +10,7 @@ Some of the subjects you might be interested in:
 2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 4. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-5. **[Built-in features](https://github.com/JustArchi/ArchiSteamFarm/wiki/Built-in-features)**
+5. **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 6. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 7. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 8. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
