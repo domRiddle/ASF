@@ -185,6 +185,29 @@ curl -X POST -d '' /Api/Command/version
 
 ---
 
+### `POST /Api/GamesToRedeemInBackground/{BotName}`
+
+#### Body:
+
+Content-Type: application/json
+
+```json
+{
+	"GamesToRedeemInBackground": {}
+}
+```
+
+This API endpoint can be used for adding extra  **[GamesToRedeemInBackground](https://github.com/JustArchi/ArchiSteamFarm/wiki/Built-in-features#gamestoredeeminbackground)** to given bot specified by its `BotName`. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+
+`GamesToRedeemInBackground` is `Dictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). This field is mandatory and cannot be `null`. ASF will automatically ignore entries where `key` or `value` is `null` or empty.
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground":{"AAAAA-BBBBB-CCCCC":"Orwell","XXXXX-YYYYY-ZZZZZ":"Factorio"}}' /Api/GamesToRedeemInBackground/archi
+{"Message":"OK","Result":null,"Success":true}
+```
+
+---
+
 ### `GET /Api/Log`
 
 This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number).
