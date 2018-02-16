@@ -199,7 +199,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for adding extra  **[GamesToRedeemInBackground](https://github.com/JustArchi/ArchiSteamFarm/wiki/Built-in-features#gamestoredeeminbackground)** to given bot specified by its `BotName`. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for adding extra  **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
 
 `GamesToRedeemInBackground` is `Dictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). This field is mandatory and cannot be `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty.
 
