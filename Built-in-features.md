@@ -1,3 +1,0 @@
-### GamesToRedeemInBackground
-
-TODO
