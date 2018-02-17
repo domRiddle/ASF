@@ -32,9 +32,10 @@ Advanced users might be interested in:
 
 Developers might be interested in:
 
-1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-3. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+1. **[Contribution](https://github.com/JustArchi/ArchiSteamFarm/wiki/Contribution)**
+2. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+3. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+4. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 
 Some legacy wiki pages we still keep for a while:
 
