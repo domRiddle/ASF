@@ -175,6 +175,8 @@ If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd
 
 ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing IPC interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to IPC yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `*` which enables IPC on all network interfaces. You may also want to change default ASF IPC port to any other port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Also keep in mind that some listening addresses might require extra privileges, for example binding to public interface on Windows requires ASF to be run as administrator (or proper `netsh` policy).
 
+If your machine supports IPv6, you might want to add a value of `http://[::1]:1242/` to this collection in order to listen on both local IPv4 `127.0.0.1` address, as well as local IPv6 `::1` one. This is especially important if you want to access ASF via `localhost` name, as in this case your machine might want to use IPv6 by default.
+
 Unless you have a reason to edit this property, you should keep it at default.
 
 ***
