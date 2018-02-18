@@ -17,7 +17,7 @@ dotnet ArchiSteamFarm.dll --argument --otherOne
 Windows:
 
 ```powershell
-ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --argument --otherOne
 ```
 
 Linux/OS X
