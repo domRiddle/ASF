@@ -194,7 +194,8 @@ Content-Type: application/json
 ```json
 {
 	"GamesToRedeemInBackground": {
-		"cd-key": "gameName"
+		"cd-key1": "gameName1",
+		"cd-key2": "gameName2"
 	}
 }
 ```
