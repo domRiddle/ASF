@@ -536,7 +536,7 @@ ASF is using quite simple file structure.
 │   ├── Bot2.bin
 │   └── ...
 ├── ArchiSteamFarm.dll
-└── log.txt
+├── log.txt
 └── ...
 ```
 
