@@ -46,7 +46,7 @@ Package name depends on distribution, we listed most common ones. You should obt
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - libuuid1 (libuuid)
 - libkrb5-3 (krb5-libs)
-- libicu57 (libicu, latest version for your distribution, right now 57)
+- libicu57 (libicu, latest version for your distribution)
 - zlib1g (zlib)
 
 At least a few of those should be already natively available on your system (such as zlib1g).
