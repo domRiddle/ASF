@@ -27,8 +27,8 @@ b) If your account is unrestricted, using ASF 2FA, has public inventory with at 
 * Your **[trading token](http://steamcommunity.com/my/tradeoffers/privacy)** (so people can send you trades)
 * Your `MatchableTypes` (for display purposes)
 * Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
-* Count of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
-* Count of unique games that above `MatchableTypes` Steam items are made of (for display purposes and sorting)
+* Total number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
+* Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and sorting)
 
 ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place.
 
