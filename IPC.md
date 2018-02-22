@@ -119,6 +119,29 @@ curl -X GET /Api/ASF
 
 ---
 
+### `POST /Api/ASF`
+
+#### Body:
+
+Content-Type: application/json
+
+```json
+{
+	"GlobalConfig": {}
+}
+```
+
+This API endpoint can be used for creating/updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+
+`GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
+{"Message":"OK","Result":null,"Success":true}
+```
+
+---
+
 ### `DELETE /Api/Bot/{BotNames}`
 
 This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.json`, `BotName.db`, `BotName.bin` and `BotName.maFile` from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
@@ -163,7 +186,7 @@ This API endpoint can be used for creating/updating **[BotConfig](https://github
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled": false, "Paused": true}}' /Api/Bot/archi
+curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":false,"Paused":true}}' /Api/Bot/archi
 {"Message":"OK","Result":null,"Success":true}
 ```
 
