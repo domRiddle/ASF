@@ -244,7 +244,7 @@ The websocket connection established with this endpoint is **read-only** - ASF w
 curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
 HTTP/1.1 200 OK
 
-# Example of messages being sent by ASF
+# Example of messages being sent by ASF, keep in mind that result string is affected by user-specified NLog logging layout
 {"Message":"OK","Result":"2018-01-31 03:19:34|dotnet-2884|INFO|ASF|Start() IPC server ready!","Success":true}
 ```
 
