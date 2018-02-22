@@ -114,7 +114,7 @@ This API endpoint can be used for fetching general data about ASF process as a w
 
 ```shell
 curl -X GET /Api/ASF
-{"Message":"OK","Result":{"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
+{"Message":"OK","Result":{"GlobalConfig":{"AutoRestart":true,"BackgroundGCPeriod":0},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
 
 ---
@@ -340,6 +340,10 @@ Numeric properties are defined with their maximum values, so you can also use st
 
 ```json
 {
+	"GlobalConfig": {
+		"AutoRestart": true,
+		"BackgroundGCPeriod": 0
+	},
 	"MemoryUsage": 4294967295,
 	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
 	"Version": {
@@ -352,6 +356,8 @@ Numeric properties are defined with their maximum values, so you can also use st
 	}
 }
 ```
+
+`GlobalConfig` is specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration, and it also exposes all available config variables. This property can be used for determining with what options the ASF program is configured to work. In example structure above, only a subset of all properties is shown in order to keep it clean.
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
 
