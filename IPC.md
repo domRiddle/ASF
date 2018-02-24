@@ -112,6 +112,8 @@ Numeric properties are defined with their maximum values, so you can also use st
 
 ### GenericResponse
 
+Generic response is a primary return type that we use for all API calls.
+
 ```json
 {
 	"Message": "string",
