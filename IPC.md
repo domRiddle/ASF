@@ -117,7 +117,7 @@ curl -X GET /Api/ASF
 {"Message":"OK","Result":{"GlobalConfig":{"AutoRestart":true,"BackgroundGCPeriod":0},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
 
-### ASFResponse
+#### ASFResponse
 
 ```json
 {
