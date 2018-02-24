@@ -110,12 +110,41 @@ Provided examples of requests/responses below show possible usage with **[curl](
 
 ### `GET /Api/ASF`
 
-This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[ASFResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#asfresponse)**.
+This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `ASFResponse`.
 
 ```shell
 curl -X GET /Api/ASF
 {"Message":"OK","Result":{"GlobalConfig":{"AutoRestart":true,"BackgroundGCPeriod":0},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
+
+### ASFResponse
+
+```json
+{
+	"GlobalConfig": {
+		"AutoRestart": true,
+		"BackgroundGCPeriod": 0
+	},
+	"MemoryUsage": 4294967295,
+	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
+	"Version": {
+		"Major": 2147483647,
+		"Minor": 2147483647,
+		"Build": 2147483647,
+		"Revision": 2147483647,
+		"MajorRevision": 32767,
+		"MinorRevision": 32767
+	}
+}
+```
+
+`GlobalConfig` is specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration, and it also exposes all available config variables. This property can be used for determining with what options the ASF program is configured to work. In example structure above, only a subset of all properties is shown in order to keep it clean.
+
+`MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
+
+`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string that contains date, time, as well as timezone being used.
+
+`Version` - `Version` value that specifies version of the currently running ASF binary. `Version` type contains 4 important `Major`, `Minor`, `Build` and `Revision` properties that correspond to appropriate digits in ASF `A.B.C.D` notation.
 
 ---
 
@@ -275,6 +304,8 @@ This API endpoint can be used for fetching information about given type specifie
 
 `{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
 
+In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
+
 ```shell
 curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"Body":{"AcceptGifts":"System.Boolean","TradingPreferences":"ArchiSteamFarm.BotConfig+ETradingPreferences"},"Properties":{"BaseType":"System.Object","CustomAttributes":null,"UnderlyingType":null}},"Success":true}
@@ -306,8 +337,6 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 `CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
-
-In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
 ---
 
@@ -383,37 +412,6 @@ Numeric properties are defined with their maximum values, so you can also use st
 `HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `HoursUntilCardDrops` value. ASF enforces this property to be at least `0.0`.
 
 `CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
-
----
-
-### ASFResponse
-
-```json
-{
-	"GlobalConfig": {
-		"AutoRestart": true,
-		"BackgroundGCPeriod": 0
-	},
-	"MemoryUsage": 4294967295,
-	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
-	"Version": {
-		"Major": 2147483647,
-		"Minor": 2147483647,
-		"Build": 2147483647,
-		"Revision": 2147483647,
-		"MajorRevision": 32767,
-		"MinorRevision": 32767
-	}
-}
-```
-
-`GlobalConfig` is specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration, and it also exposes all available config variables. This property can be used for determining with what options the ASF program is configured to work. In example structure above, only a subset of all properties is shown in order to keep it clean.
-
-`MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
-
-`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string that contains date, time, as well as timezone being used.
-
-`Version` - `Version` value that specifies version of the currently running ASF binary. `Version` type contains 4 important `Major`, `Minor`, `Build` and `Revision` properties that correspond to appropriate digits in ASF `A.B.C.D` notation.
 
 ---
 
