@@ -106,6 +106,26 @@ Some API endpoints might require from you to specify extra data, such as providi
 
 Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
 
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
+
+---
+
+### GenericResponse
+
+```json
+{
+	"Message": "string",
+	"Result": {},
+	"Success": true
+}
+```
+
+`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
+
+`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
+
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
+
 ---
 
 ### `GET /Api/ASF`
@@ -406,27 +426,3 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 `CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
-
----
-
-## Result structures
-
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields that can be consumed by JavaScript (and other languages with similar limitations) that can't represent 64-bit numbers precisely.
-
----
-
-### GenericResponse
-
-```json
-{
-	"Message": "string",
-	"Result": {},
-	"Success": true
-}
-```
-
-`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
-
-`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
-
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
