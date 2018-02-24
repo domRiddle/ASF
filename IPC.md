@@ -110,7 +110,7 @@ Provided examples of requests/responses below show possible usage with **[curl](
 
 ### `GET /Api/ASF`
 
-This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `ASFResponse`.
+This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[ASFResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#asfresponse)**.
 
 ```shell
 curl -X GET /Api/ASF
