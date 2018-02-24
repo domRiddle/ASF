@@ -300,7 +300,7 @@ In comparison with `GET /Api/Type`, this endpoint returns JSON representation of
 
 ### `GET /Api/Type/{Type}`
 
-This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `TypeResponse`.
+This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[TypeResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeresponse)**.
 
 `{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
 
