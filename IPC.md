@@ -271,11 +271,9 @@ In comparison with `GET /Api/Type`, this endpoint returns JSON representation of
 
 ### `GET /Api/Type/{Type}`
 
-This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[TypeResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeresponse)**.
+This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `TypeResponse`.
 
 `{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
-
-In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
 ```shell
 curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
@@ -283,6 +281,33 @@ curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 ```
 
 In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property. You can also use this endpoint recursively, for example by checking how `ArchiSteamFarm.BotConfig+ETradingPreferences` in example above is exactly defined.
+
+#### TypeResponse
+
+```json
+{
+	"Body": {},
+	"Properties": {
+		"BaseType": "string",
+		"CustomAttributes": [ "string" ],
+		"UnderlyingType": "string"
+	}
+}
+```
+
+`Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
+
+`Properties` - `TypeProperties` type defined **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeproperties)** that holds metadata information about given type.
+
+#### TypeProperties
+
+`BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
+
+`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+
+`UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+
+In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
 
 ---
 
@@ -407,30 +432,3 @@ Numeric properties are defined with their maximum values, so you can also use st
 `Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
 
 `Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
-
----
-
-### TypeResponse
-
-```json
-{
-	"Body": {},
-	"Properties": {
-		"BaseType": "string",
-		"CustomAttributes": [ "string" ],
-		"UnderlyingType": "string"
-	}
-}
-```
-
-`Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
-
-`Properties` - `TypeProperties` type defined **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeproperties)** that holds metadata information about given type.
-
-### TypeProperties
-
-`BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
-
-`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
-
-`UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
