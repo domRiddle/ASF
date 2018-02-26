@@ -24,7 +24,7 @@ Domino Craft VR	12345-67890-ZXCVB
 A Week of Circus Terror	POIUY-KJHGD-QWERT
 ```
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the queue.
+ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue.
 
 ### IPC
 
