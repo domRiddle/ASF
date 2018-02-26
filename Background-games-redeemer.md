@@ -2,6 +2,8 @@
 
 Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
 
+---
+
 ## Purpose
 
 The purpose of background games redeemer is to load a batch of cd-keys to redeem **on a single account**, then get the output containing keys that failed to redeem properly, for example because our account already owned selected games. This feature does not make use of `RedeemingPreferences` and is made to have a single bot scope, for simplicity reason.
