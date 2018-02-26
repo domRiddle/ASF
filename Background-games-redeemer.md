@@ -52,7 +52,7 @@ After some time, at least a few solid hours due to our cd-keys amount, a new `Bo
 
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
-Instead of using a file, you could also use IPC API endpoint, even combining both if you want to.
+Instead of using a file, you could also use IPC API endpoint, or even combining both if you want to.
 
 ---
 
