@@ -34,7 +34,7 @@ In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemI
 
 ## Queue
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network. All games that are successfully redeemed are automatically removed from the queue without further info. Games that failed to redeem properly because of a specific account condition (such as `AlreadyPurchased`) are appended to `BotName.keys.owned` file, in expected file format, with redeem status on the same line. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network.
+Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network. All games that are successfully redeemed are automatically removed from the queue without further info. Games that failed to redeem properly because of a specific account condition (such as `AlreadyPurchased`) are appended to `BotName.keys.owned` file, in expected file format, with redeem status on the same line. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if wanted.
 
 If during the process our account hits `RateLimited` status, the action is temporarily suspended for a full hour in order to wait for cooldown to end. Afterwards, the process continues where it left, until the entire queue is empty.
 
