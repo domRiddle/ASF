@@ -16,7 +16,7 @@ The import process can be done through two ways - either by using a file, or IPC
 
 ### File
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game, separated by a tab character from cd-key, ending with a newline character. If multiple tabs are used, for example in game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. For example:
+ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, for example in game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. For example:
 
 ```
 POSTAL 2	ABCDE-EFGHJ-IJKLM
