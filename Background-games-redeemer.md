@@ -34,6 +34,20 @@ In addition to using keys file mentioned above, ASF also exposes **[GamesToRedee
 
 ## Queue
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background games to redeem queue as long as bot is connected to Steam network. All games that are successfully redeemed are automatically removed from the queue without further info. Games that failed to redeem properly because of a specific account condition (such as `AlreadyPurchased`) are appended to `BotName.keys.owned` file, in expected file format, with appended redeem status on the same line.
+Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network. All games that are successfully redeemed are automatically removed from the queue without further info. Games that failed to redeem properly because of a specific account condition (such as `AlreadyPurchased`) are appended to `BotName.keys.owned` file, in expected file format, with appended redeem status on the same line. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network.
 
 If during the process our account hits `RateLimited` status, the action is temporarily suspended for a full hour in order to wait for cooldown to end. Afterwards, the process continues where it left, until the entire queue is empty.
+
+---
+
+## Example
+
+Let's assume that we have a list of 100 keys. Firstly we should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created.
+
+Now we can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixed our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+
+Now we can rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment we do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+
+After some time, at least a few hours during our cd-keys amount, a new `BotName.keys.owned` file might be generated. This file will contain those cd-keys from our original file that failed to redeem properly, for example because we owned some of the games on the list already. We can copy-paste all of those keys into some new file and re-use them, since they're not used. Cd-keys that were successfully redeemed are not included in this list.
+
+It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. Instead of using a file, you could also use IPC API endpoint.
