@@ -6,7 +6,7 @@ Background games redeemer is a special built-in ASF feature that allows you to i
 
 ## Purpose
 
-The purpose of background games redeemer is to load a batch of cd-keys to redeem **on a single account**, then get the output including keys that failed to redeem properly, for example because our account already owned selected games. This feature does not make use of `RedeemingPreferences` and is made to have a single bot scope, for simplicity reason. It can be used together with (or instead of) `!redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** if needed.
+The purpose of background games redeemer is to load a batch of cd-keys to redeem **on a single account**, then get the output including keys that failed to redeem properly, for example because our account already owned selected games. This feature does not make use of `RedeemingPreferences` and is made to have a single bot scope, for simplicity reason. It can be used together with (or instead of) `!redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
 
 ---
 
