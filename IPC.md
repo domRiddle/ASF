@@ -193,7 +193,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for creating/updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
 
 `GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
