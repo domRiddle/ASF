@@ -48,6 +48,8 @@ Now we can open our new file and copy-paste list of our 100 keys there, fixing t
 
 Now we can rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment we do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 
-After some time, at least a few solid hours due to our cd-keys amount, a new `BotName.keys.owned` file might be generated. This file will contain those cd-keys from our original file that failed to redeem properly, for example because we owned some of the games on the list already. We can copy-paste all of those keys into some new file and re-use them, since they're not used. Cd-keys that were successfully redeemed are not included in this list.
+After some time, at least a few solid hours due to our cd-keys amount, a new `BotName.keys.owned` file might be generated. This file will contain those cd-keys from our original list that failed to redeem properly, for example because we owned some of the games already. We can copy-paste all of those entries into some new file and re-use them, since we can be sure that those cd-keys are still valid. Cd-keys that were successfully redeemed are not included in our output list.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. Instead of using a file, you could also use IPC API endpoint.
+It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+
+Instead of using a file, you could also use IPC API endpoint, even combining both if you want to.
