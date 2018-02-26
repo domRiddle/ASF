@@ -396,7 +396,7 @@ curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":false,"TradingPreferences":0},"Success":true}
 ```
 
-In comparison with `GET /Api/Type`, this endpoint returns JSON representation of an object of given type.
+In comparison with `GET /Api/Type`, this endpoint returns JSON representation of an object of given type, in its default state.
 
 ---
 
