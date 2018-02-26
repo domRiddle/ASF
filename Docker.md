@@ -116,7 +116,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass `--server` argument to ASF process being run inside docker container. Of course, if you're advanced user you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+This will properly pass `--server` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
 
 ---
 
