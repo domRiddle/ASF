@@ -53,3 +53,9 @@ After some time, at least a few solid hours due to our cd-keys amount, a new `Bo
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
 Instead of using a file, you could also use IPC API endpoint, even combining both if you want to.
+
+---
+
+## Remarks
+
+Background keys redeemer uses `SortedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file or API call. This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above it. For example, this means that if you have dlc `X` that requires game `A` to be activated firstly, then cd-key for game `X` should **always** be included below cd-key for game `A`. Likewise, if game `X` would have dependencies on `A`, `B` and `C`, then all 3 should be included before it (in any order, unless they have dependencies on their own).
