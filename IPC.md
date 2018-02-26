@@ -32,7 +32,7 @@ location / {
 
 This way you can use fully secured connection to your ASF instance, as shown below.
 
-![Image](https://i.imgur.com/9uE7Nge.png)
+![Image](https://i.imgur.com/ifoEmWs.png)
 
 ---
 
