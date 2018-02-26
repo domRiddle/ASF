@@ -72,7 +72,7 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 - `200 OK` - the request completed successfully.
 - `400 BadRequest` - the request failed because of an error, parse response body for actual reason.
 - `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
-- `403 Forbidden` - ASF doesn't have `SteamOwnerID` properly set, IPC access is prohibited.
+- `403 Forbidden` - You failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
 - `404 NotFound` - the URL you're trying to reach does not exist.
 - `405 NotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint.
