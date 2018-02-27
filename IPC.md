@@ -49,11 +49,11 @@ To start IPC, ASF must be started with `--server` parameter. Refer to **[command
 
 If parameter was passed correctly, you should notice that IPC service is active:
 ```
-INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/IPC/...
+INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/...
 INFO|ASF|StartServer() IPC server ready!
 ```
 
-ASF is now listening on `http://127.0.0.1:1242/IPC` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
+ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
 
 ---
 
