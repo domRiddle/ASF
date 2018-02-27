@@ -165,7 +165,7 @@ If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd
 
 ***
 
-`IPCPrefixes` - `HashSet<string>` type with default value of `http://127.0.0.1:1242/` item. This property specifies prefixes that will be used by ASF's `HttpListener` in **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface. In other words, this property specifies on which endpoints ASF IPC interface will listen for incoming requests. For general information about `HttpListener` prefixes, please refer to **[MSDN](https://docs.microsoft.com/en-us/dotnet/api/system.net.httplistener?view=netstandard-2.0#Remarks**.
+`IPCPrefixes` - `HashSet<string>` type with default value of `http://127.0.0.1:1242/` item. This property specifies prefixes that will be used by ASF's `HttpListener` in **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface. In other words, this property specifies on which endpoints ASF IPC interface will listen for incoming requests. For general information about `HttpListener` prefixes, please refer to **[MSDN](https://docs.microsoft.com/en-us/dotnet/api/system.net.httplistener?view=netstandard-2.0#Remarks)**.
 
 > A URI prefix string is composed of a scheme (http or https), a host, an optional port, and an optional path. An example of a complete prefix string is `"http://www.contoso.com:8080/customerData/"`. Prefixes must end in a forward slash ("/"). The HttpListener object with the prefix that most closely matches a requested URI responds to the request. Multiple HttpListener objects cannot add the same prefix; a Win32Exception exception is thrown if a HttpListener adds a prefix that is already in use.
 
