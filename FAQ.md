@@ -83,6 +83,14 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 ***
 
+### Can I choose which games should be idled?
+
+**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `!ib` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `!iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+
+In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `!play` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+
+***
+
 ### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
 
 Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we didn't test this.
