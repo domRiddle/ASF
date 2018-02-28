@@ -339,7 +339,7 @@ NoDetail | "OK" status indicating success - the key was successfully redemeed.
 Timeout | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).
 BadActivationCode | The provided key is invalid (not recognized as any valid key by Steam network).
 DuplicateActivationCode | The provided key was already redeemed by some other account.
-AlreadyPurchased | Your account already owns `packageID` that is connected with this key. This does not indicate whether key is `DuplicateActivationCode` or not - only that it's valid.
+AlreadyPurchased | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt.
 RestrictedCountry | This is region-locked key and your account is not in the valid region that is permitted to redeem it.
 DoesNotOwnRequiredApp | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.
 RateLimited | You made too many redeem attempts and your account was temporarily blocked. Try again in 30-60 minutes.
