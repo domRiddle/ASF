@@ -57,9 +57,9 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 ## Issues and solutions
 
-### Debian
+### Debian Jessie upgrade
 
-If you updated from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them.
+If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them.
 
 ### .NET Core runtime picking wrong `libcurl.so` library
 
@@ -76,3 +76,15 @@ LD_PRELOAD=/usr/lib/libcurl.so.3 ./ArchiSteamFarm
 ```
 
 This should hopefully solve the issue, assuming your `libcurl.so.3` is working properly.
+
+### Blank console with ncusrses 6.1
+
+If you're using a very recent OS with ncurses 6.1 or higher, it's possible that ASF will not print anything on the console, as ncurses 6.1 and above is temporarily incompatible with .NET Core runtime shipped with ASF. You can check your ncurses version, for example on Debian with `dpkg -l ncurses-base`. If it's in version 6.1 or higher, you might be affected by this issue.
+
+The incompatibility was already fixed in upstream .NET Core code, therefore we're just waiting for backport to stable release right now. In theory you could upgrade to latest (nightly) .NET Core version and avoid the issue entirely, but much easier solution right now involves setting your terminal to `xterm` prior to launching ASF. For example in OS-specific variant:
+
+```shell
+TERM=xterm ./ArchiSteamFarm
+```
+
+This is a very nice workaround until the release that doesn't involve a need of immediate runtime upgrade. It'll no longer be needed once next .NET Core runtime version is released, which should be very soon.
