@@ -88,3 +88,5 @@ TERM=xterm ./ArchiSteamFarm
 ```
 
 This is a very nice workaround until the release that doesn't involve a need of immediate runtime upgrade. It'll no longer be needed once next .NET Core runtime version is released, which should be very soon.
+
+Ref: **[dotnet/corefx #26966](https://github.com/dotnet/corefx/issues/26966)**
