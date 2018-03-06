@@ -49,7 +49,7 @@ Package name depends on distribution, we listed most common ones. You should obt
 - libicu57 (libicu, latest version for your distribution)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g).
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
 ### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
 - None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**.
