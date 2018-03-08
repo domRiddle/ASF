@@ -6,12 +6,6 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 ---
 
-## Purpose
-
-The purpose of background games redeemer is to load a batch of cd-keys to redeem **on a single account**, then get the result in output, especially keys that failed to redeem properly (for example because our account already owned selected games). This feature does not make use of `RedeemingPreferences` and is made to have a single bot scope, for simplicity reason. It can be used together with (or instead of) `!redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
-
----
-
 ## Import
 
 The import process can be done through two ways - either by using a file, or IPC.
