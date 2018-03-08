@@ -46,7 +46,7 @@ Instead of using `BotName.keys` file, you could also use IPC API endpoint, or ev
 
 Now we can rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment we do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, we can copy-paste content of `BotName.keys.unused` into new `BotName2.keys` file and submit them for some other bot, since we can be sure that those cd-keys are still valid. Keep in mind that as ASF goes through the queue, new entries will be added to our output files, therefore it's recommended to wait for the queue to be fully emptied before making use of them.
+After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, we can rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since we can be sure that those cd-keys are still valid. Keep in mind that as ASF goes through the queue, new entries will be added to our output files, therefore it's recommended to wait for the queue to be fully emptied before making use of them.
 
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
