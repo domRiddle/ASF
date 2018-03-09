@@ -127,7 +127,7 @@ Some API endpoints might require from you to specify extra data, such as providi
 
 Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript which can't represent 64-bit numbers precisely (and other languages with similar limitations).
 
 ---
 
