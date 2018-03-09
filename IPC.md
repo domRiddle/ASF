@@ -61,7 +61,17 @@ ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (o
 
 Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
 
-Currently ASF IPC offers minimalistic API for bots management that can be accessed by appropriate endpoints. In the future perhaps we'll succeed in making fully-featured IPC GUI that will access that API in user-friendly way (**[#732](https://github.com/JustArchi/ArchiSteamFarm/issues/732)**), but until then you need to access those endpoints manually.
+### API
+
+ASF IPC offers a full API for bots management that can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
+
+### IPC GUI
+
+In addition to API calls, we're slowly coding IPC GUI that is a nice user-friendly frontend to API features that ASF offers. This GUI can be accessed by navigating to main index of the ASF's IPC interface, such as `http://127.0.0.1:1242`.
+
+![Image](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
+
+IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're not accepting bug reports (standalone issues) for it. However, you're free to post your thoughts, suggestions and bug reports in our **[#732](https://github.com/JustArchi/ArchiSteamFarm/issues/732)** issue that is fully dedicated to IPC GUI. Lead developer of IPC GUI is @MrBurrBurr.
 
 ---
 
