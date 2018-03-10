@@ -28,6 +28,19 @@ Linux/OS X
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper script you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
+If your argument includes spaces, don't forget to quote the entire argument. This is invalid:
+
+```shell
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Wrong!
+```
+
+However, those two are completely fine:
+
+```shell
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # Also OK
+```
+
 ## Arguments
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
