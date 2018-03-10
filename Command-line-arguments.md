@@ -37,7 +37,7 @@ Command-line arguments are also supported in generic helper scripts such as `Arc
 Example:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path=/tmp/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path=/opt/TargetDirectory
 ```
 
 ```
