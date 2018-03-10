@@ -43,10 +43,10 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path=/opt/TargetDirectory
 ```
 ├── /opt
 │     ├── ASF
-│     │    ├── ArchiSteamFarm.dll
-│     │    └── ...
+│     │     ├── ArchiSteamFarm.dll
+│     │     └── ...
 │     └── TargetDirectory
-│          └── config
+│           └── config
 └── ...
 ```
 
