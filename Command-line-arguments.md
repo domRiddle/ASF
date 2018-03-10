@@ -53,7 +53,7 @@ However, those two are completely fine:
 Example:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path=/opt/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
 ```
 
 ```
