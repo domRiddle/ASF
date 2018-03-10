@@ -28,7 +28,7 @@ Linux/OS X
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper script you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
-If your argument includes spaces, don't forget to quote the entire argument. Those two are wrong:
+If your argument includes spaces, don't forget to quote it. Those two are wrong:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
