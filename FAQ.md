@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ***
 
-## Idle Master comparison
+## Comparison with similar tools
 
 ***
 
