@@ -42,9 +42,9 @@ Let's assume that we have a list of 100 keys. Firstly we should create a new `Bo
 
 Now we can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
-
 Now we can rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment we do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+
+Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
 
 After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, we can rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since we didn't make use of those keys ourselves. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them.
 
