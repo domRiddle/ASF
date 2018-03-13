@@ -79,7 +79,13 @@ This should hopefully solve the issue, assuming your `libcurl.so.3` is working p
 
 ### Blank console with ncusrses 6.1
 
-If you're using a very recent OS with ncurses 6.1 or higher, it's possible that ASF will not print anything on the console, as ncurses 6.1 and above is temporarily incompatible with .NET Core runtime shipped with ASF. You can check your ncurses version, for example on Debian with `dpkg -l ncurses-base`. If it's in version 6.1 or higher, you might be affected by this issue.
+If you're using a very recent OS with ncurses 6.1 or higher, it's possible that ASF will not print anything on the console, as ncurses 6.1 and above is temporarily incompatible with .NET Core runtime shipped with ASF. You can check your ncurses version, for example on Debian with `dpkg` command:
+
+```shell
+dpkg -l ncurses-base
+```
+
+If it's in version 6.1 or higher, you might be affected by this issue.
 
 The incompatibility was already fixed in upstream .NET Core code, therefore we're just waiting for backport to stable release right now. In theory you could upgrade to latest (nightly) .NET Core version and avoid the issue entirely, but much easier solution right now involves setting your terminal to `xterm` prior to launching ASF. For example in OS-specific variant:
 
