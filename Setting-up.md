@@ -8,11 +8,11 @@ If you're still here then it means that you endured our text above, which is nic
 
 ## Quick video setup
 
-For people that prefer watching over reading. Huge thanks to **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
+For people that prefer watching over reading. Please note that you should still refer to the wiki for further explanation or up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** instead.
 
 ### **[YouTube link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**
 
-Please note that you should still refer to the wiki for further explanation or up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only.
+Huge thanks to **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** for recording up-to-date video about ASF!
 
 ***
 
