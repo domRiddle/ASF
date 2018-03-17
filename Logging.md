@@ -18,7 +18,7 @@ In general, ASF tries to make it as easy and convenient for you as possible, to 
 
 Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
 
-As part of ASF integration, ASF also includes support for one additional `SteamTarget` NLog logging target, which will be explained below.
+As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
 
 ---
 
