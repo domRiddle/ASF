@@ -333,7 +333,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":fal
 
 ---
 
-### **[Obsolete]** `GET /Api/Command/{Command}`
 ### `POST /Api/Command/{Command}`
 
 #### Body: empty
@@ -344,8 +343,6 @@ This API endpoint can be used executing given command specified by its `{Command
 curl -X POST -d '' /Api/Command/version
 {"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.3","Success":true}
 ```
-
-**We recommend accessing this API endpoint via POST request only - GET request is designed as user-friendly version and will be considered for removal when IPC GUI is ready.**
 
 ---
 
