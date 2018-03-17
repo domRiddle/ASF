@@ -456,6 +456,8 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 This API is dedicated for our IPC GUI usage only and it should not be implemented by remote scripts or tools. It's documented only for reference and can change at anytime.
 
+---
+
 ### `GET /Api/WWW/Directory/{Directory}`
 
 This API endpoint can be used for fetching directory's content specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
