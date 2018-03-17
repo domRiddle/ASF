@@ -449,3 +449,18 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 `CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+
+---
+
+## WWW API
+
+This API is dedicated for our IPC GUI usage only and it should not be implemented by remote scripts or tools. It's documented only for reference and can change at anytime.
+
+### `GET /Api/WWW/Directory/{Directory}`
+
+This API endpoint can be used for fetching directory's content specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
+
+```shell
+curl -X GET /Api/WWW/Directory/css
+{"Message":"OK","Result":["app.css","_all-skins.min.css","_nightmore.min.css"],"Success":true}
+```
