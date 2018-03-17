@@ -150,7 +150,7 @@ Supported in all environments used by ASF.
           name="String"
           layout="Layout"
           steamID="Ulong"
-          botName="String"  />
+          botName="String" />
 </targets>
 ```
 
@@ -222,7 +222,7 @@ Supported in all environments used by ASF.
   <target type="History"
           name="String"
           layout="Layout"
-          maxCount="Byte"  />
+          maxCount="Byte" />
 </targets>
 ```
 
