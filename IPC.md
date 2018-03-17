@@ -462,5 +462,5 @@ This API endpoint can be used for fetching directory's content specified by its 
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
-{"Message":"OK","Result":["app.css","_all-skins.min.css","_nightmore.min.css"],"Success":true}
+{"Message":"OK","Result":["app.css","_all-skins.min.css","_nightmode.min.css"],"Success":true}
 ```
