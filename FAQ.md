@@ -85,9 +85,9 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 ### Can I choose which games should be idled?
 
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `!ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `!iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
-In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `!play` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 ***
 
@@ -251,14 +251,14 @@ Please note that above is only our interpretation of Steam ToS and various point
 
 **Yes**, we had two incidents so far that resulted in Steam suspension.
 
-First case was a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `!loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
+First case was a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
 
 > Hello XXX,
 > Thank you for contacting Steam Support.
 > It looks like this account was used to manage a network of bot accounts.
 > Botting is a violation of the Steam Subscriber Agreement.
 
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `!loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
+Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
 
 Second case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
 
@@ -345,7 +345,7 @@ Cards farming rate differs from game to game, as you can read in **[performance]
 
 ### How to completely stop ASF process for my account?
 
-Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `!stop` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** and `!pause` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** is for.
+Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `stop` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** and `pause` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** is for.
 
 ***
 
@@ -436,7 +436,7 @@ The issue can also come up if you're playing on your PC while ASF is waiting and
 
 The issue on the ASF side is actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running.
 
-The only proper solution to this problem is manually pausing your bot with `!pause` before you start playing, and resuming it with `!resume` once you're done.
+The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done.
 
 ***
 
@@ -496,7 +496,7 @@ Obvious thing first - new accounts start as limited. Until you unlock account by
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
-Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `!loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
+Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
 Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
 
