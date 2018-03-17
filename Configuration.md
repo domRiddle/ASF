@@ -78,6 +78,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"AutoRestart": true,
 	"BackgroundGCPeriod": 0,
 	"Blacklist": [],
+	"CommandPrefix": "!",
 	"ConfirmationsLimiterDelay": 10,
 	"ConnectionTimeout": 60,
 	"CurrentCulture": null,
@@ -124,6 +125,10 @@ If that's the case, this property if specially for you and you can set it to `fa
 ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 If you're looking for bot-based blacklist instead, take a look at `!ib`, `!ibadd` and `!ibrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
+
+***
+
+`CommandPrefix` - `string` type with default value of `!`. This property specifies the prefix used for ASF **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. In other words, this is what you need to prepend to each ASF command in order to make ASF listen to you. It's possible to set this value to `null` or empty in order to make ASF use no command prefix, in which case you input commands with their plain identifiers. However, doing so will potentially decrease ASF's performance as ASF is optimized to not parse message further if it doesn't start with `CommandPrefix` - if you intentionally decide to not use it, ASF will be forced to read all messages and respond to them, even if they're not ASF commands. For consistency, this setting affects entire process. Therefore it's recommended to keep using some `CommandPrefix`, such as `/` if you don't like default value of `!`. Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
