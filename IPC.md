@@ -454,7 +454,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ## WWW API
 
-This API is dedicated for our IPC GUI usage only and it should not be implemented by remote scripts or tools. This documentation is for our internal reference only and can change anytime.
+This API is dedicated for our IPC GUI usage and it should not be implemented by remote scripts or tools. This documentation is for our internal reference only and can change anytime.
 
 ---
 
