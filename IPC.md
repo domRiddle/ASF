@@ -10,7 +10,7 @@ IPC is always executed with `SteamOwnerID` permissions, which is `0` by default.
 
 ### What is this all about?
 
-IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
+IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
 
 ### Is this secure?
 
