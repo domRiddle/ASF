@@ -98,7 +98,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"OptimizationMode": 0,
 	"Statistics": true,
 	"SteamOwnerID": 0,
-	"SteamProtocols": 1,
+	"SteamProtocols": 3,
 	"UpdateChannel": 1,
 	"UpdatePeriod": 24
 }
@@ -212,7 +212,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
-`SteamProtocols` - `byte flags` type with default value of `1`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+`SteamProtocols` - `byte flags` type with default value of `3`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
 Value | Name  | Description
 --- | --- | ---
@@ -225,7 +225,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-Right now this property is set to TCP only due to **[#186](https://github.com/JustArchi/ArchiSteamFarm/issues/186)** and **[#612](https://github.com/JustArchi/ArchiSteamFarm/issues/612)**.
+Right now this property does not include WebSockets by default due to issue **[#612](https://github.com/JustArchi/ArchiSteamFarm/issues/612)**.
 
 ***
 
