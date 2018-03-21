@@ -4,20 +4,23 @@ Welcome to ASF wiki. Wiki is an online help that covers many different subjects 
 
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 
-Some of the subjects you might be interested in:
+For starters, everything that you need includes:
 
 1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
-4. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-5. **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-6. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-7. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-8. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-9. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-10. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-Advanced users might be interested in:
+Other subjects that you might be interested in are:
+
+1. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+2. **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
+3. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+4. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+5. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+6. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+7. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+
+Advanced users might look for:
 
 1. **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 2. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
@@ -30,7 +33,7 @@ Advanced users might be interested in:
 9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
-Developers might be interested in:
+Developers can also find in:
 
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
@@ -50,6 +53,8 @@ Some legacy wiki pages we still keep for a while:
 10. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
 11. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
 12. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
+
+Of course feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 🙂
 
 If you need further help, you can ask for example on our **[Discord](https://discord.gg/hSQgt8j)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
