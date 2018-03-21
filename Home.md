@@ -40,7 +40,7 @@ Developers can also find:
 3. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 4. **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)**
 
-Some legacy wiki pages that we still keep for a while:
+Some legacy wiki pages that we still keep for a while (nothing of that applies to latest release):
 
 1. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/_V3-Migration)** (if you're ASF V2 user)
 2. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
