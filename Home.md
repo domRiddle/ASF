@@ -33,7 +33,7 @@ Advanced users might look for:
 9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 
-Developers can also find in:
+Developers can also find:
 
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
