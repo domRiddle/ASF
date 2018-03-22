@@ -32,6 +32,7 @@ Advanced users might look for:
 8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+11. **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 
 Developers can also find:
 
