@@ -18,6 +18,7 @@ Please note that below tools are not maintained by ASF team and therefore we giv
 - **[AUR repo](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
 - **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
+
 ---
 
 ### Bots / Libraries
