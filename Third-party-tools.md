@@ -26,4 +26,4 @@ Please note that below packages are unofficial and not maintained by ASF team.
 
 - **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, python library for further integration with ASF's IPC interface.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (much smaller) telegram bot written in python featuring ASF integration.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
