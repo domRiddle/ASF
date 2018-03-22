@@ -277,7 +277,7 @@ ASF is just a tool and it's **your** decision how you're going to make use of it
 
 ### What privacy information ASF discloses?
 
-You can find detailed explanation in **[statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group.
+You can find detailed explanation in **[statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
 
 ***
 
