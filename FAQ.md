@@ -24,7 +24,7 @@ Core points are stated once again here, because people in general don't want to 
 
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them.**
+- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
 - **No, you can't drop cards on limited accounts anymore (those that never spent 5$ in steam store). It was possible in the past, but it's no longer the case.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
