@@ -1,6 +1,8 @@
 # Third-party tools
 
-Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web aplications to internal libraries for further integration. If you'd like to add something on the list, please let us know on Discord or on our Steam group.
+Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-packed bots for other platforms. If you'd like to change something on the list, let us know on Discord or on our Steam group.
+
+Please note that we give no guarantee about any of below tools, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only.
 
 ---
 
