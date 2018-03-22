@@ -12,7 +12,10 @@ Tools included here were written exclusively (or mainly) for usage together with
 
 ## Packaging
 
-- **[AUR repo](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux. Please note that this package is unofficial and not maintained by ASF team.
+Please note that below packages are unofficial and not maintained by ASF team.
+
+- **[AUR repo](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
+- **[Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF on various systems.
 
 ---
 
