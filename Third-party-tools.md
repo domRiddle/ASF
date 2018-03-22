@@ -2,7 +2,7 @@
 
 Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-packed bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
-Please note that we give no guarantee about any of below tools, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only.
+Please note that below tools are not maintained by ASF team and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the tool you're about to use is legit enough for you.
 
 ---
 
@@ -15,11 +15,9 @@ Please note that we give no guarantee about any of below tools, especially in te
 
 ## Packaging
 
-Please note that below packages are unofficial and not maintained by ASF team.
-
 - **[AUR repo](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF on various systems.
-
+- [OUTDATED] **[Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 on OS X. Since it wasn't updated for latest version yet, we discourage using this one (perhaps you could help updating it if you're interested).
 ---
 
 ### Bots / Libraries
