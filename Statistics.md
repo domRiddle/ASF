@@ -29,7 +29,7 @@ b) If your account is unrestricted, using ASF 2FA, has public inventory with at 
 * Total number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
 * Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and sorting)
 
-ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be serious enough, as Steam group in no way identifies the account of using ASF program or not, while our public listing is enabled only if you intentionally enable `SteamTradeMatcher` feature, so you actuallty **do** want people to know about that and send you trade offers in the first place.
+ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be serious enough, as Steam group in no way identifies the account of using ASF program or not, while our public listing is enabled only if you intentionally enable `SteamTradeMatcher` feature, so when you actually **do** want people to know about that and send you trade offers in the first place.
 
 ---
 
