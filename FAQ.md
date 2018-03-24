@@ -549,6 +549,18 @@ This warning means that Steam did not answer to ASF request in given time. Usual
 
 ***
 
+### `System.Net.Http.WinHttpException: A security error occurred`
+
+This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
+
+In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted as potential MITM attack and ASF refuses to make a connection.
+
+Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as e.g. native synchronization available on Windows, or `ntpdate` on Linux.
+
+If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts might be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
+
+***
+
 ### ASF is being detected by my AntiVirus (for example as: Win32/Fethar.B!cl, Win32/Zulushal.C!cl, Trojan.MSIL.Crypt, Variant.MSILPerseus and crapload of other false-positives we stopped listing after first 4)
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
