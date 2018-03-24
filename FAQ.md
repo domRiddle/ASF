@@ -561,7 +561,7 @@ If you made sure that the date on your machine is appropriate and the error does
 
 ***
 
-### ASF is being detected by my AntiVirus (for example as: Win32/Fethar.B!cl, Win32/Zulushal.C!cl, Trojan.MSIL.Crypt, Variant.MSILPerseus and crapload of other false-positives we stopped listing after first 4)
+### ASF is being detected as a malware by my AntiVirus! What's going on?
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 
