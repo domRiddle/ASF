@@ -555,7 +555,7 @@ This error happens when ASF can't establish secure connection with given server,
 
 In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted as potential MITM attack and ASF refuses to make a connection.
 
-Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as e.g. native synchronization available on Windows, or `ntpdate` on Linux.
+Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as e.g. native synchronization available on Windows, or `ntpd` on Linux.
 
 If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts might be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
 
