@@ -71,7 +71,7 @@ In addition to API calls, we're slowly coding IPC GUI that is a nice user-friend
 
 ![Image](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
 
-IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in our **[#732](https://github.com/JustArchi/ArchiSteamFarm/issues/772)** issue that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in our **[#772](https://github.com/JustArchi/ArchiSteamFarm/issues/772)** issue that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
 ---
 
