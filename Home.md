@@ -39,7 +39,7 @@ Developers can also find:
 1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 3. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-4. **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/CONTRIBUTING.md)**
+4. **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 
 Some legacy wiki pages that we still keep for a while can be found below. Nothing of that applies to latest release, archival purposes only:
 
