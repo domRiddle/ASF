@@ -60,17 +60,15 @@ There are currently 4 supported type of issues:
 
 ---
 
-### States
+### Translation progress
 
-Every language that was included for translation can have one of three states:
+Every language has two states of completion - translation, and proof-reading.
 
-**Needs translation** - some strings are still left in English, initial translations needed. If you speak given language and can help, please do!
+Language is considered **translated** when its translation progress reaches 100%. At this point every translatable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for already existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones. You can set up appropriate crowdin notifications if you'd like to receive an e-mail when this happens.
 
-**Translated, but needs to be voted** - all required strings are translated, but there is still room for improvement through voting and suggesting better ones. This will be the most common state, as it simply means that "translation is completed and being improved by the community now". Please note that this state is temporary and might quickly change into previous one if any strings will be added or modified.
+Selected languages might have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
 
-**Completed** - chosen proofreader verified the translation to be correct, and picked final version of the strings, while still accepting future improvements. Quite rare, usually involves some trusted member to review community effort made in two points above, or solve conflicts.
-
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual string that will be used is always the most popular one in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we merge localization updates typically the moment we're about to release new ASF version.
+ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.
 
 ---
 
