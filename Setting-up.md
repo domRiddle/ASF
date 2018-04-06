@@ -64,10 +64,11 @@ Be advised to put ASF in **its own directory** and not in any existing directory
 
 ```
 C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk
-    ├── Config shortcut.lnk
-    ├── Commands.txt
-    ├── MyExtraScript.bat
+    ├── ASF shortcut.lnk (optional)
+    ├── Config shortcut.lnk (optional)
+    ├── Commands.txt (optional)
+    ├── MyExtraScript.bat (optional)
+    ├── ... (any other files of your choice, optional)
     └── Core (dedicated to ASF only, where you extract the archive)
          ├── ArchiSteamFarm.dll
          ├── config
