@@ -671,6 +671,7 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 - Create (and start, if needed) new bot instance, when you create its config
 - Stop (if needed) and remove old bot instance, when you delete its config
 - Stop (and start, if needed) any bot instance, when you edit its config
+- Restart (if needed) the bot under new name, when you rename its config
 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
