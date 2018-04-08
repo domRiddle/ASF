@@ -43,7 +43,7 @@ Now you should do following things in order to generate first valid bot config:
 - Fill `Steam Login` with your Steam account name that you use for logging in (optional).
 - Fill `Steam Password` with your Steam password that you use for logging in (optional).
 
-Please note that Steam login and password are optional - if you omit them, ASF will ask for those on as-needed basis during runtime. If you provide them, ASF won't need to ask, making it possible for auto-run and saving your time.
+Please note that Steam login and password fields are optional - if you omit them, ASF will ask for those on as-needed basis during runtime. If you provide them, ASF won't need to ask, making it possible for auto-run and saving your time.
 
 ![Example](https://i.imgur.com/xWF6NHd.png)
 
