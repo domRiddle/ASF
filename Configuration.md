@@ -208,7 +208,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
-`SteamOwnerID` - `ulong` type with default value of `0`. This property is similar to `Master` permission of given bot instance, but instead - it specifies steamID of the owner of the ASF process, which is - **you**. `Master` has full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you might want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** works with `SteamOwnerID`, so if you want to use it you must provide a valid value here.
+`SteamOwnerID` - `ulong` type with default value of `0`. This property is similar to `Master` permission of given bot instance, by specifying Steam ID in 64-bit form of the ASF process owner, which is - **you**. `Master` has full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you might want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** works with `SteamOwnerID`, so if you want to use it you must provide a valid value here.
 
 ***
 
