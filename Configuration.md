@@ -602,11 +602,11 @@ Example: `"FarmingOrder": 1`.
 
 ***
 
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive)
+`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
 
 ***
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive)
+`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
 
 Example: `"SteamMasterClanID": 103582791440160998`
 
