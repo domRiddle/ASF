@@ -612,7 +612,7 @@ Example: `"SteamMasterClanID": 103582791440160998`
 
 ***
 
-`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. 
+`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Both empty sequence as well as `null` value is treated the same by ASF, so it's up to your preference which one you want to use.
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
