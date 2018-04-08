@@ -602,12 +602,6 @@ Example: `"FarmingOrder": 1`.
 
 ***
 
-`ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
-
-Example: `"IPCPort": 1242`.
-
-***
-
 `uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive)
 
 ***
