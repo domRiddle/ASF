@@ -221,7 +221,7 @@ Value | Name  | Description
 2 | UDP | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**
 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that choice is invalid by itself.
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
