@@ -72,7 +72,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
 
 ---
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. This is used especially in combination with **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of bots being stopped or not. If you're using IPC option or otherwise need ASF process to be running until you close it yourself, this is the right option.
+`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. This is used especially in combination with **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of bots being running or not. If you're using IPC option or otherwise need ASF process to be running until you close it yourself, this is the right option.
 
 ---
 
