@@ -100,7 +100,8 @@ Global config is located in `ASF.json` file and has following structure:
 	"SteamOwnerID": 0,
 	"SteamProtocols": 3,
 	"UpdateChannel": 1,
-	"UpdatePeriod": 24
+	"UpdatePeriod": 24,
+	"WebLimiterDelay": 200
 }
 ```
 
@@ -238,6 +239,16 @@ Right now this property does not include WebSockets by default due to issue **[#
 Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory - this means that any extra files unrelated to ASF in its directory might be lost during update. Default value of `24` is a good balance between unnecessary checks, and ASF that is fresh enough.
 
 Unless you have a **strong** reason to disable this feature, you should keep auto-updates enabled within reasonable `UpdatePeriod` **for your own good**. This is not only because we don't support anything but latest stable ASF release, but also because **we give our security guarantee only for latest version**. If you're using outdated ASF version then you're on your own, including a need to deal with all potential unpatched bugs, such as **[notifications loop](https://github.com/JustArchi/ArchiSteamFarm/commit/2d767c41aacb33dda35a98fa4b41efb7d33f5ffe)** that was triggered by Steam network protocol change. This quickly made ASF flood Steam network infinitely, being an easy way to get a Steam community ban in notime due to **[DoS](https://en.wikipedia.org/wiki/Denial-of-service_attack)** potential. Auto-updates allow us to react quickly to such issues by disabling or patching problematic features before they can escalate - if you opt out of it, you lose all of our security guarantees and risk consequences from running code that could be potentially harmful, either to Steam network, or (also by definition) to your own Steam account.
+
+***
+
+`WebLimiterDelay` - `ushort` type with default value of `200`. This property defines, in miliseconds, the minimum amount of delay between sending two consecutive requests to the same Steam web-service. Such delay is required as **[AkamaiGhost](https://www.akamai.com)** service that Steam uses internally includes rate-limiting based on global number of requests sent across given time period. In normal circumstances akamai block is rather hard to achieve, but under very heavy workloads with a huge ongoing queue of requests, it's possible to trigger it if we keep sending too many requests across too short time period.
+
+Default value was set based on assumption that ASF is the only tool accessing Steam web-services, in particular `steamcommunity.com`, `api.steampowered.com` and `store.steampowered.com`. If you're using another tool sending requests to the same web-services then you should make sure that your tool includes similar functionality of `WebLimiterDelay` and set both to double of default value, which would be `400`. This guarantees that under no circumstance you'll exceed sending more than 1 request per 200 ms.
+
+In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it might lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it if apart from ASF you're also making use of other tools that might send excessive number of requests to web-services that ASF is using. Unless you have a reason to edit this property, you should keep it at default.
+
+***
 
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
