@@ -68,8 +68,12 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
 
 ---
 
-`--server` - will start ASF in `Server` mode. This option affects **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, as well as disables auto-exit of ASF process when no bots are enabled (which is wanted behaviour in combination with IPC).
+`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script doesn't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
 
 ---
 
-`--service` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and causes ASF to force `AutoRestart: false` and not exiting when all bots are stopped (like in `--server`). In addition to that, it also prevents Windows OS from entering sleep mode, similar like in `Headless` mode.
+`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. This is used especially with `--server` option where majority of users would expect their IPC server to be running regardless of bots being stopped or not. If you're using `--server` option or otherwise need ASF process to be running until you close it yourself, this is the right option.
+
+---
+
+`--system-required` - declaring this switch will cause ASF to try signalizing to the OS that the process requires system to be running until the end of the process. Currently this switch has effect only on Windows machines when it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual (if `ShutdownOnFarmingFinished` is properly set and you do not use `--process-required`), causing your system to be allowed to enter into sleep mode again.
