@@ -113,16 +113,16 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/A
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--server" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass `--server` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+This will properly pass `--process-required` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
 
 ---
 
 ## IPC
 
-For using IPC, firstly you should configure ASF to launch it properly, which would be starting it with `ASF_ARGS=--server` explained above, as well as setting `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
+For using IPC, firstly you should configure ASF to launch it properly, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
 
@@ -130,7 +130,7 @@ For example, this command would expose ASF IPC interface to host machine (only):
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--server" -p localhost:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p localhost:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
 Assuming you set `IPCPrefixes` properly to something like `http://*:1242/`, the above command will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from the host machine.
