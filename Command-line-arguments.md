@@ -72,4 +72,4 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
 
 ---
 
-`--service` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and causes ASF to force `AutoRestart: false` and not exiting when all bots are stopped (like in `--server`).
+`--service` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and causes ASF to force `AutoRestart: false` and not exiting when all bots are stopped (like in `--server`). In addition to that, it also prevents Windows OS from entering sleep mode, similar like in `Headless` mode.
