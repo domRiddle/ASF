@@ -45,7 +45,7 @@ This way you can use fully secured connection to your ASF instance, as shown bel
 
 ## Server
 
-To start IPC, ASF must be started with `--server` parameter. Refer to **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** for more info.
+To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info.
 
 If parameter was passed correctly, you should notice that IPC service is active:
 ```
