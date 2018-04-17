@@ -47,7 +47,8 @@ This way you can use fully secured connection to your ASF instance, as shown bel
 
 To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info.
 
-If parameter was passed correctly, you should notice that IPC service is active:
+If configuration was set correctly, you should notice that IPC service is active:
+
 ```
 INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/...
 INFO|ASF|StartServer() IPC server ready!
