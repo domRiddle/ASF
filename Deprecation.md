@@ -38,7 +38,7 @@ We splitted pre-V3.1.2.2 `--service` **[command-line argument](https://github.co
 
 ### Stage 1
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--service`. Now-obsolete `--service` argument is automatically converted to new `--no-restart --process-required --system-required` settings, effectively acting exactly the same as old `--service` switch.
+Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--service`. Now-obsolete `--service` argument is automatically converted to new `--no-restart --process-required --system-required` settings, effectively acting exactly the same as old `--service` switch for time being. This allows everybody to do appropriate switch before ASF stops accepting old argument.
 
 ### Stage 2
 
