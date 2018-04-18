@@ -28,7 +28,7 @@ Stage 2 is scheduled for the very next stable version, after above stage takes p
 
 ### Stage 3
 
-Stage 3 is final one and like second one, is scheduled for the very next stable release after above one. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning or error, since it's simply unaware of what you're attempting to do.
+Stage 3 is final one and like second one, is scheduled for the very next stable release after above. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning or error, since it's simply unaware of what you're attempting to do.
 
 ---
 
