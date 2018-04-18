@@ -33,6 +33,7 @@ Advanced users might look for:
 9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 11. **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+12. **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 Developers can also find:
 
