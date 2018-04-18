@@ -2,9 +2,13 @@
 
 Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
 
+---
+
 ## What is deprecation?
 
 Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you do not depend on obsolete functionality.
+
+---
 
 ## Deprecation stages
 
