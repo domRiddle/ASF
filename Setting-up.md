@@ -56,6 +56,8 @@ At least a few of those should be already natively available on your system (suc
 
 ---
 
+### File structure
+
 Next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
 
 Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a bunch of files, folders and everything. If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file (this has to be done only once).
