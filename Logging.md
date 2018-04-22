@@ -39,7 +39,7 @@ NLog-specific `${logger}` variable will always distinguish the source of the mes
 
 ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice.
+ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
 
 In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
 
