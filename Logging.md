@@ -125,6 +125,25 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 
 That's it, now our `ColoredConsole` will show only warnings and above, while still logging everything to `File`. You can further tweak it to log e.g. only `Info` and below, and so on.
 
+Lastly, let's do something a bit more advanced and log all messages to file, but only from bot named `LogBot`.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <targets>
+    <target xsi:type="ColoredConsole" name="ColoredConsole" />
+    <target xsi:type="File" name="LogBotFile" fileName="LogBot.txt" deleteOldFileOnStartup="true" />
+  </targets>
+
+  <rules>
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+    <logger name="LogBot" minlevel="Trace" writeTo="LogBotFile" />
+  </rules>
+</nlog>
+```
+
+You can see how we used ASF integration above and easily distinguished source of the message based on `${logger}` property.
+
 ---
 
 ## ASF targets
