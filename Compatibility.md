@@ -28,7 +28,7 @@ OS-specific package, apart from managed code included in generic package, also i
 
 ASF is currently available in following OS-specific variants:
 
-- `win-x64` works on 64-bit Windows OSes. This includes Windows 7 (SP1), 8, 8.1, 10, Server 2008 R2 (SP1), 2012, 2012 R2, 2016, as well as future versions.
+- `win-x64` works on 64-bit Windows OSes. This includes Windows 7 (SP1+), 8, 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016, as well as future versions.
 - `linux-arm` works on 32-bit ARM-based (ARMv7+) Linux OSes. This includes especially Raspberry Pi 2 & 3 with all glibc-based Linux OSes available for them, in current and future versions. This variant will not work with older architectures, such as ARMv6 found in Raspberry Pi 0 & 1. **Please note that this package is supposed to be replaced by `linux-arm64` in the future**.
 - `linux-x64` works on 64-bit glibc-based Linux OSes. This includes RHEL, Ubuntu, CentOS, Debian, Fedora, OpenSUSE and many other ones, including their derivatives, in current and future versions.
 - `osx-x64` works on 64-bit OS X OSes. This includes 10.12, as well as future versions.
