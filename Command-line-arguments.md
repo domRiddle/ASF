@@ -32,14 +32,14 @@ If your argument includes spaces, don't forget to quote it. Those two are wrong:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Also bad!
 ```
 
 However, those two are completely fine:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK as well
 ```
 
 ## Arguments
