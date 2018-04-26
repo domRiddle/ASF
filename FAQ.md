@@ -420,7 +420,7 @@ General ASF rule is that warnings are **not** errors, therefore they should **no
 
 Errors on the other hand indicate a situation that should not happen, therefore they're worth reporting as long as you made sure that it's not you who is causing them. If it's a common situation that we expect to happen, then it'll be converted to a warning instead. Otherwise, it's possibly a bug that should be corrected, not silently ignored, assuming it's not a result of your own technical issue. For example, removing core `ASF.json` file will throw an error, as ASF can't operate without that file, but it was you who removed it, so you should not report that error to us (unless you confirmed that ASF is wrong and the file is there).
 
-In one TL;DR sentence - report errors, don't report warnings.
+In one TL;DR sentence - report errors, don't report warnings. You can still ask about warnings and receive help in our support sections.
 
 ***
 
