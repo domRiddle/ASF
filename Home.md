@@ -42,6 +42,14 @@ Developers can also find:
 3. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 4. **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 
+Of course feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 🙂
+
+If you need further help, you can ask for example on our **[Discord](https://discord.gg/hSQgt8j)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
+
+GitHub **[issues](https://github.com/JustArchi/ArchiSteamFarm/issues)** page is being used for ASF TODO list, regarding both features and bugs. It has rather strict policy - GitHub is not technical support and all cases that are not suggestions or bug reports should NOT be posted there. You have ASF discord and Steam group for general discussion, questions or technical issues. Please avoid using GitHub issues, unless you indeed want to report a bug or suggest an enhancement. Even prior to doing that, please make sure that you're indeed dealing with a bug, or your suggestion makes sense, preferably by asking on discord/steam group first. Invalid issues will be closed immediately and won't be answered.
+
+---
+
 Some legacy wiki pages that we still keep for a while can be found below. Nothing of that applies to latest release, archival purposes only:
 
 1. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/_V3-Migration)** (if you're ASF V2 user)
@@ -56,9 +64,3 @@ Some legacy wiki pages that we still keep for a while can be found below. Nothin
 10. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
 11. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
 12. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
-
-Of course feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 🙂
-
-If you need further help, you can ask for example on our **[Discord](https://discord.gg/hSQgt8j)** or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
-
-GitHub **[issues](https://github.com/JustArchi/ArchiSteamFarm/issues)** page is being used for ASF TODO list, regarding both features and bugs. It has rather strict policy - GitHub is not technical support and all cases that are not suggestions or bug reports should NOT be posted there. You have ASF discord and Steam group for general discussion, questions or technical issues. Please avoid using GitHub issues, unless you indeed want to report a bug or suggest an enhancement. Even prior to doing that, please make sure that you're indeed dealing with a bug, or your suggestion makes sense, preferably by asking on discord/steam group first. Invalid issues will be closed immediately and won't be answered.
