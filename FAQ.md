@@ -432,13 +432,15 @@ If even `log.txt` is not being generated then you most likely forgot to install 
 
 ### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
 
-This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. The issue can happen only with broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE.
+This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
-The issue can also come up if you're playing on your PC while ASF is waiting and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock, which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF) and shows the same message.
+One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that suddenly kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
 
-The issue on the ASF side is actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running.
+Season reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
 
-The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done.
+Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
+
+The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done. Alternatively you can just ignore the problem and act the same as if you played with offline Steam client.
 
 ***
 
