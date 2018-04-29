@@ -121,6 +121,8 @@ In addition to that, ASF is **much more stable and reliable** when it comes to n
 
 Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. There are dozen of extra less and more important reasons which you might learn about in the rest of the FAQ. So shortly speaking, **yes**, you should use ASF even when you don't need any extra ASF feature that is available when compared to IM.
 
+In addition to that, IM is officially discontinued and might break completely in the future, without anybody bothering to fix it, considering existance of much more powerful solutions (not only ASF). IM already doesn't work for a lot of people, and that number is only going up, not down. You should avoid using obsolete software in the first place, not only IM but all other deprecated programs as well. No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security.
+
 ***
 
 ### What interesting features ASF offers that Idle Master does not?
