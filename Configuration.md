@@ -335,14 +335,17 @@ Value | Name  | Description
 0 | None | No special bot behaviour, the least invasive mode, default
 1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead if ignoring) invalid friend invites
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
+4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
 
 Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
 
-Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). This option **also** affects invitations to Steam groups (invalid invite in this case is any invite to the group that doesn't match `SteamMasterClanID`). Unless you want to outright deny all friend/group invites, you shouldn't enable this option.
+Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
 
 Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
+
+Invalid group invite is an invite that doesn't come from `SteamMasterClanID` group. ASF in normal mode ignores those group invites, as you'd expect, allowing you to decide yourself if you want to join particular Steam group or not. `RejectInvalidGroupInvites` will cause all those group invites to be automatically rejected, effectively making it impossible to invite you to any other group than `SteamMasterClanID`. Unless you want to outright deny all group invites, you shouldn't enable this option.
 
 If you're unsure how to configure this option, it's best to leave it at default.
 
