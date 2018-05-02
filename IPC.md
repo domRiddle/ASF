@@ -81,7 +81,7 @@ IPC GUI is currently in **preview** state, which means that officially it's **un
 Our API makes use of standard HTTP status codes, and they're used according to the RFC. Currently ASF can return following status codes:
 
 - `200 OK` - the request completed successfully.
-- `400 BadRequest` - the request failed because of an error, parse response body for actual reason.
+- `400 BadRequest` - the request failed because of an error, parse response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to fulfill it for one reason or another (hence response body telling you why).
 - `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
 - `403 Forbidden` - You failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
 - `404 NotFound` - the URL you're trying to reach does not exist.
