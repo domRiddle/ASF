@@ -229,7 +229,7 @@ Value | Name  | Description
 2 | UDP | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**
 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that choice is invalid by itself.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -337,7 +337,7 @@ Value | Name  | Description
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that choice is invalid by itself.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
 
