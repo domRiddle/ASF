@@ -24,7 +24,7 @@ During this stage, ASF will print appropriate warning when deprecated function i
 
 ### Stage 2
 
-Stage 2 is scheduled for the very next stable version, after above stage takes place. This will change previous deprecation warning into **an error**, that will cause given functionality to stop working. ASF will still acknowledge existance of deprecated feature, but will no longer try to mimic old behaviour or logic. During this stage, transition is **required** in order to make use of now-deprecated feature.
+Stage 2 is scheduled for the very next stable version, after above stage takes place. This will change previous deprecation warning into **an error**, that will cause given functionality to stop working. ASF will still acknowledge existance of deprecated feature, but will no longer try to mimic old behaviour or logic. During this stage, transition is **required** in order to make use of now-deprecated feature. Since ASF can't guarantee mimicing old behaviour (like done during stage 1) anymore, this will effectively cause module directly depending on deprecated feature to stop working with an error.
 
 ### Stage 3
 
