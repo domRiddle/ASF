@@ -275,6 +275,7 @@ As you should know already, every bot should have its own config. Example bot co
 {
 	"AcceptGifts": false,
 	"AutoSteamSaleEvent": false,
+	"BotBehaviour": 0,
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
 	"DismissInventoryNotifications": false,
@@ -286,7 +287,6 @@ As you should know already, every bot should have its own config. Example bot co
 	"HoursUntilCardDrops": 3,
 	"IdlePriorityQueueOnly": false,
 	"IdleRefundableGames": true,
-	"IsBotAccount": false,
 	"LootableTypes": [
 		1,
 		3,
@@ -325,6 +325,26 @@ All options are explained below:
 `AutoSteamSaleEvent` - `bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours, and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
+
+***
+
+`BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like during various events, and is defined as below:
+
+Value | Name  | Description
+--- | --- | ---
+0 | None | No special bot behaviour, the least invasive mode, default
+1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead if ignoring) invalid friend invites
+2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
+
+In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
+
+Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
+
+Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). This option **also** affects invitations to Steam groups (invalid invite in this case is any invite to the group that doesn't match `SteamMasterClanID`). Unless you want to outright deny all friend/group invites, you shouldn't enable this option.
+
+Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
+
+If you're unsure how to configure this option, it's best to leave it at default.
 
 ***
 
@@ -392,21 +412,6 @@ It's also worth mentioning that this option is basically a hack that might, or m
 ***
 
 `IdleRefundableGames` - `bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that we bought in last 2 weeks through Steam Store and we didn't play it for longer than 2 hours yet, as stated **[here](http://store.steampowered.com/steam_refunds/)**. By default when this option is set to `true`, ASF ignores Steam refunds entirely and idles everything, as most people expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
-
-***
-
-`IsBotAccount` - `bool` type with default value of `false`. This property defines if account used for this bot instance should be considered a primary one (`false`), or bot/alt one (`true`). ASF tries to be as much compatible with both types as possible, therefore switching this option to `true` for alts is not technically required for ASF to work, but doing so will allow ASF to tune the logic better for alt accounts. At the moment, it affects following things:
-
-`Event` | `IsBotAccount: false` | `IsBotAccount: true`
---- | --- | ---
-Invalid trades | Ignored | Rejected
-Invalid friend/clan invites | Ignored | Rejected
-
-For example, invalid trades will be ignored on primary accounts, which allows you to decide yourself if you want to accept/decline them or not. On bot accounts, those trades will be immediately rejected, as there is nobody taking care of them.
-
-Invalid friend invite is the one that doesn't come from user with `FamilySharing` permission or above. Likewise - invalid clan invite is the one that doesn't come from `SteamMasterClanID`.
-
-The logic might get extended in future releases if needed. If you're not sure how to set this property, leave it with default value of `false`.
 
 ***
 
