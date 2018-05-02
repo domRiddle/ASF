@@ -337,6 +337,8 @@ Value | Name  | Description
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that choice is invalid by itself.
+
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
 
 Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
