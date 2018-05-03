@@ -61,7 +61,7 @@ If you'd like to edit ASF code, you can use any .NET Core compatible IDE for tha
 
 If you'd like to work with ASF code on Linux/OS X instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. It's not as rich as classic Visual Studio, but it's good enough.
 
-Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway.
+Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. Originally we use Visual Studio + ReSharper for ASF development, with a small part of third-party `tools` that you can find in the repo.
 
 ---
 
