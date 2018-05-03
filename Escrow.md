@@ -29,7 +29,7 @@ All following guides require from you to already have **working and operational*
 - You can fetch confirmations, and they are arriving on your mobile authenticator
 - You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only cause yourself trouble.
+Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself trouble.
 
 ***
 
