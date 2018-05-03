@@ -55,6 +55,12 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 ---
 
+## Development
+
+If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, we recommend **[latest Visual Studio](https://www.visualstudio.com/downloads)** (free community version is more than enough).
+
+---
+
 ## Tags
 
 `master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchi/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release).
