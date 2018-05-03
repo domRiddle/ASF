@@ -48,7 +48,7 @@ If compilation ended successfully, you can find your ASF in `source` flavour in 
 You can also generate OS-specific package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -o "out2" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -o "out-linux" -r "linux-x64"
 ```
 
 Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
