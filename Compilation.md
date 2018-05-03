@@ -57,7 +57,11 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 ## Development
 
-If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, we recommend **[latest Visual Studio](https://www.visualstudio.com/downloads)** (free community version is more than enough).
+If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, for Windows we recommend **[latest Visual Studio](https://www.visualstudio.com/downloads)** (free community version is more than enough).
+
+If you'd like to work with ASF code on Linux/OS X, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)** instead. It's not as rich as classic Visual Studio, but it's good enough.
+
+Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway.
 
 ---
 
