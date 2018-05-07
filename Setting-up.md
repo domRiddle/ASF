@@ -79,7 +79,7 @@ C:\ASF (where you put your own things)
 
 This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
 
-Next step is ASF configuration. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and follow instructions - you should at least generate one bot config file that you put in `config` directory.
+Next step is ASF configuration. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page and follow instructions - you should at least generate one bot config file that you put in `config` directory. If you'd like to use more Steam accounts (bots), then generate one config for each one of them and put all of them in the same directory.
 
 All done? Great, simply launch `ArchiSteamFarm` - either by double clicking on the .exe if you're on Windows, or via navigating to ASF directory (e.g. with `cd`) command and executing `./ArchiSteamFarm` if you're on Linux/OS X. Put extra details if ASF asks for them (such as your 2FA code) and have fun. Reading more about ASF while it's doing its job is a great thing to consider.
 
