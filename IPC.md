@@ -56,7 +56,7 @@ INFO|ASF|StartServer() IPC server ready!
 
 ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
 
-*This method of activation applies to V3.1.2.1 onwards, head over to **[older revision](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC/5cb5090674f097e7d5e43cdca92ab9dff692fcec)** for V3.1.2.0.*
+*This method of activation applies to V3.1.2.2 onwards, head over to **[older revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC/_history)** for V3.1.2.0.*
 
 ---
 
