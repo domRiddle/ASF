@@ -88,7 +88,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ## Wiki localization
 
-Our crowdin also allows you to localize our wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
+Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
 
 As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
 
