@@ -110,7 +110,7 @@ We're now ready to do the very last step, the configuration. This is by far the 
 
 First and foremost, there is **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
 
-ASF configuration can be done in through ways - either by using our web config generator, or manually. This is explained in-depth in configuration section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
+ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in configuration section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
 
 Navigate to our **[web config generator](https://justarchi.github.io/ArchiSteamFarm)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome, Firefox or Microsoft Edge, but it should work on all most popular browsers.
 
