@@ -6,6 +6,12 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 ---
 
+## Scope
+
+Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+
+---
+
 ## Signing up
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
