@@ -187,7 +187,7 @@ In other words, simply jump to configuration again and do exactly the same, just
 
 #### Changing settings
 
-You change existing settings in exactly the same way - by generating a new config file. If you didn't close your web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
+You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
 So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
 
