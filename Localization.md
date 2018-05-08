@@ -86,4 +86,52 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ---
 
-Thank you for translating ASF! 👍 
+## Wiki localization
+
+Our crowdin also allows you to localize our wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
+
+As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
+
+Now, ASF includes links on every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized page for your language. It requires a bit hacking around, but it's possible.
+
+For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki)** includes a text such as:
+
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+
+Which is originally written as:
+
+```md
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+```
+
+You on the crowdin see instead:
+
+> If you're a new user, we recommend starting with <0>setting up</0> guide.
+
+Firstly, you translate it as usual, leaving everything in-tact. This would be example for Polish language:
+
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <0>przewodnika po konfiguracji</0>.
+
+Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+
+However, if the link **does** point further inside the wiki, like the one above, you can actually **remove** `<0>` tags and replace them with pure HTML appropriate for new location.
+
+We have a `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up` link, so our Polish version is `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL`. We can now hover over `<0>` tag to see how it's defined, usually it'll be either `<strong><a></a></strong>` or `<a></a>` alone. Then, with knowledge of what `<0>` is in fact replaced with, we can rewrite it to point into new location:
+
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL">przewodnika konfiguracji</a></strong>.
+
+This will properly transform HTML back to markdown:
+
+```md
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+```
+
+And finally into wiki text:
+
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+
+In similar way you can translate (and point to new locations) our sidebar 👍
+
+---
+
+Thank you for helping us to translate ASF! 👍 
