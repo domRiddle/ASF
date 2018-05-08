@@ -8,9 +8,9 @@ All wiki pages always apply to **[latest ASF release](https://github.com/JustArc
 
 For starters, everything that you need includes:
 
-1. **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-2. **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-3. **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 Other subjects that you might be interested in are:
 
