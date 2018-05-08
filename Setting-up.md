@@ -142,7 +142,7 @@ You can now hit "download" button and our web config generator will generate new
 
 ![Bot tab 3](https://i.imgur.com/ylyvzvL.png)
 
-Save that file to `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
 Your `config` directory will now look like this:
 
