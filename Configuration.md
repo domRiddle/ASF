@@ -33,29 +33,9 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs/WebConfigGenerator/dist)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
-We'll start from something very easy. Open **[ASF ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm)** page and switch to bot tab.
+Web-based ConfigGenerator is verified to run properly on Chrome, Firefox and Microsoft Edge, but it should work properly in all most popular javascript-enabled browsers.
 
-Now you should do following things in order to generate first valid bot config:
-
-- Put a friendly name under `Name`, this can be your nickname or anything else you want to name your bot. Please avoid spaces, you can use `_` as a word separator.
-- Turn on `Enabled` switch.
-- If you use Steam Parental PIN to unlock your account, put it in `Parental PIN`. You'll need to toggle advanced settings for that.
-- Fill `Steam Login` with your Steam account name that you use for logging in (optional).
-- Fill `Steam Password` with your Steam password that you use for logging in (optional).
-
-Please note that Steam login and password fields are optional - if you omit them, ASF will ask for those on as-needed basis during runtime. If you provide them, ASF won't need to ask, making it possible for auto-run and saving your time.
-
-![Example](https://i.imgur.com/xWF6NHd.png)
-
-Now hit `Download` button and if you did everything properly a new `BotName.json` file will be downloaded, where `BotName` will be the value you put in the name field above. Locate that file and put it into `config` directory (inside ASF directory). I named my bot `Main`, so the file that was downloaded is named `Main.json`.
-
-![Example](http://i.imgur.com/4lgBuLa.png)
-
-Now you're ready to start ASF. If you didn't provide Steam login/password, you'll be asked for that, as well as for SteamGuard/2FA code if you use it. ASF makes use of Steam login keys, so you won't need to input SteamPassword/SteamGuard/2FA code on each run.
-
-Congratulations, you've just learnt the basics of using web-based ConfigGenerator. If you want to add another account, simply do the same, just use different name for your bot. In the same way you can generate global ASF config (by switching to ASF tab).
-
-I encourage you to read below what is the exact purpose of everything you've configured so far. This was a very simplified tutorial that didn't cover a lot of extra features that ASF offers, such as offline farming, SteamTradeMatcher or dismissing inventory notifications.
+The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tag, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
