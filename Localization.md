@@ -130,7 +130,7 @@ And finally into wiki text:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-In similar way you can translate (and point to new locations) our sidebar 👍
+In similar way you can translate (and point to new locations) our sidebar! 🙂
 
 ---
 
