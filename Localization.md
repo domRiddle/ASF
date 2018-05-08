@@ -100,7 +100,7 @@ For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki)
 
 Which is originally written as:
 
-```md
+```markdown
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
@@ -124,7 +124,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <str
 
 This will properly transform HTML back to markdown:
 
-```md
+```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
