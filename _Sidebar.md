@@ -1,6 +1,5 @@
 # **[Home](https://github.com/JustArchi/ArchiSteamFarm)**
 
----
 
 ## Getting started
 
@@ -8,7 +7,6 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
----
 
 ## Core
 
@@ -20,7 +18,6 @@
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
----
 
 ## Advanced
 
@@ -37,7 +34,6 @@
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
----
 
 ## Developers
 
