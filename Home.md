@@ -14,35 +14,35 @@ For starters, everything that you need includes:
 
 Other subjects that you might be interested in are:
 
-1. **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-2. **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-3. **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-4. **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-5. **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-6. **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-7. **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+* **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 Advanced users might look for:
 
-1. **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-2. **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-3. **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-4. **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-5. **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-6. **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-7. **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-8. **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-9. **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-10. **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-11. **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-12. **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 Developers can also find:
 
-1. **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-2. **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-3. **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-4. **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 
 Of course feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 🙂
 
@@ -54,15 +54,15 @@ GitHub **[issues](https://github.com/JustArchi/ArchiSteamFarm/issues)** page is 
 
 Some legacy wiki pages that we still keep for a while can be found below. Nothing of that applies to latest release, archival purposes only:
 
-1. **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/_V3-Migration)** (if you're ASF V2 user)
-2. **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
-3. **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
-4. **[Commands (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))**
-5. **[Compatibility (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compatibility-(ASF-V2))**
-6. **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
-7. **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
-8. **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
-9. **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
-10. **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
-11. **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
-12. **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
+* **[V3 migration](https://github.com/JustArchi/ArchiSteamFarm/wiki/_V3-Migration)** (if you're ASF V2 user)
+* **[Setting up (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Setting-up-(ASF-V2))**
+* **[Configuration (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Configuration-(ASF-V2))**
+* **[Commands (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Commands-(ASF-V2))**
+* **[Compatibility (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compatibility-(ASF-V2))**
+* **[Command-Line Arguments (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Command-Line-Arguments-(ASF-V2))**
+* **[API (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_API-(ASF-V2))**
+* **[Compilation (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Compilation-(ASF-V2))**
+* **[Low memory setup (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Low-memory-setup-(ASF-V2))**
+* **[Mono (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Mono-(ASF-V2))**
+* **[Running as Service (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_Running-as-Service-(ASF-V2))**
+* **[WCF (ASF V2)](https://github.com/JustArchi/ArchiSteamFarm/wiki/_WCF-(ASF-V2))**
