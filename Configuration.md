@@ -315,7 +315,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 Value | Name  | Description
 --- | --- | ---
 0 | None | No special bot behaviour, the least invasive mode, default
-1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead if ignoring) invalid friend invites
+1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 
