@@ -119,18 +119,18 @@ However, if the link **does** point further inside the wiki, like the one above,
 We have a `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up` link, so our Polish version is `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL`. We can now hover over `<0>` tag to see how it's defined, usually it'll be either `<strong><a></a></strong>` or `<a></a>` alone. Then, with knowledge of what `<0>` is in fact replaced with, we can rewrite it to point into new location:
 
 ```html
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL">przewodnika konfiguracji</a></strong>.
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL">przewodnika po konfiguracji</a></strong>.
 ```
 
 This will properly transform HTML back to markdown:
 
 ```markdown
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
 And finally into wiki text:
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
 In similar way you can translate (and point to new locations) our sidebar! 🙂
 
