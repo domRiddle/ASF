@@ -86,7 +86,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ---
 
-## Wiki localization
+## Wiki
 
 Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
 
