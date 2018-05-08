@@ -65,7 +65,7 @@ At least a few of those should be already natively available on your system (suc
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#generic-setup)** for that. 
 
-![Assets](https://i.imgur.com/naTtws7.png)
+![Assets](https://i.imgur.com/Ym2xPE5.png)
 
 Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
 
