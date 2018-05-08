@@ -118,7 +118,9 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 We have a `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up` link, so our Polish version is `https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL`. We can now hover over `<0>` tag to see how it's defined, usually it'll be either `<strong><a></a></strong>` or `<a></a>` alone. Then, with knowledge of what `<0>` is in fact replaced with, we can rewrite it to point into new location:
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL">przewodnika konfiguracji</a></strong>.
+```html
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL">przewodnika konfiguracji</a></strong>.
+```
 
 This will properly transform HTML back to markdown:
 
