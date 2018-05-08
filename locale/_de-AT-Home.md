@@ -1,8 +1,10 @@
 # Startseite
 
-Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+Willkommen im Wiki für ASF. Das Wiki ist eine online-Hilfe, die viele verschiedene Themen wie oft gestellte Fragen, mögliche Probleme, Verwendung, Installation und vieles mehr behandelt. Dieser Anleitung solltest du folgen, wenn du lernen willst, wie ASF funktioniert. Insbesondere, wie man ASF installiert, konfiguriert und verwendet.
 
-All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
+Du kannst die Sprache des Wikis ändern, indem du `_locale-` auf der besuchten Seite anwendest. Statt **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** kannst du zum Beispiel **[_ru-RU-FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/_ru-RU-FAQ)** aufrufen, wenn du die selbe Seite auf Russisch lesen willst.
+
+Alle Seiten im Wiki beziehen sich ausschließlich auf den **[aktuellsten ASF-Release](https://github.com/JustArchi/ArchiSteamFarm/releases)**, außer es ist etwas anderes angegeben (zum Beispiel "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 
 For starters, everything that you need includes:
 

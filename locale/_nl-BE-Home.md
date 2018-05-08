@@ -2,6 +2,8 @@
 
 Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
 
+You can change wiki language by applying `_locale-` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[_ru-RU-FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/_ru-RU-FAQ)** instead, if you'd like to read the same FAQ in Russian.
+
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 
 For starters, everything that you need includes:
