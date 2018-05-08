@@ -104,7 +104,7 @@ Which is originally written as:
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-You on the crowdin see instead:
+On the crowdin you'll see instead:
 
 > If you're a new user, we recommend starting with <0>setting up</0> guide.
 
