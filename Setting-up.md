@@ -136,7 +136,7 @@ You can also decide to leave just one field empty, such as `SteamPassword`, ASF 
 
 After the decision and optional details, your web page will now look similar to the one below:
 
-![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)**
+![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
 
 You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name:
 
