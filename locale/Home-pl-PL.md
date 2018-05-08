@@ -6,7 +6,7 @@ You can change wiki language by adding `-locale` string to any visited page. For
 
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide. You can find all other relevant wiki pages on our sidebar, on the right side of the screen. We recommend to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/custom-link)** guide. You can find all other relevant wiki pages on our sidebar, on the right side of the screen. We recommend to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 
 
 If you need further help, you can ask on our **[Discord server](https://discord.gg/hSQgt8j)**, or in the **[discussions of our steam group](http://steamcommunity.com/groups/ascfarm/discussions/1/)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
