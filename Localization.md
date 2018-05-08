@@ -92,7 +92,7 @@ Our crowdin platform also allows you to localize even the wiki itself. This is a
 
 As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
 
-Now, ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized page for your language. It requires a bit hacking around, but it's possible.
+Now, ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized page for your language. It requires a bit of hacking around, but it's possible.
 
 For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki)** includes a text such as:
 
