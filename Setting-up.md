@@ -63,7 +63,7 @@ At least a few of those should be already natively available on your system (suc
 
 ### Downloading
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to generic setup for that. 
+Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#generic-setup)** for that. 
 
 ![Assets](https://i.imgur.com/naTtws7.png)
 
@@ -226,10 +226,10 @@ However, keep in mind that you're in charge of .NET Core runtime in this case. T
 
 For generic package, you can follow entire OS-specific guide above, with small changes:
 - Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-**- Install [.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk) (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to [runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements) if you're not sure which version to install.**
+*- Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.*
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** **in generic variant**.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF by either **using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell**.
+- Launch ASF *by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell*.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`.
