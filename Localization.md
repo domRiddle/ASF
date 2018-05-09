@@ -108,7 +108,7 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 ---
 
-![Crowdin](https://i.imgur.com/fmzUOw2.png)
+![Crowdin](https://i.imgur.com/YqAxiZ4.png)
 
 ---
 
