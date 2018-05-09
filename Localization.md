@@ -185,7 +185,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 ---
 
-Since we're going to translate "introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
 
 ---
 
