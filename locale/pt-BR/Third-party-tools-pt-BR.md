@@ -1,6 +1,6 @@
 # Ferramentas de terceiros
 
-As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-featured bots for other platforms. Se você gostaria de adicionar algo à lista, deixe-nos saber no aplicativo Discord ou em nosso grupo do Steam.
+As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. Elas variam de simples aplicações web através de bibliotecas internas para uma maior integração, terminando com bots cheios de recursos para as outras plataformas. Se você gostaria de adicionar algo à lista, deixe-nos saber no aplicativo Discord ou em nosso grupo do Steam.
 
 Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos desenvolvedores do ASF e, por isso, nós não damos garantia sobre nenhum deles, especialmente em termos de segurança, confiança ou de conformidade do Steam ToS. Esta lista é mantida apenas para referência. Você deve sempre assegurar-se que a ferramenta na qual você irá usar, é legítima o suficiente para você.
 
@@ -13,16 +13,16 @@ Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos d
 
 * * *
 
-## Packaging
+## Pacotes
 
-- **[AUR repo](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
-- **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
+- **[Repositório AUR](https://aur.archlinux.org/packages/asf)**, permite que você instale facilmente o ASF no arch linux.
+- **[Desatualizado] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permite que você instale facilmente o ASF V2 em vários sistemas. Ele ainda não foi atualizado para a versão mais recente do ASF, portanto, seu uso é desaconselhável. Talvez você possa ajudar?
+- **[Desatualizado] [Brew Formula](http://brewformulas.org/ArchiSteamFarm)**, permite que você instale facilmente o ASF V2 com o homebrew. Ele ainda não foi atualizado para a versão mais recente do ASF, portanto, seu uso é desaconselhável. Talvez você possa ajudar?
 
 * * *
 
 ## Bots / Bibliotecas
 
-- **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, python library for further integration with ASF's IPC interface.
+- **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, a biblioteca python para uma maior integração com a interface de IPC do ASF.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração de ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração de ASF.
