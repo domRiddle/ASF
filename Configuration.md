@@ -310,7 +310,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 ***
 
-`BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like during various events, and is defined as below:
+`BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
 Value | Name  | Description
 --- | --- | ---
