@@ -34,13 +34,13 @@ Stage 3 is final one and like second one, is scheduled for the very next stable 
 
 ## Summary
 
-You have more or less **full 2 months** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 3), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than 2 months of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs you've missed and manually adapt your usage to current one.
+You have more or less **full 2 months** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 3), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than 2 months of inactivity, it's recommended for you to **[start from scratch](Setting-up)** again, or read all the changelogs you've missed and manually adapt your usage to current one.
 
 ---
 
 ## Example
 
-We splitted pre-V3.1.2.2 `--service` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** into 3 independent options: `--no-restart`, `--process-required` and `--system-required`.
+We splitted pre-V3.1.2.2 `--service` **[command-line argument](Command-line-arguments)** into 3 independent options: `--no-restart`, `--process-required` and `--system-required`.
 
 ### Stage 1
 
