@@ -2,11 +2,11 @@
 
 This is exact opposite of **[low-memory setup](Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
 
-***
+---
 
 ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
 
-***
+---
 
 ## Runtime tuning (advanced)
 
@@ -30,7 +30,7 @@ You can enable server GC by switching `System.GC.Server` property of `ArchiSteam
 
 Server GC itself does not result in a very huge memory increase by just being active, but it is far more lazy when it comes to giving memory back to OS, that's why usually just setting `BackgroundGCPeriod` to `1` or `2` should be enough in order to still keep awesome performance that comes from server GC, while forcing it to give back more unused memory to OS in fixed intervals. This is "the best of both worlds" if you want to benefit from server GC performance, but at the same time can't afford that huge memory increase. If memory is not a problem for you (as GC still takes into account available memory and tweaks itself), it's much better to not enable `BackgroundGCPeriod` at all.
 
-***
+---
 
 ## Recommended optimization
 
