@@ -1,8 +1,8 @@
 # Фоновая активация ключей
 
-Фоновая активация ключей - встроенная в ASF функция, позволяющая ввести определённый набор ключей Steam (вместе с их именами) для активации в фоновом режиме. Это особенно полезно, если у вас большое количество ключей и вы гарантированно столкнётесь со **[статусом](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited`, до того, как вы активируете всю партию.
+Фоновая активация ключей - встроенная в ASF функция, позволяющая ввести определённый набор ключей Steam (вместе с их именами) для активации в фоновом режиме. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
 
-Фоновая активация ключей нацелена на использование для одного бота, что означает, что функция не использует `RedeemingPreferences`. Эта функция может быть использована вместе (или вместо) **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** `redeem`, если понадобится.
+Фоновая активация ключей нацелена на использование для одного бота, что означает, что функция не использует `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](Commands)**, if needed.
 
 * * *
 
@@ -23,7 +23,7 @@ ASF импортирует данный файл, при запуске бота
 
 ### IPC
 
-Кроме использования файла с ключами, упомянутого выше, ASF так же использует `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, который может быть запущен с помощью любого IPC инструмента, включая наш IPC GUI. Использование IPC может быть более мощным, так как Вы можете настроить подходящее для Вас считывание самостоятельно, например использование кастомного ограничителя вместо принудительного символа табуляции.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Использование IPC может быть более мощным, так как Вы можете настроить подходящее для Вас считывание самостоятельно, например использование кастомного ограничителя вместо принудительного символа табуляции.
 
 * * *
 

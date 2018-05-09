@@ -1,6 +1,6 @@
 # Documentation
 
-This is an attempt to write a very detailed technical explanation how ASF works in detail - it's **definitely** not a text for typical user that just wants to make ASF "work", you have **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** in this case.
+This is an attempt to write a very detailed technical explanation how ASF works in detail - it's **definitely** not a text for typical user that just wants to make ASF "work", you have **[Setting up](Setting-up)** in this case.
 
 **This page is still work-in-progress**
 

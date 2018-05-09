@@ -1,12 +1,12 @@
-# Third-party tools
+# Ferramentas de terceiros
 
-Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-featured bots for other platforms. Se você gostaria de adicionar algo à lista, deixe-nos saber no aplicativo Discord ou em nosso grupo do Steam.
 
-Please note that below tools are not maintained by ASF team and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the tool you're about to use is legit enough for you.
+Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos desenvolvedores do ASF e, por isso, nós não damos garantia sobre nenhum deles, especialmente em termos de segurança, confiança ou de conformidade do Steam ToS. Esta lista é mantida apenas para referência. Você deve sempre assegurar-se que a ferramenta na qual você irá usar, é legítima o suficiente para você.
 
 * * *
 
-## Tools
+## Ferramentas
 
 - **[Keys extractor](https://ske.cloudswift.me)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/Cloud-Swift/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, which allows to manage multiple ASF configs more easily.
