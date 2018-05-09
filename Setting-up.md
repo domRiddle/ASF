@@ -10,7 +10,7 @@ This however doesn't mean that you can't use it on your PC or using it is in som
 
 ## Quick video setup
 
-If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
+If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
 
 ---
 
@@ -63,7 +63,7 @@ At least a few of those should be already natively available on your system (suc
 
 ### Downloading
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#generic-setup)** for that. 
+Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that. 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
@@ -215,7 +215,7 @@ You've successfully set up ASF to use your Steam accounts and you've even custom
 
 ## Generic setup
 
-This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)**.
+This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
 You want to use generic variant mainly in three situations (but of course you can use it regardless):
 - When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
