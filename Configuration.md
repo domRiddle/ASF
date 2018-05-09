@@ -82,7 +82,10 @@ Global config is located in `ASF.json` file and has following structure:
 	"SteamProtocols": 3,
 	"UpdateChannel": 1,
 	"UpdatePeriod": 24,
-	"WebLimiterDelay": 200
+	"WebLimiterDelay": 200,
+	"WebProxy": null,
+	"WebProxyPassword": null,
+	"WebProxyUsername": null
 }
 ```
 
@@ -236,6 +239,32 @@ Unless you have a **strong** reason to disable this feature, you should keep aut
 Default value was set based on assumption that ASF is the only tool accessing Steam web-services, in particular `steamcommunity.com`, `api.steampowered.com` and `store.steampowered.com`. If you're using another tool sending requests to the same web-services then you should make sure that your tool includes similar functionality of `WebLimiterDelay` and set both to double of default value, which would be `400`. This guarantees that under no circumstance you'll exceed sending more than 1 request per 200 ms.
 
 In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it might lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that might send excessive number of requests to the same web-services that ASF is making use of. In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per 200 ms.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+***
+
+`WebProxy` - `string` type with default value of `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kind of firewalls, especially the great firewall in China.
+
+This property is defined as uri string:
+
+> A URI string is composed of a scheme (http or https), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
+
+If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property is sufficient.
+
+Right now ASF uses web proxy only for `http` and `https` requests, which **does not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit)** functionality. If you need/want it happen, I'd suggest starting from there.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+***
+
+`WebProxyPassword` - `string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is being used by a target `WebProxy` machine providing proxy support. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+***
+
+`WebProxyUsername` - `string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is being used by a target `WebProxy` machine providing proxy support. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
