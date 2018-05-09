@@ -193,8 +193,8 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 ---
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You act exactly the same for links inside HTML tags 👍
+This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
 
 ---
 
-Thank you for helping us to translate ASF! 👍 
+Thank you for helping us translating ASF! 👍 
