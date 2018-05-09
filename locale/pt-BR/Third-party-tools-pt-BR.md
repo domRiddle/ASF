@@ -21,8 +21,8 @@ Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos d
 
 * * *
 
-## Bots / Libraries
+## Bots / Bibliotecas
 
 - **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, python library for further integration with ASF's IPC interface.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração de ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração de ASF.

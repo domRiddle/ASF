@@ -10,9 +10,9 @@
 
 * **<Compatibility>**
 * **[Background games redeemer](Background-games-redeemer)**
-* **<Команди>**
-* **<Представяне>**
-* **<Търговия>**
+* **<Commands>**
+* **<Performance>**
+* **<Trading>**
 * **[Steam Family Sharing](Steam-Family-Sharing)**
 * **<Statistics>**
 
@@ -26,7 +26,7 @@
 * **[Command-line arguments](Command-line-arguments)**
 * **<Logging>**
 * **<Localization>**
-* **<Защита>**
+* **<Security>**
 * **<Documentation>**
 * **[Third-party tools](Third-party-tools)**
 * **<Deprecation>**

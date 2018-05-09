@@ -26,7 +26,7 @@
 * **[Command-line arguments](Command-line-arguments)**
 * **<Logging>**
 * **<Localization>**
-* **<Zabezpieczenia>**
+* **<Security>**
 * **<Documentation>**
 * **[Third-party tools](Third-party-tools)**
 * **<Deprecation>**

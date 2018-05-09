@@ -10,9 +10,9 @@
 
 * **<Compatibility>**
 * **[Background games redeemer](Background-games-redeemer)**
-* **<命令>**
-* **<性能>**
-* **<交易>**
+* **<Commands>**
+* **<Performance>**
+* **<Trading>**
 * **[Steam Family Sharing](Steam-Family-Sharing)**
 * **<Statistics>**
 
@@ -26,7 +26,7 @@
 * **[Command-line arguments](Command-line-arguments)**
 * **<Logging>**
 * **<Localization>**
-* **<安全>**
+* **<Security>**
 * **<Documentation>**
 * **[Third-party tools](Third-party-tools)**
 * **<Deprecation>**

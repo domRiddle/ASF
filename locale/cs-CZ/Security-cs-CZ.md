@@ -1,4 +1,4 @@
-# Zabezpečení
+# Security
 
 ## SteamPassword
 

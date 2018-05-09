@@ -1,4 +1,4 @@
-# **[Domovská stránka](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Home](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
 
 ## Getting started
 
@@ -11,8 +11,8 @@
 * **<Compatibility>**
 * **[Background games redeemer](Background-games-redeemer)**
 * **<Commands>**
-* **<Výkon>**
-* **<Obchodování>**
+* **<Performance>**
+* **<Trading>**
 * **[Steam Family Sharing](Steam-Family-Sharing)**
 * **<Statistics>**
 
@@ -26,7 +26,7 @@
 * **[Command-line arguments](Command-line-arguments)**
 * **<Logging>**
 * **<Localization>**
-* **<Zabezpečení>**
+* **<Security>**
 * **<Documentation>**
 * **[Third-party tools](Third-party-tools)**
 * **<Deprecation>**
