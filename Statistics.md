@@ -12,7 +12,7 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 When `Statistics` are active, following things will happen:
 
-a) Every account being used in ASF will join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
+a) Every account being used in ASF will join our **[steam group](https://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
 
 * It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
@@ -23,7 +23,7 @@ b) If your account is unrestricted, using ASF 2FA, has **[public inventory](http
 * Your Steam identificator (in 64-bit form, for generating links)
 * Your nickname (for display purposes)
 * Your avatar (hash, for display purposes)
-* Your **[trading token](http://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+* Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 * Your `MatchableTypes` (for display purposes)
 * Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
 * Total number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
