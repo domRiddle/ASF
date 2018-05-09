@@ -115,7 +115,7 @@ On the crowdin, first thing you should do is going to your editor settings and e
 Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
 
 * String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, when entire string is a link, most common in sidebar)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
 
 In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
 
