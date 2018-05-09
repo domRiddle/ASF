@@ -5,11 +5,11 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 Below commands can be sent to the bot through three different ways:
 - Through steam private chat
 - Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Through **[IPC](IPC#post-apicommandcommand)**
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+All commands below are affected by `CommandPrefix` **[global configuration property](Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
 
 ---
 
@@ -29,7 +29,7 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
+Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](IPC)** interface.
 
 ---
 
@@ -37,12 +37,12 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 | Command | Access | Description |
 | ------- | ------ |-------------|
-`2fa` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for current bot instance.
-`2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances.
-`2fano` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance.
-`2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
-`2faok` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for current bot instance.
-`2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
+`2fa` | `Master` | Generates temporary **[2FA](Escrow)** token for current bot instance.
+`2fa <Bots>` | `Master` | Generates temporary **[2FA](Escrow)** token for given bot instances.
+`2fano` | `Master` | Denies all pending **[2FA](Escrow)** confirmations for current bot instance.
+`2fano <Bots>` | `Master` | Denies all pending **[2FA](Escrow)** confirmations for given bot instances.
+`2faok` | `Master` | Accepts all pending **[2FA](Escrow)** confirmations for current bot instance.
+`2faok <Bots>` | `Master` | Accepts all pending **[2FA](Escrow)** confirmations for given bot instances.
 `addlicense <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on current bot instance (free games only).
 `addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).
 `bl` | `Master` | Lists blacklisted users from trading module of current bot instance.
@@ -55,8 +55,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `farm` | `Master` | Restarts cards farming module for current bot instance.
 `farm <Bots>` | `Master` | Restarts cards farming module for given bot instances.
 `help` | `FamilySharing` | Shows help (link to this page).
-`input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**.
-`input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**.
+`input <Type> <Value>` | `Master` | Sets given input type to given value for current bot instance, works only in `Headless` mode - further explained **[below](Commands#input-command)**.
+`input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](Commands#input-command)**.
 `ib` | `Master` | Lists apps blacklisted from automatic idling of current bot instance.
 `ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances.
 `ibadd <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of current bot instance.
@@ -93,8 +93,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.
 `redeem <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance.
 `redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances.
-`redeem^ <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**.
-`redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**.
+`redeem^ <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on current bot instance, using given `modes` explained **[below](Commands#redeem-modes)**.
+`redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](Commands#redeem-modes)**.
 `rejoinchat` | `Operator` | Forces current bot instance to rejoin its `SteamMasterClanID` group chat.
 `rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.
 `restart` | `Owner` | Restarts ASF process.
@@ -106,8 +106,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `status <Bots>` | `FamilySharing` | Prints status of given bot instances.
 `stop` | `Master` | Stops current bot instance.
 `stop <Bots>` | `Master` | Stops given bot instances.
-`transfer <Modes> <Bot>` | `Master` | Sends from current bot instance to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**.
-`transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**.
+`transfer <Modes> <Bot>` | `Master` | Sends from current bot instance to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](Commands#transfer-modes)**.
+`transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](Commands#transfer-modes)**.
 `unpack` | `Master` | Unpacks all booster packs stored in the inventory of current bot instance.
 `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).
@@ -152,7 +152,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 ---
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
 
 ---
 
@@ -164,7 +164,7 @@ When using **IPC**, keep in mind that:
 
 ## `redeem^` modes
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](Configuration#bot-config)**.
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
@@ -208,7 +208,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 ## `input` command
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+Input command can be used only in `Headless` mode, for inputting given data via **[IPC](IPC)** or Steam chat when ASF is running without support for user interaction.
 
 General syntax is `input <Bots> <Type> <Value>`.
 
