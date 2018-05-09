@@ -104,25 +104,40 @@ Which is originally written as:
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin you'll see instead:
+On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
 
-> If you're a new user, we recommend starting with <0>setting up</0> guide.
+![Crowdin](https://i.imgur.com/18ObJC4.png)
 
-Firstly, you translate it as usual, leaving everything in-tact. This would be example for Polish language:
+Now, during translating on the crowdin, depending on formatting (sentence or not) you'll see ASF links in the text either as:
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <0>przewodnika po konfiguracji</0>.
+* String to translate together with HTML tags (majority of strings, when only part of the sentence is a link)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, when entire string is a link, most common in sidebar)
+
+In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+
+![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
+
+Regardless of case, firstly you click ALT+C (or copy source button) and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+
+![Crowdin 3](https://i.imgur.com/NpKwfka.png)
 
 Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually **remove** `<0>` tags and replace them with pure HTML appropriate for new location.
+However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
 
-We have a `Setting-up` link, so our Polish version is `Setting-up-pl-PL`. We can now hover over `<0>` tag to see how it's defined, usually it'll be either `<strong><a></a></strong>` or `<a></a>` alone. Then, with knowledge of what `<0>` is in fact replaced with, we can rewrite it to point into new location:
+![Crowdin 4](https://i.imgur.com/TL8uwmb.png)
 
-```html
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="Setting-up-pl-PL">przewodnika po konfiguracji</a></strong>.
-```
+Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
 
-This will properly transform HTML back to markdown:
+When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+
+![Crowdin 5](https://i.imgur.com/ZmgavCM.png)
+
+From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+
+![Crowdin 6](https://i.imgur.com/maG7kSm.png)
+
+Doing the steps above will properly translate our HTML back to markdown:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
@@ -132,7 +147,21 @@ And finally into wiki text:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-In similar way you can translate (and point to new locations) our sidebar! 🙂
+### Local links
+
+Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+
+Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+
+For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section:
+
+![Crowdin 7](https://i.imgur.com/EEHSPtK.png)
+
+Since we're going to translate "introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+
+![Crowdin 8](https://i.imgur.com/JMJegO7.png)
+
+This way our local link will keep working, since it'll now point to name of the section that we're using. You act exactly the same for links inside HTML tags 👍
 
 ---
 
