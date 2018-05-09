@@ -25,7 +25,7 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm/)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
