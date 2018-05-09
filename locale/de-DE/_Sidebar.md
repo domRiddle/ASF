@@ -29,11 +29,11 @@
 * **[Sicherheit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Dokumentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Drittanbieter Programme](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[veraltete Features](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
-## Developers
+## Entwickler
 
-* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Kompilierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+* **[Veröffentlichungszyklus](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Li­zen­zie­rung](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Beitragsrichtlinien](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

@@ -38,7 +38,7 @@ You have more or less **full 2 months** in order to make appropriate switch, whi
 
 * * *
 
-## Example
+## Пример
 
 We splitted pre-V3.1.2.2 `--service` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** into 3 independent options: `--no-restart`, `--process-required` and `--system-required`.
 

@@ -1,39 +1,39 @@
-# **[Главная](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Главная](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ru-RU)**
 
-## Getting started
+## Начало работы
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Установка](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(начните тут)**
+* **[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**
+* **[ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)**
 
-## Core
+## Основные настройки
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-* **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-* **[Торговля](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Совместимость](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU)**
+* **[Фоновая активация ключей](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**
+* **[Команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)**
+* **[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**
+* **[Торговля](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-ru-RU)**
+* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing-ru-RU)**
+* **[Статистика](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics-ru-RU)**
 
 ## Расширенные настройки
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-* **[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU)**
+* **[Удержание обменов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-ru-RU)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**
+* **[Конфигурация для низкого потребления ресурсов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
+* **[Конфигурация для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
+* **[Аргументы командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**
+* **[Журналирование](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ru-RU)**
+* **[Локализация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-ru-RU)**
+* **[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)**
+* **[Документация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-ru-RU)**
+* **[Сторонние приложения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-ru-RU)**
+* **[Устаревание](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-ru-RU)**
 
-## Developers
+## Для разработчиков
 
-* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Компиляция](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation-ru-RU)**
+* **[Цикл выпуска](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**
+* **[Лицензия](https://github.com/JustArchi/ArchiSteamFarm/wiki/License-ru-RU)**
+* **[Правила участия в разработке](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

@@ -1,14 +1,14 @@
-# Configuration
+# Конфигурация
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Introduction](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**
+1. **[Введение](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**
 
 * **[Web-based ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#web-based-configgenerator)** * **[Manual configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#manual-configuration)** 2. **[Global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** 3. **[Bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** 4. **[File structure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#file-structure)** 5. **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** 6. **[Compatibility mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#compatibility-mapping)** 7. **[Configs compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configs-compatibility)** 8. **[Auto-reload](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#auto-reload)**
 
 * * *
 
-## Introduction
+## Введение
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -18,11 +18,11 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm/)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
-## Web-based ConfigGenerator
+## Онлайн-версия ConfigGenerator
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs/WebConfigGenerator/dist)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
@@ -30,19 +30,19 @@ Web-based ConfigGenerator is verified to run properly on Chrome, Firefox and Mic
 
 The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tag, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
-## Manual configuration
+## Ручная настройка
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation below.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
-## Global config
+## Глобальная конфигурация
 
 Global config is located in `ASF.json` file and has following structure:
 
@@ -75,7 +75,10 @@ Global config is located in `ASF.json` file and has following structure:
     "SteamProtocols": 3,
     "UpdateChannel": 1,
     "UpdatePeriod": 24,
-    "WebLimiterDelay": 200
+    "WebLimiterDelay": 200,
+    "WebProxy": null,
+    "WebProxyPassword": null,
+    "WebProxyUsername": null
 }
 ```
 
@@ -197,12 +200,12 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 `SteamProtocols` - `byte flags` type with default value of `3`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | Имя       | Description                                                                                      |
-| ----- | --------- | ------------------------------------------------------------------------------------------------ |
-|       | None      | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| Значение | Имя       | Описание                                                                                         |
+| -------- | --------- | ------------------------------------------------------------------------------------------------ |
+|          | Нет       | Отсутствие протокола                                                                             |
+| 1        | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2        | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4        | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -234,11 +237,37 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+`WebProxy` - `string` type with default value of `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kind of firewalls, especially the great firewall in China.
+
+This property is defined as uri string:
+
+> A URI string is composed of a scheme (http or https), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
+
+If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property is sufficient.
+
+Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit)** functionality. If you need/want it to happen, I'd suggest starting from there.
+
+Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+`WebProxyPassword` - `string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+* * *
+
+`WebProxyUsername` - `string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+* * *
+
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+
+* * *
+
+## Конфигурация бота
 
 As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
 
@@ -303,14 +332,14 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 * * *
 
-`BotBehaviour` - `byte flags` type with default value of ``. This property defines ASF bot-like during various events, and is defined as below:
+`BotBehaviour` - `byte flags` type with default value of ``. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | Имя                        | Description                                                           |
-| ----- | -------------------------- | --------------------------------------------------------------------- |
-|       | None                       | No special bot behaviour, the least invasive mode, default            |
-| 1     | RejectInvalidFriendInvites | Will cause ASF to reject (instead if ignoring) invalid friend invites |
-| 2     | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
-| 4     | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
+| Значение | Имя                        | Описание                                                              |
+| -------- | -------------------------- | --------------------------------------------------------------------- |
+|          | Нет                        | No special bot behaviour, the least invasive mode, default            |
+| 1        | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites |
+| 2        | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
+| 4        | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -318,7 +347,7 @@ In general you want to modify this property if you expect from ASF to do certain
 
 Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
 
-Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
+Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission (defined in `SteamUserPermissions`) or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
 
 Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
 
@@ -346,22 +375,22 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `FarmingOrder` - `byte` type with default value of ``. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
 
-| Value | Имя                       | Description                                                         |
-| ----- | ------------------------- | ------------------------------------------------------------------- |
-|       | Unordered                 | No sorting, slightly improving CPU performance                      |
-| 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                        |
-| 2     | AppIDsDescending          | Try to farm games with highest `appID`s first                       |
-| 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first  |
-| 4     | CardDropsDescending       | Try to farm games with highest number of card drops remaining first |
-| 5     | HoursAscending            | Try to farm games with lowest number of hours played first          |
-| 6     | HoursDescending           | Try to farm games with highest number of hours played first         |
-| 7     | NamesAscending            | Try to farm games in alphabetical order, starting from A            |
-| 8     | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z    |
-| 9     | Random                    | Try to farm games in totally random order                           |
-| 10    | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                    |
-| 11    | BadgeLevelsDescending     | Try to farm games with highest badge levels first                   |
-| 12    | RedeemDateTimesAscending  | Try to farm oldest games on our account first                       |
-| 13    | RedeemDateTimesDescending | Try to farm newest games on our account first                       |
+| Значение | Имя                       | Описание                                                            |
+| -------- | ------------------------- | ------------------------------------------------------------------- |
+|          | Unordered                 | No sorting, slightly improving CPU performance                      |
+| 1        | AppIDsAscending           | Try to farm games with lowest `appID`s first                        |
+| 2        | AppIDsDescending          | Try to farm games with highest `appID`s first                       |
+| 3        | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first  |
+| 4        | CardDropsDescending       | Try to farm games with highest number of card drops remaining first |
+| 5        | HoursAscending            | Try to farm games with lowest number of hours played first          |
+| 6        | HoursDescending           | Try to farm games with highest number of hours played first         |
+| 7        | NamesAscending            | Try to farm games in alphabetical order, starting from A            |
+| 8        | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z    |
+| 9        | Random                    | Try to farm games in totally random order                           |
+| 10       | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                    |
+| 11       | BadgeLevelsDescending     | Try to farm games with highest badge levels first                   |
+| 12       | RedeemDateTimesAscending  | Try to farm oldest games on our account first                       |
+| 13       | RedeemDateTimesDescending | Try to farm newest games on our account first                       |
 
 Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrder` should be entirely respected in current farming session (as every game is treated the same), while in `Complex` algorithm actual order is affected by hours and then sorted according to chosen `FarmingOrder`. This will lead to different results, as post-`HoursUntilCardDrops` games have higher priority over pre-`HoursUntilCardDrops` ones. It effectively means that ASF will idle post-`HoursUntilCardDrops` in your `FarmingOrder` first, then adapting your `FarmingOrder` for choosing the next batch. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over `FarmingOrder`).
 
@@ -397,15 +426,15 @@ It's also worth mentioning that this option is basically a hack that might, or m
 
 `LootableTypes` - `HashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | Имя               | Description                                                   |
-| ----- | ----------------- | ------------------------------------------------------------- |
-|       | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
-| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground | Profile background to use on your Steam profile               |
-| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Значение | Имя               | Описание                                                      |
+| -------- | ----------------- | ------------------------------------------------------------- |
+|          | Unknown           | Every type that doesn't fit in any of the below               |
+| 1        | BoosterPack       | Unpacked booster pack                                         |
+| 2        | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4        | ProfileBackground | Profile background to use on your Steam profile               |
+| 5        | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6        | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -415,15 +444,15 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `MatchableTypes` - `HashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | Имя               | Description                                                   |
-| ----- | ----------------- | ------------------------------------------------------------- |
-|       | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
-| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground | Profile background to use on your Steam profile               |
-| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Значение | Имя               | Описание                                                      |
+| -------- | ----------------- | ------------------------------------------------------------- |
+|          | Unknown           | Every type that doesn't fit in any of the below               |
+| 1        | BoosterPack       | Unpacked booster pack                                         |
+| 2        | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4        | ProfileBackground | Profile background to use on your Steam profile               |
+| 5        | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6        | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
@@ -439,12 +468,12 @@ Of course, types that you should use for this property typically include only `2
 
 `RedeemingPreferences` - `byte flags` type with default value of ``. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | Имя              | Description                                                                    |
-| ----- | ---------------- | ------------------------------------------------------------------------------ |
-|       | None             | No redeeming preferences, typical                                              |
-| 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
-| 2     | Distributing     | Distribute all keys among itself and other bots                                |
-| 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
+| Значение | Имя              | Описание                                                                       |
+| -------- | ---------------- | ------------------------------------------------------------------------------ |
+|          | Нет              | No redeeming preferences, typical                                              |
+| 1        | Forwarding       | Forward keys unavailable to redeem to other bots                               |
+| 2        | Distributing     | Distribute all keys among itself and other bots                                |
+| 4        | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -498,12 +527,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `SteamUserPermissions` - `Dictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | Имя           | Description                                                                                                                                                                                        |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
-| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| Значение | Имя           | Описание                                                                                                                                                                                           |
+| -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|          | Нет           | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 1        | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2        | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3        | Master        | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -515,13 +544,13 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `TradingPreferences` - `byte flags` type with default value of ``. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Имя                 | Description                                                                                                                                                                  |
-| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
-| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
-| 2     | SteamTradeMatcher   | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
-| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                          |
+| Значение | Имя                 | Описание                                                                                                                                                                     |
+| -------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|          | Нет                 | No trading preferences - accepts only `Master` trades                                                                                                                        |
+| 1        | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
+| 2        | SteamTradeMatcher   | Accepts dupes-matching **[STM](http://www.steamtradematcher.com/)**-like trades. Visit **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info |
+| 4        | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
+| 8        | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                          |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -535,11 +564,11 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
-## File structure
+## Структура файлов
 
 ASF is using quite simple file structure.
 
@@ -580,7 +609,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
@@ -638,18 +667,18 @@ Example for `Dictionary<ulong, byte>`: `"SteamUserPermissions": { "7656119817481
 
 For example, given following values:
 
-| Value | Имя  |
-| ----- | ---- |
-|       | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| Значение | Имя |
+| -------- | --- |
+|          | Нет |
+| 1        | A   |
+| 2        | B   |
+| 4        | C   |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
@@ -657,7 +686,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
@@ -665,7 +694,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
 
@@ -682,4 +711,4 @@ All of the above is transparent and will be done automatically without a need of
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Вернуться к началу](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**

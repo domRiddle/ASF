@@ -1,18 +1,18 @@
-# FAQ
+# Perguntas frequentes
 
 * * *
 
 # Table of contents
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [Geral](#general)
+- [Comparação com ferramentas similares](#comparison-with-similar-tools)
+- [Segurança / Privacidade / VAC / Banimentos / Termos de serviço](#security--privacy--vac--bans--tos)
 - [Misc](#misc)
 - [Issues](#issues)
 
 * * *
 
-## General
+## Geral
 
 ### So how it exactly works?
 
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Comparação com ferramentas similares
 
 * * *
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Segurança / Privacidade / VAC / Banimentos / Termos de serviço
 
 * * *
 

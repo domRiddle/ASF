@@ -25,7 +25,7 @@
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Übersetzung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicherheit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**

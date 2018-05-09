@@ -1,8 +1,8 @@
 # Главная
 
-Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+Добро пожаловать на ASF вики. Вики - онлайн помощь, которая охватывает разные темы, такие как: часто задаваемые вопросы, возможные проблемы, использование, настройка и многое другое. Это то, чему вам нужно следовать, если вы хотите изучить как работает ASF, особенно как установить, настроить и использовать его.
 
-You can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
+Вы можете изменить язык вики добавлением строки `-locale` к любой посещённой странице. Например, вместо посещения **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, вы можете посетить **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)**, который содержит ЧАВО, переведённый на русский(если доступен).
 
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 

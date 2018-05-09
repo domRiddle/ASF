@@ -1,8 +1,8 @@
-# Setting up
+# Установка
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates. If you're looking for a Steam idler that won't require reading comprehension, then use **[Idle Master](https://www.steamidlemaster.com)** instead, since we're not going to do your wiki homework for you.
+Если вы пришли сюда впервые - Добро Пожаловать! Рады видеть что ещё один путник заинтересован в нашем проекте, но просим вас не забывать, что с большой силой приходит большая ответственность - ASF может сделать в Steam многое, но только если **вам не лень учиться, как им пользоваться**. Кривая обучения довольно крутая, и поэтому от вас ожидается что вы прочтёте эту wiki, которая подробно описывает как всё работает. Если вы ищете программу для фарма в Steam, которая не требует чтения и понимания - воспользуйтесь **[Idle Master](https://www.steamidlemaster.com)**, потому что никто не будет делать за вас домашнее задание по чтению wiki.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Если вы всё ещё читаете, значит вас не напугало вступление выше, и это радует. Конечно, если вы не пропустили его, в противном случае у вас скоро будут **[большие проблемы](https://www.youtube.com/watch?v=WJgt6m6njVw)**... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
 
 This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
 
@@ -108,7 +108,7 @@ Linux/OS X users are advised to do the same, you can use excellent symbolic link
 
 * * *
 
-### Configuration
+### Конфигурация
 
 We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 

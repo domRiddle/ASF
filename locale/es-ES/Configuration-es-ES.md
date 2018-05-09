@@ -75,7 +75,10 @@ Global config is located in `ASF.json` file and has following structure:
     "SteamProtocols": 3,
     "UpdateChannel": 1,
     "UpdatePeriod": 24,
-    "WebLimiterDelay": 200
+    "WebLimiterDelay": 200,
+    "WebProxy": null,
+    "WebProxyPassword": null,
+    "WebProxyUsername": null
 }
 ```
 
@@ -234,6 +237,32 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
+`WebProxy` - `string` type with default value of `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kind of firewalls, especially the great firewall in China.
+
+This property is defined as uri string:
+
+> A URI string is composed of a scheme (http or https), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
+
+If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property is sufficient.
+
+Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit)** functionality. If you need/want it to happen, I'd suggest starting from there.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+* * *
+
+`WebProxyPassword` - `string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+* * *
+
+`WebProxyUsername` - `string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+
+Unless you have a reason to edit this property, you should keep it at default.
+
+* * *
+
 **[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
 
 * * *
@@ -303,12 +332,12 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 * * *
 
-`BotBehaviour` - `byte flags` type with default value of ``. This property defines ASF bot-like during various events, and is defined as below:
+`BotBehaviour` - `byte flags` type with default value of ``. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
 | Value | Nombre                     | Description                                                           |
 | ----- | -------------------------- | --------------------------------------------------------------------- |
 |       | None                       | No special bot behaviour, the least invasive mode, default            |
-| 1     | RejectInvalidFriendInvites | Will cause ASF to reject (instead if ignoring) invalid friend invites |
+| 1     | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
 
@@ -318,7 +347,7 @@ In general you want to modify this property if you expect from ASF to do certain
 
 Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
 
-Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
+Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission (defined in `SteamUserPermissions`) or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
 
 Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
 

@@ -1,14 +1,14 @@
 # **[Homepage](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
 
-## Getting started
+## Come iniziare
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[Configurazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Compatibilità](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandi](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Prestazioni](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
@@ -27,13 +27,13 @@
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicurezza](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Documentazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Deprecazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
-## Developers
+## Sviluppatori
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Licenza](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

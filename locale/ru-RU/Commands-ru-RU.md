@@ -40,7 +40,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 * * *
 
-### Notes
+### Примечания
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -146,7 +146,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Пример
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

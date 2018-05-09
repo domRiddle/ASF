@@ -1,48 +1,48 @@
-# Localization
+# Локализация
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro/)**.
+Перевод ASF осуществляется с помощью сервиса Crowdin, который даёт любому возможность участвовать в переводе ASF на любой язык мира. Для более подробного объяснения, как работает Crowdin, прочтите пожалуйста **[введение в Crowdin](https://support.crowdin.com/crowdin-intro/)**.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+Если вам интересно, как проходит локализация, вы можете посмотреть **[Ленту активности ASF в Crowdin](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
 * * *
 
-## Signing up
+## Цели и задачи
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
-
-* * *
-
-### Translating
-
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
-
-For example, you could have a string like:
-
-> We have {0} games to idle.
-
-But based on your language, following sentence could make more sense:
-
-> The number of games to idle is equal to {0}.
-
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+Наша платформа поддерживает локализацию основной программы ASF, а также полную локализацию содержимого, поставляемого вместе с ним. В частности, это включает в себя web-конфигуратор, интерфейс IPC, а также эту wiki. Всё это можно переводить через удобный интерфейс Crowdin.
 
 * * *
 
-### Reviewing
+## Регистрация
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
-
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself! 
+Если вы хотите помочь ASF как переводчик, рецензент или корректор, пожалуйста, зарегистрируйтесь на **[странице нашего проекта в Crowdin](https://crowdin.com/project/archisteamfarm)**. Регистрация очень простая и абсолютно бесплатна! После того, как вы зарегистрируетесь и войдёте, вы можете выбрать языки, с которыми вы хотите работать, а затем перейти к строкам ASF и помочь остальному сообществу с переводом ASF на все наиболее популярные языки!
 
 * * *
 
-### Proof-reading
+### Перевод
+
+Если выбранный вами язык ещё имеет непереведенные строки, вы можете взять их и начать работу над переводом. Мы постарались сделать перевод максимально гибким, поэтому многие строки включают в себя дополнительные переменные, которые ASF подставляет во время работы - они выглядят как число в фигурных скобках, например `{0}`. Это позволяет вам менять исходную формулировку строки в ASF, например перемещая пременную ASF в место, соответствующее языку перевода, без жёсткой привязки к контексту и формату. Это особенно важно для языков с письмом справа налево, таким как иврит.
+
+Например, у вас может быть такая строка:
+
+> Couldn't find any bot named {0}!
+
+Но из-за структуры вашего языка, следующее предложение будет иметь больше смысла:
+
+> Бот с именем {0} не найден!
+
+Эта гибкость специально дана вам чтобы вы могли перефразировать предложения ASF согласно вашему языку, и переместить число (или другую информацию) подставляемое ASF в подходящее для перевода место (а не переводить каждую часть отдельно). Это улучшает общее качество перевода.
+
+* * *
+
+### Рецензирование
+
+Если строка уже была переведена кем-то, вы можете голосовать за неё. Голосование позволяет выбрать лучший вариант перевода, не привязываясь к первому предложенному - это позволяет сделать качество перевода ещё лучше. Вы можете голосовать за имеющиеся предложения, или предложить собственный перевод, который будет участвовать в том же процессе. В конце концов, окончательной будет выбрана версия набравшая большинство голосов, или же выбранная корректором этого языка, который персонально одобряет перевод (основываясь, в том числе, на количестве голосов).
+
+**Вам не нужно одобрение корректора чтобы увидеть перевод строки в ASF**. Одобрение означает только что доверенный человек проверил содержимое и утвердил окончательную версию перевода. Совершенно нормально, если созданный сообществом перевод не был одобрен, если путём голосования был выбран лучший вариант. Если предложение переведено - это главное! Если же вы думаете, что текущий перевод плох, вы всегда можете голосовать за тот, который лучше, или сами предложить лучший вариант! 
+
+* * *
+
+### Корректура
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -91,9 +91,9 @@ For a complete list of all available languages that ASF can be translated to, **
 
 Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
 
-As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
+As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. Например, вместо посещения **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, вы можете посетить **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)**, который содержит ЧАВО, переведённый на русский(если доступен).
 
-Now, ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized page for your language. It requires a bit of hacking around, but it's possible.
+Now, ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized pages for your language. It requires a bit of hacking around, but it's possible.
 
 For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki)** includes a text such as:
 

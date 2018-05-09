@@ -4,7 +4,7 @@ Starting with version 3.0.3.2, ASF is now also available as **[docker container]
 
 * * *
 
-## Tags
+## Метки
 
 ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
@@ -42,7 +42,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 * * *
 
-## Usage
+## Использование
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
@@ -104,9 +104,9 @@ This has to be done only once after you created your container with `docker run`
 
 * * *
 
-## Command-line arguments
+## Аргументы командной строки
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. Например:
 
 ```shell
 docker pull justarchi/archisteamfarm
