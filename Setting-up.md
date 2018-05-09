@@ -112,7 +112,7 @@ First and foremost, there is **[configuration](https://github.com/JustArchi/Arch
 
 ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
 
-Navigate to our **[web config generator](https://justarchi.github.io/ArchiSteamFarm)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome, Firefox or Microsoft Edge, but it should work on all most popular browsers.
+Navigate to our **[web config generator](https://justarchi.github.io/ArchiSteamFarm)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
 
 After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
