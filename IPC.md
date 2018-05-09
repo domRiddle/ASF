@@ -202,7 +202,7 @@ Content-Type: application/json
 
 ```json
 {
-	"GlobalConfig": {}
+	"GlobalConfig": {},
 	"KeepSensitiveDetails": true
 }
 ```
