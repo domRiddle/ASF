@@ -197,4 +197,4 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ---
 
-Thank you for helping us translating ASF! 👍 
+Thank you for helping us translating ASF into all languages spoken worldwide! 👍 
