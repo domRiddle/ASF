@@ -3,7 +3,7 @@
 
 ## Getting started
 
-* **[Setting up](./Setting-up)** **(start here)**
+* **[Setting up](Setting-up)** **(start here)**
 * **[Configuration](Configuration)**
 * **[FAQ](FAQ)**
 
