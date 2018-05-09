@@ -2,7 +2,7 @@
 
 This is exact opposite of **[high-performance setup](High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
 
-***
+---
 
 ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
 
@@ -12,13 +12,13 @@ ASF is extremely well optimized, and makes use of available resources as much as
 
 Garbage collector being used in ASF is smart enough to take into account not only ASF itself, but also your OS. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in ASF memory as low as 50 MB. This is why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](Commands)**, and is usually around 4 MB for just a few bots. Keep in mind that memory returned by `stats` command includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop.
 
-***
+---
 
 Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
 
 Below suggestions are divided into a few categories, with varied difficulty.
 
-***
+---
 
 ## ASF setup (easy)
 
@@ -37,7 +37,7 @@ The most resources-heavy functions are:
 
 Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
 
-***
+---
 
 ## ASF tuning (intermediate)
 
@@ -46,7 +46,7 @@ Below tricks **involve performance degradation** and should be used with caution
 - Enable `BackgroundGCPeriod` **[global config property](Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
 - As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](Low-memory-setup#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
-***
+---
 
 ## Runtime tuning (advanced)
 
@@ -77,7 +77,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 
 To the best of my knowledge I'm not even sure if this option works properly. It definitely won't hurt to try though.
 
-***
+---
 
 ## Recommended optimization
 
@@ -86,4 +86,4 @@ To the best of my knowledge I'm not even sure if this option works properly. It 
 - If above tips didn't help, experiment with `BackgroundGCPeriod`, this brings "the best of both worlds", by not affecting performance nearly at all, while shrinking memory usage in fixed intervals. A value such as `10` is sane enough to recommend it, although if you have more strict memory environment then you can go as low as `1` or `2`.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on threadpool to balance things out when it comes to parallel execution.
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ 😆.
+It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ đź†.
