@@ -12,7 +12,7 @@
 
 * **[Compatibility](Compatibility)**
 * **[Background games redeemer](Background-games-redeemer)**
-* **[Commands](Commands)**
+* **[Commands](./Commands)**
 * **[Performance](Performance)**
 * **[Trading](Trading)**
 * **[Steam Family Sharing](Steam-Family-Sharing)**
