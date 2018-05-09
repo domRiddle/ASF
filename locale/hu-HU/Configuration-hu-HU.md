@@ -26,7 +26,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs/WebConfigGenerator/dist)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
-Web-based ConfigGenerator is verified to run properly on Chrome, Firefox and Microsoft Edge, but it should work properly in all most popular javascript-enabled browsers.
+Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
 
 The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tag, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
