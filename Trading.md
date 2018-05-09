@@ -4,7 +4,7 @@ ASF includes support for Steam non-interactive (offline) trades. Both receiving 
 
 Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured `BotBehaviour` (`RejectInvalidTrades`) property.
 
-***
+---
 
 ## Logic
 
@@ -20,7 +20,7 @@ It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](Escrow)**, 
 
 You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
 
-***
+---
 
 ## SteamTradeMatcher
 
