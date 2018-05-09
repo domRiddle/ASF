@@ -2,16 +2,16 @@
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Introduction](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**
-* **[Web-based ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#web-based-configgenerator)**
-* **[Manual configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#manual-configuration)**
-2. **[Global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**
-3. **[Bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**
-4. **[File structure](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#file-structure)**
-5. **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)**
-6. **[Compatibility mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#compatibility-mapping)**
-7. **[Configs compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configs-compatibility)**
-8. **[Auto-reload](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#auto-reload)**
+1. **[Introduction](#introduction)**
+* **[Web-based ConfigGenerator](#web-based-configgenerator)**
+* **[Manual configuration](#manual-configuration)**
+2. **[Global config](#global-config)**
+3. **[Bot config](#bot-config)**
+4. **[File structure](#file-structure)**
+5. **[JSON mapping](#json-mapping)**
+6. **[Compatibility mapping](#compatibility-mapping)**
+7. **[Configs compatibility](#configs-compatibility)**
+8. **[Auto-reload](#auto-reload)**
 
 ---
 
@@ -37,15 +37,15 @@ Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but
 
 The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tag, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
 ## Manual configuration
 
-I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** section and documentation below.
+I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com/)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -214,7 +214,7 @@ Value | Name  | Description
 2 | UDP | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**
 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -270,7 +270,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ***
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -348,7 +348,7 @@ Value | Name  | Description
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
 
@@ -482,7 +482,7 @@ Value | Name  | Description
 2 | Distributing | Distribute all keys among itself and other bots
 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -559,7 +559,7 @@ Value | Name  | Description
 4 | MatchEverything | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones
 8 | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section.
 
@@ -571,7 +571,7 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -617,7 +617,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -686,7 +686,7 @@ Using `B + C` would result in value of `6`, using `A + C` would result in value 
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -694,7 +694,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -702,7 +702,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
 
 ---
 
@@ -718,4 +718,4 @@ All of the above is transparent and will be done automatically without a need of
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
 
-**[Back to top](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#configuration)**
+**[Back to top](#configuration)**
