@@ -8,11 +8,11 @@
 
 ## Core
 
-* **<Compatibility>**
+* **[Kompatybilność](Compatibility)**
 * **[Background games redeemer](Background-games-redeemer)**
-* **<Komendy>**
-* **<Wydajność>**
-* **<Handel>**
+* **<Commands>**
+* **<Performance>**
+* **<Trading>**
 * **[Steam Family Sharing](Steam-Family-Sharing)**
 * **<Statistics>**
 

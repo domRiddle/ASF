@@ -8,8 +8,8 @@ Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos d
 
 ## Ferramentas
 
-- **[Keys extractor](https://ske.cloudswift.me)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/Cloud-Swift/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, which allows to manage multiple ASF configs more easily.
+- **[Extrator de chaves](https://ske.cloudswift.me)**, permite que você possa copiar e colar as chaves em vários formatos e criar um comando `redeem` para o ASF. Verifique o **[Repositório do GitHub](https://github.com/Cloud-Swift/SKE)** para mais detalhes.
+- O **[Editor de configuração em massa do ASF](https://github.com/genesix-eu/asf_mass_config_editor)**, permite que você possa gerenciar múltiplas configurações mais facilmente.
 
 * * *
 
