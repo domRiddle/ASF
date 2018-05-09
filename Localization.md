@@ -177,7 +177,7 @@ Across the wiki you will also find local links that point to particular section 
 
 Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section:
+For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
 ---
 
