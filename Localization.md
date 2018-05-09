@@ -145,6 +145,16 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
 
+Doing the steps above will properly translate our HTML back to markdown:
+
+```markdown
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+```
+
+And finally into wiki text:
+
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+
 When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
 
 ---
@@ -160,16 +170,6 @@ From there you can easily correct the link to point to new location, without eve
 ![Crowdin 6](https://i.imgur.com/maG7kSm.png)
 
 ---
-
-Doing the steps above will properly translate our HTML back to markdown:
-
-```markdown
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
-```
-
-And finally into wiki text:
-
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
 ### Local links
 
