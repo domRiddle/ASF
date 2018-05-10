@@ -39,7 +39,7 @@ Since it might be quite difficult to extract the info you're looking for, we lis
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- If you're running Windows 7, ensure that all Windows updates are already installed, especially Service Pack 1. Do this before trying to install above package.
+- It's highly recommended to ensure that all Windows updates are already installed. At the very minimum you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**. Do this before trying to install above package.
 
 It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency being present.
 
