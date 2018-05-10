@@ -1,4 +1,4 @@
-# **[Ana sayfa](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Ana sayfa](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

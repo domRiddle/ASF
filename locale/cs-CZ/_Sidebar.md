@@ -1,4 +1,4 @@
-# **[Home](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Domovská stránka](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 
@@ -11,8 +11,8 @@
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-* **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+* **[Výkon](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Obchodování](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
@@ -26,7 +26,7 @@
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-* **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Zabezpečení](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**

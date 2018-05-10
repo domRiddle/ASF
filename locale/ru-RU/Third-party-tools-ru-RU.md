@@ -6,7 +6,7 @@ Please note that below tools are not maintained by ASF team and therefore we giv
 
 * * *
 
-## Tools
+## Инструменты
 
 - **[Keys extractor](https://ske.cloudswift.me)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/Cloud-Swift/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, which allows to manage multiple ASF configs more easily.
@@ -21,7 +21,7 @@ Please note that below tools are not maintained by ASF team and therefore we giv
 
 * * *
 
-## Bots / Libraries
+## Боты/Библиотеки
 
 - **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, python library for further integration with ASF's IPC interface.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.

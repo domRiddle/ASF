@@ -1,6 +1,6 @@
-# **[Accueil](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Accueil](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## Mise en route
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
@@ -8,7 +8,7 @@
 
 ## Core
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Compatibilité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commandes](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
@@ -25,15 +25,15 @@
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Localisation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sécurité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Outils tiers](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
-## Developers
+## Développeurs
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Licence](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

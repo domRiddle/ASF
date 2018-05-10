@@ -1,6 +1,6 @@
-# **[Accueil](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Accueil](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## Mise en route
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
@@ -31,7 +31,7 @@
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
-## Developers
+## Développeurs
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**

@@ -1,4 +1,4 @@
-# **[Αρχική](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Αρχική](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

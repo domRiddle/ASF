@@ -1,6 +1,6 @@
 # Аргументы командной строки
 
-ASF имеет поддержку нескольких аргументов командной строки, которые влияют на запуск программы. Они могут использоваться опытными пользователями для спецификации запуска программы. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF поддерживает несколько аргументов командной строки, которые влияют на работу программы. Они могут использоваться опытными пользователями для спецификации запуска программы. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
 
 * * *
 

@@ -1,36 +1,36 @@
 # Befehle
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF unterstützt eine Vielzahl von Befehlen, die einem die Kontrolle über das Verhalten des Prozesses und der Botinstanzen geben.
 
-Below commands can be sent to the bot through three different ways:
+Die unten angeführten Befehle können über drei verschiedene Wege an einen Bot gesendet werden:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Über den privaten Steam-Chat
+- Über einen Steam-Gruppen-Chat
+- Über **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Bitte vergiss nicht, dass jegliche ASF-Interaktion verlangt, dass du gemäß deinen ASF-Einstellungen über die Berechtigungen für den Befehl verfügen musst. Für mehr Informationen lies bitte die Einträge zu den Config-Feldern `SteamUserPermissions` und `SteamOwnerID` durch.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
-
-* * *
-
-### Steam private chat
-
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
-
-![Screenshot](http://i.imgur.com/PPxx7qV.png)
+Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** `CommandPrefix` beeinflusst, welches standardmäsig `!` ist. Das heißt, dass du um zum Beispiel den `status`-Befehl auszuführen `!status` (oder dein entsprechendes `CommandPrefix`) schreiben solltest.
 
 * * *
 
-### Steam group chat
+### privater Steam Chat
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
+... ist definitiv die einfachste Methode mit ASF zu interagieren - Sende dazu einfach den Befehl an einen ASF-Bot der zur Zeit im ASF-Prozess läuft. Logischerweise kannst du das nicht machen, wenn du ASF mit nur einem einzigen Bot-Account laufen lässt.
+
+![Screenshot](https://i.imgur.com/PPxx7qV.png)
+
+* * *
+
+### Steam Gruppenchat
+
+Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Vergiss nicht, dass diese Möglichkeit voraussetzt, dass du entweder die `SteamMasterClanID` richtig eingestellt hast, oder du deinen Bot manuell zum Chat einladen musst. Dies kann außerdem verwendet werden, um "mit dir selbst zu reden" und benötigt keinen dedizierten Bot-Account.
 
 * * *
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
+Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfekt für Programme von Drittanbietern und Skripte. Es verlangt allerdings, dass ASF im Server-Modus läuft und ein Client die Befehle über das **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** Interface an ASF sendet.
 
 * * *
 
@@ -40,9 +40,9 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 * * *
 
-### Notes
+### Notizen
 
-All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei den Argumenten dieser (wie zum Beispiel Botnamen) ist sich an entsprechende Groß- und Kleinschreibung zu halten.
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
@@ -76,10 +76,10 @@ It's not required to have any extra account for executing commands though Steam 
 
 * * *
 
-When using **IPC**, keep in mind that:
+Wenn du **IPC** verwendet, vergiss nicht auf Folgendes:
 
-- Commands don't have to be prefixed by `CommandPrefix`, ASF prefixes them for you automatically if needed
-- When using commands that are based on `current bot instance`, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use `given bot instances` commands instead.
+- Befehle müssen nicht mit deinem `CommandPrefix` beginnen. ASF fügt dieses automatisch hinzu, wenn es benötigt wird
+- Bei der Verwendung von Befehlen, die auf einer `Bot-Instanz` beruhen, wird ASF **irgendeinen** der zur Zeit aktivierten Bots wählen, weshalb wir dir wärmstens empfehlen eine Variante des Befehls zu verwenden, bei der du eine Bot-Instanz mitgeben kannst.
 
 * * *
 
@@ -148,14 +148,14 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 ### Example
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
 
-In order to do that, we need to execute following commands:
+Um das zu tun müssen wir folgende Befehle ausführen:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail.
+`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Das ist nötig, damit uns das Steam-Netzwerk eine E-Mail mit einem Authentifizierungscode zukommen lässt.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MeinSteamGuardBot` -> wir starten unseren (gestoppten) Bot wieder. Diesmal wird der Code benutzt, den wir im vorherigen Befehl gesetzt haben und der Bot loggt sich ein und löscht den Code aus seinem internen Speicher.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Auf dem selben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.

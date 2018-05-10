@@ -1,4 +1,4 @@
-# Trading
+# Obchodování
 
 ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
 
@@ -18,7 +18,7 @@ When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also ac
 
 It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, as there is no confirmation needed if we're not losing any items.
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
+You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
 
 * * *
 

@@ -1,16 +1,16 @@
-# Background games redeemer
+# 背景啟動序號
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
 
 Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
 
 * * *
 
-## Import
+## 匯入
 
 The import process can be done through two ways - either by using a file, or IPC.
 
-### File
+### 檔案
 
 ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, for example in a game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. For example:
 

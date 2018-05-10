@@ -6,13 +6,13 @@ IPC is always executed with `SteamOwnerID` permissions, which is `` by default. 
 
 * * *
 
-## FAQ
+## ЧаВО
 
 ### What is this all about?
 
 IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
 
-### Is this secure?
+### Это безопасно?
 
 ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
 
@@ -43,7 +43,7 @@ This way you can use fully secured connection to your ASF instance, as shown bel
 
 * * *
 
-## Server
+## ﻿Сервер
 
 To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info. You might also want to make use of `--process-required` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**, although that is entirely optional, just a mere mention.
 
@@ -59,7 +59,7 @@ ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (o
 
 * * *
 
-## Client
+## Клиент
 
 Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
 
@@ -95,7 +95,7 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 
 * * *
 
-## Authentication
+## Аутентификация
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get rate-limited with `403 - Forbidden` error.
 
@@ -127,7 +127,7 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
 
-Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se/)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
+Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
 
 Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript which can't represent 64-bit numbers precisely (and other languages with similar limitations).
 
@@ -300,7 +300,7 @@ curl -X GET /Api/Bot/archi
 
 `Paused` is a `bool` type that specifies if `CardsFarmer` is currently paused. CardsFarmer can be paused due to various events, mainly `pause` and `play` commands. Paused CardsFarmer will not attempt to farm anything in automatic mode, neither will check badges every `IdleFarmingPeriod` hours.
 
-#### Game
+#### Игра
 
 `AppID` is `uint` type that in unique way identifies game being played. ASF enforces this to be greater than ``.
 

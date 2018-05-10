@@ -1,8 +1,8 @@
-# **[Startseite](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Startseite](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Start
+## Erste Schritte
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Einrichten](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(beginne hier)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 

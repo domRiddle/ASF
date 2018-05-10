@@ -1,4 +1,4 @@
-# **[Trang chủ](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Trang chủ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 
@@ -21,8 +21,8 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Thiết lập bộ nhớ thấp](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Thiết lập hiệu suất cao](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
@@ -31,9 +31,9 @@
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
-## Developers
+## Dành cho lập trình viên
 
-* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Trình biên dịch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+* **[Chu kỳ phát hành](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Giấy phép](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

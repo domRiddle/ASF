@@ -1,14 +1,14 @@
-# Commands
+# Lệnh
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
-Below commands can be sent to the bot through three different ways:
+Các command sau có thể gửi tới bot theo 3 cách:
 
 - Through steam private chat
 - Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Qua **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Đọc qua `SteamUserPermissions` và `SteamOwnerID` để biết thêm.
 
 All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
 
@@ -18,7 +18,7 @@ All commands below are affected by `CommandPrefix` **[global configuration prope
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
-![Screenshot](http://i.imgur.com/PPxx7qV.png)
+![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 

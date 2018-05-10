@@ -1,6 +1,6 @@
 # Steam Family Sharing
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](http://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 * * *
 
@@ -16,6 +16,6 @@ Connecting both functionalities described above allows your friends to `pause~` 
 
 * * *
 
-## Limitations
+## Ограничения
 
 Steam network loves to mislead ASF by broadcasting false status updates, which might lead to ASF believing it's fine to resume process, and in result kick your friend too soon. In order to fight with that issue, it's recommended for you to have your friend on your Steam friendlist - this way ASF in addition to steam network events, can check Steam status of your friend, and guess from playing status if he's indeed done playing yet, or not. This is not mandatory, but because Steam sometimes talks trash, it's recommended, especially if you notice such issues.

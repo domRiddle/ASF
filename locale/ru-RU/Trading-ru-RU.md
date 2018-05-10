@@ -6,7 +6,7 @@ Notice: Every time "reject" word is used, it means either ignoring, or declining
 
 * * *
 
-## Logic
+## Логика
 
 ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
 
@@ -18,7 +18,7 @@ When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also ac
 
 It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, as there is no confirmation needed if we're not losing any items.
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](http://www.steamtradematcher.com/)**, but can also work without it. It's further described below.
+You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
 
 * * *
 

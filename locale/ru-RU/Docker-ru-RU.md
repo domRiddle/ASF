@@ -16,7 +16,7 @@ This tag always points to the ASF built from latest commit in master branch, whi
 
 Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchi/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**.
 
-### `latest`
+### `последние`
 
 This tag in comparison with previous two, as the first one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to ``), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
 
@@ -34,7 +34,7 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 * * *
 
-## Architectures
+## Архитектура
 
 ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
 

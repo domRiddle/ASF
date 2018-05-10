@@ -1,4 +1,4 @@
-# **[Головна](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Головна](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

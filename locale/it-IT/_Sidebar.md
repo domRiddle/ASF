@@ -1,4 +1,4 @@
-# **[Homepage](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Homepage](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Come iniziare
 

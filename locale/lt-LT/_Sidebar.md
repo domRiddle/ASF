@@ -1,4 +1,4 @@
-# **[Pradžia](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Pradžia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Pradedant
 

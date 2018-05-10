@@ -1,8 +1,8 @@
 # Фоновая активация ключей
 
-Фоновая активация ключей - встроенная в ASF функция, позволяющая ввести определённый набор ключей Steam (вместе с их именами) для активации в фоновом режиме. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Фоновая активация ключей - встроенная в ASF функция, позволяющая ввести определённый набор ключей Steam (вместе с их именами) для активации в фоновом режиме. Эта функция особенно полезна в связке с множеством ключей, которые нужно активировать, когда Вы гарантировано получите `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** до того как вы закончите активацию все пака.
 
-Фоновая активация ключей нацелена на использование для одного бота, что означает, что функция не использует `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+Фоновая активация ключей нацелена на использование для одного бота, что означает, что функция не использует `RedeemingPreferences`. Данную функцию можно использовать вместе с (или вместо) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, если нужно.
 
 * * *
 
@@ -23,15 +23,15 @@ ASF импортирует данный файл, при запуске бота
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Использование IPC может быть более мощным, так как Вы можете настроить подходящее для Вас считывание самостоятельно, например использование кастомного ограничителя вместо принудительного символа табуляции.
+Кроме использования файла с ключами, упомянутого выше, ASF поддерживает **[сервис API](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** вместе с `GamesToRedeemInBackground`, который может быть запущен с помощью любого IPC инструмента, включая наш IPC GUI. Использование IPC может быть более мощным, так как Вы можете настроить подходящее для Вас считывание самостоятельно, например использование кастомного ограничителя вместо принудительного символа табуляции.
 
 * * *
 
 ## Очередь
 
-Когда игра успешно импортирована, она добавляется в очередь. ASF автоматически проходит фоновую очередь пока бот подключен к сети Steam и очередь не пуста. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Когда игра успешно импортирована, она добавляется в очередь. ASF автоматически проходит фоновую очередь пока бот подключен к сети Steam и очередь не пуста. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF намеренно использует предоставленное Вами имя игры, так как сеть Steam не гарантирует правильность возвращенного имени игры, также Вы можете называть ваш файл с ключами пользовательским именем если нужно/желаемо.
 
-Если во время процесса наш аккаунт получает `RateLimited` статус, очередь будет временно приостановлена на час для ожидания исчезновения кулдауна. Потом процесс продолжится с места, где он остановился, пока очередь не исчезнет.
+Если во время процесса наш аккаунт получает `RateLimited` статус, очередь будет временно приостановлена на час для ожидания исчезновения кулдауна. После ожидания процесс продолжится с места, где он остановился, пока очередь не исчезнет.
 
 * * *
 
@@ -45,9 +45,9 @@ In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemI
 
 Вместо использования `BotName.keys` файла,вы можете использовать IPC API или даже комбинировать оба метода,если хотите.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+После некоторого времени,файлы `BotName.keys.used` и `BotName.keys.unused` могут сгенерироваться. Эти файлы содержат результат нашего процесса активации ключей. Например,вы можете переименовать файл `BotName.keys.unused` в `BotName2.keys`,следовательно,передать наши неиспользованные ключи другому боту,так как предыдущий бот не использовал эти ключи для себя. Или просто копипастнуть неиспользованные ключи в какой-то другой файл и придержать его до следующей активации. Помните, что ASF проходит очередь, новые попытки активации будут добавлены к нашим выходным `used` и `unused` файлам, по этому рекомендуется подождать окончания очереди, перед тем как добавлять новые ключи. Если вам крайне необходимо активировать новые файлы, прежде чем очередь закончилась, сначала следует **перенести** выходной файл, который Вы хотите использовать, в другую директорию и **после** этого считать его. Потому что ASF может добавить новые результаты в то время,когда Вы создаёте новый файл,и это может привести к потере ключей,например если Вы считали файл,который содержит 3 ключа внутри,потом удалили его,Вы упускаете тот факт,что в это время ASF добавил 4 ключа в ваш удалённый файл. Если вы хотите получить доступ к этих файлам, убедитесь что они перемещены с ASF `config` директории, перед тем как считать их, например переименованием.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+Повторяя все шаги выше, можно добавить дополнительные игры для импортирования, вовремя наличия игр, которые уже находятся в очереди. ASF должным образом добавит наши дополнительные попытки к уже выполняющейся очереди и в итоге справится с этим.
 
 * * *
 

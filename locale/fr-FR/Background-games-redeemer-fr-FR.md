@@ -10,7 +10,7 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 The import process can be done through two ways - either by using a file, or IPC.
 
-### File
+### Fichier
 
 ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, for example in a game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. For example:
 
@@ -35,7 +35,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 * * *
 
-## Example
+## Exemple
 
 Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 
@@ -51,7 +51,7 @@ It's also possible to add extra games to import while having some games already 
 
 * * *
 
-## Remarks
+## Remarques
 
 Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
 

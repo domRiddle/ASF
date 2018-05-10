@@ -1,4 +1,4 @@
-# Documentation
+# Документация
 
 This is an attempt to write a very detailed technical explanation how ASF works in detail - it's **definitely** not a text for typical user that just wants to make ASF "work", you have **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** in this case.
 
@@ -14,7 +14,7 @@ ASF changes **rapidly**, therefore keeping this documentation up-to-date with co
 
 * * *
 
-## Steam services
+## Сервисы Steam
 
 In documentation there will be often references to various Steam services, and you should know the difference between then.
 
@@ -39,7 +39,7 @@ ASF is based on SteamKit2 - project that aims to create open-source implementati
 
 * * *
 
-## Authentication
+## Аутентификация
 
 ASF maintains two sessions - Steam Network session, and Steam Web session (`ISteamUserAuth`). Steam Web session is **binded** to Steam Network session, so it's automatically invalidated the moment Steam Network session is gone. As you can guess, Steam Web session is required for communicating with Steam Community or Steam Store.
 
@@ -47,13 +47,13 @@ ASF uses login keys mechanism - the same one that is being used in official Stea
 
 * * *
 
-## Events
+## События
 
 ASF is heavily based on Steam Network events, which further enhance it with nearly real-time reaction to what is currently happening. For example, thanks to those ASF is able to check status of game being idled as soon as there is item notification, or check active trades as soon as there is trade notification. Those two are the most obvious ones that you can also notice in your Steam client, but there are many of those that are not visible right away, such as event related to updated list of licenses, which allows ASF to start idling as soon as your account receives any new game, be it through a gift, cd-key or any other meaning. Thanks to that, ASF is able to start idling **immediately** after you redeem new cd-key, without a need of restart or a command.
 
 * * *
 
-## Cards farming
+## Фарм карточек
 
 Cards farming process might look simple, but it's very complex code-wise. After logging in, we must check all our badge pages in Steam Community to get list of games that can be idled. After that setup, we must exclude known false-positive apps, such as Steam Winter/Summer sale - those are hardcoded into the app, but user can also add them in `Blacklist`.
 
@@ -65,4 +65,4 @@ Idling game consists of sending `GamesPlayed` request to Steam network in which 
 
 * * *
 
-## TODO
+## ДОДЕЛАТЬ

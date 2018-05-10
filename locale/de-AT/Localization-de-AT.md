@@ -1,6 +1,6 @@
 # Übersetzung
 
-ASF wird von einem Service namens Crowdin unterstützt, was es jedem ermöglicht ASF in jegliche Sprachen zu übersetzen. Für eine detailliertere Erklärung wie Crowdin funktioniert lies dir bitte die **[Einführung in Crowdin](https://support.crowdin.com/crowdin-intro/)** durch.
+ASF wird von einem Service namens Crowdin unterstützt, was es jedem ermöglicht ASF in jegliche Sprachen zu übersetzen. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
 Wenn du daran interessiert bist, was zur Zeit vor sich geht, kannst du die **[aktuellen ASF Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
 
@@ -60,10 +60,10 @@ Wenn du ein Problem mit einer bestimmten Übersetzung hast, weil du zum Beispiel
 
 Es gibt 4 Typen von Problemen, die wir befürworten:
 
-- generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
-- Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest.
-- Fehlender Kontext - Dies ist, was du verwenden solltest, wenn du nicht sicher bist, welchen Teil von ASF du übersetzt und was der Kontext des gegebenen Strings oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass du technische Hilfe benötigst, weil du nicht sicher bist, wie der String zu übersetzen ist.
-- Fehler im Quell-String - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber meine eigene Muttersprache ist auch nicht Englisch und deshalb solltest du dich frei fühlen diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte.
+* generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
+* Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest.
+* Fehlender Kontext - Dies ist, was du verwenden solltest, wenn du nicht sicher bist, welchen Teil von ASF du übersetzt und was der Kontext des gegebenen Strings oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass du technische Hilfe benötigst, weil du nicht sicher bist, wie der String zu übersetzen ist.
+* Fehler im Quell-String - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber meine eigene Muttersprache ist auch nicht Englisch und deshalb solltest du dich frei fühlen diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte.
 
 * * *
 
@@ -89,15 +89,30 @@ Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werde
 
 ## Wiki
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since you can also adapt the original text in order to make it point to new (localized) locations.
+Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
 
-As you should know already, everybody can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
+### Code blocks
 
-Now, ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit those too, "fixing" links to point to proper localized pages for your language. It requires a bit of hacking around, but it's possible.
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
-For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki)** includes a text such as:
+    This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
+    
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status - this should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+
+If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+
+* * *
+
+### Global links
+
+Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+
+ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+
+For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** includes a text such as:
+
+> Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** anzufangen.
 
 Which is originally written as:
 
@@ -105,25 +120,48 @@ Which is originally written as:
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin you'll see instead:
+On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
 
-> If you're a new user, we recommend starting with <0>setting up</0> guide.
+* * *
 
-Firstly, you translate it as usual, leaving everything in-tact. This would be example for Polish language:
+![Crowdin](https://i.imgur.com/YqAxiZ4.png)
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <0>przewodnika po konfiguracji</0>.
+* * *
+
+Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+
+* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+
+In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+
+* * *
+
+![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
+
+* * *
+
+Regardless of case, firstly you click ALT+C (or copy source button) and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+
+* * *
+
+![Crowdin 3](https://i.imgur.com/NpKwfka.png)
+
+* * *
 
 Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually **remove** `<0>` tags and replace them with pure HTML appropriate for new location.
+However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
 
-We have a `Setting-up` link, so our Polish version is `Setting-up-pl-PL`. We can now hover over `<0>` tag to see how it's defined, usually it'll be either `<strong><a></a></strong>` or `<a></a>` alone. Then, with knowledge of what `<0>` is in fact replaced with, we can rewrite it to point into new location:
+* * *
 
-```html
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z <strong><a href="Setting-up-pl-PL">przewodnika po konfiguracji</a></strong>.
-```
+![Crowdin 4](https://i.imgur.com/TL8uwmb.png)
 
-This will properly transform HTML back to markdown:
+* * *
+
+Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+
+Doing the steps above will properly translate our HTML back to markdown:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
@@ -133,8 +171,46 @@ And finally into wiki text:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-In similar way you can translate (and point to new locations) our sidebar! 
+When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
 
 * * *
 
-Thank you for helping us to translate ASF!
+![Crowdin 5](https://i.imgur.com/ZmgavCM.png)
+
+* * *
+
+From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+
+* * *
+
+![Crowdin 6](https://i.imgur.com/maG7kSm.png)
+
+* * *
+
+### Local links
+
+Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+
+Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+
+For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+
+* * *
+
+![Crowdin 7](https://i.imgur.com/EEHSPtK.png)
+
+* * *
+
+Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+
+* * *
+
+![Crowdin 8](https://i.imgur.com/JMJegO7.png)
+
+* * *
+
+This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+
+* * *
+
+Thank you for helping us translating ASF into all languages spoken worldwide!

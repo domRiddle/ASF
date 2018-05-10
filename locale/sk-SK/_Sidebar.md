@@ -1,4 +1,4 @@
-# **[Domovská stránka](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Domovská stránka](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

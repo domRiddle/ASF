@@ -1,4 +1,4 @@
-# **[Inicio](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Inicio](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

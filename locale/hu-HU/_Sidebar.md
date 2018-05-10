@@ -1,4 +1,4 @@
-# **[Főoldal](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Főoldal](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 

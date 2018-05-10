@@ -1,4 +1,4 @@
-# Statistics
+# Статистика
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
@@ -8,11 +8,11 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 * * *
 
-## Current privacy policy
+## Текущая версия политики конфиденциальности
 
 When `Statistics` are active, following things will happen:
 
-a) Every account being used in ASF will join our **[steam group](http://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
+a) Every account being used in ASF will join our **[steam group](https://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
 
 * It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
@@ -23,7 +23,7 @@ b) If your account is unrestricted, using ASF 2FA, has **[public inventory](http
 * Your Steam identificator (in 64-bit form, for generating links)
 * Your nickname (for display purposes)
 * Your avatar (hash, for display purposes)
-* Your **[trading token](http://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+* Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 * Your `MatchableTypes` (for display purposes)
 * Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
 * Total number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-## Usage of data
+## Использование данных
 
 All values specified in point b) are being used for our **Public ASF STM listing** explained below, and only for that.
 
@@ -45,7 +45,7 @@ Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** 
 
 Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
 
-**How it exactly works:**
+**Как это точно работает:**
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
 

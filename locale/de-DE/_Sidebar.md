@@ -1,14 +1,14 @@
-# **[Startseite](https://github.com/JustArchi/ArchiSteamFarm/wiki)**
+# **[Startseite](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Start
+## Erste Schritte
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Einrichten](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(beginne hier)**
 * **[Konfiguration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Häufig gestellte Fragen](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Kernfunktionalität
 
-* **[Kompabilität](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Kompatibilität](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Produktschlüsselaktivierung im Hintergrund](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Befehle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Leistung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**

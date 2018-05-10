@@ -124,7 +124,7 @@ After opening the page, switch to "Bot" tab. You should now see a page similar t
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
-Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There are only 3 words you can't use, those are: `ASF`, `example` and `minimal`. In addition to that we recommend that you avoid using spaces, you can use `_` as a word separator.
+Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There are only 3 words you can't use, those are: `ASF`, `example` and `minimal`. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
 
 After you decided about your name, change `Enabled` switch to be on, this defines whether your bot is supposed to be started by ASF automatically after launch (of the program).
 
@@ -214,7 +214,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 ### Summary
 
-You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)**. Have fun! 
+You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun! 
 
 * * *
 

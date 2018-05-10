@@ -18,7 +18,7 @@ All commands below are affected by `CommandPrefix` **[global configuration prope
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
-![Screenshot](http://i.imgur.com/PPxx7qV.png)
+![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
@@ -146,7 +146,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Pavyzdys
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 
