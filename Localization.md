@@ -197,4 +197,16 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ---
 
+### Code blocks
+
+Be extremely careful when you translate `<code></code>` blocks. They usually indicate fixed ASF code names or terms that should not be translated. For example:
+
+```
+This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
+```
+
+As you can see, `RateLimited` word there is inside a code block and indicates internal ASF code status that should not be translated. If in doubt, feel free to ask on our crowdin by creating appropriate issue.
+
+---
+
 Thank you for helping us translating ASF into all languages spoken worldwide! 👍 
