@@ -199,13 +199,13 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate `<code></code>` blocks. They usually indicate fixed ASF code names or terms that should not be translated. For example:
+Be extremely careful when you translate sentences with `<code></code>` blocks. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
 ```
 This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
 ```
 
-As you can see, `RateLimited` word there is inside a code block and indicates internal ASF code status that should not be translated. If in doubt, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status - this should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise. If you believe that something inappropriate is included in a code block, or there is a text that should be in it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
 
 ---
 
