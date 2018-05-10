@@ -159,7 +159,7 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 ---
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
 
 Doing the steps above will properly translate our HTML back to markdown:
 
