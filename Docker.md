@@ -122,7 +122,7 @@ This will properly pass `--process-required` argument to ASF process being run i
 
 ## IPC
 
-For using IPC, firstly you should configure ASF to launch it properly, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
+For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
 
