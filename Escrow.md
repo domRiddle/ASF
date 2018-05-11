@@ -16,8 +16,6 @@ To enable ASF 2FA, you need to have:
 - or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
 
-Also a brain is needed for all of those tasks :+1: 
-
 ---
 
 ## Import
