@@ -61,6 +61,6 @@ Please note that you will **not** be displayed on the website if you do not meet
 
 ## Opting out
 
-Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user (😭) then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
+Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
 
 > Please note that disabling statistics might influence our technical support and other things that are offered to you (for free), such as ASF functionality and the program itself.
