@@ -106,7 +106,7 @@ This has to be done only once after you created your container with `docker run`
 
 ## Command-line arguments
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. Zum Beispiel:
 
 ```shell
 docker pull justarchi/archisteamfarm
@@ -119,7 +119,7 @@ This will properly pass `--process-required` argument to ASF process being run i
 
 ## IPC
 
-For using IPC, firstly you should configure ASF to launch it properly, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
+For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
 

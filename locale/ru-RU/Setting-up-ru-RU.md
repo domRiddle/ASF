@@ -2,125 +2,125 @@
 
 Если вы пришли сюда впервые - Добро Пожаловать! Рады видеть что ещё один путник заинтересован в нашем проекте, но просим вас не забывать, что с большой силой приходит большая ответственность - ASF может сделать в Steam многое, но только если **вам не лень учиться, как им пользоваться**. Кривая обучения довольно крутая, и поэтому от вас ожидается что вы прочтёте эту wiki, которая подробно описывает как всё работает. Если вы ищете программу для фарма в Steam, которая не требует чтения и понимания - воспользуйтесь **[Idle Master](https://www.steamidlemaster.com)**, потому что никто не будет делать за вас домашнее задание по чтению wiki.
 
-Если вы всё ещё читаете, значит вас не напугало вступление выше, и это радует. Конечно, если вы не пропустили его, в противном случае у вас скоро будут **[большие проблемы](https://www.youtube.com/watch?v=WJgt6m6njVw)**... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Если вы всё ещё читаете, значит вас не напугало вступление выше, и это радует. Конечно, если вы не пропустили его, в противном случае у вас скоро будут **[большие проблемы](https://www.youtube.com/watch?v=WJgt6m6njVw)**... В любом случае, ASF это консольное приложение, а это значит что у этой программы отсутствует дружественный графический интерфейс к которому большинство из вас привыкло. ASF разрабатывался в первую очередь для работы на серверах, и поэтому работает как служба (демон), а не как настольное приложение.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
-
-* * *
-
-## Quick video setup
-
-If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
+Однако это не означает что вы не можете пользоваться им на своём ПК, или пользоваться им каким-то более сложным способом, ничего такого. ASF это отдельная программа не требующая инсталляции, и работает сразу "из коробки", однако требует конфигурирования чтобы быть полезной. Конфигурирование это способ указать ASF, что она должна делать после запуска. Если вы запустите ASF без конфигурирования она просто ничего не будет делать.
 
 * * *
 
-## OS-specific setup
+## Видеоинструкция
 
-In general, here is what we'll do in the next few minutes:
-
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
-
-Sounds simple enough, right? So let's get through it.
+Если вы ненавидите читать, и предпочитаете вместо этого посмотреть видео, вы можете посмотреть ролик который снял для вас **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** по **[этой ссылке](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Обратите внимание, что вам всё же придётся для справок обращаться к wiki, чтобы получить более подробное объяснение и актуальную инструкцию по установке. Хотя видео на YouTube это хороший материал чтобы показать, как именно конфигурируется и запускается ASF, его довольно сложно обновлять если что-то поменялось, поэтому мы приводим его здесь просто для справки. Если вы хотите получить подробные объяснения, документацию и полную инструкцию по установке, вам стоит продолжить чтение в разделе **[OS-specific setup](#установка-для-конкретных-ос)**, а видео использовать просто для общей информации. Мы приводим его, потому что оно полезно в **некоторых** случаях, но всё же рекомендуем прочитать wiki.
 
 * * *
 
-### .NET Core prerequisites
+## Установка для конкретных ОС
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. Simply follow the instructions, there is a chance that you already have all required libraries, but you should double check.
+В общем случае, вот что нам придётся сделать в следующие несколько минут:
 
-For example on Windows, all you need to do is downloading and installing `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, which **could be even already installed by some other game/software that you're using**. On Linux, you have a list of libraries that can be obtained with `apt-get install` or any other package manager that you're using for your distribution. OS X doesn't have any mandatory dependencies for now, but it might change in the future.
+- Установить **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Скачать **[последнюю версию ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** в варианте для конкретной ОС.
+- Распаковать архив в новую папку (и выполнить `chmod +x ArchiSteamFarm` если вы работаете в Linux/OS X).
+- **[Сконфигурировать ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
+- Запустить ASF и увидеть магию.
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+Звучит довольно просто, правда? Давайте займёмся этим.
 
-Since it might be quite difficult to extract the info you're looking for, we listed required dependencies also here, but please refer to original .NET Core source in case dependencies change in the future.
+* * *
+
+### Предусловия для .NET Core
+
+Первое что надо сделать - убедиться, что ваша ОС вообще может запустить ASF. ASF написана на C#, основаный на .NET Core, и может требовать нативные библиотеки, которые пока недоступны для вашей платформы. В зависимости от того, используете вы Windows, Linux или OS X, вам подребуется выполнить различные требования, но все они перечислены в документе **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** (предусловия для .NET Core), которому вы должны следовать. Просто следуйте инструкции, вполне возможно что у вас уже установлены все нужные библиотеки, но вы должны это перепроверить.
+
+Например, для Windows всё что вам понадобиться это установить `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, которое **может быть уже установлено какой-то игрой или приложением которым вы пользуетесь**. Для Linux вам понадобится установить библиотеки из списка с помощью `apt-get install` или другого менеджера пакетов который используется в вашем дистрибутиве. Для OS X на данный момент нет никаких обязательных условий, но это может измениться в будущем.
+
+Помните, что для установки варианта под конкретную ОС вам больше ничего не надо делать, особенно устанавливать .NET Core SDK или даже среду исполнения, поскольку пакеты для конкретных ОС уже включают всё это в себя. Вам нужны только предусловия для .NET Core (зависимости) чтобы запустить среду исполнения включенную в ASF.
+
+Поскольку вычленить нужную вам информацию из документа может быть сложно, мы приводим список зависимостей прямо здесь, но не забывайте сверяться с основным документом для .NET Core на случай если зависимости изменяться в будущем.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- If you're running Windows 7, ensure that all Windows updates are already installed, especially Service Pack 1. Do this before trying to install above package.
+- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 для 64-битного Windows, x86 для 32-битного Windows)
+- Настоятельно рекомендуется убедиться, что у вас уже установлены все обновления Windows. Как минимум вам потребуются **[KB2533623](https://support.microsoft.com/en-us/help/2533623/)** и **[KB2999226](https://support.microsoft.com/en-us/help/2999226/)**, но могут понадобиться и другие обновления. Все они уже должны быть установлены если ваша Windows полностью обновлена. Убедитесть что вы выполнили эти требования до того как устанавливать пакет Visual C++.
 
-It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency being present.
+Вполне возможно что пакет Redistributable уже был установлен какой-то другой программой или игрой, но вам стоит перепроверить это запустив установщик, просто для уверенности. ASF не запустится если эта зависимость отсутствует.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Package name depends on the distribution, we listed most common ones. You should obtain them with native package manager for your OS (such as `apt-get` for Debian or `yum` for CentOS).
+Имена пакетов зависят от дистрибутива, мы приводим наиболее распространённые. Вам нужно получить их с помощью встроенного менеджера пакетов для вашей ОС (таким как `apt-get` для Debian или `yum` для CentOS).
 
 - libunwind8 (libunwind)
 - liblttng-ust0 (lttng-ust)
 - libcurl3 (libcurl)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, последняя версия 1.0.X для вашего дистрибутива)
 - libuuid1 (libuuid)
 - libkrb5-3 (krb5-libs)
-- libicu57 (libicu, latest version for your distribution)
+- libicu57 (libicu, последняя версия для вашего дистрибутива)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
+Как минимум часть из них должна быть уже доступна для вашей системы (как например zlib1g которая в наши дни требуется практически в любом дистрибутиве Linux).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
 
-- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Shouldn't be required for ASF alone, but keep that in mind if you encounter any issues.
+- На данный момент требований нет, хотя возможно вам понадобится **[увеличить максимальный предел открытых файлов](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Это не должно быть необходимым для самого ASF, но имейте это в виду если у вас будут какие-то проблемы.
 
 * * *
 
-### Downloading
+### Скачивание
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+Теперь, раз у нас уже есть все необходимые зависимости, следующим шагом будет скачать **[последнюю версию ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF доступен в разных вариантах, вас интересует пакет, который подходит для вашей операционной системы и архитектуры. Например, если вы пользуетесь `64`-битной `Win`dows, вам нужен пакет `ASF-win-x64`. Чтобы получить подробную информацию обо всех доступных вариантах, ознакомьтесь с разделом **[совместимость](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU)**. ASF так же можно запустить на ОС для которых мы не делаем пакетов под конкретную ОС, таких как **32-битная Windows**, для этого перейдите в раздел **[универсальная установка](#универсальная-установка)**.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
+После того, как вы скачаете нужный вам пакет и распакуете его из zip-файла (мы рекомендуем использовать **[7-zip](https://www.7-zip.org)**), вы получите совершенно запутанную кучу папок и файлов. Не волнуйтесь, сейчас мы всё это подчистим.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
+Если вы пользуетесь Linux/OS X, не забудьте выполнить команду `chmod +x ArchiSteamFarm`, поскольку права запуска файлов не сохраняются в zip-архивах. Это нужно сделать только один раз после первоначальной распаковки.
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
+Рекомендуем распаковывать ASF в **отдельную папку** а не в какую-то папку которую вы используете для других целей - система авто-обновления ASF удалит все файлы не связанные с ASF при обновлении, и вы потеряете все свои файлы, находящиеся в папке ASF. Если у вас есть дополнительные скрипты или файлы, которые вы хотите использовать вместе с ASF, положите их на одну папку выше.
 
-An example structure would look like this:
+Cnруктура папок должна быть примерно такой:
 
-    C:\ASF (where you put your own things)
-        ├── ASF shortcut.lnk (optional)
-        ├── Config shortcut.lnk (optional)
-        ├── Commands.txt (optional)
-        ├── MyExtraScript.bat (optional)
-        ├── ... (any other files of your choice, optional)
-        └── Core (dedicated to ASF only, where you extract the archive)
+    C:\ASF (здесь лежат ваши собственные файлы)
+        ├── ярлык ASF.lnk (не обязательно)
+        ├── ярлык Config.lnk (не обязательно)
+        ├── Commands.txt (не обязательно)
+        ├── MyExtraScript.bat (не обязательно)
+        ├── ... (любые другие файлы на ваш выбор, не обязательно)
+        └── Core (выделенная только для ASF папка, куда вы распакуете архив)
              ├── ArchiSteamFarm.dll
              ├── config
              └── (...)
     
 
-This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
+Мы рекомендуем такую структуру папок ещё и для того, чтобы вам не пришлось путаться в большом количестве файлов в папке ASF, поскольку для использования вам понадобятся только ярлыки для папки с конфигурациями и для основного запускаемого файла.
 
-Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
+Хорошо, теперь подготовим папку ASF для использования. Если хотите, этот шаг можно пропустить, поскольку очистка структуры папок ASF не является необходимой, но это сделает вашу жизнь немножко легче.
 
-Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
+Откройте папку ASF и найдите основной запускаемый файл, это будет`ArchiSteamFarm.exe` для Windows, и `ArchiSteamFarm` для Linux/OS X. Нажмите на него правой кнопкой мыши и выберите "Копировать". Теперь перейдите в папку, в которой вы планируете сохранить ярлык для ASF (например на рабочий стол), нажмите на свободном месте правой кнопкой мыши и выберите "Вставить ярлык". Если хотите, можете переименовать ярлык, например назвав его "ASF". Теперь повторите то же самое для папки `config`, которая находится там же, где и запускаемый файл ASF.
 
-After a small cleanup, you'll now have a very convenient structure similar to the one below:
+После такой небольшой очистки, у вас будет очень удобная структура, подобная показанной ниже:
 
 ![Structure](https://i.imgur.com/k85csaZ.png)
 
-This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
+Это даст вам лёгкий доступ к запускаемому файлу ASF и конфигурационным файлам без лишних проблем. Я решил использовать структуру описанную выше, поэтому мои файлы ASF находятся непосредственно в папке "Core". Вы можете переделать эту структуру на свой вкус, как например поместить ярлыки для ASF и папки config на рабочий стол а папку с ASF например в `C:\ASF`, решать вам.
 
-Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
+Пользователям Linux/OS X рекомендуется поступить точно так же, вы можете воспользоваться удобным механизмом символьных ссылок, доступным с помощью команды `ln -s`.
 
 * * *
 
-### Конфигурация
+### Конфигурирование
 
-We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
+Теперь мы готовы к последнему шагу, конфигурированию. Это пожалуй самый сложный шаг, поскольку включает в себя много новой информации с которой вы пока не знакомы, поэтому здесь мы предоставим несколько понятных примеров и упрощённое объяснение.
 
-First and foremost, there is **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
+Первое и главное, у нас есть раздел "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**" в котором подробно разъясняется **всё** что связано с конфигурированием, но это огромный объём новой информации, значительная часть которой всё равно вам пока не потребуется. Вместо этого, мы научим вас, как получить ту информацию, которую вы ищете.
 
-ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
+Конфигурирование ASF может быть сделано двумя методами - либо используя сетевой генератор конфигураций, либо вручную. Это объяснено в деталях в разделе "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**", поэтому если вам нужна подробная информация - обращайтесь для справок к этому разделу. Здесь мы пойдём по пути сетевого генератора конфигураций, поскольку это намного легче.
 
-Navigate to our **[web config generator](https://justarchi.github.io/ArchiSteamFarm)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
+Перейдите на страницу **[сетевого генератора конфигураций](https://justarchi.github.io/ArchiSteamFarm)** в своём любимом браузере, вам понадобится включенный javascript (на случай если вы его отключили вручную). Мы рекомендуем Chrome или Firefox, но генератор должен работать в любом из современных популярных браузеров.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+После того, как вы перешли на страницу генератора, переключитесь на закладку "Бот". Вы должны увидеть страницу, похожую на показанную ниже:
 
-![Bot tab](https://i.imgur.com/BUkUEYt.png)
+![Bot tab](https://i.imgur.com/VYkT5Mo.png)
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
@@ -175,7 +175,7 @@ After passing through initial login gate, assuming your details are correct, you
 
 This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)**.
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery 
+This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
 
 * * *
 
@@ -214,7 +214,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 ### Summary
 
-You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun! 
+You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
@@ -234,11 +234,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Установить **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+- **[Сконфигурировать ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

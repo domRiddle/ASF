@@ -2,7 +2,7 @@
 
 ## Como começar
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Preparando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(comece aqui)**
 * **[Configuração](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[Perguntas frequentes](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
@@ -22,7 +22,7 @@
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Configuração de alta performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumentos da linha de comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localização](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**

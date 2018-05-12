@@ -210,9 +210,9 @@ This API endpoint can be used for updating **[GlobalConfig](https://github.com/J
 
 `GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
-`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `WebProxyUsername` or `WebProxyPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
+`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `WebProxyPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
 
-Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `WebProxyUsername`, `WebProxyPassword`.
+Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `WebProxyPassword`.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF

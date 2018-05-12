@@ -1,22 +1,22 @@
-# FAQ
+# 常見問題
 
-# Table of contents
+# 目錄
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [一般](#general)
+- [與類似的工具比較](#comparison-with-similar-tools)
+- [安全/隱私/VAC/封鎖/條款](#security--privacy--vac--bans--tos)
+- [其他](#misc)
+- [問題](#issues)
 
 * * *
 
-## General
+## 一般
 
-### So how it exactly works?
+### 它是如何工作的?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+在嘗試了解 ASF 是什麼之前，你應該先了解什麼是交換卡片以及如何得到它們，這在官方 **[常見問題](https://steamcommunity.com/tradingcards/faq)** 中有很好地說明。
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
 
 Core points are stated once again here, because people in general don't want to agree with them:
 
@@ -95,7 +95,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## 與類似的工具比較
 
 * * *
 
@@ -191,7 +191,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## 安全/隱私/VAC/封鎖/條款
 
 * * *
 
@@ -279,7 +279,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## 其他
 
 * * *
 
@@ -291,7 +291,7 @@ Yes, and that version is not unsupported in any way, just not officially built. 
 
 ### ASF is great! Can I make a donation?
 
-Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance! 
+Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance!
 
 * * *
 
@@ -394,7 +394,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## 問題
 
 * * *
 
@@ -507,7 +507,7 @@ And finally, keep in mind that one account can have only 5 pending trades to ano
 
 If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks crap most of the time, and provided reason might not make any sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightlest).
 
-In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself 
+In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself.
 
 * * *
 

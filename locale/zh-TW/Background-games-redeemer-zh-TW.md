@@ -1,45 +1,45 @@
 # 背景啟動序號
 
-背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 如果你想批次啟用多組序號，請確保 `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** 才能完成整個過程。
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+背景啟用序號是單一 bot 執行的範圍，這表示它不使用 `RedeemingPreferences`。 如果需要，此功能可以與 `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** 一起使用。
 
 * * *
 
 ## 匯入
 
-The import process can be done through two ways - either by using a file, or IPC.
+導入可以通過兩種方式進行，使用檔案或 IPC。
 
 ### 檔案
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, for example in a game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. For example:
+在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由表格鍵分隔並以換行作為結束。 If multiple tabs are used, for example in a game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. 範例：
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF 將在啟動時或稍後匯入指定的文件。 成功讀取檔案並跳過錯誤的項目後，`BotName.keys` 將自動從 `config` 刪除。
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+除了使用 keys 檔案，ASF 還提供 IPC `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**，包括 IPC 圖形控制台。 使用 IPC 的方法可以更加實用，你可以自訂參數，例如使用分隔符而不是表格鍵。
 
 * * *
 
-## Queue
+## 佇列
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+當遊戲成功導入時，會被添加到佇列中。 ASF 會自動在背景處理佇列，而 bot 必須與 Steam 保持連線。 A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
 * * *
 
-## Example
+## 範例
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+假設你的列表有一個 100 組序號。 首先必須在 ASF `config` 目錄中建立一個 `BotName.keys.new` 檔案。 我們添加了 `.new`副檔名，以便讓 ASF 知道不應該馬上處理此文件 (因為它是剛建立好的，還沒準備好導入)。
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+現在可以打開剛建立好的的檔案並在裡面貼上你那 100 組序號列表，如果需要的話就修改格式。 After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
 
 You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 

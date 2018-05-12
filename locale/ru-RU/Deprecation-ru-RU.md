@@ -40,16 +40,16 @@ You have more or less **full 2 months** in order to make appropriate switch, whi
 
 ## Пример
 
-We splitted pre-V3.1.2.2 `--service` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** into 3 independent options: `--no-restart`, `--process-required` and `--system-required`.
+We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**.
 
 ### Stage 1
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--service`. Now-obsolete `--service` argument was automatically converted to new `--no-restart` `--process-required` `--system-required` settings, effectively acting exactly the same as old `--service` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
 
 ### Stage 2
 
-Stage 2 is yet to happen and will make ASF exit with non-zero error code when `--service` argument is passed.
+Stage 2 is yet to happen and will make ASF exit with non-zero error code when `--server` argument is passed.
 
 ### Stage 3
 
-Stage 3 is yet to happen and will include complete removal of `--service` argument, making it non-existant.
+Stage 3 is yet to happen and will include complete removal of `--server` argument, making it non-existant.

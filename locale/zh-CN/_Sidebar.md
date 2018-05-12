@@ -1,10 +1,10 @@
 # **[首页](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## 新手指南
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[常见问题](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 

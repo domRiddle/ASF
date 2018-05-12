@@ -41,7 +41,7 @@ Since it might be quite difficult to extract the info you're looking for, we lis
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- If you're running Windows 7, ensure that all Windows updates are already installed, especially Service Pack 1. Do this before trying to install above package.
+- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates might be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
 
 It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency being present.
 
@@ -175,7 +175,7 @@ After passing through initial login gate, assuming your details are correct, you
 
 This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)**.
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery 
+This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
 
 * * *
 
@@ -214,7 +214,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 ### Summary
 
-You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun! 
+You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 

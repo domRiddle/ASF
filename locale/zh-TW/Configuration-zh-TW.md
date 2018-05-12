@@ -1,14 +1,14 @@
-# Configuration
+# 設定組態
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+此頁面專門用於 ASF 設定。 It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Introduction](#introduction)**
+1. **[簡介](#introduction)**
 
 * **[Web-based ConfigGenerator](#web-based-configgenerator)** * **[Manual configuration](#manual-configuration)** 2. **[Global config](#global-config)** 3. **[Bot config](#bot-config)** 4. **[File structure](#file-structure)** 5. **[JSON mapping](#json-mapping)** 6. **[Compatibility mapping](#compatibility-mapping)** 7. **[Configs compatibility](#configs-compatibility)** 8. **[Auto-reload](#auto-reload)**
 
 * * *
 
-## Introduction
+## 簡介
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 

@@ -3,7 +3,7 @@
 ## 開始使用
 
 * **[設定](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(從這裡開始)**
-* **[設定組態](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[組態](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[常見問題](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## 核心

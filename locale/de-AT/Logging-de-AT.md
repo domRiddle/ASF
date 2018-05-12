@@ -1,14 +1,14 @@
-# Logging
+# Protokollierung
 
-Starting with version V2.1.2.0, ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+Beginnend mit Version V2.1.2.0 erlaubt dir ASF, benutzerdefinierte Protokollierungsmodule zu konfigurieren, die während der Laufzeit verwendet werden. Dies funktioniert, indem du eine spezielle Datei mit dem Namen `NLog.config` in dem Programmverzeichnis ablegst. Du kannst die gesamte Dokumentation über NLog auf der **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)** nachlesen, zusätzlich wirst du auch hier nützliche Beispiele dazu finden.
 
 * * *
 
-## Default logging
+## Standard Protokollierung
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+Eine benutzerdefinierte NLog Konfiguration deaktiviert automatisch die Standard ASF Konfiguration, welche `ColoredConsole` und `File` beinhaltet. In anderen Worten überschreibt deine Konfiguration **komplett** die standard ASF Protokollierung, was bedeutet, dass wenn du z.B. `ColoredConsole` als Ziel behalten möchtest, du es selber definieren musst. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch **Standardziele** zu verändern oder deaktivieren.
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+Wenn du die Standard ASF Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF Protokollierung nicht verändern möchtest. Als Referenz dagegen, die entsprechende hardgecodete Variante der ASF Protokollierung wäre:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -16,14 +16,14 @@ If you want to use default ASF logging without any modifications, you don't need
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" detectConsoleAvailable="false" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <!-- Below becomes active when ASF is started with server parameter -->
+    <!-- Das untere wird aktiv wenn ASF mit dem Serverparameter gestartet wird -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Below becomes active when ASF is started with server parameter -->
+    <!-- Das untere wird aktiv wenn ASF mit dem Serverparameter gestartet wird -->
     <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
@@ -31,7 +31,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## ASF Integration
 
 ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 

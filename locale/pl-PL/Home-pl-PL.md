@@ -1,12 +1,12 @@
 # Strona główna
 
-Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+Witamy na wiki ASF. Wiki jest pomocą online, opisującą wiele różnych zagadnień, m.in najczęściej zadawane pytania, możliwe problemy, użytkowanie programu jak i jego konfiguracja, oraz wiele innych. To właśnie ją polecamy przeczytać jeśli chcesz się dowiedzieć jak działa ASF, a w szczególności jak zainstalować, skonfigurować i korzystać z naszego programu.
 
 You can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**, you can visit **[FAQ-ru-RU](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** that contains FAQ translated into Russian (if available).
 
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**. You can find all other relevant wiki pages on our sidebar, on the right side of the screen. We recommend to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge 
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**. You can find all other relevant wiki pages on our sidebar, on the right side of the screen. We recommend to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
 
 If you need further help, you can ask on our **[Discord server](https://discord.gg/hSQgt8j)**, or in the **[discussions of our steam group](https://steamcommunity.com/groups/ascfarm/discussions/1)**. Consider using discord chat for small questions or discussing common ASF things, and group thread for general issues and bugs reporting.
 
