@@ -12,11 +12,12 @@
 
 ### 檔案
 
-在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由表格鍵分隔並以換行作為結束。 If multiple tabs are used, for example in a game name, then last tab counts, while previous tabs are considered to be a part of game's name, and will be converted to spaces instead. 範例：
+在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由表格鍵分隔並以換行作為結束。 If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. 範例：
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
+    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
 ASF 將在啟動時或稍後匯入指定的文件。 成功讀取檔案並跳過錯誤的項目後，`BotName.keys` 將自動從 `config` 刪除。

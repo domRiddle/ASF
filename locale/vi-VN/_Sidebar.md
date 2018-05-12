@@ -1,20 +1,20 @@
 # **[Trang chủ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## Bắt đầu
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Thiết lập](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(bắt đầu tại đây)**
+* **[Cấu hình](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[CÂU HỎI THƯỜNG GẶP](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Khả năng tương thích](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+* **[Lệnh](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Hiệu năng](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Giao dịch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Thống kê](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 ## Nâng cao
 
@@ -28,7 +28,7 @@
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Bảo mật](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Công cụ bên thứ ba](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Dành cho lập trình viên
@@ -36,4 +36,4 @@
 * **[Trình biên dịch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Chu kỳ phát hành](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 * **[Giấy phép](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Hướng dẫn đóng góp](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

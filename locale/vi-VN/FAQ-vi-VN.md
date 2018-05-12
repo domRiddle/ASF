@@ -1,10 +1,10 @@
 # CÂU HỎI THƯỜNG GẶP
 
-# Mục Lục
+# Nội dung
 
 - [Tổng quát](#general)
 - [So sánh với các công cụ tương tự](#comparison-with-similar-tools)
-- [An ninh / bảo mật / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [An ninh / Bảo mật / VAC / Ban / ToS](#security--privacy--vac--bans--tos)
 - [Linh tinh](#misc)
 - [Các vấn đề](#issues)
 
@@ -12,15 +12,15 @@
 
 ## Tổng quát
 
-### So how it exactly works?
+### Vậy chính xác nó hoạt động như thế nào?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Trước khi cố gắng hiểu ASF là cái gì, bạn nên chắc chắn rằng bạn hiểu thẻ Steam là gì, và làm thế nào để có chúng, nó được mô tả kĩ càng trong FAQ chính thức **[ở đây](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Tóm tắt, thẻ Steam là vật dụng thu thập mà bạn đủ điều kiện khi sở hữu một trò chơi nhất định, và có thể sử dụng chúng để tạo huy hiệu, bán trên chợ Steam hoặc cho bất kỳ mục đích khác mà bạn muốn.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Những điểm cốt lỗi một lần nữa sẽ được nêu ở đây, vì chúng ta không muốn đồng ý với chúng:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
+- **Đúng, bạn cần sở hữu trò chơi để có điều kiện cho thẻ bất kỳ nào rơi từ nó. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
 - **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
 - **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
@@ -191,7 +191,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## An ninh / bảo mật / VAC / Bans / ToS
+## An ninh / Bảo mật / VAC / Ban / ToS
 
 * * *
 

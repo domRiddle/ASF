@@ -12,11 +12,12 @@ Der Importprozess kann über zwei Wege durchgeführt werden, entweder durch Verw
 
 ### Datei
 
-ASF erkennt in seinem `Konfigurations`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabs benutzt werden, zum Beispiel in einem Spielnamen, dann zählt der letzte Tab, währenddessen vorherige Tabs als Teil des Spielnamens angesehen und stattdessen in Leerzeichen umgewandelt werden. Zum Beispiel:
+ASF erkennt in seinem `Konfigurations`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. Zum Beispiel:
 
-    POSTAL 2  ABCDE-EFGHJ-IJKLM 
-    Domino Craft VR 12345-67890-ZXCVB 
+    POSTAL 2    ABCDE-EFGHJ-IJKLM
+    Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
+    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
 ASF importiert solch eine Datei, entweder beim Bot-Start oder später während der Ausführung. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
