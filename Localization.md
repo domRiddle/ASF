@@ -30,6 +30,10 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
+Or:
+
+> {0} is the number of games to idle.
+
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
 
 ---
