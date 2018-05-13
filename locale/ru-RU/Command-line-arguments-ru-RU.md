@@ -31,15 +31,15 @@ Command-line arguments are also supported in generic helper scripts such as `Arc
 If your argument includes spaces, don't forget to quote it. Those two are wrong:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Also bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Плохо!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Тоже плохо!
 ```
 
 However, those two are completely fine:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK as well
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # Нормально
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # Тоже нормально
 ```
 
 ## Аргументы

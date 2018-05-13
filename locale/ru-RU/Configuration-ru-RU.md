@@ -426,15 +426,15 @@ It's also worth mentioning that this option is basically a hack that might, or m
 
 `LootableTypes` - `HashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Значение | Имя               | Описание                                                      |
-| -------- | ----------------- | ------------------------------------------------------------- |
-|          | Unknown           | Every type that doesn't fit in any of the below               |
-| 1        | BoosterPack       | Unpacked booster pack                                         |
-| 2        | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4        | ProfileBackground | Profile background to use on your Steam profile               |
-| 5        | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6        | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Значение | Имя               | Описание                                                                  |
+| -------- | ----------------- | ------------------------------------------------------------------------- |
+|          | Unknown           | Every type that doesn't fit in any of the below                           |
+| 1        | BoosterPack       | Unpacked booster pack                                                     |
+| 2        | Emoticon          | Эмоции, используемые в чате Steam                                         |
+| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                             |
+| 4        | ProfileBackground | Фоны, используемые в вашем профиле Steam                                  |
+| 5        | TradingCard       | Коллекционные карточки Steam, используемые для создания значков (обычных) |
+| 6        | SteamGems         | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -444,15 +444,15 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `MatchableTypes` - `HashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Значение | Имя               | Описание                                                      |
-| -------- | ----------------- | ------------------------------------------------------------- |
-|          | Unknown           | Every type that doesn't fit in any of the below               |
-| 1        | BoosterPack       | Unpacked booster pack                                         |
-| 2        | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4        | ProfileBackground | Profile background to use on your Steam profile               |
-| 5        | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6        | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Значение | Имя               | Описание                                                                  |
+| -------- | ----------------- | ------------------------------------------------------------------------- |
+|          | Unknown           | Every type that doesn't fit in any of the below                           |
+| 1        | BoosterPack       | Unpacked booster pack                                                     |
+| 2        | Emoticon          | Эмоции, используемые в чате Steam                                         |
+| 3        | FoilTradingCard   | Foil variant of `TradingCard`                                             |
+| 4        | ProfileBackground | Фоны, используемые в вашем профиле Steam                                  |
+| 5        | TradingCard       | Коллекционные карточки Steam, используемые для создания значков (обычных) |
+| 6        | SteamGems         | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
