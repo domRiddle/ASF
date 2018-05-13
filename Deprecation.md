@@ -48,7 +48,7 @@ Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage
 
 ### Stage 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to display an error and exit with non-zero error code when `--server` argument is passed, effectively making program impossible to run when `--server` argument is passed.
+Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to display an error and exit with non-zero error code when `--server` argument is passed, effectively making program impossible to run.
 
 ### Stage 3
 
