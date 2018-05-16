@@ -1,14 +1,14 @@
 # Аргументы командной строки
 
-ASF поддерживает несколько аргументов командной строки, которые влияют на работу программы. Они могут использоваться опытными пользователями для спецификации запуска программы. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF поддерживает некоторые аргументы командной строки, которые влияют на работу программы. Они могут использоваться опытными пользователями для изменения поведения программы. По сравнению с настройкой через файл конфигурации `ASF.json`, аргументы командной строки используются для инициализации ядра (например, `--path`), специфичные настройки для данной платформы (например, `--system-required`) или конфиденциальных данных (например, `--cryptkey`).
 
 * * *
 
 ## Использование
 
-Usage depends on your OS and ASF flavour.
+Использование зависит от вашей операционной системы и вариации ASF.
 
-Generic:
+Общий:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -26,16 +26,16 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper script you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Аргументы командной строки также поддерживаются в вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. В дополнении к этому, при использовании вспомогательного скрипта вы можете использовать переменные окружения `ASF_ARGS`, как указано в разделе **[Docker](https://github. com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU#Аргументы-командной-строки)**.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Если ваш аргумент содержит пробелы, не забудьте заключить его в кавычки. Эти два примера неправильные:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Плохо!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Тоже плохо!
 ```
 
-However, those two are completely fine:
+Однако, эти два абсолютно корректны:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # Нормально
@@ -44,7 +44,7 @@ However, those two are completely fine:
 
 ## Аргументы
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` или `--cryptkey=<key>` - запустит ASF с пользовательским значением ключа шифрования `<key>`. Эта настройка влияет на **[безопасность](https://github. com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)** и ASF будет использовать данный ключ шифрования `<key>` вместо внедрённого в исполняемый файл. Имейте в виду, что ключ, которым были зашифрованы пароли, должен передаваться при каждом запуске ASF.
 
 * * *
 

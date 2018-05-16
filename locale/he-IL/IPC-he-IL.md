@@ -55,8 +55,6 @@ If configuration was set correctly, you should notice that IPC service is active
 
 ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
 
-*This method of activation applies to V3.1.2.2 onwards, head over to **[older revisions](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC/_history)** for V3.1.2.0.*
-
 * * *
 
 ## Client
@@ -241,7 +239,7 @@ curl -X GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","IsPlayingPossible":true,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
-#### Bot
+#### בוט
 
 ```json
 {

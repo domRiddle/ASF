@@ -8,11 +8,11 @@ Aviso: Toda vez que a palavra "rejeitar" (reject) é usada, isso significa ignor
 
 ## Lógica
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+O ASF sempre aceitará todas as trocas, independente dos itens enviadas pelo `Master` (ou superior) para o bot. Isso permite pegar facilmente cartas Steam, como também as obtidas pelo bot, também ajuda a administrar facilmente os itens que o bot guarda no inventário.
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+O ASF rejeita a oferta de comércio, independente do conteúdo, de qualquer usuário (não Master) que esteja na lista negra de negociações. Lista negra é armazenada no banco de dados padrão do `BotName.db` e pode ser gerenciada através de **[comandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** `bl`, `bladd` and `blrm` <1>commands</1>. Isso deve funcionar como um alternativa ao bloco de usuário padrão da Steam - use com cautela.
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+O ASF aceitará todos os `loots` como comércio, sendo enviados através de bots, a menos que especificados em `DontAcceptBotTrades` mais especificamente em `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
 
 When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
 

@@ -49,7 +49,7 @@ Below tricks **involve performance degradation** and should be used with caution
 
 * * *
 
-## Runtime tuning (advanced)
+## Расширенная настройка среды исполнения
 
 Below tricks **involve serious performance degradation** and should be used with caution.
 

@@ -2,11 +2,11 @@
 
 ## 新手指南
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[ 设置 ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**** (从这里开始) **
+* **[配置](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[常见问题](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## 内核
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**

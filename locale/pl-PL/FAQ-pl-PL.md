@@ -1,6 +1,6 @@
 # FAQ
 
-# Table of contents
+# Spis treści
 
 - [General](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
@@ -12,7 +12,7 @@
 
 ## General
 
-### So how it exactly works?
+### Jak to właściwie działa?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
@@ -147,7 +147,7 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchi/
 
 * * *
 
-### Is ASF faster than Idle Master?
+### Czy ASF jest szybszy od Idle Mastera?
 
 **Yes**, although the explanation is rather complicated.
 
@@ -219,7 +219,7 @@ If you for whatever reason don't trust our builds, you can always compile and us
 
 * * *
 
-### Can I get banned for this?
+### Czy mogę za to dostać bana?
 
 In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
@@ -365,7 +365,7 @@ You can run as many ASF instances on one machine as you like, assuming every ins
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Description                                                                                                                                                                                                                    |
+| Status                  | Opis                                                                                                                                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).                                                                                                        |

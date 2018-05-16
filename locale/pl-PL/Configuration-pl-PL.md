@@ -1,14 +1,14 @@
-# Configuration
+# Konfiguracja
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Introduction](#wprowadzenie)**
+1. **[Wprowadzenie](#wprowadzenie)**
 
 * **[Web-based ConfigGenerator](#web-based-configgenerator)** * **[Manual configuration](#manual-configuration)** 2. **[Global config](#global-config)** 3. **[Bot config](#bot-config)** 4. **[File structure](#file-structure)** 5. **[JSON mapping](#json-mapping)** 6. **[Compatibility mapping](#compatibility-mapping)** 7. **[Configs compatibility](#configs-compatibility)** 8. **[Auto-reload](#auto-reload)**
 
 * * *
 
-## Introduction
+## Wprowadzenie
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -34,7 +34,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Ręczna konfiguracja
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 

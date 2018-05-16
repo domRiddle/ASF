@@ -43,7 +43,7 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 ### Do I have to put my account credentials?
 
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**Да**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fullifies Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
@@ -67,7 +67,7 @@ ASF gives you rough approximation based on number of cards you need to drop, and
 
 * * *
 
-### Can ASF work on my android/smartphone?
+### Может ли ASF работать на моем смартфоне?
 
 ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
@@ -81,9 +81,9 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 * * *
 
-### Can I choose which games should be idled?
+### Могу ли я выбрать какие игры нужно фармить?
 
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+**Да**, это можно сделать несколькими способами. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
 In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
@@ -99,7 +99,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF это клон Idle Master?
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -109,7 +109,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Да**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -129,7 +129,7 @@ It depends what you consider "interesting" for you. If you plan to idle more acc
 
 First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. But you already know that, so let's move onto some more interesting features:
 
-- **You can idle offline** (`FarmOffline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
+- **Ты можешь фармить оффлайн** (функция `FarmOffline`). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
 
 - **You can skip refundable games** (`IdleRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
 
@@ -147,7 +147,7 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchi/
 
 * * *
 
-### Is ASF faster than Idle Master?
+### ASF быстрее чем Idle Master?
 
 **Yes**, although the explanation is rather complicated.
 
@@ -159,7 +159,7 @@ ASF is not based on steam client, it has its own steam client implementation. Th
 
 ### But is the difference really noticable?
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticable difference that would make ASF superior.
+Нет. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticable difference that would make ASF superior.
 
 However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
 
@@ -183,9 +183,9 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can I play a game while ASF is farming?
+### Могу ли я играть в игры пока ASF фармит?
 
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**Нет**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
@@ -195,7 +195,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-### Can I get VAC ban for using this?
+### Могу ли я получить VAC бан за использование ASF?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
@@ -315,7 +315,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Да**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 
@@ -380,7 +380,7 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ### Are you affiliated with any cards farming/idling service?
 
-**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
+**Нет**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
 
 > Any use of your Account with your login and/or password is deemed made by you and you are responsible for it and for the security of your computer system
 

@@ -18,7 +18,7 @@ All commands below are affected by `CommandPrefix` **[global configuration prope
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Zrzut ekranu](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
@@ -127,7 +127,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 * * *
 
-## `input` command
+## Polecenie `input`
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -135,7 +135,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Typ                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -146,7 +146,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Przykład
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

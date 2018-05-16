@@ -1,30 +1,30 @@
-# Background games redeemer
+# Produktaktivering i baggrunden
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Produktaktivering i baggrunden er en specialindbygget ASF funktion som tillader dig at importere et givent sæt Steam cd-keys (med deres navne) som aktiveres i baggrunden. Dette er især nyttigt hvis du har mange nøgler der skal indløses og hvor du er sikker på at ramme `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** før du er færdig med hele partiet.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyder at den ikke bruger `RedeemingPreferences`. Denne funktion kan bruges med (eller i stedet for) `reedem` **[kommando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, om nødvendigt.
 
 * * *
 
 ## Import
 
-The import process can be done through two ways - either by using a file, or IPC.
+Importeringsprocessen kan gøres på to måder - enten ved brug af en fil eller via IPC.
 
-### File
+### Fil
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Filen har en forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt af et tabulatortegn og en slutning med en ny linje. Hvis der bruges flere tabulatortegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Terraria    DetteErIgnoreret   DetteErOgsåIgnoreret    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF vil importere en sådan fil enten ved botopstart eller ved en senere kørsel. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** som kan køres af alle IPC værktøjer, inklusiv vores IPC GUI. Brug af IPC kan være bedre, da du kan lave den nødvendige analyse selv, som f.eks. at bruge et brugerdefineret afgræsningstegn i stedet for at være tvunget til at bruge et tabulatortegn.
 
 * * *
 

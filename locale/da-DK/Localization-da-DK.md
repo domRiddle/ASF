@@ -30,6 +30,10 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
+Or:
+
+> {0} is the number of games to idle.
+
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
 
 * * *
@@ -95,7 +99,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For eksempel:
 
     This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
     

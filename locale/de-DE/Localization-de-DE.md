@@ -30,35 +30,39 @@ Aber basierend auf deiner Sprache könnte folgender Satz mehr Sinn machen:
 
 > Die Zahl der verbleibenden Spiele zum Sammeln ist {0}.
 
-Diese Flexibilität biten wir besonders für dich, damit du den ASF-Satz leicht umschreiben kannst um besser zu deiner Sprache zu passen und die Anzahl der von ASF zur Verfügung gestellten Informationen in eine Position zu rücken, die deiner Übersetzung entspricht (anstatt jeden Teil einzeln zu übersetzen). Das Verbessert die allgemeine Übersetzungsqualität.
+Or:
+
+> {0} is the number of games to idle.
+
+The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
 
 * * *
 
 ### Rezensierung
 
-Wenn dein String bereits von jemand anderem übersetzt wurde, kannst du dafür stimmen. Stimmen macht es möglich die beste Variante einer Übersetzung auszusuchen, anstatt an einem ursprünglichen Vorschlag festzuhalten - Das Verbessert die Qualität der Übersetzungen weiter. Du kannst für bereits verfügbare Vorschläge stimmen oder deine eigenen Vorschlag der Übersetzung einbringen, der durch den selben Prozess gehen wird. Schlussendlich wird ein endgültiger Wert gewählt, basierend auf dem Vorschlag mit den meisten Stimmen oder als Wahl eines Korrekturlesers, der für diese Sprache ausgewählt wurde, der die gegebene Übersetzung persönlich genehmigt (unter Anderem basierend auf deinen Stimmen).
+If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
-**Du brauchst keine Genehmigung um deine Übersetzungen in ASF zu sehen**. Genehmigung heißt einfach, dass jemand, dem wir vertrauen, deinen Beitrag angesehen und für gut befunden hat. Es ist in Ordnung keine genehmigten Übersetzungen, die von der Community gemacht wurden zu haben, wo du für die Beste Art stimmst. So lange es übersetzt ist, ist es in Ordnung! Wenn du denkst, dass die aktuelle Übersetzung schlecht ist, kannst du gerne jederzeit für eine bessere stimmen oder selbst eine vorschlagen!
+**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself!
 
 * * *
 
 ### Korrekturlesen
 
-Es ist eine gute Idee eine konsistente Übersetzung zu haben, selbst, wenn es möglicherweise die Freiheiten der oben erklärten Community-Rezensierung oder des Stimmprozesses einschränken könnte. Das ist hauptsächlich weil falsche Übersetzungen, die nicht notwendigerweise schlecht sind, so viele Stimmen bekommen könnten, dass es nicht möglich ist eine bessere Übersetzung vorzuschlagen, selbst, wenn diese jemand hat.
+It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
-Wenn du eine Vergangenheit von Beiträgen auf Crowdin oder jeglicher anderen Übersetzungsplattform hast, die wir verifizieren und vertrauensvoll nennen können, würden wir uns freuen, dir Korrekturleser-Zugriff zu der Sprache zu geben, zu der du beiträgst, damit es dir möglich ist gegebene Übersetzungen zu genehmigen oder konsistenter zu gestalten. Korrekturlesen ist keine einfache Aufgabe, besonders, weil ASF von Zeit zu Zeit sehr "technisch" und schwer zu übersetzen sein kann, aber wir verstehen, dass es für eine perfekte Übersetzung oft nötig ist. Wenn du uns helfen kannst eine Sprache Korrektur zu lesen, bitten wir dich: **[Gib uns Bescheid](https://crowdin.com/messages/create/13177432)**, bedenke aber, dass du deine Anfrage mit vergangenen Beiträgen, die wir verifizieren können (etwa bei ASF oder anderen Projekten auf Crowdin zu helfen), stützen musst. Wir können auch fortgeschrittenen Benutzern das initiale Korrekturlesen erlauben, wenn wir sie persönlich kennen und sie mit dem Rest der Community kooperieren können um ASF in der gegebenen Sprache bestmöglich zu übersetzen.
+If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
 
-Die generellen Regeln gelten auch für das Korrekturlesen - nimm dir Zeit, hör auf die Benutzer, arbeite als Projektmanager, löse Probleme und stell sicher, dass du die Dinge besser machst und nicht schlimmer.
+General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
 
 * * *
 
 ### Probleme
 
-Wenn du ein Problem mit einer bestimmten Übersetzung hast, weil du zum Beispiel nicht weißt, wie sie zu übersetzen ist, eine genehmigte Übersetzung falsch ist, du mehr Kontext benötigst oder Ähnliches, dann Poste bitte einen Kommentar unter dem betroffenen String und markiere ihn mit [X] als ein Problem.
+If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
-**Bitte vermeide das [x] wenn du keine technische Erklärung oder Aktion eines Admins benötigst**. Es steht dir frei Kommentare für Diskussionen zur Übersetzung eines Strings zu verwenden, aber der "Issue-Tag" sollte nur verwendet werden, wenn eine weitergehende technische Erklärung oder Lösung durch einen Admin benötigt wird und wird typischerweise jemanden betreffen, der deine Sprache nicht spricht, weshalb du Problem-Kommentare möglichst auf Englisch schreiben solltest (damit wir verstehen, was das Problem ist).
+**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment (so we can understand what the issue is).
 
-Es gibt 4 Typen von Problemen, die wir befürworten:
+There are currently 4 supported type of issues:
 
 * generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
 * Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest.
@@ -69,21 +73,21 @@ Es gibt 4 Typen von Problemen, die wir befürworten:
 
 ### Übersetzungsfortschritt
 
-Jede Sprache hat zwei Zustände des Fortschritts - Übersetzung und Korrekturlesen.
+Every language has two states of completion - translation, and proof-reading.
 
-Eine Sprache gilt als **übersetzt** wenn ihr Übersetzungsfortschritt 100% erreicht. Zu diesem Zeitpunkt hat jeder übersetzbare String der von ASF verwendet wird eine entsprechende Bedeutung. Allerdings heißt das nicht, dass der kein Raum für Verbesserungen ist - das weitere Stimmen ist durchgehend aktiviert und du kannst immer noch Vorschläge für bessere Übersetzungen einbringen und für existierende Stimmen. Bitte merke, dass bereits fertig übersetzte Sprachen immer noch unter 100% fallen können, wenn wir während der Entwicklung existierende Strings ändern oder neue hinzufügen. Du kannst entsprechende Crowdin-Benachrichtigungen aktivieren, wenn du in einem solchen Fall eine E-Mail erhalten willst.
+Language is considered **translated** when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.
 
-Gewählte Sprachen können entsprechende Korrekturleser haben, die Übersetzungen validieren und endgültige Versionen auswählen. Dies ist der letzte Schritt nach der Übersetzung und erlaubt weitere Verbesserungen.
+Selected languages might have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
 
-ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Strings sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Deshalb kannst du deine Bemühungen direkt in der nächsten Version von ASF sehen, sobald die Übersetzung auf Crowdin ist. Typischerweise fügen wir Übersetzungsupdates in dem Moment hinzu, in dem wir die neue ASF-Version herausgeben werden.
+ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.
 
 * * *
 
 ## Fehlende Sprachen
 
-Standardmäßig hat das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen weltweit zur Verfügung. Wenn du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432)** und wir werden sie möglichst schnell hinzufügen. Wir wollen nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen.
+By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
 
-Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://support.crowdin.com/api/language-codes)**.
+For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
 
 * * *
 

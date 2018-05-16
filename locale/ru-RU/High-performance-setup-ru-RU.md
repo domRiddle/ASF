@@ -8,7 +8,7 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 * * *
 
-## Runtime tuning (advanced)
+## Расширенная настройка среды исполнения
 
 Below tricks **involve serious memory increase** and should be used with caution.
 
