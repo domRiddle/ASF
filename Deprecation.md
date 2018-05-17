@@ -24,7 +24,7 @@ During this stage, ASF will print appropriate warning when deprecated function i
 
 ### Stage 2
 
-Stage 2 is scheduled for the very next stable release after above. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning, since it's simply unaware of what you're attempting to do.
+Stage 2 is scheduled for the very next release, after stage 1 explained above lands in a stable release. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning, since it's simply unaware of what you're attempting to do.
 
 ---
 
