@@ -14,7 +14,7 @@ ASF changes rapidly and always strikes for becoming better. This sadly means tha
 
 ## Deprecation stages
 
-ASF will follow 3 stages of deprecation, making transition much easier and less troublesome.
+ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
 
 ### Stage 1
 
@@ -24,17 +24,13 @@ During this stage, ASF will print appropriate warning when deprecated function i
 
 ### Stage 2
 
-Stage 2 is scheduled for the very next stable version, after above stage takes place. This will change previous deprecation warning into **an error**, that will cause given functionality to stop working. ASF will still acknowledge existance of deprecated feature, but will no longer try to mimic old behaviour or logic. During this stage, transition is **required** in order to make use of now-deprecated feature. Since ASF can't guarantee mimicing old behaviour (like done during stage 1) anymore, this will effectively cause module directly depending on deprecated feature to stop working with an error.
-
-### Stage 3
-
-Stage 3 is final one and like second one, is scheduled for the very next stable release after above. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning or error, since it's simply unaware of what you're attempting to do.
+Stage 2 is scheduled for the very next stable release after above. This stage introduces complete removal of deprecated feature existance, which means that ASF will not even acknowledge that you're attempting to use deprecated feature, since it simply doesn't exist in current code. ASF will no longer print any warning, since it's simply unaware of what you're attempting to do.
 
 ---
 
 ## Summary
 
-You have more or less **full 2 months** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 3), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than 2 months of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs you've missed and manually adapt your usage to current one.
+You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
 
 ---
 
@@ -48,8 +44,4 @@ Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage
 
 ### Stage 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to display an error and exit with non-zero error code when `--server` argument is passed, effectively making program impossible to run.
-
-### Stage 3
-
-Stage 3 is yet to happen and will include complete removal of `--server` argument, making it non-existant.
+Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program.
