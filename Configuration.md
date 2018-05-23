@@ -2,16 +2,16 @@
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Introduction](#introduction)**
+* **[Introduction](#introduction)**
 * **[Web-based ConfigGenerator](#web-based-configgenerator)**
 * **[Manual configuration](#manual-configuration)**
-2. **[Global config](#global-config)**
-3. **[Bot config](#bot-config)**
-4. **[File structure](#file-structure)**
-5. **[JSON mapping](#json-mapping)**
-6. **[Compatibility mapping](#compatibility-mapping)**
-7. **[Configs compatibility](#configs-compatibility)**
-8. **[Auto-reload](#auto-reload)**
+* **[Global config](#global-config)**
+* **[Bot config](#bot-config)**
+* **[File structure](#file-structure)**
+* **[JSON mapping](#json-mapping)**
+* **[Compatibility mapping](#compatibility-mapping)**
+* **[Configs compatibility](#configs-compatibility)**
+* **[Auto-reload](#auto-reload)**
 
 ---
 
