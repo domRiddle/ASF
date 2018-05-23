@@ -17,27 +17,27 @@
 
 ## Введение
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+Конфигурация ASF разделена на две основные части - глобальная конфигурация (для всего процесса), и конфигурация каждого бота. У каждого бота есть собственный файл конфигурации бота с именем `BotName.json` (где `BotName` это имя, которое вы дали боту), а для конфигурации процесса ASF используется один файл с именем `ASF.json`.
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+Бот - это один аккаунт Steam используемый ASF. Для нормальной работы ASF требует чтобы был определён хотя бы **один** бот. Жёсткого ограничения на количество ботов нет, поэтому вы можете использовать столько ботов (аккаунтов Steam) сколько захотите.
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
+ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSON)** для сохранения настроек в файлах конфигурации. Это дружественный к пользователю, читаемый и довольно универсальный формат, в котором вы можете конфигурировать программу. Но не волнуйтесь, вам не обязательно знать JSON чтобы настроить ASF. Я упомянул это просто на случай если вы захотите массово создавать конфигурации ASF каким-нибудь скриптом.
 
-Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchi.github.io/ArchiSteamFarm)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
+Конфигурирование может быть проделано вручную - путём создания соответствующих файлов конфигруации в формате JSON, или с использованием нашего **[сетевого генератора конфигураций](https://justarchi.github.io/ArchiSteamFarm)**, что будет намного легче и удобнее. Если вы не продвинутый пользователь, я рекомендую вам использовать генератор конфигураций, описание которого приведено ниже.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
 ## Сетевой генератор конфигураций
 
-The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+Цель сетевого генератора конфигураций - предоставить вам удобный интерфейс для создания конфигурационных файлов ASF. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
 Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
 
 The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -45,7 +45,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -270,7 +270,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -571,7 +571,7 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -616,7 +616,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -685,7 +685,7 @@ Using `B + C` would result in value of `6`, using `A + C` would result in value 
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -693,7 +693,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -701,7 +701,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
 
 * * *
 
@@ -718,4 +718,4 @@ All of the above is transparent and will be done automatically without a need of
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
 
-**[Back to top](#configuration)**
+**[Вернуться к началу](#configuration)**
