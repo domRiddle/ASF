@@ -6,7 +6,7 @@ This string includes a `0`, zero inside a code block. It should be properly rend
 
 # Escaping bug
 
-The string below is a quote that includes a star symbol escaped.
+The string below is a quote that includes a star symbol, escaped.
 
 > Here is escaped star symbol: \* this text should not be in italic \*
 
