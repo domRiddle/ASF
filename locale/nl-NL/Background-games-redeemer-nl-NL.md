@@ -1,8 +1,8 @@
 # Productactievering op de achtergrond
 
-Productactievering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
+Productactievering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren, waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+Productactievering op de achtergrond is gemaakt dat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
 * * *
 
@@ -30,7 +30,7 @@ In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemI
 
 ## Wachtrij
 
-Zodra games geïmporteerd zijn, zijn ze toegevoegd aan de wachtrij. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Zodra de spellen geïmporteerd zijn, zijn ze toegevoegd aan de wachtrij. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
