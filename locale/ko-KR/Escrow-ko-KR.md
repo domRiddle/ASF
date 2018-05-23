@@ -2,26 +2,26 @@
 
 Recently Valve introduced a system known as "Escrow". You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand Escrow firstly before trying to understand logic behind ASF 2FA. I suggest testing it, reading more about it, whatever you consider appropriate.
 
-Okay, from now on I assume you already know what Escrow is. Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Okay, from now on I assume you already know what Escrow is. Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. 다행히도, ASF는 이러한 문제를 해결할 수 있는, ASF 2단계 인증이라고 불리는 해결책을 내장하고 있습니다.
 
 * * *
 
-# ASF 2FA
+# ASF 2단계 인증(2FA)
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but requires some effort to set up.
+개념은 간단합니다. Steam 클라이언트도 이미 구현했고, 게임 실행과 플레이도 구현했는데, 휴대용 기기를 구현하지 못할게 뭐 있지? ASF의 2단계 인증(2FA)는 당신이 생각하는 바로 그것입니다. 이 모듈은 유효한 휴대기기로 인식되어 2단계 인증 토큰을 생성하고, 거래 멈춤을 생략하고 모든 거래를 자동으로 승인합니다. 듣기에 굉장한 것 같습니다만 설치를 위해서는 약간의 노력이 필요합니다.
 
-To enable ASF 2FA, you need to have:
+ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
+- 정상동작하는 안드로이드용 Steam 인증기
+- 혹은 정상동작하는 iOS용 Steam 이증기
+- 혹은 정상동작하는 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**의 Steam 인증기
+- 혹은 정상동작하는 **[WinAuth](https://winauth.github.io/winauth)**용 Steam 인증기
 
 * * *
 
-## Import
+## 가져오기
 
-From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
+V2.1 버전부터 ASF는 ASF 2단계인증 "솔로" 모드를 사용할 수 없습니다. 즉, Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 
@@ -165,7 +165,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 ## 고급
 
-If you're advanced user, you can also generate maFile manually. It should have a **[valid JSON structure](https://jsonlint.com)** of:
+고급사용자의 경우, 직접 maFile을 수동으로 생성할 수 있습니다. 파일은 **[유효한 JSON 구조](https://jsonlint.com)**를 가져야 합니다:
 
 ```json
 {
@@ -175,6 +175,6 @@ If you're advanced user, you can also generate maFile manually. It should have a
 }
 ```
 
-`device_id` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it. Of course, you need to replace `"STRING"` with valid content in each field.
+`device_id`는 가져오기에서는 선택사항이었지만 ASF 동작을 위해서는 필수사항입니다. 생략하는 경우 가져오기 단계에서 묻는 창이 나옵니다. 물론 `"STRING"`은 각 항목에 맞는 유효한 내용으로 대체하여야 합니다.
 
-Standard authenticator data has more fields - they're entirely ignored by ASF during import, as they're not needed. You also don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and optionally also `device_id`.
+표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목과 선택항목 `device_id`로 구성된 유효한 JSON만을 필요로 합니다.

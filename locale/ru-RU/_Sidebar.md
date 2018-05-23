@@ -12,7 +12,7 @@
 * **[Фоновая активация ключей](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**
 * **[Команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)**
 * **[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**
-* **[Торговля](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-ru-RU)**
+* **[Обмены](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-ru-RU)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing-ru-RU)**
 * **[Статистика](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics-ru-RU)**
 
@@ -21,7 +21,7 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU)**
 * **[Удержание обменов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-ru-RU)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**
-* **[Конфигурация для низкого потребления ресурсов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
+* **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
 * **[Конфигурация для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
 * **[Аргументы командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**
 * **[Журналирование](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ru-RU)**

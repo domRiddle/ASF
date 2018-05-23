@@ -1,132 +1,132 @@
-# Localization
+# 현지화
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 있도록 하는 Crowdin 서비스를 이용하고 있습니다. Crowdin이 어떻게 동작하는지 더 자세한 설명을 원하시면, **[Crowdin 소개](https://support.crowdin.com/crowdin-intro)**를 확인하시기 바랍니다.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+현재 상황이 궁금하다면 **[ASF Crowdin 활동](https://crowdin.com/project/archisteamfarm/activity_stream)**에서 확인할 수 있습니다.
 
 * * *
 
-## Signing up
+## 범위
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
-
-* * *
-
-### Translating
-
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
-
-For example, you could have a string like:
-
-> We have {0} games to idle.
-
-But based on your language, following sentence could make more sense:
-
-> The number of games to idle is equal to {0}.
-
-Or:
-
-> {0} is the number of games to idle.
-
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+우리 플랫폼은 메인 프로그램인 ASF와, 같이 제공하는 현지화 가능한 전체 콘텐츠의 현지화를 지원합니다. 즉, 웹 환경설정 생성기, IPC GUI 및 위키도 현지화에 포함됩니다. 모든 것이 편리한 Crowdin 인터페이스를 통해 번역가능합니다.
 
 * * *
 
-### Reviewing
+## 회원 가입
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
-
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself!
+번역, 번역의 리뷰나 승인하는데 있어 ASF를 돕고 싶으시면 **[Crowdin 프로젝트 페이지](https://crowdin.com/project/archisteamfarm)**에서 회원으로 가입하시기 바랍니다. 회원등록은 쉽고 무료입니다. 로그인 후 할당받고 싶은 언어를 선택하고, ASF의 문자열로 와서 다른 커뮤니티 회원들이 ASF를 모든 유명한 언어로 번역하는 것을 도와주세요!
 
 * * *
 
-### Proof-reading
+### 번역하기
 
-It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
+선택한 언어의 문자열이 누락되어 있다면 번역을 시작하면 됩니다. 우리는 번역의 유연함을 위해 최선을 다하고 있습니다. 많은 문자열은 ASF가 실행되는 동안 제공하는 외부 변수를 포함하고 있으며, `{0}` 과 같이 괄호로 둘러쌓인 숫자로 표시됩니다. 이렇게 함으로써 엄격한 컨텍스트와 형식에 강제되지 않고, ASF가 제공하는 변수를 다른 언어와 번역에 맞게 위치를 옮기는 등 기본 ASF 문자열 형식을 변경할 수 있습니다. 이것은 히브리어 등 오른쪽에서 왼쪽으로 쓰는 언어에서 특히 중요합니다.
 
-If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
+예를 들어, 아래와 같은 문자열이 있습니다.
 
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
+> 농사지을 게임이 {0} 개 있습니다.
 
-* * *
+하지만 당신의 언어로는 다음 문장이 더 말이 될 수도 있습니다.
 
-### Issues
+> 농사지을 게임의 수: {0}
 
-If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
+또는,
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment (so we can understand what the issue is).
+> {0} 은 농사지을 게임의 갯수입니다.
 
-There are currently 4 supported type of issues:
-
-* General question - for everything else that doesn't fit any issue below. In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
-* Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.
-* Lack of contextual information - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
-* Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved.
+이 유연성은 당신을 위해 특별히 제공되므로, 각 부분을 잘라서 번역하는 대신 ASF 문장을 당신의 언어에 더 알맞게 약간 말을 바꾸고 ASF에서 제공하는 숫자나 다른 정보를 당신이 한 번역에 맞는 장소로 옮길 수 있습니다. 이렇게 해서 전체적인 번역 품질이 개선됩니다.
 
 * * *
 
-### Translation progress
+### 리뷰하기
 
-Every language has two states of completion - translation, and proof-reading.
+다른 사람이 이미 번역한 문자열을 선택했다면 투표를 할 수 있습니다. 투표를 통해 제일 처음 제안된 내용에 붙잡혀있지 않고 다양한 번역중 제일 좋은 것을 선택할 수 있습니다. 이렇게 해서 전체적인 번역의 품질이 훨씬 더 개선됩니다. 기 번역된 제안에 투표할 수도 있고, 동일한 절차를 따라 새로 번역을 하여 제안할 수도 있습니다. 결국 최종적인 문자열은 가장 많은 투표를 받은 제안이나 혹은 해당 언어에 대해 개인적으로 번역 승인을 받은 교정자의 선택으로 결정됩니다. (이경우에도 투표에 기초합니다)
 
-Language is considered **translated** when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.
-
-Selected languages might have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
-
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarily). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.
+**ASF에서 당신이 번역한 문자열을 보는데는 승인이 필요하지 않습니다.** 승인은 누군가 믿을만한 사람이 번역의 최종버전을 선택하듯이 단지 내용을 리뷰했다는 뜻입니다. 승인되지 않은, 커뮤니티에서 만든 번역이어도 최고라고 투표한다면 아무 문제 없습니다. 번역이 되어있기만 하면 모든게 문제 없습니다! 그리고 현재의 번역이 안좋다고 생각한다면 더 나은 번역에 투표하던지 직접 번역하여 제안할 수 있습니다!
 
 * * *
 
-## Missing languages
+### 교정하기
 
-By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
+위에서 설명한 커뮤니티의 리뷰/투표 절차의 자유를 잠재적으로 없앤다하더라도, 일관되게 번역하는 것은 좋은 생각입니다. 이것은, 그렇게 나쁘지는 않은 부정확한 번역이 많은 반대투표를 받고, 더 나은 번역을 더이상 제안할 수 없는 경우가 있기 때문입니다.
 
-For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
+Crowdin 혹은 우리가 신뢰하고 확인가능한 다른 현지화 플랫폼/서비스에서 기여한 내역이 있다면, 기여하고 계신 해당 언어의 교정접근권한을 드리고자합니다. 이를 통해 번역내용을 승인하고 일관되게 관리할 수 있습니다. 교정은 쉬운 작업이 아닙니다. 특히 ASF는 때때로 매우 "기술적"일 수 있으며 번역하기 매우 어려울 수 이있습니다. 하지만 완벽한 번역을 위해서 교정은 필요합니다. 따라서 해당 언어로 교정을 도와주실 수 있다면 **[우리에게 알려주십시오](https://crowdin.com/messages/create/13177432)**. 하지만 Crowdin의 ASF 현지화나 다른 프로젝트 등 검증할 수 있는 당신의 현지화 기여내역을 같이 보내주셔야 한다는 것을 명심하십시오. 우리가 개인적으로 알고 있으며 ASF를 해당언어로 가장 잘 현지화하기 위해 커뮤니티의 다른 사용자들과 협업할 수 있는 더 많은 고급사용자들에게 초벌 교정을 선택권한을 줄 수 있습니다.
+
+일반 규칙은 교정에도 적용됩니다. 서두르지 말고, 이용자들의 의견을 듣고, 프로젝트 매니저로써 작업하고, 이슈를 해결하고, 상황을 나쁘게 만들지 말고 개선하여야 합니다.
+
+* * *
+
+### 이슈
+
+어떻게 번역할지 모르거나, 승인된 번역이 틀렸거나, 더욱 정확한 문맥이 필요하는 등 특정 번역에 문제가 있는 경우, [X] 이슈로 표시하여 해당 문자열에 댓글로 달아주시기 바랍니다.
+
+**기술적/개발 설명이나 관리자 작업이 필요하지 않은 경우 이슈마크를 사용하지 마십시오.** 해당 문자열에 대한 토론을 위해 댓글을 자유롭게 이용할 수 있습니다. 하지만 이슈는 기술적 설명이나 관리자의 수정이 필요할 때에만 사용하여야 합니다. 또한 이는 당신이 번역중인 언어를 구사할 수 없는 누군가의 개입이 필연적이므로, 이슈 댓글 작성시 영어로 해주시기 바랍니다. 그래야 우리가 이슈가 무엇인지를 이해할 수 있습니다.
+
+현재 4가지 종류의 이슈를 지원합니다:
+
+* 일반 질문 - 아래 이슈에 해당하지 않는 모든 경우를 말합니다. 일반적으로 이 종류는 **피해주시기 바랍니다**. 만약 문제가 아래 종류에 해당사항이 없다면 번역 이슈가 **아닐 가능성이 높습니다**. 모든 경우의 수를 대비해서 만들어 둔 상태입니다.
+* 현재 번역이 잘못됨 - 이미 교정자에 의해 승인된 번역이지만 오타가 있거나 번역을 개선할 유효한 제안이 있는 경우 등 **틀렸다고** 판단될때에만 사용하시기 바랍니다. 또한, 커뮤니티나 투표로 정해진 번역에는 절대 사용하지 마십시오. 이 경우 해당 번역자와 연락하여 수정을 요청하거나, 혹은 리뷰하기 항목에서 설명한 것 처럼 더 나은 번역에 투표하십시오.
+* 문맥 정보 부족 - 현재 번역중인 내용이 ASF의 어느 부분인지, 해당 문자열의 문맥 혹은 의도가 무엇인지 확실하지 않을때 사용하시기 바랍니다. 이 종류는 ASF 개발쪽에서만 사용하여야 합니다. 즉 해당 문자열을 어떻게 번역할지 확실치 않아서 기술적 지원이 필요하다는 뜻입니다.
+* 원본 문자열 오류 - 영어 원본 문자열이 틀렸다고 생각하는 경우에만 사용하십시오. 상당히 드문 경우이긴 합니다만, 개발자 본인도 영어 원어민이 아니므로 원본을 어떻게 개선할지 아이디어가 있다면 자유롭게 이용하시기 바랍니다.
+
+* * *
+
+### 번역 진행도
+
+모든 언어는 번역과 교정, 두 개의 완료단계가 있습니다.
+
+번역 진행도가 100%에 도달하면 해당 언어로 **번역되었다**고 판단됩니다. 이 시점에서 ASF에서 사용된 모든 현지화 가능한 문자열은 아주 적절한 의미를 갖게됩니다. 그러나, 개선의 여지가 없다는 뜻은 아닙니다. 커뮤니티의 투표는 항상 가능하고, 당신은 기 번역된 부분에 대해 투표하거나 더 나은 번역을 제안할 수 있습니다. 개발과정에서 기존의 문자열을 변경하거나 새롭게 추가하게되면 완전히 번역된 언어도 100% 아래로 떨어질 수 있다는 점을 양지하시기 바랍니다. 이런 일이 일어났을때 전자우편을 받고 싶다면 적절한 Crowdin 알림을 설정할 수 있있습니다.
+
+선택된 언어에는 적절한 교정자가 있을 수 있으며, 이들은 번역을 검증하고 최종 버전을 승인합니다. 이는 번역이 이루어진 후 최종 단계이며, 현지화를 더욱 개선할 수 있게 해줍니다.
+
+ASF는 해당 언어를 **가능한 한 빨리** 추가할 것입니다. 즉, 승인을 받거나 심지어 100% 번역되지 않아도 된다는 뜻입니다. 드문 일이지만 선택된 교정자가 다르게 결정하지 않는한, 항상 투표에서 가장 인기있는 문자열이 실제 문자열로 사용될 것입니다. 따라서, 번역이 Crowdin에 제출되자마자 당신의 노력이 바로 다음번 ASF 릴리즈에 포함된 것을 볼 수 있을것입니다. 현지화 업데이트는 ASF의 새버전을 릴리즈 하려는 그 순간에 합쳐집니다.
+
+* * *
+
+## 언어가 없는 경우
+
+ASF 프로젝트는 세계적으로 사용되는 상위 30개의 언어에 대해서만 번역이 가능합니다. 만약 다른 언어, 혹은 이미 있는 언어의 지역 방언을 추가하고 싶다면 **[우리에게 알려주시기 바랍니다](https://crowdin.com/messages/create/13177432)**. 가능한 한 빨리 추가하겠습니다. 아무도 번역하는 사람이 없는 몇백개의 서로 다른 언어를 번역가능 상태로만 두고 싶지 않기 때문에 일정 숫자로 제한하였습니다. 목록에 없는 언어로 번역하고 싶다면 바로 알려주십시오. 사실 언어를 추가하는 것은 매우 쉽습니다.
+
+ASF 프로젝트의 번역 가능한 전체 언어 목록은 **[여기를 참고하십시오](https://support.crowdin.com/api/language-codes)**.
 
 * * *
 
 ## 위키
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
+Crowdin 플랫폼에서는 심지어 위키 자체를 현지화 할 수 있습니다. Crowdin은 매우 강력한 도구로, 전체 ASF 설명서를 당신의 언어로 만들수 있으며 ASF 현지화의 가장 최근 이슈를 효과적으로 해결하였습니다. ASF 프로그램과 각 부분의 번역을 통해 완전히 현지화됩니다.
 
-Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
+위키는 원래 문장에 너무 얽매일 필요가 없는 온라인 도움말이므로 이점에서 약간 특별합니다. 즉, 원본 문자열과 사용된 단어, 실제 문장부호에 집착할 필요 없이 가능한한 자연스러운 언어로 원래의 뜻과 도움말을 전달하기 원한다는 것입니다. 문장에 포함된 전체적 방향성과 도움말을 유지하고 있다면, 문자열을 훨씬 더 자연스러운 당신의 언어로 새로 쓰는 것을 두려워하지 마십시오.
 
-### Code blocks
+### 코드 블록
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+`<code></code>` 블록안에 있는 문장을 번역할 때는 매우 조심하십시오. 코드 블록은 번역하면 안되는 ASF의 고정된 코드 이름이나 용어를 가리킵니다. 예를 들면 다음과 같습니다:
 
-    This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
+    이는 특히 등록할 키가 많고 전체를 다 등록하기 전에 <code>RateLimited</code>에 도달할 것이 확실한 경우에 유용합니다.
     
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status - this should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+보다시피 위의 `RateLimited` 단어는 코드 블록 안에 있으며 ASF 내부 코드 상태를 가리키므로 번역되어서는 안됩니다. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
 
 * * *
 
-### Global links
+### 외부 링크
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+Crowdin 플랫폼에서는 원본 텍스트를 지역화된 새로운 위치를 가리키도록 변경할 수 있습니다.
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+ASF는 오른쪽에 있는 사이드바 뿐만아니라 거의 모든 페이지에 대한 링크를 포함하고 있어 쉽게 이동할 수 있습니다. 놀라운 사실은 단지 이 모든 것을 변경만 할 수 있는 것이 아니라, 당신의 언어로 현지화된 정확한 페이지를 가리킬 수 있도록 링크도 "수정"할 수 있다는 것입니다. 실제 하는데는 조금 조심스러워야 하지만 가능한 일입니다.
 
-For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** includes a text such as:
+예를 들어, ASF **[홈 페이지](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ko-KR)**에는 다음과 같은 문구가 있습니다:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+> 처음 오셨다면 **[설치하기](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-ko-KR)** 가이드부터 시작하는 것을 추천합니다.
 
-Which is originally written as:
+원본은 다음과 같습니다:
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+처음 오셨다면 **[설치하기](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** 가이드부터 시작하는 것을 추천합니다.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Show"로 되어있는지를 확인하는 것입니다. 이것은 위키를 현지화하기로 했다면 매우 중요합니다.
 
 * * *
 
@@ -134,12 +134,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+이제 Crowdin에서 형식에 맞추어 번역을 하는 동안 다음과 같이 텍스트에 포함된 ASF 링크를 보게될 것입니다:
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* HTML 태그와 번역할 문자자열이 함께 있는 경우(대부분의 문자열에 해당하며, 문장의 일부분이 링크)
+* 문자열 자체는 따로 있고 링크는 `Hidden texts` -> `Link addresses`에 포함된 경우(드물지만 전체 문자열이 링크임. 특히 사이드바)
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+위의의 예제는 첫번째 경우입니다. "설치하기"만 링크이므로 Crowdin에서는 다음과 같이 표시됩니다:
 
 * * *
 
@@ -147,7 +147,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you click ALT+C (or copy source button) and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+어떤 경우건 상관없이 먼저 ALT+C 또는 copy source 버튼을 누르고 평소처럼 번역을 하고, HTML이 있다면 전체 HTML을 그대로 둡니다. 다음은 폴란드어의 번역 예제입니다:
 
 * * *
 
@@ -155,9 +155,9 @@ Regardless of case, firstly you click ALT+C (or copy source button) and translat
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+링크가 최신 ASF 릴리즈 등 위키 외부로 나가는 범용 링크라면 수정할 필요가 없으므로 그대로 둡니다. 저장을 누르면 다음으로 넘어갑니다.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+만약 링크가 위의 예시처럼 **위키 내부를 가리킨다면**, 실제로 지역화된 새로운 위치를 가리키도록 수정할 수 있습니다. 아래와 같이 `<a>` 태그 안에 있는 대상 URL의 끝에 `-locale`을 추가하면 됩니다:
 
 * * *
 
@@ -165,19 +165,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+매우 조심하시기 바랍니다. 그리고 URL이 실제로 존재하는지 확인하여야 합니다. 만약 실수하면 그 링크는 동작하지 않을 것입니다. 성공했다면, 이제 번역된 페이지를 가리키는 링크를 가진 완전히 작동하는 번역이 되었습니다. 이 경우에는 `Setting-up-pl-PL` 페이지입니다.
 
-Doing the steps above will properly translate our HTML back to markdown:
+이렇게 하고나면 HTML이 다시 마크다운으로 적절하게 번역됩니다:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+위키에는 다음과 같이 보입니다:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+두번째 경우와 같이 HTML이 없으면 훨씬 쉽습니다. `Hidden texts` -> `Link addresses`로 갑니다.
 
 * * *
 
@@ -185,7 +185,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+여기에서 HTML 태그 없이 링크를 새로운 위치를 가리키도록 수정합니다.
 
 * * *
 
@@ -193,13 +193,13 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### 내부 링크
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+위키에서 문서의 특정 항목을 가리키는 내부 링크를 찾을 수 있습니다. 이 링크는 `#` 문자로 시작합니다.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+이것은 특별한 경우로, 이 링크들은 현재 문서 중 해당 항목의 이름을 기반으로 합니다. URL에 `-locale`을 추가하는 일반적 관례를 가진 URL들은 어디에서나 동작하지만, 해당 항목의 이름은 당신과 다른 사람들이 번역을 하므로 링크가 정확한 위치를 가리키도록 할 필요가 있습니다.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+예를 들어 **[설정](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ko-KR#소개)** 페이지에는 `#introduction` 링크가 있습니다:
 
 * * *
 
@@ -207,7 +207,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+우리는 "introduction"이라는 단어를 폴란드어 "Wprowadzenie"로 번역할 것이므로, 단어가 변경되면 링크가 작동을 멈추지 않도록 수정할 필요가 있습니다.
 
 * * *
 
@@ -215,8 +215,8 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+이렇게 함으로써 내부 링크는 정상 작동하여 우리가 사용하는 항목의 이름을 가리킬 것입니다. HTML 태그 안에 있는 링크도 정확하게 동일한 방법으로 수정할 수 있습니다.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+ASF를 전세계에서 사용되는 모든 언어로 번역하는데 도와주셔서 감사합니다!

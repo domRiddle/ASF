@@ -12,7 +12,7 @@
 
 ### 檔案
 
-在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由表格鍵分隔並以換行作為結束。 If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. 範例：
+在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由 Tab 鍵分隔並以換行作為結束。 若有多個 Tab 已被使用，則第一項應考慮遊戲的名稱，最後一項是序號，中間的所有內容都被忽略。 範例：
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB

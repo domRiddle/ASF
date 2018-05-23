@@ -4,7 +4,7 @@
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[よくある質問](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 
@@ -13,7 +13,7 @@
 * **[コマンド](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[パフォーマンス](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[取引](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Steam ファミリーシェアリング](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 ## 高度

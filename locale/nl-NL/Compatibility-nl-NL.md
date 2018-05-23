@@ -1,4 +1,4 @@
-# Compatibility
+# Compatibiliteit
 
 ASF is a C# application that is running on .NET Core platform. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it. This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and OS X. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions.
 
@@ -55,7 +55,7 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 * * *
 
-## Issues and solutions
+## Problemen en oplossingen
 
 ### Debian Jessie upgrade
 

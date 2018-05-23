@@ -1,21 +1,21 @@
-# Steam Family Sharing
+# Steam 가족 공유
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF 2.1.5.5 버전부터 Steam 가족 공유를 지원합니다. ASF가 어떻게 동작하는지 이해하려면 Steam 상점에 있는 **[Steam 가족 공유의 작동방법](https://store.steampowered.com/promotion/familysharing)**을 먼저 읽어야 합니다.
 
 * * *
 
 ## ASF
 
-Support for Steam Family Sharing feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it works out of the box as an extra built-in functionality.
+ASF의 Steam 가족 공유 기능 지원은 투명합니다. 즉, 어떠한 새로운 bot/프로세스 설정 항목이 없으며 추가적인 붙박이 기능으로서 ASF의 외부에서 작동합니다.
 
-ASF includes appropriate logic in order to be aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
+ASF는 가족 공유 이용자가 라이브러리를 사용하고 있는지 판단하기 위한 적절한 로직을 포함하고 있으며, 게임 실행시 플레이 중인 세션에서 "쫓아내지" 않을 것입니다. ASF는 주 계정이 플레이중인것처럼 정확히 똑같이 동작하므로, Steam 클라이언트가 플레이중이거나 가족 공유 이용자가 플레이중이라면 ASF는 농사를 시도하지 않고 플레이가 끝날때까지 기다립니다.
 
-In addition to above, after logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
+추가적으로, ASF는 로그인 후에 **[게임 공유 설정](https://store.steampowered.com/account/managedevices)**에 접근하여 라이브러리를 이용하도록 허락된 최대 5개의 `steamIDs`를 추출합니다. 이 이용자들은 `FamilySharing` 권한을 받아 **[명령어](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ko-KR)**를 이용할 수 있으며, 공유가능한 게임을 실행하기 위하여 게임을 공유하는 봇 계정에 `pause~` 명령으로 자동 카드 농사 모듈을 일시 정지할 수 있습니다.
 
-Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
+위에서 설명한 두 기능을 연결하면, 당신의 친구들이 당신의 카드 농사를 `일시 정지`하고, 게임을 시작하고, 원하는 만큼 플레이하고, 친구가 게임이 끝내면 ASF가 자동으로 카드 농사를 재개하도록 합니다. 물론 ASF가 농사중이 아니라면 `pause~`의 사용은 필요하지 않습니다. 당신의 친구들은 게임을 즉시 실행할 수 있고 위에서 설명한 로직은 그들을 쫓아내지 않을 것입니다.
 
 * * *
 
-## Limitations
+## 한계
 
-Steam network loves to mislead ASF by broadcasting false status updates, which might lead to ASF believing it's fine to resume process, and in result kick your friend too soon. In order to fight with that issue, it's recommended for you to have your friend on your Steam friendlist - this way ASF in addition to steam network events, can check Steam status of your friend, and guess from playing status if he's indeed done playing yet, or not. This is not mandatory, but because Steam sometimes talks trash, it's recommended, especially if you notice such issues.
+Steam 네트워크는 잘못된 상태 업데이트를 보내서 ASF가 오해하는 것을 좋아합니다. ASF는 농사를 재개해도 좋다고 믿을 것이고, 그 결과 당신의 친구를 너무 빨리 쫓아낼 것입니다. 이런 이슈를 해결하기 위해 당신의 친구를 Steam 친구 리스트에 추가하기를 권장합니다. 이렇게 하여 ASF는 Steam 네트워크 활동과 함께 당신의 친구의 Steam 상태를 확인하여 그가 플레이를 끝냈는지 아닌지 상황을 추측합니다. 이것은 필수사항은 아닙니다. 하지만 Steam이 가끔 오작동는 경우가 있기때문에 이러한 이슈를 경험했다면 특히 추천합니다.

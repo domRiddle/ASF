@@ -6,7 +6,7 @@
 * **[Cấu hình](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[CÂU HỎI THƯỜNG GẶP](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Cơ bản
 
 * **[Khả năng tương thích](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**

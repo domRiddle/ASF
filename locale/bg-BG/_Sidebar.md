@@ -1,20 +1,20 @@
 # **[Начало](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## Начални стъпки
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Настройване на](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
+* **[Настройка](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[Често Задавани Въпроси](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Основни
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Съвместимост](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Команди](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Представяне](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-* **[Търговия](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Производителност](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Търговия / Размени](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+* **[Steam Семейно споделяне](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Статистики](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 ## Разширени настройки
 

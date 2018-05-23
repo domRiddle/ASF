@@ -1,20 +1,20 @@
-# Setting up
+# Aloittaminen
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates. If you're looking for a Steam idler that won't require reading comprehension, then use **[Idle Master](https://www.steamidlemaster.com)** instead, since we're not going to do your wiki homework for you.
+Jos olet täällä ensimmäistä kertaa, Tervetuloa! Olemme iloisia nähdessämme taas uuden matkailijan joka on kiinnostunut projektistamme, mutta muista että suurella voimalla on suuri vastuu. ASF voi tehdä monia Steamiin liittyviä asioita, mutta vain jos sinä **jaksat opetella käyttämään niitä.**. Joudut oppimaan paljon, käytä wikiä hyväksesi, siellä kerrotaan kuinka kaikki toimii yksityiskohtaisesti. If you're looking for a Steam idler that doesn't require reading comprehension, then use **[Idle Master](https://www.steamidlemaster.com)** instead, since we're not going to do your wiki homework for you.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Jos olet vielä täällä, se tarkoittaa että olet (toivottavasti) lukenut yllä olevan tekstin, hienoa. Paitsi jos skippasit sen, sitten sinulle tulee olemaan **[pahoja asioita](https://www.youtube.com/watch?v=WJgt6m6njVw)** edessäsi... Joka tapauksessa ASF on konsoli sovellus, joka tarkoittaa että tällä ohjelmalla ei ole ystävällistä GUI:ta jota olet tottunut käyttämään. ASF on tarkoitettu palvelimille, jotta se toimisi palveluna (daemon) eikä työpöytä sovelluksena.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
+Tämä ei silti tarkoita ettei sitä voisi käyttää kotikoneellasi tai että se olisi monimutkaisempaa. ASF on itsenäinen ohjelma ja se ei tarvitse asennusta toimiakseen, mutta tarvitsee configurointia jotta se toimisi. Konfiguraatio kertoo ASF:lle mitä se tekee kun se käynnistetään. Jos käynnistät sen ilman konfiguraatiota, ei ASF tietekään aio tehdä mitään.
 
 * * *
 
-## Quick video setup
+## Nopea videoohje
 
 If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
 
 * * *
 
-## OS-specific setup
+## Käyttöjärjestelmättäinen käyttöönotto
 
 In general, here is what we'll do in the next few minutes:
 
@@ -66,7 +66,7 @@ At least a few of those should be already natively available on your system (suc
 
 * * *
 
-### Downloading
+### Lataaminen
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
@@ -108,7 +108,7 @@ Linux/OS X users are advised to do the same, you can use excellent symbolic link
 
 * * *
 
-### Configuration
+### Konfigurointi
 
 We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 
@@ -157,7 +157,7 @@ Congratulations! You've just finished the very basic ASF bot configuration. We'l
 
 * * *
 
-### Running ASF
+### ASF:n käynnistys
 
 You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
 
@@ -179,9 +179,9 @@ This concludes our very basic setting up guide. You can now decide whether you w
 
 * * *
 
-### Extended configuration
+### Laajennettu konfiguraatio
 
-#### Idling several accounts at once
+#### Monen käyttäjän samanaikainen idlaus
 
 ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
 
@@ -190,7 +190,7 @@ ASF supports idling more than one account at a time, which is its primary functi
 
 In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
 
-#### Changing settings
+#### Asetusten muutto
 
 You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
@@ -212,13 +212,13 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 * * *
 
-### Summary
+### Yhteenveto
 
-You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've even customized it slightly to your liking already. Now is a good time to read entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
-## Generic setup
+## Yleiset asetukset
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
@@ -241,4 +241,4 @@ With extra steps:
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

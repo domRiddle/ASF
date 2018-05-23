@@ -16,20 +16,20 @@
 
 Trước khi cố gắng hiểu ASF là cái gì, bạn nên chắc chắn rằng bạn hiểu thẻ Steam là gì, và làm thế nào để có chúng, nó được mô tả kĩ càng trong FAQ chính thức **[ở đây](https://steamcommunity.com/tradingcards/faq)**.
 
-Tóm tắt, thẻ Steam là vật dụng thu thập mà bạn đủ điều kiện khi sở hữu một trò chơi nhất định, và có thể sử dụng chúng để tạo huy hiệu, bán trên chợ Steam hoặc cho bất kỳ mục đích khác mà bạn muốn.
+Tóm tắt, thẻ Steam là vật dụng thu thập khi có đủ điều kiện mà bạn sở hữu một trò chơi nhất định, và có thể sử dụng chúng để tạo huy hiệu, bán trên chợ Steam hoặc cho bất kỳ mục đích khác mà bạn muốn.
 
 Những điểm cốt lỗi một lần nữa sẽ được nêu ở đây, vì chúng ta không muốn đồng ý với chúng:
 
-- **Đúng, bạn cần sở hữu trò chơi để có điều kiện cho thẻ bất kỳ nào rơi từ nó. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **Đúng, bạn cần sở hữu trò chơi để có điều kiện cho thẻ bất kỳ nào rớt từ nó. Chế độ Family sharing sẽ không tính.**
+- **Không, bạn không thể farm trò chơi vô tận, mỗi trò chơi có một số lượng thẻ rơi nhất định. Một khi các thẻ rơi hết trong trò chơi ấy, nó không còn là đối tượng để farm nữa.**
+- **Không, các trò chơi miễn phí sẽ không rớt thẻ trừ khi bạn bỏ tiền vào chúng. Điều này bao gồm các trò chơi miễn phí mãi mãi như Team Fortress 2 hay Dota 2.**
+- **Không, các thẻ sẽ không rớt trên tài khoản bị hạn chế (những tài khoản chưa bao giờ bỏ 5$ trên chợ steam), bất kể bạn có hữu trò chơi. Việc này có khả thi trong quá khứ, nó không còn nữa.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Như bạn thấy, thẻ Steam được thưởng cho bạn khi bạn chơi trò chơi mà bạn mua, hoặc bỏ tiền vào trò chơi miễn phí. Nói một cách khác, nếu bạn chơi trò chơi đủ lâu, tất cả các thẻ cho trò chơi đó sẽ rớt vào túi vật dụng của bạn, để bạn có thể hoàn thành huy hiệu, bán chúng, hoặc làm bất kỳ điều gì bạn muốn.
 
-ASF as a program is quite complex to understand fully, so I'll skip technical details that should be available in **[documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**, and offer a very simplified explanation.
+ASF là chương trình tương đối phức tạp để hiểu hoàn toàn, vì thế tôi sẽ bỏ qua những thông tin kĩ thuật có trong **[mục tài liệu](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**, và giải thích một cách dễ hiểu hơn.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF đăng nhập vào tài khoản Steam của bạn thông qua Steam Client được tạo bên trong chương trình bằng cách sử dụng thông tin mà bạn cung cấp. Sau khi đã đăng nhập thành công, nó phân tích của **[huy hiệu](https://steamcommunity.com/my/badges)** của bạn để tìm các trò chơi có sẵn cho farm (Bạn có thể nhận thêm được X thẻ từ chơi trò chơi này). Sau khi phân tích tất cả các trang và xây dựng danh sách cuối cùng của các trò chơi có sẵn, ASF chọn thuật toán farm hiệu quả nhất và bắt đầu quá trình. Quá trình này phụ thuộc vào lựa chọn **[thuật toán farm thẻ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**, nhưng thường nó bao gồm chơi trò chơi đủ điều kiện và kiếm tra theo định kỳ (cộng với mỗi vật phẩm rớt) nếu trò chơi đã farm đủ - nếu đủ, ASF có thể tiếp tục với các trò chơi tiếp theo, sử dụng cùng một phương pháp, cho đến khi tất cả các trò chơi đã farm hoàn tất.
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** and **[documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
@@ -41,7 +41,7 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 * * *
 
-### Do I have to put my account credentials?
+### Tôi có cần phải nhập thông tin tài khoản?
 
 **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
@@ -49,25 +49,25 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### Tôi phải chờ bao lâu để các thẻ rớt?
 
 **As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF.
 
 * * *
 
-### Farming takes too long, can I somehow speed it up?
+### Farm quá lâu, làm thế nào để tăng tốc nó?
 
 The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
 * * *
 
-### But ASF said that farming will take about X time!
+### Nhưng ASF nói farm sẽ tốn khoảng X thời gian!
 
 ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
 
 * * *
 
-### Can ASF work on my android/smartphone?
+### ASF có thể hoạt động trên điện thoại không?
 
 ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
@@ -75,13 +75,13 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 * * *
 
-### Can ASF idle items from Steam games, such as CS:GO or Unturned?
+### ASF có thể farm các vật phẩm từ các trò chơi trên Steam, như CS:GO hay Unturned không?
 
 **No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems.
 
 * * *
 
-### Can I choose which games should be idled?
+### Tôi có thể chọn trò chơi nào để farm không?
 
 **Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrder` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
@@ -89,7 +89,7 @@ In addition to managing automatic cards farming module which was described above
 
 * * *
 
-### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
+### Tôi là người dùng Linux/ Hệ điều hành X, liệu ASF có farm trò chơi không có trên hệ điều hành của tôi không? Liệu ASF có farm các trò chơi 64-bit khi tôi chạy hệ điều hành 32-bit không?
 
 Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we didn't test this.
 
@@ -99,7 +99,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF có tương tự Idle Master?
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -107,7 +107,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 * * *
 
-### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
+### Có đáng để dùng ASF, khi mà tôi đang sử dụng Idle Master và nó hoạt động tốt?
 
 **Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
@@ -123,7 +123,7 @@ In addition to that, IM is officially discontinued and might break completely in
 
 * * *
 
-### What interesting features ASF offers that Idle Master does not?
+### Những tính năng hấp dẫn nào ASF có mà Idle Master không?
 
 It depends what you consider "interesting" for you. If you plan to idle more accounts than one then the answer is already obvious since ASF allows you to idle all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
 
@@ -147,7 +147,7 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchi/
 
 * * *
 
-### Is ASF faster than Idle Master?
+### ASF có nhanh hơn Idle Master?
 
 **Yes**, although the explanation is rather complicated.
 
@@ -157,7 +157,7 @@ ASF is not based on steam client, it has its own steam client implementation. Th
 
 * * *
 
-### But is the difference really noticable?
+### Nhưng sự khác biệt có thể nhận biết được không?
 
 No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticable difference that would make ASF superior.
 
@@ -165,25 +165,25 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can ASF idle multiple games at once?
+### ASF có thể farm nhiều trò chơi cùng một lúc không?
 
 **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
 
 * * *
 
-### Can ASF skip through games fast?
+### ASF có thể bỏ qua trò chơi nhanh chóng không?
 
 **No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
 
 * * *
 
-### Can ASF automatically idle each game for X hours before cards are added?
+### ASF có thể tự động farm từng trò chơi X giờ trước khi thẻ được thêm vào không?
 
 **No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen.
 
 * * *
 
-### Can I play a game while ASF is farming?
+### Tôi có thể chơi trò chơi khi ASF đang farm không?
 
 **No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
@@ -195,13 +195,13 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-### Can I get VAC ban for using this?
+### Tôi có thể bị VAC ban khi sử dụng không?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
 * * *
 
-### Can using ASF prevent me from playing on VAC-secured servers, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
+### ASF có thể ngăn tôi không chơi trên các máy chủ được bảo mật VAC, như được nêu **[ở đây](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)** không?
 
 ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
 
@@ -211,7 +211,7 @@ However, keep in mind that Valve might still add ASF to the blacklist at some po
 
 * * *
 
-### Is it safe?
+### Nó có an toàn không?
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. Code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code.
 
@@ -219,7 +219,7 @@ If you for whatever reason don't trust our builds, you can always compile and us
 
 * * *
 
-### Can I get banned for this?
+### Tôi có thể bị ban không?
 
 In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
@@ -251,7 +251,7 @@ Please note that above is only our interpretation of Steam ToS and various point
 
 * * *
 
-### Did somebody get banned for it?
+### Có ai bị ban chưa?
 
 **Yes**, we had two incidents so far that resulted in Steam suspension.
 
@@ -273,7 +273,7 @@ ASF is just a tool and it's **your** decision how you're going to make use of it
 
 * * *
 
-### What privacy information ASF discloses?
+### Những thông tin bảo mật nào mà ASF được phép tiếp cận?
 
 You can find detailed explanation in **[statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
 
@@ -517,7 +517,7 @@ ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials
 
 You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask GabeN for solution, because I can't force Steam network to accept our login keys.
 
-Of course you can also turn off login keys with `UseLoginKeys` config property set to `false`, but you should do that only if ASF has fully automated way to make initial login. Right now this is possible only with valid `SteamPassword` and **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, since in this case we don't need to rely on login keys at all, as we have required login credentials (password and 2FA key) available on each login.
+As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but you should do that only if ASF has fully automated way to make initial login. Right now this is possible only with valid `SteamPassword` and **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**, since in this case we don't need to rely on login keys at all, as we have required login credentials (password and 2FA key) available on each login.
 
 * * *
 

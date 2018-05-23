@@ -2,7 +2,7 @@
 
 ## Mise en route
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Mise en place](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(commencez ici)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
@@ -13,8 +13,8 @@
 * **[Commandes](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Échange](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Partage Familial Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Statistiques](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 ## Avancé
 

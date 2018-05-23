@@ -14,7 +14,7 @@ All commands below are affected by `CommandPrefix` **[global configuration prope
 
 * * *
 
-### Steam private chat
+### Steam privéchat
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
@@ -22,7 +22,7 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 * * *
 
-### Steam group chat
+### Steam groepsgesprek
 
 Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
 
@@ -40,7 +40,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 * * *
 
-### Notes
+### Notities
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -89,16 +89,16 @@ When using **IPC**, keep in mind that:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Naam                  | Description                                                           |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Waarde | Naam                  | Beschrijving                                                          |
+| ------ | --------------------- | --------------------------------------------------------------------- |
+| FD     | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF     | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG   | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD     | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF     | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI     | SkipInitial           | Skips key redemption on initial bot                                   |
+| SKMG   | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V      | Validate              | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -110,7 +110,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Description                                                   |
+| Waarde     | Alias | Beschrijving                                                  |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
@@ -135,7 +135,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Beschrijving                                                               |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -146,7 +146,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Voorbeeld
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

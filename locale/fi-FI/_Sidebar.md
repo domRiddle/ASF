@@ -1,16 +1,16 @@
 # **[Aloitus](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**
 
-## Getting started
+## Näin pääset alkuun
 
-* **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Aloittaminen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(aloita täältä)**
+* **[Konfigurointi](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[UKK](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+* **[Komennot](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Tehokkuus](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Vaihtaminen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
