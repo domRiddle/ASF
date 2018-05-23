@@ -2,9 +2,16 @@
 
 此頁面專門用於 ASF 設定。 It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[簡介](#introduction)**
-
-* **[Web-based ConfigGenerator](#web-based-configgenerator)** * **[Manual configuration](#manual-configuration)** 2. **[Global config](#global-config)** 3. **[Bot config](#bot-config)** 4. **[File structure](#file-structure)** 5. **[JSON mapping](#json-mapping)** 6. **[Compatibility mapping](#compatibility-mapping)** 7. **[Configs compatibility](#configs-compatibility)** 8. **[Auto-reload](#auto-reload)**
+- **[簡介](#introduction)**
+- **[Web-based ConfigGenerator](#web-based-configgenerator)**
+- **[Manual configuration](#manual-configuration)**
+- **[Global config](#global-config)**
+- **[Bot config](#bot-config)**
+- **[File structure](#file-structure)**
+- **[JSON mapping](#json-mapping)**
+- **[Compatibility mapping](#compatibility-mapping)**
+- **[Configs compatibility](#configs-compatibility)**
+- **[Auto-reload](#auto-reload)**
 
 * * *
 

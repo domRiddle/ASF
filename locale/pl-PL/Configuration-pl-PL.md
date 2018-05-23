@@ -2,9 +2,16 @@
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-1. **[Wprowadzenie](#wprowadzenie)**
-
-* **[Web-based ConfigGenerator](#web-based-configgenerator)** * **[Manual configuration](#manual-configuration)** 2. **[Global config](#global-config)** 3. **[Bot config](#bot-config)** 4. **[File structure](#file-structure)** 5. **[JSON mapping](#json-mapping)** 6. **[Compatibility mapping](#compatibility-mapping)** 7. **[Configs compatibility](#configs-compatibility)** 8. **[Auto-reload](#auto-reload)**
+- **[Wprowadzenie](#introduction)**
+- **[Web-based ConfigGenerator](#web-based-configgenerator)**
+- **[Ręczna konfiguracja](#manual-configuration)**
+- **[Global config](#global-config)**
+- **[Bot config](#bot-config)**
+- **[File structure](#file-structure)**
+- **[JSON mapping](#json-mapping)**
+- **[Compatibility mapping](#compatibility-mapping)**
+- **[Configs compatibility](#configs-compatibility)**
+- **[Auto-reload](#auto-reload)**
 
 * * *
 
@@ -94,7 +101,7 @@ If that's the case, this property if specially for you and you can set it to `fa
 
 * * *
 
-`BackgroundGCPeriod` - typ `byte` o domyślnej wartości ``. This property is specifically designed to help with **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and should not be enabled unless needed. When changed from default value of ``, ASF will perform full garbage collection each `BackgroundGCPeriod` seconds, and large object heap compaction each `BackgroundGCPeriod` minutes. This approach can result in decreased memory usage as well as making runtime less "greedy" by giving more unused memory back to the OS in fixed intervals. However, such forced garbage collection in fixed intervals will affect ASF performance negatively, as well as cause extra CPU usage that comes from excessive collections. You should only enable this feature if you truly need it, usually **[only with server GC enabled](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup#runtime-tuning-advanced)**, while reading **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** before doing so. The most aggressive setting is obviously garbage collecting every `1` second, but before you go that often you should probably try something less intrusive, such as `10`. Unless you have **strong** reason to enable this feature, you should keep it disabled with default value of ``.
+`BackgroundGCPeriod` - `byte` type with default value of ``. This property is specifically designed to help with **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and should not be enabled unless needed. When changed from default value of ``, ASF will perform full garbage collection each `BackgroundGCPeriod` seconds, and large object heap compaction each `BackgroundGCPeriod` minutes. This approach can result in decreased memory usage as well as making runtime less "greedy" by giving more unused memory back to the OS in fixed intervals. However, such forced garbage collection in fixed intervals will affect ASF performance negatively, as well as cause extra CPU usage that comes from excessive collections. You should only enable this feature if you truly need it, usually **[only with server GC enabled](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup#runtime-tuning-advanced)**, while reading **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** before doing so. The most aggressive setting is obviously garbage collecting every `1` second, but before you go that often you should probably try something less intrusive, such as `10`. Unless you have **strong** reason to enable this feature, you should keep it disabled with default value of ``.
 
 * * *
 
