@@ -20,4 +20,4 @@ Below is a mixed list with number-ordered entries and unordered ones.
 * Unordered entry 2
 3. Number entry 3
 
-All of above entries should be kept in-tact.
+All of above entries should be kept in-tact, with their newlines preserved.
