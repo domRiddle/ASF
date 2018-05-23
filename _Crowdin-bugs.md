@@ -10,6 +10,10 @@ The string below is a quote that includes a star symbol, escaped.
 
 > Here is escaped star symbol: \* this text should not be in italic \*
 
+This works, but if we additionally put escaped star in a quote, it's rendered incorrectly:
+
+> Here is escaped star symbol within quotes: "\*" this text should not be in italic "\*"
+
 # Lists bug
 
 Below is a mixed list with number-ordered entries and unordered ones.
