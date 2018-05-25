@@ -127,7 +127,7 @@ For example, this command would expose ASF IPC interface to host machine (only):
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -p localhost:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
 Assuming you set `IPCPrefixes` properly to something like `http://*:1242/`, the above command will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from the host machine.
