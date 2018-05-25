@@ -1,8 +1,8 @@
 # Produktschlüsselaktivierung im Hintergrund
 
-Die Produktschlüsselaktivierung im Hintergrund ist eine besondere, in ASF integrierte, Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-CD-Schlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du garantiert das `Anfragenlimit` **[Status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** erreichst, bevor du fertig mit dem gesamten Schwung bist.
+Der Hintergrundproduktschlüsselaktivierer ist eine besondere, in ASF integrierte Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-Produktschlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` **[Status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-de-de#what-is-the-meaning-of-status-when-redeeming-a-key)** erreichst, bevor du mit dem gesamten Stapel fertig bist.
 
-Die Produktschlüsselaktivierung im Hintergrund ist dafür gemacht, um einen einzelnen Bot-Bereich zu haben, das bedeutet, dass dieser nicht die `AktivierungsEinstellungen` verwendet. Diese Funktion kann entweder zusammen mit (oder anstelle von) `Aktivierungs`**[-Befehlen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, wenn benötigt, genutzt werden.
+Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. Diese Funktion kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-de)** benutzt werden.
 
 * * *
 
@@ -12,48 +12,48 @@ Der Importprozess kann über zwei Wege durchgeführt werden, entweder durch Verw
 
 ### Datei
 
-ASF erkennt in seinem `Konfigurations`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. Zum Beispiel:
+ASF erkennt in seinem `Konfigurations`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, wird der erste Eintrag als Spielname und der letzte Eintrag als Produktschlüssel erachtet und alles dazwischen wird ignoriert. Zum Beispiel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
     
 
-ASF importiert solch eine Datei, entweder beim Bot-Start oder später während der Ausführung. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF importiert solch eine Datei, entweder beim Bot-Start oder später während der Ausführung. Nach erfolgreichem Parsen deiner Datei und dem eventuellem Auslassen von ungültigen Einträgen werden alle korrekt erkannten Spiele der Hintergrundwarteschlange hinzugefügt, und die Datei `BotName.keys` wird dann aus dem Dateiordner `config` gelöscht.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien legt ASF den `GamesToRedeemInBackground` **[API-Endpunkt](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-de#post-apigamestoredeeminbackgroundbotname)** offen, welcher von jedem IPC-Tool, einschließlich unserer IPC-GUI, ausgeführt werden kann. Die Verwendung der IPC kann leistungsfähiger sein, da Sie selbst ein geeignetes Parsing durchführen können, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt des erforderlichen Tabulatorzeichens.
 
 * * *
 
-## Queue
+## Warteschlange
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Sobald die Spiele erfolgreich importiert wurden, werden sie der Warteschlange hinzugefügt. ASF arbeitet sich automatisch durch seine Hintergrundwarteschlange, solange der Bot mit dem Steam-Netzwerk verbunden ist und die Warteschlange nicht leer ist. Ein bei dem Aktivierungsvorgang verwendeter Produktschlüssel, welcher nicht zu einem `RateLimited` führte, wird aus der Warteschlange entfernt und mit seinem Ergebnis ordnungsgemäß in eine Datei im `config` Ordner geschrieben - entweder in `BotName.keys.used`, wenn der Produktschlüssel im Prozess verwendet wurde (z.B. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) oder andernfalls `BotName.keys.unused`. ASF verwendet absichtlich den Namen Ihres Spiels, da der Produktschlüssel nicht zwingend einen aussagekräftigen Namen vom Steam-Netzwerk erhält - auf diese Weise können Sie Ihre Schlüssel sogar mit benutzerdefinierten Namen versehen, falls erforderlich/gewünscht.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
-
-* * *
-
-## Example
-
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
-
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
-
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
-
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
-
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
-
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wird die Warteschlange vorübergehend für eine volle Stunde unterbrochen, um die Abklingzeit abzuwarten. Danach wird der Prozess dort fortgesetzt, wo er unterbrochen wurde, und endet, wenn die gesamte Warteschlange leer ist.
 
 * * *
 
-## Remarks
+## Beispiel
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+Nehmen wir an, du hast eine Liste mit 100 Produktschlüsseln. Zuerst solltest du eine neue `BotName.keys.new` Datei im ASF Dateiordner `config` erstellen. Wir fügen die Erweiterung `.new` hinzu, um ASF wissen zu lassen, dass es diese Datei nicht sofort beim Erstellen einlesen soll (da es sich um eine neue leere Datei handelt, die noch nicht für den Import bereit ist).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+Nun kannst du unsere neue Datei öffnen und dort unsere Liste der 100 Produktschlüssel entsprechend der oben beschriebenen Struktur einfügen und bei Bedarf das Format korrigieren. Nach gegebenenfalls nötigen Korrekturen umfasst unsere Datei `BotName.keys.new` genau 100 Zeilen (oder 101, wenn man die letzte Zeile hinzuzählt), wobei jede Zeile als `Spielname\tProduktschlüssel\n` strukturiert ist, wobei `\t` ein Tabulatorzeichen und `\n` ein Zeilenumbruch darstellt.
+
+Du bist nun bereit, diese Datei von `BotName.keys.new` in `BotName.keys` umzubenennen, um ASF mitzuteilen, dass sie bereit ist, abgeholt zu werden. In diesem Augenblick importiert ASF die Datei automatisch (ohne Neustart) und löscht sie anschließend, um zu bestätigen, dass alle unsere Spiele geparst und der Warteschlange hinzugefügt wurden.
+
+Anstatt die Datei `BotName.keys` zu verwenden, kannst du auch den IPC API-Endpunkt verwenden, oder, wenn du es möchtest, sogar beides kombinieren.
+
+Nach einiger Zeit werden die Dateien `BotName.keys.used` und `BotName.keys.unused` gegebenenfalls erzeugt. Diese Dateien enthalten die Ergebnisse unseres Aktivierungsprozesses. Zum Beispiel kannst du die Datei `BotName.keys.unused` in `BotName2.keys` umbenennen und somit unsere unbenutzten Schlüssel an einen anderen Bot weiterreichen, da der vorherige Bot diese Schlüssel nicht selbst verwendet hat. Oder du kannst einfach unbenutzte Schlüssel in eine andere Datei kopieren und für eine spätere Verwendung aufbewahren. Beachte bitte, dass ASF beim Abarbeiten der Warteschlange neue Einträge in die Dateien `used` und `unused` hinzufügt, wodurch es empfehlenswert ist zu warten, bis die Warteschlange vollständig geleert ist, bevor du diese Dateien verwendest. Falls du doch mal unbedingt auf diese Dateien zugreifen musst, bevor die Warteschlange vollständig geleert ist, solltest du zunächst die Ausgabedatei, auf welche du zugreifen möchtest, in ein anderen Dateiordner **verschieben**, und **dann** parsen. Dies liegt daran, dass ASF einige neue Einträge anhängen kann, während du darauf zugreifst - das kann möglicherweise zum Verlust einiger Produktschlüssel führen, wenn Sie eine Datei lesen, die z.B. 3 Produktschlüssel enthält und diese dann löschen, die Tatsache ignorierend, dass ASF in der Zwischenzeit weitere 4 Produktschlüssel zu deiner anschließend entfernten Datei hinzugefügt hat. Wenn du auf diese Dateien zugreifen möchtest, stelle bitte sicher, dass du sie aus dem ASF Dateiordner `config` entfernst, bevor du sie liest, zum Beispiel durch Umbenennen.
+
+Es ist auch möglich, zusätzliche Spiele zu importieren, während sich einige Spiele bereits in der Warteschlange befinden, indem du alle oben genannten Schritte wiederholst. ASF wird zusätzliche Einträge ordnungsgemäß in die bereits laufende Warteschlange aufnehmen und sich um sie kümmern.
+
+* * *
+
+## Anmerkungen
+
+Der Hintergrundproduktschlüsselaktivierer nutzt ein `OrderedDictionary` unter der Motorhaube, wodurch deine Produktschlüssel in der von dir in der Datei (oder per IPC API-Aufruf) spezifizierten Reihenfolge bearbeitet werden. Das bedeutet, dass du eine Liste zur Verfügung stellen kannst (und solltest), in der bestimmte Produktschlüssel nur direkte Abhängigkeiten zu den über sie aufgeführten Produktschlüsseln haben können, aber nicht zu Nachfolgenden. Beispiel: Wenn ein DLC `D` das Spiel `G` als aktiviert voraussetzt, muss das Spiel `G` **zwingend** vor dem DLC `D` enthalten sein. Dies gilt ebenfalls wenn das DLC `D` abhängig ist von `A`, `B` und `C`, dann sollten alle 3 vorher enthalten sein (in beliebiger Reihenfolge, es sei denn, es gäbe wiederum Abhängigkeiten untereinander).
+
+Wenn du dem obigen Schema nicht folgst, wird dein DLC nicht mit `DoesNotOwnRequiredApp` aktiviert, selbst wenn dein Konto nach dem Durchlaufen der gesamten Warteschlange für die Aktivierung berechtigt wäre. Um dies zu vermeiden musst du sicherstellen, dass dein DLC immer nach dem Basisspiel in deiner Warteschlange steht.

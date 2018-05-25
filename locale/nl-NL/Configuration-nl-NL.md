@@ -1,10 +1,10 @@
-# Configuration
+# Configuratie
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-- **[Introduction](#introduction)**
+- **[Inleiding](#introduction)**
 - **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
+- **[Handmatige configuratie](#manual-configuration)**
 - **[Global config](#global-config)**
 - **[Bot config](#bot-config)**
 - **[File structure](#file-structure)**
@@ -15,7 +15,7 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 * * *
 
-## Introduction
+## Inleiding
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -41,7 +41,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Handmatige configuratie
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -209,10 +209,10 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 | Waarde | Naam      | Beschrijving                                                                                     |
 | ------ | --------- | ------------------------------------------------------------------------------------------------ |
-|        | None      | No protocol                                                                                      |
+|        | Geen      | Geen protocol                                                                                    |
 | 1      | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2      | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4      | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| 4      | Websocket | **[Websocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -343,7 +343,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Waarde | Naam                       | Beschrijving                                                          |
 | ------ | -------------------------- | --------------------------------------------------------------------- |
-|        | None                       | No special bot behaviour, the least invasive mode, default            |
+|        | Geen                       | No special bot behaviour, the least invasive mode, default            |
 | 1      | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2      | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4      | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -477,7 +477,7 @@ Of course, types that you should use for this property typically include only `2
 
 | Waarde | Naam             | Beschrijving                                                                   |
 | ------ | ---------------- | ------------------------------------------------------------------------------ |
-|        | None             | No redeeming preferences, typical                                              |
+|        | Geen             | No redeeming preferences, typical                                              |
 | 1      | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2      | Distributing     | Distribute all keys among itself and other bots                                |
 | 4      | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -536,7 +536,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Waarde | Naam          | Beschrijving                                                                                                                                                                                       |
 | ------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|        | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+|        | Geen          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1      | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2      | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3      | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -553,7 +553,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Waarde | Naam                | Beschrijving                                                                                                                                                                 |
 | ------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|        | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
+|        | Geen                | No trading preferences - accepts only `Master` trades                                                                                                                        |
 | 1      | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
 | 2      | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info |
 | 4      | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
@@ -676,7 +676,7 @@ For example, given following values:
 
 | Waarde | Naam |
 | ------ | ---- |
-|        | None |
+|        | Geen |
 | 1      | A    |
 | 2      | B    |
 | 4      | C    |

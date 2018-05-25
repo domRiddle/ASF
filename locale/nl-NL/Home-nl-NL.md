@@ -1,6 +1,6 @@
 # Homepagina
 
-Welkom op de ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+Welkom op de ASF wiki. Wiki is een online-hulp die veel verschillende onderwerpen behandelt, zoals veelgestelde vragen, mogelijke problemen, gebruik, installatie en nog veel meer. Dit is wat je moet lezen als je wilt weten hoe ASF werkt, vooral hoe je het installeert, configureert en gebruikt.
 
 Je kan de taal van de wiki veranderen door een `-locale` string toe te voegen op iedere pagina die je bezoekt. In plaats van de **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** kun je bijvoorbeeld de **[FAQ-nl-NL](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** bezoeken, die de Nederlandse vertaling bevat van de FAQ (indien beschikbaar).
 
