@@ -31,6 +31,8 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
 
+![Screenshot](https://i.imgur.com/TsAHcM0.png)
+
 ---
 
 ## Commands
