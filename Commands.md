@@ -39,45 +39,45 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 | Command | Access | Description |
 | ------- | ------ |-------------|
-`2fa`, `2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances.
-`2fano`, `2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
-`2faok`, `2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
-`addlicense <GameIDs>`, `addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).
-`bl`, `bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
-`bladd <SteamIDs64>`, `bladd <Bots> <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
-`blrm <SteamIDs64>`, `blrm <Bots> <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
+`2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances.
+`2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
+`2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
+`addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).
+`bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
+`bladd <Bots> <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
+`blrm <Bots> <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
 `exit` | `Owner` | Stops whole ASF process.
-`farm`, `farm <Bots>` | `Master` | Restarts cards farming module for given bot instances.
+`farm <Bots>` | `Master` | Restarts cards farming module for given bot instances.
 `help` | `FamilySharing` | Shows help (link to this page).
-`input <Type> <Value>`, `input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**.
-`ib`, `ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances.
-`ibadd <AppIDs>`, `ibadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.
-`ibrm <AppIDs>`, `ibrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.
-`iq`, `iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
-`iqadd <AppIDs>`, `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
-`iqrm <AppIDs>`, `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
-`leave`, `leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
-`loot`, `loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot^ <AppID> <ContextID>`, `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot&`, `loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode.
-`nickname <Nickname>`, `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
-`owns <AppIDsOrGameNames>`, `owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
-`password`, `password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`).
-`pause`, `pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process. Also called sticky pause.
-`pause~`, `pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.
-`pause& <Seconds>`, `pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.
-`play <AppIDs,GameName>`, `play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.
-`redeem <Keys>`, `redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances. | `Operator` | Redeems given `cd-keys` on given bot instances.
-`redeem^ <Modes> <Keys>`, `redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**.
-`rejoinchat`, `rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.
+`input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**.
+`ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances.
+`ibadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.
+`ibrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.
+`iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
+`iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
+`iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
+`leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
+`loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode.
+`nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
+`owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
+`password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`).
+`pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process. Also called sticky pause.
+`pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.
+`pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.
+`play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.
+`redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances. | `Operator` | Redeems given `cd-keys` on given bot instances.
+`redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**.
+`rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.
 `restart` | `Owner` | Restarts ASF process.
-`resume`, `resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.
+`resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.
 `start <Bots>` | `Master` | Starts given bot instances.
 `stats` | `Owner` | Prints process statistics, such as managed memory usage.
-`status`, `status <Bots>` | `FamilySharing` | Prints status of given bot instances.
-`stop`, `stop <Bots>` | `Master` | Stops given bot instances.
-`transfer <Modes> <Bot>`, `transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `bot` instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**.
-`unpack`, `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
+`status <Bots>` | `FamilySharing` | Prints status of given bot instances.
+`stop <Bots>` | `Master` | Stops given bot instances.
+`transfer <Modes> <Bot>`, instance, all inventory items of that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**.
+`unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).
 `version` | `FamilySharing` | Prints version of ASF.
 
@@ -86,6 +86,8 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 ### Notes
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+
+`<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
