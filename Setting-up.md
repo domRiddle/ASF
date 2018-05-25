@@ -225,7 +225,7 @@ Now navigate once again to our web config generator and input that number as Ste
 
 ![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
 
-Now you need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
+You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
