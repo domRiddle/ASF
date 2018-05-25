@@ -211,7 +211,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 #### Using IPC GUI
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work for **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
+ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
 
 In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 
