@@ -44,7 +44,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 Below tricks **involve performance degradation** and should be used with caution.
 
 - Enable `BackgroundGCPeriod` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
 ---
 
