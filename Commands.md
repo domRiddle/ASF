@@ -139,7 +139,7 @@ When using **IPC**, keep in mind that:
 
 Argument | Name | Child of
 --- | --- | ---
-1 | Profile | Root
+1 | Profile |
 2 | OwnedGames | Profile
 3 | Playtime | OwnedGames 
 4 | Inventory | Profile
