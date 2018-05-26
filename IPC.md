@@ -81,8 +81,8 @@ Our API makes use of standard HTTP status codes, and they're used according to t
 
 - `200 OK` - the request completed successfully.
 - `400 BadRequest` - the request failed because of an error, parse response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to fulfill it for one reason or another (hence response body telling you why).
-- `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly.
-- `403 Forbidden` - You failed to **[authenticate](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
+- `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](#authentication)** properly.
+- `403 Forbidden` - You failed to **[authenticate](#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
 - `404 NotFound` - the URL you're trying to reach does not exist.
 - `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
 - `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. Mainly used in requests that require from you a specific body, without you explicitly stating type of it.
@@ -153,7 +153,7 @@ Generic response is a primary return type that we use for all API calls.
 
 ### `GET /Api/ASF`
 
-This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[ASFResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#asfresponse)**.
+This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](#genericresponse)** with `Result` defined as **[ASFResponse](#asfresponse)**.
 
 ```shell
 curl -X GET /Api/ASF
@@ -204,7 +204,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
 
 `GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
@@ -221,7 +221,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoResta
 
 ### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
 
 ```shell
 curl -X DELETE /Api/Bot/archi
@@ -232,7 +232,7 @@ curl -X DELETE /Api/Bot/archi
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `HashSet<Bot>` - collection of bot statuses.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<Bot>` - collection of bot statuses.
 
 ```shell
 curl -X GET /Api/Bot/archi
@@ -323,7 +323,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
 
 `BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
@@ -342,7 +342,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":fal
 
 #### Body: empty
 
-This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `string` - the output of the executed command.
+This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `string` - the output of the executed command.
 
 ```shell
 curl -X POST -d '' /Api/Command/version
@@ -366,7 +366,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for adding extra  **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
+This API endpoint can be used for adding extra  **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
 
 `GamesToRedeemInBackground` is `OrderedDictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). This field is mandatory and cannot be `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty. In addition to that, every `key` must have valid Steam cd-key structure, ASF will validate that using built-in regex. Invalid entries will be automatically removed during import process.
 
@@ -381,7 +381,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 ### `GET /Api/Log`
 
-This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
+This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
 
 The websocket connection established with this endpoint is **read-only** - ASF will accept only `Close` **[frame](https://tools.ietf.org/html/rfc6455#section-5.5.1)** indicating that websocket connection should be gracefully closed. Any other data frame will result in connection being terminated.
 
@@ -397,7 +397,7 @@ HTTP/1.1 200 OK
 
 ### `GET /Api/Structure/{Structure}`
 
-This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `object`.
+This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `object`.
 
 `{Structure}` can be any ASF or .NET Core structure qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
 
@@ -414,7 +414,7 @@ In comparison with `GET /Api/Type`, this endpoint returns JSON representation of
 
 ### `GET /Api/Type/{Type}`
 
-This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as **[TypeResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeresponse)**.
+This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](#genericresponse)** with `Result` defined as **[TypeResponse](#typeresponse)**.
 
 `{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
 
@@ -442,7 +442,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
 
-`Properties` - `TypeProperties` type defined **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#typeproperties)** that holds metadata information about given type.
+`Properties` - `TypeProperties` type defined **[below](#typeproperties)** that holds metadata information about given type.
 
 #### TypeProperties
 
@@ -462,7 +462,7 @@ APIs below are dedicated for our IPC GUI usage and they should not be implemente
 
 ### `GET /Api/WWW/Directory/{Directory}`
 
-This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
+This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
