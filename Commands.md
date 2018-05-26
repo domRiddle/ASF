@@ -67,6 +67,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 `pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.
 `pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.
 `play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.
+`privacy <Bots> <Settings>` | `Master` | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#privacy-settings)**.
 `redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances. | `Operator` | Redeems given `cd-keys` on given bot instances.
 `redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**.
 `rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.
