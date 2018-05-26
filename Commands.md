@@ -167,7 +167,7 @@ privacy Main 0
 privacy Main Private
 ```
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use:
+This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
 
 ```
 privacy Main 3,3,3,3,3,3
