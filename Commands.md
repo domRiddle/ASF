@@ -180,7 +180,7 @@ This way you can also set independent options however you like:
 privacy Main Public,FriendsOnly,Private,Public,Private,Public
 ```
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public.
+The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
