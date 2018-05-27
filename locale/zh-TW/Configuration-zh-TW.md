@@ -1,23 +1,23 @@
 # 設定組態
 
-此頁面專門用於 ASF 設定。 It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
 
 - **[簡介](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
-- **[JSON mapping](#json-mapping)**
+- **[網頁設定檔產生器](#web-based-configgenerator)**
+- **[手動設定](#manual-configuration)**
+- **[全域設定](#global-config)**
+- **[BOT 設定](#bot-config)**
+- **[檔案結構](#file-structure)**
+- **[JSON 對映](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
 - **[Configs compatibility](#configs-compatibility)**
-- **[Auto-reload](#auto-reload)**
+- **[自動重新載入](#auto-reload)**
 
 * * *
 
 ## 簡介
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+ASF 設定檔分為兩個主要的部份 - 全域（程序）設定，以及所有 BOT 的設定。 每個 BOT 都有它們專屬的 BOT 設定檔名為 `BotName.json` （ `BotName` 即為 BOT 的名稱），而全域 ASF（程序）設定為一個檔案名為 `ASF.json`。
 
 A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
 
@@ -29,7 +29,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 * * *
 
-## Web-based ConfigGenerator
+## 網頁設定檔產生器
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
@@ -41,7 +41,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## 手動設定
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -49,7 +49,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 * * *
 
-## Global config
+## 全域設定
 
 Global config is located in `ASF.json` file and has following structure:
 
@@ -274,7 +274,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## BOT 設定
 
 As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
 
@@ -575,7 +575,7 @@ However, some people might be concerned even about this little detail, therefore
 
 * * *
 
-## File structure
+## 檔案結構
 
 ASF is using quite simple file structure.
 
@@ -620,7 +620,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 * * *
 
-## JSON mapping
+## JSON 對映
 
 Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
@@ -705,7 +705,7 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 * * *
 
-## Auto-reload
+## 自動重新載入
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 

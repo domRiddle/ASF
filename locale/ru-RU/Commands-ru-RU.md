@@ -38,7 +38,7 @@ ASF поддерживает множество команд, которые и�
 
 ## Команды
 
-| Command | Access | Description | | \---\---- | \---\--- |\---\---\---\----| `2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances. `2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances. `2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances. `addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only). `bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances. `bladd <Bots> <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances. `blrm <Bots> <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances. `exit` | `Owner` | Stops whole ASF process. `farm <Bots>` | `Master` | Restarts cards farming module for given bot instances. `help` | `FamilySharing` | Shows help (link to this page). `input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#input-command)**. `ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances. `ibadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances. `ibrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances. `iq <Bots>` | `Master` | Lists priority idling queue of given bot instances. `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances. `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances. `leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats. `loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). `loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode. `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`. `owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available. `password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`). `pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process. Also called sticky pause. `pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it. `pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed. `play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming. `redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances. | `Operator` | Redeems given `cd-keys` on given bot instances. `redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#redeem-modes)**. `rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat. `restart` | `Owner` | Restarts ASF process. `resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`. `start <Bots>` | `Master` | Starts given bot instances. `stats` | `Owner` | Prints process statistics, such as managed memory usage. `status <Bots>` | `FamilySharing` | Prints status of given bot instances. `stop <Bots>` | `Master` | Stops given bot instances. `transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands#transfer-modes)**. `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances. `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`). `version` | `FamilySharing` | Prints version of ASF.
+| Command | Access | Description | | \---\---- | \---\--- |\---\---\---\----| `2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances. `2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances. `2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances. `addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only). `bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances. `bladd <Bots> <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances. `blrm <Bots> <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances. `exit` | `Owner` | Stops whole ASF process. `farm <Bots>` | `Master` | Restarts cards farming module for given bot instances. `help` | `FamilySharing` | Shows help (link to this page). `input <Bots> <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**. `ib <Bots>` | `Master` | Lists apps blacklisted from automatic idling of given bot instances. `ibadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances. `ibrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances. `iq <Bots>` | `Master` | Lists priority idling queue of given bot instances. `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances. `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances. `leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats. `loot <Bots>` | `Master` | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). `loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode. `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`. `owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available. `password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`). `pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process. Also called sticky pause. `pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it. `pause& <Bots> <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed. `play <Bots> <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming. `privacy <Bots> <Settings>` | `Master` | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**. `redeem <Bots> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances. | `Operator` | Redeems given `cd-keys` on given bot instances. `redeem^ <Bots> <Modes> <Keys>` | `Operator` | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](#redeem-modes)**. `rejoinchat <Bots>` | `Operator` | Forces given bot instances to rejoin their `SteamMasterClanID` group chat. `restart` | `Owner` | Restarts ASF process. `resume <Bots>` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`. `start <Bots>` | `Master` | Starts given bot instances. `stats` | `Owner` | Prints process statistics, such as managed memory usage. `status <Bots>` | `FamilySharing` | Prints status of given bot instances. `stop <Bots>` | `Master` | Stops given bot instances. `transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**. `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances. `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`). `version` | `FamilySharing` | Prints version of ASF.
 
 * * *
 
@@ -87,22 +87,72 @@ When using **IPC**, keep in mind that:
 
 * * *
 
-## значения `redeem^`
+## `privacy` settings
+
+`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+
+| Argument | Имя            | Child of   |
+| -------- | -------------- | ---------- |
+| 1        | Profile        |            |
+| 2        | OwnedGames     | Profile    |
+| 3        | Playtime       | OwnedGames |
+| 4        | Inventory      | Profile    |
+| 5        | InventoryGifts | Inventory  |
+| 6        | Comments       | Profile    |
+
+For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+
+While valid values for all of them are:
+
+| Имя | Имя           |
+| --- | ------------- |
+| 1   | `Private`     |
+| 2   | `FriendsOnly` |
+| 3   | `Public`      |
+
+You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+
+### Пример
+
+If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+
+    privacy Main 0
+    privacy Main Private
+    
+
+This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+
+    privacy Main 3,3,3,3,3,3
+    privacy Main Public,Public,Public,Public,Public,Public
+    
+
+This way you can also set independent options however you like:
+
+    privacy Main Public,FriendsOnly,Private,Public,Private,Public
+    
+
+The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+
+Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+* * *
+
+## `redeem^` modes
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Значение | Имя                   | Описание                                                              |
-| -------- | --------------------- | --------------------------------------------------------------------- |
-| FD       | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF       | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG     | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD       | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF       | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI       | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG     | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V        | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Имя  | Имя                   | Описание                                                              |
+| ---- | --------------------- | --------------------------------------------------------------------- |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -110,20 +160,20 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 * * *
 
-## значения `transfer`
+## `transfer` modes
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Имя        | Значение | Описание                                                                        |
-| ---------- | -------- | ------------------------------------------------------------------------------- |
-| All        | A        | Все типы предметов, указанные ниже                                              |
-| Background | BG       | Фоны, используемые в вашем профиле Steam                                        |
-| Booster    | BO       | Наборы карточек                                                                 |
-| Card       | C        | Коллекционные карточки Steam, используемые для создания значков (обычных)       |
-| Emoticon   | E        | Эмоции, используемые в чате Steam                                               |
-| Foil       | F        | Коллекционные карточки Steam, используемые для создания значков (металлических) |
-| Gems       | G        | Самоцветы и мешки самоцветов, используемые для создания наборов карточек        |
-| Unknown    | U        | Остальные типы предметов                                                        |
+| Имя        | Alias | Описание                                                                  |
+| ---------- | ----- | ------------------------------------------------------------------------- |
+| All        | A     | Same as enabling all item types below                                     |
+| Background | BG    | Фоны, используемые в вашем профиле Steam                                  |
+| Booster    | BO    | Booster pack                                                              |
+| Card       | C     | Коллекционные карточки Steam, используемые для создания значков (обычных) |
+| Emoticon   | E     | Смайлики, используемые в чате Steam                                       |
+| Foil       | F     | Foil variant of `Card`                                                    |
+| Gems       | G     | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
+| Unknown    | U     | Every type that doesn't fit in any of the above                           |
 
 For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
 
@@ -131,7 +181,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 * * *
 
-## команда `input`
+## `input` command
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 

@@ -33,7 +33,7 @@
 
 ## Entwickler
 
-* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+* **[Kompilierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 * **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Beitragsrichtlinien](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

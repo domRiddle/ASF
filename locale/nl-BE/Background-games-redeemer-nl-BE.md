@@ -1,6 +1,6 @@
 # Productactivering op de achtergrond
 
-Productactievering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
+Productactievering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
 
 Productactievering op de achtergrond is gemaakt dat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
@@ -12,7 +12,7 @@ Het importeren kan worden gedaan op twee manieren - door gebruik te maken van ee
 
 ### Bestand
 
-ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. De data op de file moet bestaan uit een vaste structuur, bestaande uit de naam van het spel en de productcode, gescheiden door een tab karakter en eindigend met een nieuwe regel. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
+ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. De data op het bestand moet bestaan uit een vaste structuur, bestaande uit de naam van het spel en de productcode, gescheiden door een tab karakter en eindigend met een nieuwe regel. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB

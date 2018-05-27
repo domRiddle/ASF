@@ -1,12 +1,12 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it might be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Seit Version 3.0.3.2 steht ASF nun auch als **[Docker-Container](https://www.docker.com/what-container)** zur Verfügung. ASF im Docker-Container laufen zu lassen hat in der Regel keine Vorteile für gelegentliche Nutzer. Es könnte aber eine hervorragende Möglichkeit zur Nutzung von ASF auf Servern sein, um sicherzustellen dass ASF in einer Sandbox-Umgebung getrennt von allen anderen Anwendungen ausgeführt wird. Unsere Docker-Repository findest du **[hier](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
 ## Tags
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF ist durch 4 Haupttypen von **[Tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** verfügbar:
 
 ### `master`
 
@@ -26,7 +26,7 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 * * *
 
-## Which tag is the best for me?
+## Welcher Tag ist für mich der beste?
 
 That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fallback to.
 
@@ -34,9 +34,9 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 * * *
 
-## Architectures
+## Architekturen
 
-ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section.
+Ein ASF-Docker-Image steht derzeit für zwei Architekturen zur Verfügung - `X64` und `Arm`. Du kannst im Abschnitt **[Kompatibilität](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** mehr darüber lesen.
 
 Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
 
@@ -44,18 +44,18 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 ## Gebrauchsweise
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
+Für eine komplette Referenz verwende die **[offizielle Docker-Dokumentation](https://docs.docker.com/engine/reference/commandline/docker)**. Wir decken nur grundlegende Verwendung in dieser Anleitung ab. Du bist herzlich dazu eingeladen auch noch tiefer zu graben.
 
-### Hello ASF!
+### Hallo ASF!
 
-Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
+Zuallererst sollten wir überprüfen, ob unser Docker momenten überhaupt funktioniert. Das wird als unser ASF "Hallo Welt" dienen:
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`).
+Der `docker pull`-Befehl sorgt dafür, dass du ein aktuelles `Justarchi/Archisteamfarm`-Abbild verwendst - für den Fall, dass du eine veraltete lokale Kopie im Cache hattest. `docker run` erstellt einen neuen ASF Docker-Container für dich und lässt ihn im Vordergrund laufen (`-it`).
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
 
@@ -68,7 +68,7 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 * * *
 
-## Using a volume
+## Ein volume Benutzen
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 

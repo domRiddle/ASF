@@ -1,16 +1,16 @@
-# Compilation
+# Kompilierung
 
 Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
 
-ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
+ASF kann auf allen momentan unterstützten Platformen kompiliert werden so lange du alle benötigten Werkzeuge hierzu hast.
 
 * * *
 
 ## .NET Core SDK
 
-Regardless of platform, you need full .NET Core SDK in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Unabhängig von der Platform brauchst du immer das vollständige .NET Core SDK um ASF zu kompilieren. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
-Example of `dotnet --info` on Windows:
+Beispiel von `dotnet --info` unter Windows:
 
 ```powershell
 C:\Users\Archi>dotnet --info
@@ -33,7 +33,7 @@ Microsoft .NET Core Shared Framework Host
 
 * * *
 
-## Compilation
+## Kompilierung
 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
@@ -55,7 +55,7 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 
 * * *
 
-## Development
+## Entwicklung
 
 If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, for Windows we recommend **[latest Visual Studio](https://www.visualstudio.com/downloads)** (free community version is more than enough). We also suggest to use it together with **[ReSharper](https://www.jetbrains.com/resharper)**, although it's not a free product.
 

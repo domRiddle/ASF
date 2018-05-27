@@ -214,59 +214,59 @@ ASF поддерживает фарм на нескольких аккаунта
 
 * * *
 
-#### Using IPC GUI
+#### Использование веб-интерфейса IPC
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
+ASF - консольное приложение и не имеет графического интерфейса пользователя. Однако ведутся работы над созданием графического веб-интерфейса с использованием IPC - **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU#ipc-gui)**, который на данном этапе доступен в тестовом режиме, но им уже можно пользоваться без особых проблем.
 
-In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+Чтобы пользоваться IPC GUI, вам нужно убедиться, что у вас настроены параметры `IPC` и `SteamOwnerID` в глобальном файле конфигурации (закладка ASF в сетевом генераторе конфигураций).
 
-For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
+В параметре `SteamOwnerID` вам надо ввести уникальный идентификатор Steam вашего аккаунта в 64-битном формате. Его можно узнать разными методами, мы воспользуемся для этого сайтом **[SteamRep](https://steamrep.com)**. Откройте этот сайт, найдите кнопку для входа с помощью Steam в правом верхнем углу, и войдите на сайт. После этого, там же, нажмите на свой аватар, и найдите `steamID64` в вашем профиле.
 
 ![SteamRep](https://i.imgur.com/RUuJ63i.png)
 
-For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
+Для моего аккаунта - это число `76561198006963719`. У вас будет похожее, тоже начинающееся с цифр `7656`. Скопируйте его.
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID.
+Теперь вернитесь к сетевому генератору конфигураций и введите его в поле SteamOwnerID.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
+![SteamOwnerID](https://i.imgur.com/LgpDljg.png)
 
-You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
+Вам нужно сделать ещё одну вещь, включите отображение расширенных настроек, найдите параметр `IPC` и включите его.
 
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/MS4HKDr.png)
 
-Now you can generate your config by downloading it and replacing the original `ASF.json` in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Теперь вы можете создать свой файл конфигурации скачав его и заменив исходный `ASF.json` в вашей папке `config`, как обычно. После этого снова запустите ASF, и вы должны увидеть что интерфейс IPC запустился:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use it for example for sending **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, as well as accessing other available to you functionality through friendly graphical web interface.
+Если вы всё правильно сделали, у вас должно получиться открыть интерфейс IPC по **[этой](http://127.0.0.1:1242)** ссылке, когда запущен ASF. Вы можете пользоваться этим интерфейсом чтобы отдавать ASF **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)**, а также использовать другие доступный функции через дружественный к пользователю веб-интерфейс.
 
-![IPC 3](https://i.imgur.com/TsAHcM0.png)
+![IPC 3](https://i.imgur.com/6TVSbB5.png)
 
-Please note that IPC GUI is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage, such as sending a command.
+Обратите внимание на то, что IPC GUI сейчас в тестовом доступе, и в нём могут отсутствовать или не работать какие-то функции, но даже того что есть вполне достаточно для простого использования ASF, такого как например отправка команд.
 
 * * *
 
 ### Резюме
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
+Вы успешно установили и настроили ASF для ваших аккаунтов Steam, и даже немного поменяли настройки на свой вкус. Если вы следовали этому руководству, то у вас даже настроен интерфейс IPC GUI и вы можете посылать через него команды. Теперь вам стоит целиком прочесть раздел "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**" чтобы узнать, что именно делают параметры которые вы могли видеть на закладке расширенных настроек, и какие возможности может предложить ASF. Если вы запутались, или у вас есть какие-то общие вопросы - прочтите раздел **[ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)**, который покрывает если не все, то во всяком случае большинство вопросов, которые у вас могут возникнуть. Если хотите узнать всё об ASF и о том, как оно может облегчить вам жизнь, прочтите оставшиеся разделы **[нашей wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ru-RU)**. Развлекайтесь!
 
 * * *
 
 ## Универсальная установка
 
-This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
+Это установка для продвинутых пользователей, которые хотят запустить ASF в **[универсальном](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU#Универсальный-пакет)** варианте. Этот вариант не рекомендуется для людей, которые могут воспользоваться **[пакетами под конкретную ОС](#Установка-для-конкретных-ОС)**.
 
-You want to use generic variant mainly in three situations (but of course you can use it regardless):
+Вам может понадобиться установка универсального пакета в основном в трёх случаях (хотя вы можете использовать её любом случае):
 
 - Если вы используете ОС, для которой мы не выпускаем пакета под конкретную ОС (например 32-битная Windows)
 - Если у вас уже установлены .NET Core Runtime/SDK, или вы собираетесь устанавливать и пользоваться ими
 - Если вы хотите минимизировать файловую структуру ASF вручную обеспечивая требования среды исполнения
 
-However, keep in mind that you're in charge of .NET Core runtime in this case. This means that if your .NET Core SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET Core SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET Core runtime bundled with ASF can do so.
+Однако имейте в виду, что в этом случае за среду исполнения .NET Core отвечаете вы. Это значит, что если ваше .NET Core SDK (и/или среда исполнения) недоступны, устарели или поломаны, ASF не будет работать. Именно поэтому мы не рекомендуем этот вариант установки для обычных пользователей, поскольку вам придётся заботится о том, чтобы .NET Core SDK (и среда исполнения) соответствовали требованиям ASF, и могли запускать ASF, тогда как в противном случае **мы** будем заботиться чтобы среда исполнения .NET Core в пакете ASF могла это делать.
 
-For generic package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
+Для универсального пакета, вы можете следовать всему руководству по установке под конкретную ОС, приведенному выше, с двумя небольшими отличиями. В дополнение к установке предусловий для .NET Core, вам также понадобится установить .NET Core SDK, а вместо запускаемого файла под конкретную ос `ArchiSteamFarm(.exe)` у вас будет только универсальный запускаемый файл `ArchiSteamFarm.dll`. Всё остальное практически точно так же.
 
-With extra steps:
+Вместе с дополнительными шагами, вы должны:
 
 - Установить **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Установить **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** (или как минимум среду исполнения) подходящую для вашей ОС. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU#Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
@@ -275,4 +275,4 @@ With extra steps:
 - **[Сконфигурировать ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
 - Запустить ASF либо с помощью предоставленного скрипта, либо вручную командой `dotnet /path/to/ArchiSteamFarm.dll` из вашей любимой оболочки командной строки.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Скрипты для запуска (такие как `ArchiSteamFarm.cmd` для Windows и `ArchiSteamFarm.sh` для Linux/OS X) расположены там же, где и запускаемый файл `ArchiSteamFarm.dll`, и включены только в универсальный пакет для установки. Вы можете воспользоваться ими если не хотите запускать команду `dotnet` вручную. Вы также можете создать ярлыки на эти скрипты как показано выше, поскольку в этом случае они будут служить заменой исполняемого файла. Естественно, скрипты для запуск не будут работать если вы не установили .NET Core SDK и в вашем `PATH` нет пути к запускаемому файлу `dotnet`. Скрипты для запуска не обязательны к использованию, вы всегда можете вручную запустить команду `dotnet /path/to/ArchiSteamFarm.dll`.

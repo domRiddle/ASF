@@ -18,22 +18,22 @@
 
 ## 高级
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[工具面板](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[托管](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[低内存方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[高性能方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[命令行参数](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[本地化](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[文档](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[已废弃功能](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 开发者设置
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[发布周期](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 * **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
