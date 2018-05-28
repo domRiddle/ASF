@@ -15,3 +15,11 @@ However, ASF is open-source project, and I can't express enough that I'm not beh
 ASF was created with primary purpose of being fully automated Steam idling tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF progressed since then, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
 
 It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, with blackjack and hookers!
+
+---
+
+### OK, where is the catch?
+
+There is no catch, I created ASF **for myself** and shared it with the rest of community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or other activity that would generate any monetary benefit for me, excluding non-obligatory donations from happy users that is :). You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee (or not).
+
+Although no, on the second thought there is a catch here - I'm using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if you by any chance learn something new from my project, then that's a double win for me! :)
