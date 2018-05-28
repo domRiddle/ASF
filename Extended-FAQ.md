@@ -1,0 +1,1 @@
+Extended FAQ covers a bit less common questions that you might have. Please visit our **[basic FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** for standard questions and answers.
