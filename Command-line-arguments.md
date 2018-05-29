@@ -58,6 +58,7 @@ Example:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # This will also work
 ```
 
 ```
