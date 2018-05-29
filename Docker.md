@@ -133,7 +133,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set `IPCPrefixes` properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from your host machine.
+If you set `IPCPrefixes` properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `127.0.0.1:1242` route that is now properly redirected to your guest machine.
 
 ---
 
