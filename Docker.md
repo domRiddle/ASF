@@ -122,7 +122,7 @@ This will properly pass `--process-required` argument to ASF process being run i
 
 ## IPC
 
-For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately.
+For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately. For `IPCPrefixes`, you **must** change it from the default value of `127.0.0.1`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interface is `http://*:1242/`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `127.0.0.1` won't do, as the route is entirely within guest machine.
 
 Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
 
@@ -133,7 +133,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-Assuming you set `IPCPrefixes` properly to something like `http://*:1242/`, the above command will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from the host machine.
+If you set `IPCPrefixes` properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#client)** work from your host machine.
 
 ---
 
