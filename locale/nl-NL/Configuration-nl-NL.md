@@ -1,13 +1,13 @@
 # Configuratie
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+Deze pagina is gewijd aan het configureren van ASF. Het dient als een complete documentatie van de `config` directory, zodat je ASF naar eigen voorkeur kunt instellen.
 
 - **[Inleiding](#introduction)**
 - **[Web-based ConfigGenerator](#web-based-configgenerator)**
 - **[Handmatige configuratie](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
+- **[Globale configuratie](#global-config)**
+- **[Bot-configuratie](#bot-config)**
+- **[Bestandsstructuur](#file-structure)**
 - **[JSON mapping](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
 - **[Configs compatibility](#configs-compatibility)**
@@ -17,9 +17,9 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 ## Inleiding
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+De ASF-configuratie is onderverdeeld in twee hoofdonderdelen: globale (proces) configuratie en de configuratie van elke bot. Elke bot heeft zijn eigen bot-configuratiebestand met de naam `BotNaam.json` (waarbij `BotNaam` de naam is van de bot). De globale ASF (proces) configuratie is een enkel bestand met de naam `ASF.json`.
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+Een bot is één steam account dat deelneemt aan het ASF-proces. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
 
 ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
 
@@ -49,9 +49,9 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 * * *
 
-## Global config
+## Globale configuratie
 
-Global config is located in `ASF.json` file and has following structure:
+De globale configuratie staat in het `ASF.json` bestand en heeft de volgende structuur:
 
 ```json
 {
@@ -89,7 +89,7 @@ Global config is located in `ASF.json` file and has following structure:
 }
 ```
 
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
+**Tip:** Tenzij je opties wilt wijzigen, kun je ook de standaardinstellingen gebruiken, `ASF.json` sluiten en doorgaan naar de bot-configuratie.
 
 * * *
 
@@ -274,7 +274,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## Bot-configuratie
 
 As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
 

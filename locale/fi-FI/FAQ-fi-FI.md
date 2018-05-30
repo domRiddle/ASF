@@ -1,5 +1,7 @@
 # UKK
 
+Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+
 # Sisällysluettelo
 
 - [Yleinen](#general)
@@ -14,7 +16,7 @@
 
 ### Joten miten se tarkalleen toimii?
 
-Ennenkuin yrität ymmärtää mikä ASF on, varmista että ymmärrät mitä Steam keräilykoritt ovat ja miten niitä saadaan. Ne kerrotaan **[täällä."](https://steamcommunity.com/tradingcards/faq)**
+Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
 In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
 
@@ -43,7 +45,7 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 ### Pitääkö minun antaa steam kirjautumistietoni?
 
-**Kyllä.** ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fullifies Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
@@ -109,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Kyllä.** ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -315,7 +317,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Kyllä.** ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 

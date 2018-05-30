@@ -18,6 +18,7 @@
 
 ## 高度
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**

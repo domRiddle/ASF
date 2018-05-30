@@ -1,5 +1,7 @@
 # FAQ
 
+Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+
 # Tables des matières
 
 - [Général](#general)

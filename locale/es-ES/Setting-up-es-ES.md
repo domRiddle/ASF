@@ -1,10 +1,10 @@
-# Setting up
+# Iniciando
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates. If you're looking for a Steam idler that doesn't require reading comprehension, then use **[Idle Master](https://www.steamidlemaster.com)** instead, since we're not going to do your wiki homework for you.
+Si llegaste aquí por primera vez, ¡bienvenido! Estamos muy contentos de ver a otro viajero interesado en nuestro proyecto, aunque ten en cuenta que con gran poder viene una gran responsabilidad - ASF es capaz de hacer muchas cosas relacionadas con Steam, siempre y cuando **te intereses lo suficiente para aprender cómo usarlo**. Hay una difícil curva de aprendizaje involucrada aquí, y esperamos que leas la wiki en este sentido, la cual explica en detalle cómo funciona todo. Si buscas un "idler" de Steam que no requiera comprensión lectora, entonces usa **[Idle Master](https://www.steamidlemaster.com)**, ya que no vamos a hacer la tarea por ti.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Si todavía sigues aquí significa que soportaste nuestro texto de arriba, lo cual es bueno. A menos que te lo hayas saltado, entonces vas a tener un **[mal momento](https://www.youtube.com/watch?v=WJgt6m6njVw)** muy pronto... En cualquier caso, ASF es una aplicación de consola, lo que significa que el programa en sí no tiene una GUI (Interfaz Gráfica de Usuario) amigable como a las que en general estás acostumbrado. ASF estaba pensado principalmente para ser ejecutado en servidores, por lo que actúa como un servicio (daemon) y no como una aplicación de escritorio.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
+Sin embargo, esto no significa que no puedas usarlo en tu PC o que usarlo es de alguna manera más complicado de lo usual, nada de eso. ASF es un programa independiente que no necesita instalación, y funciona en seguida, pero requiere una configuración antes de ser útil. La configuración es decirle a ASF lo que en realidad debe hacer después de ejecutarlo. Si lo ejecutas sin configuración, entonces ASF no hará nada, simple.
 
 * * *
 
@@ -43,7 +43,7 @@ Since it might be quite difficult to extract the info you're looking for, we lis
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates might be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
 
-It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency being present.
+It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency (or required Windows updates) being present.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 

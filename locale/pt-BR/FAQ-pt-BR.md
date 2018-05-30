@@ -1,5 +1,7 @@
 # Perguntas frequentes
 
+Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+
 # Table of contents
 
 - [Geral](#general)
@@ -109,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Sim**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 

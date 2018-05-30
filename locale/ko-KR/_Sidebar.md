@@ -18,18 +18,19 @@
 
 ## 고급
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ko-KR)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-ko-KR)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ko-KR)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ko-KR)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ko-KR)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ko-KR)**
-* **[현지화](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-ko-KR)**
-* **[보안](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ko-KR)**
-* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-ko-KR)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-ko-KR)**
-* **[사용되지 않는 것들](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-ko-KR)**
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[현지화](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[보안](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 개발자
 

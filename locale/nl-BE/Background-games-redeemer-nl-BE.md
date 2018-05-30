@@ -1,8 +1,8 @@
-# Productactivering op de achtergrond
+# Productcodes-activator op de achtergrond
 
-Productactievering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
+Productcodes-activator op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
 
-Productactievering op de achtergrond is gemaakt dat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
+Productcodes-activator op de achtergrond is gemaakt dat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
 * * *
 

@@ -18,17 +18,18 @@
 
 ## Papildoma
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Komandinės eilutės argumentai](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Įrašų vedimas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Lokalizacija](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Saugumas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Dokumentacija](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Trečiųjų šalių įrankiai](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Kūrėjai

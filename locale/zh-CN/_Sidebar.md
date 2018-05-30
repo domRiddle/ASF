@@ -18,18 +18,19 @@
 
 ## 高级
 
-* **[工具面板](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[托管](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[低内存方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[高性能方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[命令行参数](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[本地化](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[文档](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[已废弃功能](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 开发者设置
 

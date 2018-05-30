@@ -1,12 +1,12 @@
-# Command-line arguments
+# Opdrachtregelparameters
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF ondersteunt diverse opdrachtregelparameters die de uitvoering van het programma beïnvloeden. Deze kunnen door gevorderde gebruikers worden gebruikt om aan te geven hoe het programma moet worden uitgevoerd. Vergeleken met de standaardmanier om het configuratiebestand `ASF.json` te gebruiken, worden opdrachtregelparameters gebruikt voor de kerninitialisatie (bijv.`--path`), platform-specifieke instellingen (bijv. `--system-required`), of gevoelige data (bijv. `--cryptkey`).
 
 * * *
 
 ## Gebruik
 
-Usage depends on your OS and ASF flavour.
+Het gebruik hangt af van je besturingssysteem en de ASF-variant.
 
 Generic:
 
@@ -57,7 +57,8 @@ However, those two are completely fine:
 Voorbeeld:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path will also work
 ```
 
     ├── /opt

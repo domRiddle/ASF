@@ -18,6 +18,7 @@
 
 ## Avancé
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
@@ -25,10 +26,10 @@
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localisation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sécurité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Outils tiers](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Développeurs

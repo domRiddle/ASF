@@ -18,18 +18,19 @@
 
 ## Erweiterte Einstellungen
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[Treuhandservice](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Speichereffizienter Aufbau](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Leistungsstarker Aufbau](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Befehlszeilenargumente](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Protokollierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Lokalisierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Übersetzung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicherheit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Dokumentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Drittanbieter-Programme](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Veraltete Funktionen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Entwickler
 

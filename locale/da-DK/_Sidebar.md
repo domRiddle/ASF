@@ -18,18 +18,19 @@
 
 ## Avanceret
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Lav-hukommelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Højydelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Kommandolinjeargumenter](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logføring](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Lokalisering](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sikkerhed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Dokumentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Tredjeparts-værktøjer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Udfasning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Udviklere
 

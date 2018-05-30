@@ -18,18 +18,19 @@
 
 ## Zaawansowane
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-pl-PL)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-pl-PL)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-pl-PL)**
-* **[Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-pl-PL)**
-* **[Konfiguracja pod zwiększoną wydajność](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-pl-PL)**
-* **[Argumenty wiersza poleceń](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-pl-PL)**
-* **[Logowanie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-pl-PL)**
-* **[Tłumaczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-pl-PL)**
-* **[Zabezpieczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-pl-PL)**
-* **[Dokumentacja](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-pl-PL)**
-* **[Narzędzia firm trzecich](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-pl-PL)**
-* **[Elementy przestarzałe](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-pl-PL)**
+* **[Rozszerzone FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Konfiguracja pod zwiększoną wydajność](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Argumenty wiersza poleceń](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logowanie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Tłumaczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Zabezpieczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Dokumentacja](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Narzędzia firm trzecich](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Elementy przestarzałe](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Deweloperzy
 

@@ -18,18 +18,19 @@
 
 ## Расширенные настройки
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU)**
-* **[Удержание обменов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-ru-RU)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**
-* **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
-* **[Конфигурация для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
-* **[Аргументы командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**
-* **[Журналирование](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ru-RU)**
-* **[Локализация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-ru-RU)**
-* **[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)**
-* **[Документация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-ru-RU)**
-* **[Сторонние приложения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-ru-RU)**
-* **[Устаревание](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-ru-RU)**
+* **[Расширенное ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Удержание обменов](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Конфигурация для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Аргументы командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Журналирование](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Локализация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Документация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Сторонние приложения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Устаревание](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Для разработчиков
 

@@ -57,7 +57,8 @@ However, those two are completely fine:
 Exemple :
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path will also work
 ```
 
     ├── /opt

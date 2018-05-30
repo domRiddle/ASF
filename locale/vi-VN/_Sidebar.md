@@ -18,17 +18,18 @@
 
 ## Nâng cao
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Thiết lập bộ nhớ thấp](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Thiết lập hiệu suất cao](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Bảo mật](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Công cụ bên thứ ba](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Dành cho lập trình viên

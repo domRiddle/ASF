@@ -48,7 +48,7 @@ Linux/OS X
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - данный параметр используется для контейнеров **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** и принудительно задаёт параметру `AutoRestart` значение `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
 
 * * *
 
@@ -57,7 +57,8 @@ Linux/OS X
 Пример:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path will also work
 ```
 
     ├── /opt

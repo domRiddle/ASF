@@ -43,7 +43,7 @@
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 для 64-битного Windows, x86 для 32-битного Windows)
 - Настоятельно рекомендуется убедиться, что у вас уже установлены все обновления Windows. Как минимум вам потребуются **[KB2533623](https://support.microsoft.com/en-us/help/2533623/)** и **[KB2999226](https://support.microsoft.com/en-us/help/2999226/)**, но могут понадобиться и другие обновления. Все они уже должны быть установлены если ваша Windows полностью обновлена. Убедитесть что вы выполнили эти требования до того как устанавливать пакет Visual C++.
 
-Вполне возможно что пакет Redistributable уже был установлен какой-то другой программой или игрой, но вам стоит перепроверить это запустив установщик, просто для уверенности. ASF не запустится если эта зависимость отсутствует.
+Вполне возможно что пакет Redistributable уже был установлен какой-то другой программой или игрой, но вам стоит перепроверить это запустив установщик, просто для уверенности. ASF won't run without this dependency (or required Windows updates) being present.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 

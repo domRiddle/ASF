@@ -6,7 +6,7 @@
 * **[Configuratie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-nl-NL)**
 * **[FAQ (veelgestelde vragen)](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-nl-NL)**
 
-## Kernfuncties
+## Basisfuncties
 
 * **[Compatibiliteit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-nl-NL)**
 * **[Productactivering op de achtergrond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-nl-NL)**
@@ -18,18 +18,19 @@
 
 ## Geavanceerd
 
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-nl-NL)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow-nl-NL)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-nl-NL)**
-* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-nl-NL)**
-* **[Configuratie met hoge prestaties](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-nl-NL)**
-* **[Opdrachtregelparameters](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-nl-NL)**
-* **[Loggen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-nl-NL)**
-* **[Localisatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-nl-NL)**
-* **[Beveiliging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-nl-NL)**
-* **[Documentatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-nl-NL)**
-* **[Programma's van derden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-nl-NL)**
-* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-nl-NL)**
+* **[Uitgebreide FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
+* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configuratie met hoge prestaties](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Opdrachtregelparameters](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localisatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Beveiliging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
+* **[Documentatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Programma's van derden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Ontwikkelaars
 

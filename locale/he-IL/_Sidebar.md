@@ -18,18 +18,19 @@
 
 ## מתקדם
 
+* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[התקנת זיכרון נמוך](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[התקנת שימוש גבוה](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[ארגומנטים של שורת פקודה](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[רישום](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[מקום](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[אבטחה](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[מסמכים](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[שימוש בכלים צד שלישי](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[הוצא משימוש](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## מפתחים
 
