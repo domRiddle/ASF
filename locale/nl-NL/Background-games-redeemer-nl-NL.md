@@ -20,7 +20,7 @@ ASF is in staat in de `config` map een file met de naam `BotName.keys` te herken
     Terraria    DitWordtGenegeerd  DitWordtOokGenegeerd    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF zal het bestand importeren tijdens het opstarten van de bot of later tijdens de uitvoering. Na het succesvol verwerken van je bestand en eventuele weglating van ongeldige vermeldingen, worden alle correct gedetecteerde spellen toegevoegd aan de achtergrondwachtrij en wordt het ` BotNaam.keys` bestand verwijderd uit de `config` map.
 
 ### IPC
 
