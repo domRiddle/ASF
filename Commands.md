@@ -114,12 +114,12 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command     | Alias |
-|-------------|-------|
-`owns ASF`   | `oa` |
-`status ASF` | `sa` |
-`redeem`     | `r`  |
-`redeem^`    | `r^` |
+Command | Alias
+--- | ---
+`owns ASF` | `oa`
+`status ASF` | `sa`
+`redeem` | `r`
+`redeem^` | `r^`
 
 ---
 
@@ -192,7 +192,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 FD | ForceDistributing | Forces `Distributing` redeeming preference to be enabled
 FF | ForceForwarding | Forces `Forwarding` redeeming preference to be enabled
@@ -238,14 +238,14 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+Type | Description
+--- | ---
+DeviceID | 2FA device identificator, if missing from `.maFile`.
+Login | `SteamLogin` bot config property, if missing from config.
+Password | `SteamPassword` bot config property, if missing from config.
+SteamGuard | Auth code sent on your e-mail if you're not using 2FA.
+SteamParentalPIN | `SteamParentalPIN` bot config property, if missing from config.
+TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
