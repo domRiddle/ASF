@@ -37,7 +37,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## Commands
 
-| Command | Access | Description |
+| Command | Access | Description |
 | --- | --- | --- |
 `2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** token for given bot instances.
 `2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)** confirmations for given bot instances.
