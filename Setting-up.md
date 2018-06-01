@@ -45,14 +45,16 @@ It's possible that redist package was already installed by some other software/g
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 Package name depends on the distribution, we listed most common ones. You should obtain them with native package manager for your OS (such as `apt-get` for Debian or `yum` for CentOS).
-- libunwind8 (libunwind)
-- liblttng-ust0 (lttng-ust)
 - libcurl3 (libcurl)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
-- libuuid1 (libuuid)
+- libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
-- libicu57 (libicu, latest version for your distribution)
+- liblttng-ust0 (lttng-ust)
+- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
+
+The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them until ASF V3.2 is released:
+- libunwind8 (libunwind)
+- libuuid1 (libuuid)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
