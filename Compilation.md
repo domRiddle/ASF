@@ -12,7 +12,7 @@ Regardless of platform, you need full .NET Core SDK (not just runtime) in order 
 
 Example of `dotnet --info` on Windows:
 
-```powershell
+```cmd
 C:\Users\Archi>dotnet --info
 .NET Core SDK (reflecting any global.json):
  Version:   2.1.300
