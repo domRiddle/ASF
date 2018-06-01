@@ -22,19 +22,21 @@ Below tricks **involve serious memory increase** and should be used with caution
 
 More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is good enough for just a few bots, as usually a single concurrent background GC thread is enough to handle memory allocated by ASF.
+ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
 
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU core that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory. Server GC is recommended for machines with 3 cores and more, workstation GC is automatically forced if your machine has just 1 core, and if you have exactly 2 then you can consider trying both.
+However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
 
 You can enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`.
 
-Server GC itself does not result in a very huge memory increase by just being active, but it is far more lazy when it comes to giving memory back to OS, that's why usually just setting `BackgroundGCPeriod` to `1` or `2` should be enough in order to still keep awesome performance that comes from server GC, while forcing it to give back more unused memory to OS in fixed intervals. This is "the best of both worlds" if you want to benefit from server GC performance, but at the same time can't afford that huge memory increase. If memory is not a problem for you (as GC still takes into account available memory and tweaks itself), it's much better to not enable `BackgroundGCPeriod` at all.
+Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You might find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[GC latency level](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory.
+
+However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's much better to not change `GCLatencyLevel` at all, achieving superior performance in result.
 
 ---
 
 ## Recommended optimization
 
 - Enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. This will enable server GC which can be immediately seen as being active by memory increase compared to workstation GC.
-- If you can't afford that much memory increase, consider using `BackgroundGCPeriod` to use "the best of both worlds", although it's much better if you don't need to do that. Server GC is smart enough to use less memory when your OS will truly need it.
+- If you can't afford that much memory increase, consider using `GCLatencyLevel` of `0` to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
 
-If you've enabled server GC and kept `BackgroundGCPeriod` disabled, then you have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use entire CPU power when needed.
+If you've enabled server GC and kept `GCLatencyLevel` at default setting, then you have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum.
