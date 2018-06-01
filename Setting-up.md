@@ -52,7 +52,7 @@ Package name depends on the distribution, we listed most common ones. You should
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
-The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them until ASF V3.2 is released:
+The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them here until ASF V3.2 is released:
 - libunwind8 (libunwind)
 - libuuid1 (libuuid)
 
