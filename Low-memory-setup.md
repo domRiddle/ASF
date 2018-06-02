@@ -39,15 +39,6 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ---
 
-## ASF tuning (intermediate)
-
-Below tricks **involve performance degradation** and should be used with caution.
-
-- Enable `BackgroundGCPeriod` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
-
----
-
 ## Runtime tuning (advanced)
 
 Below tricks **involve serious performance degradation** and should be used with caution.
@@ -89,6 +80,14 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ```
 
 Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+
+---
+
+## ASF tuning (intermediate)
+
+Below tricks **involve serious performance degradation** and should be used with caution.
+
+- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
 ---
 
