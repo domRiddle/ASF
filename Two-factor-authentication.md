@@ -8,7 +8,7 @@ Now as you can see all trades are being hold for up to 15 days, which is not a m
 
 # ASF logic
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, in addition to being able to automatically confirm its own trades.
+Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
 ---
 
