@@ -41,7 +41,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ## Runtime tuning (advanced)
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+Below tricks **involve performance degradation** and should be used with caution.
 
 `ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
 
