@@ -65,7 +65,7 @@ Known issues:
 - `corerun` doesn't pick up proper `Newtonsoft.Json` library by itself, so original one provided by runtime had to be renamed in order to pick up ASF's version.
 - Using TCP `SteamProtocols` causes runtime to segfault. UDP and WebSockets seem to work properly, so it's recommended to explicitly avoid TCP protocol, for example with `SteamProtocols: 6`.
 
-It's possible that there are more bugs in various ASF functionality that we didn't test, but base features seem to work correctly (we've successfully logged into Steam network with a single account and started idling). Still, if you by any chance decide to use this build, keep in mind that you might need to face issues that you wouldn't face otherwise.
+It's possible that there are more bugs in various ASF functionality that we didn't test, but base features seem to work correctly (we've successfully logged into Steam network with a single account and started idling). Still, if you by any chance decide to use this build, keep in mind that you might need to face issues that you wouldn't face otherwise. Of course, you can also compile .NET Core yourself, **[here](https://github.com/dotnet/coreclr/issues/9265)** is current state of .NET Core for linux-x86.
 
 ---
 
