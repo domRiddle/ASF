@@ -24,7 +24,7 @@ It's not recommended to use generic flavour if you're casual or even advanced us
 
 ---
 
-## OS-specific
+### OS-specific
 
 OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
 
@@ -50,6 +50,22 @@ However, if you're trying to run generic ASF package then you must ensure that y
 ASF as a program is targetting **.NET Core 2.1** (`netcoreapp2.1`) right now, but it might target newer platform in the future. `netcoreapp2.1` is supported since 2.1.300 SDK (2.1.0 runtime), although we recommend using **[latest SDK](https://www.microsoft.com/net/download)** available for your machine.
 
 If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
+
+---
+
+## Unsupported setups
+
+As pointed out above, generic ASF flavour can work everywhere where you can obtain working .NET Core runtime, including **unsupported setups**, even by .NET Core itself. We still recommend to use officially supported .NET Core builds **as much as possible**, but we're also sharing our own unofficial tests that can be used as a reference.
+
+### linux-x86
+
+We've successfully cross-compiled .NET Core runtime for 32-bit Linux and managed to run ASF with it. Keep in mind that officially this variant is unsupported, by both .NET Core and ASF, so you should expect at least a few small issues that are caused by untested code. Our own build of `linux-x86` dotnet can be found **[here](https://mega.nz/#!jR4xkAYC!qVODRjZyqYp4Dks3kwF6cLk4qNhJfN4jLtKZiy1xNM4)**. This build provides only bare-bones `corerun` executable that should be used instead of `dotnet` command for launching ASF in generic variant. The runtime is based on .NET Core 2.1 (2.1.300 SDK).
+
+Known issues:
+- `corerun` doesn't pick up proper `Newtonsoft.Json` library by itself, so original one provided by runtime had to be renamed in order to pick up ASF's version.
+- Using TCP `SteamProtocols` causes runtime to segfault. UDP and WebSockets seem to work properly, so it's recommended to explicitly avoid TCP protocol, for example with `SteamProtocols: 6`.
+
+It's possible that there are more bugs in various ASF functionality that we didn't test, but base features seem to work correctly (we've successfully logged into Steam network with a single account and started idling). Still, if you by any chance decide to use this build, keep in mind that you might need to face issues that you wouldn't face otherwise.
 
 ---
 
