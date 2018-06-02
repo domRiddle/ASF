@@ -95,8 +95,6 @@ From now on, your ASF 2FA should be operational for this account.
 
 ### WinAuth
 
-**Make sure that you're using WinAuth in version 3.4 or higher, as older versions do not support Steam authenticator properly.**
-
 Firstly create new empty `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Remember that it should be `BotName.maFile` and NOT `BotName.maFile.txt`, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
 
 Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with `{`. Copy whole text into a `BotName.maFile` file created by you in previous step.
