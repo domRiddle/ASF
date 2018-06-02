@@ -6,9 +6,15 @@ Now as you can see all trades are being hold for up to 15 days, which is not a m
 
 ---
 
+# ASF logic
+
+Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, in addition to being able to automatically confirm its own trades.
+
+---
+
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. Sounds awesome, but requires some effort to set up.
+The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
 
 To enable ASF 2FA, you need to have:
 - Working steam authenticator in your Android
