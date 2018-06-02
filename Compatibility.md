@@ -59,7 +59,7 @@ As pointed out above, generic ASF flavour can work everywhere where you can obta
 
 ### linux-x86
 
-We've successfully cross-compiled .NET Core runtime for 32-bit Linux and managed to run ASF with it. Keep in mind that officially this variant is unsupported, by both .NET Core and ASF, so you should expect at least a few small issues that are caused by untested code. Our own build of `linux-x86` dotnet can be found **[here](https://mega.nz/#!jR4xkAYC!qVODRjZyqYp4Dks3kwF6cLk4qNhJfN4jLtKZiy1xNM4)**. This build provides only bare-bones `corerun` executable that should be used instead of `dotnet` command for launching ASF in generic variant. The runtime is based on .NET Core 2.1 (2.1.300 SDK).
+We've successfully cross-compiled .NET Core runtime for 32-bit Linux and managed to run ASF with it. Keep in mind that officially this variant is unsupported, by both .NET Core and ASF, so you should expect at least a few small issues that are caused by untested code. Our own build of `linux-x86` dotnet can be found **[here](https://mega.nz/#!jR4xkAYC!qVODRjZyqYp4Dks3kwF6cLk4qNhJfN4jLtKZiy1xNM4)**. This build provides only bare-bones `corerun` executable that should be used instead of `dotnet` command for launching ASF in generic variant. The runtime is based on .NET Core 2.1 (2.1.300 SDK). Don't forget to install standard .NET Core **[prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 
 Known issues:
 - `corerun` doesn't pick up proper `Newtonsoft.Json` library by itself, so original one provided by runtime had to be renamed in order to pick up ASF's version.
