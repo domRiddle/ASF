@@ -59,7 +59,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out-linux-x64"
 
 Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. In even more rare case when you can't even use `dotnet` command (e.g. when because of building with `mono`), you can call `msbuild` directly:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. In even more rare case when you can't even use `dotnet` command (e.g. because of building with `mono`), you can call `msbuild` directly:
 
 ```shell
 msbuild /maxcpucount /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r ArchiSteamFarm
