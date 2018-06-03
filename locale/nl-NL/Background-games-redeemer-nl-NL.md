@@ -12,7 +12,7 @@ Het importeren kan worden gedaan op twee manieren - door gebruik te maken van ee
 
 ### Bestand
 
-ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. De data op het bestand moet bestaan uit een vaste structuur, bestaande uit de naam van het spel en de productcode, gescheiden door een tab karakter en eindigend met een nieuwe regel. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
+ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. De data op het bestand moet bestaan uit een vaste structuur, bestaande uit de naam van het spel en de productcode, gescheiden door een tabteken en eindigend met een nieuwe regel. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,31 +20,31 @@ ASF is in staat in de `config` map een file met de naam `BotName.keys` te herken
     Terraria    DitWordtGenegeerd  DitWordtOokGenegeerd    ZXCVB-ASDFG-QWERT
     
 
-ASF zal het bestand importeren tijdens het opstarten van de bot of later tijdens de uitvoering. Na het succesvol verwerken van je bestand en eventuele weglating van ongeldige vermeldingen, worden alle correct gedetecteerde spellen toegevoegd aan de achtergrondwachtrij en wordt het ` BotNaam.keys` bestand verwijderd uit de `config` map.
+ASF zal het bestand importeren tijdens het opstarten van de bot of later tijdens de uitvoering. Na het succesvol verwerken van je bestand en eventuele weglating van ongeldige vermeldingen, worden alle correct gedetecteerde spellen toegevoegd aan de achtergrondwachtrij en wordt het `BotNaam.keys` bestand verwijderd uit de `config` map.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+Naast het gebruik van het hierboven besproken bestand, biedt ASF ook een `GamesToRedeemInBackground` **[API-eindpunt](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** die kan worden uitgevoerd door een IPC-tool, inclusief onze IPC GUI. Het gebruik van de IPC kan efficiënter zijn, omdat u zelf de juiste verwerking kunt uitvoeren, zoals het gebruik van een aangepast scheidingsteken in plaats van het vereiste tabteken.
 
 * * *
 
 ## Wachtrij
 
-Zodra de spellen geïmporteerd zijn, zijn ze toegevoegd aan de wachtrij. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Zodra de spellen geïmporteerd zijn, zijn ze toegevoegd aan de wachtrij. ASF doorloopt automatisch de achtergrondwachtrij zolang de bot is verbonden met het Steam-netwerk en de wachtrij niet leeg is. Een productcode, waarbij is geprobeerd die te activeren en niet resulteerde in `RateLimited`, wordt verwijderd uit de wachtrij. De status wordt dan correct weggeschreven naar een bestand in de `config` map. Als een code werd gebruikt in het proces, wordt die opgeslagen in een `BotNaam.keys.used` bestand (bijv. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`). Als een code niet werd gebruikt, wordt die opgeslagen in een `BotNaam.keys.unused` bestand. ASF gebruikt opzettelijk de door jou opgegeven naam van het spel, omdat de productsleutel niet altijd een betekenisvolle naam krijgt van het Steam-netwerk - dus op die manier kun je de productsleutel zelfs je eigen naam geven als dat nodig/gewenst is.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Als tijdens het proces het account de `RateLimited` status krijgt, wordt de wachtrij tijdelijk voor een uur onderbroken om de cooldown af te wachten. Daarna gaat het proces verder waar het gebleven is, totdat de wachtrij leeg is.
 
 * * *
 
 ## Voorbeeld
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Stel je hebt een lijst met 100 codes. Eerst moet je een nieuw `BotNaam.keys.new` bestand maken in de ASF `config` map. We hebben een `.new` extensie toegevoegd om ASF te laten weten dat het dit bestand niet onmiddellijk moet lezen op het moment dat het gemaakt werd (aangezien het een nieuw leeg bestand is, wat nog niet gereed is om te importeren).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Je kunt nu het nieuwe bestand openen en de lijst met de 100 codes kopiëren en plakken - en indien nodig de opmaak corrigeren. Na de benodigde correcties heeft het `BotNaam.keys.new` bestand precies 100 regels (of 101, met de laatste nieuwe regel). Elke regel heeft een structuur met `GameNaam\tproductsleutel\n`, waarbij`\t` het tabteken is en`\n` de regeleinde aanduidt.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Je bent nu klaar om dit bestand te hernoemen van `BotNaam.keys.new` naar `BotNaam.keys` om ASF te laten weten dat het gereed is om te worden verwerkt. Wanneer je dit doet, zal ASF automatisch het bestand importeren (een herstart is niet nodig) en daarna verwijderen, waarbij wordt bevestigd dat al je spellen worden verwerkt en aan de wachtrij worden toegevoegd.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+In plaats van het `BotName.keys` bestand te gebruiken, kun je ook het IPC API-eindpunt gebruiken of zelfs beide combineren als je dat wilt.
 
 After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
 

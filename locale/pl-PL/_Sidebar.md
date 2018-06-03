@@ -20,8 +20,8 @@
 
 * **[Rozszerzone FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
+* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Konfiguracja pod zwiększoną wydajność](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumenty wiersza poleceń](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**

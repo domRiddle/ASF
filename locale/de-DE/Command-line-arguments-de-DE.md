@@ -26,20 +26,20 @@ Linux/OS X:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Die Befehlszeilenargumente werden ebenfalls in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus kannst du bei Verwendung eines Hilfsskripts auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in unserem Abschnitt **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE#Befehlszeilenargumente)** beschrieben.
+Die Befehlszeilenargumente werden ebenfalls in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
 Wenn Ihr Argument Leerzeichen enthalten sollte, so ist es in Anführungszeichen zu setzen. Diese zwei sind falsch:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/Meine Downloads/ASF # Schlecht!
-./ArchiSteamFarm --path /home/archi/Meine Downloads/ASF # Auch schlecht!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
 Aber diese beiden sind völlig in Ordnung:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/Meine Downloads/ASF" # In Ordnung
-./ArchiSteamFarm "--path=/home/archi/Meine Downloads/ASF" # Auch in Ordnung
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
 ## Argumente
@@ -58,7 +58,7 @@ Beispiel:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path will also work
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
 ```
 
     ├── /opt
@@ -78,6 +78,6 @@ Wenn du nicht vorhast, die IPC auszuführen, ist diese Option für dich ziemlich
 
 * * *
 
-`--system-required` - Durch die Deklaration dieses Schalters wird ASF versuchen dem Betriebssystem zu signalisieren, dass das System während der gesamten Prozesslaufzeit betriebsbereit sein soll. Dieser Schalter zeigt derzeit eine Wirkung nur auf Windows-Rechnern, auf welchen er es deinem System verbietet, in den Ruhezustand zu wechseln, solange der Prozess läuft. Dies kann besonders nützlich sein, wenn du nachts auf deinem PC oder Laptop am Sammeln bist, da ASF in der Lage ist, dein System während des Sammelns wach zu halten, und sich dann bei Beendigung von ASF wie gewohnt abschaltet, so dass dein System wieder in den Ruhemodus wechseln kann und somit sofort nach Beendigung des Sammelns Strom spart.
+`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Dieser Schalter zeigt derzeit eine Wirkung nur auf Windows-Rechnern, auf welchen er es deinem System verbietet, in den Ruhezustand zu wechseln, solange der Prozess läuft. Dies kann besonders nützlich sein, wenn du nachts auf deinem PC oder Laptop am Sammeln bist, da ASF in der Lage ist, dein System während des Sammelns wach zu halten, und sich dann bei Beendigung von ASF wie gewohnt abschaltet, so dass dein System wieder in den Ruhemodus wechseln kann und somit sofort nach Beendigung des Sammelns Strom spart.
 
 Beachte bitte, dass für das ordnungsmäßige automatische Beenden von ASF weitere Einstellungen korrekt vorgenommen sein müssen - vor allem das `--process-required` vermieden wird und das alle deine Bots `ShutdownOnFarmingFinished` befolgen. Natürlich ist das automatische Beenden nur eine Verwendungsmöglichkeit für diese Funktion, keine Notwendigkeit, denn du kannst diesen Schalter auch z.B. zusammen mit `--process-required` nutzen, wodurch dein System faktisch für immer nach dem Starten von ASF wach bleibt.

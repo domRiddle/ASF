@@ -1,6 +1,6 @@
 # Iniciando
 
-Si llegaste aquí por primera vez, ¡bienvenido! Estamos muy contentos de ver a otro viajero interesado en nuestro proyecto, aunque ten en cuenta que con gran poder viene una gran responsabilidad - ASF es capaz de hacer muchas cosas relacionadas con Steam, siempre y cuando **te intereses lo suficiente para aprender cómo usarlo**. Hay una difícil curva de aprendizaje involucrada aquí, y esperamos que leas la wiki en este sentido, la cual explica en detalle cómo funciona todo. Si buscas un "idler" de Steam que no requiera comprensión lectora, entonces usa **[Idle Master](https://www.steamidlemaster.com)**, ya que no vamos a hacer la tarea por ti.
+Si llegaste aquí por primera vez, ¡bienvenido! Estamos muy contentos de ver a otro viajero interesado en nuestro proyecto, aunque ten en cuenta que con un gran poder viene una gran responsabilidad - ASF es capaz de hacer muchas cosas relacionadas con Steam, siempre y cuando **te intereses lo suficiente para aprender cómo usarlo**. Hay una difícil curva de aprendizaje involucrada aquí, y esperamos que leas la wiki en este sentido, la cual explica en detalle cómo funciona todo. Si buscas un "idler" de Steam que no requiera comprensión lectora, entonces usa **[Idle Master](https://www.steamidlemaster.com)**, ya que no vamos a hacer la tarea por ti.
 
 Si todavía sigues aquí significa que soportaste nuestro texto de arriba, lo cual es bueno. A menos que te lo hayas saltado, entonces vas a tener un **[mal momento](https://www.youtube.com/watch?v=WJgt6m6njVw)** muy pronto... En cualquier caso, ASF es una aplicación de consola, lo que significa que el programa en sí no tiene una GUI (Interfaz Gráfica de Usuario) amigable como a las que en general estás acostumbrado. ASF estaba pensado principalmente para ser ejecutado en servidores, por lo que actúa como un servicio (daemon) y no como una aplicación de escritorio.
 
@@ -8,31 +8,31 @@ Sin embargo, esto no significa que no puedas usarlo en tu PC o que usarlo es de 
 
 * * *
 
-## Quick video setup
+## Video de configuración rápida
 
-If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
-
-* * *
-
-## OS-specific setup
-
-In general, here is what we'll do in the next few minutes:
-
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
-
-Sounds simple enough, right? So let's get through it.
+Si definitivamente odias leer y en cambio prefieres ver un video, entonces puedes darle un vistazo al grabado por **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** en **[este enlace](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Por favor ten en cuenta que aún debes referirte a la wiki para mayor explicación y guía de configuración actualizada. Aunque consideramos el video de YouTube como buen material para mostrar cómo configurar y ejecutar, no podemos actualizarlo fácilmente cuando las cosas cambian, así que debe ser solo material de referencia. Si te interesa una explicación detallada, documentación y configuración completa, entonces en cambio deberías continuar leyendo nuestra **[configuración de SO específico](#os-specific-setup)**, usando el video de YouTube solamente como material de referencia opcional. Aun así, remarcamos, aunque puede ser útil en **algunos** casos, de todos modos recomendamos leer la wiki por encima de ver el video.
 
 * * *
 
-### .NET Core prerequisites
+## Configuración de SO específico
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. Simply follow the instructions, there is a chance that you already have all required libraries, but you should double check.
+En general, aquí está lo que haremos los próximos minutos:
 
-For example on Windows, all you need to do is downloading and installing `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, which **could be even already installed by some other game/software that you're using**. On Linux, you have a list of libraries that can be obtained with `apt-get install` or any other package manager that you're using for your distribution. OS X doesn't have any mandatory dependencies for now, but it might change in the future.
+- Instalar los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Descargar la **[última versión de ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** en su apropiada variante de SO específico.
+- Extraer el archivo un una nueva ubicación (y usar `chmod +x ArchiSteamFarm` si estás en Linux/OS X).
+- **[Configurar ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+- Ejecutar ASF y ver la magia.
+
+Suena bastante simple, ¿cierto? Así que hagámoslo.
+
+* * *
+
+### Prerrequisitos de .NET Core
+
+El primer paso es asegurarte de que tu SO puede siquiera ejecutar ASF correctamente. ASF está escrito en C#, basado en .NET Core y puede requerir librerías nativas que todavía no están disponibles en tu plataforma. Dependiendo de si usas Windows, Linux o OS X, tendrás diferentes requerimientos, aunque todos ellos están enlistados en el documento **[Prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** que debes seguir. Simplemente sigue las instrucciones, hay una posibilidad de que ya tengas todas las librerías requeridas, pero debes comprobarlo.
+
+Por ejemplo en Windows, todo lo que necesitas hacer es descargar e instalar `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, el cual **podría incluso ya estar instalado por algún otro juego/software que usas**. En Linux, tienes una lista de librerías que pueden ser obtenidas con `apt-get install` o cualquier otro administrador de paquetes que estés usando para tu distribución. OS X doesn't have any mandatory dependencies for now, but it might change in the future.
 
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
 
@@ -49,18 +49,21 @@ It's possible that redist package was already installed by some other software/g
 
 Package name depends on the distribution, we listed most common ones. You should obtain them with native package manager for your OS (such as `apt-get` for Debian or `yum` for CentOS).
 
-- libunwind8 (libunwind)
-- liblttng-ust0 (lttng-ust)
 - libcurl3 (libcurl)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
-- libuuid1 (libuuid)
+- libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
-- libicu57 (libicu, latest version for your distribution)
+- liblttng-ust0 (lttng-ust)
+- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
+
+The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them here until ASF V3.2 is released:
+
+- libunwind8 (libunwind)
+- libuuid1 (libuuid)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
-#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites)**:
+#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
 - None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Shouldn't be required for ASF alone, but keep that in mind if you encounter any issues.
 
@@ -80,13 +83,13 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 
 An example structure would look like this:
 
-    C:\ASF (where you put your own things)
-        ├── ASF shortcut.lnk (optional)
-        ├── Config shortcut.lnk (optional)
-        ├── Commands.txt (optional)
-        ├── MyExtraScript.bat (optional)
-        ├── ... (any other files of your choice, optional)
-        └── Core (dedicated to ASF only, where you extract the archive)
+    C:\ASF (donde pones tus cosas)
+        ├── ASF shortcut.lnk (opcional)
+        ├── Config shortcut.lnk (opcional)
+        ├── Commands.txt (opcional)
+        ├── MyExtraScript.bat (opcional)
+        ├── ... (cualquier otro archivo de tu elección, opcional)
+        └── Core (dedicado a ASF solamente, donde extraes el archivo)
              ├── ArchiSteamFarm.dll
              ├── config
              └── (...)
@@ -268,11 +271,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Install **[.NET Core SDK](https://www.microsoft.com/net/download/core#/sdk)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
+- Instalar los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+- **[Configurar ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

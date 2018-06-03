@@ -18,19 +18,19 @@
 
 ## Geavanceerd
 
-* **[Uitgebreide FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
-* **[Escrow](https://github.com/JustArchi/ArchiSteamFarm/wiki/Escrow)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Configuratie met hoge prestaties](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Opdrachtregelparameters](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localisatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
-* **[Beveiliging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Documentatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Programma's van derden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Uitgebreide FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ-nl-NL)**
+* **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-nl-NL)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-nl-NL)**
+* **[Tweestapsverificatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-nl-NL)**
+* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-nl-NL)**
+* **[Configuratie met hoge prestaties](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-nl-NL)**
+* **[Opdrachtregelparameters](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-nl-NL)**
+* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-nl-NL)**
+* **[Localisatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-nl-NL)**
+* **[Beveiliging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-nl-NL)**
+* **[Documentatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-nl-NL)**
+* **[Programma's van derden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-nl-NL)**
+* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-nl-NL)**
 
 ## Ontwikkelaars
 

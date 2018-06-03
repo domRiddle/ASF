@@ -26,20 +26,20 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Аргументы командной строки также поддерживаются в вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. В дополнении к этому, при использовании вспомогательного скрипта вы можете использовать переменные окружения `ASF_ARGS`, как указано в разделе **[Docker](https://github. com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU#Аргументы-командной-строки)**.
+Аргументы командной строки также поддерживаются в вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
 Если ваш аргумент содержит пробелы, не забудьте заключить его в кавычки. Эти два примера неправильные:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Плохо!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Тоже плохо!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
 Однако, эти два абсолютно корректны:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # Нормально
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # Тоже нормально
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
 ## Аргументы
@@ -58,7 +58,7 @@ Linux/OS X
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path will also work
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
 ```
 
     ├── /opt
@@ -78,6 +78,6 @@ If you do not intend to run IPC, this option will be rather useless for you, as 
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for entire lifetime of the process. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
 
 Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.

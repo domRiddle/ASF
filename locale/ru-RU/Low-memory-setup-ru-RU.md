@@ -40,18 +40,9 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 * * *
 
-## ASF tuning (intermediate)
-
-Below tricks **involve performance degradation** and should be used with caution.
-
-- Enable `BackgroundGCPeriod` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** by setting it to `1` or `2`. This can help to keep memory low while sacrificing only a bit of constant CPU power for doing so. If you don't need to go that aggressive, a more sane `10` value is recommended.
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
-
-* * *
-
 ## Расширенная настройка среды исполнения
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+Below tricks **involve performance degradation** and should be used with caution.
 
 `ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
 
@@ -65,26 +56,54 @@ More can be read at **[fundamentals of garbage collection](https://docs.microsof
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
-In addition to verifying that workstation GC is active, there is also an interesting **[configuration knob](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory`.
+In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory` and `GCLatencyLevel`.
 
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible
+### `GCLatencyLevel`
 
-You can enable it by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`. For example on Linux with:
+> Specifies the GC latency level that you want to optimize for.
+
+This works exceptionally well by limiting sizes of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use ``, which will tune for memory usage.
+
+### `gcTrimCommitOnLowMemory`
+
+> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
+
+This offers little improvement, but might make GC even more aggressive when system will be low on memory.
+
+* * *
+
+You can enable both by setting appropriate `COMPlus_` environment variables. For example, on Linux:
 
 ```shell
+export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-To the best of my knowledge I'm not even sure if this option works properly. It definitely won't hurt to try though.
+Or on Windows:
+
+```bat
+SET COMPlus_GCLatencyLevel=0
+SET COMPlus_gcTrimCommitOnLowMemory=1
+.\ArchiSteamFarm.exe
+```
+
+Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+
+* * *
+
+## ASF tuning (intermediate)
+
+Below tricks **involve serious performance degradation** and should be used with caution.
+
+- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
 
 * * *
 
 ## Recommended optimization
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable `gcTrimCommitOnLowMemory` configuration knob by setting `COMPlus_gcTrimCommitOnLowMemory` environment variable to `1`.
-- If above tips didn't help, experiment with `BackgroundGCPeriod`, this brings "the best of both worlds", by not affecting performance nearly at all, while shrinking memory usage in fixed intervals. A value such as `10` is sane enough to recommend it, although if you have more strict memory environment then you can go as low as `1` or `2`.
+- If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on threadpool to balance things out when it comes to parallel execution.
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Next step is rewriting ASF into C++ đź†.
+It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.

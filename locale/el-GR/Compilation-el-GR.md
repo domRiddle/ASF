@@ -8,28 +8,33 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 ## .NET Core SDK
 
-Regardless of platform, you need full .NET Core SDK in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Regardless of platform, you need full .NET Core SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
 Example of `dotnet --info` on Windows:
 
-```powershell
-C:\Users\Archi>dotnet --info
-Product Information:
- Version:            2.0.0
- Commit SHA-1 hash:  cdcd1928c9
-
-Runtime Environment:
- OS Name:     Windows
- OS Version:  10.0.15063
- OS Platform: Windows
- RID:         win10-x64
- Base Path:   C:\Program Files\dotnet\sdk\2.0.0\
-
-Microsoft .NET Core Shared Framework Host
-
-  Version  : 2.0.0
-  Build    : e8b8861ac7faf042c87a5c2f9f2d04c98b69f28d
-```
+    .NET Core SDK (reflecting any global.json):
+     Version:   2.1.300
+     Commit:    adab45bf0c
+    
+    Runtime Environment:
+     OS Name:     Windows
+     OS Version:  10.0.17134
+     OS Platform: Windows
+     RID:         win10-x64
+     Base Path:   C:\Program Files\dotnet\sdk\2.1.300\
+    
+    Host (useful for support):
+      Version: 2.1.0
+      Commit:  caa7b7e2ba
+    
+    .NET Core SDKs installed:
+      2.1.300 [C:\Program Files\dotnet\sdk]
+    
+    .NET Core runtimes installed:
+      Microsoft.AspNetCore.All 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
+      Microsoft.AspNetCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+      Microsoft.NETCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+    
 
 * * *
 
@@ -61,7 +66,7 @@ If you'd like to edit ASF code, you can use any .NET Core compatible IDE for tha
 
 If you'd like to work with ASF code on Linux/OS X instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. It's not as rich as classic Visual Studio, but it's good enough.
 
-Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. Originally we use Visual Studio + ReSharper for ASF development, with a small part of third-party `tools` that you can find in the repo.
+Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. We use Visual Studio + ReSharper for ASF development, with a small part of third-party `tools` that you can find in the repo.
 
 * * *
 
