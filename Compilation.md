@@ -62,7 +62,7 @@ Of course, replace `linux-x64` with OS-architecture you want to target, such as 
 In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. In even more rare case when you can't even use `dotnet` command (e.g. because of building with `mono`), you can call `msbuild` directly:
 
 ```shell
-msbuild /maxcpucount /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
 ```
 
 ---
