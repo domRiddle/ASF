@@ -22,6 +22,14 @@ Generic package is platform-agnostic build that doesn't include any machine-spec
 
 It's not recommended to use generic flavour if you're casual or even advanced user that just wants to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, you can use it, otherwise it's much better to use OS-specific package explained below.
 
+#### .NET Framework package
+
+In addition to generic package mentioned above, there is also `generic-netf` package which is built on top of .NET Framework (and not .NET Core). This package is legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package not yet.
+
+In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with normal `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. An example of such platform would be `linux-x86` that didn't receive working .NET Core runtime as of today.
+
+As the time goes with more platforms supported by .NET Core and less compatibility between .NET Framework and .NET Core, this package will be entirely replaced. Please refrain from using it if you can use any .NET Core package instead.
+
 ---
 
 ### OS-specific
@@ -50,22 +58,6 @@ However, if you're trying to run generic ASF package then you must ensure that y
 ASF as a program is targetting **.NET Core 2.1** (`netcoreapp2.1`) right now, but it might target newer platform in the future. `netcoreapp2.1` is supported since 2.1.300 SDK (2.1.0 runtime), although we recommend using **[latest SDK](https://www.microsoft.com/net/download)** available for your machine.
 
 If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
-
----
-
-## Unsupported setups
-
-As pointed out above, generic ASF flavour can work everywhere where you can obtain working .NET Core runtime, including **unsupported setups**, even by .NET Core itself. We still recommend to use officially supported .NET Core builds **as much as possible**, but we're also sharing our own unofficial tests that can be used as a reference.
-
-### linux-x86
-
-We've successfully cross-compiled .NET Core runtime for 32-bit Linux and managed to run ASF with it. Keep in mind that officially this variant is unsupported, by both .NET Core and ASF, so you should expect at least a few small issues that are caused by untested code. Our own build of `linux-x86` dotnet can be found **[here](https://mega.nz/#!jR4xkAYC!qVODRjZyqYp4Dks3kwF6cLk4qNhJfN4jLtKZiy1xNM4)**. This build provides only bare-bones `corerun` executable that should be used instead of `dotnet` command for launching ASF in generic variant. The runtime is based on .NET Core 2.1 (2.1.300 SDK). Don't forget to install standard .NET Core **[prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** before.
-
-Known issues:
-- `corerun` doesn't pick up proper `Newtonsoft.Json` library by itself, so original one provided by runtime had to be renamed in order to pick up ASF's version.
-- Using TCP `SteamProtocols` causes runtime to segfault. UDP and WebSockets seem to work properly, so it's recommended to explicitly avoid TCP protocol, for example with `SteamProtocols: 6`.
-
-It's possible that there are more bugs in various ASF functionality that we didn't test, but base features seem to work correctly (we've successfully logged into Steam network with a single account and started idling). Still, if you by any chance decide to use this build, keep in mind that you might need to face issues that you wouldn't face otherwise. Of course, you can also compile .NET Core yourself, **[here](https://github.com/dotnet/coreclr/issues/9265)** is the current state of .NET Core for linux-x86.
 
 ---
 
