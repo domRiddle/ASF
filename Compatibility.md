@@ -80,7 +80,7 @@ This issue is most likely caused by some of the certificates not being possible 
 
 The current workaround depends on the root issue. On clean setups (e.g. Debian), this should never happen as there should be no invalid/sensitive certificates in the store, so the issue considers only people that are most likely having other certs for other purposes (e.g. VPN or websites) that ASF has no access to read. You can consider either giving proper permission to ASF user, running ASF under `root`, or moving sensitive certificates somewhere else so ASF does not attempt to read them during initialization.
 
-This issue is supposed to be fixed with next .NET Core 2.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
+This issue is supposed to be fixed with next .NET Core 2.1.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
 
 Reference: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
 
