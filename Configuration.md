@@ -56,7 +56,6 @@ Global config is located in `ASF.json` file and has following structure:
 ```json
 {
 	"AutoRestart": true,
-	"BackgroundGCPeriod": 0,
 	"Blacklist": [],
 	"CommandPrefix": "!",
 	"ConfirmationsLimiterDelay": 10,
