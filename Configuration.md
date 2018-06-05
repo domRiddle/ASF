@@ -177,6 +177,8 @@ ASF by default listens only on `127.0.0.1` address to ensure that no other machi
 
 If your machine supports IPv6, you might want to add a value of `http://[::1]:1242/` to this collection in order to listen on both local IPv4 `127.0.0.1` address, as well as local IPv6 `::1` one. This is especially important if you want to access ASF via `localhost` name, as in this case your machine might want to use IPv6 by default.
 
+Keep in mind that this property apart from bind address, also specifies valid **hostnames** under which IPC interface is accessible. In other words, if you want to access your IPC interface from `asf.example.com` hostname, then you should define `http://asf.example.com:1242/` in your `IPCPrefixes`. This way you explicitly define that IPC interface should be accessible from this hostname. Even if you make your IPC interface reachable (e.g. by changing `127.0.0.1` to your public IP address), you'll get `404 NotFound` error if the URL under which you're trying to access it is not defined in `IPCPrefixes` of ASF.
+
 Unless you have a reason to edit this property, you should keep it at default.
 
 ---
