@@ -29,6 +29,7 @@ server {
 
 	location /Api/Log {
 		proxy_pass http://127.0.0.1:1242;
+#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Host $host:$server_port;
 		proxy_set_header X-Forwarded-Proto $scheme;
@@ -42,6 +43,7 @@ server {
 
 	location / {
 		proxy_pass http://127.0.0.1:1242;
+#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Host $host:$server_port;
 		proxy_set_header X-Forwarded-Proto $scheme;
