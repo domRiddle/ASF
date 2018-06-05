@@ -27,12 +27,8 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-	upstream asf {
-		server 127.0.0.1:1242;
-	}
-
 	location /Api/Log {
-		proxy_pass http://asf;
+		proxy_pass http://127.0.0.1:1242;
 		proxy_set_header Connection "upgrade";
 		proxy_set_header Upgrade $http_upgrade;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -41,7 +37,7 @@ server {
 	}
 
 	location / {
-		proxy_pass http://asf;
+		proxy_pass http://127.0.0.1:1242;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Proto $scheme;
 		proxy_set_header X-Real-IP $remote_addr;
