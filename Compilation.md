@@ -51,13 +51,13 @@ If you're using Linux/OS X, you can instead use `cc.sh` script which will do the
 
 If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. Keep in mind that you'll need appropriate **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** developer pack for compiling `netf` variant.
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. Keep in mind that you'll need appropriate **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out-generic-netf"
 ```
 
-In even more rare case when you can't even use `dotnet` command (e.g. because of building with `mono`), you can call `msbuild` directly:
+In even more rare case when you can't even use `dotnet` command (e.g. because of missing .NET Core SDK and building with `mono`), you can call `msbuild` directly:
 
 ```shell
 msbuild /m /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
