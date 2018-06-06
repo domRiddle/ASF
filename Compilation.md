@@ -69,7 +69,7 @@ In a very rare case when you'd want to build `generic-netf` package, you can cha
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out-generic-netf"
 ```
 
-In even more rare case, if you can't install .NET Framework, or even .NET Core SDK (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly:
+In even more rare case, if you can't install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly:
 
 ```shell
 msbuild /m /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
