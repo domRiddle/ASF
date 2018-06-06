@@ -56,7 +56,6 @@ Global config is located in `ASF.json` file and has following structure:
 ```json
 {
     "AutoRestart": true,
-    "BackgroundGCPeriod": 0,
     "Blacklist": [],
     "CommandPrefix": "!",
     "ConfirmationsLimiterDelay": 10,
@@ -79,7 +78,7 @@ Global config is located in `ASF.json` file and has following structure:
     "OptimizationMode": 0,
     "Statistics": true,
     "SteamOwnerID": 0,
-    "SteamProtocols": 3,
+    "SteamProtocols": 7,
     "UpdateChannel": 1,
     "UpdatePeriod": 24,
     "WebLimiterDelay": 200,
@@ -98,10 +97,6 @@ All options are explained below:
 `AutoRestart` - `bool` type with default value of `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you might want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
-
-* * *
-
-`BackgroundGCPeriod` - `byte` type with default value of ``. This property is specifically designed to help with **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and should not be enabled unless needed. When changed from default value of ``, ASF will perform full garbage collection each `BackgroundGCPeriod` seconds, and large object heap compaction each `BackgroundGCPeriod` minutes. This approach can result in decreased memory usage as well as making runtime less "greedy" by giving more unused memory back to the OS in fixed intervals. However, such forced garbage collection in fixed intervals will affect ASF performance negatively, as well as cause extra CPU usage that comes from excessive collections. You should only enable this feature if you truly need it, usually **[only with server GC enabled](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup#runtime-tuning-advanced)**, while reading **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** before doing so. The most aggressive setting is obviously garbage collecting every `1` second, but before you go that often you should probably try something less intrusive, such as `10`. Unless you have **strong** reason to enable this feature, you should keep it disabled with default value of ``.
 
 * * *
 
@@ -149,11 +144,11 @@ If you're running ASF on the server, you might want to use this option together 
 
 * * *
 
-`IdleFarmingPeriod` - `byte` type with default value of `8`. When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. Value of `` disables this feature. Also check: `ShutdownOnFarmingFinished`.
+`IdleFarmingPeriod` - `byte` type with default value of `8`. When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. Value of `0` disables this feature. Also check: `ShutdownOnFarmingFinished`.
 
 * * *
 
-`InventoryLimiterDelay` - `byte` type with default value of `3`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests - those are being used for fetching your own inventory (and only for that). Default value of `3` was set based on looting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also might need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`InventoryLimiterDelay` - `byte` type with default value of `3`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests - those are being used for fetching your own inventory (and only for that). Default value of `3` was set based on looting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also might need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -177,11 +172,13 @@ ASF by default listens only on `127.0.0.1` address to ensure that no other machi
 
 If your machine supports IPv6, you might want to add a value of `http://[::1]:1242/` to this collection in order to listen on both local IPv4 `127.0.0.1` address, as well as local IPv6 `::1` one. This is especially important if you want to access ASF via `localhost` name, as in this case your machine might want to use IPv6 by default.
 
+Keep in mind that this property apart from bind address, also specifies valid **URLs** under which IPC interface is accessible. In other words, if you want to access your IPC interface from `asf.example.com` hostname, then you should define `http://asf.example.com:1242/` in your `IPCPrefixes`. Even if you make your IPC interface reachable (e.g. by changing `127.0.0.1` to your public IP address), you'll get `404 NotFound` error if the URL under which you're trying to access it is not defined in `IPCPrefixes` of ASF. This is why you should define in `IPCPrefixes` all URLs under which the IPC interface should be accessible, and this can include local IPv4 and IPv6 addresses, public IPv4 and IPv6 addresses, and custom hostname, making it 5 different `IPCPrefixes` total, if you require/want to access IPC interface in all of those 5 ways. Of course, you can also define just `http://*:1242/`, but this might not always be appropriate.
+
 Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-`LoginLimiterDelay` - `byte` type with default value of `10`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`LoginLimiterDelay` - `byte` type with default value of `10`. Steam Network in general includes various rate-limiting of similar requests, therefore we must add some extra delay in order to avoid triggering that rate-limiting which would prevent us from interaction with the service. ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -189,11 +186,11 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-`MaxTradeHoldDuration` - `byte` type with default value of `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
+`MaxTradeHoldDuration` - `byte` type with default value of `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-`OptimizationMode` - `byte` type with default value of ``. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you might want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`OptimizationMode` - `byte` type with default value of `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you might want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -201,15 +198,15 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-`SteamOwnerID` - `ulong` type with default value of ``. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you might want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** works with `SteamOwnerID`, so if you want to use it you must provide a valid value here.
+`SteamOwnerID` - `ulong` type with default value of `0`. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you might want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** works with `SteamOwnerID`, so if you want to use it you must provide a valid value here.
 
 * * *
 
-`SteamProtocols` - `byte flags` type with default value of `3`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+`SteamProtocols` - `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
 | Value | Meno      | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-|       | None      | No protocol                                                                                      |
+| 0     | None      | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -218,15 +215,13 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-Right now this property does not include WebSockets by default due to issue **[#612](https://github.com/JustArchi/ArchiSteamFarm/issues/612)**.
+* * *
+
+`UpdateChannel` - `byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks, although this is not recommended, unless for some reason you don't want to even receive notifications about new versions. Setting `UpdateChannel` to `0` will entirely disable all functions related to updates, including `update` command.
 
 * * *
 
-`UpdateChannel` - `byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than ``), or update notifications (otherwise). Currently ASF supports three update channels - `` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `` (`None`), if you want to completely remove all version checks, although this is not recommended, unless for some reason you don't want to even receive notifications about new versions. Setting `UpdateChannel` to `` will entirely disable all functions related to updates, including `update` command.
-
-* * *
-
-`UpdatePeriod` - `byte` type with default value of `24`. This property defines how often ASF should check for auto-updates. Updates are crucial not only to receive new features and critical security patches, but also to receive bugfixes, performance enhancements, stability improvements and more. When a value greater than `` is set, ASF will automatically download, replace, and restart itself (if `AutoRestart` permits) when new update is available. In order to achieve this, ASF will check every `UpdatePeriod` hours if new update is available on our GitHub repo. A value of `` disables auto-updates, but still allows you to execute `update` command manually. You might also be interested in setting appropriate `UpdateChannel` that `UpdatePeriod` should follow.
+`UpdatePeriod` - `byte` type with default value of `24`. This property defines how often ASF should check for auto-updates. Updates are crucial not only to receive new features and critical security patches, but also to receive bugfixes, performance enhancements, stability improvements and more. When a value greater than `0` is set, ASF will automatically download, replace, and restart itself (if `AutoRestart` permits) when new update is available. In order to achieve this, ASF will check every `UpdatePeriod` hours if new update is available on our GitHub repo. A value of `0` disables auto-updates, but still allows you to execute `update` command manually. You might also be interested in setting appropriate `UpdateChannel` that `UpdatePeriod` should follow.
 
 Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory - this means that any extra files unrelated to ASF in its directory might be lost during update. Default value of `24` is a good balance between unnecessary checks, and ASF that is fresh enough.
 
@@ -339,11 +334,11 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 * * *
 
-`BotBehaviour` - `byte flags` type with default value of ``. This property defines ASF bot-like behaviour during various events, and is defined as below:
+`BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
 | Value | Meno                       | Description                                                           |
 | ----- | -------------------------- | --------------------------------------------------------------------- |
-|       | None                       | No special bot behaviour, the least invasive mode, default            |
+| 0     | None                       | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -380,11 +375,11 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 * * *
 
-`FarmingOrder` - `byte` type with default value of ``. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
+`FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
 
 | Value | Meno                      | Description                                                         |
 | ----- | ------------------------- | ------------------------------------------------------------------- |
-|       | Unordered                 | No sorting, slightly improving CPU performance                      |
+| 0     | Unordered                 | No sorting, slightly improving CPU performance                      |
 | 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                        |
 | 2     | AppIDsDescending          | Try to farm games with highest `appID`s first                       |
 | 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first  |
@@ -419,7 +414,7 @@ It's also worth mentioning that this option is basically a hack that might, or m
 
 * * *
 
-`HoursUntilCardDrops` - `byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of ``, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
+`HoursUntilCardDrops` - `byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
 
 * * *
 
@@ -435,7 +430,7 @@ It's also worth mentioning that this option is basically a hack that might, or m
 
 | Value | Meno              | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
-|       | Unknown           | Every type that doesn't fit in any of the below               |
+| 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Unpacked booster pack                                         |
 | 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
 | 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
@@ -453,7 +448,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 | Value | Meno              | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
-|       | Unknown           | Every type that doesn't fit in any of the below               |
+| 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Unpacked booster pack                                         |
 | 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
 | 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
@@ -465,7 +460,7 @@ Of course, types that you should use for this property typically include only `2
 
 * * *
 
-`PasswordFormat` - `byte` type with default value of ``. This property defines the format of `SteamPassword` property, and currently supports - `` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. Unless you know what you're doing, you should keep it with default value of ``.
+`PasswordFormat` - `byte` type with default value of `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. Unless you know what you're doing, you should keep it with default value of `0`.
 
 * * *
 
@@ -473,11 +468,11 @@ Of course, types that you should use for this property typically include only `2
 
 * * *
 
-`RedeemingPreferences` - `byte flags` type with default value of ``. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
+`RedeemingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
 | Value | Meno             | Description                                                                    |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-|       | None             | No redeeming preferences, typical                                              |
+| 0     | None             | No redeeming preferences, typical                                              |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -502,7 +497,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 * * *
 
-`SendTradePeriod` - `byte` type with default value of ``. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of ``.
+`SendTradePeriod` - `byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `0`.
 
 * * *
 
@@ -514,11 +509,11 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 * * *
 
-`SteamMasterClanID` - `ulong` type with default value of ``. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml/?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
+`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml/?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
 
 * * *
 
-`SteamParentalPIN` - `string` type with default value of ``. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `null` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`SteamParentalPIN` - `string` type with default value of `0`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `0` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `null` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
@@ -536,7 +531,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Value | Meno          | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -549,11 +544,11 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 * * *
 
-`TradingPreferences` - `byte flags` type with default value of ``. This property defines ASF behaviour when in trading, and is defined as below:
+`TradingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
 | Value | Meno                | Description                                                                                                                                                                  |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
+| 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
 | 2     | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
@@ -636,17 +631,17 @@ Example: `"Enabled": true`.
 
 * * *
 
-`byte` - Unsigned byte type, accepting only integers from `` to `255` (inclusive).
+`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
 Example: `"FarmingOrder": 1`.
 
 * * *
 
-`uint` - Unsigned integer type, accepting only integers from `` to `4294967295` (inclusive).
+`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `` to `18446744073709551615` (inclusive).
+`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
 
 Example: `"SteamMasterClanID": 103582791440160998`
 
@@ -676,12 +671,12 @@ For example, given following values:
 
 | Value | Meno |
 | ----- | ---- |
-|       | None |
+| 0     | None |
 | 1     | A    |
 | 2     | B    |
 | 4     | C    |
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 

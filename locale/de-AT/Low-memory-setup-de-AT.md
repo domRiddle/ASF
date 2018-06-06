@@ -1,4 +1,4 @@
-# Low-memory setup
+# Speichereffiziente Einrichtung
 
 This is exact opposite of **[high-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
 
@@ -62,7 +62,7 @@ In addition to verifying that workstation GC is active, there are also interesti
 
 > Specifies the GC latency level that you want to optimize for.
 
-This works exceptionally well by limiting sizes of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use ``, which will tune for memory usage.
+This works exceptionally well by limiting sizes of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
 
 ### `gcTrimCommitOnLowMemory`
 

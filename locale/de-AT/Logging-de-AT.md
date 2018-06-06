@@ -16,14 +16,14 @@ Wenn du die Standard ASF Protokollierung ohne irgendwelche Veränderung verwende
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- Folgende Zeile wird aktiv wenn ASF's IPC Schnittstelle gestartet ist -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- Folgende Zeile wird aktiv wenn ASF's IPC Schnittstelle gestartet ist -->
     <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
@@ -146,13 +146,13 @@ You can see how we used ASF integration above and easily distinguished source of
 
 * * *
 
-## Advanced usage
+## Erweiterte Nutzung
 
 The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
 
 * * *
 
-## Limitations
+## Einschränkungen
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
@@ -190,7 +190,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Parameter
 
 ##### General Options
 
@@ -200,7 +200,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### Layout Options
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
+*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Standard: `${level:uppercase=true}|${logger}|${message}`
 
 * * *
 
@@ -266,7 +266,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Parameter
 
 ##### General Options
 
@@ -276,17 +276,17 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### Layout Options
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 
 ##### HistoryTarget Options
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than ``.
+*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 
-## Caveats
+## Fallstricke
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

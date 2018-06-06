@@ -38,7 +38,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## Commando's
 
-| Command                                              | Toegang         | Beschrijving                                                                                                                                                                                          |
+| Commando                                             | Toegang         | Beschrijving                                                                                                                                                                                          |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
 | `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
@@ -115,7 +115,7 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Commando     | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |

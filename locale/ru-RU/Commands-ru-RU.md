@@ -40,9 +40,9 @@ ASF поддерживает множество команд, которые и�
 
 | Команда                                              | Доступ          | Описание                                                                                                                                                                                                                               |
 | ---------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                               |
-| `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                        |
-| `2faok <Bots>`                                 | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                       |
+| `2fa <Bots>`                                   | `Master`        | Создает временный код **[2ФА](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**(двухфакторной аутентификации) для данных ботов.                                                                      |
+| `2fano <Bots>`                                 | `Master`        | Отменяет для заданных ботов все предложения обмена и лоты на торговой площадке, ожидающие подтверждения по **[2ФА](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**.                                |
+| `2faok <Bots>`                                 | `Master`        | Принимает для заданных ботов все предложения обмена и лоты на торговой площадке, ожидающие подтверждения по **[2ФА](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**.                               |
 | `addlicense <Bots> <GameIDs>`            | `Operator`      | Активирует указанные `appID` (сеть Steam) или `subID` (магазин Steam) на заданных ботах (только для бесплатных игр).                                                                                                                   |
 | `bl <Bots>`                                    | `Master`        | Выводит список пользователей, обмены с которыми запрещены для заданных ботов.                                                                                                                                                          |
 | `bladd <Bots> <SteamIDs64>`              | `Master`        | Запрещает заданным ботам обмениваться с указанными с помощью `steamID` пользователями.                                                                                                                                                 |
@@ -89,31 +89,31 @@ ASF поддерживает множество команд, которые и�
 
 Все команды регистронезависимы, но их параметры (такие как имена ботов) обычно регистрозависимые.
 
-Параметр `<Bots>` является необязательным для всех команд. Если он указан - команда будет исполнена на указанных ботах. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
+Параметр `<Bots>` является необязательным для всех команд. Если он указан - команда будет исполнена на указанных ботах. Если этот параметр пропущен, команда исполняется на боте, получившем команду. Другими словами, команда `status A` отправленная боту `B` это то же самое что команда `status`, отправленная боту `A`.
 
-**Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
+**Доступ** к команде означет **минимальное** `EPermission` в параметре `SteamUserPermissions`, которое необходимо для использования этой команды, за исключением `Owner`, которое соответствует `SteamOwnerID` заданному в файле глобальной конфигурации (и являющееся максимальным уровнем доступа).
 
-Plural arguments, such as `<Bots>`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `status <Bots>` can be used as `status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `status` to each bot in a separate chat window. Please note that there is no space after `,`.
+Параметры во множественном числе, такие как `<Bots>`, `<Keys>` или `<AppIDs>` означают что команда поддерживает несколько аргументов данного типа, разделённых запятыми. Например, `status <Bots>` может быть использовано в виде `status MyBot,MyOtherBot,Primary`. Это приведёт к исполнению команды на **всех заданных ботах**, как есл и бы вы послали `status` каждому боту в отдельном окне чата. Обратите внимание, что после запятой (`,`) нет пробела.
 
-ASF uses all whitespace characters as possible delimiters for a command, such as space and newline characters. This means that you don't have to use space for delimiting your arguments, you can as well use any other whitespace character (such as tab or new line).
+ASF использует все пробельные символы как возможные разделители команд, такие как пробел или перевод строки. Это означает, что вам не обязательно использовать пробел для разделения параметров, вы можете использовать любой пробельный символ (такой как табуляция или перевод строки).
 
-ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `redeem bot key1 key2 key3` for `redeem <Bots> <Keys>` will work exactly the same as `redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter. Keep in mind that this trick can be used only for command variant that uses the most amount of arguments.
+ASF "объединяет" лишние параметры в типы-множества последнего параметра правильного параметра. Это означает, что `redeem bot key1 key2 key3` для команды `redeem <Bots> <Keys>` будет работать точно так же, как `redeem bot key1,key2,key3`. В сочетании с возможностью использовать символ перевода строки как разделитель, у вас появляется возможность написать `redeem bot`, затем вставить список ключей с любым допустимым разделителем (таким как перевод строки) или стандартным разделителем (`,`). Помните, что этот трюк сработает только с вариантами команд, которые используют наибольшее количество параметров.
 
-As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
+Как вы прочли выше, символ пробела используется как разделитель в командах, и поэтому не может использоваться в параметрах. Однако, как тоже сказано выше, ASF может объединять лишние параметры, что означает что вы можете использовать пробел в параметрах, которые определены последними для данной команды. Например, `nickname bob Great Bob` правильно установит для бота `bob` имя профиля "Great Bob". Похожим образом вы можете проверять имена, содержащие пробелы, в команде `owns`.
 
-For `<Bots>` argument, there is a special `ASF` keyword which acts as "all bots in the process", so `status ASF` is equal to `status all,your,bots,listed,here`.
+Для параметра `<Bots>`, есть специальное ключевое слово `ASF`, которое означает "все боты в данном процессе", поэтому `status ASF` эквивалентно `status all,your,bots,listed,here`.
 
-It's nice to note that `<Bots>` also supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
-
-* * *
-
-Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
-
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+Отметим, что параметр `<Bots>` также поддерживает специальный синтаксис для "интервалов", который позволяет вам легче задавать некоторое подмножество ботов. В общем случае синтаксис для `<Bots>` в этом случае `firstBot..lastBot`. Например, если у вас есть боты с именами `A, B, C, D, E, F`, вы можете запустить команду `status B..E`, которая будет в этом случае эквивалентна `status B,C,D,E`. При использовании этого синтаксиса, ASF пользуется алфавитным порядком, чтобы определить какие боты попадают в указанный диапазон. И `firstBot` и `lastBot` должны быть реальными именами ботов в ASF, иначе весь диапазон полностью игнорируется.
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Обратите внимание, что отправка сообщений в чат группы работает как трансляция - если вы пишете в чат, в котором находятся вместе с вами 3 ваших бота, команду `redeem X`, это равнозначно тому, что вы отправите команду `redeem X` каждому из этих ботов по-отдельности. В большинстве случаев **это не то, что вы хотите**, и вместо этого следует использовать команды с указанием `имени бота(ов)`, отправляя их **одному боту через личный чат**. ASF поддерживает групповые чаты, поскольку во многих случаях это может оказаться полезным способом взаимодействия с ним, но вам почти никогда не понадобится отправлять команды в групповой чат если там 2 или больше ботов, кроме случая когда вы хорошо понимаете поведение ASF и на самом деле хотите транслировать команду всем ботам которые вас слушают.
+
+*И даже в этом случае вам лучше использовать личный чат используя синтаксис `<Bots>` для нескольких ботов.*
+
+* * *
+
+Для некоторых команд существуют сокращённые имена, чтобы облегчить вам их ввод:
 
 | Команда      | Сокращение |
 | ------------ | ---------- |
@@ -124,14 +124,14 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+Чтобы дать команду Asf нет необходимости в дополнительном аккаунте - вы можете создать группу, ввести идентифиактор этой группы в параметр `SteamMasterClanID`, и указать свой SteamID в параметре `SteamOwnerID` или в `SteamUserPermissions` своего бота. После этого бот ASF (с вашим аккаунтом) присоединиться к группе и к чату в этой группе, и будет слушать ваши команды с вашего собственного аккаунта. Вы можете зайти в тот же чет через клиент Steam, и отдавать команды самому себе (вы будете писать команды в чат, а ASF будет принимать их, хотя отображаться будет будто в чате только один ваш аккаунт). Кроме этого, вы можете использовать **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**, но вариант с групповым чатом гораздо проще, а если у вас есть дополнительный аккаунт - то использование его ещё проще.
 
 * * *
 
-When using **IPC**, keep in mind that:
+Пользуясь **IPC**, помните:
 
-- Commands don't have to be prefixed by `CommandPrefix`, ASF prefixes them for you automatically if needed
-- When using commands that are based on `current bot instance`, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use `given bot instances` commands instead.
+- К командам не нужно добавлять префикс `CommandPrefix`, ASF при необходимости добавит его автоматически
+- При использовании комманд, адресованых `текущему боту`, ASF может выбрать **любого** из активных ботов, поэтому настоятельно рекомендуется использовать команды с указанием `имени бот(ов)`.
 
 * * *
 
@@ -139,14 +139,14 @@ When using **IPC**, keep in mind that:
 
 `<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Имя            | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | Inventory      | Profile    |
-| 5        | InventoryGifts | Inventory  |
-| 6        | Comments       | Profile    |
+| Параметр | Имя            | Наследуется от |
+| -------- | -------------- | -------------- |
+| 1        | Profile        |                |
+| 2        | OwnedGames     | Profile        |
+| 3        | Playtime       | OwnedGames     |
+| 4        | Inventory      | Profile        |
+| 5        | InventoryGifts | Inventory      |
+| 6        | Comments       | Profile        |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 

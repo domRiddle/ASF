@@ -282,7 +282,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### HistoryTarget Options
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than ``.
+*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 

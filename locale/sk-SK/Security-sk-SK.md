@@ -10,7 +10,7 @@ In order to use encrypted password, you should firstly log in to Steam as usual 
 
 ### PlainText
 
-This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of ``. ASF expects `SteamPassword` property to be a plain text - password being used to log in to Steam in its direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
+This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF expects `SteamPassword` property to be a plain text - password being used to log in to Steam in its direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
 
 * * *
 
@@ -48,4 +48,4 @@ For people launching ASF rarily or those who are not bothered with entering the 
 
 # Decryption
 
-ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.
+ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `0` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.

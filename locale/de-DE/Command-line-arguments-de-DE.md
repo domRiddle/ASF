@@ -26,13 +26,13 @@ Linux/OS X:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Die Befehlszeilenargumente werden ebenfalls in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Die Befehlszeilenargumente werden ebenfalls in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus kannst du bei Verwendung eines Hilfsskripts auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es im Abschnitt **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** beschrieben ist.
 
 Wenn Ihr Argument Leerzeichen enthalten sollte, so ist es in Anführungszeichen zu setzen. Diese zwei sind falsch:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/Meine Downloads/ASF # Schlecht!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Schlecht!
 ```
 
 Aber diese beiden sind völlig in Ordnung:
@@ -57,8 +57,8 @@ Aber diese beiden sind völlig in Ordnung:
 Beispiel:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absoluter Pfad
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative Pfade funktioniere auch
 ```
 
     ├── /opt

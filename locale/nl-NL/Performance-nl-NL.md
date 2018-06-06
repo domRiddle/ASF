@@ -16,7 +16,7 @@ ASF currently includes two farming algorithms:
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is set by **you**). If `HoursUntilCardDrops` is set to ``, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
+Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
 
 * * *
 
@@ -30,15 +30,15 @@ Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do t
 
 ### What is the best way to find out if your account is restricted?
 
-Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of ``. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
+Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 
-ASF clearly states when a card for given game was dropped. You're interested in fastest card drop achieved by ASF. For example, if your account is unrestricted then a first card drop should happen after around 30 minutes since you started farming. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of ``.
+ASF clearly states when a card for given game was dropped. You're interested in fastest card drop achieved by ASF. For example, if your account is unrestricted then a first card drop should happen after around 30 minutes since you started farming. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 
 On the other hand, if you notice that **every** game is taking at least `X` amount of hours before it drops its first card, then this is an indicator to you what you should set `HoursUntilCardDrops` to. Majority (if not all) of restricted users require at least `3` hours of playtime for cards to drop, and this is also the default value for `HoursUntilCardDrops` setting.
 
-Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of ``, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
+Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
 
-It's important to note that in the past `HoursUntilCardDrops` was only `` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
+It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
 
 In the end, of course, decision is up to you.
 
@@ -46,7 +46,7 @@ And to make it even worse - I experienced cases when people switched from restri
 
 * * *
 
-By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of idling per `32` games, compared to wasting `3` hours of idling per every single game if `HoursUntilCardDrops` was set to `` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
+By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of idling per `32` games, compared to wasting `3` hours of idling per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 

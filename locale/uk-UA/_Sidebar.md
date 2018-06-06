@@ -3,25 +3,25 @@
 ## Getting started
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Конфігурація](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[ЧаПи](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Основні настройки
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Сумісність](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Команди](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Продуктивність](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Обміни](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Статистика](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
 ## Додаткові налаштування
 
-* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Розширені ЧаПи](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Двофакторна аутентифікація](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**

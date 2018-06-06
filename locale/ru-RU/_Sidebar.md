@@ -20,8 +20,8 @@
 
 * **[Расширенное ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU)**
-* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**
+* **[Двухфакторная аутентификация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**
 * **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
 * **[Конфигурация для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
 * **[Аргументы командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**

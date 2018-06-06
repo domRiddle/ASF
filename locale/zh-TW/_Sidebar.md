@@ -29,7 +29,7 @@
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全性](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 開發者

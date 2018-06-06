@@ -2,7 +2,7 @@
 
 Starting with version 3.0, ASF offers http-based inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
 
-IPC is always executed with `SteamOwnerID` permissions, which is `` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing anyone to send commands (`400 BadRequest`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+IPC is always executed with `SteamOwnerID` permissions, which is `0` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing anyone to send commands (`400 BadRequest`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 
 * * *
 
@@ -18,7 +18,7 @@ ASF by default listens only on `127.0.0.1` address, which means that accessing A
 
 ### Can I use HTTPS protocol with proper encryption?
 
-ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` one.
+ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
 
 ```nginx
 server {
@@ -27,10 +27,27 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
+    location /Api/Log {
+        proxy_pass http://127.0.0.1:1242;
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        # We add those 2 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Upgrade $http_upgrade;
+    }
+
     location / {
         proxy_pass http://127.0.0.1:1242;
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
@@ -275,13 +292,13 @@ curl -X GET /Api/Bot/archi
 
 `CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
-`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `` before first login.
+`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
 
 `AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
 
 `IsPlayingPossible` is `bool` type that specifies if account being used by a bot can be used for automatic idling. This property will be `false` when Steam library of the account is being used elsewhere, either normally, or via family sharing. This property affects only remote logins and does not cover its own process (so if account is not being used anywhere else, `IsPlayingPossible` will always be `true`, even if ASF is actively idling games on it right now).
 
-`SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
+`SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
 `BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration, and it also exposes majority of available config variables. This property can be used for determining with what options the bot is configured to work. Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are intentionally omitted from being included. In example structure above, only a subset of all properties is shown in order to keep it clean.
 
@@ -299,13 +316,13 @@ curl -X GET /Api/Bot/archi
 
 #### Game
 
-`AppID` is `uint` type that in unique way identifies game being played. ASF enforces this to be greater than ``.
+`AppID` is `uint` type that in unique way identifies game being played. ASF enforces this to be greater than `0`.
 
 `GameName` is `string` type that provides friendly name of game identified by `AppID`. This is data returned by Steam Community. ASF enforces this to be `non-null` and `non-empty`.
 
 `HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `HoursUntilCardDrops` value. ASF enforces this property to be at least `0.0`.
 
-`CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than ``. However, it is possible for this property to have `` value for a short moment when ASF is switching game.
+`CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
 
 * * *
 
@@ -382,7 +399,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
 
-The websocket connection established with this endpoint is **read-only** - ASF will accept only `Close` **[frame](https://tools.ietf.org/html/rfc6455#section-5.5.1)** indicating that websocket connection should be gracefully closed. Any other data frame will result in connection being terminated.
+The websocket connection established with this endpoint is **read-only** - ASF will accept only **[control frames](https://tools.ietf.org/html/rfc6455#section-5.5)**, especially `Close` frame indicating that websocket connection should be gracefully closed. Sending any data frame will result in connection being terminated.
 
 ```shell
 curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log

@@ -43,20 +43,26 @@ Beispiel von `dotnet --info` unter Windows:
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -o "out"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out-generic"
 ```
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of ``.
+If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
 
 You can also generate OS-specific package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -o "out-linux" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out-linux-x64" -r "linux-x64"
 ```
 
 Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
+
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. In even more rare case when you can't even use `dotnet` command (e.g. because of building with `mono`), you can call `msbuild` directly:
+
+```shell
+msbuild /m /p:Configuration=Release /p:PublishDir=out-generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
+```
 
 * * *
 

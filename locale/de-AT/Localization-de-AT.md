@@ -1,8 +1,8 @@
 # Übersetzung
 
-ASF wird von einem Service namens Crowdin unterstützt, was es jedem ermöglicht ASF in jegliche Sprachen zu übersetzen. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF wird von einem Service namens Crowdin unterstützt, was es jedem ermöglicht ASF in jegliche Sprachen zu übersetzen. Für eine detailliertere Erklärung wie Crowdin funktioniert lies dir bitte die **[Einführung in Crowdin](https://support.crowdin.com/crowdin-intro)** durch.
 
-Wenn du daran interessiert bist, was zur Zeit vor sich geht, kannst du die **[aktuellen ASF Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
+Wenn du daran interessiert bist, was zur Zeit vor sich geht, kannst du die **[aktuellen ASF Crowdin Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
 
 * * *
 

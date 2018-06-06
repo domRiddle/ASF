@@ -67,6 +67,23 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
 
+### Invalid machine certs with ASF V3.2+
+
+Under linux (only), you might get specific issue related to SSL certificates provided by your machine. This will show as an exception below:
+
+```csharp
+System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception. ---> Interop+Crypto+OpenSslCryptographicException: error:2006D002:BIO routines:BIO_new_file:system lib
+   at Interop.Crypto.CheckValidOpenSslHandle(SafeHandle handle)
+```
+
+This issue is most likely caused by some of the certificates not being possible to be read. This could be because of insufficient permissions (as a test you can check if ASF works under `root` user) or other issues populating invalid certificate files.
+
+The current workaround depends on the root issue. On clean setups (e.g. Debian), this should never happen as there should be no invalid/sensitive certificates in the store, so the issue considers only people that are most likely having other certs for other purposes (e.g. VPN or websites) that ASF has no access to read. You can consider either giving proper permission to ASF user, running ASF under `root`, or moving sensitive certificates somewhere else so ASF does not attempt to read them during initialization.
+
+This issue is supposed to be fixed with next .NET Core 2.1.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
+
+Reference: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
+
 ### .NET Core runtime picking wrong `libcurl.so` library
 
 If you have both `libcurl.so.3` and `libcurl.so.4` on your system then .NET Core might decide to pick second one, which will lead to ASF crash the moment it'll try to initialize its http client.
