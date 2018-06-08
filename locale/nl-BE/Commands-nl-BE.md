@@ -1,14 +1,14 @@
 # Commando's
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF ondersteunt diverse commando's om het programma en de bots te besturen.
 
-Below commands can be sent to the bot through three different ways:
+De commando's kunnen op drie verschillende manieren naar een bot worden verzonden:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Via een Steam privéchat
+- Via een Steam groepsgesprek
+- Via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Hou er rekening mee dat je voor het communiceren met ASF de rechten nodig hebt in je ASF-instellingen om een commando te kunnen gebruiken. Check de `SteamUserPermissions` en de `SteamOwnerID` config-instellingen voor meer details.
 
 All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
 
@@ -135,7 +135,7 @@ When using **IPC**, keep in mind that:
 
 * * *
 
-## `privacy` settings
+## Privacyinstellingen (`privacy`)
 
 `<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 

@@ -137,20 +137,20 @@ ASF "объединяет" лишние параметры в типы-множ�
 
 ## Настройки приватности (`privacy`)
 
-`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` включает в себя **до 6** различных параметров, как всегда разделенных запятой, стандартными разделителем в ASF. Они задаются в таком порядке:
 
-| Параметр | Имя            | Наследуется от |
-| -------- | -------------- | -------------- |
-| 1        | Profile        |                |
-| 2        | OwnedGames     | Profile        |
-| 3        | Playtime       | OwnedGames     |
-| 4        | Inventory      | Profile        |
-| 5        | InventoryGifts | Inventory      |
-| 6        | Comments       | Profile        |
+| Параметр | Имя                | Наследуется от     |
+| -------- | ------------------ | ------------------ |
+| 1        | Профиль            |                    |
+| 2        | Игровая Информация | Профиль            |
+| 3        | Время в игре       | Игровая Информация |
+| 4        | Инвентарь          | Профиль            |
+| 5        | Инвентарь подарков | Инвентарь          |
+| 6        | Комментарии        | Профиль            |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+Для описания этих параметров, посетите пожалуйста страницу "**[Мои настройки приватности](https://steamcommunity.com/my/edit/settings)**" в Steam.
 
-While valid values for all of them are:
+Допустимые значения для этих параметров:
 
 | Значение | Имя           |
 | -------- | ------------- |
@@ -158,51 +158,51 @@ While valid values for all of them are:
 | 2        | `FriendsOnly` |
 | 3        | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Вы можете вводить либо регистронезависимое имя, или цифровое значение. Не заданные параметры будут по-умолчанию заданы как `Private`. Важно помнить о наследовании одних параметров от других, как указано выше, поскольку параметр-наследник не может иметь более открытые настройки приватности чем его параметр-родитель. Например, вы **не можете** задать `Public` для игровой информации если для профиля задано `Private`.
 
 ### Пример
 
-If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+Если вы хотите задать **все** настройки приватности для вашего бота с именем `Main` равными `Private`, вы можете задать это одним из способов ниже:
 
     privacy Main 0
     privacy Main Private
     
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+Так происходит потому, что ASF автоматически задаст все оставшиеся параметры равными `Private`, поэтому нет необходимости указывать их. С другой стороны, если вы хотите задать все настройки приватности равными `Public`, вам нужно использовать один из вариантов ниже:
 
     privacy Main 3,3,3,3,3,3
     privacy Main Public,Public,Public,Public,Public,Public
     
 
-This way you can also set independent options however you like:
+Однако вы можете задать и независимые настройки, если хотите:
 
     privacy Main Public,FriendsOnly,Private,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+Команда выше настроит открытый профиль, информацию об играх только для друзей, скрытый инвентарь, скрытые подарки и открытый раздел комментариев. То же самое можно задать и цифровыми значениями, если хотите.
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+Помните о том, что наследник никогда не может иметь более открытые настройки чем родитель. Пользуйтесь для справок о зависимостях параметров таблицей выше.
 
 * * *
 
 ## Режимы активации `redeem^`
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+Команда `redeem^` позволяет производить тонкую настройку активации ключей для разового использования. Это позволяет временно переопределить настройки заданные в **[параметре конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `RedeemingPreferences`.
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+Параметр `<Modes>` может включать в себя несколько настроек режима активации, разделённых запятыми. Допустимые обозначения режима перечислены ниже:
 
-| Значение | Имя                   | Описание                                                              |
-| -------- | --------------------- | --------------------------------------------------------------------- |
-| FD       | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF       | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG     | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD       | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF       | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI       | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG     | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V        | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Значение | Имя                   | Описание                                                                    |
+| -------- | --------------------- | --------------------------------------------------------------------------- |
+| FD       | ForceDistributing     | Принудительно включает режим `Distributing` для активации                   |
+| FF       | ForceForwarding       | Принудительно включает режим `Forwarding` для активации                     |
+| FKMG     | ForceKeepMissingGames | Принудительно включает режим `KeepMissingGames` для активации               |
+| SD       | SkipDistributing      | Принудительно отключает режим `Distributing` для активации                  |
+| SF       | SkipForwarding        | Принудительно отключает режим `Forwarding` для активации                    |
+| SI       | SkipInitial           | Отключает активацию ключа на исходном боте                                  |
+| SKMG     | SkipKeepMissingGames  | Принудительно отключает режим `KeepMissingGames` для активации              |
+| V        | Validate              | Проводить проверку формата ключей и не пытаться активировать неверные ключи |
 
-For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
+Например, мы хотим активировать 3 ключа на любых ботов, у которых ещё нет этих игр, кроме основного аккаунта с именем `primary`. Для этого мы должны использовать команду:
 
 `redeem^ primary FF,SI key1,key2,key3`
 
@@ -210,7 +210,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 ## Режимы `transfer`
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+Параметр `<Modes>` может включать в себя несколько настроек режима передачи предметов, разделённых запятыми. Допустимые обозначения режима перечислены ниже:
 
 | Значение   | Сокращение | Описание                                                                  |
 | ---------- | ---------- | ------------------------------------------------------------------------- |
@@ -223,7 +223,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 | Gems       | G          | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 | Unknown    | U          | Типы предметов, которые не попадают ни в одну из категорий выше           |
 
-For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
+Например, чтобы передать обычные и металлические коллекционные карточки от бота `MyBot` боту `MyMain`, вы используете команду:
 
 `transfer MyBot C,F MyMain`
 
@@ -231,33 +231,33 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 ## Команда `input`
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+Команда `input` может использоваться только в безынтерфейсном режиме (`Headless`), для ввода данных с помощью **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)** или чата Steam в случае когда ASF работает без возможности взаимодействия с пользователем.
 
-General syntax is `input <Bots> <Type> <Value>`.
+Синтаксис команды в общем случае `input <Bots> <Type> <Value>`.
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+`<Type>` это регистрозависимый параметр который задаёт тип, поддерживаемый ASF. На данный момент ASF поддерживает следующие типы данных:
 
-| Тип                     | Описание                                                                   |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| Тип                     | Описание                                                                                                           |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| DeviceID                | Идентификатор устройства 2FA, на случай если он отсутствует в `.maFile`.                                           |
+| Login                   | Логин, замена параметра `SteamLogin`, если он отсутствует в файле конфигурации.                                    |
+| Password                | Пароль, замена параметра `SteamPassword`, если он отсутствует в файле конфигурации.                                |
+| SteamGuard              | Код авторизации, присылаемый вам на e-mail в случае когда вы не пользуетесь 2ФА.                                   |
+| SteamParentalPIN        | ПИН для семейного просмотра, замена параметра `SteamParentalPIN` в случае когда он не указан в файле конфигурации. |
+| TwoFactorAuthentication | Код 2ФА, генерируемый на вашем мобильном устройстве, если вы пользуетесь 2ФА на не импортировали его в 2ФА ASF.    |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` - это значение выбранного типа. На данный момент все значения представляют собой строки.
 
 ### Пример
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Допустим у нас есть бот, защищённый SteamGuard в режиме без 2ФА. Мы хотим запустить этого бота `Headless` равным true.
 
-In order to do that, we need to execute following commands:
+Чтобы добиться этого, нам нужно выполнить следующие команды:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail.
+`start MySteamGuardBot` -> Бот попытается войти в Steam, потерпит неудачу из-за необходимотсти ввести код авторизации, и остановится из-за того что запущен в режиме `Headless` mode. Это нужно чтобы сеть Steam отправила нам код на e-mail.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> Мы задаём значение `SteamGuard` для бота `MySteamGuardBot` равным `ABCDE`. Разумеется, `ABCDE` в данном случае - тот код авторизации который мы получили по e-mail.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> Мы запускаем нашего (остановленного) бота снова, и на этот раз он автоматически использует код авторизации, который мы задали предыдущей командой, нормально входит в Steam стирает код из памяти.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Таким же образом мы можем запустить ботов, защищённых с помощью 2ФА (если для них не используется 2ФА ASF), а также задавать другие параметры в процессе работы.

@@ -8,22 +8,22 @@ ASF ondersteunt diverse opdrachtregelparameters die de uitvoering van het progra
 
 Het gebruik hangt af van je besturingssysteem en de ASF-variant.
 
-Generic:
+Algemeen (OS-onafhankelijk):
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --parameter --andereParameter
 ```
 
 Windows:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --parameter --andereParameter
 ```
 
 Linux/OS X
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --parameter --andereParameter
 ```
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
