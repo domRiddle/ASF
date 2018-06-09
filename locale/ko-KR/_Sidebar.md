@@ -28,7 +28,6 @@
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[현지화](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[보안](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 

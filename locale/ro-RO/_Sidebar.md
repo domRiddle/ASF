@@ -28,7 +28,6 @@
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Securitate](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Documentation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 

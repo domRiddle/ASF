@@ -28,9 +28,8 @@
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-nl-BE)**
 * **[Localisatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-nl-BE)**
 * **[Beveiliging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-nl-BE)**
-* **[Documentatie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation-nl-BE)**
-* **[Programma's van derden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-nl-BE)**
-* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-nl-BE)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Verouderde functies](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Ontwikkelaars
 

@@ -28,9 +28,8 @@
 * **[Logowanie](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Tłumaczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Zabezpieczenia](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Dokumentacja](https://github.com/JustArchi/ArchiSteamFarm/wiki/Documentation)**
-* **[Narzędzia firm trzecich](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Elementy przestarzałe](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Deweloperzy
 

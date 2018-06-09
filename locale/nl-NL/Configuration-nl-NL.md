@@ -3,9 +3,9 @@
 Deze pagina is gewijd aan het configureren van ASF. Het dient als een complete documentatie van de `config` directory, zodat je ASF naar eigen voorkeur kunt instellen.
 
 - **[Inleiding](#inleiding)**
-- **[Webtoepassing ConfigGenerator](#webtoepassing ConfigGenerator)**
-- **[Handmatige configuratie](#handmatige configuratie)**
-- **[Globale configuratie](#globale configuratie)**
+- **[Webtoepassing ConfigGenerator](#webtoepassing-ConfigGenerator)**
+- **[Handmatige configuratie](#handmatige-configuratie)**
+- **[Globale configuratie](#globale-configuratie)**
 - **[Bot-configuratie](#bot-configuratie)**
 - **[Bestandsstructuur](#bestandsstructuur)**
 - **[JSON mapping](#json-mapping)**
