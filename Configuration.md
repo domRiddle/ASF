@@ -204,7 +204,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 `SteamProtocols` - `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | None | No protocol
 1 | TCP | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)**
@@ -287,7 +287,6 @@ As you should know already, every bot should have its own config. Example bot co
 	"DismissInventoryNotifications": false,
 	"Enabled": false,
 	"FarmingOrder": 0,
-	"FarmOffline": false,
 	"GamesPlayedWhileIdle": [],
 	"HandleOfflineMessages": false,
 	"HoursUntilCardDrops": 3,
@@ -301,6 +300,7 @@ As you should know already, every bot should have its own config. Example bot co
 	"MatchableTypes": [
 		5
 	],
+	"OnlineStatus": 1,
 	"PasswordFormat": 0,
 	"Paused": false,
 	"RedeemingPreferences": 0,
@@ -336,7 +336,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | None | No special bot behaviour, the least invasive mode, default
 1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites
@@ -359,7 +359,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ---
 
-`CustomGamePlayedWhileFarming` - `string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `FarmOffline` feature. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
+`CustomGamePlayedWhileFarming` - `string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to change default `OnlineStatus`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
 
 ---
 
@@ -377,7 +377,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | Unordered | No sorting, slightly improving CPU performance
 1 | AppIDsAscending | Try to farm games with lowest `appID`s first
@@ -400,17 +400,13 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ---
 
-`FarmOffline` - `bool` type with default value of `false`. Offline farming is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile. In addition to that, this feature is also important if you want to receive notifications and unread messages, if you keep ASF open while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `FarmOffline` feature enabled can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure whether you want this feature enabled or not, it's suggested to use a value of `true` for primary accounts, and `false` otherwise.
-
----
-
 `GamesPlayedWhileIdle` - `HashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appID`s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appID`s, therefore if you put more games than that, only first `32` will be respected (and extra ones being ignored).
 
 ---
 
-`HandleOfflineMessages` - `bool` type with default value of `false`. When `FarmOffline` feature is enabled, bot is not able to receive commands in usual way, as it's not logged into Steam Community. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `FarmOffline` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
+`HandleOfflineMessages` - `bool` type with default value of `false`. When `OnlineStatus` is set to `Offline`, bot is not able to receive commands in usual way, as it's not logged into Steam Community. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `Offline` `OnlineStatus` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
 
-It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situations when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you disable `FarmOffline` altogether. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situations when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you stop using `Offline` `OnlineStatus` altogether. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 ---
 
@@ -428,7 +424,7 @@ It's also worth mentioning that this option is basically a hack that might, or m
 
 `LootableTypes` - `HashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | Unknown | Every type that doesn't fit in any of the below
 1 | BoosterPack | Unpacked booster pack
@@ -446,7 +442,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `MatchableTypes` - `HashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | Unknown | Every type that doesn't fit in any of the below
 1 | BoosterPack | Unpacked booster pack
@@ -460,6 +456,27 @@ Of course, types that you should use for this property typically include only `2
 
 ---
 
+`OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+
+Value | Name
+--- | ---
+0 | Offline
+1 | Online
+2 | Busy
+3 | Away
+4 | Snooze
+5 | LookingToTrade
+6 | LookingToPlay
+7 | Invisible
+
+`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile.
+
+In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `Offline` status can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure how to set up this property, it's suggested to use a value of `0` for primary accounts, and default `1` otherwise.
+
+An alternative to `Offline` mode is obviously `Invisible` mode which works in a similar way, but it also has to sign in into Steam community, acting like secondary Steam client with a potential to dismiss notifications and unread messages. Therefore, in reality this is an alternative to `Offline` mode with `HandleOfflineMessages` enabled as well, and not to `Offline` mode alone.
+
+---
+
 `PasswordFormat` - `byte` type with default value of `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. Unless you know what you're doing, you should keep it with default value of `0`.
 
 ---
@@ -470,7 +487,7 @@ Of course, types that you should use for this property typically include only `2
 
 `RedeemingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | None | No redeeming preferences, typical
 1 | Forwarding | Forward keys unavailable to redeem to other bots
@@ -529,7 +546,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `SteamUserPermissions` - `Dictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | None | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission
 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library
@@ -546,7 +563,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `TradingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-Value | Name  | Description
+Value | Name | Description
 --- | --- | ---
 0 | None | No trading preferences - accepts only `Master` trades
 1 | AcceptDonations | Accepts trades in which we're not losing anything
