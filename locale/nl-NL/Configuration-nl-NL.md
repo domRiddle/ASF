@@ -287,7 +287,6 @@ After deciding how you want to name your bot, open its file, and start with conf
     "DismissInventoryNotifications": false,
     "Enabled": false,
     "FarmingOrder": 0,
-    "FarmOffline": false,
     "GamesPlayedWhileIdle": [],
     "HandleOfflineMessages": false,
     "HoursUntilCardDrops": 3,
@@ -301,6 +300,7 @@ After deciding how you want to name your bot, open its file, and start with conf
     "MatchableTypes": [
         5
     ],
+    "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
@@ -359,7 +359,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 * * *
 
-`CustomGamePlayedWhileFarming` - `string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `FarmOffline` feature. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
+`CustomGamePlayedWhileFarming` - `string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to change default `OnlineStatus`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
 
 * * *
 
@@ -400,17 +400,13 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 * * *
 
-`FarmOffline` - `bool` type with default value of `false`. Offline farming is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile. In addition to that, this feature is also important if you want to receive notifications and unread messages, if you keep ASF open while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `FarmOffline` feature enabled can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure whether you want this feature enabled or not, it's suggested to use a value of `true` for primary accounts, and `false` otherwise.
-
-* * *
-
 `GamesPlayedWhileIdle` - `HashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appID`s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appID`s, therefore if you put more games than that, only first `32` will be respected (and extra ones being ignored).
 
 * * *
 
-`HandleOfflineMessages` - `bool` type with default value of `false`. When `FarmOffline` feature is enabled, bot is not able to receive commands in usual way, as it's not logged into Steam Community. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `FarmOffline` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
+`HandleOfflineMessages` - `bool` type with default value of `false`. When `OnlineStatus` is set to `Offline`, bot is not able to receive commands in usual way, as it's not logged into Steam Community. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `Offline` `OnlineStatus` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
 
-It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situations when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you disable `FarmOffline` altogether. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situations when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you stop using `Offline` `OnlineStatus` altogether. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 * * *
 
@@ -457,6 +453,27 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 6      | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
+
+* * *
+
+`OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+
+| Waarde | Naam           |
+| ------ | -------------- |
+| 0      | Offline        |
+| 1      | Online         |
+| 2      | Busy           |
+| 3      | Away           |
+| 4      | Snooze         |
+| 5      | LookingToTrade |
+| 6      | LookingToPlay  |
+| 7      | Invisible      |
+
+`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile.
+
+In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `Offline` status can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure how to set up this property, it's suggested to use a value of `0` for primary accounts, and default `1` otherwise.
+
+An alternative to `Offline` mode is obviously `Invisible` mode which works in a similar way, but it also has to sign in into Steam community, acting like secondary Steam client with a potential to dismiss notifications and unread messages. Therefore, in reality this is an alternative to `Offline` mode with `HandleOfflineMessages` enabled as well, and not to `Offline` mode alone.
 
 * * *
 

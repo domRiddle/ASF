@@ -1,32 +1,32 @@
-# Command-line arguments
+# 명령줄 인자
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF는 프로그램 실행에 영향을 미칠 수 있는 여러 명령줄 인자에 대한 지원을 포함합니다. 이것은 프로그램이 어떻게 동작해야하는지 특정하기위한 고급사용자가 이용할 수 있습니다. `ASF.json` 설정 파일의 기본 방식과 비교하면, 명령줄 인자는 `--path` 등 주요 초기설정, `--system-required` 등 플랫폼 특화 설정, `--cryptkey` 등 민감한 데이터에 사용합니다.
 
 * * *
 
-## Usage
+## 사용법
 
-Usage depends on your OS and ASF flavour.
+사용중인 OS와 ASF 취향에 따라 사용법이 다릅니다.
 
-Generic:
+일반:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --인자1 --인자2
 ```
 
-Windows:
+윈도우:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --인자1 --인자2
 ```
 
-Linux/OS X
+리눅스/OS X:
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --인자1 --인자2
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+명령줄 인자는 `ArchiSteamFarm.cmd`나 `ArchiSteamFarm.sh` 같은 일반 도우미 스크립트에서도 지원합니다. 그외에 도우미 스크립트를 사용할때 **[도커](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ko-KR#command-line-arguments)** 항목에 명시된 것 처럼 `ASF_ARGS` 환경변수를 사용할 수 있습니다.
 
 If your argument includes spaces, don't forget to quote it. Those two are wrong:
 
@@ -42,7 +42,7 @@ However, those two are completely fine:
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## 인자
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
 

@@ -10,13 +10,13 @@ De commando's kunnen op drie verschillende manieren naar een bot worden verzonde
 
 Hou er rekening mee dat je voor het communiceren met ASF de rechten nodig hebt in je ASF-instellingen om een commando te kunnen gebruiken. Check de `SteamUserPermissions` en de `SteamOwnerID` config-instellingen voor meer details.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+Alle onderstaande commando's moeten beginnen met de `CommandPrefix` **[globale configuratie instelling](https://github. com/JustArchi/ArchiSteamFarm/wiki/Configuration-nl-BE#globale-configuratie)**. Standaard is dat `!`. Met andere woorden: om de opdracht `status` uit te voeren, moet je `!Status` (of de door jou ingestelde ` CommandPrefix`) invoeren.
 
 * * *
 
 ### Steam privéchat
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
+Dit is de makkelijkste manier om met ASF te communiceren. Stuur de commando naar een ASF-bot die actief is. Uiteraard kun je dat niet doen als je ASF uitvoert met slechts één bot-account.
 
 ![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
@@ -24,13 +24,13 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 ### Steam groepsgesprek
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
+Vergelijkbaar met de bovenstaande optie, maar dan via het groepsgesprek van jouw Steam-groep. Hou er rekening mee dat voor deze optie `SteamMasterClanID` correct moet worden ingesteld, of dat je de bot handmatig uitnodigt voor de chat. Dit kan ook worden gebruikt voor 'praten met jezelf' en vereist geen ander bot-account.
 
 * * *
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
+Waarschijnlijk de meest "complexe" methode om met ASF te communiceren. IPC is perfect voor programma's en scripts van derden. Het vereist echter dat ASF wordt uitgevoerd in de servermodus en een client om commando's naar ASF te verzenden via de **[IPC](https://github. com/JustArchi/ArchiSteamFarm/wiki/IPC-nl-BE)** interface.
 
 ![Screenshot](https://i.imgur.com/TsAHcM0.png)
 
@@ -40,14 +40,14 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 | Commando                                             | Toegang         | Beschrijving                                                                                                                                                                                          |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
-| `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
-| `2faok <Bots>`                                 | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                      |
+| `2fa <Bots>`                                   | `Master`        | Genereert tijdelijke **[2FA](https://github. com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-nl-BE)** codes voor de betrokken bot(s).                                                     |
+| `2fano <Bots>`                                 | `Master`        | Weigert alle **[2FА](https://github. com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-nl-BE)** bevestigingen die in afwachting zijn van de betrokken bot(s).                               |
+| `2faok <Bots>`                                 | `Master`        | Accepteert alle **[2FА](https://github. com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-nl-BE)** bevestigingen die in afwachting zijn van de betrokken bot(s).                            |
 | `addlicense <Bots> <GameIDs>`            | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
 | `bl <Bots>`                                    | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`              | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`               | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                               | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
+| `exit`                                               | `Owner`         | Stopt het ASF-programma.                                                                                                                                                                              |
 | `farm <Bots>`                                  | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
 | `help`                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
 | `input <Bots> <Type> <Value>`      | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
@@ -58,7 +58,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `iqadd <Bots> <AppIDs>`                  | `Master`        | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                  |
 | `iqrm <Bots> <AppIDs>`                   | `Master`        | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                             |
 | `leave <Bots>`                                 | `Master`        | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.                                                                                          |
-| `loot <Bots>`                                  | `Master`        | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                              |
+| `loot <Bots>`                                  | `Master`        | Sends all `LootableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                               |
 | `loot^ <Bots> <AppID> <ContextID>` | `Master`        | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                             |
 | `loot& <Bots>`                             | `Master`        | Switches looting of given bot instances between enabled/disabled mode.                                                                                                                                |
 | `nickname <Bots> <Nickname>`             | `Master`        | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                    |
@@ -72,22 +72,22 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `redeem <Bots> <Keys>`                   | `Operator`      | Redeems given `cd-keys` on given bot instances.                                                                                                                                                       |
 | `redeem^ <Bots> <Modes> <Keys>`    | `Operator`      | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                             |
 | `rejoinchat <Bots>`                            | `Operator`      | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `restart`                                            | `Owner`         | Restarts ASF process.                                                                                                                                                                                 |
+| `restart`                                            | `Owner`         | Herstart het ASF-programma.                                                                                                                                                                           |
 | `resume <Bots>`                                | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
-| `start <Bots>`                                 | `Master`        | Starts given bot instances.                                                                                                                                                                           |
+| `start <Bots>`                                 | `Master`        | Start de betrokken bot(s).                                                                                                                                                                            |
 | `stats`                                              | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                              |
-| `status <Bots>`                                | `FamilySharing` | Prints status of given bot instances.                                                                                                                                                                 |
-| `stop <Bots>`                                  | `Master`        | Stops given bot instances.                                                                                                                                                                            |
+| `status <Bots>`                                | `FamilySharing` | Toont de status van de betrokken bot(s).                                                                                                                                                              |
+| `stop <Bots>`                                  | `Master`        | Stopt de betrokken bot(s).                                                                                                                                                                            |
 | `transfer <Bots> <Modes> <Bot>`    | `Master`        | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.                                                  |
-| `unpack <Bots>`                                | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
+| `unpack <Bots>`                                | `Master`        | Pakt alle booster packs uit die zich in de inventaris bevinden van de betrokken bot(s).                                                                                                               |
 | `update`                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `version`                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `version`                                            | `FamilySharing` | Toont het versienummer van ASF.                                                                                                                                                                       |
 
 * * *
 
-### Notities
+### Opmerkingen
 
-All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+Alle commando's zijn niet hoofdlettergevoelig, maar de parameters (zoals botnamen) zijn meestal wel hoofdlettergevoelig.
 
 `<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
 

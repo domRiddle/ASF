@@ -28,8 +28,8 @@
 * **[Журналирование](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ru-RU)**
 * **[Локализация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-ru-RU)**
 * **[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Сторонние приложения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools-ru-RU)**
+* **[Устаревание](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation-ru-RU)**
 
 ## Для разработчиков
 

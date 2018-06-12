@@ -42,7 +42,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 * * *
 
-## Usage
+## 사용법
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
@@ -104,9 +104,9 @@ This has to be done only once after you created your container with `docker run`
 
 * * *
 
-## Command-line arguments
+## 명령줄 인자
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. 예를 들면 다음과 같습니다:
 
 ```shell
 docker pull justarchi/archisteamfarm

@@ -58,7 +58,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `iqadd <Bots> <AppIDs>`                  | `Master`        | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                  |
 | `iqrm <Bots> <AppIDs>`                   | `Master`        | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                             |
 | `leave <Bots>`                                 | `Master`        | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.                                                                                          |
-| `loot <Bots>`                                  | `Master`        | Sends all `MatchableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                              |
+| `loot <Bots>`                                  | `Master`        | Sends all `LootableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                               |
 | `loot^ <Bots> <AppID> <ContextID>` | `Master`        | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                             |
 | `loot& <Bots>`                             | `Master`        | Switches looting of given bot instances between enabled/disabled mode.                                                                                                                                |
 | `nickname <Bots> <Nickname>`             | `Master`        | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                    |
@@ -160,7 +160,7 @@ While valid values for all of them are:
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### 예시
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -248,7 +248,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### 예시
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

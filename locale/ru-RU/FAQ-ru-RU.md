@@ -1,37 +1,37 @@
 # ЧаВО
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Наш ЧАВО даёт ответы на стандартные вопросы, которые у вас могут возникнуть. Для ответов на менее распространённые вопросы, вы можете посетить **[Расширенное ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**.
 
 # Содержание
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [Общие вопросы](#general)
+- [Сравнение с другими программами](#comparison-with-similar-tools)
+- [Безопасность / Конфиденциальность / VAC / Баны / ToS](#security--privacy--vac--bans--tos)
+- [Разное](#misc)
+- [Возможные проблемы](#issues)
 
 * * *
 
 ## Основное
 
-### So how it exactly works?
+### Как это работает?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Чтобы понять, что такое ASF, вам для начала нужно знать что такое коллекционные карточки Steam и как их получить, это хорошо описано в официальном **[руководстве](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Вкратце, карточки Steam - это коллекционные игры, право на получение которых вы получаете при покупке некоторых игр, они могут использоваться для создания значков, продажи на торговой площадке или иным образом на ваш выбор.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Основные принципы описаны ниже, поскольку это часто вызывает непонимание:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **Да, вам нужно иметь игру в библиотеке чтобы получить из неё карточки. Семейный доступ не считается.**
+- **Нет, вы не можете фармить игру бесконечно, из каждой игры выпадает фиксированное количество карточек. Когда карточки в игре закончились, фармить её нет смысла.**
+- **Нет, карточки не падают из бесплатных игр формата Free2Play если вы не потратили в этой игре деньги. Это включает в себя постоянно беслатные игры, такие как Team Fortress 2 или Dota 2.**
+- **Нет, карточки не выпадают на ограниченных аккаунтах (тех, на которых не было потрачено 5$), независимо от того, какие игры есть на этом аккаунте. Ранее это было возможно, но больше нет.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Как видите, коллекционные карточки Steam вы получаете за запуск игры которую купили, или бесплатной игры в которой потратили деньги. Другими словами, если вы играете в игру достаточно долго, все карточки выпадут в инвентарь, давая вам возможность создать значок, продать их, или сделать сними что-то ещё.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technnical details, we'll offer a very simplified explanation below.
+ASF довольно сложная программа, чтобы полностью её понять, поэтому вместо того, чтобы вдаваться в технические детали, мы предлагаем ниже упрощённое описание.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF входит в ваш аккаунт Steam с помощью встроенного мини-клиента Steam используя ваши учётные данные. После успешного входа, анализируется страничка с вашими **[значками](https://steamcommunity.com/my/badges)** с целью обнаружить игры, которые можно фармить (Ещё выпадет карточек: X). После анализа всех страниц и составления списка доступных игр, ASF выбирает наиболее эффективный алгоритм фарма и запускает процесс. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Сравнение с другими программами
 
 * * *
 
@@ -131,7 +131,7 @@ It depends what you consider "interesting" for you. If you plan to idle more acc
 
 First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. But you already know that, so let's move onto some more interesting features:
 
-- **Ты можешь фармить оффлайн** (функция `FarmOffline`). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
+- **You can idle offline** (`OnlineStatus` of `Offline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
 
 - **You can skip refundable games** (`IdleRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Безопасность / Конфиденциальность / VAC / Баны / ToS
 
 * * *
 
@@ -281,7 +281,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## Разное
 
 * * *
 
@@ -317,7 +317,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `FarmOffline` on `false`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 
@@ -396,7 +396,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Возможные проблемы
 
 * * *
 
