@@ -1,4 +1,4 @@
-# Commands
+# Příkazy
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
@@ -36,7 +36,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 * * *
 
-## Commands
+## Příkazy
 
 | Command                                              | Přístup         | Description                                                                                                                                                                                           |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

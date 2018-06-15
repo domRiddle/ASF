@@ -359,7 +359,7 @@ ASF по умолчанию ожидает запросов только по а
 
 * * *
 
-`CustomGamePlayedWhileFarming` - параметр типа `string` со значением по-умолчанию `null`. Во время фарма ASF может показывать статус "В сторонней игре: `CustomGamePlayedWhileFarming`" вместо названия текущей игры. This can be useful if you would like to let your friends know that you're farming, yet you don't want to change default `OnlineStatus`. Обратите внимание, ASF не может гарантировать порядок отображения статусов в Steam, поэтому этот статус может как работать так и не работать правильно. Значение по-умолчанию `null` выключает эту функцию.
+`CustomGamePlayedWhileFarming` - параметр типа `string` со значением по-умолчанию `null`. Во время фарма ASF может показывать статус "В сторонней игре: `CustomGamePlayedWhileFarming`" вместо названия текущей игры. Это может оказаться полезным если вы хотите дать знать своим друзьям что вы фармите, но не хотите менять значение по-умолчанию у параметра `OnlineStatus`. Обратите внимание, ASF не может гарантировать порядок отображения статусов в Steam, поэтому этот статус может как работать так и не работать правильно. Значение по-умолчанию `null` выключает эту функцию.
 
 * * *
 
@@ -400,29 +400,29 @@ ASF по умолчанию ожидает запросов только по а
 
 * * *
 
-`GamesPlayedWhileIdle` - `HashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appID`s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appID`s, therefore if you put more games than that, only first `32` will be respected (and extra ones being ignored).
+`GamesPlayedWhileIdle` - параметр типа `HashSet<uint>` с пустым значением по-умолчанию. Если ASF нечего фармить, вместо фарма будут запускаться указанные игры (`appID`) Steam. Запуск игр таким способом увеличивает "время в игре" для этих игр, но ничего кроме этого. Эта функция может использоваться одновременно с `CustomGamePlayedWhileIdle` с целью запуска игр и одновременно показе заданного статуса в Steam, но в этом случае, как и с `CustomGamePlayedWhileFarming`, реальный порядок отображения не гарантируется. Обратите внимание на то, что Steam позволяет одновременно запускать до `32` `appID`, а значит если вы укажете больше игр, только первые `32` будут отработаны (а все дополнительные проигнорированы).
 
 * * *
 
-`HandleOfflineMessages` - `bool` type with default value of `false`. When `OnlineStatus` is set to `Offline`, bot is not able to receive commands in usual way, as it's not logged into Steam Community. To overcome this problem, ASF has also support for Steam offline messages that can be activated here. If you use `Offline` `OnlineStatus` on your alt accounts, you can consider switching this property to `true` in order to still be able to send commands to your offline bots, and receive responses. Keep in mind that this feature is based on offline steam messages, and receiving them automatically marks them as read, therefore this option is NOT recommended for primary accounts, as ASF will be forced to read and mark all offline messages as received in order to listen for offline commands - this affects also offline messages from your friends that are not ASF commands.
+`HandleOfflineMessages` - параметр типа `bool` со значением по-умолчанию `false`. Когда параметру `OnlineStatus` установлено значение `Offline`, бот не может получать команды обычным образом, поскольку он не входит в Steam Community. Чтобы преодолеть эту проблему, в ASF также есть поддержка оффлайн сообщения в Steam, которую можно включить этим параметром. Если вы установили `OnlineStatus` равным `Offline` на дополнительных аккаунтах, вы можете включить этот параметр в положение `true`, чтобы сохранить возможность отправлять команды вашим "оффлайн" ботам и получать ответ. Не забывайте, что эта функция основана на оффлайн сообщения Steam, и их получение автоматически отмечает их как прочитанные, поэтому НЕ рекомендуется использовать её на основных акканутах, поскольку ASF будет читать и отмечать все оффлайн сообщения как полученные, чтобы отследить оффлайн команды - и это включает в себя также все оффлайн сообщения от ваших друзей, не являющиеся командами ASF.
 
-It's also worth mentioning that this option is basically a hack that might, or might not work correctly, based on whether Steam network actually will save those unread messages as offline messages in the first place. We've already seen many situations when it did not, so it's entirely possible that your bot won't receive your commands regardless, unless you stop using `Offline` `OnlineStatus` altogether. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
-
-* * *
-
-`HoursUntilCardDrops` - `byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
+Стоит отметить, что эта функция попросту говоря хак, который может работать, а может и не работать, в зависимости в первую очередь от того, будет ли стим сохранять эти непрочитанные сообщения как оффлайн сообщения, или нет. Мы уже встречались с ситуациями когда это не работало, поэтому вполне возможно что ваш бот всё равно не будет получать команды, пока вы не поменяете значение `Offline` в параметре `OnlineStatus` на другое. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
 
 * * *
 
-`IdlePriorityQueueOnly` - `bool` type with default value of `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
+`HoursUntilCardDrops` - параметр типа `byte` со значением по-умолчанию `3`. Этот параметр задаёт, есть ли у аккаунта ограничение на выпадение карточек, и если да - то на сколько часов. Ограничение на выпадение карточек означает что у данного аккаунта не выпадает карточек из игры пока в этой игре не наиграно как минимум `HoursUntilCardDrops` часов. К сожалению, нет никакого волшебного способа узнать, есть ли ограничение или нет, поэтому ASF полагается в этом на вас. Этот параметр влияет на используемый **[алгоритм фарма](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**. Правильная настройка этого параметра максимизирует прибыль и минимизирует время, необходимое на фарм всех карточек. Помните о том, что нет очевидного ответа, какое значение вам использовать, это полностью зависит от вашего аккаунта. Похоже что старые аккаунты, с которых не запрашивали возврат средств не имеют ограничений на выпадение карт, поэтому им следует использовать значение `​0​`, а новые аккаунты, и те кто запрашивал возврат средств за игры - имеют ограничение на `3` часа. Но это только теория, и не стоит полагаться на это как на правило. Значение по-умолчанию основано на том, что будет в данном случае меньшим злом, и подходит для большинства случаев.
 
 * * *
 
-`IdleRefundableGames` - `bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that we bought in last 2 weeks through Steam Store and we didn't play it for longer than 2 hours yet, as stated **[here](https://store.steampowered.com/steam_refunds)**. By default when this option is set to `true`, ASF ignores Steam refunds entirely and idles everything, as most people expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
+`IdlePriorityQueueOnly` - параметр типа `bool` со значением по-умолчанию `false`. Этот параметр задаёт, что ASF должен автоматически фармить только игры, которые вы вручную добавили в очередь фарма **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `iq`. Если этот параметр включен, ASF будет пропускать все `appID` отсутствующие в списке, позволяя вам выбрать игры для автоматического фарма. Помните, что если вы не добавили ни одной игры в очередь, ASF будет нечего фармить на вашем аккаунте. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
 
 * * *
 
-`LootableTypes` - `HashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+`IdleRefundableGames` - параметр типа `bool` со значением по-умолчанию `true`. Этот параметр указывает, разрешено ли ASF фармить игры, за которые ещё возможен возврат средств. Возврат средств разрешён за игры, которые были куплены не ранее чем 2 недели назад через магазин Steam, и в которые наиграно менее 2 часов, это описано **[здесь](https://store.steampowered.com/steam_refunds)**. По-умолчанию этот параметр установлен в значение `true`, ASF игнорирует возможность возврата средств, и фармит все доступные игры, как того ожидает большинство пользователей. Однако, вы можете переключить этот параметр в `false` если хотите чтобы ASF не фармил игры, за которые возможен возврат средств, давая вам возможность оценить эти игры самостоятельно и без проблем запросить возврат средств при необходимости, не беспокоясь о том что ASF отрицательно повлияет на время в игре. Обратите внимание, если вы отключите этот параметр, ASF не будет фармить игры которые вы купили в магазине Steam в течении 14 дней со дня покупки. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `true`.
+
+* * *
+
+`LootableTypes` - параметр типа `HashSet<byte>` со значением по-умолчанию `1, 3, 5`. Этот параметр определяет поведение ASF при отправке обменов - как ручной, так и автоматической. ASF будет отправлять в предложении обмена только предметы соответствующие `LootableTypes`, поэтому вы можете указать, что вы хотите получить в предложениях обмена, которые будет вам присылать бот.
 
 | Значение | Имя               | Описание                                                                  |
 | -------- | ----------------- | ------------------------------------------------------------------------- |
@@ -434,13 +434,13 @@ It's also worth mentioning that this option is basically a hack that might, or m
 | 5        | TradingCard       | Коллекционные карточки Steam, используемые для создания значков (обычных) |
 | 6        | SteamGems         | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+Обратите внимание, что независимо от настроек выше, ASF будет отправлять только предметы из сообщества (`contextID` равно 6) Steam (`appID` равно 753), поэтому все игровые предметы, подарки, и так далее, исключены из предложений обмена по определению.
 
-Default ASF setting is based on most common usage of the bot, with looting only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything.
+Значение по-умолчанию основано на наиболее распространённом применении ботов, и пересылает только наборы карт и сами карты (включая металлические). Этот параметр позволяет вам изменить это поведение по своему вкусу. Обратите внимание, что все типы, кроме описанных выше, будут относиться к типу `Unknown`, это может быть важно в случае если Valve выпустит новый тип предметов Steam, такие предметы будут относиться к типу `Unknown`, пока их не добавят в какой-то новый тип (в будущих версиях программы). Именно поэтому в общем случае не рекомендуется включать тип `Unknown` в вашем `LootableTypes`, кроме случая когда вы знаете, что делаете, и понимаете, что ASF отправит вам весь инвентарь в предложении обмена если сеть Steam опять сломается и начнёт обозначать все предметы как `Unknown`. Настоятельно не рекомендуем добавлять тип `Unknown` в `LootableTypes`, даже если вы собираетесь пересылать весь инвентарь.
 
 * * *
 
-`MatchableTypes` - `HashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
+`MatchableTypes` - параметр типа `HashSet<byte>` со значением по-умолчанию `5`. Этот параметр задаёт, какие типы предметов разрешено обменивать, если в параметре `TradingPreferences` включено значение `SteamTradeMatcher`. Типы определяются следующим образом:
 
 | Значение | Имя               | Описание                                                                  |
 | -------- | ----------------- | ------------------------------------------------------------------------- |
@@ -452,11 +452,11 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 5        | TradingCard       | Коллекционные карточки Steam, используемые для создания значков (обычных) |
 | 6        | SteamGems         | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 
-Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
+Разумеется, обычно имеет смысл использовать в этом параметре только типы `2`, `3`, `4` и `5`, поскольку только эти типы поддерживает STM. Помните, что **ASF это не бот для торговли** и **не будет отслеживать цену предмета или его редкость**, а значит если вы используете тип `Emoticon`, ASF с радостью поменяет 2 ваших редких смайлика на 1 редкий и 1 обычный, если это помогает достичь прогресса в сборе значка (в данном случае - сборе всех смайликов). Подумайте дважды, готовы ли вы к этому. Вам следует оставить этому параметру значение по-умолчанию `5`, кроме тех случаев когда вы хорошо знаете, что делаете.
 
 * * *
 
-`OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`OnlineStatus` - параметр типа `byte` со значением по-умолчанию `1`. Этот параметр задаёт статус в сообществе Steam, который будет указывать бот при входе в сеть Steam. На данный момент вы можете выбрать один из нижеприведенных статусов:
 
 | Значение | Имя            |
 | -------- | -------------- |
@@ -469,119 +469,119 @@ Of course, types that you should use for this property typically include only `2
 | 6        | LookingToPlay  |
 | 7        | Invisible      |
 
-`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile.
+Статус `Offline` чрезвычайно полезен для основных аккаунтов. Как вы уже должны знать, фарм игры отображает ваш статус в Steam как "В игре: XXX", что может ввести в заблуждение ваших друзей, которые подумают что вы играете в игру, которую вы просто фармите. Фарм оффлайн решает этот проблему - ваш аккаунт никогда не будет отображаться как "в игре", когда вы фармите карточки в ASF. Это возможно благодаря тому, что ASF может не входить в сообщество Steam но при этом продолжать работу, поэтому он запускает игры, но в режиме "наполовину оффлайн". Помните, что игры запущенные в режиме фарма оффлайн всё равно учитываются в наигранное время, и отображаются в разделе "Недавняя активность" на странице вашего профиля.
 
-In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `Offline` status can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure how to set up this property, it's suggested to use a value of `0` for primary accounts, and default `1` otherwise.
+В добавок к этому, эта функция также полезна если вы хотите получать уведомления и непрочитанные сообщения когда у вас запущен ASF и в то же время не запущен клиент Steam. Поскольку ASF работает как клиент Steam, вы не будете получать уведомления о пропущенных сообщениях из-за того что ваш аккаунт считается онлайн и все сообщения получает ASF. Фарм оффлайн очень полезен в этой ситуации, поскольку ваш аккаунт считается оффлайн даже при запущенном ASF (в режиме фарма оффлайн), и вы получите уведомления о пропущенных сообщениях когда вернётесь. Кроме того, боты со статусом `Offline` не могут (напрямую) реагировать на команды, что важно если вы решите использовать эту функцию для дополнительных аккаунтов (см. `HandleOfflineMessages`). Если вы не уверены, как правильно настроить этот параметр, рекомендуется использовать значение `0` для основных аккаунтов и `1` для остальных.
 
-An alternative to `Offline` mode is obviously `Invisible` mode which works in a similar way, but it also has to sign in into Steam community, acting like secondary Steam client with a potential to dismiss notifications and unread messages. Therefore, in reality this is an alternative to `Offline` mode with `HandleOfflineMessages` enabled as well, and not to `Offline` mode alone.
-
-* * *
-
-`PasswordFormat` - `byte` type with default value of `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. Unless you know what you're doing, you should keep it with default value of `0`.
+Альтернатива режиму `Offline` это конечно режим `Invisible`, который работает похожим образом, но входит в сообщество Steam, работая как второй клиент Steam, потенциально способный отмечать как прочитанные уведомления и сообщения. Поэтому в реальности это скорее альтернатива режиму `Offline` со включенным `HandleOfflineMessages`, а не чистому `Offline`.
 
 * * *
 
-`Paused` - `bool` type with default value of `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
+`PasswordFormat` - параметр типа `byte` со значением по-умолчанию `0`. Этот параметр задаёт формат хранения параметра `SteamPassword`, и на сегодняшний день поддерживает следующие значения: `​0​` для `PlainText`, `1` для `AES` и `2` для `ProtectedDataForCurrentUser`. Пожалуйста, прочтите раздел "**[Безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)**" если хотите узнать больше, поскольку вам потребуется убедиться, что параметр `SteamPassword` действительно содержит пароль в формате, соответствующем `PasswordFormat`. Вам следует оставить этому параметру значение по-умолчанию `​0​`, кроме тех случаев когда вы хорошо знаете, что делаете.
 
 * * *
 
-`RedeemingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
+`Paused` - параметр типа `bool` со значением по-умолчанию `false`. Этот параметр определяет исходное состояние модуля `CardsFarmer`. Со значением по-умолчанию `false` бот будет автоматически начинать фарм после запуска либо по параметру `Enabled` либо по команде `start`. Этот параметр следует переключать в `true` только если вы хотите вручную запускать процесс фарма командой `resume`, либо например если вы планируете всегда использовать команду `play` и не собираетесь использовать автоматический модуль `CardsFarmer` - он работает точно так же, как **[команда](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `pause`. Если вы не уверены, нужна ли вам эта возможность, оставьте её равной значению по-умолчанию `false`.
 
-| Значение | Имя              | Описание                                                                       |
-| -------- | ---------------- | ------------------------------------------------------------------------------ |
-| 0        | None             | No redeeming preferences, typical                                              |
-| 1        | Forwarding       | Forward keys unavailable to redeem to other bots                               |
-| 2        | Distributing     | Distribute all keys among itself and other bots                                |
-| 4        | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
+* * *
+
+`RedeemingPreferences` - параметр типа `byte flags` со значением по-умолчаниюtype `0`. Этот параметр определяет поведение ASF при активации ключей в Steam, и задаётся следующим образом:
+
+| Значение | Имя              | Описание                                                                                                |
+| -------- | ---------------- | ------------------------------------------------------------------------------------------------------- |
+| 0        | None             | Нет предпочтений по активации, по-умолчанию                                                             |
+| 1        | Forwarding       | Передавать ключи, которые не удалось активировать, другим ботам                                         |
+| 2        | Distributing     | Распределять все ключи между этим и другими ботами                                                      |
+| 4        | KeepMissingGames | Не передавать ключи для игр, которые (возможно) отсутствуют на аккаунте, оставлять их неиспользованными |
 
 Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Ознакомьтесь с **[типами параметров в JSON](#Типы-параметров-в-json)** если хотите узнать больше. Если вы не включите никаких флагов, будет использоваться вариант `None`.
 
-`Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
+`Forwarding` приведёт к тому, что бот будет передавать ключи, которые не удалось активировать, другим подключенным и запущенным ботам, у которых нет данной игры (если удалось проверить). Наиболее распространённая ситуация это передача это игры со статусом `AlreadyPurchased`(уже есть на аккаунте) другому боту, у которого нет этой игры, но это значение также поддерживает другие случаи, такие как `DoesNotOwnRequiredApp`(отсутствует базовая игра), `RateLimited`(слишком много попыток активации) or `RestrictedCountry`(ключ не может быть активирован в вашем регионе).
 
-`Distributing` will cause bot to distribute all received keys among itself and other bots. This means that every bot will get a single key from the batch. Typically this is used only when you're redeeming many keys for the same game, and you want to evenly distribute them among your bots, as opposed to redeeming keys for various different games. This feature makes no sense if you're redeeming only one key in a single `redeem` action (as there are no extra keys to be distributed).
+`Distributing` приведёт к тому, что все полученные ключи будут распределены между этим и другими ботами. Это означает, что каждый бот получит один ключ и списка. Обычно это используется только если вы активируете много ключей от одной и той же игры, и хотите равномерно распределить их по всем ботам, ситуация противоположная активации нескольких ключей от разных игр. Эта функция не имеет никакого смысла если вы активируете только один ключ в одной команде `redeem` (поскольку нет дополнительных ключей, которые можно распределить).
 
-`KeepMissingGames` will cause bot to skip `Forwarding` when we can't be sure if key being redeemed is in fact owned by our bot, or not. This basically means that `Forwarding` will apply **only** to `AlreadyPurchased` keys, instead of covering also other cases such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`. Typically you might want to use this option on primary account, to ensure that keys being redeemed on it won't be forwarded further if your bot for example becomes temporarily `RateLimited`. As you can guess from the description, this field has absolutely no effect if `Forwarding` is not enabled.
+`KeepMissingGames` приведёт к тому, что бот будет игнорировать значение `Forwarding` если нет уверенности в том, что активируемый ключ от игры, которая уже есть на аккаунте. Это попросту означает, что `Forwarding` будет применять **только** к ключам, получившим статус `AlreadyPurchased`, не покрывая другие случаи, такие как `DoesNotOwnRequiredApp`, `RateLimited` и `RestrictedCountry` (см. выше). Обычно вам может пригодиться это значение только для основного аккаунта, чтобы убедиться, что активируемые на нём ключи не будут переданы дальше если он временно получил статус `RateLimited`. Как вы можете догадаться из описания, это значение не будет иметь абсолютно никакого эффекта, если не включено значение `Forwarding`.
 
-Enabling both `Forwarding` and `Distributing` will add distributing feature on top of forwarding one, which makes ASF trying to redeem one key on all bots firstly (forwarding) before moving to the next one (distributing). Typically you want to use this option only when you want `Forwarding`, but with altered behaviour of switching the bot on key being used, instead of always going in-order with every key (which would be `Forwarding` alone). This behaviour can be beneficial if you know that majority or even all of your keys are tied to the same game, because in this situation `Forwarding` alone would try to redeem everything on one bot firstly (which makes sense if your keys are for unique games), and `Forwarding` + `Distributing` will switch the bot on the next key, "distributing" the task of redeeming new key onto another bot than the initial one (which makes sense if keys are for the same game, skipping one pointless attempt per key).
+Если вы включите и `Forwarding` и `Distributing`, вы получите сочетание передачи с распределением, то есть ASF будет сначала пытаться активировать один ключ на всех аккаунтах (передача) перед тем как переходить к следующему (распределение). Обычно такое сочетание нужно если вы хотите использовать `Forwarding`, но со сменой следующего бота для активации, вместо того чтобы перебирать всех ботов по порядку (как происходит при одном `Forwarding`). Этот вариант может быть полезен если вы знаете что большинство или все ключи от одной и той же игры, потому что в этой ситуации один `Forwarding` будет пытаться активировать их все сначала на пером боте (что имеет смысл если ключи от разных игр), а `Forwarding` + `Distributing` будет менять бота для следующего ключа, "передавая" задачу активации нового ключа следующему боту (что имеет смысл если все ключи для одной игры, пропускается бессмысленная попытка активации для каждого ключа).
 
-The actual bots order for all of the redeeming scenarios is alphabetical, excluding bots that are unavailable (not connected, stopped or likewise). Please keep in mind that there is per-IP and per-account hourly limit of redeeming tries, and every redeem try that didn't end with `OK` contributes to failed tries. ASF will do its best to minimize number of `AlreadyPurchased` failures, e.g. by trying to avoid forwarding a key to another bot that already owns that particular game, but it's not always guaranteed to work due to how Steam is handling licenses. Using redeeming flags such as `Forwarding` or `Distributing` will always increase your likehood to hit `RateLimited`.
+Реальный порядок ботов для всех вариантов активации - по алфавиту, исключая ботов которые не доступны (не подключены, остановлены и тому подобное). Помните, что у Steam есть ограничени попыток активации, как для одного аккаунта, так и для одного IP, и каждая попытка активации не завершившаяся статусом `OK` увеличивает счётчик неудачных попыток. ASF прилагает все усилия, чтобы уменьшить число статусов `AlreadyPurchased`, например пытаясь избежать передачи ключа боту, у которого уже есть эта игра, но это не всегда работает из-за того как Steam работает с лицензиями. Использование флагов активации, таких как `Forwarding` или `Distributing`, всегда увеличивает ваш шанс на получение статуса `RateLimited`.
 
-Also keep in mind that you can't forward or distribute keys to bots that you do not have access to. This should be obvious, but ensure that you're at least `Operator` of all the bots you want to include in your redeeming process, for example with `status ASF` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**.
-
-* * *
-
-`SendOnFarmingFinished` - `bool` type with default value of `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `false`.
+Также помните, что вы не можете передавать или распределять ключи ботам, для которых у вас нет прав доступа. Это должно быть очевидно, но убедитесь что у вас есть права как минимум `Operator` для всех ботов, которых вы хотите задействовать в процессе активации, например с помощью **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `status ASF`.
 
 * * *
 
-`SendTradePeriod` - `byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `0`.
+`SendOnFarmingFinished` - параметр типа `bool` со значением по-умолчанию `false`. По окончанию фарма всех карточек на одном аккаунте, ASF может автоматически отсылать предложение обмена со всеми выпавшими предметами пользователю с правами `Master`, что довольно удобно если вы не хотите заниматься предложениями обмена самостоятельно. Эта функция аналогична команде `loot`, поэтому помните что для неё нужно чтобы был установлен пользователь с правами `Master`, а также может понадобиться правильный `SteamTradeToken`, ну и конечно аккаунту должно быть разрешено совершать обмены. В дополнение к запуску `loot` после окончания фарма, если эта функция активна, ASF будет также вызывать `loot` каждый раз при получении уведомления о получении новых предметов (только когда фарм не запущен), и после завершения каждого обмена при котором получены новые предметы(всегда). Это особенно удобно для передачи "по цепочке" предметов полученных от других людей на основной аккаунт. Настоятельно рекомендуется использовать эту функцию совместно с настроенной **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, поскольку нет смысла автоматически отсылать предложения обмена если их надо вручную подтверждать. Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `false`.
 
 * * *
 
-`ShutdownOnFarmingFinished` - `bool` type with default value of `false`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well. Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `false`.
+`SendTradePeriod` - параметр типа `byte` со значением по-умолчанию `0`. Этот параметр очень похож на `SendOnFarmingFinished`, с одним отличием - вместо того, чтобы отсылать предложение обмена по окончанию фарма, бот может отсылать предложение обмена каждые `SendTradePeriod` часов, не зависимо от того, сколько осталось фармить. Это полезно, если вы хотите получать предметы с дополнительных аккаунтов на регулярной основе, не дожидаясь окончания фарма. Значение по-умолчанию `​0​` отключает эту функцию, если вы хотите чтобы ваш бот отсылал вам предложения обмена, например, каждый день - поставьте сюда значение `24`. Настоятельно рекомендуется использовать эту функцию совместно с настроенной **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, поскольку нет смысла автоматически отсылать предложения обмена если их надо вручную подтверждать. Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `0`.
 
 * * *
 
-`SteamLogin` - `string` type with default value of `null`. This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`ShutdownOnFarmingFinished` - параметр типа `bool` со значением по-умолчанию `false`. ASF "занимает" аккаунт на всё время пока пока процесс запущен. Когда на аккаунте закончен фарм карточек, ASF периодически проверяет (каждые `IdleFarmingPeriod` часов), не появились ли новые игры с карточками, чтобы продолжить фарм без необходимости перезапуска процесса. Это полезно для большинства пользователей, поскольку ASF продолжает фармить по мере необходимости. Однако вы можете захотеть завершать процесс когда фарм на аккаунте закончен, для этого поставьте этому параметру значение `true`. Если этот параметр включен, ASF будет выходить из аккаунта когда фарм на нём закончен, а значит не сможет периодически проверять или занимать его. Вам нужно решить, хотите ли вы чтобы ASF работал с данным аккаунтом всё время, или ASF должен останавливать его, когда закончин фарм. Если все аккаунты остановлены, и процесс не запущен в **[режиме](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments-ru-RU)** `--process-required`, ASF также будет завершён. Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `false`.
 
 * * *
 
-`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml/?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
+`SteamLogin` - параметр типа `string` со значением по-умолчанию `null`. В этом параметре задаётся ваш логин Steam - тот, с которым вы входите в Steam. Помимо задания логина в этом параметре, вы можете оставить ему значение `null` если хотите вводить логин каждый раз при запуске ASF вместо хранения его в конфигурационном файле. Это может быть полезным, если вы не хотите сохранять конфиденциальные данные в конфигурационном файле.
 
 * * *
 
-`SteamParentalPIN` - `string` type with default value of `0`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `0` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `null` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`SteamMasterClanID` - параметр типа `ulong` со значением по-умолчанию `0`. В этом параметре задаётся steamID группы Steam, к которой бот должен автоматически присоединяться, и входить в чат. Вы можете узнать steamID вашей группы перейдя на её **[страницу](https://steamcommunity.com/groups/ascfarm)**, а затем добавив `/memberslistxml/?xml=1` в конец ссылки в адресной строке, чтобы ссылка приобрела **[такой](https://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)** вид. Затем вы сможете получить steamID из результирующей выдачи (в некоторых браузерах может понадобиться включить режим просмотра исходного кода), он находится в теге `<groupID64>`. В примере выше это будет `103582791440160998`. Если у вас нет никакой "группы для фарма" для ваших ботов, оставьте этому параметру значение по-умолчанию.
 
 * * *
 
-`SteamPassword` - `string` type with default value of `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`SteamParentalPIN` - параметр типа `string` со значением по-умолчанию `0`. В этом параметре задаётся ваш PIN для семейного просмотра. ASF требуется доступ к ресурсам, защищённым средствами семейного просмотра, если вы пользуетесь этим функционалом Steam - вам необходимо указать ваш PIN для корректной работы ASF. Значение по-умолчанию `​0​` означает что для просмотра содержимого на этом аккаунте не нужен PIN семейного просмотра, это то значение которое вам нужно если вы не пользуетесь этой функцией в Steam. Помимо задания PIN в этом параметре, вы можете также использовать значение `null`, если вы хотите вводить PIN семейного просмотра при каждом запуске ASF, вместо сохранения его в конфигурационном файле. Это может быть полезным, если вы не хотите сохранять конфиденциальные данные в конфигурационном файле.
 
 * * *
 
-`SteamTradeToken` - `string` type with default value of `null`. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
-
-In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only token itself.
+`SteamPassword` - параметр типа `string` со значением по-умолчанию `null`. В этом параметре задаётся ваш пароль Steam - тот, с которым вы входите в Steam. Помимо задания пароля в этом параметре, вы можете оставить ему значение `null` если хотите вводить пароль каждый раз при запуске ASF вместо хранения его в конфигурационном файле. Это может быть полезным, если вы не хотите сохранять конфиденциальные данные в конфигурационном файле.
 
 * * *
 
-`SteamUserPermissions` - `Dictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
+`SteamTradeToken` - параметр типа `string` со значением по-умолчанию `null`. Если бот находится в вашем списке друзей, он может отправлять вам предложения обмена без указания токена, в этом случае вы можете оставить этому параметру значение `null`. Однако, если вы решите что НЕ хотите иметь бота в списке друзей, вам понадобиться сгенерировать и заполнить токен для обменов как пользователю, которому бот должен отправлять обмен. Другими словами, в этом параметре должен быть указан токен для обменов от того аккаунта, который задан как `Master` в параметре `SteamUserPermissions` **этого** бота.
 
-| Значение | Имя           | Описание                                                                                                                                                                                           |
-| -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0        | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
-| 1        | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2        | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3        | Master        | Provides full access to given bot instance                                                                                                                                                         |
-
-In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
-
-We recommend to set exactly one user as `Master`, and any amount you wish as `Operator`s and below. While it's technically possible to set multiple `Master`s and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme - multiple masters scheme is discouraged setup that is not supported.
-
-It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process.
+Чтобы найти ваш токен, вы должны зайти в Steam с аккаунта, который указан как `Master`, перейти **[сюда](https://steamcommunity.com/my/tradeoffers/privacy)** и посмотреть на свою ссылка на обмен. Токен, который вы ищете, состоит из 8 символов после `&token=` в вашей ссылке на обмен. Вам нужно скопировать эти 8 символов сюда, в параметр `SteamTradeToken`. Не нужно указывать целиком ссылку на обмен, и даже часть `&token=`, только сам токен.
 
 * * *
 
-`TradingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
+`SteamUserPermissions` - параметр типа `Dictionary<ulong, byte>` с пустым значением по-умолчанию. Этот параметр - ассоциативный массив, задающий соответствие между пользователем Steam, указанным с помощью 64-битного Steam ID, и числом типа `byte`, которое задаёт его права для данного бота ASF. На данный момент доступны следующие права:
 
-| Значение | Имя                 | Описание                                                                                                                                                                     |
-| -------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0        | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
-| 1        | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
-| 2        | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4        | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
-| 8        | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                          |
+| Значение | Имя           | Описание                                                                                                                                                                                                                     |
+| -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0        | None          | Никаких прав, это зарезервированное значение, которое нужно только чтобы описывать те steam ID, которые отсутствуют в этом массиве - нет необходимости задавать какой-то аккаунт с такими правами                            |
+| 1        | FamilySharing | Даёт минимальный доступ для пользователей использующих семейный доступ. Опять же, это скорее зарезервированное значение, поскольку ASF способен автоматически обнаруживать каким steam ID разрешён доступ к вашей библиотеке |
+| 2        | Operator      | Даёт основные права доступа к боту, в основном для активации ключей и добавления бесплатных лицензий                                                                                                                         |
+| 3        | Master        | Даёт полный доступ к данному боту                                                                                                                                                                                            |
+
+Если коротко, этот параметр позволяет вам управлять разрешениями для выбранных пользователей. Разрешения важны для доступа к **[командам](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)**, но также для активации различных функций ASF, таких как принятие предложений обмена. Например, вы можете объявить свой аккаунт как `Master`, и дать права `Operator` 2-3 своим друзьям, чтобы они могли активировать ключи на ваших ботах, но при этом **не** могли, например, остановить их. Благодаря этому вы легко можете назначать права выбранным пользователям и давать им доступ к выбранным вами ботам до определённой вами степени.
+
+Мы рекомендуем указать только одного пользователя как `Master`, и сколько захотите - как `Operator` и ниже. Хотя технически возможно указать несколько `Master`ов и ASF, будет корректно с ними работать, например принимать предложения обмена, которые они отправят боту, но ASF будет использовать только одного из них (с самым маленьким steam ID) для всех задач, для которых требуется только одна цель - например, запросов `loot`, а также параметров `SendOnFarmingFinished` или `SendTradePeriod`. Если вы хорошо понимаете эти ограничения, особенно тот факт что запрос `loot` всегда будет отсылать предметы аккаунту `Master` с самым маленьким steam ID, независимо от того, кто из `Master`ов отдал эту команду - вы можете задать здесь несколько пользователей с правами `Master`, но мы всё же рекомендуем схему с одним `Master` - мы не будем оказывать поддержку для конфигураций с несколькими `Master`.
+
+Стоит отметить, что дополнительно есть ещё права доступа `Owner`, которые задаются в параметре `SteamOwnerID` глобальной конфигурации. Вы не можете никому задать права `Owner` в этом параметре, поскольку параметр `SteamUserPermissions` определяет только права, относящиеся к боту, а не к процессу ASF в целом.
+
+* * *
+
+`TradingPreferences` - параметр типа `byte flags` со значением по-умолчанию `0`. Этот параметр определяет поведение ASF при получении предложений обменов, и задаётся следующим образом:
+
+| Значение | Имя                 | Описание                                                                                                                                                                                                                                 |
+| -------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0        | None                | Нет предпочтений при обменах - принимаются только обмены от `Master`                                                                                                                                                                     |
+| 1        | AcceptDonations     | Принимаются предложения обменов, в которых бот не отдаёт никаких предметов                                                                                                                                                               |
+| 2        | SteamTradeMatcher   | Принимаются предложения обменов дубликатов карточек по правилам **[STM](https://www.steamtradematcher.com)**. Ознакомьтесь с разделом "**[Обмены](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-ru-RU)**" чтобы узнать больше |
+| 4        | MatchEverything     | Требует, чтобы был задан `SteamTradeMatcher`, и в сочетании с ним - также принимаются "плохие" сделки в дополнение к "хорошим" и "нейтральным"                                                                                           |
+| 8        | DontAcceptBotTrades | Не принимаются автоматически предложения обмена, отправленные по команде `loot` другими ботами                                                                                                                                           |
 
 Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Ознакомьтесь с **[типами параметров в JSON](#Типы-параметров-в-json)** если хотите узнать больше. Если вы не включите никаких флагов, будет использоваться вариант `None`.
 
-For further explanation of ASF trading logic, and description of every available flag, please visit **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)** section.
+Дальнейшее объяснение логики работы ASF с предложениями обмена, и описание всех доступных флагов вы найдёте в разделе "**[Обмены](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-ru-RU)**".
 
 * * *
 
-`UseLoginKeys` - `bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`UseLoginKeys` - параметр типа `bool` со значением по-умолчанию `true`. Этот параметр задаёт, должен ли ASF использовать механизм ключей авторизации для этого аккаунта Steam. Механизм ключей авторизации подобен функции "Запомнить мой пароль" официального клиента Steam, он делает возможным для ASF сохранить временный одноразовый ключ авторизации для следующего подключения, снимая необходимость в пароле, коде Steam Guard или 2ФА если сохранённый ключ авторизации верный. Ключ авторизации хранится в файле `BotName.db` и обновляется автоматически. Поэтому вам не нужно вводить пароль/код SteamGuard/код 2ФА после того как вы зашли в ASF хотя бы раз.
 
-Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+Ключи авторизации по-умолчанию используются для вашего удобства, чтобы вам не нужно было вводить `SteamPassword` и коды SteamGuard или 2ФА (если вы не пользуетесь **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**) при каждом входе. Это превосходная альтернатива, поскольку ключ авторизации может быть использован только один раз и никоим образом не раскрывает ваш пароль. Точно такой же метод используется самим клиентом Steam, который сохраняет имя вашего аккаунта и ключ авторизации для следующего входа, что по сути то же самое что использование `SteamLogin` с `UseLoginKeys` и пустым `SteamPassword` в ASF.
 
-However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+Однако, некоторые пользователи могут быть обеспокоены даже такой возможностью, поэтому этот параметр поможет вам если вы хотите чтобы ASF не сохранял никаких ключей, которые позволят ему возобновить предыдущую сессию после закрытия, что приведёт к необходимости полной аутентификации при каждой попытке входа. Отключение этой функции будет работать точно так же, как если бы вы не поставили отметку в поле "Запомнить мой пароль" при входе в официальный клиент Steam. Кроме случаев, когда вы понимаете что делаете, вам стоит оставить этому параметру значение по-умолчанию `true`.
 
 **[Вернуться к началу](#Конфигурация)**
 
@@ -589,7 +589,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## Файловая структура
 
-ASF is using quite simple file structure.
+ASF использует достаточно простую файловую структуру.
 
     ├── config
     │     ├── ASF.json
@@ -606,27 +606,27 @@ ASF is using quite simple file structure.
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+Чтобы перенести ASF в другое место, например на другой ПК, достаточно переместить/скопировать папку `config`, и это же рекомендованный метод создания "резервных копий ASF".
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+Файл `log.txt` содержит журнал, созданный ASF при последнем запуске. Этот файл не содержит никакой конфиденциальной информации, и крайне полезен когда дело доходит до поиска неисправностей и причин падений, и в целом для информации о том, что происходило во время последнего запуска ASF. Мы будет часто просить у вас этот файл, если у вас возникают проблемы и ошибки. ASF управляет этим файлом автоматически, но вы можете дополнительно настроить модуль **[журналирования](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging-ru-RU)** ASF если вы продвинутый пользователь.
 
-`config` directory is the place that holds configuration for ASF, including all of its bots.
+Папка `config` это место где хранятся настройки ASF, включая настройки для всех ботов.
 
-`ASF.json` is a global ASF configuration file. This config is used for specifying how ASF behaves as a process, which affects all of the bots and program itself. You can find global properties there, such as ASF process owner, auto-updates or debugging.
+`ASF.json` это файл глобальных настроек ASF. Этот конфигурационный файл используется для настройки поведения ASF как процесса, эти настройки влияют на всех ботов и на саму программу. В нём вы найдёте глобальные параметры, такие как настройка владельца ASF, авто-обновлений или режима отладки.
 
-`BotName.json` is a config of given bot instance. This config is used for specifying how given bot instance behaves, therefore those settings are specific to that bot only and not shared across other ones. This allows you to configure bots with various different settings and not necessarily all of them working in exactly the same way.
+`BotName.json` это файл настроек конкретного бота. Этот конфигурационный файл задаёт поведение конкретного бота, поэтому эти настройки индивидуальны для каждого бота, и не распространяются на других ботов. Это позволяет вам настроить ботов с разными значениями параметров, и не обязательно чтобы все они работали одинаково.
 
-Apart from config files, ASF also uses `config` directory for storing databases.
+Кроме конфигурационных файлов, ASF также хранит в папке `config` свои базы данных.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+`ASF.db` это файл глобальной базы данных ASF. Она служит глобальным постоянным хранилищем, и используется для хранения различной информации, необходимой процессу ASF, такой как IP-адреса локальных адресов Steam. **Вам не следует редактировать этот файл**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+`BotName.db` это база данных конкретного бота. Этот файл используется для хранения важных данных о конкретном боте в постоянном хранилище, таких как ключ авторизации или 2ФА ASF. **Вам не следует редактировать этот файл**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+`BotName.bin` это особый файл для конкретного бота, которых хранит информацию о хеше безопасности Steam. Хеш безопасности используется для аутентификации с использованием механизма `SteamGuard`, очень похоже на файл `ssfn` в Steam. **Вам не следует редактировать этот файл**.
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
+`BotName.keys` это особый файл, который может использоваться для импорта ключей в **[модуль фоновой активации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**. Это не обязательный файл, и не создаётся, а только распознаётся ASF. Этот файл автоматически удаляется после того как ключи успешно импортированы.
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+`BotName.maFile` это особый файл, который может использоваться для импорта **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**. Это не обязательный файл, и не создаётся, а только распознаётся ASF если ваш бот `BotName` ещё не имеет подключенного 2ФА ASF. Этот файл автоматически удаляется после того как 2ФА ASF успешно импортирован.
 
 **[Вернуться к началу](#Конфигурация)**
 
@@ -634,57 +634,57 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## Типы параметров в JSON
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+Каждый конфигурационный параметр имеет свой тип. Тип параметра определяет диапазон значений, допустимых для него. Мы можете использовать только верные для данного типа значения - если значение будет неверным, ASF не сможет прочесть ваш файл конфигурации.
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
+**Мы настоятельно рекомендуем использовать Генератор Конфигураций для создания файлов конфигурации** - он берёт на себя большую часть низкоуровневых задач (таких как проверка типов), так что вам остаётся только ввести правильные значения, и вам не придётся разбираться в типах переменных, описанных ниже. Этот раздел в основном для людей, создающих/редактирующих файлы конфигурации вручную, чтобы они знали, какие значения можно использовать.
 
-Types used by ASF are native C# types, which are specified below:
-
-* * *
-
-`bool` - Boolean type accepting only `true` and `false` values.
-
-Example: `"Enabled": true`.
+Типы используемые в ASF это встроенные типы C#, описанные ниже:
 
 * * *
 
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
+`bool` - логический тип, принимающий только значения `true` и `false`.
 
-Example: `"FarmingOrder": 1`.
-
-* * *
-
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+Пример: `"Enabled": true`.
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`byte` - Тип беззнакового байта, принимающий только целые числа из диапазона от `​0​` до `255` (включительно).
 
-Example: `"SteamMasterClanID": 103582791440160998`
-
-* * *
-
-`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Both empty sequence as well as `null` value is treated the same by ASF, so it's up to your preference which one you want to use.
-
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+Пример: `"FarmingOrder": 1`.
 
 * * *
 
-`HashSet<valueType>` - Collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
-
-Example for `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+`uint` - Тип беззнакового целого, принимающий только целые числа из диапазона от `​0​` до `4294967295` (включительно).
 
 * * *
 
-`Dictionary<keyType, valueType>` - A map that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`.
+`ulong` - Тип беззнакового длинного целого, принимающий только целые числа от `​0​` до `18446744073709551615` (включительно).
 
-Example for `Dictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+Пример: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
-`flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
+`string` - Строковый тип, принимающий любую последовательность символов, включая пустую последовательность `""` и `null`. И пустая последовательность и значение `null` обрабатываются ASF одинаково, поэтому вы можете использовать то или другое на свой выбор.
 
-For example, given following values:
+Примеры: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+
+* * *
+
+`HashSet<valueType>` - Коллекция (набор) уникальных значений заданного типа `valueType`. В JSON задаётся как массив элементов заданного типа `valueType`.
+
+Пример для `HashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+
+* * *
+
+`Dictionary<keyType, valueType>` - Ассоциативный массив, задающий соответствие ключа типа `keyType` значению типа `valueType`. В JSON задаётся как объект с парами ключ-значение. Помните, что в этом случае `keyType` всегда берётся в кавычки, даже если это значение таких типов как `ulong`.
+
+Пример для `Dictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+
+* * *
+
+`flags` - Флаговый атрибут объединяет несколько разных значений в одно конечное значение параметра с помощью битовых операций. Это позволяет выбирать любые комбинации допустимых значений одновременно. Окончательное значение формируется как сумма значений всех выбранных опций.
+
+Например, вам даны следующие значения:
 
 | Значение | Имя  |
 | -------- | ---- |
@@ -693,9 +693,9 @@ For example, given following values:
 | 2        | B    |
 | 4        | C    |
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+Использование комбинации `B + C` даст в результате значение `6`, использование `A + C` даст значение `5`, использование `C` даст значение `4` и так далее. Это позволяет вам создавать любые возможные комбинации допустимых значений - если вы решите объединить их все, создав `None + A + B + C`, вы получите конечное значение `7`. Обратите внимание, что флаг со значением `​0​` включён по-умолчанию во все возможные комбинации, поэтому чаще всего этот флаг не задаёт ничего важного (как например `None`).
 
-So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
+Легко видеть, что в примере выше у нас 3 доступных флага, которые можно включить/выключить (`A`, `B`, `C`), и суммарно 8 доступных значений (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
 **[Вернуться к началу](#Конфигурация)**
 
@@ -703,7 +703,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 ## Совместимость типов
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
+Из-за ограничений JavaScript сетевой генератор конфигураций не может правильно сериализовать поля типа `ulong`, поэтому поля типа `ulong` будут создаваться как параметры строкового типа с префиксом `s_`. Это включает, например, `"SteamOwnerID": 76561198006963719` который будет записан генератором конфигураций в виде `"s_SteamOwnerID": "76561198006963719"`. В ASF автоматически поддерживает такие строковые параметры, поэтому записи с префиксом `s_` в ваших конфигурационных являются верными. Если вы создаёте конфигурационные файлы самостоятельно, мы рекомендуем по возможности придерживаться исходных полей `ulong`, но если вы по какой-то причине не можете этого сделать, вы можете также действовать по этой схеме и кодировать их как строки добавляя к названию префикс `s_`. Мы надеемся со временем обойти это ограничение JavaScript.
 
 **[Вернуться к началу](#Конфигурация)**
 
@@ -711,7 +711,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ## Совместимость конфигураций
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
+Главным приоритетом ASF является совместимость со старыми файлами конфигурации. Как вы уже должны знать, недостающие параметры обрабатываются как будто они заданы со **значением по-умолчанию**. Следовательно, если в новой версии ASF добавляется новый параметр, все ваши файлы конфигураций останутся **совместимыми** с новой версией, и ASF будет обрабатывать новый параметр так будто он задан со **значением по-умолчанию**. Вы всегда можете добавлять, удалять или изменять конфигурационные параметры в соответствии со своими нуждами. Мы рекомендуем ограничится заданием только тех параметров, значение которых вы хотите изменить, поскольку все остальные автоматически получат значения по-умолчанию, это не только сделает ваш конфигурационный файл понятнее, но также увеличит совместимость в случае если мы решим изменить значение по-умолчанию для параметра, который вы не задали сами. Вы можете посмотреть пример конфигурации созданной по такому принципу в файле `minimal.json`.
 
 **[Вернуться к началу](#Конфигурация)**
 
@@ -719,15 +719,15 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 ## Автоматическая перезагрузка
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+Начиная с ASF V2.1.6.2+, программа отслеживает изменение файлов конфигурации "на лету" - благодаря этому, ASF автоматически:
 
 - Создаёт (и при необходимости запускает) нового бота, если вы создали для него файл конфигурации
 - Останавливает (при необходимости) и удаляет старого бота, если вы удалили его файл конфигурации
 - Останавливает (и при необходимости запускает) любого бота, если вы изменили его файл конфигурации
 - Перезапускает (при необходимости) бота с новым именем, если вы переименовали файл конфигурации
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+Всё вышеперечисленное достаточно прозрачно и будет выполняться автоматически без необходимости перезапуска программы и не влияя на ботов конфигурационные файлы которых вы не меняли.
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+В добавок к этому, ASF автоматически перезапустися (если это разрешено в праметре `AutoRestart`) если вы измените файл глобальной конфигурации ASF `ASF.json`. Также, программа завершится если вы удалите или переименуете его.
 
 **[Вернуться к началу](#Конфигурация)**

@@ -31,39 +31,39 @@
 
 ASF довольно сложная программа, чтобы полностью её понять, поэтому вместо того, чтобы вдаваться в технические детали, мы предлагаем ниже упрощённое описание.
 
-ASF входит в ваш аккаунт Steam с помощью встроенного мини-клиента Steam используя ваши учётные данные. После успешного входа, анализируется страничка с вашими **[значками](https://steamcommunity.com/my/badges)** с целью обнаружить игры, которые можно фармить (Ещё выпадет карточек: X). После анализа всех страниц и составления списка доступных игр, ASF выбирает наиболее эффективный алгоритм фарма и запускает процесс. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF входит в ваш аккаунт Steam с помощью встроенного мини-клиента Steam используя ваши учётные данные. После успешного входа, анализируется страничка с вашими **[значками](https://steamcommunity.com/my/badges)** с целью обнаружить игры, которые можно фармить (Ещё выпадет карточек: X). После анализа всех страниц и составления списка доступных игр, ASF выбирает наиболее эффективный алгоритм фарма и запускает процесс. Процесс зависит от выбранного **[алгоритма фарма](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**, но обычно состоит из запуска подходящих игр и периодической (плюс при выпадении предметов) проверке, не получены ли все карты из игры - и если да, ASF переходит к следующей игре, и повторяет эту процедуру пока карты не будут получены из всех игр.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Не забывайте, описание выше - упрощённое, и не учитывает множество дополнительных возможностей и функций, которые может предоставить ASF. Прочтите остальные статьи **[нашей wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ru-RU)** если хотите разобраться во всех деталях работы ASF. Я постарался сделать её максимально простой для понимания, не вдаваясь в технические детали - продвинутым пользователям предлагаю покопаться глубже.
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+Как программа, ASF делает немного волшебства. Во-первых, нет необходимости скачивать файлы игры, для того чтобы эту игру запустить. Во-вторых, ASF совершенно не зависит от обычного клиента Steam - вам не нужно, чтобы клиент Steam был запущен или даже установлен. В-третьих - это автоматическое решение - а значит ASF будет автоматически делать всё без необходимости вашего участия - что сбережёт вам много времени и сил. И наконец, у ASF нет необходимости обманывать сеть Steam используя эмуляцию процессов (как например делает Idle Master), поскольку ASF взаимодействует с сетью Steam напрямую. Кроме того, программа очень быстрая и лёгкая, отличное решения для тех, кто хочет получить карточки без особых хлопот - особенно удобно запускать её в фоновом режиме а самому заниматься чем-то ещё, или даже играть в офлайн-режиме.
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+Всё это хорошо, но у ASF также есть технические ограничения, обусловленные требованиями Steam - мы не можем фармить игры, которых нет у вас в библиотеке, мы не можем фармить игры бесконечно чтобы получить карточек больше нормы, и мы не можем фармить игры когда вы играете на том же аккаунте. Всё это должно быть "логично", учитывая принцип работы ASF, но нужно отметить, что у ASF нет каких-то супер-сил и мы не можем сделать что-то, что физически невозможно, так что имейте это в виду - это всё равно что кто-то зайдёт на ваш аккаунт с другого ПК и будет запускать эти игры вместо вас.
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
-
-* * *
-
-### Do I have to put my account credentials?
-
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
-
-Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fullifies Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
+Подытожим - ASF это программа, которая поможет вам получить все доступные для вас карточки без лишних хлопот. Она также включает в себя несколько других функций, но пока ограничимся этим.
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### Мне нужно вводить учётные данные моего аккаунта?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF.
+**Да**. Для работы ASF требуются ваши учётные данные, точно так же как для официального клиента Steam, поскольку используются те же методы взаимодействия с сетью Steam. Это, однако, не означает, что ваши учётные данные обязательно сохранять в конфигурационных файлах, вы можете пользоваться ASF указав `null` или пустую строку в `SteamLogin` и/или `SteamPassword`, и вводя свои данные при каждом запуске ASF, по требованию (так же можно поступить и с некоторыми другими данными, читайте раздел посвящённый конфигурированию). При таком подходе ваши данные нигде не сохраняются, но конечно же ASF не сможет стартовать без вашей помощи. ASF также предоставляет ещё несколько способов повысить свою **[безопасность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-ru-RU)**, вы можете прочитать о них в соответствующем разделе wiki, если считаете себя продвинутым пользователем. Если нет, и вы не хотите вводить учётные данные в конфигурационных файлах ASF, просто не делайте этого, и вводите их при необходимости по запросу ASF.
 
-* * *
-
-### Farming takes too long, can I somehow speed it up?
-
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+Помните о том, что ASF инструмент для персонального использования, и ваши учётные данные никогда не покидают ваш компьютер. Вы также не передаёте их никому, что соответствует условиям использования (далее ToS) Steam - важная вещь, о которой многие забывают. Вы не посылаете ваши данные на наши сервера или любые сервера третьих Сторон, только напрямую на сервера Steam, принадлежащие Valve.
 
 * * *
 
-### But ASF said that farming will take about X time!
+### Сколько мне ждать пока выпадут карточки?
+
+**Столько, сколько надо**, серьёзно. У каждой игры своя сложность фарма, установленная разработчиком/издателем, и только они решают как быстро будут выпадать карточки. В большинстве игр выпадает примерно 1 карточка в 30 минут игры, но встречаются игры, в которые надо играть несколько часов прежде чем выпадет хотя бы одна карточка. В добавок к этому, ваш аккаунт может иметь ограничение на выпадение карточек из игр, в которые вы играли меньше определённого времени, как описано в разделе "**[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**". Не пытайтесь предсказать как долго ASF будет фармить определённую игры - это решать не вам и не ASF. Вы не можете ничего сделать чтобы ускорить выпадение, и то что карточки выпадают недостаточно быстро - не "баг", ни вы ни ASF не контролируете процесс выпадения карточек.
+
+* * *
+
+### Фарм идёт слишком долго, можно его как-то ускорить?
+
+Единственное, что серьёзно влияет на скорость фарма, это выбранный **[алгоритм фарма](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)** для вашего бота. Эффектом от всего остального можно пренебречь, ничто не сделает фарм быстрее, и в то же время некоторые действия, например запуск нескольких копий ASF, могут его **замедлить**. Если вам очень уж хочется сэкономить каждую секунду фарма, ASF позволяет вам провести тонкую настройку переменных, относящихся к фарму, таких как `FarmingDelay` - все они описаны в разделе, посвященном **[конфигурированию](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**. Однако, как и было сказано, эффект будет незначительным, и выбор правильного алгоритма фарма для конкретного аккаунта это единственный важный выбор, который серьёзно влияет на скорость фарма, все остальные изменения - чисто косметические. Вместо того, чтобы беспокоиться о скорости фарма, просто запустите ASF и дайте ему делать свою работу - я уверяю вас, он сделает это самым эффективным способом. Чем меньше вы беспокоитесь, тем более будете удовлетворены.
+
+* * *
+
+### Но ASF пишет что фарм займёт X времени!
 
 ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
 
@@ -111,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Да**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -317,7 +317,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Да**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 

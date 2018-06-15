@@ -35,5 +35,5 @@
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Ліцензія](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

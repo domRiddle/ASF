@@ -99,7 +99,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Por exemplo:
 
     This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
     
