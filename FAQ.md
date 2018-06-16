@@ -458,7 +458,7 @@ In a very unlikely situation of having incorrect servers being cached, for examp
 
 ---
 
-### `IsAnythingToFarm() Could not get badges information, will try again later!`
+### `Could not get badges information, will try again later!`
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalPIN` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalPIN`.
 
@@ -479,9 +479,6 @@ That's however not always the case, as in some situations Steam issues might not
 Lastly, if nothing helps you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
 
 ```
-[!!] ERROR: UrlRequest() <patchy> Request: https://steamcommunity.com/my/inventory/json/753/6 failed!
-[!!] ERROR: UrlRequest() <patchy> Status code: ServiceUnavailable
-[!!] ERROR: UrlRequest() <patchy> Content:
 <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
 An error occurred while processing your request.<p>
 ```
