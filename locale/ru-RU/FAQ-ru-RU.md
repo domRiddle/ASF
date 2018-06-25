@@ -1,6 +1,6 @@
 # ЧаВО
 
-Наш ЧАВО даёт ответы на стандартные вопросы, которые у вас могут возникнуть. Для ответов на менее распространённые вопросы, вы можете посетить **[Расширенное ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**.
+Наш ЧаВО даёт ответы на стандартные вопросы, которые у вас могут возникнуть. Для получения ответов на менее распространённые вопросы, вы можете посетить **[Расширенное ЧаВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Содержание
 
@@ -12,28 +12,28 @@
 
 * * *
 
-## Основное
+## Общие вопросы
 
 ### Как это работает?
 
 Чтобы понять, что такое ASF, вам для начала нужно знать что такое коллекционные карточки Steam и как их получить, это хорошо описано в официальном **[руководстве](https://steamcommunity.com/tradingcards/faq)**.
 
-Вкратце, карточки Steam - это коллекционные игры, право на получение которых вы получаете при покупке некоторых игр, они могут использоваться для создания значков, продажи на торговой площадке или иным образом на ваш выбор.
+Вкратце, карточки Steam - это коллекционные предметы, право на получение которых вы получаете при покупке некоторых игр. Они могут использоваться для создания значков, продажи на торговой площадке или другим иным образом.
 
 Основные принципы описаны ниже, поскольку это часто вызывает непонимание:
 
-- **Да, вам нужно иметь игру в библиотеке чтобы получить из неё карточки. Семейный доступ не считается.**
+- **Да, вам нужно иметь игру в библиотеке чтобы получить из неё карточки. Игры из Семейного Доступа (Family Sharing) не считаются.**
 - **Нет, вы не можете фармить игру бесконечно, из каждой игры выпадает фиксированное количество карточек. Когда карточки в игре закончились, фармить её нет смысла.**
-- **Нет, карточки не падают из бесплатных игр формата Free2Play если вы не потратили в этой игре деньги. Это включает в себя постоянно беслатные игры, такие как Team Fortress 2 или Dota 2.**
-- **Нет, карточки не выпадают на ограниченных аккаунтах (тех, на которых не было потрачено 5$), независимо от того, какие игры есть на этом аккаунте. Ранее это было возможно, но больше нет.**
+- **Нет, карточки не падают из бесплатных игр формата Free2Play если вы не потратили в этой игре деньги. Это применимо к таким играм, как Team Fortress 2, Dota 2 и др.**
+- **Нет, карточки не выпадают на ограниченных аккаунтах (тех, на которых не было потрачено 5$), независимо от того, какие игры есть на этом аккаунте. Ранее это было возможно, но теперь - нет.**
 
-Как видите, коллекционные карточки Steam вы получаете за запуск игры которую купили, или бесплатной игры в которой потратили деньги. Другими словами, если вы играете в игру достаточно долго, все карточки выпадут в инвентарь, давая вам возможность создать значок, продать их, или сделать сними что-то ещё.
+Как видите, вы получаете коллекционные карточки Steam за запуск приобретенной вами игры или за трату денег в бесплатных играх. Другими словами, если вы играете в игру достаточно долго то, все карточки выпадут в инвентарь, давая возможность создать значок, продать их или сделать с ними что-нибудь ещё.
 
 ASF довольно сложная программа, чтобы полностью её понять, поэтому вместо того, чтобы вдаваться в технические детали, мы предлагаем ниже упрощённое описание.
 
-ASF входит в ваш аккаунт Steam с помощью встроенного мини-клиента Steam используя ваши учётные данные. После успешного входа, анализируется страничка с вашими **[значками](https://steamcommunity.com/my/badges)** с целью обнаружить игры, которые можно фармить (Ещё выпадет карточек: X). После анализа всех страниц и составления списка доступных игр, ASF выбирает наиболее эффективный алгоритм фарма и запускает процесс. Процесс зависит от выбранного **[алгоритма фарма](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**, но обычно состоит из запуска подходящих игр и периодической (плюс при выпадении предметов) проверке, не получены ли все карты из игры - и если да, ASF переходит к следующей игре, и повторяет эту процедуру пока карты не будут получены из всех игр.
+ASF входит в ваш аккаунт Steam с помощью встроенного мини-клиента Steam, используя ваши учётные данные. После успешного входа, программа анализирует страницу с вашими **[значками](https://steamcommunity.com/my/badges)** с целью обнаружить игры, которые можно фармить (Ещё выпадет карточек: X). После анализа страницы и составления списка доступных игр, ASF выбирает наиболее эффективный алгоритм и запускает процесс фарма. Процесс зависит от выбранного **[алгоритма фарма](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**, но, как правило, включает в себя запуск подходящих игр и периодической (или при выпадении предметов) проверки, получены ли все карты. Если да, то ASF переключается на другую игру и повторяет эту процедуру до получения всех карточек.
 
-Не забывайте, описание выше - упрощённое, и не учитывает множество дополнительных возможностей и функций, которые может предоставить ASF. Прочтите остальные статьи **[нашей wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ru-RU)** если хотите разобраться во всех деталях работы ASF. Я постарался сделать её максимально простой для понимания, не вдаваясь в технические детали - продвинутым пользователям предлагаю покопаться глубже.
+Имейте в виду, что описание выше - очень упрощенное. Оно не учитывает и десяток из тех настроек и параметров, которые предлагает ASF. Если хотите разобраться во всех деталях работы, то посетите страницу **[нашей wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)**. Я постарался сделать её максимально простой для понимания, не вдаваясь в технические детали. Продвинутым пользователям предлагаю погрузиться глубже.
 
 Как программа, ASF делает немного волшебства. Во-первых, нет необходимости скачивать файлы игры, для того чтобы эту игру запустить. Во-вторых, ASF совершенно не зависит от обычного клиента Steam - вам не нужно, чтобы клиент Steam был запущен или даже установлен. В-третьих - это автоматическое решение - а значит ASF будет автоматически делать всё без необходимости вашего участия - что сбережёт вам много времени и сил. И наконец, у ASF нет необходимости обманывать сеть Steam используя эмуляцию процессов (как например делает Idle Master), поскольку ASF взаимодействует с сетью Steam напрямую. Кроме того, программа очень быстрая и лёгкая, отличное решения для тех, кто хочет получить карточки без особых хлопот - особенно удобно запускать её в фоновом режиме а самому заниматься чем-то ещё, или даже играть в офлайн-режиме.
 
@@ -53,7 +53,7 @@ ASF входит в ваш аккаунт Steam с помощью встроен
 
 ### Сколько мне ждать пока выпадут карточки?
 
-**Столько, сколько надо**, серьёзно. У каждой игры своя сложность фарма, установленная разработчиком/издателем, и только они решают как быстро будут выпадать карточки. В большинстве игр выпадает примерно 1 карточка в 30 минут игры, но встречаются игры, в которые надо играть несколько часов прежде чем выпадет хотя бы одна карточка. В добавок к этому, ваш аккаунт может иметь ограничение на выпадение карточек из игр, в которые вы играли меньше определённого времени, как описано в разделе "**[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**". Не пытайтесь предсказать как долго ASF будет фармить определённую игры - это решать не вам и не ASF. Вы не можете ничего сделать чтобы ускорить выпадение, и то что карточки выпадают недостаточно быстро - не "баг", ни вы ни ASF не контролируете процесс выпадения карточек.
+**Столько, сколько надо**, серьёзно. У каждой игры своя сложность фарма, установленная разработчиком/издателем, и только они решают как быстро будут выпадать карточки. В большинстве игр выпадает примерно 1 карточка в 30 минут игры, но встречаются игры, в которые надо играть несколько часов прежде чем выпадет хотя бы одна карточка. В добавок к этому, ваш аккаунт может иметь ограничение на выпадение карточек из игр, в которые вы играли меньше определённого времени, как описано в разделе "**[Производительность](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**". Не пытайтесь предсказать как долго ASF будет фармить определённую игры - это решать не вам и не ASF. Вы не можете ничего сделать чтобы ускорить выпадение, и то что карточки выпадают недостаточно быстро - не "баг", ни вы ни ASF не контролируете процесс выпадения карточек. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section.
 
 * * *
 
@@ -65,21 +65,21 @@ ASF входит в ваш аккаунт Steam с помощью встроен
 
 ### Но ASF пишет что фарм займёт X времени!
 
-ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
+ASF даёт грубую оценку основываясь на количестве оставшихся карточек и выбранном алгоритме фарма - эта величина далека от рельного времени фарма, который скорее всего займёт больше времени, поскольку ASF рассчитывает идеальный случай и не учитывает глюки сети Steam, отключения интернета, большую нагрузку на сервера Steam и тому подобное. Это время следует рассматривать просто как индикатор того, сколько примерно вам ждать в лучшем случае, и это реальное время может отличаться, иногда даже значительно. Как сказано выше - не пытайтесь угадать, сколько будет длится фарм игры, ни вы ни ASF не можете на это повлиять.
 
 * * *
 
 ### Может ли ASF работать на моем смартфоне?
 
-ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+ASF это программа, написанная на C# и требующая работоспособной реализации .NET Core. На данный момент нет официальных сборок .NET Core для Android, но есть работоспособные сборки для линукс на архитектуре ARM, поэтому вполне возможно использовать утилиту, аналогичную **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** чтобы установить на ваш телефон линукс, а затем запустить ASF в этом линуксе как обычно.
 
-It's very likely that in the future we'll see working .NET Core for Android itself.
+Вполне возможно что в будущем мы увидим .NET Core работающий непосредственно под Android.
 
 * * *
 
-### Can ASF idle items from Steam games, such as CS:GO or Unturned?
+### Может ли ASF фармить предметы из игр Steam, таких как CS:GO или Unturned?
 
-**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems.
+**Нет**, это противоречит ToS Steam, и Valve ясно дали это понять прошлой волной банов сообщества за фарм предметов TF2. ASF это программа для фарма карточек Steam, не для фарма внутриигровых предметов - в ней нет возможности фарма внутриигровых предметов, и добавление такого функционала в будущем не планируется, в основном из-за того что это нарушает правила пользования Steam. Пожалуйста, не просите об этом - максимум что вы получите это рапорт от какого-то обиженного пользователя и проблемы из-за этого.
 
 * * *
 
@@ -125,17 +125,17 @@ In addition to that, IM is officially discontinued and might break completely in
 
 * * *
 
-### What interesting features ASF offers that Idle Master does not?
+### Что преподносит ASF в противовес Idle Master?
 
 It depends what you consider "interesting" for you. If you plan to idle more accounts than one then the answer is already obvious since ASF allows you to idle all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
 
 First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. But you already know that, so let's move onto some more interesting features:
 
-- **You can idle offline** (`OnlineStatus` of `Offline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
+- **Вы можете фармить в оффлайн** (параметры `OnlineStatus` или `Offline`). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game for your friends, making only ASF part invisible and not affecting your account at all.
 
-- **You can skip refundable games** (`IdleRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
+- **Вы можете пропускать игры, на которые можно оформить возврат** (параметр `IdleRefundableGames`). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
 
-- **You can automatically mark new items as received** (`DismissInventoryNotifications` feature). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
+- **Вы можете отмечать новые предметы как полученные**(`параметр DismissInventoryNotifications`). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
 
 - **You can automatically receive cards from Steam events** (`AutoSteamSaleEvent` feature). ASF allows you to automate going through discovery queue and voting in Steam Awards during Steam sale, of course only if you'd like to make use of that. This saves enormous amount of time each day while Steam sale is on, and ensures that you'll never miss your daily card drops again.
 
@@ -291,7 +291,7 @@ Yes, and that version is not unsupported in any way, just not officially built. 
 
 * * *
 
-### ASF is great! Can I make a donation?
+### ASF - супер! Can I make a donation?
 
 Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance!
 
@@ -370,9 +370,9 @@ Status indicates how given redeem attempt turned out. There are many different s
 | Status                  | Описание                                                                                                                                                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely not, try again).                                                                                                        |
+| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
 | BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
-| DuplicateActivationCode | The provided key was already redeemed by some other account.                                                                                                                                                                   |
+| DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
 | AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
 | RestrictedCountry       | This is region-locked key and your account is not in the valid region that is permitted to redeem it.                                                                                                                          |
 | DoesNotOwnRequiredApp   | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.                                                                                                    |
@@ -436,7 +436,7 @@ This shows up as a message in Steam overlay that the account is being used somew
 
 One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
 
-Season reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
+Second reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
 
 Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
 
@@ -456,7 +456,7 @@ In a very unlikely situation of having incorrect servers being cached, for examp
 
 * * *
 
-### `IsAnythingToFarm() Could not get badges information, will try again later!`
+### `Could not get badges information, will try again later!`
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalPIN` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalPIN`.
 
@@ -476,9 +476,6 @@ That's however not always the case, as in some situations Steam issues might not
 
 Lastly, if nothing helps you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
 
-    [!!] ERROR: UrlRequest() <patchy> Request: https://steamcommunity.com/my/inventory/json/753/6 failed!
-    [!!] ERROR: UrlRequest() <patchy> Status code: ServiceUnavailable
-    [!!] ERROR: UrlRequest() <patchy> Content:
     <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
     An error occurred while processing your request.<p>
     
@@ -572,4 +569,4 @@ If you confirmed that ASF is downloaded from trusted source, then very likely it
 
 If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
 
-If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken.
+If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.

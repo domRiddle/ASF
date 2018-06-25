@@ -1,6 +1,6 @@
 # Aloittaminen
 
-Jos olet täällä ensimmäistä kertaa, Tervetuloa! Olemme iloisia nähdessämme taas uuden matkailijan joka on kiinnostunut projektistamme, mutta muista että suurella voimalla on suuri vastuu. ASF voi tehdä monia Steamiin liittyviä asioita, mutta vain jos sinä **jaksat opetella käyttämään niitä.**. Joudut oppimaan paljon, käytä wikiä hyväksesi, siellä kerrotaan kuinka kaikki toimii yksityiskohtaisesti. If you're looking for a Steam idler that doesn't require reading comprehension, then use **[Idle Master](https://www.steamidlemaster.com)** instead, since we're not going to do your wiki homework for you.
+Jos olet täällä ensimmäistä kertaa, Tervetuloa! Olemme iloisia nähdessämme taas uuden matkailijan joka on kiinnostunut projektistamme, mutta muista että suurella voimalla on suuri vastuu. ASF voi tehdä monia Steamiin liittyviä asioita, mutta vain jos sinä **jaksat opetella käyttämään niitä.**. Joudut oppimaan paljon, käytä wikiä hyväksesi, siellä kerrotaan kuinka kaikki toimii yksityiskohtaisesti.
 
 Jos olet vielä täällä, se tarkoittaa että olet (toivottavasti) lukenut yllä olevan tekstin, hienoa. Paitsi jos skippasit sen, sitten sinulle tulee olemaan **[pahoja asioita](https://www.youtube.com/watch?v=WJgt6m6njVw)** edessäsi... Joka tapauksessa ASF on konsoli sovellus, joka tarkoittaa että tällä ohjelmalla ei ole ystävällistä GUI:ta jota olet tottunut käyttämään. ASF on tarkoitettu palvelimille, jotta se toimisi palveluna (daemon) eikä työpöytä sovelluksena.
 
@@ -55,11 +55,6 @@ Package name depends on the distribution, we listed most common ones. You should
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
-
-The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them here until ASF V3.2 is released:
-
-- libunwind8 (libunwind)
-- libuuid1 (libuuid)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 

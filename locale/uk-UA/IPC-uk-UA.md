@@ -6,7 +6,7 @@ IPC is always executed with `SteamOwnerID` permissions, which is `0` by default.
 
 * * *
 
-## FAQ
+## ЧаПи
 
 ### What is this all about?
 
@@ -59,7 +59,7 @@ This way you can use fully secured connection to your ASF instance, as shown bel
 
 * * *
 
-## Server
+## Сервер
 
 To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info. You might also want to make use of `--process-required` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**, although that is entirely optional, just a mere mention.
 
@@ -73,7 +73,7 @@ ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (o
 
 * * *
 
-## Client
+## Клієнт
 
 Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
 

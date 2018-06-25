@@ -1,16 +1,16 @@
 # Komendy
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF obsługuje wiele poleceń, które mogą być użyte do kontrolowania zachowania procesu i botów.
 
-Below commands can be sent to the bot through three different ways:
+Komendy poniżej mogą być wysłane do botów na 3 różne sposoby:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Przez prywatną wiadomość na steam
+- Przez czat grupowy
+- Przez **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Pamiętaj że interakcja z ASF wymaga od Ciebie posiadania odpowiednich uprawnień. Sprawdź atrybuty `SteamUserPermissions` i `SteamOwnerID` pliku konfiguracyjnego aby dowiedzieć się więcej.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+Wszystkie komendy poniżej są zależne od `CommandPrefix` - **[globalnego atrybutu](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, który domyślnie jest ustawiony na `!`. Oznacza to że chcąc wykonać komendę `status`, powinieneś wpisać `!status` (lub własny `CommandPrefix` który ustawiłeś).
 
 * * *
 

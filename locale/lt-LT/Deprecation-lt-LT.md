@@ -46,4 +46,4 @@ Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage
 
 ### Stage 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program.
+Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.

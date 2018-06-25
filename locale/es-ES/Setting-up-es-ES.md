@@ -1,6 +1,6 @@
 # Iniciando
 
-Si llegaste aquí por primera vez, ¡bienvenido! Estamos muy contentos de ver a otro viajero interesado en nuestro proyecto, aunque ten en cuenta que con un gran poder viene una gran responsabilidad - ASF es capaz de hacer muchas cosas relacionadas con Steam, siempre y cuando **te intereses lo suficiente para aprender cómo usarlo**. Hay una difícil curva de aprendizaje involucrada aquí, y esperamos que leas la wiki en este sentido, la cual explica en detalle cómo funciona todo. Si buscas un "idler" de Steam que no requiera comprensión lectora, entonces usa **[Idle Master](https://www.steamidlemaster.com)**, ya que no vamos a hacer la tarea por ti.
+Si llegaste aquí por primera vez, ¡bienvenido! Estamos muy contentos de ver a otro viajero interesado en nuestro proyecto, aunque ten en cuenta que con un gran poder viene una gran responsabilidad - ASF es capaz de hacer muchas cosas relacionadas con Steam, siempre y cuando **te intereses lo suficiente para aprender cómo usarlo**. Hay una difícil curva de aprendizaje involucrada aquí, y esperamos que leas la wiki en este sentido, la cual explica en detalle cómo funciona todo.
 
 Si todavía sigues aquí significa que soportaste nuestro texto de arriba, lo cual es bueno. A menos que te lo hayas saltado, entonces vas a tener un **[mal momento](https://www.youtube.com/watch?v=WJgt6m6njVw)** muy pronto... En cualquier caso, ASF es una aplicación de consola, lo que significa que el programa en sí no tiene una GUI (Interfaz Gráfica de Usuario) amigable como a las que en general estás acostumbrado. ASF estaba pensado principalmente para ser ejecutado en servidores, por lo que actúa como un servicio (daemon) y no como una aplicación de escritorio.
 
@@ -55,11 +55,6 @@ Package name depends on the distribution, we listed most common ones. You should
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
-
-The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them here until ASF V3.2 is released:
-
-- libunwind8 (libunwind)
-- libuuid1 (libuuid)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 

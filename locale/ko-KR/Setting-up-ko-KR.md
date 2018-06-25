@@ -1,6 +1,6 @@
 # 설치하기
 
-여기 오신게 처음인가요? 환영합니다! 우리 프로젝트에 관심을 가진 분이 또 있다니 정말 행복합니다. 다만 큰 힘에는 큰 책임이 따른다는 것을 기억하세요. ASF는 Steam에 관련된 다양한 많은 것을 할 수 있지만 당신이 **어떻게 사용한하는지 충분히 아는 만큼**만 쓸 수 있습니다. 이에 대한 학습 곡선은 가파르고, 이 관점에서 우리는 모든것이 어떻게 동작하는지 세부적으로 설명하는 위키를 당신이 읽어주시길 바랍니다. 독해능력이 필요하지 않은 Steam 농사프로그램을 찾고 있다면 **[Idle Master](https://www.steamidlemaster.com)**를 쓰시면 됩니다. 우리는 당신의 위키 숙제를 대신 해주진 않을겁니다.
+여기 오신게 처음인가요? 환영합니다! 우리 프로젝트에 관심을 가진 분이 또 있다니 정말 행복합니다. 다만 큰 힘에는 큰 책임이 따른다는 것을 기억하세요. ASF는 Steam에 관련된 다양한 많은 것을 할 수 있지만 당신이 **어떻게 사용한하는지 충분히 아는 만큼**만 쓸 수 있습니다. 이에 대한 학습 곡선은 가파르고, 이 관점에서 우리는 모든것이 어떻게 동작하는지 세부적으로 설명하는 위키를 당신이 읽어주시길 바랍니다.
 
 위의 텍스트를 견뎌내고 여전히 여기 있네요? 좋아요. 막 넘기지 않았다면 이제 곧 **[끔찍한 시간](https://www.youtube.com/watch?v=WJgt6m6njVw)**이 될겁니다... 어쨌건간에, ASF는 평소에 쓰건 친숙한 GUI가 없는 콘솔 프로그램입니다. ASF는 주로 서버에서 돌아가도록 되어있고, 데스크탑 프로그램이 아닌 서비스(대몬)으로 동작합니다.
 
@@ -55,11 +55,6 @@
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
-
-The following are required for ASF V3.1 and no longer required for ASF V3.2. We keep them here until ASF V3.2 is released:
-
-- libunwind8 (libunwind)
-- libuuid1 (libuuid)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 

@@ -1,12 +1,12 @@
 # Аргументы командной строки
 
-ASF поддерживает некоторые аргументы командной строки, которые влияют на работу программы. Они могут использоваться опытными пользователями для изменения поведения программы. По сравнению с настройкой через файл конфигурации `ASF.json`, аргументы командной строки используются для инициализации ядра (например, `--path`), специфичные настройки для данной платформы (например, `--system-required`) или конфиденциальных данных (например, `--cryptkey`).
+ASF поддерживает несколько аргументов командной строки, которые влияют на работу программы. Они могут использоваться опытными пользователями для изменения поведения программы. По сравнению с настройкой через файл конфигурации `ASF.json`, аргументы командной строки используются для инициализации ядра (например, `--path`), специфичные настройки для данной платформы (например, `--system-required`) или конфиденциальных данных (например, `--cryptkey`).
 
 * * *
 
 ## Использование
 
-Использование зависит от вашей операционной системы и вариации ASF.
+Способ использования аргументов зависит от вашей операционной системы и вариации ASF.
 
 Общий:
 
@@ -26,20 +26,20 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Аргументы командной строки также поддерживаются в вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Аргументы командной строки также поддерживаются в вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. В дополнении к этому, при использовании вспомогательных скриптов вы можете использовать переменные окружения `ASF_ARGS`, как указано в разделе **[Docker](https://github. com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU#Аргументы-командной-строки)**.
 
 Если ваш аргумент содержит пробелы, не забудьте заключить его в кавычки. Эти два примера неправильные:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Плохо!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Нельзя!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Нельзя!
 ```
 
 Однако, эти два абсолютно корректны:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # Нормально
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # Тоже нормально
 ```
 
 ## Аргументы

@@ -26,7 +26,7 @@ Linux/OS X
 ./ArchiSteamFarm --parameter --andereParameter
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Parameters worden ook ondersteund in generische helper-scripts zoals `ArchiSteamFarm.cmd` of `ArchiSteamFarm.sh`. Naast het gebruik van parameters bij helper-scripts hun je ook de `ASF_ARGS` omgevings variabele gebruiken, zoals aangegeven in onze **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sectie.
 
 If your argument includes spaces, don't forget to quote it. Those two are wrong:
 
