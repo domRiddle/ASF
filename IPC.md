@@ -36,7 +36,8 @@ server {
 		proxy_set_header X-Forwarded-Server $host;
 		proxy_set_header X-Real-IP $remote_addr;
 
-		# We add those 2 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+		# We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+		proxy_http_version 1.1;
 		proxy_set_header Connection "Upgrade";
 		proxy_set_header Upgrade $http_upgrade;
 	}
