@@ -388,7 +388,7 @@ Value | Name | Description
 6 | HoursDescending | Try to farm games with highest number of hours played first
 7 | NamesAscending | Try to farm games in alphabetical order, starting from A
 8 | NamesDescending | Try to farm games in reverse alphabetical order, starting from Z
-9 | Random | Try to farm games in totally random order
+9 | Random | Try to farm games in totally random order (different on each run of the program)
 10 | BadgeLevelsAscending | Try to farm games with lowest badge levels first
 11 | BadgeLevelsDescending | Try to farm games with highest badge levels first
 12 | RedeemDateTimesAscending | Try to farm oldest games on our account first
