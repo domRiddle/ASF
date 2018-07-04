@@ -284,7 +284,6 @@ As you should know already, every bot should have its own config. Example bot co
 	"BotBehaviour": 0,
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
-	"DismissInventoryNotifications": false,
 	"Enabled": false,
 	"FarmingOrders": [],
 	"GamesPlayedWhileIdle": [],
@@ -342,6 +341,7 @@ Value | Name | Description
 1 | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
+8 | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -364,10 +364,6 @@ If you're unsure how to configure this option, it's best to leave it at default.
 ---
 
 `CustomGamePlayedWhileIdle` - `string` type with default value of `null`. Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
-
----
-
-`DismissInventoryNotifications` - `bool` type with default value of `false`. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF offers dismissing those notifications automatically. When you enable this option, ASF will automatically dismiss all notifications related to new items being received - this also includes items you obtained through trading and other ways. Of course, this option affects only inventory notifications, so all other notification types, e.g. profile comments notifications, will stay in-tact.
 
 ---
 
