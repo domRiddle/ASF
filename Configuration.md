@@ -286,7 +286,7 @@ As you should know already, every bot should have its own config. Example bot co
 	"CustomGamePlayedWhileIdle": null,
 	"DismissInventoryNotifications": false,
 	"Enabled": false,
-	"FarmingOrder": 0,
+	"FarmingOrders": [],
 	"GamesPlayedWhileIdle": [],
 	"HandleOfflineMessages": false,
 	"HoursUntilCardDrops": 3,
@@ -375,7 +375,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ---
 
-`FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
+`FarmingOrders` - `HashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
 Value | Name | Description
 --- | --- | ---
@@ -396,9 +396,11 @@ Value | Name | Description
 14 | MarketableAscending | Try to farm games with unmarketable card drops first
 15 | MarketableDescending | Try to farm games with marketable card drops first
 
-Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrder` should be entirely respected in current farming session (as every game is treated the same), while in `Complex` algorithm actual order is affected by hours and then sorted according to chosen `FarmingOrder`. This will lead to different results, as post-`HoursUntilCardDrops` games have higher priority over pre-`HoursUntilCardDrops` ones. It effectively means that ASF will idle post-`HoursUntilCardDrops` in your `FarmingOrder` first, then adapting your `FarmingOrder` for choosing the next batch. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over `FarmingOrder`).
+Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
 
-There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by `FarmingOrder`.
+Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games with highest playtime first, and only then sorting everything further by your chosen `FarmingOrders`. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer performance over `FarmingOrders`).
+
+There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 ---
 
