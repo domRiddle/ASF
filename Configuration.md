@@ -645,13 +645,13 @@ Types used by ASF are native C# types, which are specified below:
 
 `bool` - Boolean type accepting only `true` and `false` values.
 
-Example: `"Enabled": true`.
+Example: `"Enabled": true`
 
 ---
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"ConnectionTimeout": 60`.
+Example: `"ConnectionTimeout": 60`
 
 ---
 
