@@ -377,22 +377,24 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
 
-| Value | 名称                        | Description                                                         |
-| ----- | ------------------------- | ------------------------------------------------------------------- |
-| 0     | Unordered                 | No sorting, slightly improving CPU performance                      |
-| 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                        |
-| 2     | AppIDsDescending          | Try to farm games with highest `appID`s first                       |
-| 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first  |
-| 4     | CardDropsDescending       | Try to farm games with highest number of card drops remaining first |
-| 5     | HoursAscending            | Try to farm games with lowest number of hours played first          |
-| 6     | HoursDescending           | Try to farm games with highest number of hours played first         |
-| 7     | NamesAscending            | Try to farm games in alphabetical order, starting from A            |
-| 8     | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z    |
-| 9     | Random                    | Try to farm games in totally random order                           |
-| 10    | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                    |
-| 11    | BadgeLevelsDescending     | Try to farm games with highest badge levels first                   |
-| 12    | RedeemDateTimesAscending  | Try to farm oldest games on our account first                       |
-| 13    | RedeemDateTimesDescending | Try to farm newest games on our account first                       |
+| Value | 名称                        | Description                                                                      |
+| ----- | ------------------------- | -------------------------------------------------------------------------------- |
+| 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
+| 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                                     |
+| 2     | AppIDsDescending          | Try to farm games with highest `appID`s first                                    |
+| 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
+| 4     | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
+| 5     | HoursAscending            | Try to farm games with lowest number of hours played first                       |
+| 6     | HoursDescending           | Try to farm games with highest number of hours played first                      |
+| 7     | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
+| 8     | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
+| 9     | Random                    | Try to farm games in totally random order (different on each run of the program) |
+| 10    | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
+| 11    | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
+| 12    | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
+| 13    | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
+| 14    | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
+| 15    | MarketableDescending      | Try to farm games with marketable card drops first                               |
 
 Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrder` should be entirely respected in current farming session (as every game is treated the same), while in `Complex` algorithm actual order is affected by hours and then sorted according to chosen `FarmingOrder`. This will lead to different results, as post-`HoursUntilCardDrops` games have higher priority over pre-`HoursUntilCardDrops` ones. It effectively means that ASF will idle post-`HoursUntilCardDrops` in your `FarmingOrder` first, then adapting your `FarmingOrder` for choosing the next batch. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over `FarmingOrder`).
 

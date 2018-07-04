@@ -22,18 +22,18 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[低内存方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[高性能方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[命令行参数](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[日志](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[本地化](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 开发者设置
 
-* **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
+* **[编译](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[发布周期](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[许可](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[贡献指南](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

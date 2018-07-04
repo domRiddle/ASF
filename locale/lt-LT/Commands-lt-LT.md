@@ -1,30 +1,30 @@
 # Komandos
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF palaiko daugybę komandų, kurias galima naudoti kontroliuoti botams ir procesams.
 
-Below commands can be sent to the bot through three different ways:
+Komandos apačioje gali būti nusiųstos botams trimis skirtingais būdais:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Naudojantis Steam privačių pokalbiu
+- Per Steam grupės pokalbį
+- Per **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Prisiminkite, jog ASF reikalauja jus turėti atitinkamas teises į skirtingas komandas. Pasiskaitykite `SteamUserPermissions` ir `SteamOwnerID` nustatymų skiltį, jei norite sužinoti daugiau.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+Visos komandos apačioje gali būti paveiktos `CommandPrefix` **[globalių nustatymų atributo](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, kuris yra `!` pagal nutylėjimą. Tai reiškia, jog vykdant komandą, pvz., `status`, reikia rašyti `!status` (arba savo sugalvotą `CommandPrefix`).
 
 * * *
 
-### Steam private chat
+### Privatus Steam pokalbis
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
+Tikrai lengviausias būdas bendrauti su ASF - tiesiog įvykdykite komandą į ASF botą, kuris šiuo metu veikia ASF procese. Aišku to negalima padaryti, jei su ASF naudojate vieną paskyrą, kuri yra jūsų.
 
 ![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
-### Steam group chat
+### Steam grupinis pokalbis
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
+Labai panašus metodas į nurodytą aukščiau, tačiau čia viskas vyksta tam tikros Steam grupės grupiniame pokalbyje. Prisiminkite, kad šis būdas reikalauja `SteamMasterClanID`, kitaip jums teks botus pakviesti mechaniškai. Šis būdas taip pat tinka, jei naudojate vieną botą, kuris yra jūsų asmeninė paskyra.
 
 * * *
 
@@ -38,16 +38,16 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## Komandos
 
-| Command                                              | Prieiga         | Description                                                                                                                                                                                           |
+| Komanda                                              | Prieiga         | Description                                                                                                                                                                                           |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
-| `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
-| `2faok <Bots>`                                 | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                      |
-| `addlicense <Bots> <GameIDs>`            | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
+| `2fa <Bots>`                                   | `Master`        | Sugeneruoja laikiną **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** kodą duotam botui.                                                                          |
+| `2fano <Bots>`                                 | `Master`        | Atmeta visus **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** laukiamus patvirtinimus.                                                                           |
+| `2faok <Bots>`                                 | `Master`        | Priima visus **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** laukiamus patvirtinimus.                                                                           |
+| `addlicense <Bots> <GameIDs>`            | `Operator`      | Aktyvuoja duotus `appIDs` (Steam tinklo) arba `subIDs` (Steam parduotuvės) duotiems botams (tik nemokami žaidimai).                                                                                   |
 | `bl <Bots>`                                    | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`              | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`               | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                               | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
+| `exit`                                               | `Owner`         | Sustabdo visą ASF procesą.                                                                                                                                                                            |
 | `farm <Bots>`                                  | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
 | `help`                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
 | `input <Bots> <Type> <Value>`      | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
@@ -72,7 +72,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `redeem <Bots> <Keys>`                   | `Operator`      | Redeems given `cd-keys` on given bot instances.                                                                                                                                                       |
 | `redeem^ <Bots> <Modes> <Keys>`    | `Operator`      | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                             |
 | `rejoinchat <Bots>`                            | `Operator`      | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `restart`                                            | `Owner`         | Restarts ASF process.                                                                                                                                                                                 |
+| `restart`                                            | `Owner`         | Paleidžia ASF iš naujo.                                                                                                                                                                               |
 | `resume <Bots>`                                | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
 | `start <Bots>`                                 | `Master`        | Starts given bot instances.                                                                                                                                                                           |
 | `stats`                                              | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                              |
@@ -115,7 +115,7 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komanda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -135,28 +135,28 @@ When using **IPC**, keep in mind that:
 
 * * *
 
-## `privacy` settings
+## `privacy` nustatymai
 
 `<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Pavadinimas    | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | Inventory      | Profile    |
-| 5        | InventoryGifts | Inventory  |
-| 6        | Comments       | Profile    |
+| Argumentas | Pavadinimas    | Child of   |
+| ---------- | -------------- | ---------- |
+| 1          | Profile        |            |
+| 2          | OwnedGames     | Profile    |
+| 3          | Playtime       | OwnedGames |
+| 4          | Inventory      | Profile    |
+| 5          | InventoryGifts | Inventory  |
+| 6          | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | Pavadinimas   |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Reikšmė | Pavadinimas   |
+| ------- | ------------- |
+| 1       | `Privatus`    |
+| 2       | `TikDraugams` |
+| 3       | `Viešas`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -218,7 +218,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 | Background | BG    | Profile background to use on your Steam profile               |
 | Booster    | BO    | Booster pack                                                  |
 | Card       | C     | Steam trading card, being used for crafting badges (non-foil) |
-| Emoticon   | E     | Emoticon to use in Steam Chat                                 |
+| Emoticon   | R     | Emoticon to use in Steam Chat                                 |
 | Foil       | F     | Foil variant of `Card`                                        |
 | Gems       | G     | Steam gems being used for crafting boosters, sacks included   |
 | Unknown    | U     | Every type that doesn't fit in any of the above               |

@@ -36,7 +36,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 * * *
 
-## Example
+## 范例
 
 We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**.
 

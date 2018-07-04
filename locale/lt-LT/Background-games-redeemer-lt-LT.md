@@ -1,59 +1,59 @@
-# Background games redeemer
+# Pasyvusis žaidimų aktyvatorius
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Pasyvusis žaidimų aktyvatorius (angl. Background games redeemer) yra speciali ASF funkcija, kuri leidžia importuoti cd-raktus (kartu su jų vardais), kad jie būtų aktyvuoti fone. Tai ypač patogu, jei jūs turite daug raktų ir esate garantuoti gauti `RateLimited` **[statusą](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** prieš baigiant įvesti visą paketą.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis nėra suderinamas kartu su `RedeemingPreferences`. Ši funkcija gali būti naudojama kartu su (arba vietoj) `redeem` **[komandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, jei reikia.
 
 * * *
 
-## Import
+## Įkėlimas
 
-The import process can be done through two ways - either by using a file, or IPC.
+Įkėlimo procesas galima dvejais būdais - IPC arba naudojantis failu.
 
-### File
+### Failas
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF pats atpažins savo `config` direktorijoje failą, pavadintą `BotName.keys` kur `BotName` jūsų boto pavadinimas. Šis failas turi numatytą griežtą struktūrą: žaidimo pavadinimas ir cd-raktas yra atskirti TAB, eilutė baigiasi NEW LINE, kitaip tariant ENTER klavišu. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Terraria    TaiIgnoruojama  TaIgnoruojamaTaipPat   ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF importuos tokį failą tiek paleidimo, tiek veikimo metu. Po sėkmingo jūsų failo analizavimo ir neteisingų įrašų ištrynimo, visi sėkmingai atpažinti žaidimai bus pridėti į aktyvatoriaus eilę ir `BotName.keys` failas pats bus ištrintas iš `config` direktorijos.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+Be failų metodo ASF taip pat naudoja `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, kuris gali būti naudojamas kartu su IPC ir IPC GUI. Naudotis IPC gali būti efektyviau, nes galima pasirinkti savo atskyriklį vietoj įprastinio TAB ženklo.
 
 * * *
 
 ## Eilė
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Kai žaidimai yra sėkmingai importuoti, jie yra pridedami į eilę. ASF automatiškai patikrina eilę fone tol, kol botas yra prisijungęs prie Steam tinklo ir eilė nėra tuščia. Raktas, kuris buvo bandytas panaudoti ir negavo rezultato `RateLimited` yra ištrinamas iš eilės su teisingu statusus, įrašytu į failą `config` direktorijoje - arba `BotName.keys.used`, jei buvo panaudoti procese (pvz., `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) arba `BotName.keys.unused` jei nebuvo. ASF specialiai naudoja vartotoja pateiktą vardą, nes nėra garantijos, jog Steam tinklas atsakys tinkamu ir suprantamu žaidimo vardu - tokiu būdu jūs galit žymėti raktus savo pasirinktais vardais.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma vienai valandai, tam jog atsipirkimo laikas sumažėtų. Paskui procesas tęsiamas iki tol, kol eilė yra tuščia.
 
 * * *
 
 ## Pavyzdys
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Tarkime jūs turime 100 raktų sąrašą. Pirmiausiau reikėtų sukurti naują `BotName.keys.new` failą ASF `config` direktorijoje. Mes pridedame `.new` išplėtimą (BotName.keys --> BotName.keys.new), kad ASF suprastų jog šio failo nereikėtų skaityti iškarto, kai tik jis yra sukuriamas (nes tai yra naujas failas, neparengtas importuoti).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Dabar jūs galit atidaryti failą ir kopijuoti-įklijuoti 100 raktų, pataisant formatą, jei reikia. Po pataisymų `BotName.keys.new` failas turės lygiai 100 (arba 101 su paskutine eilute) eilučių; kiekviena eilutė turi `GameName\tcd-key\n`, kur `\t` TAB ir `\n` yra nauja eilutė, struktūrą.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Dabar jau galima pervadinti šį failą iš `BotName.keys.new` į `BotName.keys` tam, kad ASF suprastų, jog jį jau galima atidaryti. Iškarto tai padarius, ASF automatiškai importuos failą (ASF paleisti iš naujo nereikia) ir ištrins, patvirtindamas, jog žaidimai buvo pridėti į eilutę ir patikrinti.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+Vietoj `BotName.keys` failo galima naudoti IPC API arba netgi sujungti abu procesus kartu.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+Po kiek laiko failai `BotName.keys.used` ir `BotName.keys.unused` gali būti sugeneruoti. Šia failai - mūsų žaidimų panaudojimo rezultatas. Pavyzdžiui, galima pervadinti `BotName.keys.unused` į `BotName2.keys` ir tuomet nepanaudoti raktai bus naudojami kitų botų. Arba nepanaudotus raktus tiesiog galima perkelti į kitą failą ir panaudoti kažkam kitam. Tiesa, geriausia palaukti, kol eilė bus baigta ir `used` ir `unused` failai bus sugeneruoti, taip žinosite, jog visi raktai buvo patikrinti. Jeigu jum labai reikia patikrinti šiuos failus prieš eilės užbaigimą, pirmiausiai reikėtų **perkelti** rezultato failus į kitą direktoriją, tik **tada** juos tikrinti. Taip yra todėl, jog ASF gali pridėti naujų rezultatų kol jūs juos peržiūrite ir taip keli raktai gali būti prarasti, pvz., galite faile pamatyti 3 raktus, failą ištrinti, kai ASF tuo metu pridės ketvirtą raktą - taip jis bus prarastas. Jei nori pasiekti šiuos failus, tuomet perkelkite juos iš ASF `config` direktorijos prieš juos peržiūrint, ar pvz., pervadinant.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+Taip pat įmanoma pridėti papildomų žaidimų pakartojant visus žingsnius viršuje, kol yra kitų žaidimų eilėje. ASF tinkamai pridės papildomų įrašų į jau veikiančią eilę ir galiausiai ją panaudos.
 
 * * *
 
 ## Pastabos
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+Pasyvusis žaidimų aktyvatorius naudoja `OrderedDictionary`, todėl kodai bus naudojama failo eilės surąšymo tvarka (arba IPC API). Tai reiškia, jog jūs galite (ir tūrėtumėte) pateikti sąrašą, kuriame raktai yra surašyti pagal priklausomybę nuo viršaus, bet ne nuo apačios. Pavyzdžiui, jūs turite DLC `D` kuriam reikia žaidimo `G`, kuris turi būti aktyvuotas pirmiau, tuomet žaidimo raktas `G` tūrėtų **visada** būti pirmiau prieš DLC `D` raktą. Taip pat jei DLC `D` turi priklausomybę nuo `A`, `B` ir`C`, tuomet visi 3 tūrėtų būti surašyti pirmiau (betkokia tvarka, jei jie neturi priklausomybių).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+Nenaudojant šios schemos, DLC nebus aktyvuotas su rezultatu `DoesNotOwnRequiredApp` net patikrinus visą eilę. Jei norite šito išvengti, tuomet visada privalote DLC aktyvuoti po žaidimo, nuo kurio DLC priklauso.

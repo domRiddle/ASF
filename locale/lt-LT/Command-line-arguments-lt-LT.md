@@ -8,7 +8,7 @@ ASF includes support for several command-line arguments that can affect the prog
 
 Naudojimas priklauso nuo jūsų OS ir ASF pasirinkimo.
 
-Generic:
+Bendrinis:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -26,16 +26,16 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Komandinės eilutės argumentai taip pat palaikomi ir bendruose pagalbos skriptuose, kaip kad`ArchiSteamFarm.cmd` arba `ArchiSteamFarm.sh`. Taip pat, naudojant papildomus skriptus galima naudoti `ASF_ARGS`, kaip nurodoma **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekcijoje.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Blogai!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Blogai!
 ```
 
-However, those two are completely fine:
+Šie yra geri:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
@@ -44,11 +44,11 @@ However, those two are completely fine:
 
 ## Argumentai
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` arba `--cryptkey=<key>` - paleis ASF su nustatytais kriptografiniais raktais `<key>` verte. Šie nustatymai peveiks **[Saugumą](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** ir privers ASF naudoti pateiktą `<key>` raktą vietoj įprastinio, kuris yra koduotas paleidžiamoje programoje. Tiesa, slaptažodžiai užšifruoti šiuo raktus turės praeiti kiekvieną ASF paleidimą.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - dažniausiai naudojamas **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** konteinerio ir priverčia `AutoRestart` `false`. Jei neturite ypatingo poreikio, vietoj to turėtumėte sukonfigūruoti ` AutoRestart ` savybę. Šis jungiklis yra čia, todėl mūsų konteinerio skriptas nepakeistų globalinės struktųros, kad prisitaikytų ją prie savo aplinkos. Jei ASF naudote skripte, tuomet taip pat naukite ši jungiklį (kitaip geriau palikite global config).
 
 * * *
 

@@ -1,46 +1,46 @@
-# Background games redeemer
+# Activateur de Jeux de Fond
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+L'activateur de jeux de fond est une fonction spéciale intégrée à ASF vous permettant d'importer un groupe donné de clés cd Steam (avec leurs noms) à activer en tâche de fond. C'est particulièrement pratique si vous disposez d'un grand nombre de clés à activer, et que vous êtes certain d'atteindre le statut `RateLimited` avant d'avoir fini de toutes les activer.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, if needed.
+L'activateur de jeux de fond est conçu pour n'utiliser qu'une seule commande de bot, et donc n'utilise pas `RedeemingPreferences`. Cette fonction peut être utilisée en même temps que (ou à la place de) **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**`redeem`, si besoin est.
 
 * * *
 
-## Import
+## Importation
 
-The import process can be done through two ways - either by using a file, or IPC.
+Le processus d'importation peut être effectué de deux façons - par fichier, ou par IPC.
 
 ### Fichier
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Ce fichier dispose d'une structure fixe et attendue consistant en le nom du jeu avec la clé cd, séparée par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Terraria    Ceciestignoré   Ceciestaussiignoré    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF importera ce fichier au lancement du bot ou plus tard durant l'exécution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character.
+En plus d'utiliser le fichier de clés mentionné ci-dessus, ASF expose également l'**[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**`GamesToRedeemInBackground` qui peut être exécuté par n'importe quel outil IPC, y compris notre GUI IPC. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
 
 * * *
 
-## Queue
+## File d'attente
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Une fois les jeux importés, ils sont ajoutés à la file d'attente. ASF parcourt automatiquement sa file d'attente de fond tant que le bot est connecté au réseau Steam, et tant que la file d'attente n'est pas vide. Une clé qui tente d'être activée sans résulter en `RateLimited` est retirée de la file d'attente, avec son statut rédigé correctement dans un fichier dans le répertoire `config` - soit `BotName.keys.used` si la clé a été utilisée durant le processus (par exemple `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), sinon dans `BotName.keys.unused`. ASF utilise intentionnellement le nom du jeu que vous fournissez, car la clé n'a pas forcément de nom valable fourni par le réseau Steam - vous pouvez ainsi marquer vos clés avec des noms personnalisés si besoin est/si vous le désirez.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Si notre compte atteint le statut `RateLimited` durant le processus, la file d'attente est suspendue temporairement pendant une heure entière, jusqu'à la fin du délai d'attente. Une fois ce délai terminé, le processus continue jusqu'à la fin de la file d'attente.
 
 * * *
 
 ## Exemple
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Considérons que vous avez une liste de 100 clés. Tout d'abord, vous devez créer un fichier `BotName.keys.new` dans le répertoire `config` d'ASF. Nous ajoutons l'extension `.new` pour qu'ASF sache qu'il ne doit pas récupérer ce fichier dès sa création (car c'est un fichier vide, pas encore prêt à l'importation).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Maintenant, nous pouvons ouvrir notre nouveau fichier et copier-coller notre liste de 100 clés dedans, en réglant le format si besoin est. Après nos réglages, le fichier `BotName.keys.new` aura exactement 100 (ou 101, avec le dernier retour à la ligne) lignes, chaque ligne ayant une structure de `GameName\tcd-key\n`, où `\t` correspond à une tabulation et `\n` à un retour à la ligne.
 
 You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 

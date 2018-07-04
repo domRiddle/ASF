@@ -6,10 +6,10 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ (Questions fréquemment posées)](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Fonctions Principales
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-* **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Activateur de Jeux de Fond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commandes](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Échange](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
@@ -18,7 +18,7 @@
 
 ## Avancé
 
-* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[FAQ Supplémentaires](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
@@ -36,4 +36,4 @@
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
 * **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 * **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Directives de contribution](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

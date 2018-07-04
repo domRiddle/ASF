@@ -1,28 +1,28 @@
 # Ferramentas de terceiros
 
-As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. Elas variam de simples aplicações web através de bibliotecas internas para uma maior integração, terminando com bots cheios de recursos para as outras plataformas. Se você gostaria de adicionar algo à lista, deixe-nos saber no aplicativo Discord ou em nosso grupo do Steam.
+As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. Elas variam de simples aplicações web através de bibliotecas internas para uma maior integração, terminando com bots cheios de recursos para as outras plataformas. Caso deseje adicionar algo à lista, deixe-nos saber no nosso servidor no Discord ou em nosso Grupo Steam.
 
-Por favor, preste atenção que as ferramentas abaixo não são mantidos pelos desenvolvedores do ASF e, por isso, nós não damos garantia sobre nenhum deles, especialmente em termos de segurança, confiança ou de conformidade do Steam ToS. Esta lista é mantida apenas para referência. Você deve sempre assegurar-se que a ferramenta na qual você irá usar, é legítima o suficiente para você.
+Por favor, saiba que as ferramentas abaixo não são mantidas pelos desenvolvedores do ASF e nós não nos responsabilizamos por nenhuma delas, especialmente em termos de segurança, confiança ou conformidade com os Termos de Serviço do Steam. Esta lista é mantida apenas para referência. Sempre confirme se a ferramenta que está prestes a usar vem de uma fonte segura e confiável.
 
 * * *
 
 ## Ferramentas
 
-- **[Extrator de chaves](https://ske.cloudswift.me)**, permite que você possa copiar e colar as chaves em vários formatos e criar um comando `redeem` para o ASF. Verifique o **[Repositório do GitHub](https://github.com/Cloud-Swift/SKE)** para mais detalhes.
-- O **[Editor de configuração em massa do ASF](https://github.com/genesix-eu/asf_mass_config_editor)**, permite que você possa gerenciar múltiplas configurações mais facilmente.
+- **[Keys extractor](https://ske.cloudswift.me)**, permite que você possa copiar e colar códigos em diversos formatos diferentes e cria o comando `redeem` para o ASF. Visite o **[repositório do GitHub](https://github.com/Cloud-Swift/SKE)** para mais detalhes.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, facilita o gerenciamente de várias configurações do ASF.
 
 * * *
 
 ## Pacotes
 
-- **[Repositório AUR](https://aur.archlinux.org/packages/asf)**, permite que você instale facilmente o ASF no arch linux.
-- **[Desatualizado] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permite que você instale facilmente o ASF V2 em vários sistemas. Ele ainda não foi atualizado para a versão mais recente do ASF, portanto, seu uso é desaconselhável. Talvez você possa ajudar?
-- **[Desatualizado] [Brew Formula](http://brewformulas.org/ArchiSteamFarm)**, permite que você instale facilmente o ASF V2 com o homebrew. Ele ainda não foi atualizado para a versão mais recente do ASF, portanto, seu uso é desaconselhável. Talvez você possa ajudar?
+- **[Repositório no AUR](https://aur.archlinux.org/packages/asf)**, permite que você instale facilmente o ASF no Arch Linux.
+- **[DESATUALIZADO] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permite que você instale facilmente o ASF V2 em vários sistema de servidor. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
+- **[DESATUALIZADO] [Brew Formula](http://brewformulas.org/ArchiSteamFarm)**, permite que você instale facilmente o ASF V2 com o homebrew. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
 
 * * *
 
 ## Bots / Bibliotecas
 
-- **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, a biblioteca python para uma maior integração com a interface de IPC do ASF.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração de ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração de ASF.
+- **[ASF-IPC](https://pypi.python.org/pypi/ASF-IPC/1.1.3)**, biblioteca python para uma maior integração com a interface IPC do ASF.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração com o ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração com o ASF.
