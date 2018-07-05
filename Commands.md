@@ -57,9 +57,10 @@ Command | Access | Description
 `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
 `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
-`loot <Bots>` | `Master` | Sends all `LootableTypes` items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled mode.
+`loot <Bots>` | `Master` | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot@ <Bots> <AppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled state.
 `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
 `owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
 `password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`).
