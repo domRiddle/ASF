@@ -174,6 +174,8 @@ If your machine supports IPv6, you might want to add a value of `http://[::1]:12
 
 Keep in mind that this property apart from bind address, also specifies valid **URLs** under which IPC interface is accessible. In other words, if you want to access your IPC interface from `asf.example.com` hostname, then you should define `http://asf.example.com:1242/` in your `IPCPrefixes`. Even if you make your IPC interface reachable (e.g. by changing `127.0.0.1` to your public IP address), you'll get `404 NotFound` error if the URL under which you're trying to access it is not defined in `IPCPrefixes` of ASF. This is why you should define in `IPCPrefixes` all URLs under which the IPC interface should be accessible, and this can include local IPv4 and IPv6 addresses, public IPv4 and IPv6 addresses, and custom hostname, making it 5 different `IPCPrefixes` total, if you require/want to access IPC interface in all of those 5 ways. Of course, you can also define just `http://*:1242/`, but this might not always be appropriate.
 
+Please note that currently ASF doesn't support other prefix path than root (`/`). Using non-root path will result in getting `404` error. We hope to solve this limitation eventually in the future.
+
 Unless you have a reason to edit this property, you should keep it at default.
 
 ---
