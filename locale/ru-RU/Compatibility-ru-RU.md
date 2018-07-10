@@ -1,6 +1,6 @@
 # Совместимость
 
-ASF-это приложение C#, работающее на платформе .NET Core. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
+ASF - это приложение C#, работающее на платформе .NET Core. Это значит, что ASF не компилируется напрямую в **[машинный код](https://en.wikipedia.org/wiki/Machine_code)**, который исполняется на вашем ЦПЭ, а компилируется в код **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**, для которого требуется CIL-совместимая среда выполнения для его исполнения.
 
 This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and OS X. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. Thanks to that, ASF can achieve superior performance and optimization, while still offering a perfect compatibility and reliability.
 
@@ -61,7 +61,7 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 * * *
 
-## Issues and solutions
+## Проблемы и решения
 
 ### Debian Jessie upgrade
 
@@ -82,7 +82,7 @@ The current workaround depends on the root issue. On clean setups (e.g. Debian),
 
 This issue is supposed to be fixed with next .NET Core 2.1.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
 
-Reference: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
+Ссылка: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
 
 ### .NET Core runtime picking wrong `libcurl.so` library
 

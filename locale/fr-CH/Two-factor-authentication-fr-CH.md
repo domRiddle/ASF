@@ -1,14 +1,14 @@
-# Two-factor authentication
+# Authentification à deux facteurs
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Depuis plusieurs années, Valve a mis en place un système de sécurité qui requiert un appareil supplémentaire pour pouvoir effectuer diverses actions liées au compte (comme les échanges, les ventes, ou la connection). Vous pouvez en apprendre plus par rapport à ce système **[ici](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** et **[ici](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Il est important de comprendre la logique du système 2FA, avant d'essayer de comprendre celle du 2FA de ASF.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Comme vous aurez pu le remarquer, tous les échanges venant de compte sans authentification 2FA sont bloqués pendant 15 jours, ce qui, malgré le fait que ce n'est pas un problème majeur par rapport à l'utilisation d'ASF, peut être assez problématique, surtout pour les personnes souhaitant profiter d'une automatisation complète. Heureusement, ASF inclut une solution à ce problème, qui est appelée ASF 2FA.
 
 * * *
 
-# ASF logic
+# Logique de ASF
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Peu importe si vous utilisez le ASF 2FA expliqué ci-dessous ou non, ASF inclut une logique qui lui permet de définir quels comptes sont protégés par le 2FA. Les informations requises vous seront automatiquement demandées lorsqu'elles seront nécessaires (comme durant la connexion). Mais si vous utilisez ASF 2FA, le programme pourra passer ces vérifications et générer automatiquement les codes nécessaires, ce qui pourra vous éviter les ennuis et vous permettra d'avoir accès à des fonctionnalités supplémentaires (décrites ci-dessous).
 
 * * *
 

@@ -1,8 +1,8 @@
 # Безопасность
 
-## SteamPassword
+## Пароль Steam
 
-ASF currently supports 4 types of passwords - `PlainText`, `AES`, `ProtectedDataForCurrentUser` and None (`null` / `""`).
+ASF сейчас поддерживает 4 типа паролей: `PlainText`, `AES`, `ProtectedDataForCurrentUser` и None (`null` / `""`).
 
 In order to use encrypted password, you should firstly log in to Steam as usual with `PlainText`, then generate encrypted passwords using `password` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as `SteamPassword` bot config property, and finally don't forget to change `PasswordFormat` to the one that matches your chosen encryption method.
 
@@ -36,7 +36,7 @@ The only way that guarantees 100% security and ensures that nobody can steal you
 
 * * *
 
-## Recommendation
+## Рекомендации
 
 If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 

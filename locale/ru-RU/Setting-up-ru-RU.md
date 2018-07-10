@@ -58,25 +58,30 @@
 
 Как минимум часть из них должна быть уже доступна для вашей системы (как например zlib1g которая в наши дни требуется практически в любом дистрибутиве Linux).
 
+If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
+
+- libunwind8 (libunwind)
+- libuuid1 (libuuid)
+
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- На данный момент требований нет, хотя возможно вам понадобится **[увеличить максимальный предел открытых файлов](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Это не должно быть необходимым для самого ASF, но имейте это в виду если у вас будут какие-то проблемы.
+- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Shouldn't be required for ASF alone, but keep that in mind if you encounter any issues.
 
 * * *
 
 ### Скачивание
 
-Теперь, раз у нас уже есть все необходимые зависимости, следующим шагом будет скачать **[последнюю версию ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF доступен в разных вариантах, вас интересует пакет, который подходит для вашей операционной системы и архитектуры. Например, если вы пользуетесь `64`-битной `Win`dows, вам нужен пакет `ASF-win-x64`. Чтобы получить подробную информацию обо всех доступных вариантах, ознакомьтесь с разделом **[совместимость](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU)**. ASF так же можно запустить на ОС для которых мы не делаем пакетов под конкретную ОС, таких как **32-битная Windows**, для этого перейдите в раздел **[универсальная установка](#Универсальная-установка)**.
+Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
-![Варианты поставки](https://i.imgur.com/Ym2xPE5.png)
+![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-После того, как вы скачаете нужный вам пакет и распакуете его из zip-файла (мы рекомендуем использовать **[7-zip](https://www.7-zip.org)**), вы получите совершенно запутанную кучу папок и файлов. Не волнуйтесь, сейчас мы всё это подчистим.
+Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
 
-Если вы пользуетесь Linux/OS X, не забудьте выполнить команду `chmod +x ArchiSteamFarm`, поскольку права запуска файлов не сохраняются в zip-архивах. Это нужно сделать только один раз после первоначальной распаковки.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
-Рекомендуем распаковывать ASF в **отдельную папку** а не в какую-то папку которую вы используете для других целей - система авто-обновления ASF удалит все файлы не связанные с ASF при обновлении, и вы потеряете все свои файлы, находящиеся в папке ASF. Если у вас есть дополнительные скрипты или файлы, которые вы хотите использовать вместе с ASF, положите их на одну папку выше.
+Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
-Cnруктура папок должна быть примерно такой:
+An example structure would look like this:
 
     C:\ASF (здесь лежат ваши собственные файлы)
         ├── ярлык ASF.lnk (не обязательно)
@@ -90,90 +95,90 @@ Cnруктура папок должна быть примерно такой:
              └── (...)
     
 
-Мы рекомендуем такую структуру папок ещё и для того, чтобы вам не пришлось путаться в большом количестве файлов в папке ASF, поскольку для использования вам понадобятся только ярлыки для папки с конфигурациями и для основного запускаемого файла.
+This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
 
-Хорошо, теперь подготовим папку ASF для использования. Если хотите, этот шаг можно пропустить, поскольку очистка структуры папок ASF не является необходимой, но это сделает вашу жизнь немножко легче.
+Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
 
-Откройте папку ASF и найдите основной запускаемый файл, это будет`ArchiSteamFarm.exe` для Windows, и `ArchiSteamFarm` для Linux/OS X. Нажмите на него правой кнопкой мыши и выберите "Копировать". Теперь перейдите в папку, в которой вы планируете сохранить ярлык для ASF (например на рабочий стол), нажмите на свободном месте правой кнопкой мыши и выберите "Вставить ярлык". Если хотите, можете переименовать ярлык, например назвав его "ASF". Теперь повторите то же самое для папки `config`, которая находится там же, где и запускаемый файл ASF.
+Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
 
-После такой небольшой очистки, у вас будет очень удобная структура, подобная показанной ниже:
+After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
-![Структура каталогов](https://i.imgur.com/k85csaZ.png)
+![Structure](https://i.imgur.com/k85csaZ.png)
 
-Это даст вам лёгкий доступ к запускаемому файлу ASF и конфигурационным файлам без лишних проблем. Я решил использовать структуру описанную выше, поэтому мои файлы ASF находятся непосредственно в папке "Core". Вы можете переделать эту структуру на свой вкус, как например поместить ярлыки для ASF и папки config на рабочий стол а папку с ASF например в `C:\ASF`, решать вам.
+This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 
-Пользователям Linux/OS X рекомендуется поступить точно так же, вы можете воспользоваться удобным механизмом символьных ссылок, доступным с помощью команды `ln -s`.
+Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
 
 * * *
 
 ### Конфигурирование
 
-Теперь мы готовы к последнему шагу, конфигурированию. Это пожалуй самый сложный шаг, поскольку включает в себя много новой информации с которой вы пока не знакомы, поэтому здесь мы предоставим несколько понятных примеров и упрощённое объяснение.
+We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 
-Первое и главное, у нас есть раздел "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**" в котором подробно разъясняется **всё** что связано с конфигурированием, но это огромный объём новой информации, значительная часть которой всё равно вам пока не потребуется. Вместо этого, мы научим вас, как получить ту информацию, которую вы ищете.
+First and foremost, there is **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
 
-Конфигурирование ASF может быть сделано двумя методами - либо используя сетевой генератор конфигураций, либо вручную. Это объяснено в деталях в разделе "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**", поэтому если вам нужна подробная информация - обращайтесь для справок к этому разделу. Здесь мы пойдём по пути сетевого генератора конфигураций, поскольку это намного легче.
+ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
 
-Перейдите на страницу **[сетевого генератора конфигураций](https://justarchi.github.io/ArchiSteamFarm)** в своём любимом браузере, вам понадобится включенный javascript (на случай если вы его отключили вручную). Мы рекомендуем Chrome или Firefox, но генератор должен работать в любом из современных популярных браузеров.
+Navigate to our **[web config generator](https://justarchi.github.io/ArchiSteamFarm)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
 
-После того, как вы перешли на страницу генератора, переключитесь на закладку "Бот". Вы должны увидеть страницу, похожую на показанную ниже:
+After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
-![Закладка "Бот"](https://i.imgur.com/VYkT5Mo.png)
+![Bot tab](https://i.imgur.com/BUkUEYt.png)
 
-Если по каким-то причинам версия ASF, которую вы скачали, более старая чем та, которая используется генератором конфигураций по-умолчанию, просто выберите нужную вам версию ASF в выпадающем меню. Это может произойти из-за того, что генератор конфигруаций можно использовать для создания конфигураций для более новых (до-релизных) версий ASF, которые ещё отмечены как стабильные. А вы скачали последнюю стабильную версию ASF, которая проверена и надёжно работает.
+If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
-Начните с ввода имени бота в поле, подсвеченное красным. Это может быть любое имя, такое как ваш никнейм, имя аккаунта, число, или что-то ещё. Есть только 3 слова, которые вы не можете использовать: `ASF`, `example` и `minimal`. Кроме того, имя вашего бота не может начинаться с точки (ASF намеренно игнорирует такие файлы). Мы так же рекомендуем не использовать пробелы, вы можете пользоваться символом `_` для разделения слов, если надо.
+Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There are only 3 words you can't use, those are: `ASF`, `example` and `minimal`. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
 
-После того, как вы определились с именем, включите переключатель `Enabled`, это определяет будет ли ASF автоматически запускать вашего бота после запуска программы.
+After you decided about your name, change `Enabled` switch to be on, this defines whether your bot is supposed to be started by ASF automatically after launch (of the program).
 
-Теперь вам надо выбрать один из двух вариантов:
+Now you can decide upon two things:
 
-- Вы можете указать свой логин в поле `SteamLogin` и свой пароль в поле `SteamPassword`
-- Или вы можете оставить эти поля пустыми
+- You can put your login in `SteamLogin` field and your password in `SteamPassword` field
+- Or you can leave them empty
 
-Если вы их укажете - ASF сможет автоматически использовать ваши учетные данные при запуске, и вам не придётся вводить их каждый раз когда они нужны ASF. Однако вы можете решить не указывать их, чтобы они не сохранялись, ASF в этом случае не сможет запустится без вашей помощи, и вам придётся вводить их во время работы.
+Doing the first thing will allow ASF to automatically use your account credentials during startup, so you won't need to input them manually each time ASF needs them. You can however decide to omit them, in which case they're not being saved, so ASF won't be able to automatically start without your help and you'll need to input them during runtime.
 
-ASF требуются ваши учетные данные поскольку в нём используется собственная реализация клиента Steam, которому требуются те же данные для входа, что и официальному клиенту. Ваши учётные данные не сохраняются нигде, кроме папки `config` ASF на вашем ПК, наш генератор конфигураций тоже работает на стороне клиент, то есть вы можете запустить его локально в своём браузере чтобы сгенерировать валидные файлы конфигураций, и при этом ваши учётные данные не покидают вашего ПК, поэтому нет нужды беспокоится об утечке данных. Однако, если по какой-то причине вы не хотите вводить учётные данные в генероторе, мы относимся к этому с пониманием, вы можете вставить их в созданные файлы потом, или вообще опустить их, и вводить только по запросу ASF в командной строке. Узнать больше о мерах безопасности вы можете в разделе посвященном **[конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
+ASF requires your login credentials because it includes its own implementation of Steam client and needs the same details to log in as the one that you use yourself. Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section.
 
-Кроме того вы можете оставить пустым только одно поле, например `SteamPassword`, тогда ASF сможет автоматически подставить логин, но запросит пароль при старте (аналогично клиенту Steam). Если вы используете ПИН для семейного просмотра Steam, вам понадобиться включить отображение расширенных настроек и ввести его в поле `SteamParentalPIN`.
+You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental PIN to unlock the account, you'll need to toggle advanced settings and put it into `SteamParentalPIN` field.
 
-После принятия этих решений и ввода дополнительных данных, ваша страница будет выглядеть похоже на это:
+After the decision and optional details, your web page will now look similar to the one below:
 
-![Закладка "Бот" 2](https://i.imgur.com/DjoxMiE.png)
+![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
 
-Теперь вы можете нажать на кнопку "Скачать" и сетевой генератор конфигураций создаст новый `json`-файл с выбранным вами именем:
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name:
 
-![Закладка "Бот" 3](https://i.imgur.com/ylyvzvL.png)
+![Bot tab 3](https://i.imgur.com/ylyvzvL.png)
 
-Сохраните этот файл в папку `config` вашего ASF. Вы можете воспользоваться созданным ранее ярлыком `config`, или найти папку `config` вручную в файловой структуре ASF.
+Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
-Ваша папку `config` будет выглядить примерно так:
+Your `config` directory will now look like this:
 
-![Файловая структура](https://i.imgur.com/doYnbB9.png)
+![Structure 2](https://i.imgur.com/doYnbB9.png)
 
-Поздравляем! Вы только что закончили очень простую конфигурацию бота для ASF. Вскоре мы её расширим, но пока это всё что вам нужно.
+Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
 * * *
 
 ### Запуск ASF
 
-Теперь вы готовы к первому запуску программы. Просто дважды кликните на ярлыке ASF, или на запускаемом файле `ArchiSteamFarm(.exe)` в папке ASF.
+You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
 
-После этого, если вы установили все необходимые зависимости в самом начале, ASF должен успешно запуститься, обнаружить вашего первого бот (если вы не забыли положить сгенерированный файл конфигурации в папку `config`) и попытаться войти:
+After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-Если вы указали `SteamLogin` и `SteamPassword` для использования в ASF, у вас запросят только код SteamGuard (из e-mail, из приложения для аутентификации или вообще никакго, в зависимости от настроек вашего аккаунта в Steam). Если нет, вас попросят ввести логин и пароль Steam.
+If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
 
-Сейчас самое время чтобы вы ознакомились с нашей **[политикой конфиденциальности](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics-ru-RU#Текущая-политика-конфиденциальности)**, если вам интересно, что будет происходить дальше. Сам ASF тоже выдаст вам сообщение об этом.
+Now is a good time to review our **[privacy policy](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about what will happen next, as stated by ASF itself.
 
-После завершения входа, если ваши учетные данные верны, вы успешно войдёте в Steam, и ASF начнет фармить используя настройки по-умолчанию, которые вы пока не меняли:
+After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start idling using default settings that you didn't change as of now:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Это показатель того, что ASF успешно выполняет свою работу на вашем аккаунте, теперь вы можете свернуть окно программы и заняться чем-то ещё. После некоторого времени (в зависимости от **[производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-ru-RU)**), вы увидите что начали падать коллекционные карточки Steam. Конечно, это случится только если у вас есть игры которые можно фармить, для которых на **[странице значков](https://steamcommunity.com/my/badges)** указано "Выпадет ещё XX карточек" - если же игр для фарма нет, ASF сообщит, что ему нечем заняться, как описано в нашем **[ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU#Как-именно-это-работает)**.
+This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)**.
 
-Этим завершается наша очень простая инструкция по установке. Теперь вы можете решить, хотите ли вы настраивать ASF дальше, или позволить ему работать с настройками по-умолчанию. Мы упомянем ещё несколько простых подробностей, а затем оставим вас наедине с wiki.
+This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
 
 * * *
 
@@ -181,96 +186,96 @@ ASF требуются ваши учетные данные поскольку �
 
 #### Фарм на нескольких аккаунтах одновременно
 
-ASF поддерживает фарм на нескольких аккаунтах одновременно, это его основная функция. Вы можете добавлять новые аккаунты к ASF создавая новые файлы конфигурации ботов, точно так же как вы создали для первого бота несколько минут назад. Вам нужно следить только за двумя вещами:
+ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
 
-- Уникальное имя бота, если ваш первый бот назван "MainAccount" вы не можете создать ещё одного с таким же именем.
-- Правильные учётные данные, такие как `SteamLogin`, `SteamPassword` и `SteamParentalPIN` (если вы используете семейный просмотр Steam)
+- Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
+- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` (if using Steam parental settings)
 
-Другими словами, просто снова перейдите к конфигурированию, и сделайте всё точно так же, но для второго и третьего аккаунтов. Не забывайте давать уникальные имена всем вашим ботам.
+In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
 
 * * *
 
 #### Изменение настроек
 
-Вы можете поменять существующие настройки точно так же - просто сгенерировав новый файл конфигурации. Если вы ещё не закрыли сетевой генератор, нажмите на кнопку "Отображение расширенных настроек" и посмотрите, что там ещё есть. С целью обучения мы поменяем параметр `CustomGamePlayedWhileFarming`, который позволяет указать произвольное название, которое ASF будет отображать в процессе фарма вместо настоящего названия запущенной игры.
+You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
-Если вы просто запустите ASF и начнёте фарм, по умолчанию ваш аккаунт Steam получит статус "в игре":
+So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
 
 ![Steam](https://i.imgur.com/sCdSMZj.png)
 
-Давайте это поменяем. Включите расширенные настройки в сетевом генераторе, и найдите параметр `CustomGamePlayedWhileFarming`. Когда найдёте, впишите туда произвольный текст, который вы хотите отобразить, например "Idling cards":
+Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
-![Закладка "Бот" 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
 
-Теперь скачайте новый файл конфигурации так же как раньше, и **замените** ваш старый файл конфигурации новым. Конечно же, вы можете так же сначала удалить старый файл конфигурации а потом положить новый на его место.
+Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
 
-Когда вы это сделаете - снова запустите ASF, и вы увидите что заданный вами текст выводится вместо названия игры:
+Once you do that and start ASF again, you'll notice that ASF now displays your custom text in previous place:
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-Это указывает на то, что вы успешно изменили конфигурацию. Точно так же вы можете изменять и глобальные настройки ASF, переключившись с заклкдки "Бот" на закладку "ASF", а затем скачав сгенерированный файл конфигурации и заменив им основной файл `ASF.json`.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, then downloading generated config and replacing core `ASF.json` file.
 
 * * *
 
 #### Использование веб-интерфейса IPC
 
-ASF - консольное приложение и не имеет графического интерфейса пользователя. Однако ведутся работы над созданием графического веб-интерфейса с использованием IPC - **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU#ipc-gui)**, который на данном этапе доступен в тестовом режиме, но им уже можно пользоваться без особых проблем.
+ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
 
-Чтобы пользоваться IPC GUI, вам нужно убедиться, что у вас настроены параметры `IPC` и `SteamOwnerID` в глобальном файле конфигурации (закладка ASF в сетевом генераторе конфигураций).
+In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 
-В параметре `SteamOwnerID` вам надо ввести уникальный идентификатор Steam вашего аккаунта в 64-битном формате. Его можно узнать разными методами, мы воспользуемся для этого сайтом **[SteamRep](https://steamrep.com)**. Откройте этот сайт, найдите кнопку для входа с помощью Steam в правом верхнем углу, и войдите на сайт. После этого, там же, нажмите на свой аватар, и найдите `steamID64` в вашем профиле.
+For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
 
 ![SteamRep](https://i.imgur.com/RUuJ63i.png)
 
-Для моего аккаунта - это число `76561198006963719`. У вас будет похожее, тоже начинающееся с цифр `7656`. Скопируйте его.
+For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
 
-Теперь вернитесь к сетевому генератору конфигураций и введите его в поле SteamOwnerID.
+Now navigate once again to our web config generator and input that number as SteamOwnerID.
 
-![SteamOwnerID](https://i.imgur.com/LgpDljg.png)
+![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
 
-Вам нужно сделать ещё одну вещь, включите отображение расширенных настроек, найдите параметр `IPC` и включите его.
+You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
 
-![IPC](https://i.imgur.com/MS4HKDr.png)
+![IPC](https://i.imgur.com/NhujZCN.png)
 
-Теперь вы можете создать свой файл конфигурации скачав его и заменив исходный `ASF.json` в вашей папке `config`, как обычно. После этого снова запустите ASF, и вы должны увидеть что интерфейс IPC запустился:
+Now you can generate your config by downloading it and replacing the original `ASF.json` in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-Если вы всё правильно сделали, у вас должно получиться открыть интерфейс IPC по **[этой](http://127.0.0.1:1242)** ссылке, когда запущен ASF. Вы можете пользоваться этим интерфейсом чтобы отдавать ASF **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)**, а также использовать другие доступный функции через дружественный к пользователю веб-интерфейс.
+If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use it for example for sending **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, as well as accessing other available to you functionality through friendly graphical web interface.
 
-![IPC 3](https://i.imgur.com/6TVSbB5.png)
+![IPC 3](https://i.imgur.com/TsAHcM0.png)
 
-Обратите внимание на то, что IPC GUI сейчас в тестовом доступе, и в нём могут отсутствовать или не работать какие-то функции, но даже того что есть вполне достаточно для простого использования ASF, такого как например отправка команд.
+Please note that IPC GUI is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage, such as sending a command.
 
 * * *
 
 ### Резюме
 
-Вы успешно установили и настроили ASF для ваших аккаунтов Steam, и даже немного поменяли настройки на свой вкус. Если вы следовали этому руководству, то у вас даже настроен интерфейс IPC GUI и вы можете посылать через него команды. Теперь вам стоит целиком прочесть раздел "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**" чтобы узнать, что именно делают параметры которые вы могли видеть на закладке расширенных настроек, и какие возможности может предложить ASF. Если вы запутались, или у вас есть какие-то общие вопросы - прочтите раздел **[ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)**, который покрывает если не все, то во всяком случае большинство вопросов, которые у вас могут возникнуть. Если хотите узнать всё об ASF и о том, как оно может облегчить вам жизнь, прочтите оставшиеся разделы **[нашей wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ru-RU)**. Развлекайтесь!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
 ## Универсальная установка
 
-Это установка для продвинутых пользователей, которые хотят запустить ASF в **[универсальном](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU#Универсальный-пакет)** варианте. Этот вариант не рекомендуется для людей, которые могут воспользоваться **[пакетами под конкретную ОС](#Установка-для-конкретных-ОС)**.
+This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
-Вам может понадобиться установка универсального пакета в основном в трёх случаях (хотя вы можете использовать её любом случае):
+You want to use generic variant mainly in three situations (but of course you can use it regardless):
 
-- Если вы используете ОС, для которой мы не выпускаем пакета под конкретную ОС (например 32-битная Windows)
-- Если у вас уже установлены .NET Core Runtime/SDK, или вы собираетесь устанавливать и пользоваться ими
-- Если вы хотите минимизировать файловую структуру ASF вручную обеспечивая требования среды исполнения
+- When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
+- When you already have .NET Core Runtime/SDK, or want to install and use one
+- When you want to minimize ASF structure size by handling runtime requirements yourself
 
-Однако имейте в виду, что в этом случае за среду исполнения .NET Core отвечаете вы. Это значит, что если ваше .NET Core SDK (и/или среда исполнения) недоступны, устарели или поломаны, ASF не будет работать. Именно поэтому мы не рекомендуем этот вариант установки для обычных пользователей, поскольку вам придётся заботится о том, чтобы .NET Core SDK (и среда исполнения) соответствовали требованиям ASF, и могли запускать ASF, тогда как в противном случае **мы** будем заботиться чтобы среда исполнения .NET Core в пакете ASF могла это делать.
+However, keep in mind that you're in charge of .NET Core runtime in this case. This means that if your .NET Core SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET Core SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET Core runtime bundled with ASF can do so.
 
-Для универсального пакета, вы можете следовать всему руководству по установке под конкретную ОС, приведенному выше, с двумя небольшими отличиями. В дополнение к установке предусловий для .NET Core, вам также понадобится установить .NET Core SDK, а вместо запускаемого файла под конкретную ос `ArchiSteamFarm(.exe)` у вас будет только универсальный запускаемый файл `ArchiSteamFarm.dll`. Всё остальное практически точно так же.
+For generic package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
 
-Вместе с дополнительными шагами, вы должны:
+With extra steps:
 
 - Установить **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Установить **[.NET Core SDK](https://www.microsoft.com/net/download)** (или как минимум среду исполнения) подходящую для вашей ОС. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ru-RU#Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
-- Скачать **[последнюю версию ASF](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** в универсальном (generic) варианте.
-- Распаковать архив в новую папку (и выполнить `chmod +x ArchiSteamFarm.sh` если вы работаете под Linux/OS X).
+- Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
+- Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
+- Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
 - **[Сконфигурировать ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
-- Запустить ASF либо с помощью предоставленного скрипта, либо вручную командой `dotnet /path/to/ArchiSteamFarm.dll` из вашей любимой оболочки командной строки.
+- Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Скрипты для запуска (такие как `ArchiSteamFarm.cmd` для Windows и `ArchiSteamFarm.sh` для Linux/OS X) расположены там же, где и запускаемый файл `ArchiSteamFarm.dll`, и включены только в универсальный пакет для установки. Вы можете воспользоваться ими если не хотите запускать команду `dotnet` вручную. Вы также можете создать ярлыки на эти скрипты как показано выше, поскольку в этом случае они будут служить заменой исполняемого файла. Естественно, скрипты для запуск не будут работать если вы не установили .NET Core SDK и в вашем `PATH` нет пути к запускаемому файлу `dotnet`. Скрипты для запуска не обязательны к использованию, вы всегда можете вручную запустить команду `dotnet /path/to/ArchiSteamFarm.dll`.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

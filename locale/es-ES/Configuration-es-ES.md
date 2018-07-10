@@ -174,6 +174,8 @@ If your machine supports IPv6, you might want to add a value of `http://[::1]:12
 
 Keep in mind that this property apart from bind address, also specifies valid **URLs** under which IPC interface is accessible. In other words, if you want to access your IPC interface from `asf.example.com` hostname, then you should define `http://asf.example.com:1242/` in your `IPCPrefixes`. Even if you make your IPC interface reachable (e.g. by changing `127.0.0.1` to your public IP address), you'll get `404 NotFound` error if the URL under which you're trying to access it is not defined in `IPCPrefixes` of ASF. This is why you should define in `IPCPrefixes` all URLs under which the IPC interface should be accessible, and this can include local IPv4 and IPv6 addresses, public IPv4 and IPv6 addresses, and custom hostname, making it 5 different `IPCPrefixes` total, if you require/want to access IPC interface in all of those 5 ways. Of course, you can also define just `http://*:1242/`, but this might not always be appropriate.
 
+Please note that currently ASF doesn't support other prefix path than root (`/`). Using non-root path will result in getting `404` error. We hope to solve this limitation eventually in the future.
+
 Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
@@ -284,9 +286,8 @@ After deciding how you want to name your bot, open its file, and start with conf
     "BotBehaviour": 0,
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
-    "DismissInventoryNotifications": false,
     "Enabled": false,
-    "FarmingOrder": 0,
+    "FarmingOrders": [],
     "GamesPlayedWhileIdle": [],
     "HandleOfflineMessages": false,
     "HoursUntilCardDrops": 3,
@@ -336,12 +337,13 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | Nombre                     | Description                                                           |
-| ----- | -------------------------- | --------------------------------------------------------------------- |
-| 0     | None                       | No special bot behaviour, the least invasive mode, default            |
-| 1     | RejectInvalidFriendInvites | Will cause ASF to reject (instead of ignoring) invalid friend invites |
-| 2     | RejectInvalidTrades        | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
-| 4     | RejectInvalidGroupInvites  | Will cause ASF to reject (instead of ignoring) invalid group invites  |
+| Value | Nombre                        | Description                                                           |
+| ----- | ----------------------------- | --------------------------------------------------------------------- |
+| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
+| 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
+| 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
+| 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
+| 8     | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications   |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -367,15 +369,11 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 * * *
 
-`DismissInventoryNotifications` - `bool` type with default value of `false`. Every card drop triggers inventory notification - steam notification telling you that you received new items. This can get annoying pretty fast, and serves little to no purpose, therefore ASF offers dismissing those notifications automatically. When you enable this option, ASF will automatically dismiss all notifications related to new items being received - this also includes items you obtained through trading and other ways. Of course, this option affects only inventory notifications, so all other notification types, e.g. profile comments notifications, will stay in-tact.
-
-* * *
-
 `Enabled` - `bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
 * * *
 
-`FarmingOrder` - `byte` type with default value of `0`. This property defines the **preferred** farming order of ASF. Currently there are following farming orders available:
+`FarmingOrders` - `HashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
 | Value | Nombre                    | Description                                                                      |
 | ----- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -396,9 +394,11 @@ If you're unsure how to configure this option, it's best to leave it at default.
 | 14    | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
 | 15    | MarketableDescending      | Try to farm games with marketable card drops first                               |
 
-Notice the word "try" in all above descriptions - the actual order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrder` should be entirely respected in current farming session (as every game is treated the same), while in `Complex` algorithm actual order is affected by hours and then sorted according to chosen `FarmingOrder`. This will lead to different results, as post-`HoursUntilCardDrops` games have higher priority over pre-`HoursUntilCardDrops` ones. It effectively means that ASF will idle post-`HoursUntilCardDrops` in your `FarmingOrder` first, then adapting your `FarmingOrder` for choosing the next batch. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will prefer performance over `FarmingOrder`).
+Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
 
-There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by `FarmingOrder`.
+Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games with highest playtime first, and only then sorting everything further by your chosen `FarmingOrders`. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer performance over `FarmingOrders`).
+
+There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 * * *
 
@@ -528,7 +528,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 * * *
 
-`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml/?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml/?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
+`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
 
 * * *
 
@@ -646,13 +646,13 @@ Types used by ASF are native C# types, which are specified below:
 
 `bool` - Boolean type accepting only `true` and `false` values.
 
-Example: `"Enabled": true`.
+Example: `"Enabled": true`
 
 * * *
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"FarmingOrder": 1`.
+Example: `"ConnectionTimeout": 60`
 
 * * *
 

@@ -99,23 +99,23 @@ Wiki в этом плане несколько особенная, поскол�
 
 * * *
 
-### Global links
+### Глобальные ссылки
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+Платформа Crowdin также позволяет адаптировать ссылки в исходном тексте, чтобы они указывали на новые (локализованные) страницы.
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+В ASF есть ссылки почти на каждой странице для облегчения навигации, а также боковую панель справа. Хорошая новость в том, что всё это можно редактировать, "исправляя" ссылки, чтобы они указывали на переведенные на ваш язык страницы. При этом следует соблюдать осторожность, но это возможно.
 
-For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** includes a text such as:
+Например, **[домашняя страница](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** ASF включает в себя следующий текст:
 
 > Если вы здесь впервые, рекомендуем начать с инструкции по **[установке](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-ru-RU)**.
 
-Which is originally written as:
+Который исходно имеет вид:
 
 ```markdown
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+В системе Crowdin, первое что вам надо сделать это зайти в настройки и убедиться, что у вас отображаются теги HTML ("HTML Tags Displaying" - "Show"). Это очень важно, если вы собираетесь заниматься локализацией wiki.
 
 * * *
 
@@ -123,12 +123,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+Теперь, в процессе перевода на Crowdin, в зависимости от форматирования вы можете встретить ссылки в виде:
 
 * Строки для перевода с тегами HTML (большинство строк, где только часть предложения является ссылкой)
 * Отдельной строки для перевода, со ссылкой приведенной в разделе `Hidden texts` -> `Link addresses` (Скрытый текст -> Адреса ссылок) (в редких случаях, когда вся строка является ссылкой, в основном встречается в боковой панели)
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+В примере выше представлен первый случай (поскольку только слова "setting up" это ссылка), поэтому на Crowdin мы увидим эту строку как:
 
 * * *
 
@@ -136,7 +136,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you click ALT+C (or copy source button) and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+Независимо от случая, сначала нужно нажать ALT+C (или кнопку "Copy Source" - копировать содержимое) и перевести строку как обычно, оставив весь HTML (если он присутствует) без изменений. Вот пример перевода для польского языка:
 
 * * *
 
@@ -144,9 +144,9 @@ Regardless of case, firstly you click ALT+C (or copy source button) and translat
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+Теперь, если это обычная ссылка, ведущая куда-то за пределы wiki (например, на последнюю версию ASF), вы можете её оставить как есть. Можно просто сохранить строку и двигаться дальше.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+Однако, если это ссылка на другую страницу **внутри** wiki, как в примере выше, вы можете исправить её чтобы она вела на новую (локализованную) страницу. Вы можете это сделать аккуратно добавив `-locale` к URL в теге `<a>`, как показано ниже:
 
 * * *
 
@@ -154,19 +154,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+Будьте предельно осторожны делая это, убедитесь что URL который вы создали действительно существует, если вы ошибётесь - ссылка перестанет работать. Если вы всё сделали правильно, у вас получиться полностью работоспособная ссылка, указывающая на переведенную страницу (в нашем примере - `Setting-up-pl-PL`).
 
-Doing the steps above will properly translate our HTML back to markdown:
+После того как вы проделали все вышеописанные шаги, перевод будет штатно конвертирован из созданного нами HTML назад в markdown:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+И, наконец, в текст в wiki:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+Если в тексте отсутствуют HTML-теги (второй случай), всё ещё проще - вам нужно просто перейти в раздел `Hidden texts` -> `Link addresses` (Скрытый текст -> Адреса ссылок).
 
 * * *
 
@@ -174,7 +174,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+Там вы можете легко исправить ссылки чтобы они указывали на новое место, вообще не заботясь о HTML:
 
 * * *
 
@@ -182,13 +182,13 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Локальные ссылки
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+На страницах wiki вы можете также встретить локальные ссылки, которые указывают на определённый раздел документа. Такие ссылки начинаются с символа `#`.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+Эти ссылки - особый случай, поскольку они зависят от заголовков раздела в текущем документе. Если для глобальных URL у нас есть общий принцип добавление `-locale` в конец URL, и это работает везде, то названия разделов могут быть переведены вами и другими людьми, так что придётся проверять что ссылка ведёт в правильное место.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+Например, вы можете встретить ссылку `#introduction` в разделе **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**:
 
 * * *
 
@@ -196,7 +196,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+Если для польского языка "Introduction" перевели как "Wprowadzenie", нам придётся изменить эту ссылку, иначе она перестанет работать.
 
 * * *
 
@@ -204,20 +204,20 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+Таким образом локальная ссылка продолжит работать, потому что теперь она указывает на правильный раздел статьи. Ссылки в HTML тегах можно редактировать аналогичным образом.
 
 * * *
 
-### Code blocks
+### Блоки кода
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Например:
+Будьте очень осторожны при переводе предложений, содержащих блоки `<code></code>`. Блоки кода используются чтобы показать фиксированные имена в коде ASF, или иные термины, не подлежащие переводу. Например:
 
     This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
     
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status - this should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+Как видите, слово `RateLimited` заключено здесь в блок кода, и описывает внутреннее состояние в коде ASF - его не нужно переводить. Точно так же, вам не следует переводить другие блоки кода, такие как имена конфигурационных параметров (например, `TradingPreferences`), члены перечислений (например опции `Stable` и `Experimental` параметра `UpdateChannel`) и тому подобное.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+Если вы считаете, что в блок кода включено что-то неподходящее, или что текст не заключённый в блок кода должен быть в нём - не стесняйтесь спросить нас на crowdin создав комментарий с отметкой **[issue](#Проблемы)**.
 
 * * *
 

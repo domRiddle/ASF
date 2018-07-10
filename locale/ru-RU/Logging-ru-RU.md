@@ -49,7 +49,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Примеры
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
@@ -152,7 +152,7 @@ The examples above are rather simple and made to show you how easy it is to defi
 
 * * *
 
-## Limitations
+## Ограничения
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
@@ -237,7 +237,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 * * *
 
-#### Screenshots
+#### Скриншоты
 
 ![Скриншот](https://i.imgur.com/5juKHMt.png)
 

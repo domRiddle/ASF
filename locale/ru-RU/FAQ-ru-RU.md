@@ -4,11 +4,11 @@
 
 # Содержание
 
-- [Общие вопросы](#general)
-- [Сравнение с другими программами](#comparison-with-similar-tools)
-- [Безопасность / Конфиденциальность / VAC / Баны / ToS](#security--privacy--vac--bans--tos)
-- [Разное](#misc)
-- [Возможные проблемы](#issues)
+- [Общие вопросы](#Общие-вопросы)
+- [Сравнение с другими программами](#Сравнение-с-другими-программами)
+- [Безопасность / Конфиденциальность / VAC / Баны / ToS](#Безопасность--Конфиденциальность--vac--Баны--tos)
+- [Разное](#Разное)
+- [Возможные проблемы](#Возможные-проблемы)
 
 * * *
 
@@ -85,15 +85,15 @@ ASF это программа, написанная на C# и требующа�
 
 ### Могу ли я выбрать какие игры нужно фармить?
 
-**Да**, даже несколькими способами. Если вы хотите поменять порядок очередности фарма, принятый по-умолчанию, вы можете использовать **[параметр конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `FarmingOrder`. Если вы хотите вручную исключить определённые игры из автоматического фарма, вы можете создать "черный список" **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `ib`. Если вы хотите фармить все игры, но задать для некоторых из них приоритет над всем остальным, вы можете создать приоритетную очередь фарма **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `iq`. И наконец, если вы хотите фармить только выбранные вами игры, вы можете воспользоваться **[параметром конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `IdlePriorityQueueOnly` и добавить нужные игры в приоритетную очередь фарма.
+**Да**, даже несколькими способами. Если вы хотите поменять порядок очередности фарма, принятый по-умолчанию, вы можете использовать **[параметр конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `FarmingOrders`. Если вы хотите вручную исключить определённые игры из автоматического фарма, вы можете создать "черный список" **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `ib`. Если вы хотите фармить все игры, но задать для некоторых из них приоритет над всем остальным, вы можете создать приоритетную очередь фарма **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `iq`. И наконец, если вы хотите фармить только выбранные вами игры, вы можете воспользоваться **[параметром конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `IdlePriorityQueueOnly` и добавить нужные игры в приоритетную очередь фарма.
 
 В дополнение к настройками модуля автоматического фарма, описанным выше, вы можете также переключить ASF в ручной режим **[командой](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `play`, или использовать другие дополнительные функции, такие как **[параметр конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `GamesPlayedWhileIdle`.
 
 * * *
 
-### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
+### Я пользователь Linux / OS X, будет ли ASF фармить игры которые не доступны для моей OS? Будет ли ASF фармить 64-битные игры если я запущу его на 32-битной ОС?
 
-Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we didn't test this.
+Да, ASF даже не скачивает файлы игры, поэтому он будет работать со всеми лицензиями на вашем аккаунте Steam, независимо от платформы или технических требований. Он также должен работать и с играми, привязанными к конкретному региону (игры с "регион-локом") даже если вы не находитесь в подходящем регионе, но мы не проверяли это.
 
 * * *
 
@@ -103,13 +103,13 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ### ASF это клон Idle Master?
 
-The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
+Единственное сходство - это общее назначение обеих программ, имитация запуска игр Steam для получения коллекционных карточек. Всё остальное, включая сам метод имитации запуска игр, используемые алгоритмы, структура программы, функционал, совместимость и заканчивая исходным кодом, полностью различно и у этих двух программа нет ничего общего между собой, даже базовой системы (IM работает на .NET Framework, ASF на .NET Core). Целью создания ASF было решение проблем IM, которые нельзя решить простым изменением кода - поэтому ASF создавался с нуля, не использовав ни единой строки кода и ни даже основной идеи из IM, потому что этот код и идеи имели принципиальные недостатки. IM и ASF это как Windows и Linux - и то и другое операционная система и может быть установлена на ваш ПК, но между ними нет почти ничего общего, кроме общих целей, которым они служат.
 
-This is also why you shouldn't compare ASF to IM based on IM expectations. You should treat ASF and IM as entirely independent programs with their own exclusive sets of features. Some of them indeed overlap and you can find a particular feature in both of them, but very rarily, as ASF is serving its purpose with entirely different approach compared to IM.
+И поэтому не стоит сравнивать ASF с IM основываясь на ожиданиях от IM. Относитесь к ASF и IM как к полностью независимым программам, с разными наборами функций. Некоторые из них действительно пересекаются, и часть функций вы найдёте в обеих программах, но это редкость, поскольку ASF выполняет свою задачу совершенно другим путём по сравнению с IM.
 
 * * *
 
-### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
+### Есть ли смысл переходить на ASF, если я пользуюсь Idle Master и меня всё устраивает?
 
 **Да**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
@@ -135,11 +135,11 @@ First and foremost, you have some built-in features mentioned **[above](#is-it-w
 
 - **Вы можете пропускать игры, на которые можно оформить возврат** (параметр `IdleRefundableGames`). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
 
-- **Вы можете отмечать новые предметы как полученные**(`параметр DismissInventoryNotifications`). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
+- **You can automatically mark new items as received** (`BotBehaviour` of `DismissInventoryNotifications` feature). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
 
 - **You can automatically receive cards from Steam events** (`AutoSteamSaleEvent` feature). ASF allows you to automate going through discovery queue and voting in Steam Awards during Steam sale, of course only if you'd like to make use of that. This saves enormous amount of time each day while Steam sale is on, and ensures that you'll never miss your daily card drops again.
 
-- **You can customize preferred farming order with more available options** (`FarmingOrder` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alphabetically? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
+- **You can customize preferred farming order with more available options** (`FarmingOrders` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alphabetically? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
 
 - **ASF can help you complete your sets** (`TradingPreferences` with `SteamTradeMatcher` feature). With a bit more advanced tinkering, you can convert your ASF into fully-featured user-bot that will automatically accept **[STM](https://www.steamtradematcher.com)** offers, helping you each day to match your sets without any user interaction. ASF even includes its very own ASF 2FA module allowing you to import your Steam mobile authenticator and let you fully automate the entire process with accepting confirmations as well. Or, maybe you want to accept manually and let ASF only prepare those trades for you? That's once again, fully up to you to decide.
 
@@ -167,7 +167,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can ASF idle multiple games at once?
+### Может ли ASF фармить карточки из нескольких игр одновременно?
 
 **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
 
@@ -179,7 +179,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can ASF automatically idle each game for X hours before cards are added?
+### Может ли ASF автоматически фармить карточки в каждой игре в течении X часов до того, как карточки выпадут?
 
 **No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen.
 
@@ -213,7 +213,7 @@ However, keep in mind that Valve might still add ASF to the blacklist at some po
 
 * * *
 
-### Is it safe?
+### Это безопасно?
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. Code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code.
 
@@ -221,7 +221,7 @@ If you for whatever reason don't trust our builds, you can always compile and us
 
 * * *
 
-### Can I get banned for this?
+### Могут ли меня забанить за это?
 
 In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
@@ -253,7 +253,7 @@ Please note that above is only our interpretation of Steam ToS and various point
 
 * * *
 
-### Did somebody get banned for it?
+### Кого-нибудь забанили за это?
 
 **Yes**, we had two incidents so far that resulted in Steam suspension.
 
@@ -285,15 +285,15 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-### I'm using unsupported OS such as 32-bit Windows, can I still use ASF V3?
+### Я использую неподдерживаемую ОС, такую, как 32-битная Windows. Могу ли я всё ещё использовать ASF V3?
 
 Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section for generic variant.
 
 * * *
 
-### ASF - супер! Can I make a donation?
+### ASF - супер! Могу ли я сделать пожертвование?
 
-Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance!
+Да, и мы будем очень счастливы услышать, что Вам нравится наш проект! You can find various donation possibilities under every **[release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchi/ArchiSteamFarm)**. Thank you in advance!
 
 * * *
 
@@ -309,9 +309,9 @@ Yes, you can set `Paused` bot config property to `true` in order to launch ASF w
 
 * * *
 
-### Can ASF minimize to tray?
+### Может ли ASF сворачиваться в трей?
 
-ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
+ASF - консольное приложение, у которого нет окна, чтобы сворачиваться, поэтому окно создаётся для Вас Вашей ОС. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
 
 * * *
 
@@ -327,7 +327,7 @@ Yes, through steam chat, or by using **[IPC](https://github.com/JustArchi/ArchiS
 
 * * *
 
-### I'd like to help translating ASF, what do I need to do?
+### Я хочу помочь с переводом ASF. Что мне нужно для этого сделать?
 
 Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)** section.
 
@@ -341,7 +341,7 @@ Thank you for your interest! You can find all details in our **[localization](ht
 
 ### ASF seems to be working, but I'm not receiving any card drops!
 
-Cards farming rate differs from game to game, as you can read in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `DismissInventoryNotifications` bot config property. Check out **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for details.
+Cards farming rate differs from game to game, as you can read in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `BotBehaviour` of `DismissInventoryNotifications` bot config property. Check out **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for details.
 
 * * *
 
@@ -351,7 +351,7 @@ Simply shutdown the ASF process, for example by clicking [X] on Windows. If inst
 
 * * *
 
-### How many bots can I run with ASF?
+### Как много ботов я могу запустить с ASF?
 
 ASF as a program doesn't have any upper limit of bot instances, however you're still being limited by Steam Network. Currently you can run up to 100-110 bots with single IP and single ASF instance. It is possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself (such as making sure that all of them in fact are logging in and working at the same time). Also notice that the limit above in general depends on many internal factors - it's approximation rather than strict limit - you will most likely be able to run more/less bots than specified above.
 
@@ -424,7 +424,7 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 * * *
 
-### ASF can't start, the program window immediately closes after being launched!
+### ASF не может запуститься, окно программы сразу закрывается после запуска!
 
 If even `log.txt` is not being generated then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
 
@@ -492,7 +492,7 @@ You're most likely using Windows and your console has QuickEdit mode enabled. Re
 
 * * *
 
-### ASF can't accept or send trades!
+### ASF не может принимать и отправлять запросы обмена!
 
 Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, account itself can't accept neither send trades. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
