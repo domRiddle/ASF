@@ -1,6 +1,6 @@
-# FAQ (oft gestellte Fragen)
+# Häufig gestellte Fragen
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Unsere Basis-FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für weniger häufige Fragen besuchen Sie bitte stattdessen unsere **[erweiterte FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Inhaltsverzeichnis
 
@@ -16,13 +16,13 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 
 ### Also wie funktioniert das genau?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Bevor Sie versuchen zu verstehen, was ASF ist, sollten Sie sicherstellen, dass Sie verstehen, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die Sie berechtigt sind, wenn Sie ein bestimmtes Spiel besitzen, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck Ihrer Wahl verwendet werden.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Hier werden noch einmal Kernpunkte genannt, weil Leute ihnen im Allgemeinen nicht zustimmen wollen:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
+- **Ja, Sie müssen das Spiel besitzen, um für Kartendrops berechtigt zu sein. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
 - **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
 - **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**

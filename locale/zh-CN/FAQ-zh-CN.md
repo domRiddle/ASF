@@ -1,24 +1,24 @@
-# FAQ
+# 常见问题
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+我们的基本FAQ包括一些常见的问题和它的答案。 对于不太常见的问题, 请访问我们的 **[ 扩展FAQ ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**。
 
-# Table of contents
+# 目录内容
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [一般](#general)
+- [与类似工具的对比](#comparison-with-similar-tools)
+- [安全/隐私/VAC/封禁/服务条款](#security--privacy--vac--bans--tos)
+- [杂项](#misc)
+- [问题](#issues)
 
 * * *
 
-## General
+## 一般
 
-### So how it exactly works?
+### 那么它到底是如何工作的呢？
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+在尝试了解 ASF 是什么之前, 您应该确保了解什么是Steam集换式卡牌, 以及如何获取它们, 这在官方 FAQ **[ ](https://steamcommunity.com/tradingcards/faq)** 中用、有很好的描述。
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+简而言之, Steam集换式卡牌是可以收集的物件, 你在拥有特定的游戏后即有自己获取他们, 并可用于制作徽章, 在Steam市场上出售或你喜欢的任何其他目的。
 
 Core points are stated once again here, because people in general don't want to agree with them:
 
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## 与类似工具的对比
 
 * * *
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## 安全/隐私/VAC/封禁/服务条款
 
 * * *
 
@@ -281,7 +281,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## 杂项
 
 * * *
 
@@ -396,7 +396,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## 问题
 
 * * *
 

@@ -18,10 +18,10 @@
 
 ## 高级
 
-* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[扩展FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[双重验证](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[低内存方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[高性能方案](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[命令行参数](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
@@ -29,7 +29,7 @@
 * **[本地化](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[废弃的](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 开发者设置
 

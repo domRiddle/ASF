@@ -12,7 +12,7 @@
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-* **[Negociação](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+* **[Troca](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Compartilhamento de Biblioteca Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Estatísticas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 

@@ -4,7 +4,7 @@
 
 * **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(beginne hier)**
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ (oft gestellte Fragen)](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Häufig gestellte Fragen](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Kernfunktionalität
 
@@ -21,7 +21,7 @@
 * **[Erweiterte FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Zwei-Faktor-Authentifizierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Speichereffiziente Einrichtung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Befehlszeilenargumente](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**

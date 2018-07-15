@@ -1,22 +1,22 @@
-# Two-factor authentication
+# Zwei-Faktor-Authentifizierung
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Vor einiger Zeit hat Valve ein System namens "Escrow" eingeführt, das einen zusätzlichen Authentifikator für verschiedene kontobezogene Aktivitäten benötigt. Du kannst **[hier](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** und **[hier](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** mehr darüber lesen. Es ist wichtig, das 2FA-System zuerst zu verstehen, bevor man versucht, die Logik hinter ASF 2FA zu verstehen.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Wie Sie sehen können, werden alle Trades bis zu 15 Tage lang zurückgehalten, was für unser ASF kein großes Problem darstellt, aber dennoch ärgerlich sein kann, besonders für diejenigen, die eine vollständige Automatisierung wünschen. Glücklicherweise enthält ASF eine Lösung für dieses Problem, genannt ASF 2FA.
 
 * * *
 
-# ASF logic
+# ASF-Logik
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Unabhängig davon, ob Sie ASF 2FA verwenden oder nicht, enthält ASF die richtige Logik und ist sich der durch den Standard 2FA geschützten Konten voll bewusst. Sie werden nach den erforderlichen Angaben gefragt, wenn sie benötigt werden (z.B. beim Einloggen). Wenn Sie ASF 2FA verwenden, kann das Programm diese Anfragen überspringen und automatisch benötigte Token erzeugen, was Ihnen Ärger erspart und zusätzliche Funktionen ermöglicht (siehe unten).
 
 * * *
 
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+Die Idee ist einfach. Wir implementieren bereits den Steam-Client das Starten und Spielen eines Spiels, warum also nicht ein mobiles Gerät? ASF 2FA ist genau das, was Sie denken, es ist nur ein Modul, das für die Generierung von 2FA-Tokens als gültiges, anerkanntes mobiles Gerät verantwortlich ist, das es uns erlaubt, den Handel zu überspringen und alle Trades automatisch zu bestätigen. Es dupliziert Ihren bestehenden Authentifikator, so dass Sie nicht ausschließlich ASF 2FA verwenden müssen.
 
-To enable ASF 2FA, you need to have:
+Um ASF 2FA zu aktivieren, benötigen Sie:
 
 - Working steam authenticator in your Android
 - or working steam authenticator in your iOS
@@ -123,7 +123,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 * * *
 
-## FAQ (oft gestellte Fragen)
+## Häufig gestellte Fragen
 
 ### How is ASF making use of 2FA module?
 
