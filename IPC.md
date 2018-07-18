@@ -380,6 +380,34 @@ curl -X DELETE /Api/GamesToRedeemInBackground/archi
 
 ---
 
+### `GET /Api/GamesToRedeemInBackground/{BotName}`
+
+This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `Dictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** explained below.
+
+```shell
+curl -X GET /Api/GamesToRedeemInBackground/archi
+{"Message":"OK","Result":{"archi":{"UnusedKeys":{"AAAAA-BBBBB-CCCCC":"Orwell","XXXXX-YYYYY-ZZZZZ":"Factorio"},"UsedKeys":{}}},"Success":true}
+```
+
+#### GamesToRedeemInBackgroundResponse
+
+```json
+{
+	"UnusedKeys": {
+		"string": "string",
+		"string": "string"
+	},
+	"UsedKeys": {
+		"string": "string",
+		"string": "string"
+	}
+}
+```
+
+Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config files. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
+
+---
+
 ### `POST /Api/GamesToRedeemInBackground/{BotName}`
 
 #### Body:
