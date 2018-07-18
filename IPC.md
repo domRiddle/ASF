@@ -369,6 +369,17 @@ curl -X POST -d '' /Api/Command/version
 
 ---
 
+### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
+
+This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+
+```shell
+curl -X DELETE /Api/GamesToRedeemInBackground/archi
+{"Message":"OK","Result":null,"Success":true}
+```
+
+---
+
 ### `POST /Api/GamesToRedeemInBackground/{BotName}`
 
 #### Body:
