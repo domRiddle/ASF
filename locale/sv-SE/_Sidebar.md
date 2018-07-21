@@ -6,17 +6,17 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Kärna
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Prestanda](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Advanced
+## Avancerat
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
@@ -25,7 +25,7 @@
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Loggar](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**

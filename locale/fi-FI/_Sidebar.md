@@ -6,17 +6,17 @@
 * **[Konfigurointi](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[UKK](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Ydin
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Komennot](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Tehokkuus](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Suorityskyky](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Vaihtaminen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Kehittyneet
+## Edistynyt
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

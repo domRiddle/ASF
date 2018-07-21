@@ -16,20 +16,20 @@
 * **[Condivisione Steam Family](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistiche](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Avanzate
+## Avanzato
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Setup a bassa memoria](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Setup ad alte prestazioni](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Localizzazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicurezza](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Strumenti di terze parti](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Deprecazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Sviluppatori
 

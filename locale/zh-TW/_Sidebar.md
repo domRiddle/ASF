@@ -22,14 +22,14 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[低記憶體設定](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[高性能設定](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[指令參數](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[日誌](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[本土化](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[安全性](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[第三方工具](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[棄用](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## 開發者
 

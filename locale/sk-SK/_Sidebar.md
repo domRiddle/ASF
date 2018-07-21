@@ -6,7 +6,7 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Hlavné nastavenia
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
@@ -16,7 +16,7 @@
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Rozšírené
+## Pokročilé
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

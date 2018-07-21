@@ -6,13 +6,13 @@
 * **[Configuração](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[Perguntas frequentes](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Principal
 
 * **[Compatibilidade](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
-* **[Troca](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
+* **[Negociação](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Compartilhamento de Biblioteca Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Estatísticas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
@@ -23,10 +23,10 @@
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Configuração de alto desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Argumentos da linha de comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Localização](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Segurança](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Ferramentas de terceiros](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**

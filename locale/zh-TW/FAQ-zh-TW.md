@@ -16,9 +16,9 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 
 ### 它是如何工作的?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+在嘗試了解 ASF 是什麼之前，你應該先了解什麼是交換卡片以及如何得到它們，這在官方 **[常見問題](https://steamcommunity.com/tradingcards/faq)** 中有很好地說明。
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
 
 Core points are stated once again here, because people in general don't want to agree with them:
 

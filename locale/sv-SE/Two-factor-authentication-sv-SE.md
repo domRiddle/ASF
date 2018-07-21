@@ -167,7 +167,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 * * *
 
-## Advanced
+## Avancerat
 
 If you're advanced user, you can also generate maFile manually. It should have a **[valid JSON structure](https://jsonlint.com)** of:
 

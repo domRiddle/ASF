@@ -88,7 +88,7 @@ Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfe
 
 ### Notizen
 
-All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei den Argumenten dieser (wie zum Beispiel Botnamen) ist sich an entsprechende Groß- und Kleinschreibung zu halten.
 
 `<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
 
@@ -123,7 +123,7 @@ It's not required to have any extra account for executing commands though Steam 
 
 * * *
 
-When using **IPC**, keep in mind that:
+Wenn du **IPC** verwendet, vergiss nicht auf Folgendes:
 
 - Befehle müssen nicht mit deinem `CommandPrefix` beginnen. ASF fügt dieses automatisch hinzu, wenn es benötigt wird
 - Bei der Verwendung von Befehlen, die auf einer `Bot-Instanz` beruhen, wird ASF **irgendeinen** der zur Zeit aktivierten Bots wählen, weshalb wir dir wärmstens empfehlen eine Variante des Befehls zu verwenden, bei der du eine Bot-Instanz mitgeben kannst.
@@ -138,7 +138,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 `<Bots>` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching (case insensitive), and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
+In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
 * * *
 
@@ -198,7 +198,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Description                                                           |
+| Value | Name                  | Beschreibung                                                          |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
@@ -219,7 +219,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Description                                                   |
+| Value      | Alias | Beschreibung                                                  |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
@@ -244,7 +244,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Beschreibung                                                               |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -257,14 +257,14 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 ### Beispiel
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
 
-In order to do that, we need to execute following commands:
+Um das zu tun müssen wir folgende Befehle ausführen:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail.
+`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Das ist nötig, damit uns das Steam-Netzwerk eine E-Mail mit einem Authentifizierungscode zukommen lässt.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MeinSteamGuardBot` -> wir starten unseren (gestoppten) Bot wieder. Diesmal wird der Code benutzt, den wir im vorherigen Befehl gesetzt haben und der Bot loggt sich ein und löscht den Code aus seinem internen Speicher.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Auf dem selben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.

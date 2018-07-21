@@ -1,4 +1,4 @@
-# Deprecation
+# הוצא משימוש
 
 Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
 

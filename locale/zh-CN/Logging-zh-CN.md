@@ -1,4 +1,4 @@
-# Logging
+# 日志
 
 Starting with version V2.1.2.0, ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
@@ -152,7 +152,7 @@ The examples above are rather simple and made to show you how easy it is to defi
 
 * * *
 
-## Limitations
+## 限制
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 

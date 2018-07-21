@@ -1,4 +1,4 @@
-# Performance
+# Desempenho
 
 The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
 

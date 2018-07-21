@@ -6,7 +6,7 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Mag
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**

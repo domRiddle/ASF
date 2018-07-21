@@ -7,8 +7,8 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 - [Algemeen](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [Diversen](#misc)
+- [Problemen](#issues)
 
 * * *
 

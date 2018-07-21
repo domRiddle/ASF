@@ -6,17 +6,17 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Inti
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Kinerja](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Performa](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Perdagangan](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Lanjutan
+## Tingkat lanjut
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

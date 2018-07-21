@@ -1,4 +1,4 @@
-# Two-factor authentication
+# 2단계 인증
 
 A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
 
@@ -12,11 +12,11 @@ Regardless if you use ASF 2FA explained below or not, ASF includes proper logic 
 
 * * *
 
-# ASF 2FA
+# ASF 2단계 인증(2FA)
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+개념은 간단합니다. Steam 클라이언트도 이미 구현했고, 게임 실행과 플레이도 구현했는데, 휴대용 기기를 구현하지 못할게 뭐 있지? ASF의 2단계 인증(2FA)는 당신이 생각하는 바로 그것입니다. 이 모듈은 유효한 휴대기기로 인식되어 2단계 인증 토큰을 생성하고, 거래 멈춤을 생략하고 모든 거래를 자동으로 승인합니다. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
 
-To enable ASF 2FA, you need to have:
+ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 
 - 정상동작하는 안드로이드용 Steam 인증기
 - 혹은 정상동작하는 iOS용 Steam 이증기
@@ -27,7 +27,7 @@ To enable ASF 2FA, you need to have:
 
 ## 불러오기
 
-From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
+V2.1 버전부터 ASF는 ASF 2단계인증 "솔로" 모드를 사용할 수 없습니다. 즉, Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 
@@ -123,7 +123,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 * * *
 
-## FAQ
+## 자주 묻는 질문(FAQ)
 
 ### How is ASF making use of 2FA module?
 

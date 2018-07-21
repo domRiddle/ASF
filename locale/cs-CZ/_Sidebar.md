@@ -16,7 +16,7 @@
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Pokročilé
+## Další nastavení
 
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

@@ -123,7 +123,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 * * *
 
-## FAQ
+## Често Задавани Въпроси
 
 ### How is ASF making use of 2FA module?
 

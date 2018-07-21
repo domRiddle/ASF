@@ -16,7 +16,7 @@
 * **[Спільний доступ до бібліотеки Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Статистика](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Додаткові налаштування
+## Розширені настройки
 
 * **[Розширені ЧаПи](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

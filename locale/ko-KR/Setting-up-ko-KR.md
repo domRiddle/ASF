@@ -53,10 +53,10 @@
 - libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, 배포판의 최신 1.0.X 버전)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
+이 중 적어도 몇개는 이미 설치되어 있을 것입니다. (오늘날 거의 모든 리눅스 배포판의 필수요소인 zlib1g 같은 것들)
 
 If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
 
@@ -65,23 +65,23 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now, although you might need to **[increase the maximum open file limit](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Shouldn't be required for ASF alone, but keep that in mind if you encounter any issues.
+- 지금은 아니지만 **[열려있는 최대 파일 제한을 늘려야](https://docs.microsoft.com/ko-kr/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit-net-core-versions-before-net-core-sdk-202)** 할 수도 있습니다. ASF자체로는 필요없겠지만, 어떤 문제가 발생할지 모른다는 점을 명심하십시오.
 
 * * *
 
 ### 다운로드
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+모든 필요한 종속 프로그램을 다 가지고 있으므로, 다음 단계는 **[최신 ASF 릴리즈](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**를 다운로드 받는 것입니다. ASF는 다양한 변종이 있지만 당신은 OS와 아키텍쳐에 맞는 패키지를 원할 것입니다. 예를들어 `64`-비트 `윈도우`를 사용한다면, `ASF-win-x64` 패키지를 사용하면 됩니다. 사용가능한 변종에 대한 더 많은 정보를 원하시면 **[호환성](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오. ASF는 **32비트 윈도우**같은 특정OS용 패키지가 없는 다른 OS에서도 실행이 가능합니다. **[일반 설치](#일반 설치)**항목을 참고하시기 바랍니다.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
+패키지를 받았다면 zip파일을 압축을 풉니다.(**[7-zip](https://www.7-zip.org)**을 권장합니다.). 엄청나게 많은 폴더와 파일이 보일것입니다. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
+리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일에 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
+ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
-An example structure would look like this:
+다음은 구조도 예시입니다:
 
     C:\ASF (필요한 스크립트나 파일은 여기에 넣으십시오)
         ├── ASF shortcut.lnk (선택사항)
@@ -95,19 +95,19 @@ An example structure would look like this:
              └── (...)
     
 
-This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
+이것이 우리가 권장하는 구조입니다. 사용을 위해서 ASF에 포함된 수많은 파일과 폴더를 거칠 필요없이 설정(config) 폴더와 메인 실행파일의 바로가기만 있으면 됩니다.
 
-Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
+좋습니다. 이제 ASF 폴더가 사용준비되었습니다. 원한다면 다음 단계는 넘어가도 됩니다. ASF 구조를 정리하는 것은 필수작업은 아닙니다. 하지만 삶이 조금 쉬워지긴 합니다.
 
-Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
+ASF 폴더를 열어서 핵심 실행 파일을 찾으십시오. 윈도우는 `ArchiSteamFarm.exe`이고 리눅스나 OS X는 `ArchiSteamFarm`입니다. 마우스 오른쪽 버튼을 누르고 "복사"를 선택합니다. 이제 바탕화면 같이 ASF 바로가기를 실제로 놓을 곳으로 가서 마우스 오른쪽 버튼을 누르고 "바로가기 붙여넣기"를 선택합니다. 바로가기는 "ASF" 같이 원하는 이름으로 바꿀 수 있습니다. `config` 디렉토리는 ASF 실행파일이 있는 곳에 있으며, 동일하게 해줍니다.
 
-After a small cleanup, you'll now have a very convenient structure similar to the one below:
+정리가 끝나면 아래와 같이 아주 편리한 구조를 갖게 됩니다.
 
 ![Structure](https://i.imgur.com/k85csaZ.png)
 
-This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
+이렇게 해서 혼란없이 ASF 실행파일과 설정 파일에 쉽게 접근할 수 있습니다. 제 경우에는 위에서 말한 구조를 사용하기로 결정했습니다. 제 ASF 파일들은 "Core" 디렉토리에 바로 들어있습니다. 구조는 원하는대로 적용할 수 있습니다. ASF와 설정 바로가기는 바탕화면에 두고 ASF 디렉토리는 예를 들어 `C:\ASF`에 놓을 수도 있습니다. 하기 나름입니다.
 
-Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
+리눅스와 OS X 이용자들도 동일하게 하는 것을 권장합니다. `ln -s`이라는 훌륭한 심볼릭 링크 메카니즘을 사용하면 됩니다.
 
 * * *
 

@@ -7,7 +7,7 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 - [General](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
+- [Extras](#misc)
 - [Issues](#issues)
 
 * * *
@@ -281,7 +281,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## Extras
 
 * * *
 

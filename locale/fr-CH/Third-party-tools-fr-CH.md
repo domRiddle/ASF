@@ -1,4 +1,4 @@
-# Third-party tools
+# Outils tiers
 
 Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web aplications through internal libraries for further integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 

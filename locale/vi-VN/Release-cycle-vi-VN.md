@@ -1,4 +1,4 @@
-# Release cycle
+# Chu kỳ phát hành
 
 ASF uses common C# versioning which is A.B.C.D. Version is being incremented after releasing current one on **[GitHub](https://github.com/JustArchi/ArchiSteamFarm/releases)**. Every single version released so far is available on GitHub, in frozen state, and will not disappear with time, therefore it's always possible to roll back to any of them, without a need of making self copies.
 

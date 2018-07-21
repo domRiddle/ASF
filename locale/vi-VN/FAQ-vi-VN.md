@@ -16,22 +16,22 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 
 ### Vậy chính xác nó hoạt động như thế nào?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Trước khi cố gắng hiểu ASF là cái gì, bạn nên chắc chắn rằng bạn hiểu thẻ Steam là gì, và làm thế nào để có chúng, nó được mô tả kĩ càng trong FAQ chính thức **[ở đây](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Tóm tắt, thẻ Steam là vật dụng thu thập khi có đủ điều kiện mà bạn sở hữu một trò chơi nhất định, và có thể sử dụng chúng để tạo huy hiệu, bán trên chợ Steam hoặc cho bất kỳ mục đích khác mà bạn muốn.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Những điểm cốt lỗi một lần nữa sẽ được nêu ở đây, vì chúng ta không muốn đồng ý với chúng:
 
 - **Đúng, bạn cần sở hữu trò chơi để có điều kiện cho thẻ bất kỳ nào rớt từ nó. Chế độ Family sharing sẽ không tính.**
 - **Không, bạn không thể farm trò chơi vô tận, mỗi trò chơi có một số lượng thẻ rơi nhất định. Một khi các thẻ rơi hết trong trò chơi ấy, nó không còn là đối tượng để farm nữa.**
 - **Không, các trò chơi miễn phí sẽ không rớt thẻ trừ khi bạn bỏ tiền vào chúng. Điều này bao gồm các trò chơi miễn phí mãi mãi như Team Fortress 2 hay Dota 2.**
 - **Không, các thẻ sẽ không rớt trên tài khoản bị hạn chế (những tài khoản chưa bao giờ bỏ 5$ trên chợ steam), bất kể bạn có hữu trò chơi. Việc này có khả thi trong quá khứ, nó không còn nữa.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Như bạn thấy, thẻ Steam được thưởng cho bạn khi bạn chơi trò chơi mà bạn mua, hoặc bỏ tiền vào trò chơi miễn phí. Nói một cách khác, nếu bạn chơi trò chơi đủ lâu, tất cả các thẻ cho trò chơi đó sẽ rớt vào túi vật dụng của bạn, để bạn có thể hoàn thành huy hiệu, bán chúng, hoặc làm bất kỳ điều gì bạn muốn.
 
 ASF as a program is quite complex to understand fully, so instead of explaining all technnical details, we'll offer a very simplified explanation below.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF đăng nhập vào tài khoản Steam của bạn thông qua Steam Client được tạo bên trong chương trình bằng cách sử dụng thông tin mà bạn cung cấp. Sau khi đã đăng nhập thành công, nó phân tích của **[huy hiệu](https://steamcommunity.com/my/badges)** của bạn để tìm các trò chơi có sẵn cho farm (Bạn có thể nhận thêm được X thẻ từ chơi trò chơi này). Sau khi phân tích tất cả các trang và xây dựng danh sách cuối cùng của các trò chơi có sẵn, ASF chọn thuật toán farm hiệu quả nhất và bắt đầu quá trình. Quá trình này phụ thuộc vào lựa chọn **[thuật toán farm thẻ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**, nhưng thường nó bao gồm chơi trò chơi đủ điều kiện và kiếm tra theo định kỳ (cộng với mỗi vật phẩm rớt) nếu trò chơi đã farm đủ - nếu đủ, ASF có thể tiếp tục với các trò chơi tiếp theo, sử dụng cùng một phương pháp, cho đến khi tất cả các trò chơi đã farm hoàn tất.
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 

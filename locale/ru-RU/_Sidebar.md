@@ -16,7 +16,7 @@
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing-ru-RU)**
 * **[Статистика](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics-ru-RU)**
 
-## Расширенные настройки
+## Дополнительные настройки
 
 * **[Расширенное ЧАВО](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ru-RU)**

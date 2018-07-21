@@ -102,13 +102,13 @@ ASF "объединяет" лишние параметры в типы-множ�
 
 Как вы прочли выше, символ пробела используется как разделитель в командах, и поэтому не может использоваться в параметрах. Однако, как тоже сказано выше, ASF может объединять лишние параметры, что означает что вы можете использовать пробел в параметрах, которые определены последними для данной команды. Например, `nickname bob Great Bob` правильно установит для бота `bob` имя профиля "Great Bob". Похожим образом вы можете проверять имена, содержащие пробелы, в команде `owns`.
 
-Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+Обратите внимание, что отправка сообщений в чат группы работает как трансляция - если вы пишете в чат, в котором находятся вместе с вами 3 ваших бота, команду `redeem X`, это равнозначно тому, что вы отправите команду `redeem X` каждому из этих ботов по-отдельности. В большинстве случаев **это не то, что вы хотите**, и вместо этого следует использовать команды с указанием `имени бота(ов)`, отправляя их **одному боту через личный чат**. ASF поддерживает групповые чаты, поскольку во многих случаях это может оказаться полезным способом взаимодействия с ним, но вам почти никогда не понадобится отправлять команды в групповой чат если там 2 или больше ботов, кроме случая когда вы хорошо понимаете поведение ASF и на самом деле хотите транслировать команду всем ботам которые вас слушают.
 
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+*И даже в этом случае вам лучше использовать личный чат используя синтаксис `<Bots>` для нескольких ботов.*
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Для некоторых команд существуют сокращённые имена, чтобы облегчить вам их ввод:
 
 | Команда      | Сокращение |
 | ------------ | ---------- |
@@ -119,32 +119,32 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+Чтобы дать команду Asf нет необходимости в дополнительном аккаунте - вы можете создать группу, ввести идентифиактор этой группы в параметр `SteamMasterClanID`, и указать свой SteamID в параметре `SteamOwnerID` или в `SteamUserPermissions` своего бота. После этого бот ASF (с вашим аккаунтом) присоединиться к группе и к чату в этой группе, и будет слушать ваши команды с вашего собственного аккаунта. Вы можете зайти в тот же чет через клиент Steam, и отдавать команды самому себе (вы будете писать команды в чат, а ASF будет принимать их, хотя отображаться будет будто в чате только один ваш аккаунт). Кроме этого, вы можете использовать **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)**, но вариант с групповым чатом гораздо проще, а если у вас есть дополнительный аккаунт - то использование его ещё проще.
 
 * * *
 
-When using **IPC**, keep in mind that:
+Пользуясь **IPC**, помните:
 
 - К командам не нужно добавлять префикс `CommandPrefix`, ASF при необходимости добавит его автоматически
 - При использовании комманд, адресованых `текущему боту`, ASF может выбрать **любого** из активных ботов, поэтому настоятельно рекомендуется использовать команды с указанием `имени бот(ов)`.
 
 * * *
 
-### `<Bots>` argument
+### Параметр `<Bots>`
 
-`<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
+Параметр `<Bots>` это особый тип параметра-множества, поскольку помимо нескольких однотипных параметров он имеет дополнительный функционал.
 
-First and foremost, there is a special `ASF` keyword which acts as "all bots in the process", so `status ASF` command is equal to `status all,your,bots,listed,here`. This can also be used to easily identify the bots that you have access to, as `ASF` keyword, despite of targetting all bots, will result in response only from those bots that you can actually send the command to.
+Первое и основное, существует зарезервированное слово `ASF`, которое означает "все боты в процессе", поэтому команда `status ASF` эквивалентна команде `status все,ваши,боты,перечислены,здесь`. Это может быть использовано чтобы легко определить к каким ботам у вас есть доступ, поскольку ключевое слово `ASF`, хотя и подразумевает всех ботов, на выходе даст ответ только от тех ботов, которым вам разрешено отдавать команды.
 
-`<Bots>` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
+Параметр `<Bots>` поддерживает специальный синтаксис для задания "интервалов", который позволяет проще задавать подмножество ботов. Синтаксис для `<Bots>` в этом случае `firstBot..lastBot`. Например, если у вас есть боты с именами `A, B, C, D, E, F`, вы можете запустить команду `status B..E`, которая будет в этом случае эквивалентна `status B,C,D,E`. При использовании этого синтаксиса, ASF пользуется алфавитным порядком, чтобы определить какие боты попадают в указанный диапазон. И `firstBot` и `lastBot` должны быть реальными именами ботов в ASF, иначе весь диапазон полностью игнорируется.
 
-In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching (case insensitive), and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
+В дополнение к синтаксису для интервалов, описанному выше, параметр `<Bots>` также поддерживает **[регулярные выражения](https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F)**. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. Пример команды с использованием регулярных выражений - `status r!\d{3}`, при этом всем ботам, у которых имя состоит из 3 цифр (например, `123` и `981`) будет отправлена команда `status`. Вы всегда можете ознакомиться с **[документацией](https://docs.microsoft.com/ru-ru/dotnet/standard/base-types/regular-expression-language-quick-reference)** если вам нужны дальнейшие объяснения или дополнительные примеры доступных регулярных выражений.
 
 * * *
 
 ## Настройки приватности (`privacy`)
 
-`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` включает в себя **до 6** различных параметров, как всегда разделенных запятой, стандартными разделителем в ASF. Они задаются в таком порядке:
 
 | Параметр | Имя                | Наследуется от     |
 | -------- | ------------------ | ------------------ |
@@ -155,9 +155,9 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 | 5        | Инвентарь подарков | Инвентарь          |
 | 6        | Комментарии        | Профиль            |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+Для описания этих параметров, посетите пожалуйста страницу "**[Мои настройки приватности](https://steamcommunity.com/my/edit/settings)**" в Steam.
 
-While valid values for all of them are:
+Допустимые значения для этих параметров:
 
 | Значение | Имя           |
 | -------- | ------------- |
@@ -165,38 +165,38 @@ While valid values for all of them are:
 | 2        | `FriendsOnly` |
 | 3        | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Вы можете вводить либо регистронезависимое имя, или цифровое значение. Не заданные параметры будут по-умолчанию заданы как `Private`. Важно помнить о наследовании одних параметров от других, как указано выше, поскольку параметр-наследник не может иметь более открытые настройки приватности чем его параметр-родитель. Например, вы **не можете** задать `Public` для игровой информации если для профиля задано `Private`.
 
 ### Пример
 
-If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+Если вы хотите задать **все** настройки приватности для вашего бота с именем `Main` равными `Private`, вы можете задать это одним из способов ниже:
 
     privacy Main 0
     privacy Main Private
     
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+Так происходит потому, что ASF автоматически задаст все оставшиеся параметры равными `Private`, поэтому нет необходимости указывать их. С другой стороны, если вы хотите задать все настройки приватности равными `Public`, вам нужно использовать один из вариантов ниже:
 
     privacy Main 3,3,3,3,3,3
     privacy Main Public,Public,Public,Public,Public,Public
     
 
-This way you can also set independent options however you like:
+Однако вы можете задать и независимые настройки, если хотите:
 
     privacy Main Public,FriendsOnly,Private,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+Команда выше настроит открытый профиль, информацию об играх только для друзей, скрытый инвентарь, скрытые подарки и открытый раздел комментариев. То же самое можно задать и цифровыми значениями, если хотите.
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+Помните о том, что наследник никогда не может иметь более открытые настройки чем родитель. Пользуйтесь для справок о зависимостях параметров таблицей выше.
 
 * * *
 
 ## Режимы активации `redeem^`
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+Команда `redeem^` позволяет производить тонкую настройку активации ключей для разового использования. Это позволяет временно переопределить настройки заданные в **[параметре конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** `RedeemingPreferences`.
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+Параметр `<Modes>` может включать в себя несколько настроек режима активации, разделённых запятыми. Доступные значения указаны ниже:
 
 | Значение | Имя                   | Описание                                                                    |
 | -------- | --------------------- | --------------------------------------------------------------------------- |
@@ -209,7 +209,7 @@ Remember that child can never have more open permission than its parent. Refer t
 | SKMG     | SkipKeepMissingGames  | Принудительно отключает режим `KeepMissingGames` для активации              |
 | V        | Validate              | Проводить проверку формата ключей и не пытаться активировать неверные ключи |
 
-For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
+Например, мы хотим активировать 3 ключа на любых ботов, у которых ещё нет этих игр, кроме основного аккаунта с именем `primary`. Для этого мы должны использовать команду:
 
 `redeem^ primary FF,SI key1,key2,key3`
 
@@ -217,7 +217,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 ## Режимы `transfer`
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+Параметр `<Modes>` может включать в себя несколько настроек режима передачи предметов, разделённых запятыми. Допустимые обозначения режима перечислены ниже:
 
 | Значение   | Сокращение | Описание                                                                  |
 | ---------- | ---------- | ------------------------------------------------------------------------- |
@@ -230,7 +230,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 | Gems       | G          | Самоцветы и мешки самоцветов, используемые для создания наборов карточек  |
 | Unknown    | U          | Типы предметов, которые не попадают ни в одну из категорий выше           |
 
-For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
+Например, чтобы отправить коллекционные металлические карточки с `MyBot` на `MyMain`, необходимо выполнить:
 
 `transfer MyBot C,F MyMain`
 
@@ -238,11 +238,11 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 ## Команда `input`
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+Команда `input` может использоваться только в безынтерфейсном режиме (`Headless`), для ввода данных с помощью **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-ru-RU)** или чата Steam в случае когда ASF работает без возможности взаимодействия с пользователем.
 
-General syntax is `input <Bots> <Type> <Value>`.
+Синтаксис команды в общем случае `input <Bots> <Type> <Value>`.
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+`<Type>` это регистрозависимый параметр который задаёт тип, поддерживаемый ASF. На данный момент ASF поддерживает следующие типы данных:
 
 | Тип                     | Описание                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -253,18 +253,18 @@ General syntax is `input <Bots> <Type> <Value>`.
 | SteamParentalPIN        | ПИН для семейного просмотра, замена параметра `SteamParentalPIN` в случае когда он не указан в файле конфигурации. |
 | TwoFactorAuthentication | Код 2ФА, генерируемый на вашем мобильном устройстве, если вы пользуетесь 2ФА на не импортировали его в 2ФА ASF.    |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` - это значение выбранного типа. На данный момент все значения представляют собой строки.
 
 ### Пример
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Допустим у нас есть бот, защищённый SteamGuard в режиме без 2ФА. Мы хотим запустить этого бота `Headless` равным true.
 
-In order to do that, we need to execute following commands:
+Чтобы добиться этого, нам нужно выполнить следующие команды:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail.
+`start MySteamGuardBot` -> Бот попытается войти в Steam, потерпит неудачу из-за необходимотсти ввести код авторизации, и остановится из-за того что запущен в режиме `Headless` mode. Это нужно чтобы сеть Steam отправила нам код на e-mail.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> Мы задаём значение `SteamGuard` для бота `MySteamGuardBot` равным `ABCDE`. Разумеется, `ABCDE` в данном случае - тот код авторизации который мы получили по e-mail.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> Мы запускаем нашего (остановленного) бота снова, и на этот раз он автоматически использует код авторизации, который мы задали предыдущей командой, нормально входит в Steam стирает код из памяти.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Таким же образом мы можем запустить ботов, защищённых с помощью 2ФА (если для них не используется 2ФА ASF), а также задавать другие параметры в процессе работы.

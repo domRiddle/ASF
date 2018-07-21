@@ -11,12 +11,12 @@
 * **[Compatibilité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Activateur de Jeux de Fond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commandes](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Échange](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Partage Familial Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistiques](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Avancé
+## Configuration avancée
 
 * **[FAQ Supplémentaires](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**

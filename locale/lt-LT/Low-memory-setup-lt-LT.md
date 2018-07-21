@@ -1,4 +1,4 @@
-# Low-memory setup
+# Mažos atminties sąranka
 
 This is exact opposite of **[high-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
 

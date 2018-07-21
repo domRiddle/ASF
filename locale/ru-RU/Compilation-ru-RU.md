@@ -50,7 +50,7 @@ If you're using Linux/OS X, you can instead use `cc.sh` script which will do the
 
 If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
 
-### OS-specific
+### Пакеты под конкретные ОС
 
 You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
 

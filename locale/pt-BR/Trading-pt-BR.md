@@ -1,4 +1,4 @@
-# Troca
+# Negociação
 
 O ASF possui suporte não interativo (offline) para trocas Steam. Seja aceitando ou recusando, como também enviando negociações, esta função está disponível e não requer configuração especial, mas claro, requer uma conta Steam sem restrições (que tenha gasto 5 dólares na loja). O módulo de trocas não está disponível para contas restritas.
 

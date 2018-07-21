@@ -1,4 +1,4 @@
-# Localization
+# Localisatie
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Issues
+### Problemen
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 

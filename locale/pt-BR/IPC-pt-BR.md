@@ -174,16 +174,17 @@ This API endpoint can be used for fetching general data about ASF process as a w
 
 ```shell
 curl -X GET /Api/ASF
-{"Message":"OK","Result":{"GlobalConfig":{"AutoRestart":true,"BackgroundGCPeriod":0},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
+{"Message":"OK","Result":{"BuildVariant":"generic","GlobalConfig":{"AutoRestart":true,"Blacklist":[]},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
 
 #### ASFResponse
 
 ```json
 {
+    "BuildVariant": "string",
     "GlobalConfig": {
         "AutoRestart": true,
-        "BackgroundGCPeriod": 0
+        "Blacklist": []
     },
     "MemoryUsage": 4294967295,
     "ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
@@ -198,7 +199,9 @@ curl -X GET /Api/ASF
 }
 ```
 
-`GlobalConfig` is specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration, and it also exposes all available config variables. This property can be used for determining with what options the ASF program is configured to work. In example structure above, only a subset of all properties is shown in order to keep it clean.
+`BuildVariant` - `string` value that specifies build variant of currently running ASF process. This can be any variant available under **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**, as well as variants that are not officially available for download (such as `docker` variant for our Docker images or `source` variant for unofficial builds).
+
+`GlobalConfig` - specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration, and it also exposes all available config variables. This property can be used for determining with what options the ASF program is configured to work. In example structure above, only a subset of all properties is shown in order to keep it clean.
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
 
@@ -238,7 +241,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoResta
 
 ### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
 
 ```shell
 curl -X DELETE /Api/Bot/archi
@@ -365,6 +368,45 @@ This API endpoint can be used executing given command specified by its `{Command
 curl -X POST -d '' /Api/Command/version
 {"Message":"OK","Result":"\r\n<archi> ASF V3.0.5.3","Success":true}
 ```
+
+* * *
+
+### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
+
+This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+
+```shell
+curl -X DELETE /Api/GamesToRedeemInBackground/archi
+{"Message":"OK","Result":null,"Success":true}
+```
+
+* * *
+
+### `GET /Api/GamesToRedeemInBackground/{BotName}`
+
+This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `Dictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
+
+```shell
+curl -X GET /Api/GamesToRedeemInBackground/archi
+{"Message":"OK","Result":{"archi":{"UnusedKeys":{"AAAAA-BBBBB-CCCCC":"Orwell","XXXXX-YYYYY-ZZZZZ":"Factorio"},"UsedKeys":{}}},"Success":true}
+```
+
+#### GamesToRedeemInBackgroundResponse
+
+```json
+{
+    "UnusedKeys": {
+        "string": "string",
+        "string": "string"
+    },
+    "UsedKeys": {
+        "string": "string",
+        "string": "string"
+    }
+}
+```
+
+Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
 
 * * *
 

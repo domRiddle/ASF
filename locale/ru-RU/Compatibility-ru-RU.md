@@ -32,7 +32,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 * * *
 
-### OS-specific
+### Пакеты под конкретные ОС
 
 OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
 
@@ -49,7 +49,7 @@ For a complete list of all supported platforms and OSes by .NET Core 2.1, visit 
 
 * * *
 
-## Runtime requirements
+## Требования среды исполнения
 
 If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed and up-to-date.
 

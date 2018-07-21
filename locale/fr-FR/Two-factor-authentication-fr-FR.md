@@ -123,7 +123,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 * * *
 
-## FAQ (Questions fréquemment posées)
+## FAQ
 
 ### How is ASF making use of 2FA module?
 
@@ -167,7 +167,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 * * *
 
-## Avancé
+## Configuration avancée
 
 If you're advanced user, you can also generate maFile manually. It should have a **[valid JSON structure](https://jsonlint.com)** of:
 

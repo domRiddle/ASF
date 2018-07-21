@@ -11,7 +11,7 @@
 * **[Kompabilitet](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Produktaktivering i baggrunden](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Kommandoer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Ydelse](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Ydeevne](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Handel](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam-familiedeling](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistik](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
@@ -22,14 +22,14 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Lav-hukommelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Højydelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Kommandolinjeargumenter](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Logføring](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Lokalisering](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sikkerhed](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Tredjeparts-værktøjer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Udfasning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Udviklere
 

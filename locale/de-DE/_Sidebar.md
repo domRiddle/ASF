@@ -24,9 +24,9 @@
 * **[Zwei-Faktor-Authentifizierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Speichereffiziente Einrichtung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Hochleistungs-Einrichtung](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Befehlszeilenargumente](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Konsolen-Argumente](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Protokollierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Übersetzung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Lokalisierung](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicherheit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Drittanbieter-Programme](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Veraltete Funktionen](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**

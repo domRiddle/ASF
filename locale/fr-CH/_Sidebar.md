@@ -6,34 +6,34 @@
 * **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ (Questions fréquemment posées)](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Fonctions Principales
+## Configuration minimale
 
-* **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
+* **[Compatibilité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Activateur de Jeux de Fond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commandes](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
-* **[Performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
+* **[Performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Échange](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Statistics](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
+* **[Partage Familial Steam](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Statistiques](https://github.com/JustArchi/ArchiSteamFarm/wiki/Statistics)**
 
-## Avancé
+## Configuration avancée
 
 * **[FAQ Supplémentaires](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Authentification à deux facteurs](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
-* **[Localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
+* **[Configuration pour faible mémoire](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configuration à hautes performances](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Arguments de ligne de commande](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Journalisation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Localisation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sécurité](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
-* **[Third-party tools](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
+* **[Outils tiers](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Désuétude](https://github.com/JustArchi/ArchiSteamFarm/wiki/Deprecation)**
 
 ## Développeurs
 
 * **[Compilation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
-* **[License](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
+* **[Cycle de mises à jour](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Licence](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
 * **[Directives de contribution](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

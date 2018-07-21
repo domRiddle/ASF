@@ -1,4 +1,4 @@
-# Deprecation
+# Устаревание
 
 Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
 
@@ -28,7 +28,7 @@ Stage 2 is scheduled after stage 1 explained above takes place and gets released
 
 * * *
 
-## Summary
+## Резюме
 
 You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
 

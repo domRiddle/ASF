@@ -1,4 +1,4 @@
-# Veelgestelde vragen
+# FAQ (veelgestelde vragen)
 
 Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
@@ -7,8 +7,8 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 - [Algemeen](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [Diversen](#misc)
+- [Problemen](#issues)
 
 * * *
 
@@ -281,7 +281,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## Diversen
 
 * * *
 
@@ -396,7 +396,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problemen
 
 * * *
 

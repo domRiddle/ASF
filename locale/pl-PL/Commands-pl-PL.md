@@ -38,7 +38,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## Komendy
 
-| Command                                              | Dostęp          | Description                                                                                                                                                                                           |
+| Command                                              | Dostęp          | Opis                                                                                                                                                                                                  |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
 | `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
@@ -82,7 +82,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `transfer <Bots> <Modes> <Bot>`    | `Master`        | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.                                                  |
 | `unpack <Bots>`                                | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
 | `update`                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `version`                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `wersja`                                             | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *
 
@@ -138,7 +138,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 `<Bots>` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching (case insensitive), and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
+In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
 * * *
 
@@ -198,7 +198,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Nazwa                 | Description                                                           |
+| Value | Nazwa                 | Opis                                                                  |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
@@ -219,7 +219,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Description                                                   |
+| Value      | Alias | Opis                                                          |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
@@ -236,7 +236,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 * * *
 
-## `input` command
+## Polecenie `input`
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -244,11 +244,11 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Typ                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
+| Hasło                   | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

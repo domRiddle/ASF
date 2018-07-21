@@ -3,10 +3,10 @@
 ## Getting started
 
 * **[Setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
-* **[Configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
+* **[Configuración](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
-## Core
+## Núcleo
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**

@@ -61,7 +61,7 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 * * *
 
-## Issues and solutions
+## Problemen en oplossingen
 
 ### Debian Jessie upgrade
 

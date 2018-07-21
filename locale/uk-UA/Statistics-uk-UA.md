@@ -1,4 +1,4 @@
-# Statistics
+# Статистика
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
