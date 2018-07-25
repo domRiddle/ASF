@@ -165,9 +165,13 @@ ASF includes extended support for chat logging by not only recording all receive
 ### Event properties
 
 `Echo` - `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.
+
 `Message` - `string` type. This is the actual sent/received message.
+
 `ChatGroupID` - `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
+
 `ChatID` - `ulong` type. This is the ID of the `chatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
+
 `SteamID` - `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat).
 
 ### Example
