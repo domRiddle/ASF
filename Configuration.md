@@ -344,10 +344,11 @@ Value | Name | Description
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 8 | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications
+16 | MarkReceivedMessagesAsRead | Will cause ASF to automatically mark **all** received messages as read
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
-In general you want to modify this property if you expect from ASF to do certain amount of automation related to invalid activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use it for main accounts too.
+In general you want to modify this property if you expect from ASF to do certain amount of automation related to its activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use selected options for main accounts as well.
 
 Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
 
