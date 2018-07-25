@@ -179,7 +179,7 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
-    <target xsi:type="File" name="ChatLogFile" fileName="ChatLog.txt" layout="Echo: ${event-properties:item=Echo} | Message: ${event-properties:item=Message} | ChatGroupID: ${event-properties:item=ChatGroupID} | ChatID: ${event-properties:item=ChatID} | SteamID: ${event-properties:item=SteamID}" />
+    <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}-${event-properties:item=SteamID}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Echo} | ${event-properties:item=Message}" />
   </targets>
 
   <rules>
@@ -193,7 +193,9 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 </nlog>
 ```
 
-This enhances our very basic `ColoredConsole` example with extra logging to `ChatLog.txt` file. We applied a custom layout that writes all of ASF event properties in that target. Lastly we've enabled a rule for this target that logs only `Trace` level, and only trace functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We also decided to use a custom layout that writes only current date, sent/received info and message itself. Lastly we enabled a rule for this target only on `Trace` level, and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+
+Please note that this is just a basic example of using event properties. You can further extend it by creating more advanced conditions and setups, for example logging a chat of only one specific user/group chat and not all of them.
 
 ---
 
