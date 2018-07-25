@@ -158,6 +158,43 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 ---
 
+## Chat logging
+
+ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**.
+
+### Event properties
+
+`Echo` - `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.
+`Message` - `string` type. This is the actual sent/received message.
+`ChatGroupID` - `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
+`ChatID` - `ulong` type. This is the ID of the `chatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
+`SteamID` - `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat).
+
+### Example
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <targets>
+    <target xsi:type="ColoredConsole" name="ColoredConsole" />
+    <target xsi:type="File" name="ChatLogFile" fileName="ChatLog.txt" layout="Echo: ${event-properties:item=Echo} | Message: ${event-properties:item=Message} | ChatGroupID: ${event-properties:item=ChatGroupID} | ChatID: ${event-properties:item=ChatID} | SteamID: ${event-properties:item=SteamID}" />
+  </targets>
+
+  <rules>
+    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+    <logger name="*" level="Trace" writeTo="ChatLogFile">
+      <filters>
+        <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
+      </filters>
+    </logger>
+  </rules>
+</nlog>
+```
+
+This enhances our very basic `ColoredConsole` example with extra logging to `ChatLog.txt` file. We applied a custom layout that writes all of ASF event properties in that target. Lastly we've enabled a rule for this target that logs only `Trace` level, and only trace functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+
+---
+
 ## ASF targets
 
 Starting with version 2.2.1.7, in addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
