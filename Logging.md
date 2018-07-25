@@ -179,7 +179,7 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
-    <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=&lt;-:else=-&gt;} ${event-properties:item=SteamID}" />
+    <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=-&gt;:else=&lt;-} ${event-properties:item=SteamID}" />
   </targets>
 
   <rules>
@@ -195,7 +195,14 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 
 This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We also decided to use a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly we enabled a rule for this target only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
 
-This quite advanced example shows how easy it is to create a chat-based history on per-conversation basis, while logging all relevant to us information. As you can expect, you can further extend it in however way you wish.
+The example above will generate `0-0-76561198069026042.txt` file when talking to **[ArchiBoT](http://steamcommunity.com/profiles/76561198069026042)**.
+
+```
+2018-07-26 01:38:38 how are you doing? -> 76561198069026042
+2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
+```
+
+Of course this is just a working example with a few nice layout tricks showed in practical manner. You can further expand this idea to your own needs, such as extra filtering, custom order, recording only received messages and so on.
 
 ---
 
