@@ -1,6 +1,6 @@
 # Logging
 
-Starting with version V2.1.2.0, ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
 ---
 
@@ -199,7 +199,7 @@ This enhances our very basic `ColoredConsole` example with extra logging to `Cha
 
 ## ASF targets
 
-Starting with version 2.2.1.7, in addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
+In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
 
 For maximum completeness, definition of ASF targets will follow NLog documentation convention.
 
