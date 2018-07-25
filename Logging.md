@@ -193,7 +193,7 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 </nlog>
 ```
 
-This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly we've enabled a rule for this target only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly, we've enabled our chat logging rule only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
 
 The example above will generate `0-0-76561198069026042.txt` file when talking to **[ArchiBoT](http://steamcommunity.com/profiles/76561198069026042)**.
 
