@@ -168,7 +168,7 @@ For maximum completeness, definition of ASF targets will follow NLog documentati
 
 ### SteamTarget
 
-As you can guess, this target uses Steam chat messages for logging ASF messages. It writes log messages to specific `steamID`, from specific `botName`. 
+As you can guess, this target uses Steam chat messages for logging ASF messages. You can configure it to use either a group chat, or private chat. In addition to specifying a Steam target for your messages, you can also specify `botName` of the bot that is supposed to send those.
 
 Supported in all environments used by ASF.
 
