@@ -344,7 +344,7 @@ Value | Name | Description
 2 | RejectInvalidTrades | Will cause ASF to reject (instead of ignoring) invalid trade offers
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 8 | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications
-16 | MarkReceivedMessagesAsRead | Will cause ASF to automatically mark **all** received messages as read
+16 | MarkReceivedMessagesAsRead | Will cause ASF to automatically mark all received messages as read
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
