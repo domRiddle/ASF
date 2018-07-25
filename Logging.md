@@ -179,12 +179,12 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
-    <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Echo} | ${event-properties:item=Message}" />
+    <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=&lt;-:else:-&gt;} ${event-properties:item=SteamID}" />
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-    <logger name="*" level="Trace" writeTo="ChatLogFile">
+    <logger name="MainAccount" level="Trace" writeTo="ChatLogFile">
       <filters>
         <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
       </filters>
@@ -193,9 +193,9 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 </nlog>
 ```
 
-This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We also decided to use a custom layout that writes only current date, sent/received info and message itself. Lastly we enabled a rule for this target only on `Trace` level, and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+This enhances our very basic `ColoredConsole` example with basic chat logging. First and foremost, we prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We also decided to use a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly we enabled a rule for this target only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
 
-Please note that this is just a basic example of using event properties. You can further extend it by creating more advanced conditions and setups, for example logging a chat of only one specific user/group chat and not all of them.
+This quite advanced example shows how easy it is to create a chat-based history on per-conversation basis, while logging all relevant to us information. As you can expect, you can further extend it in however way you wish.
 
 ---
 
