@@ -289,7 +289,6 @@ As you should know already, every bot should have its own config. Example bot co
 	"Enabled": false,
 	"FarmingOrders": [],
 	"GamesPlayedWhileIdle": [],
-	"HandleOfflineMessages": false,
 	"HoursUntilCardDrops": 3,
 	"IdlePriorityQueueOnly": false,
 	"IdleRefundableGames": true,
@@ -309,6 +308,7 @@ As you should know already, every bot should have its own config. Example bot co
 	"SendTradePeriod": 0,
 	"ShutdownOnFarmingFinished": false,
 	"SteamLogin": null,
+	"SteamMasterChatGroupID": 0,
 	"SteamMasterClanID": 0,
 	"SteamParentalPIN": "0",
 	"SteamPassword": null,
@@ -471,11 +471,13 @@ Value | Name
 6 | LookingToPlay
 7 | Invisible
 
-`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Offline farming solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline farming will still count towards your playtime, and show as "recently played" on your profile.
+`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, but in "semi-offline" mode. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
-In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - farming offline in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back. Also, bots with `Offline` status can't react to commands (directly), which is important if you decide to use that feature with alt accounts (see: `HandleOfflineMessages`). If you're unsure how to set up this property, it's suggested to use a value of `0` for primary accounts, and default `1` otherwise.
+In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and you're not receiving e.g. unread messages if in fact your account is online for the entire time and receiving messages through ASF - `Offline` status in this case is extremely useful, as all messages that arrive while you were offline, even if ASF is running (farming offline), are properly marked as unread and forwarded to you when you come back.
 
-An alternative to `Offline` mode is obviously `Invisible` mode which works in a similar way, but it also has to sign in into Steam community, acting like secondary Steam client with a potential to dismiss notifications and unread messages. Therefore, in reality this is an alternative to `Offline` mode with `HandleOfflineMessages` enabled as well, and not to `Offline` mode alone.
+It's also important to note that ASF running on `Offline` mode will **not** be able to receive commands in usual Steam chat way, as the chat is in fact entirely offline for us. A solution to this issue is using `Invisible` mode instead which works in a similar way (not exposing status), but keeps the ability receive and respond to messages, so also a potential to dismiss notifications and unread messages as stated above. `Invisible` mode makes the most sense on alt accounts that you don't want to expose (status-wise), but still be able to send commands to.
+
+If you're unsure how to set up this property, it's suggested to use a value of `0` for primary accounts, and default `1` otherwise.
 
 ---
 
@@ -528,7 +530,13 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
-`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. If you don't have any "farm group" for your bots, you should keep it at default.
+`SteamMasterChatGroupID` - `ulong` type with default value of `0`. This property defines the steamID of the group's chat that the bot should automatically join. The **prerequisite** for this to work properly is being a member of the group first, either already, or before attempting to join the chat (see `SteamMasterClanID`). Meeting that condition makes it possible to automatically join that group's chatroom, which is specified in this property as `SteamMasterChatGroupID`. If you don't have any group's chat dedicated for your bots, you should keep this property with default value of `0`.
+
+⌛️ TODO: There should be info about how to find this ID. I didn't check yet if Valve exposes this info anywhere, current rusty solution includes making bot join the chat manually, enabling `Trace` logging level and sending a message which will write info about `ChatGroupID` to the log.
+
+---
+
+`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
 
 ---
 
