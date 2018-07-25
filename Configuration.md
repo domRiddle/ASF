@@ -308,7 +308,6 @@ As you should know already, every bot should have its own config. Example bot co
 	"SendTradePeriod": 0,
 	"ShutdownOnFarmingFinished": false,
 	"SteamLogin": null,
-	"SteamMasterChatGroupID": 0,
 	"SteamMasterClanID": 0,
 	"SteamParentalPIN": "0",
 	"SteamPassword": null,
@@ -531,13 +530,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
-`SteamMasterChatGroupID` - `ulong` type with default value of `0`. This property defines the steamID of the group's chat that the bot should automatically join. The **prerequisite** for this to work properly is being a member of the group first, either already, or before attempting to join the chat (see `SteamMasterClanID`). Meeting that condition makes it possible to automatically join that group's chatroom, which is specified in this property as `SteamMasterChatGroupID`. If you don't have any group's chat dedicated for your bots, you should keep this property with default value of `0`.
-
-⌛️ TODO: There should be info about how to find this ID. I didn't check yet if Valve exposes this info anywhere, current rusty solution includes making bot join the chat manually, enabling `Trace` logging level and sending a message which will write info about `ChatGroupID` to the log.
-
----
-
-`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
+`SteamMasterClanID` - `ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/ascfarm)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/ascfarm/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
 
 ---
 
