@@ -21,11 +21,11 @@
 * **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Autenticação de dois fatores](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Low-memory setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Configuração de alto desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumentos da linha de comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Captura de registros do sistema](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localização](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Segurança](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Ferramentas de terceiros](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**

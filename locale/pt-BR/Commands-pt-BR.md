@@ -1,36 +1,36 @@
 # Comandos
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF suporta uma variedade de comandos, que pode ser usado para controlar o comportamento dos processos e das instâncias do bot.
 
-Below commands can be sent to the bot through three different ways:
+Abaixo comandos podem ser enviados para o bot através de três maneiras diferentes:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Através de Bate-papo privado pelo Steam
+- Através de Bate-papo em grupo pelo Steam
+- Através do **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Tenha em mente que a interação ASF requer de você a permissão para o comando de acordo com as permissões do ASF. Confira `SteamUserPermissions` e `SteamOwnerID` em propriedades de configuração para obter mais detalhes.
 
 All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
 
 * * *
 
-### Steam private chat
+### Bate-papo privado pelo Steam
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
+Definitivamente o método mais fácil de interagir com ASF - basta executar o comando para bot ASF que atualmente está sendo executado no processo ASF. Obviamente, não pode fazer isso se você estiver executando o ASF com uma única conta bot que é a sua própria conta.
 
 ![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
-### Steam group chat
+### Bate-papo em grupo pelo Steam
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
+Muito similar ao acima, mas desta vez no chat em grupo do Steam. Tenha em mente que esta opção requer que qualquer `SteamMasterClanID` corretamente definido, ou você convidar o seu bot para o bate-papo manualmente. Isto também pode ser usado para "falar sozinho" e não exige conta dedicada ao bot.
 
 * * *
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface.
+Provavelmente o mais "complexo" método da chamada ASF, perfeito para ferramentas de terceiros ou scripts, requer ASF ser executado no modo de servidor e um cliente que está executando o comando através de interface do **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**.
 
 ![Screenshot](https://i.imgur.com/TsAHcM0.png)
 
@@ -38,18 +38,18 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## Comandos
 
-| Command                                              | Permissão de acesso | Description                                                                                                                                                                                           |
+| Comando                                              | Permissão de acesso | Descrição                                                                                                                                                                                             |
 | ---------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                   | `Master`            | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
-| `2fano <Bots>`                                 | `Master`            | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
-| `2faok <Bots>`                                 | `Master`            | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                      |
+| `2Fa <Bots>`                                   | `Master`            | Gerar chave **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** temporária para determinadas instâncias do bot.                                                     |
+| `2Fano <Bots>`                                 | `Master`            | Negar todas as confirmações **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para determinadas instâncias do bot.                                      |
+| `2faok <Bots>`                                 | `Master`            | Aceitar todas as confirmações **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para determinadas instâncias do bot.                                    |
 | `addlicense <Bots> <GameIDs>`            | `Operator`          | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
-| `bl <Bots>`                                    | `Master`            | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
+| `bl <Bots>`                                    | `Master`            | Parar todos os processos do ASF.                                                                                                                                                                      |
 | `bladd <Bots> <SteamIDs64>`              | `Master`            | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`               | `Master`            | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                               | `Owner`             | Stops whole ASF process.                                                                                                                                                                              |
-| `farm <Bots>`                                  | `Master`            | Restarts cards farming module for given bot instances.                                                                                                                                                |
-| `help`                                               | `FamilySharing`     | Shows help (link to this page).                                                                                                                                                                       |
+| `exit`                                               | `Owner`             | Interrompe todo o processo ASF.                                                                                                                                                                       |
+| `farm <Bots>`                                  | `Master`            | Reiniciar o modulo de coleta de cartas para determinadas instâncias do bot.                                                                                                                           |
+| `help`                                               | `FamilySharing`     | Mostrar Ajuda (Link para esta pagina).                                                                                                                                                                |
 | `input <Bots> <Type> <Value>`      | `Master`            | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
 | `ib <Bots>`                                    | `Master`            | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
 | `ibadd <Bots> <AppIDs>`                  | `Master`            | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |
@@ -77,12 +77,12 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `resume <Bots>`                                | `FamilySharing`     | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
 | `start <Bots>`                                 | `Master`            | Starts given bot instances.                                                                                                                                                                           |
 | `stats`                                              | `Owner`             | Prints process statistics, such as managed memory usage.                                                                                                                                              |
-| `status <Bots>`                                | `FamilySharing`     | Prints status of given bot instances.                                                                                                                                                                 |
-| `stop <Bots>`                                  | `Master`            | Stops given bot instances.                                                                                                                                                                            |
+| `status <Bots>`                                | `FamilySharing`     | Mostrar a condição de determinadas instâncias do bot.                                                                                                                                                 |
+| `stop <Bots>`                                  | `Master`            | Parar determinadas instâncias do bot.                                                                                                                                                                 |
 | `transfer <Bots> <Modes> <Bot>`    | `Master`            | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.                                                  |
-| `unpack <Bots>`                                | `Master`            | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
+| `unpack <Bots>`                                | `Master`            | Abrir todos os pacotes de cartas armazenados no inventario de determinadas instâncias do bot.                                                                                                         |
 | `update`                                             | `Owner`             | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `versão`                                             | `FamilySharing`     | Prints version of ASF.                                                                                                                                                                                |
+| `version`                                            | `FamilySharing`     | Mostra a versão do ASF.                                                                                                                                                                               |
 
 * * *
 
@@ -96,7 +96,7 @@ All commands are case-insensitive, but their arguments (such as bot names) are u
 
 Plural arguments, such as `<Bots>`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `status <Bots>` can be used as `status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `status` to each bot in a separate chat window. Please note that there is no space after `,`.
 
-ASF uses all whitespace characters as possible delimiters for a command, such as space and newline characters. This means that you don't have to use space for delimiting your arguments, you can as well use any other whitespace character (such as tab or new line).
+O ASF usa todos os caracteres em branco como possíveis delimitadores para um comando, como espaço e caracteres de nova linha. Isto significa que você não tem que usar o espaço para delimitação de seus argumentos, você também pode usar qualquer outro caractere de espaço em branco (tais como tab ou nova linha).
 
 ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `redeem bot key1 key2 key3` for `redeem <Bots> <Keys>` will work exactly the same as `redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter. Keep in mind that this trick can be used only for command variant that uses the most amount of arguments.
 
@@ -104,13 +104,13 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
 
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+*E mesmo nesse caso você deve usar bate-papo privado com sintaxe `<Bots>` em vez disso.*
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Alguns comandos também estão disponíveis com seus pseudônimo, para salvá-lo na digitação:
 
-| Command      | Alias |
+| Comando      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -123,14 +123,14 @@ It's not required to have any extra account for executing commands though Steam 
 
 * * *
 
-When using **IPC**, keep in mind that:
+Ao usar **IPC**, tenha em mente que:
 
 - Commands don't have to be prefixed by `CommandPrefix`, ASF prefixes them for you automatically if needed
 - When using commands that are based on `current bot instance`, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use `given bot instances` commands instead.
 
 * * *
 
-### `<Bots>` argument
+### `<Bots>` Argumentos
 
 `<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -142,24 +142,24 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## configurações de `privacidade`
 
 `<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Nome           | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | Inventory      | Profile    |
-| 5        | InventoryGifts | Inventory  |
-| 6        | Comments       | Profile    |
+| Argumento | Nome           | Filho de   |
+| --------- | -------------- | ---------- |
+| 1         | Profile        |            |
+| 2         | OwnedGames     | Profile    |
+| 3         | Playtime       | OwnedGames |
+| 4         | Inventory      | Profile    |
+| 5         | InventoryGifts | Inventory  |
+| 6         | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | Nome          |
+| Valor | Nome          |
 | ----- | ------------- |
 | 1     | `Private`     |
 | 2     | `FriendsOnly` |
@@ -198,7 +198,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Nome                  | Description                                                           |
+| Valor | Nome                  | Descrição                                                             |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
@@ -219,11 +219,11 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Description                                                   |
+| Valor      | Alias | Descrição                                                     |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
-| Booster    | BO    | Booster pack                                                  |
+| Booster    | BO    | Pacote de carta                                               |
 | Card       | C     | Steam trading card, being used for crafting badges (non-foil) |
 | Emoticon   | E     | Emoticon to use in Steam Chat                                 |
 | Foil       | F     | Foil variant of `Card`                                        |
@@ -236,7 +236,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 * * *
 
-## `input` command
+## `Entrada` de comando
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -244,11 +244,11 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Descrição                                                                  |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Senha                   | `SteamPassword` bot config property, if missing from config.               |
+| Password                | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

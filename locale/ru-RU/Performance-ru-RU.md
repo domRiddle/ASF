@@ -54,7 +54,7 @@ It's nice to note that ASF also includes `Manual` farming mode that can be activ
 
 * * *
 
-## Steam glitches
+## Глюки Steam
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 
