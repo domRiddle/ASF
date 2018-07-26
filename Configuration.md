@@ -201,7 +201,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 
-`SteamMessagePrefix` - `string` type with default value of `/me `. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `/me ` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `/pre ` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize this behaviour, it's a good idea to leave it at default.
+`SteamMessagePrefix` - `string` type with default value of `"/me "`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize this behaviour, it's a good idea to leave it at default.
 
 ---
 
