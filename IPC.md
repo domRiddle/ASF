@@ -548,5 +548,6 @@ This API endpoint is used internally for sending remote `GET` requests. This sho
 `URL` is `string` type that specifies target URL to make a `GET` request. It must start with `https://`.
 
 ```shell
-TODO
+curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com"}' /Api/WWW/Send
+{"Message":"OK","Result":"<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>...","Success":true}
 ```
