@@ -528,3 +528,25 @@ This API endpoint can be used for fetching directory's content specified by its 
 curl -X GET /Api/WWW/Directory/css
 {"Message":"OK","Result":["app.css","_all-skins.min.css","_nightmode.min.css"],"Success":true}
 ```
+
+---
+
+### `POST /Api/WWW/Send`
+
+#### Body:
+
+Content-Type: application/json
+
+```json
+{
+	"URL": "string"
+}
+```
+
+This API endpoint is used internally for sending remote `GET` requests. This should be used only if **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** doesn't permit sending the request in usual way. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `string` - the inner html of the `GET` result.
+
+`URL` is `string` type that specifies target URL to make a `GET` request. It must start with `https://`.
+
+```shell
+TODO
+```
