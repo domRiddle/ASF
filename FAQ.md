@@ -401,7 +401,7 @@ ASF is licensed on liberal Apache 2.0 License, which allows other developers to 
 
 In addition to that, official Steam ToS clearly states that:
 
-> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve
+> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
 
 It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with Steam ToS evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates Steam ToS** and might result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
 
