@@ -239,7 +239,7 @@ We're not modifying or automating subscription marketplace process, if by subscr
 Therefore, as with every Steam software. ASF is not authorized by Valve and I cannot guarantee that you won't be suspended if Valve suddenly decides that they're banning accounts using ASF now.
 
 Especially:
-> In regard to all Subscriptions, Contents and Services, that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources. Valve does not assume any responsibility or liability for such third party content. Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
+> In regard to all Subscriptions, Contents and Services that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
 
 However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they might cause problems VAC-wise.
 
