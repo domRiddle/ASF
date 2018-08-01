@@ -49,9 +49,9 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Beispiele
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+Lass uns mit etwas einfachem anfangen. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 #### Parameter
 
-##### General Options
+##### Allgemeine Optionen
 
 *name* - Name of the target.
 
@@ -262,7 +262,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### SteamTarget Examples
+#### SteamTarget Beispiele
 
 In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
 
@@ -318,7 +318,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 #### Parameter
 
-##### General Options
+##### Allgemeine Optionen
 
 *name* - Name of the target.
 
@@ -336,7 +336,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-## Fallstricke
+## Vorbehalt
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

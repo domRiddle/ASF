@@ -20,7 +20,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 * * *
 
-## ASF setup (easy)
+## ASF Einrichtung (einfach)
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
@@ -72,7 +72,7 @@ This offers little improvement, but might make GC even more aggressive when syst
 
 * * *
 
-You can enable both by setting appropriate `COMPlus_` environment variables. For example, on Linux:
+You can enable both by setting appropriate `COMPlus_` environment variables. Als Beispiel unter Linux:
 
 ```shell
 export COMPlus_GCLatencyLevel=0
@@ -80,7 +80,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-Or on Windows:
+Oder unter Windows:
 
 ```bat
 SET COMPlus_GCLatencyLevel=0
@@ -100,7 +100,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 * * *
 
-## Recommended optimization
+## Empfohlene Optimierung
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.

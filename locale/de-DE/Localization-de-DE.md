@@ -30,9 +30,9 @@ Aber basierend auf deiner Sprache könnte folgender Satz mehr Sinn machen:
 
 > Die Zahl der verbleibenden Spiele zum Sammeln ist {0}.
 
-Or:
+Oder:
 
-> {0} is the number of games to idle.
+> {0} ist die Zahl der verbleibenden Spiele zum Sammeln.
 
 Diese Flexibilität biten wir besonders für dich, damit du den ASF-Satz leicht umschreiben kannst um besser zu deiner Sprache zu passen und die Anzahl der von ASF zur Verfügung gestellten Informationen in eine Position zu rücken, die deiner Übersetzung entspricht (anstatt jeden Teil einzeln zu übersetzen). Das Verbessert die allgemeine Übersetzungsqualität.
 

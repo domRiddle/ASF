@@ -69,7 +69,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 * * *
 
-### Downloading
+### Herunterladen
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
@@ -182,7 +182,7 @@ This concludes our very basic setting up guide. You can now decide whether you w
 
 * * *
 
-### Extended configuration
+### Erweiterte Konfiguration
 
 #### Idling several accounts at once
 
@@ -195,7 +195,7 @@ In other words, simply jump to configuration again and do exactly the same, just
 
 * * *
 
-#### Changing settings
+#### Einstellungen ändern
 
 You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
@@ -249,7 +249,7 @@ Please note that IPC GUI is currently in preview state and not everything is ava
 
 * * *
 
-### Summary
+### Zusammenfassung
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)**. Have fun!
 

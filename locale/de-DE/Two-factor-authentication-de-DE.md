@@ -149,7 +149,7 @@ ASF mobile authenticator is saved in `BotName.db` file in your config directory,
 
 * * *
 
-### How to remove ASF 2FA?
+### Wie entferne ich ASF 2FA?
 
 Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website.
 
