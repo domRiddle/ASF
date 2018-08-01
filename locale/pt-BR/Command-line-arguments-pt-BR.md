@@ -1,14 +1,14 @@
 # Argumentos da linha de comando
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF inclui suporte para vários argumentos de linha de comando que podem afetar o tempo de execução do programa. Isso podem ser usados por usuários avançados para especificar como o programa deve executar. Em comparação com o caminho padrão do arquivo de configuração `ASF.json`, argumentos de linha de comando são usados para inicialização do núcleo (por exemplo, `--path`), configurações específicas de plataforma (por exemplo, `--system-required`) ou dados sensíveis (por exemplo, `--cryptkey`).
 
 * * *
 
 ## Uso
 
-Usage depends on your OS and ASF flavour.
+O uso depende do seu sistema operacional e gosto pessoal para o ASF.
 
-Generic:
+Genérico:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -20,39 +20,39 @@ Windows:
 .\ArchiSteamFarm.exe --argument --otherOne
 ```
 
-Linux/OS X
+Linux/OS X:
 
 ```shell
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. Além disso, ao usar codigos de ajuda, você também pode usar a propriedade de ambiente `ASF_ARGS`, como declarou em nossa seção de **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Se seu argumento inclui espaços, não se esqueça de indicar isso. Esses dois estão errados:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+No entanto, esses dois estão completamente corretos:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Argumentos
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
-
-* * *
-
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--cryptkey <key>` ou `--cryptkey=<key>` - começará o ASF com o valor de chave de criptografia`<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** e causará ASF usar sua chave personalizada `<key>` fornecido em vez de um hardcoded padrão para o executável. Tenha em mente que as senhas criptografadas com esta chave será requerida ela a cada execução do ASF.
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory without a need of duplicating binary in the same place. It might come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--no-restart` - Esta opção é usada principalmente por nossos contêineres do **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** e forçar `AutoRestart` para `false`. A menos que você tiver uma necessidade específica, você deve configurar a propriedade `AutoRestart` diretamente no seu adquiro de configuração. Essa opção está aqui assim que nosso código de Docker não precisará mexer em sua configuração global para adaptá-la ao seu próprio ambiente. Claro, se você estiver executando o ASF dentro de um código, você pode também fazer uso desta opção (caso contrário é melhor com a propriedade de configuração global).
+
+* * *
+
+`--path <path>` or `--path=<path>` - ASF sempre navega para seu próprio diretório na inicialização. Ao especificar esse argumento, ASF navegará até dado diretório após a inicialização, o que permite que você use o caminho personalizado para o diretório `config` sem a necessidade de duplicar o binário no mesmo lugar. Pode ser especialmente útil se você gostaria de separar o binário da configuração atual, como é feito no Linux(como pacotes) desta forma, você pode usar um binário (atualizado) com várias configurações diferentes. O caminho pode ser relativo de acordo com o local atual do binário do ASF, ou absoluto. Quando executando várias instâncias do mesmo binário, tenha em mente que você normalmente deve desativar atualizações automáticas, pois não existe nenhuma sincronização entre eles. Também tenha em mente que este comando aponta para novo "local do ASF" - o diretório que tem a mesma estrutura original ASF, com diretório `config` dentro.
 
 Exemplo:
 
@@ -72,12 +72,12 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` - declarar este opção desabilitará o comportamento padrão ASF de desligar quando bots não estão sendo executados. Nenhum comportamento de autodesligamento é especialmente útil em combinação com o **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, onde a maioria dos usuários esperaria seu serviço da web para ser executado independentemente da quantidade de bots que estão habilitados. Se você estiver usando a opção de IPC o processo ASF e preciso ser executado o tempo todo, até você fechá-lo você mesmo, esta é a opção certa.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+Se você não pretende executar IPC, esta opção será um tanto inúteis para você, como você só pode iniciar o processo novamente, quando necessário (em oposição ao servidor de web do ASF onde você exige que esteja preparado para receber comandos sempre).
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required` - declaração este opção causará que o ASF tente sinalizar para o sistema operacional oque o processo requer quando for executado. Atualmente essa opção tem efeito apenas em máquinas Windows onde ele vai proibir o seu sistema de entrar em modo de suspensão enquanto o processo está sendo executado. Isto pode ser provado especialmente útil quando em coleta em seu PC ou laptop durante a noite, como ASF será capaz de manter seu sistema acordado enquanto ele está em coleta, em seguida, ASF é feito, ele vai desligamento em si, como habitual, fazer seu sistema pode para entrar em modo de suspensão novamente, portanto, economia de energia imediatamente uma vez em coleta está terminado.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+Tenha em mente que para autodesligamento adequado de ASF você precisa de outras configurações - especialmente evitando `--process-required` e garantindo que todos os teus bots estão a seguir `ShutdownOnFarmingFinished`. Claro, autodesligamento é apenas uma possibilidade para este recurso, não uma exigência, desde que você também pode usar esta opção juntamente com por exemplo `--process-required`, efetivamente tornando seu sistema acordado infinitamente após iniciar ASF.

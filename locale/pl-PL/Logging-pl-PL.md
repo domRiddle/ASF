@@ -4,7 +4,7 @@ ASF allows you to configure your own custom logging module that will be used dur
 
 * * *
 
-## Default logging
+## Domyślne logowanie
 
 Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
@@ -31,7 +31,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## Integracja ASF
 
 ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 
@@ -49,7 +49,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Przykłady
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
@@ -152,13 +152,13 @@ The examples above are rather simple and made to show you how easy it is to defi
 
 * * *
 
-## Limitations
+## Ograniczenia
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
 * * *
 
-## Chat logging
+## Logowanie Chat
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**.
 

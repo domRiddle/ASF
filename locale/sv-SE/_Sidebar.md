@@ -10,7 +10,7 @@
 
 * **[Compatibility](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
+* **[Kommandon](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Prestanda](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Trading](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**
 * **[Steam Family Sharing](https://github.com/JustArchi/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

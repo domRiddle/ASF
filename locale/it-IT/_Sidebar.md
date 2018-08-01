@@ -4,7 +4,7 @@
 
 * **[Configurazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 * **[Configurazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**
-* **[FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Domande frequenti](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Core
 
@@ -18,14 +18,14 @@
 
 ## Avanzato
 
-* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Domande frequenti aggiuntive](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Autenticazione due fattori](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Setup a bassa memoria](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Setup ad alte prestazioni](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
+* **[Argomenti della riga di comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Registrazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
 * **[Localizzazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)**
 * **[Sicurezza](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**
 * **[Strumenti di terze parti](https://github.com/JustArchi/ArchiSteamFarm/wiki/Third-party-tools)**
@@ -34,6 +34,6 @@
 ## Sviluppatori
 
 * **[Compilazione](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Ciclo di rilascio](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**
 * **[Licenza](https://github.com/JustArchi/ArchiSteamFarm/wiki/License)**
-* **[Contributing guidelines](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Linee guida contributive](https://github.com/JustArchi/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**

@@ -88,7 +88,7 @@ In addition to API calls, we're slowly coding IPC GUI that is a nice user-friend
 
 ![Image](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
 
-IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in our **[#773](https://github.com/JustArchi/ArchiSteamFarm/issues/773)** issue that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
 * * *
 
@@ -526,4 +526,27 @@ This API endpoint can be used for fetching directory's content specified by its 
 ```shell
 curl -X GET /Api/WWW/Directory/css
 {"Message":"OK","Result":["app.css","_all-skins.min.css","_nightmode.min.css"],"Success":true}
+```
+
+* * *
+
+### `POST /Api/WWW/Send`
+
+#### Body:
+
+Content-Type: application/json
+
+```json
+{
+    "URL": "string"
+}
+```
+
+This API endpoint is used internally for sending remote `GET` requests. This should be used only if **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** doesn't permit sending the request in usual way. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `string` - the inner html of the `GET` result.
+
+`URL` is `string` type that specifies target URL to make a `GET` request. It must start with `https://`.
+
+```shell
+curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com"}' /Api/WWW/Send
+{"Message":"OK","Result":"<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>...","Success":true}
 ```
