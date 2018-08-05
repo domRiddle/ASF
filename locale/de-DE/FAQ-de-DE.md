@@ -22,10 +22,10 @@ Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die Sie berec
 
 Hier werden noch einmal Kernpunkte genannt, weil Leute ihnen im Allgemeinen nicht zustimmen wollen:
 
-- **Ja, Sie müssen das Spiel besitzen, um für Kartendrops berechtigt zu sein. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **Ja, Sie müssen das Spiel besitzen, um für Kartendrops berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
+- **Nein, du kannst das Spiel nicht unendlich lange farmen - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel bekommen hast wird es nicht mehr gefarmt.**
+- **Nein, du kannst keine Karten von F2P Spiele bekommen ohne Geld in ihnen ausgegeben zu haben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2.**
+- **Nein, du kannst keine Kartendrops auf einem eingeschränkten Account (diejenigen die nie 5€ im Steam Store ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
 

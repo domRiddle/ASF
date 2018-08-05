@@ -14,7 +14,7 @@ Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](
 
 * * *
 
-### privater Steam Chat
+### Privater Steam Chat
 
 ... ist definitiv die einfachste Methode mit ASF zu interagieren - Sende dazu einfach den Befehl an einen ASF-Bot der zur Zeit im ASF-Prozess läuft. Logischerweise kannst du das nicht machen, wenn du ASF mit nur einem einzigen Bot-Account laufen lässt.
 
@@ -47,9 +47,9 @@ Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfe
 | `bl <Bots>`                                    | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`              | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`               | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                               | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
+| `exit`                                               | `Besitzer`      | Stoppt den kompletten ASF-Prozess.                                                                                                                                                                    |
 | `farm <Bots>`                                  | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
-| `help`                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
+| `help`                                               | `FamilySharing` | Zeigt Hilfe an (Link zu dieser Seite).                                                                                                                                                                |
 | `input <Bots> <Type> <Value>`      | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
 | `ib <Bots>`                                    | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
 | `ibadd <Bots> <AppIDs>`                  | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |
@@ -73,16 +73,16 @@ Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfe
 | `redeem <Bots> <Keys>`                   | `Operator`      | Redeems given `cd-keys` on given bot instances.                                                                                                                                                       |
 | `redeem^ <Bots> <Modes> <Keys>`    | `Operator`      | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                             |
 | `rejoinchat <Bots>`                            | `Operator`      | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `restart`                                            | `Owner`         | Restarts ASF process.                                                                                                                                                                                 |
+| `restart`                                            | `Besitzer`      | Startet den ASF-Prozess neu.                                                                                                                                                                          |
 | `resume <Bots>`                                | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
 | `start <Bots>`                                 | `Master`        | Starts given bot instances.                                                                                                                                                                           |
-| `stats`                                              | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                              |
+| `stats`                                              | `Besitzer`      | Prints process statistics, such as managed memory usage.                                                                                                                                              |
 | `status <Bots>`                                | `FamilySharing` | Prints status of given bot instances.                                                                                                                                                                 |
 | `stop <Bots>`                                  | `Master`        | Stops given bot instances.                                                                                                                                                                            |
 | `transfer <Bots> <Modes> <Bot>`    | `Master`        | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.                                                  |
 | `unpack <Bots>`                                | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
-| `update`                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `version`                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `update`                                             | `Besitzer`      | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
+| `version`                                            | `FamilySharing` | Gibt die ASF-Version an.                                                                                                                                                                              |
 
 * * *
 
@@ -108,7 +108,7 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Einige Befehle sind auch als Aliase verfügbar, um Zeit beim tippen zu sparen:
 
 | Befehl       | Alias |
 | ------------ | ----- |
@@ -159,11 +159,11 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | Name          |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Wert | Name          |
+| ---- | ------------- |
+| 1    | `Privat`      |
+| 2    | `Nur Freunde` |
+| 3    | `Öffentlich`  |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -198,16 +198,16 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Beschreibung                                                          |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Wert | Name                  | Beschreibung                                                          |
+| ---- | --------------------- | --------------------------------------------------------------------- |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -215,11 +215,11 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 * * *
 
-## `transfer` modes
+## `transfer` Modi
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Beschreibung                                                  |
+| Wert       | Alias | Beschreibung                                                  |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
@@ -236,7 +236,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 * * *
 
-## `input` command
+## `input` Befehl
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 

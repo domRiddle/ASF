@@ -436,7 +436,7 @@ ASF записывает в журнал информацию разных ур�
 
 * * *
 
-### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
+### ASF отключает мою сессию клиента Steam, когда я играю! / `Под этим аккаунтом вошли на другом ПК `
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
@@ -450,7 +450,7 @@ The only proper solution to this problem is manually pausing your bot with `paus
 
 * * *
 
-### `Disconnected from Steam!` - I can't establish connection with Steam servers.
+### `Отключен от Steam!` -Я не могу установить соединение с серверами Steam.
 
 ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
 
@@ -462,7 +462,7 @@ In a very unlikely situation of having incorrect servers being cached, for examp
 
 * * *
 
-### `Could not get badges information, will try again later!`
+### `Не могу получить информацию о значках, попробуйте позже!`
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalPIN` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalPIN`.
 
@@ -549,13 +549,13 @@ Finally, as with every Steam request - ASF can only **try** to log in, using you
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+### `System.Threading.Tasks.TaskCanceledException: Запрос был отменён.`
 
 This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing despite of 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
 
 * * *
 
-### `System.Net.Http.WinHttpException: A security error occurred`
+### `System.Net.Http.WinHttpException: Произошла ошибка безопасности`
 
 This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
 
@@ -567,9 +567,9 @@ If you made sure that the date on your machine is appropriate and the error does
 
 * * *
 
-### ASF is being detected as a malware by my AntiVirus! What's going on?
+### Мой антивирус нашёл вирус в ASF! What's going on?
 
-**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
+**Убедитесь, что вы скачали ASF с достоверного источника**. The only official and trusted source is **[ASF releases](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 
 If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. We're already used to that and you shouldn't notify us about new false positives - notify developers of your AV instead, since it's not ASF issue in the first place.
 
