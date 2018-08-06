@@ -253,7 +253,7 @@ curl -X DELETE /Api/Bot/archi
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<Bot>` - collection of bot statuses.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<Bot>` - collection of bot statuses.
 
 ```shell
 curl -X GET /Api/Bot/archi
@@ -311,9 +311,9 @@ curl -X GET /Api/Bot/archi
 
 #### CardsFarmer
 
-`GamesToFarm` is a `HashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
+`GamesToFarm` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
-`CurrentGamesFarming` is a `HashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
+`CurrentGamesFarming` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
 
 `TimeRemaining` is a `TimeSpan` type that specifies approximated time required to farm all games specified in `GamesToFarm` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current `GamesToFarm` status, therefore it's re-calculated the moment `CardsRemaining` of any game changes.
 
@@ -385,7 +385,7 @@ curl -X DELETE /Api/GamesToRedeemInBackground/archi
 
 ### `GET /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `Dictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
+This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableDictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
 
 ```shell
 curl -X GET /Api/GamesToRedeemInBackground/archi
@@ -407,7 +407,7 @@ curl -X GET /Api/GamesToRedeemInBackground/archi
 }
 ```
 
-Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
+Both `UnusedKeys` and `UsedKeys` are `ImmutableDictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
 
 ---
 
@@ -500,7 +500,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 }
 ```
 
-`Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
+`Body` - `ImmutableDictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
 
 `Properties` - `TypeProperties` type defined **[below](#typeproperties)** that holds metadata information about given type.
 
@@ -508,7 +508,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
 
-`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+`CustomAttributes` - `ImmutableHashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
@@ -522,7 +522,7 @@ APIs below are dedicated for our IPC GUI usage and they should not be implemente
 
 ### `GET /Api/WWW/Directory/{Directory}`
 
-This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
+This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<string>` - collection of local filenames.
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
