@@ -160,7 +160,7 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 ## Chat logging
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**.
+ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
 ### Event properties
 
@@ -169,7 +169,7 @@ Name | Description
 Echo | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.
 Message | `string` type. This is the actual sent/received message.
 ChatGroupID | `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
-ChatID | `ulong` type. This is the ID of the `chatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
+ChatID | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.
 SteamID | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat).
 
 ### Example
