@@ -175,7 +175,7 @@ This API endpoint can be used for fetching general data about ASF process as a w
 
 ```shell
 curl -X GET /Api/ASF
-{"Message":"OK","Result":{"BuildVariant":"generic","GlobalConfig":{"AutoRestart":true,"Blacklist":[]},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
+{"Message":"OK","Result":{"BuildVariant":"generic","GlobalConfig":{"AutoRestart":false,"Blacklist":[440]},"MemoryUsage":1843,"ProcessStartTime":"2018-01-30T21:32:01.8132984+01:00","Version":{"Major":3,"Minor":0,"Build":6,"Revision":1,"MajorRevision":0,"MinorRevision":1}},"Success":true}
 ```
 
 #### ASFResponse
@@ -184,8 +184,8 @@ curl -X GET /Api/ASF
 {
 	"BuildVariant": "string",
 	"GlobalConfig": {
-		"AutoRestart": true,
-		"Blacklist": []
+		"AutoRestart": false,
+		"Blacklist": [ 440 ]
 	},
 	"MemoryUsage": 4294967295,
 	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
