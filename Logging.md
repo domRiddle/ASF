@@ -174,7 +174,7 @@ SteamID | `ulong` type. This is the ID of the Steam user for sent/received messa
 
 ### Example
 
-This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look above in order to learn about basics of NLog logging firstly.
+This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
