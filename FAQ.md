@@ -506,7 +506,7 @@ You're most likely using Windows and your console has QuickEdit mode enabled. Re
 
 ### ASF can't accept or send trades!
 
-Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, account itself can't accept neither send trades. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
+Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, account itself can't accept neither send trades using ASF. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
