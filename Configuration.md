@@ -79,7 +79,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"Statistics": true,
 	"SteamMessagePrefix": "/me ",
 	"SteamOwnerID": 0,
-	"SteamProtocols": 7,
+	"SteamProtocols": 5,
 	"UpdateChannel": 1,
 	"UpdatePeriod": 24,
 	"WebLimiterDelay": 200,
@@ -209,7 +209,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 
-`SteamProtocols` - `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+`SteamProtocols` - `byte flags` type with default value of `5`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
 Value | Name | Description
 --- | --- | ---
@@ -221,6 +221,8 @@ Value | Name | Description
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+
+Right now, default settings do not have UDP protocol enabled due to issue #882.
 
 ---
 
