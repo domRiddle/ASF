@@ -1,1 +1,0 @@
-<a href="./ru-RU">Test2</a>
