@@ -23,7 +23,7 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 ### Steam group chat
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires either `SteamMasterClanID` properly set, or you inviting your bot to chat manually. This can also be used for "talking to yourself" and doesn't require dedicated bot account.
+Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
 
 ---
 
