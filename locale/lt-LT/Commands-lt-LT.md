@@ -24,7 +24,7 @@ Tikrai lengviausias būdas bendrauti su ASF - tiesiog įvykdykite komandą į AS
 
 ### Steam grupinis pokalbis
 
-Labai panašus metodas į nurodytą aukščiau, tačiau čia viskas vyksta tam tikros Steam grupės grupiniame pokalbyje. Prisiminkite, kad šis būdas reikalauja `SteamMasterClanID`, kitaip jums teks botus pakviesti mechaniškai. Šis būdas taip pat tinka, jei naudojate vieną botą, kuris yra jūsų asmeninė paskyra.
+Labai panašus metodas į nurodytą aukščiau, tačiau čia viskas vyksta tam tikros Steam grupės grupiniame pokalbyje. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
 
 * * *
 
@@ -261,7 +261,7 @@ Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We
 
 In order to do that, we need to execute following commands:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail.
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
 
 `input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
 

@@ -18,10 +18,10 @@
 
 ## Avanceret
 
-* **[Extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Udvidet OSS](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[To-faktor autentificering](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
 * **[Lav-hukommelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Højydelsesopsætning](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Kommandolinjeargumenter](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**

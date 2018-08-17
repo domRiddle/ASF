@@ -1,63 +1,63 @@
-# FAQ
+# SSS
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Temel Sıkça Sorulan Sorularımız aklınıza gelebilecek standart soruları ve yanıtları kapsar. Az bilinen konular için lütfen **[genişletilmiş SSS sayfa](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**mızı ziyaret edin.
 
-# Table of contents
+# İçindekiler
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [Genel](#general)
+- [Benzer araçlar ile kıyaslama](#comparison-with-similar-tools)
+- [Güvenlik / Gizlilik / VAC / Banlanmalar / Kullanım Koşulları](#security--privacy--vac--bans--tos)
 - [Çeşitli](#misc)
-- [Issues](#issues)
+- [Sorunlar](#issues)
 
 * * *
 
-## General
+## Genel
 
-### So how it exactly works?
+### Peki tam olarak nasıl çalışır?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+ASF'nin ne olduğunu anlamaya çalışmadan önce, lütfen resmi SSS **[sayfasında](https://steamcommunity.com/tradingcards/faq)** güzelce açıklanmış olan, Steam Kartlarının ne olduğunu ve nasıl elde edildiğini anladığınızdan emin olun.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Kısaca, Steam kartları bir oyuna sahip olduğunuzda elde etme hakkı kazandığınız, rozet üretmekte kullanılabilen, Steam topluluk pazarında satılabilen veya seçtiğiniz herhangi başka bir amaç için kullanabilen koleksiyon ürünleridir.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Birileri hala kabullenmediği için, temel noktalar burada bir kez daha belirtilmiştir:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **Evet, bir oyundan kart düşürebilmek için o oyuna sahip olmak zorundasınız. Aile paylaşımı kart hakkı vermez.**
+- **Hayır, bir oyundan sınırsız kart düşüremezsiniz, her oyundan belirli bir sayıda kart düşürülebilmektedir. Bir oyunda düşürebileceğiniz kart kalmadığında, o oyun kart düşürmek için artık kullanılamaz.**
+- **Hayır, F2P (oynaması ücretsiz) oyunlarda para harcamadan kart düşüremezsiniz. Team Fortress 2 veya Dota 2 gibi sürekli oynaması ücretsiz oyunlar da buna dahildir.**
+- **Hayır, kısıtlı hesaplarda (Steam mağazada $5 harcama yapılmamış olan hesaplar) oyun sahibi olmanıza bakılmaksızın kart düşüremezsiniz. Geçmişte mümkündü, ancak artık mümkün değil.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Gördüğünüz gibi Steam kartları satın aldığınız bir oyunu veya para harcadığınız bir oynaması ücretsiz oyunu oynadığınız için size verilen bir ödüldür. Bir başka deyişle, bir oyunu yeterince uzun süre oynarsanız, o oyun için olan kartların tamamı envanterinize düşer, böylece bir rozet işlemeniz, kartları satmanız veya o kartla ne yapmak isterseniz mümkün hale gelmektedir.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technnical details, we'll offer a very simplified explanation below.
+Bir program olarak ASF'yi tamamen anlamak oldukça karışıktır, bu yüzden tüm teknik detayları izah etmek yerine, aşağıdaki basitleştirilmiş açıklamayı sunuyoruz.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF sağlamış olduğunuz giriş bilgileriniz ile Steam hesabınıza içindeki mini Steam istemcisi ile giriş yapmaktadır. Başarılı olarak giriş yaptıktan sonra, program hesabınızdaki **[ rozetler](https://steamcommunity.com/my/badges)**i inceleyerek kart düşürmeye uygun olan oyunları belirler. (Bu oyunu oynayarak X kart daha düşürebilirsiniz). Bütün sayfaları inceleyip kart düşürmeye uygun oyunlar listesini oluşturduktan sonra, ASF en verimli kart düşürme algoritmasını seçer ve işlemi başlatır. İşlem seçilen **[kart düşürme algoritmasına](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** bağlıdır, ancak genellikle uygun oyunları oynayarak ve düzenli olarak (ek olarak her öğe düştüğünde) oyun tüm kartları düştü mü diye kontrol eder - Eğer tüm kartlar düşürülmüşse, ASF aynı işlemi kullanarak tüm oyunların kartları düşürülene kadar sıradaki oyunla devam eder.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchi/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Unutmayın, yukarıdaki açıklama basitleştirilmiştir ve ASF'nin sunduğu düzinelerce ekstra özelliği ve işlevi açıklamamaktadır. Eğer ASF ile alakalı her detayı bilmek istiyorsanız **[Wiki sayfamızı](https://github.com/JustArchi/ArchiSteamFarm/wiki)** ziyaret ediniz. Teknik detaylara girmeden, herkesin anlayabileceği şekilde açıklamaya çalıştım - uzman kullanıcıların daha derine gitmesi desteklenmektedir.
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+Şimdi, ASF bir program olarak bazı büyülü özellikler sunar. İlk olarak, hiçbir oyunu indirmenizi gerektirmez, oyunları direk oynayabilir. İkinci olarak, normal Steam istemcinizden tamamen bağımsızdır - Steam istemcisini çalıştırmanız gerekmez ve hatta Steam istemcisini kurmanızı bile gerektirmez. Üçüncü olarak, otomatikleştirilmiş bir çözümdür - yani haberiniz bile olmadan ASF otomatik olarak herşeyi halleder, ne yapması gerektiğini söylemenize ihtiyaç duymaz - ki zamanınızı ve çabanızı boşa harcamaz. Son olarak, Steam ağını benzetim işlemi ile kandırmak zorunda değildir (mesela Idle Master programı bunu yapar), çünkü Steam ağı ile direk iletişim kurabilmektedir. Ayrıca çok hızlı ve hafif olup, çok uğraşmadan kolayca kart düşürmek isteyen herkes için harika bir çözümdür - özellikle başka birşeyler yaparken arkaplanda çalışması veya çevrimdışı oynarken bile çalışması kullanışlıdır.
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+Yukarıdaki herşey çok güzel, ancak ASF aynı zamanda Steam tarafından zorunlu olarak bazı teknik kısıtlamalara sahiptir - sahip olmadığınız oyunlardan kart düşüremeyiz, sonsuza dek programı çalıştırıp oyunların kart limitiden daha fazla kart düşüremeyiz, ayrıca siz oyun oynarken kart düşüremeyiz. Bütün bunlar ASF'in nasıl çalıştığını göz önünde bulundurarak "mantıklı" olmalı, ama ASF'nin süper güçleri olmadığını ve fiziksel olarak imkansız bir şey yapamayacağını belirtmek güzel bir şey - temelde, bir başkasının senin hesabına başka bir bilgisayardan giriş yapmasını ve senin için bu oyunları oynamasını söylemiş olmanla aynı.
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
+Özetlemek gerekirse - ASF toplamaya hakkınızın olduğu kartları çok uğraşmadan düşürmye yardımcı bir programdır. Aynı zamanda birkaç başka fonksiyon da sunuar, ama şimdilik buna bağlı kalalım.
 
 * * *
 
-### Do I have to put my account credentials?
+### Hesap bilgilerimi yazmam gerekiyor mu?
 
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**Evet**. ASF, resmi Steam istemcisinin yaptığı gibi hesap kimlik bilgilerinizi gerektirir çünkü Steam Ağı etkileşimi için aynı yöntemi kullanmaktadır. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fullifies Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### Kartların düşmesi için ne kadar beklemem gerekiyor?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section.
+**Gerektiği sürece** - ciddi anlamda. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** section.
 
 * * *
 
-### Farming takes too long, can I somehow speed it up?
+### Kart düşürme çok uzun sürüyor, bir şekilde hızlandırabilir miyim?
 
 The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
@@ -69,7 +69,7 @@ ASF gives you rough approximation based on number of cards you need to drop, and
 
 * * *
 
-### Can ASF work on my android/smartphone?
+### ASF android veya akıllı telefonumda çalışabilir mi?
 
 ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
@@ -83,9 +83,9 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 * * *
 
-### Can I choose which games should be idled?
+### Hangi oyunların çalıştırılacağını seçebilir miyim?
 
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+**Evet**, birkaç farklı yolla. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
 In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
@@ -97,11 +97,11 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Benzer araçlar ile kıyaslama
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF Idle Master'a benzer mi?
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -111,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Evet**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -149,9 +149,9 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchi/
 
 * * *
 
-### Is ASF faster than Idle Master?
+### ASF Idle Master'dan daha hızlı mıdır?
 
-**Yes**, although the explanation is rather complicated.
+**Evet**, açıklama oldukça karmaşık olsa da.
 
 On each new process spawned and terminated on your system, steam client automatically sends a request containing all of your games that you're currently playing - this way steam network can calculate hours and make cards drop. However, steam network counts your time played in 1-second intervals, and sending new request resets the current status. In other words, if you did spawn/kill new process every 0.5 second, you'd never drop any card because every 0.5 second steam client would send a new request and steam network would never count even 1 second of playthrough. Moreover, because of how operating system works, it's actually quite common to see new processes being spawned/terminated without you even doing anything, so even if you're doing nothing on your PC - there are many processes still working in the background, spawning/terminating other processes all the time. Idle master is based on steam client, so this mechanism affects you if you're using it.
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Güvenlik / Gizlilik / VAC / Banlanmalar / Kullanım Koşulları
 
 * * *
 
@@ -323,7 +323,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Evet**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 
@@ -402,7 +402,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Sorunlar
 
 * * *
 
@@ -500,7 +500,7 @@ You're most likely using Windows and your console has QuickEdit mode enabled. Re
 
 ### ASF can't accept or send trades!
 
-Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, account itself can't accept neither send trades. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
+Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
@@ -510,7 +510,7 @@ Lastly, remember that new devices have 7-days trade lock, so if you've just adde
 
 And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarily a problem, but it's also worth mentioning, especially if you set ASF to auto-send trades, yet you're not using ASF 2FA and forgot to actually confirm them.
 
-If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks crap most of the time, and provided reason might not make any sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightlest).
+If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason might not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightlest).
 
 In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself.
 

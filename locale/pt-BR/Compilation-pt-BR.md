@@ -1,6 +1,6 @@
 # Compilação
 
-Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
+Compilação é o processo de criação de arquivo executável. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
 
 ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
 
@@ -10,7 +10,7 @@ ASF can be compiled on any currently supported platform, as long as you have all
 
 Regardless of platform, you need full .NET Core SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
-Example of `dotnet --info` on Windows:
+Exemplo de `dotnet - info` no Windows:
 
     .NET Core SDK (reflecting any global.json):
      Version:   2.1.300
@@ -40,19 +40,19 @@ Example of `dotnet --info` on Windows:
 
 ## Compilação
 
-Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
+Supondo que você tenha o núcleo do .NET SDK operacional e na versão apropriada, basta navegar até o diretório do ASF e executar:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic"
 ```
 
-If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+Se você estiver usando Linux/OS X, você pode usar o código `cc.sh`, que fará o mesmo de uma maneira um pouco mais complexa.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
+Se a compilação terminou com êxito, você pode encontrar seu ASF `fonte` no diretório `ArchiSteamFarm/out/generic`. Isto é o mesmo que uma compilação oficiais `genérica` do ASF, mas isto forca que `UpdateChannel` e `UpdatePeriod` tenham valor `0`.
 
-### OS-specific
+### Sistema operacional específico
 
-You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
+Você também pode gerar um sistema operacional específico do pacote principal do .NET , se você tem uma necessidade específica. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64"
@@ -60,7 +60,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64"
 
 Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
 
-### .NET Framework
+### .NET framework
 
 In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. Keep in mind that you'll need appropriate **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK.
 

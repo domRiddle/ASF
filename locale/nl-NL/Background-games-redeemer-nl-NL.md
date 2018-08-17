@@ -1,8 +1,8 @@
-# Productcodes-activator op de achtergrond
+# Productcode-activering op de achtergrond
 
-Productcodes-activator op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (samen met hun namen) kunt importeren die op de achtergrond wordt geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren, waarvan het zeker is dat je de `Aanvraaglimiet` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren.
+Productcode-activering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (en de productnamen) kunt importeren die op de achtergrond worden geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Ratelimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren van de batch.
 
-Productcodes-activator op de achtergrond is gemaakt dat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
+Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
 * * *
 
@@ -54,6 +54,6 @@ Het is ook mogelijk om extra spellen te importeren terwijl er al spellen in de w
 
 ## Opmerkingen
 
-De productcodes-activator gebruikt een `OrderedDictionary` onder de motorkap, wat betekent dat de productcodes de volgorde aanhouden zoals ze zijn ingevoerd in het bestand (of IPC API-verzoek). Dit betekent dat je een lijst kunt (en zou moeten geven) waarbij bepaalde productcodes alleen directe afhankelijkheden kan hebben van de productcodes daarboven, maar niet van daaronder. Als je bijvoorbeeld een DLC `D` hebt waarbij game `G` eerst moet worden geactiveerd, dan moet de productcode van game `G` **altijd** worden toegevoegd vóór de productcode van de DLC `D`. Hetzelfde geldt als `D` afhankelijk is van `A`, `B` en `C`, dan moeten deze 3 codes eerst worden ingevoerd (in willekeurige volgorde, tenzij deze weer afhankelijk van elkaar zijn).
+Productcode-activering op de achtergrond gebruikt een `OrderedDictionary` onder de motorkap, wat betekent dat de productcodes de volgorde aanhouden zoals ze zijn ingevoerd in het bestand (of IPC API-verzoek). Dit betekent dat je een lijst kunt (en zou moeten geven) waarbij bepaalde productcodes alleen directe afhankelijkheden kan hebben van de productcodes daarboven, maar niet van daaronder. Als je bijvoorbeeld een DLC `D` hebt waarbij game `G` eerst moet worden geactiveerd, dan moet de productcode van game `G` **altijd** worden toegevoegd vóór de productcode van de DLC `D`. Hetzelfde geldt als `D` afhankelijk is van `A`, `B` en `C`, dan moeten deze 3 codes eerst worden ingevoerd (in willekeurige volgorde, tenzij deze weer afhankelijk van elkaar zijn).
 
 Als je het bovenstaande schema niet volgt, wordt je DLC niet geactiveerd met `DoesNotOwnRequiredApp`, zelfs als je account in aanmerking zou komen om deze te activeren na het afwerken van de volledige wachtrij. Om dit te voorkomen zorg dat je DLC altijd onder het basisspel in je wachtrij staat.

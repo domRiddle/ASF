@@ -24,7 +24,7 @@ Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](
 
 ### Steam Gruppenchat
 
-Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Vergiss nicht, dass diese Möglichkeit voraussetzt, dass du entweder die `SteamMasterClanID` richtig eingestellt hast, oder du deinen Bot manuell zum Chat einladen musst. Dies kann außerdem verwendet werden, um "mit dir selbst zu reden" und benötigt keinen dedizierten Bot-Account.
+Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
 
 * * *
 
@@ -261,7 +261,7 @@ Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei
 
 Um das zu tun müssen wir folgende Befehle ausführen:
 
-`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Das ist nötig, damit uns das Steam-Netzwerk eine E-Mail mit einem Authentifizierungscode zukommen lässt.
+`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
 
 `input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
 

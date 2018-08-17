@@ -1,175 +1,175 @@
-# Two-factor authentication
+# Autenticador em duas etapas
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Há um tempo atrás a Valve introduziu um sistema conhecido como "Escrow" que requer uma autenticação extra para várias atividades relacionadas a conta. Você pode ler mais sobre isso **[aqui](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** e **[aqui](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. É crucial primeiro entender o sistema 2FA antes de tentar entender a lógica por trás do ASF 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Como você pode ver, todas as trocas são retidas por até 15 dias, o que não é um grande problema quando se trata do ASF, mas ainda pode ser irritante, especialmente para aqueles que querem uma automação completa. Felizmente, o ASF inclui uma solução para esse problema, chamada ASF 2FA.
 
 * * *
 
-# ASF logic
+# Lógica do ASF
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Independentemente de você usar o ASF 2FA explicado abaixo ou não, o ASF inclui lógica adequada e está plenamente consciente das contas protegidas pelo 2FA padrão. Ele irá te pedir por detalhes necessários quando eles forem exigidos (tal como durante o login, por exemplo). Se você usar o ASF 2FA, o programa será capaz de ignorar esses pedidos e gerar os tokens necessários, poupando-lhe aborrecimento e permitindo funcionalidades extras (descritas abaixo).
 
 * * *
 
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+A ideia é simples. Nós já implementamos o cliente steam, implementamos iniciar e jogar um jogo, então porque não implementar um dispositivo móvel? O ASF 2FA é exatamente o que você imagina que é, ele é apenas um módulo responsável por gerar tokens de 2FA como um dispositivo móvel reconhecido e válido, que nos permite ignorar o período de retenção nas trocas e automaticamente confirmar todas elas. Ele duplica seu autenticador existente, então não há nenhuma necessidade de usar apenas o ASF 2FA.
 
-To enable ASF 2FA, you need to have:
+Para habilitar o 2FA ASF, você precisa ter:
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
-
-* * *
-
-## Import
-
-From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
-
-All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
-
-- You can generate tokens and those tokens are accepted by Steam network
-- You can fetch confirmations, and they are arriving on your mobile authenticator
-- You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
-
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself trouble.
+- Um autenticador steam ativo no seu Android
+- ou um autenticador steam ativo no seu iOS
+- ou um autenticador steam ativo no **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
+- ou um autenticador steam ativo no **[WinAuth](https://winauth.github.io/winauth)**
 
 * * *
 
-### Android phone
+## Importar
 
-In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** included non-root **[method](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** a while ago, but it's no longer the case and it's not possible to access protected Steam files without root. The only currently supported non-root method is making a `/data` backup in one way or another and manually fetching appropriate files from it on your PC. Because such thing highly depends on the OS and is not in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
+Da versão v 2.1 em diante, o ASF já não permite que você use o modo "solo" do ASF 2FA - isso significa que você já deve ter vinculado anteriormente um autenticador operacional que seja suportado pelo ASF. O ASF suporta atualmente quatro fontes diferentes de 2FA - Android, iOS, SteamDesktopAuthenticator e WinAuth. Se você ainda não tem um autenticador e está prestes a vincular pela primeira vez, eu recomendo fortemente usar o WinAuth, que pode então ser importado para o ASF (e usado por você).
 
-Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information. If you can't find your device or the tutorial you need, try to find it on google.
+Todos os guias a seguir exigem que você já tenha um autenticador **funcionando e operacional** sendo usado com dada ferramenta/aplicativo. ASF 2FA não funcionará corretamente se você importar dados inválidos, portanto, tenha certeza de que seu autenticador funciona corretamente antes de tentar importá-lo. Isso inclui testar e verificar que as seguintes funções de autenticador funcionam corretamente:
 
-During import process we will need to access protected files. Therefore you should download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one, really). You can also use ADB (Android Debug Bridge) or any other available to you way of accessing and copying protected files to your PC.
+- Você consegue gerar tokens e esses tokens são aceitos pela Steam
+- Você pode buscar confirmações e elas estão chegando no seu autenticador móvel
+- Você pode aceitar essas confirmações e elas são devidamente reconhecidas pela Steam como confirmadas/rejeitadas
 
-Now, you might choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. First option is more friendly and allows you to duplicate your authenticator also on your PC, allowing you to make confirmations and generate tokens from 3 different places - your phone, your PC and ASF. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions. When done, you can then import this authenticator from WinAuth to ASF, which is explained below.
+Certifique-se de que seu autenticador funciona verificando se as ações acima funcionam - se não funcionarem, então elas também não funcionaram no ASF, você só vai perder tempo e te causar problemas.
 
-If you don't want to or don't need to go through WinAuth, then simply copy `/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX` where XXX is your `SteamID` of the account you want to add (if more than one, because if you have only one then this will be the only file). Keep in mind that `/data/data` directory is protected and you won't be able to access it without root access. Once you get your file on your PC, put it as `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
+* * *
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> Please enter your Device ID (including "android:"):
+### Android
+
+Em geral, para importar o autenticador do seu Android você vai precisar de acesso ao **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))**. **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** incluiu um **[método](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** sem root há algum tempo, mas não é mais o caso e não é mais possível acessar arquivos protegidos da Steam sem root. O único método sem root suportado é fazer um backup de `/data` de uma forma ou outra e manualmente encontrar os arquivos corretos pelo computador. Como tal coisa depende altamente do sistema operacional e não é um padrão do Android, não não a discutiremos aqui. Se você tem sorte de ter essa funcionalidade, você pode fazer uso dela, mas a maioria dos usuários não tem algo assim.
+
+Fazer o root varia de um dispositivo pra outro, então eu não vou te dizer como fazer no seu aparelho. Visite o **[XDA](https://www.xda-developers.com/root)** para ver excelentes tutoriais sobre como fazer isso, assim como informações gerais. Se você não conseguir encontrar seu dispositivo ou o tutorial que precisa, tente procurar no google.
+
+Durante o processo de importação nós vamos precisar acessar arquivos protegidos. Assim sendo, você deve baixar qualquer explorador de root disponível no mercado, tais como **[esse](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (ou qualquer outro, na verdade). Você também pode usar o ADB (Android Debug Bridge) ou qualquer outro disponível para você de maneira a acessar e copiar arquivos protegidos para o seu PC.
+
+Agora, você deve escolher se quer importar seu autenticador para o WinAuth primeiro e então para o ASF ou diretamente para o ASF. A primeira opção é mais amigável e permite duplicar seu autenticador para o seu PC, permitindo que você faça confirmações e gere tokens de 3 lugares diferentes - seu celular, seu PC e o ASF. Se você quiser fazer isso, simplesmente abra o WinAuth, adicione um novo autenticador steam e escolha a opção importar do Android, aí é só seguir as instruções. Quando terminar, você pode importar este autenticador do WinAuth para o ASF, conforme será explicado abaixo.
+
+Se você não quer ou não precisa configurar o WinAuth, então apenas copie `/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX` onde o XXX é o `SteamID` da conta que você quer adicionar (se for mais de uma, pois se você só tiver uma conta então esse será o único arquivo). Tenha em mente que o diretório `/data/data` é protegido e você não será capaz de acessá-lo sem acesso ao root. Depois de copiar o arquivo para o seu PC, coloque-o na pasta config do ASF com o nome `NomeDoBot.maFile`, onde `NomeDoBot` é o nome do bot para o qual você está adicionando o ASF 2FA. Após esta etapa, abra o ASF - ele vai reconhecer o `.maFile` e vai importá-lo.
+
+    [*] INFO: ImportAuthenticator() <1> Convertendo o arquivo .maFile para o formato ASF...
+    <1> Por favor, insira o ID do seu dispositivo de autenticador móvel (incluindo "android:"):
     
 
-You will need to do only one more step - find your `DeviceID` property in `/data/data/com.valvesoftware.android.steam.community/shared_prefs/steam.uuid.xml`. It will be inside XML tags and starting with `android:`. Copy that and put it in ASF as asked. If you did everything correctly, import should be finished.
+Você só precisará de mais um passo - descobrir o seu `DeviceID` em `/data/data/com.valvesoftware.android.steam.community/shared_prefs/steam.uuid.xml`. Ele fica entre tags XML e começa com `android:`. Copie-o e cole no ASF conforme pedido. Se você fez tudo corretamente, a importação deve terminar.
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+    [*] INFO: ImportAuthenticator() <1> Verificação do autenticador móvel concluída com sucesso!
     
 
-Please confirm that accepting confirmations in fact works. If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
+Por favor, verifique se aceitar confirmações, de fato, funciona. Se você cometeu um erro ao entrar com seu `DeviceID` então você terá um autenticador incompleto - os tokens funcionarão, mas você não conseguirá aceitar as confirmações. Você sempre pode remover o arquivo `Bot.db` e recomeçar, se necessário.
 
 * * *
 
 ### iOS
 
-For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
+Para iOS você pode usar o **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. Isso é possível graças ao fato de que você pode fazer backups descodificados, colocá-los em seu PC e usar a ferramenta para extrair dados da Steam que seriam impossíveis de se obter de outra forma (ao menos sem desbloqueio, dado a codificação do iOS).
 
-Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from `{` ending on `}` into `BotName.maFile` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+Vá até o **[último lançamento](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** para baixar o programa. Depois que você extrair os dados você pode colocá-los, por exemplo, no WinAuth, em seguida, do WinAuth para o ASF (embora você também possa simplesmente copiar o código json gerado, começando no `{` até o `}` em um arquivo `NomeDoBot.maFile` e prosseguir como de costume). Se você me perguntar, eu recomendo fortemente importar para o WinAuth primeiro, depois certificar-se que tanto gerar tokens como aceitar confirmações estão funcionando corretamente, assim você pode ter certeza que está tudo bem. Se suas credenciais forem inválidas, ASF 2FA não vai funcionar direito, então é muito melhor deixar o passo de importar para o ASF por último.
 
-For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
+Para perguntas/problemas, por favor visite **[problemas](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
-*Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly - we got a few signals that it's exporting invalid 2FA credentials - verify that confirmations work in authenticator like WinAuth prior to importing that data to ASF!*
+*Tenha em mente que a ferramenta acima não é oficial, você está usando por sua conta e risco. Nós não oferecemos suporte técnico se ela não funcionar corretamente - temos alguns indícios de que ela esteja exportando credenciais 2FA inválidas - verifique se as confirmações funcionam no autenticador, tal qual o WinAuth, antes de importar esses dados para o ASF!*
 
 * * *
 
 ### SteamDesktopAuthenticator
 
-If you have your authenticator running in SDA already, you should notice that there is `steamID.maFile` file available in `maFiles` folder. Copy that file to `config` directory of ASF. Make sure that `.maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` character.
+Se você estiver usando seu autenticador no SDA, você deve ter notado que há um arquivo chamado `steamID.maFile` na pasta `maFiles`. Copie esse arquivo para a pasta `config` do ASF. Certifique-se de que `.maFile` está em formato não-criptografado, pois o ASF não pode descriptografar arquivos SDA - um arquivo com conteúdo descriptografado deve começar com o caractere `{`.
 
-You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+Agora você deve renomear o arquivo `steamID.maFile` para `NomeDoBot.maFile` na pasta config do ASF, onde `NomeDoBot` é o nome do bot para o qual você está adicionando o ASF 2FA. Como alternativa, você pode deixá-lo como está, o ASF vai selecioná-lo automaticamente após o login. Ajudar o ASF torna possível usar o ASF 2FA antes de fazer o login, se você não ajudar o ASF, então o arquivo poderá ser selecionado apenas depois que o ASF logar com sucesso (já que o ASF não sabe qual a `steamID` da sua conta antes de realmente logar).
 
-If you did everything correctly, launch ASF, and you should notice:
+Se você fez tudo corretamente, abra o ASF e você deverá notar:
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+    [*] INFO: ImportAuthenticator() <1> Convertendo o arquivo .maFile para o formato ASF...
+    [*] INFO: ImportAuthenticator() <1> Verificação do autenticador móvel concluída com sucesso!
     
 
-From now on, your ASF 2FA should be operational for this account.
+De agora em diante, seu ASF 2FA deverá estar operacional para esta conta.
 
 * * *
 
 ### WinAuth
 
-Firstly create new empty `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Remember that it should be `BotName.maFile` and NOT `BotName.maFile.txt`, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
+Em primeiro lugar, crie um arquivo novo com o nome `NomeDoBot.maFile` na pasta config do ASF, onde `NomeDoBot` é o nome do bot para o qual você está adicionando o ASF 2FA. Lembre-se que ele deve ser `NomeDoBot.maFile` e não `NomeDoBot.maFile.txt`, o Windows gosta de ocultar extensões conhecidas de arquivos por padrão. Se você colocar o nome errado, o arquivo não será selecionado pelo ASF.
 
-Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with `{`. Copy whole text into a `BotName.maFile` file created by you in previous step.
+Agora inicie o Winauth como de costume. Clique com o botão direito no ícone da steam e selecione "Show SteamGuard and Recovery Code". Então marque "Allow copy". Você vai observar uma estrutura JSON familiar para você na parte inferior da janela, começando com `{`. Copie todo o texto para o arquivo `NomeDoBot.maFile` que você criou na etapa anterior.
 
-If you did everything correctly, launch ASF, and you should notice:
+Se você fez tudo corretamente, abra o ASF e você deverá notar:
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> Please enter your Device ID (including "android:"):
+    [*] INFO: ImportAuthenticator() <1> Convertendo o arquivo .maFile para o formato ASF...
+    <1> Por favor, insira o ID do seu dispositivo de autenticador móvel (incluindo "android:"):
     
 
-This is when tricky part comes in. WinAuth is missing deviceID property that is required by ASF, so you'll need to do one more thing.
+Agora vem a parte complicada. O WinAuth não tem a propriedade deviceID, que é necessária para o ASF, então você deverá fazer mais uma coisa.
 
-Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including `android:` part into ASF.
+Volte até a opção "Show SteamGuard and Recovery Code" no WinAuth e você deverá notar a propriedade "Device ID" acima do código JSON que você copiou não faz muito tempo. Copie o ID do dispositivo android completo, incluindo a parte `android:` para o ASF.
 
-If you've done that properly as well, you're now done!
+Se você também fez isso corretamente, você terminou!
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+    [*] INFO: ImportAuthenticator() <1> Verificação do autenticador móvel concluída com sucesso!
     
 
-Please confirm that accepting confirmations in fact works. If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
+Por favor, verifique se aceitar confirmações, de fato, funciona. Se você cometeu um erro ao entrar com seu `DeviceID` então você terá um autenticador incompleto - os tokens funcionarão, mas você não conseguirá aceitar as confirmações. Você sempre pode remover o arquivo `Bot.db` e recomeçar, se necessário.
 
 * * *
 
-From that moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
+A partir desse momento, todos os comandos `2fa` funcionarão como se fossem chamados pelo seu dispositivo 2FA padrão. Você pode usar tanto o ASF 2FA quanto o seu autenticador de escolha (Android, iOS, SDA ou WinAuth) para gerar tokens e aceitar as confirmações.
 
-If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
+Se você tem um autenticador em seu telefone, você pode, opcionalmente, remover o SteamDesktopAuthenticator e/ou o WinAuth, já que não precisaremos mais deles. No entanto, eu sugiro que você os mantenha para o caso de precisar, para não falar que eles são mais acessíveis que o autenticador normal da steam. Apenas tenha em mente que o ASF 2FA **NÃO** tem a finalidade geral de ser um autenticador e **nunca** deve ser o único que você utiliza, já que ele nem mesmo inclui todos os dados que um autenticador deve ter. Não é possível converter o ASF 2FA de volta ao autenticador original, portanto certifique-se sempre que você tem um autenticador de uso geral em outro lugar, como o WinAuth/SDA, ou no seu telefone.
 
 * * *
 
 ## Perguntas frequentes
 
-### How is ASF making use of 2FA module?
+### Como o ASF faz uso do módulo 2FA?
 
-If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
-
-* * *
-
-### What if I need a 2FA token?
-
-You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
+Se o ASF 2FA estiver disponível, o ASF o usará para confirmação automática de transações que estão sendo enviadas/aceitas pelo ASF. Ele também será capaz de gerar automaticamente tokens 2FA conforme a necessidade, por exemplo para logar. Além disso, o ASF 2FA permite comandos `2fa` para você usar. Isso deve ser tudo por enquanto, se eu não esqueci de nada - basicamente o ASF usa o módulo 2FA conforme necessário.
 
 * * *
 
-### Can I use my original authenticator after importing it as ASF 2FA?
+### E se eu precisar de um token 2FA?
 
-Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
-
-* * *
-
-### Where is ASF mobile authenticator saved?
-
-ASF mobile authenticator is saved in `BotName.db` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
+Você vai precisar de um token 2FA para acessar uma conta protegida pelo 2FA, que também inclui todas as contas com ASF 2FA. Você deve gerar tokens no autenticador que você usou para a importação, mas você também pode gerar tokens temporários através do comando `2fa` enviado via chat pelo bot escolhido. Você também pode usar o comando `2fa <BotNames>` para gerar um token temporário para o bot mencionado. Isto deve ser suficiente para você acessar contas bot através, por exemplo, do navegador, mas como mencionado acima - você deve usar seu autenticador de costume (Android, iOS, SDA ou WinAuth) em vez disso.
 
 * * *
 
-### How to remove ASF 2FA?
+### Posso usar meu autenticador original depois de importá-lo como ASF 2FA?
 
-Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website.
-
-* * *
-
-### I linked authenticator in SDA/WinAuth, then imported to ASF. Can I now delink it and link it again on my phone?
-
-**No**. ASF **imports** your authenticator data in order to use it. If you delink your authenticator then you'll also cause ASF 2FA to stop functioning, regardless if you remove it firstly like stated in above question or not. If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and its data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. In order to use ASF 2FA together with authenticator on your phone, you must import it from Android/iOS, which is described above.
+Sim, seu autenticador original continua funcional e você pode usá-lo juntamente com o ASF 2FA. Essa é a questão toda do processo - nós estamos importando suas credenciais do autenticador para dentro do ASF, então o ASF pode usá-las e aceitar confirmações selecionadas em seu interesse.
 
 * * *
 
-### Is using ASF 2FA better than WinAuth/SDA/Other authenticator set to accept all confirmations?
+### Onde fica salvo o autenticador móvel do ASF?
 
-**Yes**, in several ways. First and most important one - using ASF 2FA **significantly** increases your security, as ASF 2FA module ensures that ASF will only accept automatically its own confirmations, so even if attacker does request a trade that is harmful, ASF 2FA will **not** accept such trade, as it was not generated by ASF. In addition to security part, using ASF 2FA also brings performance/optimization benefits, as ASF 2FA fetches and accepts confirmations immediately after they're generated, and only then, as opposed to inefficient polling for confirmations each X minutes done e.g. by SDA or WinAuth. In short, there is no reason to use third-party authenticator over ASF 2FA, if you plan on automating confirmations generated by ASF - that's exactly what ASF 2FA is for, and using it does not conflict with you confirming everything else in authenticator of your choice. We strongly recommend to use ASF 2FA for entire ASF activity - this is much more secure than any other solution.
+O autenticador móvel do ASF é salvo no arquivo `NomeDoBot.db` na sua pasta config, juntamente com outros dados cruciais relacionados a conta em questão. Se você deseja remover o ASF 2FA, leia como abaixo.
+
+* * *
+
+### Como remover o ASF 2FA?
+
+Simplesmente pare o ASF e remova o arquivo `NomeDoBot.db` do bot com o ASF 2FA vinculado que deseja remover. Esta opção irá remover o 2FA associado importado para o ASF, mas NÃO desvinculará seu autenticador. Se ao invés disso você quiser desvincular seu autenticador, além de removê-lo do ASF (em primeiro lugar), você deve desvinculá-lo no autenticador de sua escolha (Android, iOS, SDA ou WinAuth), ou - se por alguma razão você não puder, use o código de revogação que recebeu durante a vinculação com o autenticador, no site da Steam.
+
+* * *
+
+### Eu vinculei o autenticador ao SDA/WinAuth, em seguida, importei para o ASF. Eu posso desvinculá-lo e vincular novamente ao meu telefone?
+
+**Não**. O ASF **importa** os dados do autenticador para usá-lo. Se você desvincular seu autenticador então você também fará com que o ASF 2FA pare de funcionar, independentemente de você tê-lo removido primeiro como referido na pergunta acima ou não. Se você quiser usar seu autenticador tanto em seu telefone quanto no ASF (e mais, opcionalmente, no SDA/WinAuth), então você precisa **importar** seu autenticador do seu telefone e não criar um novo no SDA/WinAuth. Você só pode ter **um** autenticador vinculado, é por isso que ASF **importa** esse autenticador e seus dados para usá-lo como ASF 2FA - é **o mesmo** autenticador, apenas existindo em dois lugares. Se você decidir desvincular suas credenciais no autenticador móvel - independentemente de qual modo, o ASF 2FA irá parar de funcionar, uma vez que as credenciais do autenticador móvel copiadas anteriormente deixarão de ser válidas. Para utilizar o ASF 2FA juntamente com o autenticador em seu telefone, você deve importá-lo do Android/iOS, como é descrito acima.
+
+* * *
+
+### Usar o ASF 2FA é melhor que o WinAuth/SDA/Outros configurados para aceitar todas as confirmações?
+
+**Sim**, por vários motivos. Primeiro e mais importante - usar o ASF 2FA **significantemente** aumenta sua segurança, uma vez que o módulo 2FA do ASF assegura que o ASF só aceitará automaticamente suas próprias confirmações, então mesmo que um atacante solicite uma troca prejudicial, o ASF 2FA **não** aceitará tal troca, já que ela não foi gerada pelo ASF. Adicionalmente a questão de segurança, usar o ASF 2Fa também traz benefícios de performance/otimização, uma vez que ele busca e aceita confirmações imediatamente após serem geradas, e só nessa hora, em vez do método ineficiente de sondagem para confirmações a cada X minutos feitos, por exemplo, pelo SDA ou WinAuth. Resumindo, não há necessidade de se usar outros autenticadores além do ASF 2FA, se você planeja usar confirmações automatizadas geradas pelo ASF - isso é exatamente o que o ASF 2FA faz, e usá-lo não entra em conflito com você confirmando tudo o mais no autenticador de sua escolha. Recomendamos fortemente a utilização do ASF 2FA para toda atividade do ASF - isto é muito mais seguro do que qualquer outra solução.
 
 * * *
 
 ## Avançado
 
-If you're advanced user, you can also generate maFile manually. It should have a **[valid JSON structure](https://jsonlint.com)** of:
+Se você for um usuário avançado, você pode gerar o arquivo maFile manualmente. Ele deve ter uma **[estrutura JSON válida](https://jsonlint.com)** de:
 
 ```json
 {
@@ -179,6 +179,6 @@ If you're advanced user, you can also generate maFile manually. It should have a
 }
 ```
 
-`device_id` is optional during import, but mandatory for ASF operation - ASF will ask for it during importing if you omit it. Of course, you need to replace `"STRING"` with valid content in each field.
+`device_id` é opcional durante a importação, mas obrigatória para a operação do ASF - o ASF vai perguntar por ele durante a importação se você omiti-lo. É claro, você precisa substituir `"STRING"` com conteúdo válido em cada campo.
 
-Standard authenticator data has more fields - they're entirely ignored by ASF during import, as they're not needed. You also don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and optionally also `device_id`.
+Dados padrão do autenticador tem mais campos - eles são completamente ignorados pelo ASF durante a importação, já que não são necessários. Você também não precisa removê-los - o ASF só requer um JSON válido com 2 campos obrigatórios descritos anteriormente, e opcionalmente também o `device_id`.

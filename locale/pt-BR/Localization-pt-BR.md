@@ -1,6 +1,6 @@
 # Localização
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF é distribuído pelo serviço Crowdin, que torna possível que qualquer um possa ajudar a traduzindo o ASF em todas as línguas faladas pelo mundo. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
 If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 * * *
 
-### Reviewing
+### Revisando
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -60,7 +60,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment (so we can understand what the issue is).
+**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
 There are currently 4 supported type of issues:
 
@@ -71,7 +71,7 @@ There are currently 4 supported type of issues:
 
 * * *
 
-### Translation progress
+### Progresso da tradução
 
 Every language has two states of completion - translation, and proof-reading.
 
@@ -99,7 +99,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### Global links
+### Links Globais
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -107,7 +107,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+> Se você é um novo usuário, recomendamos começando com o guia de **[configuração](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)**.
 
 Which is originally written as:
 
@@ -182,7 +182,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Links locais
 
 Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
 

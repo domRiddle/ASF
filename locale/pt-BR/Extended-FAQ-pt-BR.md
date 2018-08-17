@@ -1,8 +1,8 @@
-Our extended FAQ covers a bit less common questions and answers that you might have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** instead.
+Nosso FAQ estendida cobre perguntas e respostas um pouco menos comuns que você pode ter. Para coisas mais comuns, por favor visite o nosso **[FAQ básico](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** em vez disso.
 
 * * *
 
-### Who has created ASF?
+### Quem criou o ASF?
 
 ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
 
@@ -10,7 +10,7 @@ However, ASF is open-source project, and I can't express enough that I'm not beh
 
 * * *
 
-### Why was ASF created in the first place?
+### Por que o ASF foi criado em primeiro lugar?
 
 ASF was created with primary purpose of being fully automated Steam idling tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF progressed since then, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
 
@@ -18,7 +18,7 @@ It's nice to note that ASF was never made to compete with other idlers, especial
 
 * * *
 
-### OK, where is the catch?
+### Ok, onde está a pegadinha?
 
 There is no catch, I created ASF **for myself** and shared it with the rest of community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or other activity that would generate any monetary benefit for me, excluding non-obligatory donations from happy users that is. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee (or not).
 

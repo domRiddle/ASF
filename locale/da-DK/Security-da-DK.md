@@ -2,15 +2,15 @@
 
 ## SteamPassword
 
-ASF currently supports 4 types of passwords - `PlainText`, `AES`, `ProtectedDataForCurrentUser` and None (`null` / `""`).
+ASF understøtter i øjeblikket 4 typer af adgangskoder - `Simpel tekst`, `AES`, `ProtectedDataForCurrentUser` og ingen (`null` / `""`).
 
 In order to use encrypted password, you should firstly log in to Steam as usual with `PlainText`, then generate encrypted passwords using `password` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as `SteamPassword` bot config property, and finally don't forget to change `PasswordFormat` to the one that matches your chosen encryption method.
 
 * * *
 
-### PlainText
+### Simpel tekst
 
-This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF expects `SteamPassword` property to be a plain text - password being used to log in to Steam in its direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
+This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF forventer `SteamPassword` property til at være en almindelig tekst - adgangskode bruges til at logge på Steam i sin direkte form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
 
 * * *
 
@@ -30,13 +30,13 @@ Currently the most secure way of storing the password that ASF offers, and much 
 
 * * *
 
-### None
+### Ingen
 
 The only way that guarantees 100% security and ensures that nobody can steal your Steam password. In order to use this option simply set your `SteamPassword` to empty string (`""`) or `null` value. ASF will ask you for your Steam password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords, it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
 
 * * *
 
-## Recommendation
+## Anbefaling
 
 If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 
@@ -46,6 +46,6 @@ For people launching ASF rarily or those who are not bothered with entering the 
 
 * * *
 
-# Decryption
+# Dekryptering
 
 ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `0` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.

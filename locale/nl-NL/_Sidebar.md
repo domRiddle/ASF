@@ -9,7 +9,7 @@
 ## Basisfuncties
 
 * **[Compatibiliteit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility-nl-NL)**
-* **[Productactivering op de achtergrond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-nl-NL)**
+* **[Productcode-activering op de achtergrond](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-nl-NL)**
 * **[Commando's](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-nl-NL)**
 * **[Uitvoering](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance-nl-NL)**
 * **[Ruilhandel](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading-nl-NL)**

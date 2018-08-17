@@ -1,24 +1,24 @@
-# Localization
+# Yerelleştirme
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF, herkesin ASF'yi dünya çapında konuşulan tüm dillere çevirmesine yardımcı olan Crowdin servisi tarafından desteklenmektedir. Crowdin'in nasıl çalıştığına dair daha ayrıntılı açıklama için lütfen **[Crowdin'e giriş](https://support.crowdin.com/crowdin-intro)**i kontrol edin.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
+Şu anda neler olduğuyla ilgileniyorsanız, **[ASF Crowdin etkinliği](https://crowdin.com/project/archisteamfarm/activity_stream)**ni kontrol edebilirsiniz.
 
 * * *
 
-## Scope
+## Kapsam
 
 Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 * * *
 
-## Signing up
+## Kaydolmak
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
 * * *
 
-### Translating
+### Çeviri
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 * * *
 
-### Reviewing
+### İnceleme
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -46,7 +46,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 * * *
 
-### Proof-reading
+### Düzeltme
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -56,11 +56,11 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Issues
+### Sorunlar
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating, so please stick with English when writing issue comment (so we can understand what the issue is).
+**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
 There are currently 4 supported type of issues:
 
@@ -71,7 +71,7 @@ There are currently 4 supported type of issues:
 
 * * *
 
-### Translation progress
+### Çeviri süreci
 
 Every language has two states of completion - translation, and proof-reading.
 
@@ -83,7 +83,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 * * *
 
-## Missing languages
+## Eksik diller
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
 
@@ -99,7 +99,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### Global links
+### Evrensel bağlantılar
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -107,7 +107,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+> Eğer yeni bir kullanıcıysanız, **[kurulum](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** rehberi ile başlamanızı tavsiye ederiz.
 
 Which is originally written as:
 
@@ -182,7 +182,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Yerel bağlantılar
 
 Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
 
@@ -208,9 +208,9 @@ This way our local link will keep working, since it'll now point to name of the 
 
 * * *
 
-### Code blocks
+### Kod kalıpları
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+İçerisinde `<code></code>` blokları olan cümleleri çevirdiğinizde çok dikkatli olun. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
     This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
     

@@ -60,7 +60,7 @@ Crowdin 혹은 우리가 신뢰하고 확인가능한 다른 현지화 플랫폼
 
 어떻게 번역할지 모르거나, 승인된 번역이 틀렸거나, 더욱 정확한 문맥이 필요하는 등 특정 번역에 문제가 있는 경우, [X] 이슈로 표시하여 해당 문자열에 댓글로 달아주시기 바랍니다.
 
-**기술적/개발 설명이나 관리자 작업이 필요하지 않은 경우 이슈마크를 사용하지 마십시오.** 해당 문자열에 대한 토론을 위해 댓글을 자유롭게 이용할 수 있습니다. 하지만 이슈는 기술적 설명이나 관리자의 수정이 필요할 때에만 사용하여야 합니다. 또한 이는 당신이 번역중인 언어를 구사할 수 없는 누군가의 개입이 필연적이므로, 이슈 댓글 작성시 영어로 해주시기 바랍니다. 그래야 우리가 이슈가 무엇인지를 이해할 수 있습니다.
+**기술적/개발 설명이나 관리자 작업이 필요하지 않은 경우 이슈마크를 사용하지 마십시오.** You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
 현재 4가지 종류의 이슈를 지원합니다:
 
