@@ -1,1 +1,1 @@
-**[Test](ru-RU)**
+<a href="ru-RU">Test2</a>
