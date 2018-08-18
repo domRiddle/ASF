@@ -213,7 +213,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 `SteamProtocols` - `byte flags` type with default value of `5`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | Name      | Description                                                                                      |
+| Value | Namn      | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
 | 0     | None      | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
@@ -347,7 +347,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | Name                          | Description                                                           |
+| Value | Namn                          | Description                                                           |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
 | 0     | None                          | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
@@ -386,7 +386,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `FarmingOrders` - `ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | Name                      | Description                                                                      |
+| Value | Namn                      | Description                                                                      |
 | ----- | ------------------------- | -------------------------------------------------------------------------------- |
 | 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
 | 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                                     |
@@ -431,7 +431,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `LootableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | Name              | Description                                                   |
+| Value | Namn              | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Unpacked booster pack                                         |
@@ -449,7 +449,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `MatchableTypes` - `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | Name              | Description                                                   |
+| Value | Namn              | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Unpacked booster pack                                         |
@@ -465,7 +465,7 @@ Of course, types that you should use for this property typically include only `2
 
 `OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Value | Name           |
+| Value | Namn           |
 | ----- | -------------- |
 | 0     | Offline        |
 | 1     | Online         |
@@ -498,7 +498,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `RedeemingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | Name             | Description                                                                    |
+| Value | Namn             | Description                                                                    |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
 | 0     | None             | No redeeming preferences, typical                                              |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
@@ -557,7 +557,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `SteamUserPermissions` - `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | Name          | Description                                                                                                                                                                                        |
+| Value | Namn          | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
@@ -574,7 +574,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `TradingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Name                | Description                                                                                                                                                                  |
+| Value | Namn                | Description                                                                                                                                                                  |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
@@ -697,7 +697,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Name |
+| Value | Namn |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

@@ -1,4 +1,4 @@
-# Configuration
+# Yapılandırma
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 

@@ -111,7 +111,7 @@ Linux/OS X users are advised to do the same, you can use excellent symbolic link
 
 * * *
 
-### Configuration
+### Configurare
 
 We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 

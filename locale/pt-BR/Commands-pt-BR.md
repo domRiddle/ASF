@@ -221,9 +221,9 @@ O argumento `<Modes>` aceita vários valores de métodos, como de costume separa
 
 | Valor      | Pseudônimo | Descrição                                                     |
 | ---------- | ---------- | ------------------------------------------------------------- |
-| All        | A          | Same as enabling all item types below                         |
-| Background | BG         | Profile background to use on your Steam profile               |
-| Booster    | BO         | Pacote de carta                                               |
+| All        | A          | O mesmo que habilitar todos os itens abaixo                   |
+| Background | BG         | Fundo de perfil para usar em seu perfil Steam                 |
+| Booster    | BO         | Pacote de cartas                                              |
 | Card       | C          | Steam trading card, being used for crafting badges (non-foil) |
 | Emoticon   | E          | Emoticon to use in Steam Chat                                 |
 | Foil       | F          | Foil variant of `Card`                                        |

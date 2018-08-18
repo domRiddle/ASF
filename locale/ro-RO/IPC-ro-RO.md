@@ -6,7 +6,7 @@ IPC is always executed with `SteamOwnerID` permissions, which is `0` by default.
 
 * * *
 
-## FAQ
+## Întrebări frecvente
 
 ### What is this all about?
 
