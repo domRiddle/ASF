@@ -8,7 +8,7 @@ Aviso: Toda vez que a palavra "rejeitar" for usada, significa ou ignorar ou nega
 
 ## Lógica
 
-O ASF sempre aceitará todas as trocas, independente dos itens, enviadas pelo usuário com acesso `Master` (ou superior) ao bot. Isso permite não apenas pegar facilmente as cartas obtidas pelo bot como também ajuda a administrar de forma fácil os itens que o bot guarda no inventário.
+O ASF sempre aceitará todas as trocas, independente dos itens, enviadas pelo usuário com acesso `Master` (ou superior) ao bot. Isso permite não apenas pegar facilmente as cartas obtidas pela conta bot como também ajuda a administrar de forma fácil os itens que o bot guarda no inventário.
 
 O ASF rejeitará a oferta de troca, independente do conteúdo, de qualquer usuário (não Master) que esteja na lista negra do módulo de trocas. A lista negra é armazenada no banco de dados padrão `BotName.db` e pode ser gerenciada através dos **[comandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** `bl`, `bladd` e `blrm`. Isso deve funcionar como um alternativa ao bloqueio de usuário padrão da Steam - use com cautela.
 

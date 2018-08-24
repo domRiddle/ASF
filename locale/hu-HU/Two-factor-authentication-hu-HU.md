@@ -1,27 +1,27 @@
-# Two-factor authentication
+# Kétlépcsős hitelesítés
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Mióta a Valve bevezette az "Escrow" rendszerét,szükséges egy extra azonosítás. Olvass erről többet **[itt](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** és **[itt](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Fontos először megérteni a 2FA rendszert és aztán látni fogod az ASF 2FA működését.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Mostmár tudod,hogy minden csere maximum 15 napig van visszatartva, ami ugyan nem oly nagy probléma,de idegesítő azoknak, akik teljesen automatizáltak. Szerencsére az ASF-nek van megoldása erre a problémára, ez az ASF 2FA.
 
 * * *
 
-# ASF logic
+# ASF-megoldás
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Független attól,hogy használod-e az ASF 2FA-t vagy nem, a program magában foglalja a megfelelő methódust,azonban a normál 2FA is teljes mértékben megvédi a felhasználót. Csak a szükséges adatokra kérdez rá. (Például bejelentkezés során.) Viszont ha használod az ASF 2FA-t, a program magától kéri és generálja a szükséges adatokat,így időt takarít meg és extra funkciókat tár fel a felhasználó számára.
 
 * * *
 
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+Az ötlet egyszerű. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
 
-To enable ASF 2FA, you need to have:
+Az ASF 2FA aktiválásához szükséged lesz:
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
+- Működő Steam-hitelesítő az Androidos készülékeden
+- vagy működő Steam-hitelesítő az iOS készülékeden
+- vagy működő **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)** a számítógépeden
+- vagy működő Steam-hitelesítő a **[WinAuth](https://winauth.github.io/winauth)** programban.
 
 * * *
 

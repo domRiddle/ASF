@@ -10,15 +10,15 @@
 
 ### Что это вообще такое?
 
-IPC это сокращение от "inter-process communication", межпроцессное взаимодействие, и имеет функционал очень похожий на выполнение **[команд](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** через чат Steam - это позволяет вам управлять процессом ASF во время работы. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
+IPC это сокращение от "inter-process communication", межпроцессное взаимодействие, и имеет функционал очень похожий на выполнение **[команд](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** через чат Steam - это позволяет вам управлять процессом ASF во время работы. Однако IPC даёт гораздо больше чем просто отправка команд, поскольку он соединяет все основные возможности ASF в одном месте. Прямо сейчас IPC предлагает вам два "режима" использования - API и дружественный к пользователю графический интерфейс (GUI). API позволяет вам создавать свои утилиты и скрипты, взаимодействующие с ASF, а GUI позволяет вам пользоваться этими API вручную, через удобный интерфейс. Для банальной отправки команд вам будет легче взаимодействовать с ASF через чат Steam с одним из ботов. Однако вы можете пользоваться и IPC, если сочтете что это проще/полезнее для вас.
 
 ### Это безопасно?
 
-ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
+ASF по умолчанию ожидает соединений только по адресу `127.0.0.1`, а значит доступ к IPC ASF невозможен с любой машины, кроме той где запущен ASF. Поэтому это настолько безопасно, насколько может быть безопасным IPC. Если вы решите изменить установленный по умолчанию адрес привязки `127.0.0.1` на что-то другое, например `*`, то вам следует установить соответствующие правила брандмауэра **самостоятельно**, чтобы разрешить только доверенным IP-адресам доступ к порту ASF. В добавок к этому, сервер должен иметь правильно настроенный ненулевой параметр `SteamOwnerID`, иначе от откажется выполнять любые команды в качестве дополнительной меры безопасности. И в добавок ко всему этому вы можете также установить в параметре `IPCPassword` пароль доступа к IPC, что добавит ещё один уровень дополнительной безопасности.
 
-### Can I use HTTPS protocol with proper encryption?
+### Могу ли я использовать протокол HTTPS с шифрованием?
 
-ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
+ASF предоставляет только базовый `HttpListener`, который не поддерживает использование протокола HTTPS и установку соответствующих сертификатов, и поддержка такого функционала в ASF только ещё больше усложнит его, и добавит сложностей с управлением сертификатами. Настоятельно рекомендуется использовать для этого **[Обратный прокси](https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9_%D0%BF%D1%80%D0%BE%D0%BA%D1%81%D0%B8)**, такой как **[nginx](https://nginx.org/en)**. Таким образом вы получите полный контроль над сервером http и настроить его как захотите, вместо того чтобы ограничиваться возможностями которые поддерживает `HttpListener` в ASF. Пример конфигурации nginx вы можете найти ниже. Мы включили полный блок `server`, хотя вам в основном будут интересны блоки `location`. Дальнейшую информацию вы можете найти в **[документации nginx](https://nginx.org/ru/docs/)**.
 
 ```nginx
 server {
@@ -54,7 +54,7 @@ server {
 }
 ```
 
-This way you can use fully secured connection to your ASF instance, as shown below.
+Таким образом вы можете пользоваться полностью безопасным подключением к вашему ASF, как показано ниже.
 
 ![Изображение](https://i.imgur.com/ifoEmWs.png)
 
@@ -62,95 +62,95 @@ This way you can use fully secured connection to your ASF instance, as shown bel
 
 ## ﻿Сервер
 
-To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info. You might also want to make use of `--process-required` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**, although that is entirely optional, just a mere mention.
+Чтобы запустить IPC вам нужно включить **[параметр глобальной конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** `IPC`. Дополнительную информацию вы можете найти в разделе "**[Конфигурация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU)**". Возможно вы также захтите использовать **[аргумент командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--process-required`, хотя это совершенно не обязательно, мы просто решили об этом упомянуть.
 
-If configuration was set correctly, you should notice that IPC service is active:
+Если конфигурация сделана правильно, вы должны заметить что служба IPC активна:
 
-    INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/...
-    INFO|ASF|StartServer() IPC server ready!
+    INFO|ASF|StartServer() Запуск IPC сервера на http://127.0.0.1:1242/...
+    INFO|ASF|StartServer() IPC сервер готов!
     
 
-ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
+ASF теперь ожидает входящих IPC-соединений по адресу `http://127.0.0.1:1242/` (или по тому адресу, который вы указали в параметре `IPCPrefixes`).
 
 * * *
 
 ## Клиент
 
-Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
+Для взаимодействия с сервером IPC, предоставляемым ASF, может быть использована любая программа совместимая с http, включая классические веб-браузеры, а также утилиты командной строки, такие как `curl`.
 
 ### API
 
-ASF IPC offers a full API for bots management that can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
+IPC ASF предоставляет полное API для управления ботами, для использования которого необходимо отправлять соответствующие запросы на несколько имеющихся конечных точек. Вы можете использовать эти конечные точки API для создания своих вспомогательных скриптов, утилит, интерфейсов и тому подобного. Отсылка запросов API официально полностью поддерживается командой ASF.
 
 ### IPC GUI
 
-In addition to API calls, we're slowly coding IPC GUI that is a nice user-friendly frontend to API features that ASF offers. This GUI can be accessed by navigating to main index of the ASF's IPC interface, such as `http://127.0.0.1:1242`.
+В дополнение к запросам API, мы медленно разрабатывает графический интерфейс IPC GUI, который представляет из себя дружественный к пользователю фронтенд для API предоставляемых ASF. Доступ к этому GUI вы можете получить перейдя на главную страницу интерфейся IPC ASF, например `http://127.0.0.1:1242`.
 
 ![Изображение](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
 
-IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+IPC GUI на данном этапе находится **на предварительном рассмотрении**, это значт что официально он **не поддерживается** и мы не принимаем сообщения об ошибках (отдельных проблемах) касающихся его. Вы можете делиться своими мыслями, предложениями и сообщениями об ошибках в соответствующих **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)**, посвященных разработке IPC GUI. Ведущий разработчик IPC GUI **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
 * * *
 
-## HTTP status codes
+## Коды состояния HTTP
 
-Our API makes use of standard HTTP status codes, and they're used according to the RFC. Currently ASF can return following status codes:
+Наше API использует стандартные коды состояния HTTP, и они используются согласно RFC. На данный момент ASF может вернуть следующие коды состояния:
 
-- `200 OK` - the request completed successfully.
-- `400 BadRequest` - the request failed because of an error, parse response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to fulfill it for one reason or another (hence response body telling you why).
-- `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](#authentication)** properly.
-- `403 Forbidden` - You failed to **[authenticate](#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
-- `404 NotFound` - the URL you're trying to reach does not exist.
-- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
-- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. Mainly used in requests that require from you a specific body, without you explicitly stating type of it.
-- `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code. For expected errors we use `503` instead.
-- `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
-- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request, and can't fulfill it. Check ASF log for actual reason.
+- `200 OK` - запрос завершен успешно.
+- `400 BadRequest` - запрос не удался из-за ошибки, проанализируйте тело ответа для получения реальной причины. В большинстве случаев это означает что ASF понял запрос, но отказался его выполнить по той или иной причине (и в теле ответа объясняется, почему).
+- `401 Unauthorized` - в ASF установлен `IPCPassword` но вы не смогли успешно пройти **[аутентификацию](#Аутентификация)**.
+- `403 Forbidden` - Вы не смогли пройти **[аутентификацию](#Аутентификация)** слишком много раз, доступ к IPC запрещён, попробуйте снова через час.
+- `404 NotFound` - URL к которому вы пытаетесь получить доступ, не существует.
+- `405 MethodNotAllowed` - Метод HTTP, который вы пытаетесь использовать, недопустим для этой конечной точки API. Эта же ошибка используется если вы пытаетесь получить доступ к конечной точке websocket не инициализировав соединени websocket (upgrade).
+- `406 NotAcceptable` - заголовок `Content-Type` вашего запроса недопустим для этой конечной точки API. В основном используется для запросов, в которых от вас требуется передать особое тело запроса, без указания его типа.
+- `411 LengthRequired` - ваш запрос `POST` не имеет заголовка `Content-Length`.
+- `500 InternalServerError` - сервер IPC попал в критическое состояние, это указывает на проблему в ASF, о которой следует сообщить чтобы её исправили. В нормальной ситуации этот статус нигде не используется. Для ожидаемых ошибок вместо этого используется статус `503`.
+- `501 NotImplemented` - этот URL зарезервирован для будущего использования и на данный момент не реализован.
+- `503 ServiceUnavailable` - в ASF произошла одна из возможных ошибок в процессе выполнения, и запрос выполнить не удалось. Проверьте журнал ASF чтобы узнать реальную причину.
 
 * * *
 
 ## Аутентификация
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get rate-limited with `403 - Forbidden` error.
+Интерфейс IPC ASF по умолчанию не нуждается ни в какой аутентификации, поскольку `IPCPassword` установлено значение `null`. Однако, если вы активировали `IPCPassword`, указав ему не пустое значение, любой запрос к интерфейсу IPC ASF требует пароль, совпадающий с установленным в `IPCPassword`. Если вы пропустили аутентификацию или указали неверный пароль, вы получите ошибку `401 - Unauthorized`. Если вы продолжите отправлять запросы без аутентификации, со временем сработает ограничение частоты запросов и вы получите ошибку `403 - Forbidden`.
 
-Authentication can be done through two generally-acceptable ways.
+Аутентификация может быть выполнена двумя общепринятыми способами.
 
-### `Authentication` header
+### Заголовок `Authentication`
 
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+В основном вам следует использовать заголовки запроса HTTP, установив значение поля `Authentication` равным вашему паролю. Как этого добиться зависит от того, каким инструментом вы пользуетесь для доступа к интерфейсу IPC ASF, например если вы пользуетесь `curl` вам следует добавить в качестве аргумента `-H 'Authentication: MyPassword'`. Таким способом аутентификация передаётся в заголовках запроса, где и должна быть.
 
-### `password` parameter in query string
+### Параметр `password` в строке запроса
 
-Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/Command/version?password=MyPassword` instead of `/Api/Command/version` alone. This approach is good enough for majority of use cases, as it's user-friendly and can be even saved as a bookmark, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while it applies to the entire IPC communication.
+В качестве альтернативы вы можете добавить параметр `password` в конец URL, который хотите вызвать, например вызывая `/Api/Command/version?password=MyPassword` вместо `/Api/Command/version`. Этот подход достаточно хорош для большинства случаев, поскольку он дружественный к пользователю, и может быть сохранён в качестве закладки, но очевидно что он в открытом виде показывает ваш пароль, что не всегда допустимо. В добавок это дополнительный параметр в строке запроса, что загромождает вид URL, и создаёт впечатление что он применим только к этому URL, хотя на самом деле он применяется ко всему обмену с IPC.
 
 * * *
 
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
+Оба способа поддерживаются совершенно одинаково, и это вам решать каким из них пользоваться. Мы всё же рекомендуем использовать заголовки HTTP везде где только можно, поскольку с точки зрения использования это более правильно чем строка запроса - строка запроса в этом случае остаётся только для пользователя, как дружественный к пользователю способ создавать закладки с URL запросов IPC.
 
 * * *
 
 ## Cross-Origin Resource Sharing
 
-ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request firstly, as described above.
+ASF по умолчанию имеет заголовок `Access-Control-Allow-Origin` равный `*`. Это позволяет, например, скриптам на JavaScript получать доступ к интерфейсу IPC ASF в сторонних GUI и утилитах. Однако, это также означает что кто-то может загрузить потенциально вредоносный скрипт который будет делать запрсы к AFS без вашего ведома и разрешения. Если вы хотеите удостоверится, что такая ситуация не случиться, рекомендуется соответсвенно настроить `IPCPassword`. Таким образом любой скрипт, которых захочет получить доступ к интерфейсу IPC ASF, ему потребуется сначала пройти аутентификацию для каждого запроса, как описано выше.
 
 * * *
 
 ## API
 
-In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
+В основном наше API является типичным REST API основанном на JSON в качестве основного метода сериализации/десериализации данных. Мы стараемся максимально точно описать ответ, используя как коды ошибок HTTP (когда это применимо), так и ответ JSON который вы можете самостоятельно разобрать чтобы выяснить, окончился ли запрос успешно, и если нет - то почему.
 
-Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
+Некоторые конечные точки API могут требовать формирования дополнительных данных, как например соответствующей JSON-структуры в качестве тела запроса, и соответственно установки заголовка `Content-Type` равным `application/json`. Если конечная точка API требует особых входных данных, они будут перечислены вверху описания конечной точки.
 
-Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
+Предоставленные ниже примеры запросов/ответов показывают возможное использование с помощью утилиты **[curl](https://curl.haxx.se)** - ожидается что вы измените параметр URL добавив в начало соответствующие `Protocol://Host:Port`, согласно настройкам вашего ASF, например `http://127.0.0.1:1242`.
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript which can't represent 64-bit numbers precisely (and other languages with similar limitations).
+Цифровые параметры определены с максимальными значениями, поэтому вы можете использовать для них строгую типизацию, как например `uint` для `AppID`, и `ulong` для `SteamID`. Некоторые поля типа `ulong`, сериализованные как числа, могут иметь дополнительные поля с префиксом `s_`, сериализованные как строки, что может быть использовано в JavaScript, который не способен точно представлять 64-разрядные числа (также верно для других языков с подобным ограничением).
 
 * * *
 
 ### GenericResponse
 
-Generic response is a primary return type that we use for all API calls.
+Стандартный формат ответа (GenericResponse) это основной возвращаемый тип для всех вызовов API.
 
 ```json
 {
@@ -160,17 +160,17 @@ Generic response is a primary return type that we use for all API calls.
 }
 ```
 
-`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
+`Message` - значение типа `string`, содержащее дополнительные подробности ответа. Это может быть просто "OK" если запрос успешен, или реальная причина отказа если нет. Мы используем это поле как способ дать вам знать что случилось с отправленным вами запросом. Помните, что это поле НЕ результат вашего запроса, а только описание того, что произошло. Может быть равным null если у нас нет определённого сообщения для вас, хотя мы стараемся по возможности избегать таких ситуаций.
 
-`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
+`Result` - значение типа `object` содержащее результат вашего запроса. Тип этого поля зависит от вызванной конечной точки API- например это может быть `Bot` или `string`. Чаще всего используется в запросах `GET` для получения данных которые вы запросили. Хотя это поле имеет гибкий тип, конкретные конечные точки всегда гарантируют определённое количество возможных результатов, и очень часто можно использовать строгую типизацию для отдельно взятой конечной точки. Может быть равным null если у нас нет определённого результата для вас.
 
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
+`Success` - значение типа `bool`, предоставляющее простой способ проверки результата. Это дополнение к кодам состояния HTTP, поскольку коды `2xx` считаются `true`, а всё остальное считается `false`. Обратите внимание, что это поле только указывается что **запрос API успешен** - вам необходимо разобрать поле `Result` чтобы проверить, успешно ли заданное действие, такое как отправка команды.
 
 * * *
 
 ### `GET /Api/ASF`
 
-This API endpoint can be used for fetching general data about ASF process as a whole. Returns **[GenericResponse](#genericresponse)** with `Result` defined as **[ASFResponse](#asfresponse)**.
+Эта конечная точка API может быть использована для получения общих сведений о процессе ASF в целом. Возвращает **[GenericResponse](#genericresponse)** c полем `Result` определённым как **[ASFResponse](#asfresponse)**.
 
 ```shell
 curl -X GET /Api/ASF
@@ -199,21 +199,21 @@ curl -X GET /Api/ASF
 }
 ```
 
-`BuildVariant` - `string` value that specifies build variant of currently running ASF process. This can be any variant available under **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**, as well as variants that are not officially available for download (such as `docker` variant for our Docker images or `source` variant for unofficial builds).
+`BuildVariant` - значение типа `string`, содержащее вариант сборки запущенного процесса ASF. Это может быть любой вариант доступный в разделе "**[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**", а также варианты не доступные для скачивания официально (такие как вариант `docker` для нашего образа Docker или вариант `source` для неофициальных сборок).
 
-`GlobalConfig` - specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration. This property can be used for finding out options that the ASF process is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive process-related information such as `WebProxyPassword` are always skipped from being included.
+`GlobalConfig` - специальный объект C# используемый для доступа к конфигурации. Имеет точно такую же структуру как **[файл глобальной конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)**, описанный в разделе "Конфигурация". Это свойство может быть использовано чтобы узнать с какими параметрами настроен работать процесс ASF. Обычно этот объект будет включать только часть параметров конфигурации - те, которые пользователь изменил (минимальная конфигурация). Конфиденциальная информация, указанная в конфигурации процесса (например, `WebProxyPassword`), всегда исключается из выдачи.
 
-`MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
+`MemoryUsage` - значение типа `uint`, содержащее объём памяти **управляемого** кода, занятый процессом ASF в целом, в килобайтах.
 
-`ProcessStartTime` - `DateTime` value that specifies when exactly the ASF process has been started. This can be used for calculating e.g. program uptime. In JSON, ASF serializes `DateTime` object to **[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)** string that contains date, time, as well as timezone being used.
+`ProcessStartTime` - значение типа `DateTime`, содержащее точное время запуска процесса ASF. Может использоваться, например, для вычисления общего времени работы программы. Для JSON ASF сериализует объект `DateTime` в строку стандарта **[ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601)** содержащую дату, время и используемый часовой пояс.
 
-`Version` - `Version` value that specifies version of the currently running ASF binary. `Version` type contains 4 important `Major`, `Minor`, `Build` and `Revision` properties that correspond to appropriate digits in ASF `A.B.C.D` notation.
+`Version` - значение типа `Version`, содержащее версию запущенного двоичного файла ASF. Тип `Version` содержит 4 важных свойства `Major`, `Minor`, `Build` и `Revision`, которые соответствуют цифрам в записи `A.B.C.D` версии ASF.
 
 * * *
 
 ### `POST /Api/ASF`
 
-#### Body:
+#### Тело:
 
 Content-Type: application/json
 
@@ -224,13 +224,13 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+Эта конечная точка API может использоваться для обновления **[файла глобальной конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** ASF. Другими словами, это обновит файл `ASF.json` в папке `config` содержимым **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** объекта JSON переданного в теле запроса. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
-`GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
+`GlobalConfig` - JSON-объект со структурой аналогичной **[файлу глобальной конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)**. Это поле является обязательным и не может быть равным `null`. Параметры конфигурации со значением, равным значению по-умолчанию, могут быть опущены, как и в обычной конфигурации ASF.
 
-`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `WebProxyPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
+`KeepSensitiveDetails` - это значение типа `bool`, указывающее должна ли конфиденциальная информация, такая как `WebProxyPassword`, быть скопирована из существующей конфигурации (если есть). Это поле необязательное, и по умолчанию считается равным `true`. Когда это поле включено, параметры с конфиденциальной информацией, указанные со значением `null`, будут скопированы из текущей конфигурации.
 
-Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `WebProxyPassword`.
+На данный момент следующие параметры считаются конфиденциальной ифнормацией и и могут быть заданы равными `null` для копирования из существующей конфигурации: `WebProxyPassword`.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
@@ -241,7 +241,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoResta
 
 ### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+Эта конечная точка API может использоваться для полного удаления заданных ботов с указанными именами `BotNames`, вместе со всеми файлами. Иными словами, это удалит файлы `BotName.*` (включая, но не ограничиваясь `json`, `db`, `bin`, `maFile`, `keys` и т.д.) из вашей папки `config` для всех заданных ботов. Эта конечная точка принимает несколько имен ботов в `BotNames`, разделённых запятыми, а также ключевое слово `ASF` для удаления всех имеющихся ботов. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
 ```shell
 curl -X DELETE /Api/Bot/archi
@@ -304,7 +304,7 @@ curl -X GET /Api/Bot/archi
 
 `SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
-`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration. This property can be used for finding out options that the bot is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are always skipped from being included.
+`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration. This property can be used for finding out options that the bot is configured to work with. Обычно этот объект будет включать только часть параметров конфигурации - те, которые пользователь изменил (минимальная конфигурация). Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are always skipped from being included.
 
 `KeepRunning` is a `bool` type that specifies if bot is active. Active bot is a bot that has been started, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be `false`. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what `SteamID` can be used for).
 
@@ -332,7 +332,7 @@ curl -X GET /Api/Bot/archi
 
 ### `POST /Api/Bot/{BotName}`
 
-#### Body:
+#### Тело:
 
 Content-Type: application/json
 
@@ -343,11 +343,11 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
-`BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
+`BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. Это поле является обязательным и не может быть равным `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
 
-`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `SteamLogin` or `SteamPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
+`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `SteamLogin` or `SteamPassword` should be inherited from existing config (if available). Это поле необязательное, и по умолчанию считается равным `true`. Когда это поле включено, параметры с конфиденциальной информацией, указанные со значением `null`, будут скопированы из текущей конфигурации.
 
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
 
@@ -373,7 +373,7 @@ curl -X POST -d '' /Api/Command/version
 
 ### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
 ```shell
 curl -X DELETE /Api/GamesToRedeemInBackground/archi
@@ -412,7 +412,7 @@ Both `UnusedKeys` and `UsedKeys` are `ImmutableDictionary<string, string>` objec
 
 ### `POST /Api/GamesToRedeemInBackground/{BotName}`
 
-#### Body:
+#### Тело:
 
 Content-Type: application/json
 
@@ -427,7 +427,7 @@ Content-Type: application/json
 
 This API endpoint can be used for adding extra **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
 
-`GamesToRedeemInBackground` is `OrderedDictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). This field is mandatory and cannot be `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty. In addition to that, every `key` must have valid Steam cd-key structure, ASF will validate that using built-in regex. Invalid entries will be automatically removed during import process.
+`GamesToRedeemInBackground` is `OrderedDictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). Это поле является обязательным и не может быть равным `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty. In addition to that, every `key` must have valid Steam cd-key structure, ASF will validate that using built-in regex. Invalid entries will be automatically removed during import process.
 
 The `Result` is `GamesToRedeemInBackground` that were successfully added to the collection of games pending to redeem. Like specified above, invalid entries will be automatically removed during import process, so you can use this result for a comparison with your original request in order to check which entries were deemed as invalid and skipped during import process. If you didn't supply any invalid data, this result will be exactly the same as `GamesToRedeemInBackground` that you've just sent to ASF.
 
@@ -532,7 +532,7 @@ curl -X GET /Api/WWW/Directory/css
 
 ### `POST /Api/WWW/Send`
 
-#### Body:
+#### Тело:
 
 Content-Type: application/json
 

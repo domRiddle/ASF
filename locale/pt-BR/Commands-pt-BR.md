@@ -18,13 +18,13 @@ Todos os comandos abaixo são afetados pela **[propriedade de configuração glo
 
 Definitivamente o método mais fácil de interagir com o ASF - basta executar o comando para o bot ASF que está sendo executado no processo do ASF. Obviamente, não pode fazer isso se você estiver executando o ASF com uma única conta bot que é a sua própria conta.
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Captura da tela](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
 ### Bate-papo em grupo pelo Steam
 
-Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
+Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada.
 
 * * *
 
@@ -32,7 +32,7 @@ Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Keep in mind
 
 Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas de terceiros ou scripts, requer que o ASF seja executado em modo servidor e um cliente executando comandos através da interface **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**.
 
-![Screenshot](https://i.imgur.com/TsAHcM0.png)
+![Captura da tela](https://i.imgur.com/TsAHcM0.png)
 
 * * *
 
@@ -50,7 +50,7 @@ Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas
 | `exit`                                               | `Owner`             | Interrompe todo o processo ASF.                                                                                                                                                                                                                                  |
 | `farm <Bots>`                                  | `Master`            | Reinicia o modulo de coleta de cartas para os bots indicados.                                                                                                                                                                                                    |
 | `help`                                               | `FamilySharing`     | Mostra a ajuda (link para esta página).                                                                                                                                                                                                                          |
-| `input <Bots> <Type> <Value>`      | `Master`            | Define o tipo de entrada indicado para o valor dado para os bots indicados, funciona apenas no modo `Headless` - melhor explicado **[abaixo](#input-command)**.                                                                                                  |
+| `input <Bots> <Type> <Value>`      | `Master`            | Define o tipo de entrada indicado para o valor dado para os bots indicados, funciona apenas no modo `Não-interativo` - melhor explicado **[abaixo](#input-command)**.                                                                                            |
 | `ib <Bots>`                                    | `Master`            | Lista os apps bloqueados para coleta automática nos bots indicados.                                                                                                                                                                                              |
 | `ibadd <Bots> <AppIDs>`                  | `Master`            | Adiciona os `appIDs` indicados à lista de apps bloqueados para coleta automática nos bots determinados.                                                                                                                                                          |
 | `ibrm <Bots> <AppIDs>`                   | `Master`            | Remove os `appIDs` indicados da lista de apps bloqueados para coleta automática nos bots determinados.                                                                                                                                                           |
@@ -219,52 +219,52 @@ Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots qu
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
-| Valor      | Pseudônimo | Descrição                                                     |
-| ---------- | ---------- | ------------------------------------------------------------- |
-| All        | A          | O mesmo que habilitar todos os itens abaixo                   |
-| Background | BG         | Fundo de perfil para usar em seu perfil Steam                 |
-| Booster    | BO         | Pacote de cartas                                              |
-| Card       | C          | Steam trading card, being used for crafting badges (non-foil) |
-| Emoticon   | E          | Emoticon to use in Steam Chat                                 |
-| Foil       | F          | Foil variant of `Card`                                        |
-| Gems       | G          | Steam gems being used for crafting boosters, sacks included   |
-| Unknown    | U          | Every type that doesn't fit in any of the above               |
+| Valor      | Pseudônimo | Descrição                                                                         |
+| ---------- | ---------- | --------------------------------------------------------------------------------- |
+| All        | A          | O mesmo que habilitar todos os itens abaixo                                       |
+| Background | BG         | Fundo de perfil para usar em seu perfil Steam                                     |
+| Booster    | BO         | Pacote de cartas                                                                  |
+| Card       | C          | Cartas colecionáveis Steam, sendo usadas para fabricar insígnias (não brilhantes) |
+| Emoticon   | E          | Emoticons para uso no Bate-papo Steam                                             |
+| Foil       | F          | Variante brilhante da `carta`                                                     |
+| Gems       | G          | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas         |
+| Unknown    | U          | Todos os tipos que não se encaixam em nenhuma das opções acima                    |
 
-For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
+Por exemplo, para enviar cartas colecionáveis e brilhantes do `MyBot` para o `MyMain`, você executaria:
 
 `transfer MyBot C,F MyMain`
 
 * * *
 
-## `Entrada` de comando
+## Comando `input`
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+O comando input só pode ser usado no modo `Não-interativo`, para enviar os dados indicados via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** ou bate-papo Steam quando o ASF estiver rodando sem suporte para interação do usuário.
 
-General syntax is `input <Bots> <Type> <Value>`.
+A sintaxe geral é `input<Bots><Type><Value>`.
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+`<Type>` diferencia maiúsculas de minúsculas e define o tipo de entrada reconhecida pelo ASF. Atualmente, o ASF reconhece os seguintes tipos:
 
-| Type                    | Descrição                                                                  |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| Tipo                    | Descrição                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------- |
+| DeviceID                | Identificador de dispositivo 2FA, caso esteja faltando no `.maFile`.                         |
+| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
+| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
+| SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
+| SteamParentalPIN        | Propriedade de configuração do bot `SteamParentalPIN`, caso esteja faltando na config.       |
+| TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA. |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` é o valor definido para o tipo indicado. Atualmente, todos os valores são strings.
 
 ### Exemplo
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Queremos iniciar esse bot com `Não-interativo` definido como true.
 
-In order to do that, we need to execute following commands:
+Para fazer isso, precisamos executar o seguintes comandos:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
+`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do AuthCode, e, em seguida, parar devido à execução em modo `Não-interativo`. Precisamos disso para fazer a rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> Definimos a entrada `SteamGuard` do bot `MySteamGuardBot` para `ABCDE`. Claro, `ABCDE` neste caso é o código de autenticação que recebemos no nosso e-mail.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot`-> Nós iniciamos nosso bot (parado) novamente, desta vez, ele usa automaticamente o código de autenticação que definimos no comando anterior, ele loga devidamente, limpando-o em seguida.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Da mesma forma, podemos acessar bots protegidos por 2FA (se eles não estiverem usando o ASF 2FA), bem como definir outras propriedades durante tempo de execução.
