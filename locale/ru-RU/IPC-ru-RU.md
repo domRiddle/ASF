@@ -138,7 +138,7 @@ ASF по умолчанию имеет заголовок `Access-Control-Allow-
 
 ## API
 
-В основном наше API является типичным REST API основанном на JSON в качестве основного метода сериализации/десериализации данных. Мы стараемся максимально точно описать ответ, используя как коды ошибок HTTP (когда это применимо), так и ответ JSON который вы можете самостоятельно разобрать чтобы выяснить, окончился ли запрос успешно, и если нет - то почему.
+В основном наше API является типичным REST API основанном на JSON в качестве основного метода сериализации/десериализации данных. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
 Некоторые конечные точки API могут требовать формирования дополнительных данных, как например соответствующей JSON-структуры в качестве тела запроса, и соответственно установки заголовка `Content-Type` равным `application/json`. Если конечная точка API требует особых входных данных, они будут перечислены вверху описания конечной точки.
 
@@ -252,7 +252,7 @@ curl -X DELETE /Api/Bot/archi
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<Bot>` - collection of bot statuses.
+Эта конечная точка API может быть использована для получения сведений о состоянии ботов с указанными `BotNames` - она возвращает базовые сведения о состоянии ботов. Эта конечная точка принимает несколько имен ботов в `BotNames`, разделённых запятыми, а также кодовое слово `ASF` для выбора всех существующих ботов. Returns **[GenericResponse](#genericresponse)** с полем `Result` определённым как `ImmutableHashSet<Bot>` - массив сообщений о состоянии ботов.
 
 ```shell
 curl -X GET /Api/Bot/archi
@@ -515,7 +515,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 ## WWW API
 
-APIs below are dedicated for our IPC GUI usage and they should not be implemented by remote scripts or tools. This documentation is for our internal reference only and can change anytime, in any possible way. You should not rely on existance of below endpoints, neither implement them in your own tools.
+APIs below are dedicated for our IPC GUI usage and they should not be implemented by remote scripts or tools. This documentation is for our internal reference only and can change anytime, in any possible way. You should not rely on existence of below endpoints, neither implement them in your own tools.
 
 * * *
 

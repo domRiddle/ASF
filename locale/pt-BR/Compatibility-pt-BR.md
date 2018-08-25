@@ -51,11 +51,11 @@ Para uma lista completa de todas as plataformas e SOs suportados pelo .NET Core 
 
 ## Requisitos de tempo de execução
 
-Se você estiver usando o pacote para SO específico, então você não precisa se preocupar com requisitos de tempo de execução, porque o ASF sempre acompanha o tempo de execução necessário e atualizado que funcionará corretamente, enquanto você tiver os **[pré-requisitos do .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados e atualizados. Em outras palavras, **você não precisa instalar o tempo de execução ou SDK .NET Core**, já que as compilações específicas do SO exigem apenas as dependências nativas (pré-requisitos) do sistema e nada mais.
+Se você estiver usando o pacote para SO específico, então você não precisa se preocupar com requisitos de tempo de execução, porque o ASF sempre acompanha o tempo de execução necessário e atualizado que funcionará corretamente, enquanto você tiver os **[pré-requisitos do .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados e atualizados. In other words, **you don't need to install .NET Core runtime or SDK**, as OS-specific builds require only native OS dependencies (prerequisites) and nothing else.
 
 No entanto, se você está tentando executar o pacote **genérico** do ASF, você deve garantir o que o seu tempo de execução .NET Core ofereça suporte a plataforma requerida pelo ASF.
 
-O ASF, como programa, está visando o **.NET Core 2.1** (`netcoreapp2.1`) agora, mas ele deve visar plataformas novas no futuro. `netcoreapp2.1` é suportado desde o SDK 2.1.300 (tempo de execução 2.1.0), embora nós recomendemos usar o **[SDK mais recente](https://www.microsoft.com/net/download)** disponível para a sua máquina.
+ASF as a program is targeting **.NET Core 2.1** (`netcoreapp2.1`) right now, but it might target newer platform in the future. `netcoreapp2.1` é suportado desde o SDK 2.1.300 (tempo de execução 2.1.0), embora nós recomendemos usar o **[SDK mais recente](https://www.microsoft.com/net/download)** disponível para a sua máquina.
 
 Em caso de dúvida, verifique o que nossa **[integração contínua usa](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar e implantar as versões do ASF liberadas no GitHub. Você pode encontrar a saída `dotnet --info` no topo de cada compilação.
 

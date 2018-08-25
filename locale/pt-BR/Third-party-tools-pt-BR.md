@@ -1,6 +1,6 @@
 # Ferramentas de terceiros
 
-As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. Elas variam de simples aplicações web através de bibliotecas internas para uma maior integração, terminando com bots cheios de recursos para as outras plataformas. Caso deseje adicionar algo à lista, deixe-nos saber no nosso servidor no Discord ou em nosso Grupo Steam.
+As ferramentas incluídas aqui foram escritas exclusivamente (ou principalmente) para o uso conjunto ao ASF. They range from simple web applications through internal libraries for further integration, ending with fully-featured bots for other platforms. Caso deseje adicionar algo à lista, deixe-nos saber no nosso servidor no Discord ou em nosso Grupo Steam.
 
 Por favor, saiba que as ferramentas abaixo não são mantidas pelos desenvolvedores do ASF e nós não nos responsabilizamos por nenhuma delas, especialmente em termos de segurança, confiança ou conformidade com os Termos de Serviço do Steam. Esta lista é mantida apenas para referência. Sempre confirme se a ferramenta que está prestes a usar vem de uma fonte segura e confiável.
 
