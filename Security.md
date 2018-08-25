@@ -42,7 +42,7 @@ If compatibility is not an issue for you, and you're fine with the way how `Prot
 
 Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted password, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
 
-For people launching ASF rarily or those who are not bothered with entering the password on each ASF startup, `None` way is the most secure as Steam password is not saved anywhere.
+For people launching ASF rarely or those who are not bothered with entering the password on each ASF startup, `None` way is the most secure as Steam password is not saved anywhere.
 
 ---
 
