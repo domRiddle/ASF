@@ -139,7 +139,7 @@ ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows 
 
 ## API
 
-In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request suceeded, and if not, then why.
+In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
 
