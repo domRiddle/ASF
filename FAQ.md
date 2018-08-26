@@ -338,7 +338,7 @@ Yes, through steam chat, or by using **[IPC](https://github.com/JustArchi/ArchiS
 
 ---
 
-### I'd like to help translating ASF, what do I need to do?
+### I'd like to help with ASF translation, what do I need to do?
 
 Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization)** section.
 
