@@ -138,7 +138,7 @@ ASF по умолчанию имеет заголовок `Access-Control-Allow-
 
 ## API
 
-В основном наше API является типичным REST API основанном на JSON в качестве основного метода сериализации/десериализации данных. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+В основном наше API является типичным REST API основанном на JSON в качестве основного метода сериализации/десериализации данных. Мы стараемся максимально точно описать ответ, используя как коды ошибок HTTP (когда это применимо), так и ответ JSON который вы можете самостоятельно разобрать чтобы выяснить, окончился ли запрос успешно, и если нет - то почему.
 
 Некоторые конечные точки API могут требовать формирования дополнительных данных, как например соответствующей JSON-структуры в качестве тела запроса, и соответственно установки заголовка `Content-Type` равным `application/json`. Если конечная точка API требует особых входных данных, они будут перечислены вверху описания конечной точки.
 
@@ -230,7 +230,7 @@ Content-Type: application/json
 
 `KeepSensitiveDetails` - это значение типа `bool`, указывающее должна ли конфиденциальная информация, такая как `WebProxyPassword`, быть скопирована из существующей конфигурации (если есть). Это поле необязательное, и по умолчанию считается равным `true`. Когда это поле включено, параметры с конфиденциальной информацией, указанные со значением `null`, будут скопированы из текущей конфигурации.
 
-На данный момент следующие параметры считаются конфиденциальной ифнормацией и и могут быть заданы равными `null` для копирования из существующей конфигурации: `WebProxyPassword`.
+На данный момент следующие параметры считаются конфиденциальной информацией и могут быть заданы равными `null` для копирования из существующей конфигурации: `WebProxyPassword`.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
@@ -259,7 +259,7 @@ curl -X GET /Api/Bot/archi
 {"Message":"OK","Result":[{"BotName":"archi","CardsFarmer":{"CurrentGamesFarming":[],"GamesToFarm":[],"TimeRemaining":"00:00:00","Paused":false},"AccountFlags":0,"AvatarHash":"99bf6df8ad1836c0205de22935f6fe4b1f96b0c6","IsPlayingPossible":true,"SteamID":0,"BotConfig":null,"KeepRunning":false}],"Success":true}
 ```
 
-#### Бот
+#### Bot
 
 ```json
 {
@@ -292,41 +292,41 @@ curl -X GET /Api/Bot/archi
 }
 ```
 
-`BotName` is `string` type that defines name of the bot. This is the same identifier that is used for commands and all other identification-related bot activity.
+`BotName` это параметр типа `string`, содержащий имя бота. Это тот же самый идентификатор, который используется для команд и других действий с ботами.
 
-`CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
+`CardsFarmer` это специализированный объект C#, используемый ботом для фарма карточек. Он содержит информацию, связанную с процессом фарма карточек для данного бота. Его структура описана **[ниже](#cardsfarmer)**.
 
-`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
+`AccountFlags` это параметр типа `EAccountFlags` (флаги `uint`), определённый в SK2 (**[тут](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**), который содержит флаги аккаунта Steam для данного аккаунта. Этот параметр может использоваться для получения дополнительной информации о состоянии аккаунта Steam, используемого в ASF, например чтобы узнать что он **[ограниченный](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** путём проверки флагов `LimitedUser` или `LimitedUserForce`. Этот параметр инициализируется (и обновляется) в тот момент когда бот входит в сеть Steam, поэтому он будет иметь значение `0` до первого входа.
 
-`AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
+`AvatarHash` это параметр типа `string`, содержащий хеш аватара Steam используемого данным ботом. Есть возможность использовать это значение для формирования URL, ведущего к аватару пользователя, сохранённому в CDN Steam. Может иметь значение `null` если пользователь не установил аватар.
 
-`IsPlayingPossible` is `bool` type that specifies if account being used by a bot can be used for automatic idling. This property will be `false` when Steam library of the account is being used elsewhere, either normally, or via family sharing. This property affects only remote logins and does not cover its own process (so if account is not being used anywhere else, `IsPlayingPossible` will always be `true`, even if ASF is actively idling games on it right now).
+`IsPlayingPossible` это параметр типа `bool`, указывающий на то, что аккаунт, используемый в боте, может быть использован для автоматического фарма. Этот параметр будет иметь значение `false`, если библиотека Steam этого аккаунта уже где-то используется, либо напрямую, либо через Family Sharing. Этот параметр учитывает только удалённые сеансы, и не включает в себя собственный процесс (поэтому если аккаунт не используется где-то ещё, `IsPlayingPossible` всегда будет равен `true`, даже если ASF активно фармит игры на нём прямо сейчас).
 
-`SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
+`SteamID` это параметр типа `ulong`, содержащий уникальный идентификатор steamID используемого аккаунта в 64-битном формате. Этот параметр будет иметь значение `0`, если бот не вошёл в сеть Steam (и поэтому может использоваться для определения того, произведен вход на аккаунте или нет).
 
-`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration. This property can be used for finding out options that the bot is configured to work with. Обычно этот объект будет включать только часть параметров конфигурации - те, которые пользователь изменил (минимальная конфигурация). Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are always skipped from being included.
+`BotConfig` это специализированный объект C#, используемый ботом для доступа к его конфигурации. Имеет точно такую же структуру как **[конфигурация бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)**, описанная в разделе "Конфигурация". Этот параметр может использоваться для того, чтобы определить настройки, с которыми бот сконфигурирован работать. Обычно этот объект будет включать только часть параметров конфигурации - те, которые пользователь изменил (минимальная конфигурация). Конфиденциальная информация об аккаунте, такая как `SteamLogin`, `SteamPassword` и `SteamParentalPIN` всегда исключается из выдачи.
 
-`KeepRunning` is a `bool` type that specifies if bot is active. Active bot is a bot that has been started, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be `false`. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what `SteamID` can be used for).
+`KeepRunning` это параметр типа `bool`, указывающий на то что заданный бот в данный момент активен. Активный бот - это бот, который был запущен, либо самим ASF при старте, либо пользователем в процессе работы. Если бот остановлен, этот параметр будет иметь значение `false`. Помните, что этот параметр не имеет ничего общего со входом в сеть Steam (для определения входа может использоваться параметр `SteamID`).
 
 #### CardsFarmer
 
-`GamesToFarm` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
+`GamesToFarm` это объект типа `ImmutableHashSet<Game>` (массив элементов типа `Game`) содержащий игры, которые запланировано фармить в текущей сессии. Пожалуйста, обратите внимание, что этот массив обновляется по мере необходимости, с учётом производительности. Например, если вы фармите используя алгоритм фарма `Simple`, ASF не будет проверять есть ли у нас новые игры для фарма при добавлении игры на аккаунт (поскольку мы всё равно проверим это по окончании текущей очереди, а не делая этого немедленно мы уменьшим количество запросов и загрузку канала). Поэтому эти данные верны только для текущей сессии фарма, которая может отличаться от глобальных данных.
 
-`CurrentGamesFarming` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
+`CurrentGamesFarming` это объект типа `ImmutableHashSet<Game>` (массив элементов типа `Game`) который содержит игры, которые фармятся прямо сейчас. По сравнению с `GamesToFarm`, этот параметр определяет текущее состояние, а не очередь ожидания, и существенно зависит от выбранного алгоритма фарма карточек. Этот массив может содержать не более `32` игр (задаётся параметром `MaxGamesPlayedConcurrently` со стороны сети Steam). Также, вы можете быть уверены, что в этом массиве могут быть только элементы, уже присутствующие в `GamesToFarm`.
 
-`TimeRemaining` is a `TimeSpan` type that specifies approximated time required to farm all games specified in `GamesToFarm` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current `GamesToFarm` status, therefore it's re-calculated the moment `CardsRemaining` of any game changes.
+`TimeRemaining` это параметр типа `TimeSpan`, содержащий приблизительное расчетное время, требуемое на окончание фарма игр, заданных в `GamesToFarm`. Этот параметр даже приблизительно не соответствует времени, которое реально потребуется, но это неплохой индикатор, точность которого может быть улучшена в дальнейшем, и подходит для различных задач отображения состояния. Этот параметр не обновляется в режиме реального времени, он вычисляется исходя из текущего значения `GamesToFarm`, и соответственно пересчитывается в момент изменения `CardsRemaining` в любой игре.
 
-`Paused` is a `bool` type that specifies if `CardsFarmer` is currently paused. CardsFarmer can be paused due to various events, mainly `pause` and `play` commands. Paused CardsFarmer will not attempt to farm anything in automatic mode, neither will check badges every `IdleFarmingPeriod` hours.
+`Paused` это параметр типа `bool`, содержащий признак того, что модуль `CardsFarmer` находится в режиме паузы. CardsFarmer может быть в режиме паузы из-за различных событий, в основном из-за получения команд `pause` и `play`. Находясь в режиме паузы, CardsFarmer не будет пытаться фармить в автоматическом режиме, и не будет проверять страницы значков каждые `IdleFarmingPeriod` часов.
 
-#### Игра
+#### Game
 
-`AppID` is `uint` type that in unique way identifies game being played. ASF enforces this to be greater than `0`.
+`AppID` это параметр типа `uint`, содержащий уникальный идентификатор запущенной игры. ASF следит чтобы этот параметр всегда был больше `0`.
 
-`GameName` is `string` type that provides friendly name of game identified by `AppID`. This is data returned by Steam Community. ASF enforces this to be `non-null` and `non-empty`.
+`GameName` это параметр типа `string`, содержащий название игры с идентификатором `AppID`. Эти данные возвращает Steam Community. ASF следит чтобы это значение соответствовало критериям `non-null` и `non-empty`.
 
-`HoursPlayed` is `float` type that provides information how many hours the game has been played. This property is not updated in real time, but on as-needed basis, at least once per `FarmingDelay` minutes. Please note that initially this data is retrieved from Steam Community, but then updated according to ASF built-in timers, therefore it might not match what Steam Community is returning - this is because Steam Community data is not provided in real time either, and ASF requires such data for stopping farming for hours game as soon as it reaches `HoursUntilCardDrops` value. ASF enforces this property to be at least `0.0`.
+`HoursPlayed` это параметр типа `float`, содержащий информацию о том, сколько часов была запущена игра. Этот параметр обновляется в режиме реального времени, но по необходимости, не реже чем каждые `FarmingDelay` минут. Обратите, пожалуйста, внимание, что исходно эти данные получаются от Steam Community, но затем обновляются согласно встроенным таймерам ASF, и поэтому могут не соответствовать тому, что вовзращает Steam Community, поскольку Steam Community также не обновляется в режиме реального времени, а ASF требуются эти данные чтобы остановить фарм для накрутки времени как только этот параметр достигает значения `HoursUntilCardDrops`. ASF следит чтобы этот параметр был не менее `0.0`.
 
-`CardsRemaining` is `ushort` type that tells how many cards are remaining for the game. This property is updated as soon as possible and it should always have a value greater than `0`. However, it is possible for this property to have `0` value for a short moment when ASF is switching game.
+`CardsRemaining` это параметр типа `ushort`, содержащий количество карточек, доступных для получения из этой игры. Этот параметр обновляется как можно быстрее, и всегда должен иметь значение больше `0`. Однако, возможна ситуация когда этот параметр будет иметь значение `0` в коротком интервале когда ASF переключается на следующую игру.
 
 * * *
 
@@ -343,13 +343,13 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
+Эта конечная точка API может использована для создания/обновления **[конфигурации бота](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** с именем `BotName`. Другими словами, такой запрос обновит файл `BotName.json` в папке `config` содержимым JSON объекта **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)** переданном в теле запроса. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
-`BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. Это поле является обязательным и не может быть равным `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
+`BotConfig` это объект JSON типа **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Конфигурация-бота)**. Это поле является обязательным и не может быть равным `null`. Параметры конфигурации со значением, равным значению по-умолчанию, могут быть опущены, как и в обычной конфигурации ASF.
 
-`KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `SteamLogin` or `SteamPassword` should be inherited from existing config (if available). Это поле необязательное, и по умолчанию считается равным `true`. Когда это поле включено, параметры с конфиденциальной информацией, указанные со значением `null`, будут скопированы из текущей конфигурации.
+`KeepSensitiveDetails` это параметр типа `bool`, задающий, должна ли конфиденциальная информация, такая как `SteamLogin` или `SteamPassword` наследоваться из существующей конфигурации (если есть). Это поле необязательное, и по умолчанию считается равным `true`. Когда это поле включено, параметры с конфиденциальной информацией, указанные со значением `null`, будут скопированы из текущей конфигурации.
 
-Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
+На данный момент следующие параметры считаются конфиденциальной информацией и могут быть заданы равными `null` для копирования из существующей конфигурации: `SteamLogin`, `SteamPassword`, `SteamParentalPIN`.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":false,"Paused":true}}' /Api/Bot/archi
@@ -360,9 +360,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":fal
 
 ### `POST /Api/Command/{Command}`
 
-#### Body: empty
+#### Тело: пустое
 
-This API endpoint can be used executing given command specified by its `{Command}`. It's recommended to always specify the bot that is supposed to execute the command, otherwise the first defined bot will be used instead. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `string` - the output of the executed command.
+Эта конечная точка API может использоваться для выполнения команды, заданной `{Command}`. Рекомендуется всегда указывать имя бота, который должен выполнить команду, иначе вместо этого будет использован первый заданный бот. Возвращает **[GenericResponse](#genericresponse)** c полем `Result` определённым как `string` и содержащим результат исполнения команды.
 
 ```shell
 curl -X POST -d '' /Api/Command/version
@@ -373,7 +373,7 @@ curl -X POST -d '' /Api/Command/version
 
 ### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
+Эта конечная точка API может использоваться для полноо удаления файлов `.keys.used` и `.keys.unused` из папки `config` для бота заданного `BotNames`. Эта конечная точка принимает несколько имен ботов в `BotNames`, разделённых запятыми, а также ключевое слово `ASF` для удаления указанных файлов у всех имеющихся ботов. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` заданным как `null`.
 
 ```shell
 curl -X DELETE /Api/GamesToRedeemInBackground/archi

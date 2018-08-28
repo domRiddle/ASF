@@ -104,7 +104,7 @@ This has to be done only once after you created your container with `docker run`
 
 * * *
 
-## Command-line arguments
+## Argomenti della riga di comando
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. For example:
 

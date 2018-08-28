@@ -65,7 +65,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- 지금은 아니지만 **[열려있는 최대 파일 제한을 늘려야](https://docs.microsoft.com/ko-kr/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit-net-core-versions-before-net-core-sdk-202)** 할 수도 있습니다. ASF자체로는 필요없겠지만, 어떤 문제가 발생할지 모른다는 점을 명심하십시오.
+- None for now
 
 * * *
 

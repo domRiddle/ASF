@@ -65,7 +65,7 @@
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- На данный момент требований нет, хотя возможно вам понадобится **[увеличить максимальный предел открытых файлов](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x#increase-the-maximum-open-file-limit)**. Это не должно быть необходимым для самого ASF, но имейте это в виду если у вас будут какие-то проблемы.
+- None for now
 
 * * *
 

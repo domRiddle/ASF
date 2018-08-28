@@ -22,7 +22,7 @@
 * **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**
 * **[Autenticação em duas etapas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Configuração de memória baixa](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configuração de pouca memória](https://github.com/JustArchi/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Configuração de alto desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumentos da linha de comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Conectando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Logging)**
