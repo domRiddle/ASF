@@ -65,7 +65,7 @@
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now
+- На данный момент ничего дополнительно устанавливать не требуется
 
 * * *
 

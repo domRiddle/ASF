@@ -384,7 +384,7 @@ curl -X DELETE /Api/GamesToRedeemInBackground/archi
 
 ### `GET /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableDictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
+Эта конечная точка API может использоваться для получения файлов `.keys.used` и `.keys.unused` из папки `config` для бота заданного `BotNames`. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` определенным как `ImmutableDictionary<string, GamesToRedeemInBackgroundResponse>` - ассоциативный массив, задающий соответствие `BotName` к **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (описан ниже).
 
 ```shell
 curl -X GET /Api/GamesToRedeemInBackground/archi
@@ -406,7 +406,7 @@ curl -X GET /Api/GamesToRedeemInBackground/archi
 }
 ```
 
-Both `UnusedKeys` and `UsedKeys` are `ImmutableDictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
+`UnusedKeys` и `UsedKeys` это объекты типа `ImmutableDictionary<string, string>`, задающие соответствие ключей Steam (`key`) с их названиями (`value`). Это результат запроса `POST`, описанного ниже, и может использоваться для удаленного получения ключей без доступа к папке `config` ASF. Оба эти объекта могут иметь значение `null` в случае ошибки ASF при доступе к файлам (например, ошибки ввода-вывода), но пустые или отсутствующие файлы будут обработаны штатно и будет возвращен пустой массив.
 
 * * *
 
@@ -425,11 +425,11 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for adding extra **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
+Эта конечная точка может использоваться для добавления дополнительных **[игр для активации в фоновом режиме](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)** боту с заданным `BotName`. Возвращает **[GenericResponse](#genericresponse)** with `Result` определённый как `OrderedDictionary<string, string>`.
 
-`GamesToRedeemInBackground` is `OrderedDictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). Это поле является обязательным и не может быть равным `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty. In addition to that, every `key` must have valid Steam cd-key structure, ASF will validate that using built-in regex. Invalid entries will be automatically removed during import process.
+`GamesToRedeemInBackground` это объект JSON типа `OrderedDictionary<string, string>` задающий соответствие между ключами для активации (`key`) и их названиями (`value`). Это поле является обязательным и не может быть равным `null`. Ни одно поле `key` или `value` в массиве не может быть пустым или равным `null`. В дополнение к этому, каждый `key` должен иметь правильную для ключа Steam структуру, ASF будет проверять это с помощью регулярного выражения. Неверные элементы будут автоматически удалены в процессе импорта.
 
-The `Result` is `GamesToRedeemInBackground` that were successfully added to the collection of games pending to redeem. Like specified above, invalid entries will be automatically removed during import process, so you can use this result for a comparison with your original request in order to check which entries were deemed as invalid and skipped during import process. If you didn't supply any invalid data, this result will be exactly the same as `GamesToRedeemInBackground` that you've just sent to ASF.
+`Result` это `GamesToRedeemInBackground` содержащий игры которые были успешно добавлены в очередь на активацию. Как указано выше, неверные элементы автоматически удаляются в процессе импорта, поэтому этот результат можно сравнить с исходным запросом для проверки, какие элементы были признаны неверными и пропущены в процессе импорта. Если в запросе не было неверных данных, этот результат должен быть в точности таким же, как `GamesToRedeemInBackground` который вы отправили ASF.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground":{"AAAAA-BBBBB-CCCCC":"Orwell","XXXXX-YYYYY-ZZZZZ":"Factorio"}}' /Api/GamesToRedeemInBackground/archi
@@ -440,9 +440,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 ### `GET /Api/Log`
 
-This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
+Эта конечная точка API может использоваться для получения сообщений журнала ASF в реальном времени. По сравнению с другими конечными точками, эта использует соединение по протоколу **[websocket](https://ru.wikipedia.org/wiki/WebSocket)** для выдачи обновлений в реальном времени. Каждое сообщение кодируется в формате **[UTF-8](https://ru.wikipedia.org/wiki/UTF-8)** и содержит структуру **[GenericResponse](#genericresponse)** с полем `Result` определённым как `string` - в нём содержится сообщение, сформированное согласно заданной пользователем конфигурации NLog. В начале подключения, ASF также выдаст пакет из нескольких последних сообщений журнала в качестве краткой истории (по умолчанию последние 20, но пользователь может изменить это число, а также отключить выдачу истории полностью).
 
-The websocket connection established with this endpoint is **read-only** - ASF will accept only **[control frames](https://tools.ietf.org/html/rfc6455#section-5.5)**, especially `Close` frame indicating that websocket connection should be gracefully closed. Sending any data frame will result in connection being terminated.
+Подключение по протоколу websocket, установленное с помощью этой конечной точки, работает в режиме **только для чтения** - ASF будет принимать только **[управляющие пакеты](https://tools.ietf.org/html/rfc6455#section-5.5)**, в особенности пакет `Close` индицирующий что соединение должно быть штатно завершено. Попытка отправить любой пакет с данными приведёт к разрыву соединения.
 
 ```shell
 curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
@@ -456,35 +456,35 @@ HTTP/1.1 200 OK
 
 ### `GET /Api/Structure/{Structure}`
 
-This API endpoint can be used for fetching structure of given JSON object specified by its `Structure` name - it returns JSON-serialized default object for given structure. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `object`.
+Эта конечная точка API может использоваться для получения структуры заданных объектов JSON, указанных с помощью имени `Structure` - она возвращает объект по умолчанию с данной структурой, сериализованый в формат JSON. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` определённым как `object`.
 
-`{Structure}` can be any ASF or .NET Core structure qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
+`{Structure}` может быть любой структурой ASF или .NET Core, заданной с помощью пространства имен и имени, например `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` или `ArchiSteamFarm.Json.Steam+Asset.`
 
-In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public (but not private) fields and properties.
+В примере ниже реальный результат был обрезан для ясности - в нормальных условиях будет возвращена структура целиком, в этом главная задача этой конечной точки. Результирующая структура всегда включает все поля и свойства типа public и non-public (но не включает private).
 
 ```shell
 curl -X GET /Api/Structure/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"AcceptGifts":false,"TradingPreferences":0},"Success":true}
 ```
 
-In comparison with `GET /Api/Type`, this endpoint returns JSON representation of an object of given type, in its default state.
+По сравнению с `GET /Api/Type`, эта конечная точка возвращает представленный в формате JSON объект заданного типа, в состоянии по умолчанию.
 
 * * *
 
 ### `GET /Api/Type/{Type}`
 
-This API endpoint can be used for fetching information about given type specified by its name. Returns **[GenericResponse](#genericresponse)** with `Result` defined as **[TypeResponse](#typeresponse)**.
+Эта конечная точка API может использоваться для получения информации о заданном типе по его имени. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` определенным как **[TypeResponse](#typeresponse)**.
 
-`{Type}` can be any ASF or .NET Core type qualified by its namespace and name, for example `ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` or `ArchiSteamFarm.Json.Steam+Asset.`
+`{Type}` может быть любым типом ASF или .NET Core, заданным с помощью пространства имен и имени, например`ArchiSteamFarm.BotConfig`, `ArchiSteamFarm.GlobalConfig` или `ArchiSteamFarm.Json.Steam+Asset.`
 
-In the example below the actual result was trimmed to keep it clean - normally you'll get full structure returned, which is the main purpose of this endpoint. The resulting structure always includes all public and non-public fields and properties.
+В примере ниже реальный результат был обрезан для ясности - в нормальных условиях будет возвращена структура целиком, в этом главная задача этой конечной точки. Результирующая структура всегда включает все поля и свойства типа public и non-public.
 
 ```shell
 curl -X GET /Api/Type/ArchiSteamFarm.BotConfig
 {"Message":"OK","Result":{"Body":{"AcceptGifts":"System.Boolean","TradingPreferences":"ArchiSteamFarm.BotConfig+ETradingPreferences"},"Properties":{"BaseType":"System.Object","CustomAttributes":null,"UnderlyingType":null}},"Success":true}
 ```
 
-In comparison with `GET /Api/Structure`, this endpoint returns object of given type where all its values are encoded as string type of given property. You can also use this endpoint recursively, for example by checking how `ArchiSteamFarm.BotConfig+ETradingPreferences` in example above is exactly defined.
+По сравнению с `GET /Api/Structure`, эта конечная точка возвращает обхект заданного типа, где все значения закодированы как строковый тип заданного свойства. Вы также можете использовать эту конечную точку рекурсивно, например чтобы проверить как именно задаётся `ArchiSteamFarm.BotConfig+ETradingPreferences` в примере выше.
 
 #### TypeResponse
 
@@ -499,29 +499,29 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 }
 ```
 
-`Body` - `ImmutableDictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
+`Body` - это параметр типа `ImmutableDictionary<string, string>`, содержащее информацию о том, какие свойства возможно установить для данного типа. Это включает в себя все поля и свойства типов public и non-public (но не private) в объекте заданного типа. `Key` в этом ассоциативном массиве это имя поля/свойства, а `Value`, ассоциированное с данным ключом, это соответствующий ему тип C#. Этот параметр может быть пустым если заданный тип не включает в себя никаких полей или свойств. Мы также используем этот параметр для дальнейшего разбора заданного типа, например `BaseType` для типа `System.Enum` будет иметь верные значения перечисления указанные здесь, где `Key` будет именем отдельного значения перечисления, а `Value` будет реальным значением для этого имени.
 
-`Properties` - `TypeProperties` type defined **[below](#typeproperties)** that holds metadata information about given type.
+`Properties` - параметр типа `TypeProperties`, описанного **[ниже](#typeproperties)**, содержащий информацию о метаданных заданного типа.
 
 #### TypeProperties
 
-`BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
+`BaseType` - это значение типа `string` содержащее базовый тип для заданного типа. Например, это будет `System.Object` для объекта `ArchiSteamFarm.BotConfig`, и `System.Enum` для `ArchiSteamFarm.BotConfig+ETradingPreferences`. Основываясь на этом значении вы можете частично использовать строгую типизацию для содержимого `Body`, заранее зная как его следует разбирать (например для `System.Enum`, `Body` будет содержать имена перечисления и их значения, как сказано выше в описании параметра `Body`).
 
-`CustomAttributes` - `ImmutableHashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+`CustomAttributes` - это значение типа `ImmutableHashSet<string>` указывающее, какие пользовательские атрибуты применимы к этому типу. Этот параметр особенно полезен, когда `BaseType` это `System.Enum`, поскольку в этом случае вы можете проверить, является ли этот тип специальным перечислением типа `flags`, проверив задан ли в этом параметре элемент `System.FlagsAttribute`. Этот параметр может иметь значение `null` когда для заданного объекта не определены пользовательские атрибуты. Вместе с параметром `UnderlyingType`, это может сказать вам, что `ArchiSteamFarm.BotConfig+ETradingPreferences` это перечисление `byte flags`.
 
-`UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+`UnderlyingType` - это значение типа `string`, содержащее название внутрилежащего типа для заданного типа. Используется в основном с `System.Enum` чтобы узнать, какой внутрилежащий тип использует это перечисление для хранения данных. Например для большинства перечислений в ASF это будет `System.Byte`. Вместе с параметром `CustomAttributes`, это может сказать вам, что `ArchiSteamFarm.BotConfig+ETradingPreferences` это перечисление `byte flags`.
 
 * * *
 
 ## WWW API
 
-APIs below are dedicated for our IPC GUI usage and they should not be implemented by remote scripts or tools. This documentation is for our internal reference only and can change anytime, in any possible way. You should not rely on existence of below endpoints, neither implement them in your own tools.
+APIs below are dedicated for our IPC GUI usage and they should not be used by remote scripts or tools. Эта документация служит для внутреннего использования и может изменяться в любое время и любым образом. Вам не следует полагаться на существование конечных точек, описанных ниже, и не следует использовать их в ваших собственных утилитах.
 
 * * *
 
 ### `GET /Api/WWW/Directory/{Directory}`
 
-This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<string>` - collection of local filenames.
+Эта конечная точка API может использоваться для получения содержимого папки указанной с помощью относительного пути, по отношению к папке `www`. Возвращает **[GenericResponse](#genericresponse)** c полем `Result` определенным как `ImmutableHashSet<string>` - массив с именами файлов.
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
@@ -542,9 +542,9 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint is used internally for sending remote `GET` requests. This should be used only if **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** doesn't permit sending the request in usual way. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `string` - the inner html of the `GET` result.
+Эта конечная точка API для внутреннего использования, позволяет отправлять удалённые запросы `GET`. Должна использоваться только если **[CORS](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing)** не позволяет отправить запрос обычным образом. Возвращает **[GenericResponse](#genericresponse)** с полем `Result` определённым как `string` и содержащим внутренний html, возвращенный запросом `GET`.
 
-`URL` is `string` type that specifies target URL to make a `GET` request. It must start with `https://`.
+`URL` это параметр типа `string`, задающий URL по которому необходимо выполнить запрос `GET`. Должен начинаться с `https://`.
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com"}' /Api/WWW/Send

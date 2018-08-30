@@ -1,14 +1,14 @@
 # Журналирование
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF позволяет вам настроить свой собственный модуль журналирования, который будет использоваться в процессе работы. Вы можете сделать это добавив специальный файл с именем `NLog.config` в папку приложения. Полную документацию по NLog вы можете прочесть в **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, но в дополнение к этому вы можете найти некоторые полезные примеры в этой статье.
 
 * * *
 
-## Default logging
+## Журналирование по умолчанию
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+Использование пользовательской конфигурации NLog автоматически отключает модуль, используемый в ASF по умолчанию и включающий в себя `ColoredConsole` и `File`. Другими словами, ваша конфигурация **полностью** заменяет журналирование ASF по умолчанию, а это означает что если вы, например, хотите сохранить цель журналирования `ColoredConsole`, вам необходимо задать её самостоятельно. Это позволяет не только доабавлять **дополнительные** цели журналирования, но и отключать или модифицировать **используемые по умолчанию**.
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+Если вы хотите использовать журналирования ASF по умолчанию, без каких-либо модификаций, вам не надо ничего делать - вам даже не надо задавать их в пользовательском `NLog.config`. Не используйте файл `NLog.config` если вы не собираетесь модифицировать журналирование ASF по умолчанию. Однако для справок, эквивалент заданных в коде умолчаний журналирования ASF будет таким:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -31,7 +31,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## Интеграция ASF
 
 ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 

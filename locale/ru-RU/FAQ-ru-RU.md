@@ -299,7 +299,7 @@ ASF не требует чтобы клиент Steam был запущен ил
 
 ### ASF - супер! Могу ли я сделать пожертвование?
 
-Да, и мы будем очень рады, что вам нравится наш проект! Вы можете найти различные способы сделать пожертвование под каждым**[релизом](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** а также **[на главной странице](https://github.com/JustArchi/ArchiSteamFarm)**. It's nice to note that in addition to generic money donations we also accept Steam items, so nothing is stopping you from donating skins, keys or a small part of the cards that you've idled with ASF if you'd like to. Thank you in advance for your generosity!
+Да, и мы будем очень рады, что вам нравится наш проект! Вы можете найти различные способы сделать пожертвование под каждым**[релизом](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** а также **[на главной странице](https://github.com/JustArchi/ArchiSteamFarm)**. Помимо обычных денежных пожертвований мы также принимаем предметы Steam, так что вы всегда можете пожертвовать скины, ключи или небольшую часть карт, которые вы получили с помощью ASF, если захотите. Заранее спасибо за вашу щедрость!
 
 * * *
 
@@ -333,7 +333,7 @@ ASF - консольное приложение, у которого нет ок
 
 * * *
 
-### I'd like to help with ASF translation, what do I need to do?
+### Я хочу помочь с переводом ASF. Что мне нужно для этого сделать?
 
 Спасибо за ваш интерес! Всю необходимую информацию вы найдёте в разделе "**[Локализация](https://github.com/JustArchi/ArchiSteamFarm/wiki/Localization-ru-RU)**".
 
