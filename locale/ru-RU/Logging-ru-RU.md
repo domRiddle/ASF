@@ -33,25 +33,25 @@ ASF позволяет вам настроить свой собственный
 
 ## Интеграция ASF
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF имеет некоторые уловки в коде, которые позволяют улучшить интеграцию с NLog, позволяя вам гораздо проще отлавливать нужные вам сообщения.
 
-NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
+Специфичная для NLog переменная `${logger}` всегда позволяет определить источник сообщения - это будет либо `BotName` одного из ваших ботов, или `ASF` если это сообщение напрямую от процесса ASF. Таким образом вы можете легко отлавливать сообщения от отдельных ботов, или (только) от процесса ASF, вместо всех сразу, основываясь на имени в этой переменной.
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+ASF старается отмечать сообщения в соответствии с различными уровнями предупреждений NLog, что позволяет вам отлавливать только сообщения с заданным уровнем журналирования, а не все сразу. Разумеется, уровень журналирования для отдельных сообщений не может быть изменён, поскольку в коде ASF жестко задано, насколько это сообщение серьёзно, но вы можете заставить ASF выводить меньше или больше информации, на своё усмотрение.
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+ASF журналирует дополнительные данные, такие как сообщения в чате на уровне журналирования `Trace`. Журналирование по-умолчанию в ASF записывает только сообщения с уровнем `Debug` или выше, что скрывает эту дополнительную информацию, поскольку это не нужно большинству пользователей, и в добавок засоряет выдачу в которой могут содержаться гораздо более важные сообщения. Вы, однако, можете использовать эту информацию, активировав уровень журналирования `Trace`, особенно в сочетании с журналированием только для выбранного бота, и только с событиями, которые вас интересуют.
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+В общем случае, ASF старается сделать вашу работу максимально простой и удобной, журналируя только сообщения которые вам нужны, вместо того чтобы заставлять вас вручную фильтровать журнал сторонними приложениями, такими как `grep` и тому подобное. Просто настройте NLog под свои потребности, как описано ниже, и вы сможете задать даже очень сложные правила журналирования, с пользовательскими целевыми журналами как например целые базы данных.
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+Относительно версии - мы всегда стараемся поставлять ASF с самой свежей версией NLog доступной в **[NuGet](https://www.nuget.org/packages/NLog)** на момент выпуска ASF. Зачастую это версия более новая, чем последняя стабильная версия, поэтому у вас не должно быть проблем с использованием в ASF любых функций которые вы найдёте в wiki NLog, даже тех которые находятся в активной разработке и в состоянии "ведётся работа" - главное убедитесь, что у вас последняя версия ASF.
 
-As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
+Как часть интеграции ASF, ASF также включает в себя несколько дополнительных целей журналирования NLog, которые будут описаны ниже.
 
 * * *
 
 ## Примеры
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+Начнем с чего-нибудь простого. Мы используем в качестве цели журналирования только **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)**. Наш исходный файл `NLog.config` будет выглядеть так:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -66,11 +66,11 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. That's it.
+Описание конфигурации выше очень простое - мы задали одну **цель журналирования** (тег `target`), которой будет `ColoredConsole`, затем мы перенаправили **все журналы** (`*`) уровня `Debug` и выше в цель `ColoredConsole`, которую мы задали выше. Вот и всё.
 
-If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, regardless of hardcoded ASF NLog configuration.
+Если вы теперь запустите ASF с файлом `NLog.config`, описанным выше, будет активна только цель журналирования `ColoredConsole`, и ASF не будет ничего писать в файл (цель `File`), не смотря на записанную в коде ASF конфигурацию NLog.
 
-Now let's say that we don't like default format of `${longdate}|${level:uppercase=true}|${logger}|${message}` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+Теперь допустим нам не нравится формат по умолчанию заданный `${longdate}|${level:uppercase=true}|${logger}|${message}` и мы хотим журналировать только сами сообщения. Мы можем это сделать изменив **[схему](https://github.com/nlog/nlog/wiki/Layouts)** (атрибут layout) для нашей цели журналирования.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -85,9 +85,9 @@ Now let's say that we don't like default format of `${longdate}|${level:uppercas
 </nlog>
 ```
 
-If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of `Function() Message`.
+Если вы теперь запустите ASF, вы заметите что дата, уровень предупреждения и источник сообщения исчезли - оставив вам только сообщения ASF в формате `Function() Message`.
 
-We can also modify the config to log to more than one target. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+Мы также можем изменить конфигурацию чтобы журналировать в больше чем одну цель. Давайте писать журнал одновременно в `ColoredConsole` и **[File](https://github.com/nlog/nlog/wiki/File-target)**.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -104,9 +104,9 @@ We can also modify the config to log to more than one target. Let's log to `Colo
 </nlog>
 ```
 
-And done, we'll now log everything to `ColoredConsole` and `File`. Did you notice that you can also specify custom `fileName` and extra options?
+Готово, теперь журнал будет выводить всё в `ColoredConsole` и `File`. Вы заметили что можете указать собственное имя файла (`fileName`) и другие настройки?
 
-Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. We can achieve that by modifying our `rules`:
+И наконец, в ASF используются разные уровни журналирования, чтобы вам было легче понять что происходит. Мы можем использовать эту информацию чтобы изменить строгость журналирования. Например мы хотим записывать всё (`Trace`) в `File`, но только сообщения **[уровня](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** `Warning` и выше в `ColoredConsole`. Мы можем добиться этого изменив правила журналирования (тег `rules`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -123,9 +123,9 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 </nlog>
 ```
 
-That's it, now our `ColoredConsole` will show only warnings and above, while still logging everything to `File`. You can further tweak it to log e.g. only `Info` and below, and so on.
+Вот и всё, теперь наша `ColoredConsole` будет показывать только предупреждения и выше, но при этом все сообщения будут записаны в `File`. Вы можете настраивать это и дальше, например включить туда только сообщения уровня `Info` и ниже, и тому подобное.
 
-Lastly, let's do something a bit more advanced and log all messages to file, but only from bot named `LogBot`.
+И наконец, давайте сделаем что-то более продвинутое и будем журналировать все сообщения в файл, но только от бота с именем `LogBot`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -142,39 +142,39 @@ Lastly, let's do something a bit more advanced and log all messages to file, but
 </nlog>
 ```
 
-You can see how we used ASF integration above and easily distinguished source of the message based on `${logger}` property.
+Вы можете увидеть, как мы использовали интеграцию с ASF выше, и легко определили источник сообщения на основе свойства `${logger}`.
 
 * * *
 
-## Advanced usage
+## Продвинутое использование
 
-The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
+Примеры выше достаточно простые, и сделаны чтобы показать как легко задать свои правила журналирования для использования в ASF. Вы можете использовать NLog для множества различных вещей, включая сложные цели (такие как сохранение журнала `Database`), ротации журналов (как например удаления старых логов в `File`), использование пользовательских схем (`Layout`), задания собственных фильтров `<when>` и многое другое. Я настоятельно рекомендую прочитать целиком **[документацию по NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** чтобы узнать все доступные вам опции, что позволит вам настроить ASF так, как вы хотите. Это действительно мощный инструмент, и персонализация журналов ASF никогда не была проще.
 
 * * *
 
 ## Ограничения
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
+ASF временно отключит **все** правила, включающие в себя цели `ColoredConsole` или `Console` на время ожидания ввода от пользователя. Поэтому если вы хотите, чтобы журналирование в другие цели велось даже когда ASF ожидает ввода от пользователя, вам нужно задать для этих целей собственные правила, как показано в примерах выше, вместо того чтобы добавлять несколько целей в атрибут `writeTo` одного правила (если конечно это не то, чего вы хотите). Временное отключение целей с консолью сделано с целью оставить консоль чистой при ожидании ввода от пользователя.
 
 * * *
 
-## Chat logging
+## Журналироване чата
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
+ASF включает в себя расширенную поддержку журналирования чатов, которая заключается в том, что записываются не только все полученные и отосланные сообщения на уровне журналирования `Trace`, но также выдаётся дополнительная информация, связанная с ними, в **[свойствах события](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Это вызвано тем, что нам в любом случае приходится обрабатывать сообщения для отслеживания команд, поэтому нам ничего не стоит добавить в журнал эти события чтобы дать возможность использовать дополнительную логику (как например, создание собственного архива сообщений чата с помощью ASF).
 
-### Event properties
+### Свойства события
 
-| Имя         | Описание                                                                                                                                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| Имя         | Описание                                                                                                                                                                                                                                                       |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Echo        | свойство типа `bool`. Имеет значение `true` когда сообщение отправляется от нас собеседники, и `false` в противном случае.                                                                                                                                     |
+| Message     | свойство типа `string`. Содержит само отправленное/полученное сообщение.                                                                                                                                                                                       |
+| ChatGroupID | свойство типа `ulong`. Содержит идентификатор группового чата в котором отправлено/получено сообщение. Будет равно `0` когда для передачи сообщения используется не групповой чат.                                                                             |
+| ChatID      | свойство типа `ulong`. Содержит идентификатор канала в `ChatGroupID` в котором отправлено/получено сообщение. Будет равно `0` когда для передачи сообщения используется не групповой чат.                                                                      |
+| SteamID     | свойство типа `ulong`. Это идентификатор пользователя Steam в чате с которым отправлено/получено сообщение. Может быть равно `0` когда ни один пользователь не задействован в передаче сообщения (например когда это мы отправляем сообщение в групповой чат). |
 
 ### Пример
 
-This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+Этот пример основан на нашем базовом примере с `ColoredConsole`, приведенном выше. Прежде чем пытаться разобраться в нём, я настоятельно рекомендую прочесть главу **[выше](#Примеры)**, чтобы сначала изучить основы журналирования с помощью NLog.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -195,35 +195,35 @@ This example is based on our `ColoredConsole` basic example above. Before trying
 </nlog>
 ```
 
-We've started from our basic `ColoredConsole` example and extended it further. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly, we've enabled our chat logging rule only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+Мы начали с нашего базового примера с `ColoredConsole` и расширили его. Первое и самое главное - мы приготовили постоянный файл для журнала чатов в каждой группе и с каждым пользователем - это возможно благодаря дополнительным свойствам, которые выдаёт для нас ASF. Мы решили использовать пользовательскую схему, которая будет записывать только текущую дату, сообщение, информацию получено/отправлено это сообщение, и самого пользователя Steam. И наконец, мы включили наше правило журналирования чата только для уровня `Trace`, только для нашего бота `MainAccount`, и только для функция связанных с жураналированием чата (`OnIncoming*`, которая используется для получения сообщений и эхо-ответов, и `SendMessage*` которая отправляет сообщения ASF).
 
-The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
+Пример выше создаст файл `0-0-76561198069026042.txt` если мы будем общаться с **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
     2018-07-26 01:38:38 how are you doing? -> 76561198069026042
     2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
     
 
-Of course this is just a working example with a few nice layout tricks showed in practical manner. You can further expand this idea to your own needs, such as extra filtering, custom order, personal layout, recording only received messages and so on.
+Разумеется это просто рабочий пример чтобы показать несколько способов использования схем. Вы можете расширить эту идею под свои нужды, как например добавить дополнительные фильтры, пользовательский порядок, личную схему, запись только полученных сообщений и т. д.
 
 * * *
 
-## ASF targets
+## Цели журналирования ASF
 
-In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
+В дополнение к стандартным целям журналирования NLog (таким как `ColoredConsole` и `File`, описанные выше), вы можете также использовать дополнительные цели журналирования ASF.
 
-For maximum completeness, definition of ASF targets will follow NLog documentation convention.
+Для единообразия, описания целей журналирования ASF будут следовать стандартам документации NLog.
 
 * * *
 
 ### SteamTarget
 
-As you can guess, this target uses Steam chat messages for logging ASF messages. You can configure it to use either a group chat, or private chat. In addition to specifying a Steam target for your messages, you can also specify `botName` of the bot that is supposed to send those.
+Как вы могли догадаться, эта цель использует сообщения в чате Steam для журналирования сообщений ASF. Вы можете настроить её на использование либо группового, либо личного чата. В дополнение к указании цели Steam для ваших сообщений, вы можете также указать `botName` - имя бота который должен их отсылать.
 
-Supported in all environments used by ASF.
+Поддерживается во всех средах используемых ASF.
 
 * * *
 
-#### Configuration Syntax
+#### Синтаксис конфигурации
 
 ```xml
 <targets>
@@ -236,35 +236,35 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+Прочтите больше о использовании [конфигурационного файла](https://github.com/NLog/NLog/wiki/Configuration-file).
 
 * * *
 
-#### Parameters
+#### Параметры
 
-##### General Options
+##### Общие параметры
 
-*name* - Name of the target.
-
-* * *
-
-##### Layout Options
-
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
+*name* - Имя цели журналирования.
 
 * * *
 
-##### SteamTarget Options
+##### Параметры схемы
 
-*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
-
-*steamID* - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to 0 which disables logging target entirely.
-
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
+*layout* -Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). По умолчанию: `${level:uppercase=true}|${logger}|${message}`
 
 * * *
 
-#### SteamTarget Examples
+##### Параметры SteamTarget
+
+*chatGroupID* - идентификатор группового чата в формате 64-битного беззнакового целого. Не обязательный параметр. По умолчанию имеет значение `0`, что отключает функционал группового чата и использует вместо этого личный чат. Когда этот параметр активирован (имеет отличное от нуля значение), параметр `steamID`, описанный ниже, выступает в роли `chatID` и указывает идентификатор канала в этом `chatGroupID`, куда бот должен отправлять сообщения.
+
+*steamID* - SteamID задаётся как 64-битное беззнаковое целое, и представляет из себя идентификатор пользователя Steam (подобно `SteamOwnerID`), или целевой `chatID` (если установлен `chatGroupID`). Обязательный параметр. По умолчанию имеет значение 0, которое полностью отключает эту цель журналирования.
+
+*botName* - Имя бота (в том виде, как его распознает ASF, чувствительно к регистру) который будет отсылать сообщения `steamID` заданному выше. Не обязательный параметр. По умолчанию имеет значение `null`, в этом случае автоматически выбирается **любой** из подключенных в данный момент ботов. Рекомендуется задавать значение параметра в явном виде, поскольку `SteamTarget` не учитывает многие ограничения Steam, как например тот факт, что целевой `steamID` должен быть у вас в списке друзей.
+
+* * *
+
+#### Примеры SteamTarget
 
 In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
 
@@ -299,11 +299,11 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 This target is used internally by ASF for providing fixed-size logging history for IPC GUI usage. In general you should define this target only if you're using custom NLog config for other customizations and you also want logging history in IPC GUI. It can also be declared when you'd want to modify default value of `maxCount`.
 
-Supported in all environments used by ASF.
+Поддерживается во всех средах используемых ASF.
 
 * * *
 
-#### Configuration Syntax
+#### Синтаксис конфигурации
 
 ```xml
 <targets>
@@ -314,27 +314,27 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+Прочтите больше о использовании [конфигурационного файла](https://github.com/NLog/NLog/wiki/Configuration-file).
 
 * * *
 
-#### Parameters
+#### Параметры
 
-##### General Options
+##### Общие параметры
 
-*name* - Name of the target.
+*name* - Имя цели журналирования.
 
 * * *
 
-##### Layout Options
+##### Параметры схемы
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+*layout* -Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 
 ##### HistoryTarget Options
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount* - Maximum amount of stored logs for on-demand history. Не обязательный параметр. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 

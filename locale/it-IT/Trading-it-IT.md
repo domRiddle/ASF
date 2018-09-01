@@ -6,7 +6,7 @@ Notice: Every time "reject" word is used, it means either ignoring, or declining
 
 * * *
 
-## Logic
+## Logica
 
 ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
 

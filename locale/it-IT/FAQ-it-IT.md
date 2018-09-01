@@ -1,29 +1,29 @@
 # FAQ
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Il nostro FAQ risponde a domande e risposte comuni che potresti avere. Invece per questioni meno comuni, per favore visita il nosto **[FAQ esteso](https://github.com/JustArchi/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
-# Table of contents
+# Tabella dei contenuti
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [Generale](#general)
+- [Confronto con strumenti simili](#comparison-with-similar-tools)
+- [Sicurezza / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Varie](#misc)
-- [Issues](#issues)
+- [Problemi](#issues)
 
 * * *
 
-## General
+## Generale
 
-### So how it exactly works?
+### Quindi, come funziona esattamente?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Prima di provare a capire cos'è ASF, assicurati di comprendere cosa sono le Carte di Steam e come si ottengono. Ciò è ben descritto nella FAQ officiale **[qui](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+In breve, le carte di Steam sono oggetti collezionabili che puoi ricevere possedendo determinati giochi. Possono essere usate per ottenere medaglie, per la vendità sul mercato della comunità di Steam o per qualsiasi altro scopo di vostra scelta.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Qui sono indicati i punti cruciali, ancora una volta, dato che generalmente le persone non vogliono essere d'accordo con essi:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
+- **Si, devi possedere il gioco per essere idoneo a ricevere carte da esso. La condivisione familiare non conta.**
+- **No, non puoi ottenere carte all'infinito, ogni gioco ha un numero fisso di carte ottenibili. Quando le carte ottenibili di un dato gioco terminano, esso non è più un candidato per ottenerne altre.**
 - **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
 - **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
 
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Confronto con strumenti simili
 
 * * *
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Sicurezza / Privacy / VAC / Bans / ToS
 
 * * *
 
@@ -402,7 +402,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problemi
 
 * * *
 
