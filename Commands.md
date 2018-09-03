@@ -56,7 +56,6 @@ Command | Access | Description
 `iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
 `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
 `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
-`leave <Bots>` | `Master` | Makes given bot instances leave the group chat. For obvious reasons, this command works only in group chats.
 `loot <Bots>` | `Master` | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot@ <Bots> <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
