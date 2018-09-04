@@ -447,11 +447,11 @@ Há também uma lista de prioridade de coleta acessível através de **[comandos
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
-A configuração padrão do ASF baseia-se no uso mais comum do bot, pilhando apenas pacotes de cartas e cartas colecionáveis (incluindo as brilhantes). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything.
+A configuração padrão do ASF baseia-se no uso mais comum do bot, pilhando apenas pacotes de cartas e cartas colecionáveis (incluindo as brilhantes). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Por favor, tenha em mente que todos os tipos não definidos acima serão classificados como `Unknown`, o que é especialmente importante quando a Valve libera um novo item da Steam, que será marcado como `Unknown` pelo ASF também, até que seja adicionado aqui (em uma versão futura). É por isso que, em geral, não é recomendado incluir o tipo `Unknown` em seu `LootableTypes`, a menos que você saiba o que está fazendo, e compreende também que o ASF enviará seu inventário inteiro em uma oferta de troca se a rede Steam der algum problema novamente e reportar todos os seus itens como `Unknown`. Minha sugestão é não incluir tipo `Unknown` em `LootableTypes`, mesmo que você espere saquear tudo.
 
 * * *
 
-`MatchableTypes` - `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
+`MatchableTypes` - tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Esta propriedade define quais tipos de itens Steam tem permissão de serem combinados se a opção `SteamTradeMatcher` estiver habilitada em `TradingPreferences`. Os tipos são definidos abaixo:
 
 | Valor | Nome              | Descrição                                                                         |
 | ----- | ----------------- | --------------------------------------------------------------------------------- |
@@ -463,11 +463,11 @@ A configuração padrão do ASF baseia-se no uso mais comum do bot, pilhando ape
 | 5     | TradingCard       | Cartas colecionáveis Steam, sendo usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas         |
 
-Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
+É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. Por favor, note que **o ASF é não um bot de trocas** e ele **NÃO vai se importar com o preço ou a raridade**, o que significa que se você usá-lo, p. ex., com o tipo `Emoticon`, o ASF ficará feliz em trocar dois emoticons raros repetidos por 1x raro e 1x comum, já que isso faz progresso no sentido de concluir a insígnia (nesse caso, do set de emoticons). Por favor, pense duas vezes se isso é bom para você. A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5` padrão.
 
 * * *
 
-`OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`OnlineStatus` - tipo `byte` com valor padrão de `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
 | Valor | Nome           |
 | ----- | -------------- |

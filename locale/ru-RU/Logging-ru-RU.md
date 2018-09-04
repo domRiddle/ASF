@@ -250,7 +250,7 @@ ASF включает в себя расширенную поддержку жу�
 
 ##### Параметры схемы
 
-*layout* -Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). По умолчанию: `${level:uppercase=true}|${logger}|${message}`
+*layout* - Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). По умолчанию: `${level:uppercase=true}|${logger}|${message}`
 
 * * *
 
@@ -266,7 +266,7 @@ ASF включает в себя расширенную поддержку жу�
 
 #### Примеры SteamTarget
 
-In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
+Чтобы отправлять все сообщения уровня `Debug` и выше, от бота с именем `MyBot` на steamID `76561198006963719`, мы должны использовать `NLog.config` подобный следующему:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -281,11 +281,11 @@ In order to write all messages of `Debug` level and above, from bot named `MyBot
 </nlog>
 ```
 
-**Notice:** Our `SteamTarget` is custom target, so you should make sure that you're declaring it as `type="Steam"`, NOT `xsi:type="Steam"`, as xsi is reserved for official targets supported by NLog.
+**Примечание:** Наш `SteamTarget` это пользовательская цель, поэтому его нужно задавать как `type="Steam"`, а НЕ `xsi:type="Steam"`, поскольку xsi это зарезервированное слово для официальных целей журналирования, поддерживаемых NLog.
 
-When you launch ASF with `NLog.config` similar to above, `MyBot` will start messaging `76561198006963719` Steam user with all usual ASF log messages. Keep in mind that `MyBot` must be connected in order to send messages, so all initial ASF messages that happened before our bot could connect to Steam network, won't be forwarded.
+Когда вы запустите ASF с `NLog.config` подобным приведенному выше, `MyBot` будет отправлять сообщения пользователю Steam `76561198006963719` со всеми обычными сообщениями журнала ASF. Помните о том, что `MyBot` должен быть подключен чтобы отправлять сообщения, поэтому все начальные сообщения которые происходили до подключения нашего бота к сети Steam не будут перенаправлены.
 
-Of course, `SteamTarget` has all typical functions that you could expect from generic `TargetWithLayout`, so you can use it in conjunction with e.g. custom layouts, names or advanced logging rules. The example above is only the most basic one.
+Разумеется, `SteamTarget` имеет все стандартные функции которые ожидаются от базовой цели класса `TargetWithLayout`,поэтому вы можете его использовать например с пользовательскими схемами, именами или расширенными правилами журналирования. Пример выше это всего лишь самый простой вариант.
 
 * * *
 
@@ -297,7 +297,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ### HistoryTarget
 
-This target is used internally by ASF for providing fixed-size logging history for IPC GUI usage. In general you should define this target only if you're using custom NLog config for other customizations and you also want logging history in IPC GUI. It can also be declared when you'd want to modify default value of `maxCount`.
+Эта цель для внутреннего использования в ASF, она необходима для формирования истории журнала фиксированного размера для использования в IPC GUI. В общем случае вам следует задавать эту цель только если вы используете собственную конфигурацию NLog и при этом хотите сохранить историю журнала в IPC GUI. Также она может быть задана если вы хотите изменить значение по умолчанию в параметре `maxCount`.
 
 Поддерживается во всех средах используемых ASF.
 
@@ -328,18 +328,18 @@ This target is used internally by ASF for providing fixed-size logging history f
 
 ##### Параметры схемы
 
-*layout* -Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+*layout* - Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). По умолчанию: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 
-##### HistoryTarget Options
+##### Параметры HistoryTarget
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Не обязательный параметр. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount* - Максимальное количество сохранённых сообщений для истории по запросу. Не обязательный параметр. Имеет по умолчанию значение `20`, что обеспечивает баланс между предоставлением истории и экономией памяти для хранения сообщений. Должно быть больше `0`.
 
 * * *
 
-## Caveats
+## Предостережения
 
-Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
+Будьте осторожны если решите комбинировать уровень журналирования `Debug` или ниже в вашей `SteamTarget` со `steamID` который используется в ASF. Это может привести к ошибке `StackOverflowException` из-за того что будет создана бесконечная петля когда ASF получает сообщение, отсылает его в журнал через Steam и в результате получает ещё одно сообщение которое тоже нужно записать в журнал. На данный момент единственная возможность столкнуться с этим это журналировать с уровнем `Trace` (когда ASF записывает в журнал собственные сообщения), или с уровнем `Debug` и одновременно включенным в ASF режимом `Debug` (когда ASF записывает в журнал все пакеты Steam).
 
-In short, if your `steamID` is taking part in the same ASF process, then the `minlevel` logging level of your `SteamTarget` should be `Info` (or `Debug` if you're also not running ASF in `Debug` mode) and above. Alternatively you can define your own `<when>` logging filters in order to avoid infinite logging loop, if modifying level is not appropriate for your case. This caveat also applies to group chats.
+Вкратце, если ваш `steamID` используется в ASF, то уровень журналирования `minlevel` в вашем `SteamTarget` должен быть `Info` (или `Debug` если вы не запускаете ASF в режиме `Debug`) или выше. В качестве альтернативы вы можете задать собственные фильтры журналирования `<when>` чтобы избежать бесконечной петли, если изменение уровня журналирования вам не подходит. Это предостережение касается также групповых чатов.
