@@ -180,7 +180,7 @@ curl -X GET /Api/ASF
 }
 ```
 
-This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
 `GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
@@ -190,18 +190,18 @@ Currently, following properties are considered sensitive and can be set to `null
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 ---
 
 ### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with no result.
 
 ```shell
 curl -X DELETE /Api/Bot/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 ---
@@ -297,7 +297,7 @@ curl -X GET /Api/Bot/archi
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
 `BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
 
@@ -307,7 +307,7 @@ Currently, following properties are considered sensitive and can be set to `null
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":false,"Paused":true}}' /Api/Bot/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 ---
@@ -327,11 +327,11 @@ curl -X POST -d '' /Api/Command/version
 
 ### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with no result.
 
 ```shell
 curl -X DELETE /Api/GamesToRedeemInBackground/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 ---
