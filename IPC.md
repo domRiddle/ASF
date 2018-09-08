@@ -17,7 +17,7 @@ INFO|ASF|Start() Starting IPC server...
 INFO|ASF|Start() IPC server ready!
 ```
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, assuming that ASF's IPC interface was enabled properly, you should see our **[IPC GUI](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)** frontend in your browser.
+ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, assuming that ASF's IPC interface was enabled properly, you should see our **[IPC GUI](https://i.imgur.com/YWtT1bd.pngg)** frontend in your browser.
 
 ---
 
