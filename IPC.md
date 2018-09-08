@@ -89,7 +89,7 @@ Numeric properties are defined with their maximum values, so you can also use st
 
 ---
 
-### GenericResponse
+## GenericResponse
 
 Generic response is a primary return type that we use for all API calls. We use two kinds of generic response - with a result, and without.
 
@@ -123,6 +123,8 @@ Generic response with result, in addition to two mandatory fields described abov
 `Message`/`Success` - as above.
 
 ---
+
+## Public API
 
 ### `GET /Api/ASF`
 
@@ -171,8 +173,6 @@ curl -X GET /Api/ASF
 
 #### Body:
 
-Content-Type: application/json
-
 ```json
 {
 	"GlobalConfig": {},
@@ -208,7 +208,7 @@ curl -X DELETE /Api/Bot/archi
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<Bot>` - collection of bot statuses.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<Bot>` - collection of bot statuses.
 
 ```shell
 curl -X GET /Api/Bot/archi
@@ -266,9 +266,9 @@ curl -X GET /Api/Bot/archi
 
 #### CardsFarmer
 
-`GamesToFarm` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
+`GamesToFarm` is a `HashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
-`CurrentGamesFarming` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
+`CurrentGamesFarming` is a `HashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
 
 `TimeRemaining` is a `TimeSpan` type that specifies approximated time required to farm all games specified in `GamesToFarm` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current `GamesToFarm` status, therefore it's re-calculated the moment `CardsRemaining` of any game changes.
 
@@ -289,8 +289,6 @@ curl -X GET /Api/Bot/archi
 ### `POST /Api/Bot/{BotName}`
 
 #### Body:
-
-Content-Type: application/json
 
 ```json
 {
@@ -340,7 +338,7 @@ curl -X DELETE /Api/GamesToRedeemInBackground/archi
 
 ### `GET /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableDictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
+This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `Dictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
 
 ```shell
 curl -X GET /Api/GamesToRedeemInBackground/archi
@@ -362,15 +360,13 @@ curl -X GET /Api/GamesToRedeemInBackground/archi
 }
 ```
 
-Both `UnusedKeys` and `UsedKeys` are `ImmutableDictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
+Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
 
 ---
 
 ### `POST /Api/GamesToRedeemInBackground/{BotName}`
 
 #### Body:
-
-Content-Type: application/json
 
 ```json
 {
@@ -455,7 +451,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 }
 ```
 
-`Body` - `ImmutableDictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
+`Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
 
 `Properties` - `TypeProperties` type defined **[below](#typeproperties)** that holds metadata information about given type.
 
@@ -463,13 +459,13 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
 
-`CustomAttributes` - `ImmutableHashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 ---
 
-## WWW API
+## Internal API
 
 APIs below are dedicated for our IPC GUI usage and they should not be used by remote scripts or tools. This documentation is for our internal reference only and can change anytime, in any possible way. You should not rely on existence of below endpoints, neither implement them in your own tools.
 
@@ -477,7 +473,7 @@ APIs below are dedicated for our IPC GUI usage and they should not be used by re
 
 ### `GET /Api/WWW/Directory/{Directory}`
 
-This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<string>` - collection of local filenames.
+This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
@@ -507,24 +503,22 @@ curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com
 {"Message":"OK","Result":"<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>...","Success":true}
 ```
 
+---
+
 ## FAQ
 
-### What is this all about?
+### Is using IPC safe and secure?
 
-IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
+ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be. If you decide to change default `localhost` bind addresses to something else, such as `any`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security.
 
-### Is this secure?
+### Can I use ASF's IPC behind a reverse proxy such as nginx?
 
-ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
-
-### Can I use HTTPS protocol with proper encryption?
-
-ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
+**Yes**, ASF's Kestrel http server is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
 
 ```nginx
 server {
         listen *:443 ssl;
-        server_name archi.justarchi.net;
+        server_name asf.mydomain.com;
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
@@ -554,9 +548,5 @@ server {
 	}
 }
 ```
-
-This way you can use fully secured connection to your ASF instance, as shown below.
-
-![Image](https://i.imgur.com/ifoEmWs.png)
 
 ---
