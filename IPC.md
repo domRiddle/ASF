@@ -582,14 +582,14 @@ The configuration file is based on following JSON structure:
 			"IPv4-https": {
 				"Url": "https://127.0.0.1:1242",
 				"Certificate": {
-					"Path": "C:\\path\\to\\certificate_onWindows.pfx",
+					"Path": "/path/to/certificate.pfx",
 					"Password": "passwordToPfxFileAbove"
 				}
 			},
 			"IPv6-https": {
 				"Url": "https://[::1]:1242",
 				"Certificate": {
-					"Path": "/path/to/certificate_onLinux.pfx",
+					"Path": "/path/to/certificate.pfx",
 					"Password": "passwordToPfxFileAbove"
 				}
 			}
