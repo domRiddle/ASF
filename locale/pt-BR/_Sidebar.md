@@ -9,7 +9,7 @@
 ## Principal
 
 * **[Compatibilidade](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility)**
-* **[Resgate de códigos em segundo plano](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Ativador de códigos em segundo plano](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**
 * **[Desempenho](https://github.com/JustArchi/ArchiSteamFarm/wiki/Performance)**
 * **[Trocas](https://github.com/JustArchi/ArchiSteamFarm/wiki/Trading)**

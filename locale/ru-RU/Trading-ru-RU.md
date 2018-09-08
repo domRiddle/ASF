@@ -1,50 +1,50 @@
-# Торговля
+# Обмены
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF включает в себя поддержку не-интерактивных (офлайн) обменов Steam. Как получение (принятие/отклонение) так и отправка обменов работают не требуя дополнительной настройки, однако, естественно, требуют аккаунт Steam без ограничений (такой, на котором потрачено больше чем 5$ в эквиваленте). Модуль обменов недоступен для ограниченных аккаунтов.
 
-Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured `BotBehaviour` (`RejectInvalidTrades`) property.
+Примечание: Когда в тексте используется слово "отказ", это подразумевает либо игнорирование либо отклонение обмена, в зависимости от настроек в параметре `BotBehaviour` (`RejectInvalidTrades`).
 
 * * *
 
 ## Логика
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF всегда принимает все обмены, независимо от предметов в них, присланные от пользователя с правами `Master` (или выше). Это позволяет не только легко забрать карты, которые нафармил бот, но также удобно манипулировать любыми предметами Steam, хранящимися на этом боте.
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF будет отказыватся от обменов, независимо от содержимого, которые присланы от пользователей(кроме `Master`) обмены с которыми запрещены в модуле обменов. Список пользователей, с которыми запрещены обмены, хранится в базе данных `BotName.db`, а управлять вы им можете с помощью **[команд](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `bl`, `bladd` и `blrm`. Это может использоваться как альтернатив блокировке в Steam - используйте с осторожностью.
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+ASF будет принимать все `loot`-подобные обмены присланные от других ботов, за исключением случая когда в параметре `TradingPreferences` указано значение `DontAcceptBotTrades`. Вкратце, параметр `TradingPreferences` со значением по умолчанию `None` приведёт к тому, что ASF будет автоматически принимать обмены от пользователей с правами `Master` (описано выше) а также все безвозмездные обмены от других ботов, задействованых в этом процессе ASF. Если вы хотите отключить принятие безвозмездных обменов от других ботов, для этого служит значение `DontAcceptBotTrades` в параметре `TradingPreferences`.
 
-When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
+Если вы добавите значение `AcceptDonations` в параметр `TradingPreferences`, ASF также будет принимать любые безвозмездные обмены - обмены, в которых бот не отдаёт никаких предметов. Это влияет только на обмены с не-ботами, поскольку боты на обмены с ботами влияет значение `DontAcceptBotTrades`. `AcceptDonations` позволяет вам легко принимать пожертвования от других людей, а также от ботов не задействованных в данном процессе ASF.
 
-It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)**, as there is no confirmation needed if we're not losing any items.
+Приятно отметить, что `AcceptDonations` не требует наличия **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, поскольку если мы не отдаём предметов - подтверждение на мобильном не требуется.
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
+Вы можете настроить другие возможности обменов в ASF изменяя параметр `TradingPreferences`. Одна из важных функций доступных в `TradingPreferences` - это значение `SteamTradeMatcher`, которое активирует встроенную логику принятия обменов, помогающих собирать карточки для создания значков, она особенно полезна в сочетании с публикацией своего профиля на сайте **[SteamTradeMatcher](https://www.steamtradematcher.com)**, но будет работать и без этого. Эта функция подробно описана ниже.
 
 * * *
 
 ## SteamTradeMatcher
 
-When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+Если включено значение `SteamTradeMatcher`, ASF будет использовать довольно сложный алгоритм для проверки, удовлетворяет ли обмен правилам STM и является ли для нас как минимум нейтральным. Логика работы следующая:
 
-- Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game and per-type basis.
-- Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
-- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
-- Accept the trade if we didn't reject it through any of the points above.
+- Отказ от обмена если мы отдаём что-то, что не указано в параметре `MatchableTypes`.
+- Отказ от обмена если мы не получаем как минимум столько же предметов из определённой игры и определённого типа.
+- Отказ от обмена если у нас запрашивают предмет летней/зимней распродажи, и при этом у пользователя действует удержание обменов.
+- Отказ от обмена если удержание обмена превышает указанное в параметре глобальной конфигурации `MaxTradeHoldDuration`.
+- Отказ от обмена если не установлено значение `MatchEverything` и обмен для нас хуже, чем нейтральный.
+- Принятие обмена если мы не отказались от него на одном из этапов выше.
 
-It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+Приятно отметить, что ASF также поддерживает переплату - логика будет нормально работать если мы получаем в обмене что-то дополнительно, если все другие условия соблюдены.
 
-First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+Первые 4 условия отказа должны быть очевидны для всех. Последнее условие включает собственно логику проверки дубликатов, которая проверяет наш текущий инвентарь и решает, каков статус этого обмена.
 
-- Trade is **good** if our progress towards set completion advances. A A (before) <-> A B (after)
-- Trade is **neutral** if our progress towards set completion stays in-tact. A B (before) <-> A C (after)
-- Trade is **bad** if our progress towards set completion declines. A C (before) <-> A A (after)
+- Обмен **хороший** если наш прогресс к завершению значка увеличивается. A A (было) <-> A B (стало)
+- Обмен **нейтральный** если наш прогресс к завершению значка не меняется. A B (было) <-> A C (стало)
+- Обмен **плохой** если наш прогресс к завершению значка уменьшается. A C (было) <-> A A (стало)
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason why to not accept such trade. This is especially useful for your friends, since they can swap your excessive cards without using STM at all, as long as you're not losing any set progress.
+STM работает только с хорошими обменами, а значит пользователь, пользующийся STM для обмена дубликатов всегда будет предлагать нам только хорошие обмены. Однако, ASF имеет либеральную настройку, и принимает также нейтральные обмены, поскольку в этом случае мы ничего не теряем, поэтому нет реальных причин не принять такой обмен. Это особенно полезно для ваших друзей, поскольку они смогут меняться на ваши лишние карточки вообще не используя STM, если вы при этом не теряете прогресс к завершению значка.
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including **bad ones**. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that **ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card**. Unless you intentionally want to run a trade bot that is **never** supposed to finish any set, you don't want to enable this option.
+По умолчанию ASF будет отклонять плохие сделки - практически всегда это то, чего хочет пользователь. Однако, при желании вы можете включить значение `MatchEverything` в параметр `TradingPreferences` чтобы ASF принимал все обмены дубликатов, включая **плохие**. Это может быть полезным только если вы хотите сделать из своего аккаунта бота по обмену карт 1:1, и вы должны понимать, что в этом случае **ASF не поможет вашему прогрессу к завершению значков, и сделает возможным потерю уже собранного набора карт на N дубликатов одной и той же карты**. Если вы не хотите намеренно создать бота который **никогда** не соберёт набор карт, вам не стоит включать эту опцию.
 
-Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `BotBehaviour` which is `None`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for trades with items outside of `MatchableTypes`, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not. The only exception from this rule is when talking about users you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
+В зависимости от выбранных значений в параметре `TradingPreferences`, то, что ASF отказал в обмене не означает что вы не сможете принять её самостоятельно. Если вы оставили параметру `BotBehaviour` значение по-умолчанию `None`, ASF будет просто игнорировать такие обмены - позволяя вам самостоятельно решить, заинтересованы вы в них или нет. То же самое касается и обменов с предметами, не соответствующими `MatchableTypes`, и прочих случаев - модуль обменов призван помочь автоматизировать обмены по алгоритму STM, а не решать за вас, какой обмен хороший а какой нет. Единственное исключение из этого правила - это пользователи, с которыми запрещены обмены командой `bladd` - предложения обменов от таких пользователей немедленно отклоняются независимо от настроек `BotBehaviour`.
 
-It's highly recommended to use **[ASF 2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it might generate backlog of confirmations if you're not accepting them in time.
+Настоятельно рекомендуем использовать **[2ФА ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)** если вы решите использовать этот функционал, поскольку он не раскрывает полностью свой потенциал если вам приходится вручную подтверждать каждый обмен. `SteamTradeMatcher` будет работать даже без возможности подтверждать обмены, но это может создать очередь на подтверждение если вы не принимаете их своевременно.

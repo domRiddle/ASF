@@ -65,7 +65,7 @@ Si vas a ejecutar la variante `linux-arm`, entonces temporalmente también neces
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now
+- Ninguno por ahora
 
 * * *
 
@@ -138,11 +138,11 @@ Ahora puedes decidir entre dos cosas:
 
 Haciendo lo primero permitirá que ASF use automáticamente las credenciales de tu cuenta durante el inicio, por lo que no necesitarás ingresarlas manualmente cada vez que ASF las necesite. Sin embargo puedes decidir omitirlas, en cuyo caso no serán guardadas, por lo que ASF no será capaz de iniciar automáticamente sin tu ayuda y necesitarás ingresarlas durante el tiempo de ejecución (runtime).
 
-ASF requiere tus credenciales de inicio de sesión porque incluye su propia implementación del cliente de Steam y necesita los mismos detalles para iniciar sesión como el que usas. Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** section.
+ASF requiere tus credenciales de inicio de sesión porque incluye su propia implementación del cliente de Steam y necesita los mismos detalles para iniciar sesión como el que usas. Tus credenciales de inicio de sesión no se guardan en ninguna parte, excepto en tu PC, solo en el directorio `config` de ASF, nuestro generador de configuración web es un cliente, lo que significa que el código es ejecutado localmente en tu explorador para generar configuraciones válidas de ASF, sin detalles, ingresa siempre dejando tu PC en primer lugar, por lo que no hay necesidad de preocuparse por ninguna posible fuga de datos confidenciales. Aún, si por cualquier razón no quieres ingresar tus credenciales ahí, entendemos eso, y puedes ingresarlas manualmente luego en los archivos generados, u omitirlas completamente e ingresarlas solo en la línea de comandos ASF. Puedes encontrar más acerca de seguridad en la sección **[configuración](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 
-You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental PIN to unlock the account, you'll need to toggle advanced settings and put it into `SteamParentalPIN` field.
+También puedes decidir dejar un campo vacío, como `ContraseñaSteam`, entonces ASF sera capaz de usar tu inicio de sesión automaticamente, pero todavía le pedirá la contraseña (simiar al cliente Steam). Si utiliza un pin parental Steam para desbloquear la cuenta, necesitará cambiar la configuración avanzada y ponerlo en el campo `SteamParentalPIN`.
 
-After the decision and optional details, your web page will now look similar to the one below:
+Después de la decisión y detalles opcionales, ahora su página web se verá similar a la siguiente:
 
 ![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
 

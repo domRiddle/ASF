@@ -81,7 +81,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `transfer <Bots> <Modes> <Bot>`    | `Master`        | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.                                                  |
 | `unpack <Bots>`                                | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
 | `update`                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `version`                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `版本`                                                 | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *
 
