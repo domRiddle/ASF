@@ -1,121 +1,67 @@
 # IPC
 
-Starting with version 3.0, ASF offers http-based inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
+ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF API" that can be used for further integration with the process.
 
-IPC is always executed with `SteamOwnerID` permissions, which is `0` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing anyone to send commands (`400 BadRequest`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+Our IPC interface is based on Kestrel HTTP server and offers RESTful web API that is based on JSON as its primary data format. You can access ASF API by sending appropriate web requests to `/Api` endpoint. In addition to API endpoints, our IPC also offers IPC GUI frontend that is designed for endusers as an alternative, simplified way to access ASF API.
 
----
-
-## FAQ
-
-### What is this all about?
-
-IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
-
-### Is this secure?
-
-ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
-
-### Can I use HTTPS protocol with proper encryption?
-
-ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
-
-```nginx
-server {
-        listen *:443 ssl;
-        server_name archi.justarchi.net;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
-
-	location /Api/Log {
-		proxy_pass http://127.0.0.1:1242;
-#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Host $host:$server_port;
-		proxy_set_header X-Forwarded-Proto $scheme;
-		proxy_set_header X-Forwarded-Server $host;
-		proxy_set_header X-Real-IP $remote_addr;
-
-		# We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
-		proxy_http_version 1.1;
-		proxy_set_header Connection "Upgrade";
-		proxy_set_header Upgrade $http_upgrade;
-	}
-
-	location / {
-		proxy_pass http://127.0.0.1:1242;
-#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Host $host:$server_port;
-		proxy_set_header X-Forwarded-Proto $scheme;
-		proxy_set_header X-Forwarded-Server $host;
-		proxy_set_header X-Real-IP $remote_addr;
-	}
-}
-```
-
-This way you can use fully secured connection to your ASF instance, as shown below.
-
-![Image](https://i.imgur.com/ifoEmWs.png)
+IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our IPC GUI which allows you to easily access them from your favourite web browser.
 
 ---
 
-## Server
+# Usage
 
-To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info. You might also want to make use of `--process-required` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**, although that is entirely optional, just a mere mention.
-
-If configuration was set correctly, you should notice that IPC service is active:
+You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
 ```
-INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/...
-INFO|ASF|StartServer() IPC server ready!
+INFO|ASF|Start() Starting IPC server...
+INFO|ASF|Start() IPC server ready!
 ```
 
-ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
+ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[::1](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, assuming that ASF's IPC interface was enabled properly, you should see our **[IPC GUI](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)** frontend in your browser.
 
 ---
 
-## Client
+# IPC GUI
 
-Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
+Please note that IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. This is because it's a community project and we're not maintaining it officially without ASF developer in charge of it.
 
-### API
+You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Right now, our lead community developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
-ASF IPC offers a full API for bots management that can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
+---
 
-### IPC GUI
+# IPC API
 
-In addition to API calls, we're slowly coding IPC GUI that is a nice user-friendly frontend to API features that ASF offers. This GUI can be accessed by navigating to main index of the ASF's IPC interface, such as `http://127.0.0.1:1242`.
+Our IPC API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
 
-![Image](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
-
-IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+Communication with IPC server provided by ASF can be done by using any http-compatible program, tool or code. In our examples below we'll use **[curl](https://curl.haxx.se)** which is cross-platform, open-source tool for data transfer. You can very easily adapt our curl examples for your own scripts, tools or programs. 
 
 ---
 
 ## HTTP status codes
 
-Our API makes use of standard HTTP status codes, and they're used according to the RFC. Currently ASF can return following status codes:
+Our API makes use of standard HTTP status codes, and we use them according to the RFC. In the most simplified explanation, our API will return `200 OK` status if your API call succeeded, and non-200 otherwise. This should be used as a primary way to detect whether your ASF API call succeeded or not.
 
-- `200 OK` - the request completed successfully.
-- `400 BadRequest` - the request failed because of an error, parse response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to fulfill it for one reason or another (hence response body telling you why).
-- `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](#authentication)** properly.
-- `403 Forbidden` - You failed to **[authenticate](#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
-- `404 NotFound` - the URL you're trying to reach does not exist.
-- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
-- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. Mainly used in requests that require from you a specific body, without you explicitly stating type of it.
-- `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code. For expected errors we use `503` instead.
-- `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
-- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request, and can't fulfill it. Check ASF log for actual reason.
+ASF can use various HTTP status codes to explain better what happened. Some of them include:
+
+- `200 OK` - the request has completed successfully.
+- `400 BadRequest` - the request has failed because of an error, parse our response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to execute it due to provided reason.
+- `401 Unauthorized` - ASF has `IPCPassword` set, but you've failed to **[authenticate](#authentication)** properly.
+- `403 Forbidden` - ASF has `IPCPassword` set and you've failed to **[authenticate](#authentication)** properly too many times, try again in an hour.
+- `404 NotFound` - the URL that you're trying to reach does not exist. Confirm with IPC examples below whether you're accessing appropriate endpoint.
+- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This can be caused e.g. by sending `GET` request where ASF expects `POST`, or vice-versa. This code can also be used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
+- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. This is mainly used in requests that require from you a specific body as an input, and you didn't declare in what format it's provided.
+- `411 LengthRequired` - your `POST` request is missing `Content-Length` header. Length must be defined even in requests that do not have a body (use length of 0 in this case).
+- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code, please let us know.
+- `501 NotImplemented` - this URL is reserved for future use and not implemented yet. In some very rare situations, ASF might also use this status to indicate that it understands what you're trying to do, but it's not supported (yet).
+- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request. If not returned in the response, ASF log should be able to tell more.
 
 ---
 
 ## Authentication
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get rate-limited with `403 - Forbidden` error.
+ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 
-Authentication can be done through two generally-acceptable ways.
+Authentication can be done through two supported ways.
 
 ### `Authentication` header
 
@@ -127,45 +73,54 @@ Alternatively you can append `password` parameter to the end of the URL you're a
 
 ---
 
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
-
----
-
-## Cross-Origin Resource Sharing
-
-ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts  to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request firstly, as described above.
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string, as due to various limitations it's not possible to use headers everywhere - for example it's impossible to specify custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC).
 
 ---
 
 ## API
 
-In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
-Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
+Some API endpoints might require from you to specify extra data, such as providing appropriate structure as a body of the request. In this case, in addition to providing required input, you must also set `Content-Type` header to appropriate value, such as `application/json` if your input is provided in JSON. If API endpoint includes some special requirements for an input, it'll be listed on the top of the endpoint description.
 
-Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
+Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port/OptionalPrefix` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript which can't represent 64-bit numbers precisely (and other languages with similar limitations).
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
 
 ---
 
 ### GenericResponse
 
-Generic response is a primary return type that we use for all API calls.
+Generic response is a primary return type that we use for all API calls. We use two kinds of generic response - with a result, and without.
+
+Generic response without a result has two mandatory fields that are always provided - `Success` and `Message`. This kind is used in all API calls that do not return any specific result, apart from generic success/failure. This response is used mainly in `DELETE/POST` calls that rarily return a result, for example `DELETE /Api/Bot/{Bot}` call.
 
 ```json
 {
 	"Message": "string",
-	"Result": {},
 	"Success": true
 }
 ```
 
 `Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
 
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
+
+---
+
+Generic response with result, in addition to two mandatory fields described above, also includes mandatory `Result` field that includes specific. This response is used mainly in `GET` calls that return a result by definition, for example `GET /Api/ASF`.
+
+```json
+{
+	"Result": {},
+	"Message": "string",
+	"Success": true
+}
+```
+
 `Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
 
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
+`Message`/`Success` - as above.
 
 ---
 
@@ -551,3 +506,57 @@ This API endpoint is used internally for sending remote `GET` requests. This sho
 curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com"}' /Api/WWW/Send
 {"Message":"OK","Result":"<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>...","Success":true}
 ```
+
+## FAQ
+
+### What is this all about?
+
+IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
+
+### Is this secure?
+
+ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
+
+### Can I use HTTPS protocol with proper encryption?
+
+ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
+
+```nginx
+server {
+        listen *:443 ssl;
+        server_name archi.justarchi.net;
+        ssl_certificate /path/to/your/certificate.crt;
+        ssl_certificate_key /path/to/your/certificate.key;
+
+	location /Api/Log {
+		proxy_pass http://127.0.0.1:1242;
+#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Host $host:$server_port;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header X-Forwarded-Server $host;
+		proxy_set_header X-Real-IP $remote_addr;
+
+		# We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+		proxy_http_version 1.1;
+		proxy_set_header Connection "Upgrade";
+		proxy_set_header Upgrade $http_upgrade;
+	}
+
+	location / {
+		proxy_pass http://127.0.0.1:1242;
+#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Host $host:$server_port;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header X-Forwarded-Server $host;
+		proxy_set_header X-Real-IP $remote_addr;
+	}
+}
+```
+
+This way you can use fully secured connection to your ASF instance, as shown below.
+
+![Image](https://i.imgur.com/ifoEmWs.png)
+
+---
