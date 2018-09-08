@@ -69,9 +69,6 @@ Global config is located in `ASF.json` file and has following structure:
 	"InventoryLimiterDelay": 3,
 	"IPC": false,
 	"IPCPassword": null,
-	"IPCPrefixes": [
-		"http://127.0.0.1:1242/"
-	],
 	"LoginLimiterDelay": 10,
 	"MaxFarmingTime": 10,
 	"MaxTradeHoldDuration": 15,
@@ -155,31 +152,11 @@ If you're running ASF on the server, you might want to use this option together 
 
 ---
 
-`IPC` - `bool` type with default value of `false`. This property defines if ASF's **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting local HTTP server on specified `IPCPrefixes`. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
+`IPC` - `bool` type with default value of `false`. This property defines if ASF's **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting a local HTTP server. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
 
 ---
 
 `IPCPassword` - `string` type with default value of `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
-
----
-
-`IPCPrefixes` - `ImmutableHashSet<string>` type with default value of `http://127.0.0.1:1242/` item. This property specifies prefixes that will be used by ASF's `HttpListener` in **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** interface. In other words, this property specifies on which endpoints ASF IPC interface will listen for incoming requests. For general information about `HttpListener` prefixes, please refer to **[MSDN](https://docs.microsoft.com/en-us/dotnet/api/system.net.httplistener?view=netstandard-2.0#Remarks)**.
-
-> A URI prefix string is composed of a scheme (http or https), a host, an optional port, and an optional path. An example of a complete prefix string is `http://www.contoso.com:8080/customerData/`. Prefixes must end in a forward slash (`/`). The HttpListener object with the prefix that most closely matches a requested URI responds to the request. Multiple HttpListener objects cannot add the same prefix; a Win32Exception exception is thrown if a HttpListener adds a prefix that is already in use.
-
-> When a port is specified, the host element can be replaced with `*` to indicate that the HttpListener accepts requests sent to the port if the requested URI does not match any other prefix. For example, to receive all requests sent to port 8080 when the requested URI is not handled by any HttpListener, the prefix is `http://*:8080/`. Similarly, to specify that the HttpListener accepts all requests sent to a port, replace the host element with the `+` character, `https://+:8080`. The `*` and `+` characters can be present in prefixes that include paths.
-
-> Starting with .NET 4.5.3 and Windows 10, wildcard subdomains are supported in URI prefixes that are managed by an HttpListener object. To specify a wildcard subdomain, use the `*` character as part of the hostname in a URI prefix: for example, `http://*.foo.com/`, and pass this as the argument to the HttpListenerPrefixCollection.Add method. This will work on .NET 4.5.3 and Windows 10; in earlier versions, this would generate an HttpListenerException
-
-ASF by default listens only on `127.0.0.1` address to ensure that no other machine but your own can access it. This is a security measure, as accessing IPC interface can lead to attacker taking over your ASF process, which can have dramatic effects. However, if you know what you're doing, e.g. you will restrict access to IPC yourself, using something like `iptables` or another form of firewall, you may change this property (at your own risk) to something less restrictive, such as `*` which enables IPC on all network interfaces. You may also want to change default ASF IPC port to any other port you want, suggested ports are above `1024`, as ports `0-1024` typically require `root` privileges on Unix-like operating systems. Also keep in mind that some listening addresses might require extra privileges, for example binding to public interface on Windows requires ASF to be run as administrator (or proper `netsh` policy).
-
-If your machine supports IPv6, you might want to add a value of `http://[::1]:1242/` to this collection in order to listen on both local IPv4 `127.0.0.1` address, as well as local IPv6 `::1` one. This is especially important if you want to access ASF via `localhost` name, as in this case your machine might want to use IPv6 by default.
-
-Keep in mind that this property apart from bind address, also specifies valid **URLs** under which IPC interface is accessible. In other words, if you want to access your IPC interface from `asf.example.com` hostname, then you should define `http://asf.example.com:1242/` in your `IPCPrefixes`. Even if you make your IPC interface reachable (e.g. by changing `127.0.0.1` to your public IP address), you'll get `404 NotFound` error if the URL under which you're trying to access it is not defined in `IPCPrefixes` of ASF. This is why you should define in `IPCPrefixes` all URLs under which the IPC interface should be accessible, and this can include local IPv4 and IPv6 addresses, public IPv4 and IPv6 addresses, and custom hostname, making it 5 different `IPCPrefixes` total, if you require/want to access IPC interface in all of those 5 ways. Of course, you can also define just `http://*:1242/`, but this might not always be appropriate.
-
-Please note that currently ASF doesn't support other prefix path than root (`/`). Using non-root path will result in getting `404` error. We hope to solve this limitation eventually in the future.
-
-Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 
