@@ -505,6 +505,54 @@ curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com
 
 ---
 
+## Custom configuration
+
+Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+
+When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+
+The configuration file is based on following JSON structure:
+
+```json
+{
+	"Kestrel": {
+		"Endpoints": {
+			"IPv4-http": {
+				"Url": "http://127.0.0.1:1242"
+			},
+			"IPv6-http": {
+				"Url": "http://[::1]:1242"
+			},
+			"IPv4-https": {
+				"Url": "https://127.0.0.1:1242",
+				"Certificate": {
+					"Path": "/path/to/certificate.pfx",
+					"Password": "passwordToPfxFileAbove"
+				}
+			},
+			"IPv6-https": {
+				"Url": "https://[::1]:1242",
+				"Certificate": {
+					"Path": "/path/to/certificate.pfx",
+					"Password": "passwordToPfxFileAbove"
+				}
+			}
+		},
+		"PathBase": "/"
+	}
+}
+```
+
+There are 2 properties worth explanation/editing, those are `Endpoints` and `PathBase`.
+
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `IPv4-http`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https example for you to use, if needed.
+
+`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
+
+Unless you truly need to specify a custom base path, it's best to leave it at default. In addition to that, custom base path is **[not supported by our IPC GUI yet](https://github.com/JustArchi/ArchiSteamFarm/issues/869#issuecomment-419596294)**. Our IPC API is fully compatible with it already.
+
+---
+
 ## FAQ
 
 ### Is ASF's IPC interface secure and safe to use?
