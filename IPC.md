@@ -85,7 +85,7 @@ In general our API is a typical REST API that is based on JSON as a primary way 
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate structure as a body of the request. In this case, in addition to providing required input, you must also set `Content-Type` header to appropriate value, such as `application/json` if your input is provided in JSON. If API endpoint includes some special requirements for an input, it'll be listed on the top of the endpoint description.
 
-In all provided examples below, you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port/OptionalPrefix` to the URL, according to your ASF usage. For example, if you're trying to execute `/Api/ASF` example and you're running your IPC on standard `http://127.0.0.1:1242` endpoint, call `http://127.0.0.1:1242/Api/ASF` instead.
+In all provided examples below, you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port/OptionalPrefix` to the URL, according to your ASF usage. For example, if you're trying to execute `/Api/ASF` and you're running your IPC on standard `http://127.0.0.1:1242` endpoint, call `http://127.0.0.1:1242/Api/ASF` instead.
 
 Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
 
