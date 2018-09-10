@@ -110,7 +110,7 @@ Generic response without a result has two mandatory fields that are always provi
 
 ---
 
-Generic response with result, in addition to two mandatory fields described above, also includes mandatory `Result` field that includes specific. This response is used mainly in `GET` calls that return a result by definition, for example `GET /Api/ASF`.
+Generic response with result, in addition to two mandatory fields described above, also includes mandatory `Result` field that contains actual result of the call. This response is used mainly in `GET` calls that return a result by definition, for example `GET /Api/ASF`.
 
 ```json
 {
