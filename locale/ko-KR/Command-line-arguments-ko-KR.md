@@ -28,14 +28,14 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 명령줄 인자는 `ArchiSteamFarm.cmd`나 `ArchiSteamFarm.sh` 같은 일반 도우미 스크립트에서도 지원합니다. 그외에 도우미 스크립트를 사용할때 **[도커](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-ko-KR#command-line-arguments)** 항목에 명시된 것 처럼 `ASF_ARGS` 환경변수를 사용할 수 있습니다.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+인자에 공백이 들어간다면 따옴표로 표시하는 것을 잊지마십시오. 아래 두개는 잘못되었습니다:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+하지만, 다음 두개는 완전히 정상입니다.
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK

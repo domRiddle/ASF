@@ -60,7 +60,7 @@ Crowdin 혹은 우리가 신뢰하고 확인가능한 다른 현지화 플랫폼
 
 어떻게 번역할지 모르거나, 승인된 번역이 틀렸거나, 더욱 정확한 문맥이 필요하는 등 특정 번역에 문제가 있는 경우, [X] 이슈로 표시하여 해당 문자열에 댓글로 달아주시기 바랍니다.
 
-**기술적/개발 설명이나 관리자 작업이 필요하지 않은 경우 이슈마크를 사용하지 마십시오.** You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
+**기술적/개발 설명이나 관리자 작업이 필요하지 않은 경우 이슈마크를 사용하지 마십시오.** 해당 문자열에 대한 토론을 위해 댓글을 자유롭게 이용할 수 있습니다. 하지만 이슈는 기술적 설명이나 관리자의 수정이 필요할 때에만 사용하여야 합니다. 또한 이는 당신이 번역중인 언어를 구사할 수 없는 누군가의 개입이 필연적이므로, 이슈 댓글 작성시 영어로 해주시기 바랍니다. 그래야 우리가 이슈가 무엇인지를 이해할 수 있습니다.
 
 현재 4가지 종류의 이슈를 지원합니다:
 
@@ -79,7 +79,7 @@ Crowdin 혹은 우리가 신뢰하고 확인가능한 다른 현지화 플랫폼
 
 선택된 언어에는 적절한 교정자가 있을 수 있으며, 이들은 번역을 검증하고 최종 버전을 승인합니다. 이는 번역이 이루어진 후 최종 단계이며, 현지화를 더욱 개선할 수 있게 해줍니다.
 
-ASF는 해당 언어를 **가능한 한 빨리** 추가할 것입니다. 즉, 승인을 받거나 심지어 100% 번역되지 않아도 된다는 뜻입니다. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). 따라서, 번역이 Crowdin에 제출되자마자 당신의 노력이 바로 다음번 ASF 릴리즈에 포함된 것을 볼 수 있을것입니다. 현지화 업데이트는 ASF의 새버전을 릴리즈 하려는 그 순간에 합쳐집니다.
+ASF는 해당 언어를 **가능한 한 빨리** 추가할 것입니다. 즉, 승인을 받거나 심지어 100% 번역되지 않아도 된다는 뜻입니다. 드문 일이지만 선택된 교정자가 다르게 결정하지 않는한, 항상 투표에서 가장 인기있는 문자열이 실제 문자열로 사용될 것입니다. 따라서, 번역이 Crowdin에 제출되자마자 당신의 노력이 바로 다음번 ASF 릴리즈에 포함된 것을 볼 수 있을것입니다. 현지화 업데이트는 ASF의 새버전을 릴리즈 하려는 그 순간에 합쳐집니다.
 
 * * *
 

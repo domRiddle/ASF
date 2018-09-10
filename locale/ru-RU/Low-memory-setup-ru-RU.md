@@ -1,78 +1,78 @@
 # Конфигурация для низкого потребления ОЗУ
 
-This is exact opposite of **[high-performance setup](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
+Это полная противоположность **[ конфигурации для высокой производительности](https://github.com/JustArchi/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)** и обычно вам понадобятся эти советы если вы хотите уменьшить объём занимаемой ASF памяти за счёт общего снижения производительности.
 
 * * *
 
-ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
+ASF имеет чрезвычайно низкие требования к ресурсам по определению, в зависимости от ваших целей даже VPS с 128MB памяти и ОС Linux будет достаточно для запуска, хотя настолько экономить не рекомендуется во избежание проблем. Несмотря на малый вес, ASF не стесняется запрашивать у ОС дополнительную память, если это необходимо для оптимизации скорости работы ASF.
 
-ASF as an application tries to be as much optimized and efficient as possible, which also takes in mind resources being used during execution. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", that can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every extra page, which results in concurrent fetching and parsing of remaining pages. This speeds up execution, for cost of increased memory usage. Similar thing is happening e.g. with parsing active trade offers, ASF is also parsing them all concurrently. On top of all of that, ASF (C# runtime) doesn't return unused memory back to OS immediately. Huh? Что происходит?
+ASF как приложение пытается быть настолько оптимальным и эффективным насколько это возможно, учитывая при этом ресурсы необходимые для работы. Когда дело доходит до памяти, ASF предпочитает производительность а не экономию памяти, и в результате могут появляться "пики" потребления памяти, которые можно заметить если например у аккаунта 3+ страницы со значками, поскольку в этом случае ASF запросит первую страницу, считает с неё номер страниц и затем запросит сразу все дополнительные страницы для параллельной обработки. Это ускоряет работу ценой увеличения потребляемой памяти. Похожее случается например при анализе активных предложений обмена, ASF также обрабатывает их параллельно. И в добавок, ASF (а точнее среда выполнения C#) не возвращает неиспользуемую память назад ОС немедленно. Почему? Что происходит?
 
-ASF is extremely well optimized, and makes use of available resources as much as possible. High memory usage of ASF doesn't mean that ASF actively **uses** that memory and **needs it**. Very often ASF will keep some memory allocated for some "room" for future actions, as by not asking OS for every memory chunk we're improving performance. The runtime should automatically release unused ASF memory back to OS when OS will **truly** need it. Remember - **[unused memory is wasted memory](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. You run into issues when the memory you **need** is higher than the memory that is available for you, not when ASF keeps some extra for having free space for functions that will execute in a moment. You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
+ASF очень хорошо оптимизирована, и максимально эффективно использует доступные ресурсы. Высокое потребление памяти не означает что ASF активно **использует** эту память и **нуждается в ней**. Довольно часто ASF будет сохранять часть памяти зарезервированной в качестве "места" для будущих действий, поскольку избегая запросов к ОС для каждой области памяти мы увеличиваем производительность. Среда выполнения должна автоматически освободить неиспользуемую ASF память и отдать её ОС если ОС **действительно** в этом нуждается. Помните - **[неиспользуемая память пропадает зря](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. Проблемы начинаются когда память, которая вам **необходима** больше чем объём доступной памяти, а не когда ASF резервирует дополнительную память из свободного пространства для функций которые скоро будут выполняться. Проблемы начались если ядро Linux убивает процесс ASF из-за OOM (out of memory), а не когда вы видите процесс ASF как основной потребитель памяти в `htop`.
 
-Garbage collector being used in ASF is smart enough to take into account not only ASF itself, but also your OS. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in ASF memory as low as 50 MB. This is why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, and is usually around 4 MB for just a few bots. Keep in mind that memory returned by `stats` command includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop.
-
-* * *
-
-Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
-
-Below suggestions are divided into a few categories, with varied difficulty.
+Сборщик мусора (Garbage collector, далее GC), используемый в ASF, достаточно интеллектуальный чтобы учитывать не только потребности самого ASF, но и всей вашей ОС. Когда у вас много свободной памяти - ASF будет запрашивать столько, сколько позволит увеличить производительность. Это может быть вплоть до 1ГиБ (с серверным GC). Если память вашей ОС почти заполнена, ASF, будет автоматически освобождать часть памяти назад в ОС чтобы помочь урегулировать это, что может привести к снижению потребляемой ASF памяти вплоть до 50 МиБ. Поэтому потребляемая ASF память может отличаться в разных условиях, поскольку ASF будет стараться использовать доступные ресурсы **максимально эфффективно**, а не в фиксированном объёме как это делалось во времена Windows XP. Текущий (реальный) объём используемой ASF памяти можно получить с помощью **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `stats`, и обычно для нескольких ботов это порядка 4 МиБ. Помните что память, которую возвращает команда `stats` включает в себя свободную память, которую ещё не забрал сборщик мусора. Всё остальное это разделяемая память среды выполнения (порядка 40-50 МиБ) и место для работы (может варьироваться). Именно поэтому ASF может использовать около 50 МиБ в среде VPS с малым объёмом памяти, и в то же время занимать до 1 GB на вашем домашнем ПК.
 
 * * *
 
-## ASF setup (easy)
+Разумеется, есть много способов помочь направить ASF в нужном направлении в отношении ожидаемого использования памяти. В общем случае вам не надо этого делать, лучше позволить сборщику мусора работать как он сочтёт нужным. Но это не всегда возможно, например если ваш сервер под ОС Linux параллельно размещает несколько веб-сайтов, базу данных MySQL и обработчики PHP, вы не можете позволить ASF ужиматься только когда вы приблизились к состоянии OOM, это обычно уже слишком поздно и ведёт к ухудшению производительности. В подобных ситуациях вы будете заинтересованы в дальнейшей настройке, и соответственно в чтении этой статьи.
 
-Below tricks **do not affect performance negatively** and can be safely applied to all setups.
+Предложения ниже разделены на несколько категорий, с различной сложностью.
 
-- Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
-- Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
-- Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `start` it without renaming it back, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
-- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
+* * *
 
-Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
+## Настройки ASF (лёгкий уровень)
 
-The most resources-heavy functions are:
+Советы ниже **не влияют отрицательно на производительность** и могут быть безопасно использованы для любой конфигурации.
 
-- Badge page parsing
-- Inventory parsing
+- Никогда не запускайте больше одной копии ASF. ASF предназначен для одновременной работы с неограниченным числом ботов, и если вы не подключаете каждую копию ASF к отдельному интерфейсу/IP адресу, у вас должен быть ровно **один** процесс ASF, с несколькими ботами (если необходимо).
+- Используйте `ShutdownOnFarmingFinished`. Запущенный бот потребляет гораздо больше ресурсов, чем деактивированный. Это незначительная экономия, поскольку состояние бота всё равно придётся хранить, но вы экономите некоторые количество ресурсов, особенно связанных с сетью, таких как сокеты TCP. Вам нужен только один активным бот чтобы ASF продолжил работу, и вы всегда можете запустить других ботов при необходимости.
+- Используйте небольшое количество ботов. Бот без параметра `Enabled` занимает меньше ресурсов, поскольку ASF нет нужды запускать его. Также помните что ASF создаёт бота для каждого файла конфигурации, поэтому если вы не собираетесь запускать его командой `start` и хотите сэкономить немного памяти, вы можете временно переименовать `Bot.json` например в `Bot.json.bak` чтобы избежать создания неактивного бота в процессе ASF. При этом вы не сможете запустить его командой `start` не переименовав его назад, но ASF не будет сохранять состояние этого бота в памяти, освободив эту память для других нужд (очень маленький объём, в 99.9% случаев не стоит с этим возиться, просто поставьте своим ботам значение параметра `Enabled` равным `false`).
+- Настройте свои файлы конфигурации. Файл глобальной конфигурации ASF имеет особенно много переменных, которые можно изменить, например, увеличив значение `LoginLimiterDelay` вы сделаете запуск ботов более медленным, что даст возможность уже запущенным ботам параллельно запрашивать страницы значков, в противоположность быстрому запуску ботов, который потребует больше ресурсов, поскольку больше ботов будут делать основную работу (такую как разбор страниц значков) в одно и то же время. Чем меньше работы выполняется одновременно - тем меньше занимаемый объём памяти.
 
-Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
+Это и есть те немногие вещи о которых стоит помнить, когда имеете дело с объёмом используемой памяти. Однако. все эти вещи не имеют "критического" значения на объём используемой памяти, поскольку основные объмы памяти требуются на то, с чем ASF приходится иметь дело, а не с внутренними структурами используемыми для фарма карточек.
+
+Наиболее ресурсоёмкие функции это:
+
+- Разбор страниц со значками
+- Разбор инвентаря
+
+Отсюда следует, что пики памяти будут в основном когда ASF читает и обрабатывает страницы значков, и когда работает с инвентарем (например, отсылает предложение обмена или работает с STM). Это связано с тем, что ASF приходится иметь дело с огромными объёмами данных - потребление памяти в вашем любимом браузере при запуске этих двух страниц не будет намного ниже. Извините, но так это работает - уменьшите количество страниц со значками, и не храните слишком много предметов в инвентаре, это точно поможет.
 
 * * *
 
 ## Расширенная настройка среды исполнения
 
-Below tricks **involve performance degradation** and should be used with caution.
+Советы ниже **ведут к ухудшению производительности** и должны использоваться с осторожностью.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+Файл `ArchiSteamFarm.runtimeconfig.json` позволяет вам настроить среду выполнения ASF, в частности позволяя переключаться между серверным GC и GC для рабочих станций.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+> Сборщик мусора самонастраивающийся и может работать по большому количеству сценариев. Вы можете использовать настройки в конфигурационном файле чтобы указать тип сборщика мусора основываясь на характеристиках нагрузки. CLR предоставляет следующие типы сборки мусора:
 > 
-> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcserver> element in the runtime configuration schema.
+> Сборка мусора для рабочей станции, предназначенная для всех клиентских рабочих станций и отдельных ПК. Это значение по умолчанию для <gcserver> элемента в схеме конфигурации среды выполнения.
 > 
-> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> Серверная сборка мусора, которая предназначена для серверных приложений, требующих высокой пропускной способности и масштабируемости. Серверная сборка мусора может быть непараллельной или фоновой.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+Вы можете узнать больше, прочитав статью "**[основы сборки мусора](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**".
 
-ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
+ASF по умолчанию использует сборку мусора для рабочих станций, но вы можете убедиться что это действительно так, проверив что параметр `System.GC.Server` в файле `ArchiSteamFarm.runtimeconfig.json` равен `false`.
 
-In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory` and `GCLatencyLevel`.
+В добавок к проверке того, что сборщик мусора находится в режиме для рабочей станции, есть ещё интересные **[конфигурационные регуляторы](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)**, которые вы можете использовать - `gcTrimCommitOnLowMemory` и `GCLatencyLevel`.
 
 ### `GCLatencyLevel`
 
-> Specifies the GC latency level that you want to optimize for.
+> Задаёт уровень задержек GC, который вы хотите оптимизировать.
 
-This works exceptionally well by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
+Это работает исключительно хорошо путём ограничения размера генераций GC, и в результате вынуждает GC очищать их чаще и более агрессивно. Задержка по умолчанию (сбалансированная) равна `1`, нам стоит использовать значение `0`, которое уменьшит использование памяти.
 
 ### `gcTrimCommitOnLowMemory`
 
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
+> Если активно - мы урезаем выделяемую память более агрессивно для недолговечных сегментов. Это используется для запуска множества процессов на сервере, где необходимо чтобы они использовали как можно меньше памяти.
 
-This offers little improvement, but might make GC even more aggressive when system will be low on memory.
+Это даст небольшое улучшение, но может сделать GC ещё более агрессивным когда в системе будет мало памяти.
 
 * * *
 
-You can enable both by setting appropriate `COMPlus_` environment variables. For example, on Linux:
+Вы можете активировать обе настройки установив соответствующие переменные среды `COMPlus_`. Например, для Linux:
 
 ```shell
 export COMPlus_GCLatencyLevel=0
@@ -80,7 +80,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-Or on Windows:
+Или для Windows:
 
 ```bat
 SET COMPlus_GCLatencyLevel=0
@@ -88,22 +88,22 @@ SET COMPlus_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.exe
 ```
 
-Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+`GCLatencyLevel` согласно нашим проверкам будет особенно полезным, поскольку среда выполнения при этом оптимизирует код для работы с памятью, и следовательно значительно снижает использование памяти, даже с серверным GC. Это одна из самых полезных настроек если вы хотите значительно уменьшить потребление памяти ASF и при этом не слишком навредить производительности как при использовании `OptimizationMode`.
 
 * * *
 
-## ASF tuning (intermediate)
+## Настройки ASF (средний уровень)
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+Методы ниже **приводят к значительному уменьшению производительности** и должны использоваться с осторожностью.
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- В качестве крайней меры, вы можете настроить ASF на минимальное потребление памяти включив `MinMemoryUsage` в **[параметре глобальной конфигурации](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** `OptimizationMode`. Внимательно прочтите, зачем этот режим нужен, поскольку он приводит к серьёзному ухудшению производительности но незначительно улучшает ситуацию с памятью. В общем случае это **последнее что стоит делать**, уже после того как вы изменили **[настройки среды выполнения](#Расширенная-настройка-среды-исполнения)** чтобы убедиться, что вам без этого не обойтись.
 
 * * *
 
-## Recommended optimization
+## Рекомендуемые оптимизации
 
-- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
-- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
+- Начните с простых советов по настройке ASF, возможно вы просто неправильно им пользуетесь, например запускаете несколько процессов для всех ботов, или держите их активными когда хватит только одного или двух с автозапуском.
+- Если этого недостаточно, активируйте все конфигурационные регуляторы, описанные выше, установив соответствующие переменные среды `COMPlus_`. `GCLatencyLevel` даёт особенно значительное улучшение при незначительном влиянии на производительность.
+- Если даже это не помогло, в качестве крайней мере включите `MinMemoryUsage` в `OptimizationMode`. Это заставит ASF выполнять почти всё синхронным образом, делая его заметно медленнее но также независящим от балансировки задач пулом потоков когда доходит до параллельной работы.
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.
+Дальнейшее уменьшение потребляемой памяти физически невозможно, ваш ASF уже довольно сильно потерял в плане производительности и вы исчерпали все возможности как со стороны кода, так и со стороны среды выполнения. Подумайте над добавлением дополнительной памяти, которую сможет использовать ASF, даже 128 МиБ сыграют существенную роль.

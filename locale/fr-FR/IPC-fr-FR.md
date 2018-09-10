@@ -1,120 +1,68 @@
 # IPC
 
-Starting with version 3.0, ASF offers http-based inter-process communication that can be used to communicate with the process. This is offered as an alternative to already existing steam chat communication.
+ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF API" that can be used for further integration with the process.
 
-IPC is always executed with `SteamOwnerID` permissions, which is `0` by default. In order to use it, you should set `SteamOwnerID` to the proper non-zero value. Default value will make IPC work, but not authorizing anyone to send commands (`400 BadRequest`). For more info about `SteamOwnerID`, visit **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+Our IPC interface is based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** and offers **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. You can access ASF API by sending appropriate web requests to `/Api` endpoint.
 
-* * *
+In addition to API endpoints, our IPC also offers static files hosting used by our IPC GUI frontend that is designed for endusers as an alternative, simplified way to access ASF API.
 
-## FAQ
-
-### What is this all about?
-
-IPC stands for inter-process communication and has a very similar functionality to issuing **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** through Steam chat - it allows you to control ASF process during execution. However, IPC offers much more than just issuing commands, as it integrates all major ASF features in one place. Right now IPC offers two "modes" for you to use - the API, and user-friendly GUI. API allows you to code your own tools and scripts that communicate with ASF, while GUI allows you to consume those APIs in user-friendly way. For casual commands execution it should be easier for you to communicate with ASF through steam chat with one of the bots. However, you can use IPC too, if you consider it useful/easier for you.
-
-### Is this secure?
-
-ASF by default listens only on `127.0.0.1` address, which means that accessing ASF IPC from any other machine but your own is impossible. Therefore, it's as secure as IPC can be. If you decide to change default `127.0.0.1` bind address to something else, such as `*`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF port. In addition to that, server must include properly set non-zero `SteamOwnerID`, otherwise it'll refuse to execute any command, as an extra security measure. On top of all of that, you can also set `IPCPassword`, which would add another layer of extra security.
-
-### Can I use HTTPS protocol with proper encryption?
-
-ASF deploys only very minimalistic `HttpListener`, which itself does support using HTTPS protocol and setting appropriate certificates, but supporting that feature in ASF would make it far more complex than it already is, and would still be problematic for certificates management. It's strongly suggested to use **[reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy)** for that, such as **[nginx](https://nginx.org/en)**. This way you can have full control over your http server and you can set it up however you wish instead of being limited to given set of features ASF's `HttpListener` decided to support. Example nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** for further explanation.
-
-```nginx
-server {
-        listen *:443 ssl;
-        server_name archi.justarchi.net;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
-
-    location /Api/Log {
-        proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
-        proxy_http_version 1.1;
-        proxy_set_header Connection "Upgrade";
-        proxy_set_header Upgrade $http_upgrade;
-    }
-
-    location / {
-        proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-This way you can use fully secured connection to your ASF instance, as shown below.
-
-![Image](https://i.imgur.com/ifoEmWs.png)
+IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our IPC GUI which allows you to easily access them from your favourite web browser.
 
 * * *
 
-## Server
+# Usage
 
-To start IPC, you must enable `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. Refer to **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)** for more info. You might also want to make use of `--process-required` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments)**, although that is entirely optional, just a mere mention.
+You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
-If configuration was set correctly, you should notice that IPC service is active:
-
-    INFO|ASF|StartServer() Starting IPC server on http://127.0.0.1:1242/...
-    INFO|ASF|StartServer() IPC server ready!
+    INFO|ASF|Start() Starting IPC server...
+    INFO|ASF|Start() IPC server ready!
     
 
-ASF is now listening on `http://127.0.0.1:1242/` for incoming IPC connections (or whatever `IPCPrefixes` you specified in the config).
+ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine. If ASF's IPC interface was enabled properly, you should see our **[IPC GUI](https://i.imgur.com/VjHtWYu.png)** frontend in your browser.
 
 * * *
 
-## Client
+# IPC GUI
 
-Communication with IPC server provided by ASF can be done via any http-compatible program, including classical web browsers, as well as CLI utilities such as `curl`.
+Please note that IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. This is because it's a community project and we're not maintaining it officially without ASF developer in charge of it.
 
-### API
+You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Right now, our lead community developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
-ASF IPC offers a full API for bots management that can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
+* * *
 
-### IPC GUI
+# IPC API
 
-In addition to API calls, we're slowly coding IPC GUI that is a nice user-friendly frontend to API features that ASF offers. This GUI can be accessed by navigating to main index of the ASF's IPC interface, such as `http://127.0.0.1:1242`.
+Our IPC API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our IPC GUI does under the hood, and every other tool can achieve the same. Sending API calls is officially and fully supported by ASF team.
 
-![Image](https://user-images.githubusercontent.com/1069029/35774997-e3bceb38-097f-11e8-9e07-bb2d60a04618.png)
-
-IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Lead developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+Communication with IPC server provided by ASF can be done by using any http-compatible program, tool or code. In our examples below we'll use **[curl](https://curl.haxx.se)** which is cross-platform, open-source tool for data transfer. You can very easily adapt our curl examples for your own scripts, tools or programs.
 
 * * *
 
 ## HTTP status codes
 
-Our API makes use of standard HTTP status codes, and they're used according to the RFC. Currently ASF can return following status codes:
+Our API makes use of standard HTTP status codes, and we use them according to the RFC. In the most simplified explanation, our API will return `200 OK` status if your API call succeeded, and non-200 otherwise. This should be used as a primary way to detect whether your ASF API call succeeded or not.
 
-- `200 OK` - the request completed successfully.
-- `400 BadRequest` - the request failed because of an error, parse response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to fulfill it for one reason or another (hence response body telling you why).
-- `401 Unauthorized` - ASF has `IPCPassword` set, but you failed to **[authenticate](#authentication)** properly.
-- `403 Forbidden` - You failed to **[authenticate](#authentication)** properly too many times, IPC access is forbidden, try again in an hour.
-- `404 NotFound` - the URL you're trying to reach does not exist.
-- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This error is also used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
-- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. Mainly used in requests that require from you a specific body, without you explicitly stating type of it.
-- `411 LengthRequired` - your `POST` request is missing `Content-Length` header.
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code. For expected errors we use `503` instead.
-- `501 NotImplemented` - this URL is reserved for future use and not implemented yet.
-- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request, and can't fulfill it. Check ASF log for actual reason.
+ASF can use various HTTP status codes to explain better what happened. Some of them include:
+
+- `200 OK` - the request has completed successfully.
+- `400 BadRequest` - the request has failed because of an error, parse our response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to execute it due to provided reason.
+- `401 Unauthorized` - ASF has `IPCPassword` set, but you've failed to **[authenticate](#authentication)** properly.
+- `403 Forbidden` - ASF has `IPCPassword` set and you've failed to **[authenticate](#authentication)** properly too many times, try again in an hour.
+- `404 NotFound` - the URL that you're trying to reach does not exist. Confirm with IPC examples below whether you're accessing appropriate endpoint.
+- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This can be caused e.g. by sending `GET` request where ASF expects `POST`, or vice-versa. This code can also be used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
+- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. This is mainly used in requests that require from you a specific body as an input, and you didn't declare in what format it's provided.
+- `411 LengthRequired` - your `POST` request is missing `Content-Length` header. Length must be defined even in requests that do not have a body (use length of 0 in this case).
+- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code, please let us know.
+- `501 NotImplemented` - this URL is reserved for future use and not implemented yet. In some very rare situations, ASF might also use this status to indicate that it understands what you're trying to do, but it's not supported (yet).
+- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request. If not returned in the response, ASF log should be able to tell more.
 
 * * *
 
 ## Authentication
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF IPC interface requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get rate-limited with `403 - Forbidden` error.
+ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 
-Authentication can be done through two generally-acceptable ways.
+Authentication can be done through two supported ways.
 
 ### `Authentication` header
 
@@ -126,47 +74,58 @@ Alternatively you can append `password` parameter to the end of the URL you're a
 
 * * *
 
-Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string - query string is mainly left only for users as user-friendly way of bookmarking IPC URLs.
-
-* * *
-
-## Cross-Origin Resource Sharing
-
-ASF by default has `Access-Control-Allow-Origin` header set to `*`. This allows e.g. JavaScript scripts to access ASF IPC interface in third-party web GUIs or tools. However, this also means that somebody could potentially upload malicious script that would make calls to ASF without your awareness or approval. If you'd like to ensure that such situation won't happen, consider setting up `IPCPassword` appropriately. This way if any script wants to access ASF's IPC interface, it'll need to authenticate each request firstly, as described above.
+Both ways are supported in exactly the same way and it's totally up to you which one you want to choose. We still recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string, as due to various limitations it's not possible to use headers everywhere - for example it's impossible to specify custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC).
 
 * * *
 
 ## API
 
-In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as JSON response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
-Some API endpoints might require from you to specify extra data, such as providing appropriate JSON structure as a body of the request, together with setting `Content-Type` header to `application/json`. If API endpoint has some special requirements for an input, it'll be listed on the top of the endpoint description.
+Some API endpoints might require from you to specify extra data, such as providing appropriate structure as a body of the request. In this case, in addition to providing required input, you must also set `Content-Type` header to appropriate value, such as `application/json` if your input is provided in JSON. If API endpoint includes some special requirements for an input, it'll be listed on the top of the endpoint description.
 
-Provided examples of requests/responses below show possible usage with **[curl](https://curl.haxx.se)** tool - you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port` to the URL, according to your ASF usage, such as `http://127.0.0.1:1242`.
+In all provided examples below, you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port/OptionalPrefix` to the URL, according to your ASF usage. For example, if you're trying to execute `/Api/ASF` and you're running your IPC on standard `http://127.0.0.1:1242` endpoint, call `http://127.0.0.1:1242/Api/ASF` instead.
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript which can't represent 64-bit numbers precisely (and other languages with similar limitations).
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by javascript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
 
 * * *
 
-### GenericResponse
+## GenericResponse
 
-Generic response is a primary return type that we use for all API calls.
+Generic response is a primary return type that we use for all API calls. We use two kinds of generic response - with a result, and without.
+
+Generic response without a result has two mandatory fields that are always provided - `Success` and `Message`. This kind is used in all API calls that do not return any specific result, apart from generic success/failure. This response is used mainly in `DELETE` and `POST` calls, for example in `DELETE /Api/Bot/{Bot}` call.
 
 ```json
 {
     "Message": "string",
-    "Result": {},
     "Success": true
 }
 ```
 
-`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be null if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
+`Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be `null` if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
 
-`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be null if we don't have any specific result for you to retrieve.
-
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API request succeeded** - you should parse `Result` property for verifying if particular action was completed successfully, such as sending a command.
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API call succeeded**, you should parse `Result` property for checking if a particular action was completed successfully (such as a result of a command).
 
 * * *
+
+Generic response with result, in addition to two mandatory fields described above, also includes mandatory `Result` field that contains actual result of the call. This response is used mainly in `GET` calls that return a result by definition, for example `GET /Api/ASF`.
+
+```json
+{
+    "Result": {},
+    "Message": "string",
+    "Success": true
+}
+```
+
+`Result` - `object` value providing actual result of your request. The type of this field depends on API endpoint that you called - for example it can be a `Bot` or a `string`. Most commonly used in `GET` requests for fetching actual data that you asked for. While type of this field is flexible, specific API endpoint always guarantees fixed amount of possible outcomes, and very often it can be strong-typed on per-endpoint basis. Can be `null` if we don't have any specific result for you to retrieve.
+
+`Message`/`Success` - as above.
+
+* * *
+
+## Public API
 
 ### `GET /Api/ASF`
 
@@ -182,10 +141,7 @@ curl -X GET /Api/ASF
 ```json
 {
     "BuildVariant": "string",
-    "GlobalConfig": {
-        "AutoRestart": false,
-        "Blacklist": [ 440 ]
-    },
+    "GlobalConfig": {},
     "MemoryUsage": 4294967295,
     "ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
     "Version": {
@@ -215,8 +171,6 @@ curl -X GET /Api/ASF
 
 #### Body:
 
-Content-Type: application/json
-
 ```json
 {
     "GlobalConfig": {},
@@ -224,7 +178,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
 `GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
@@ -233,26 +187,26 @@ This API endpoint can be used for updating **[GlobalConfig](https://github.com/J
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `WebProxyPassword`.
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
-{"Message":"OK","Result":null,"Success":true}
+curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"Blacklist":[440]}}' /Api/ASF
+{"Message":"OK","Success":true}
 ```
 
 * * *
 
 ### `DELETE /Api/Bot/{BotNames}`
 
-This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing given bots specified by their `BotNames`, together with all their files. In other words, this will remove `BotName.*` files (included, but not limited to: `json`, `db`, `bin`, `maFile`, `keys` and likewise) from your `config` directory of all chosen bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting all defined bots. Returns **[GenericResponse](#genericresponse)** with no result.
 
 ```shell
 curl -X DELETE /Api/Bot/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 * * *
 
 ### `GET /Api/Bot/{BotNames}`
 
-This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<Bot>` - collection of bot statuses.
+This API endpoint can be used for fetching status of given bots specified by their `BotNames` - it returns basic statuses of the bots. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for returning all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<Bot>` - collection of bot statuses.
 
 ```shell
 curl -X GET /Api/Bot/archi
@@ -284,10 +238,7 @@ curl -X GET /Api/Bot/archi
     "AvatarHash": "string",
     "IsPlayingPossible": true,
     "SteamID": 18446744073709551615,
-    "BotConfig": {
-        "Enabled": true,
-        "Paused": true
-    },
+    "BotConfig": {},
     "KeepRunning": true
 }
 ```
@@ -296,7 +247,7 @@ curl -X GET /Api/Bot/archi
 
 `CardsFarmer` is specialized C# object used by Bot for cards-farming purpose. It provides information related to cards farming progress of given bot instance. Its structure is explained **[below](#cardsfarmer)**.
 
-`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/master/Resources/SteamLanguage/enums.steamd#L81-L116)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
+`AccountFlags` is `EAccountFlags` (`uint` flags) type, defined by SK2 **[here](https://github.com/SteamRE/SteamKit/blob/e0c46a45d3fbf3bf1b0df3e2e0348dc1067458df/Resources/SteamLanguage/enums.steamd#L82-L117)**, that specifies Steam account flags of given account. This property can be used for getting more information about the status of Steam account being in ASF, for example if it's **[limited](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, by checking if `LimitedUser` or `LimitedUserForce` flags are set. This property is initialized (and updated) the moment Bot logs in to Steam network, therefore it'll have a value of `0` before first login.
 
 `AvatarHash` is `string` type that contains Steam avatar hash being used by given bot. It's possible to use this value for building URL pointing to user's avatar on Steam CDN. Can be `null` if user didn't set his avatar.
 
@@ -310,9 +261,9 @@ curl -X GET /Api/Bot/archi
 
 #### CardsFarmer
 
-`GamesToFarm` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
+`GamesToFarm` is a `HashSet<Game>` (collection of `Game` elements) object that contains games pending to farm in current farming session. Please note that collection is updated on as-needed basis regarding performance. For example, when idling with `Simple` cards farming algorithm, ASF won't bother checking if we got any new games to farm when new game gets added (as we'd do that check anyway when we're out of queue, and by not doing so immediately we save requests and bandwidth). Therefore, this is data regarding current farming session, that might be different from overall data.
 
-`CurrentGamesFarming` is an `ImmutableHashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
+`CurrentGamesFarming` is a `HashSet<Game>` (collection of `Game` elements) object that contains games being farmed right now. In comparison with `GamesToFarm`, this property defines current status instead of pending queue, and it's heavily affected by currently selected cards farming algorithm. This collection can contain only up to `32` games (`MaxGamesPlayedConcurrently` enforced by Steam Network). You also have a guarantee that only entries already existing in `GamesToFarm` can be included here.
 
 `TimeRemaining` is a `TimeSpan` type that specifies approximated time required to farm all games specified in `GamesToFarm` collection. This is nowhere close to the actual time that will be required, but it's a nice indicator with accuracy that might be improved in future, therefore it can be used for various display purposes. It's not updated in real-time, but calculated from current `GamesToFarm` status, therefore it's re-calculated the moment `CardsRemaining` of any game changes.
 
@@ -334,8 +285,6 @@ curl -X GET /Api/Bot/archi
 
 #### Body:
 
-Content-Type: application/json
-
 ```json
 {
     "BotConfig": {},
@@ -343,7 +292,7 @@ Content-Type: application/json
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
 `BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
 
@@ -353,7 +302,7 @@ Currently, following properties are considered sensitive and can be set to `null
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"BotConfig":{"Enabled":false,"Paused":true}}' /Api/Bot/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 * * *
@@ -373,18 +322,18 @@ curl -X POST -d '' /Api/Command/version
 
 ### `DELETE /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `null`.
+This API endpoint can be used for completely erasing `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. This endpoint accepts multiple `BotNames` separated by a comma, as well as `ASF` keyword for deleting those files of all defined bots. Returns **[GenericResponse](#genericresponse)** with no result.
 
 ```shell
 curl -X DELETE /Api/GamesToRedeemInBackground/archi
-{"Message":"OK","Result":null,"Success":true}
+{"Message":"OK","Success":true}
 ```
 
 * * *
 
 ### `GET /Api/GamesToRedeemInBackground/{BotName}`
 
-This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableDictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
+This API endpoint can be used for fetching `.keys.used` and `.keys.unused` files of given bots specified by their `BotNames` in `config` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `Dictionary<string, GamesToRedeemInBackgroundResponse>` - a map that maps `BotName` to a **[GamesToRedeemInBackgroundResponse](#gamestoredeeminbackgroundresponse)** (explained below).
 
 ```shell
 curl -X GET /Api/GamesToRedeemInBackground/archi
@@ -406,15 +355,13 @@ curl -X GET /Api/GamesToRedeemInBackground/archi
 }
 ```
 
-Both `UnusedKeys` and `UsedKeys` are `ImmutableDictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
+Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that map redeemed cd-keys (`key`) with their names (`value`). This is the result of a `POST` call described below and can be used for remotely fetching keys without accessing ASF config directory. Both objects can be `null` in case of ASF error during fetching files (such as I/O), but empty or missing files will behave properly and produce empty dictionary.
 
 * * *
 
 ### `POST /Api/GamesToRedeemInBackground/{BotName}`
 
 #### Body:
-
-Content-Type: application/json
 
 ```json
 {
@@ -499,7 +446,7 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 }
 ```
 
-`Body` - `ImmutableDictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
+`Body` - `Dictionary<string, string>` value that specifies properties that are possible to set for given type. This includes all public and non-public (but not private) fields and properties of object of given type. `Key` of the collection is defined as name of given field/property, while `Value` of that key is defined as C# type that is valid for it. This property can be empty if given type doesn't include any fields or properties. We also use this property for further decomposition of given type, for example `BaseType` of `System.Enum` will have valid enum values declared here, where `Key` will be name of given enum value, and `Value` will be actual value for that name.
 
 `Properties` - `TypeProperties` type defined **[below](#typeproperties)** that holds metadata information about given type.
 
@@ -507,13 +454,13 @@ In comparison with `GET /Api/Structure`, this endpoint returns object of given t
 
 `BaseType` - `string` value that specifies base type for this type. For example, it'll be `System.Object` for `ArchiSteamFarm.BotConfig` object, and `System.Enum` for `ArchiSteamFarm.BotConfig+ETradingPreferences`. Based on this property you can partially strong-type `Body` content by knowing in advance how you should parse it (for example for `System.Enum`, `Body` will include enum names and values, as specified above in `Body` description).
 
-`CustomAttributes` - `ImmutableHashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be null when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
+`CustomAttributes` - `HashSet<string>` value that specifies what custom attributes apply to this type. This property is especially useful when `BaseType` is `System.Enum`, as in this case you can check if it's special `flags` enum by verifying that `System.FlagsAttribute` is defined in this collection. This value can be `null` when there are no custom attributes defined for this object. Together with `UnderlyingType`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 `UnderlyingType` - `string` value that specifies underlying type for this type. This is used mainly with `System.Enum` to know what underlying type this enum uses for data storage. For example in most ASF enums, this will be `System.Byte`. Together with `CustomAttributes`, this tells you that `ArchiSteamFarm.BotConfig+ETradingPreferences` is `byte flags` enum.
 
 * * *
 
-## WWW API
+## Internal API
 
 APIs below are dedicated for our IPC GUI usage and they should not be used by remote scripts or tools. This documentation is for our internal reference only and can change anytime, in any possible way. You should not rely on existence of below endpoints, neither implement them in your own tools.
 
@@ -521,7 +468,7 @@ APIs below are dedicated for our IPC GUI usage and they should not be used by re
 
 ### `GET /Api/WWW/Directory/{Directory}`
 
-This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `ImmutableHashSet<string>` - collection of local filenames.
+This API endpoint can be used for fetching directory's content specified by its local path relative to `www` directory. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `HashSet<string>` - collection of local filenames.
 
 ```shell
 curl -X GET /Api/WWW/Directory/css
@@ -550,3 +497,109 @@ This API endpoint is used internally for sending remote `GET` requests. This sho
 curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com"}' /Api/WWW/Send
 {"Message":"OK","Result":"<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>...","Success":true}
 ```
+
+* * *
+
+## FAQ (Questions fréquemment posées)
+
+### Is ASF's IPC interface secure and safe to use?
+
+ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
+
+However, if you decide to change default `localhost` bind addresses to something else, such as `any`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+
+### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
+
+**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+
+Example Nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
+
+```nginx
+server {
+        listen *:443 ssl;
+        server_name asf.mydomain.com;
+        ssl_certificate /path/to/your/certificate.crt;
+        ssl_certificate_key /path/to/your/certificate.key;
+
+    location /Api/Log {
+        proxy_pass http://127.0.0.1:1242;
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        proxy_http_version 1.1;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Upgrade $http_upgrade;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:1242;
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+### Can I access IPC interface through HTTPS protocol?
+
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+
+* * *
+
+## Custom configuration
+
+Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+
+When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+
+The configuration file is based on following JSON structure:
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "IPv4-http": {
+                "Url": "http://127.0.0.1:1242"
+            },
+            "IPv6-http": {
+                "Url": "http://[::1]:1242"
+            },
+            "IPv4-https": {
+                "Url": "https://127.0.0.1:1242",
+                "Certificate": {
+                    "Path": "/path/to/certificate.pfx",
+                    "Password": "passwordToPfxFileAbove"
+                }
+            },
+            "IPv6-https": {
+                "Url": "https://[::1]:1242",
+                "Certificate": {
+                    "Path": "/path/to/certificate.pfx",
+                    "Password": "passwordToPfxFileAbove"
+                }
+            }
+        },
+        "PathBase": "/"
+    }
+}
+```
+
+There are 2 properties worth explanation/editing, those are `Endpoints` and `PathBase`.
+
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `IPv4-http`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+
+`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which might pose a security risk. We strongly recommend to use `IPCPassword` and your own firewall at a minimum in this case.
+
+`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
+
+Unless you truly need to specify a custom base path, it's best to leave it at default. In addition to that, custom base path is **[not supported by our IPC GUI yet](https://github.com/JustArchi/ArchiSteamFarm/issues/869#issuecomment-419596294)**. Our IPC API is fully compatible with it already.

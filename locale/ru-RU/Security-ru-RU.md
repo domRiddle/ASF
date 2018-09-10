@@ -2,50 +2,50 @@
 
 ## Пароль Steam
 
-ASF сейчас поддерживает 4 типа паролей: `PlainText`, `AES`, `ProtectedDataForCurrentUser` и None (`null` / `""`).
+ASF на данный момент поддерживает 4 типа паролей: `PlainText`, `AES`, `ProtectedDataForCurrentUser` и отсутствие пароля (`null` / `""`).
 
-In order to use encrypted password, you should firstly log in to Steam as usual with `PlainText`, then generate encrypted passwords using `password` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as `SteamPassword` bot config property, and finally don't forget to change `PasswordFormat` to the one that matches your chosen encryption method.
+Для использования зашифрованного пароля вам нужно сначала зайти в Steam как обычно с `PlainText`, а затем сгенерировать зашифрованный пароль с помощью **[команды](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-ru-RU)** `password`. Выберите метод шифрования который вам нравится, затем запишите полученный зашифрованный пароль в параметр конфигурации бота `SteamPassword`, и наконец не забудьте изменить параметр `PasswordFormat` на значение соответствующее выбранному методу шифрования.
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF expects `SteamPassword` property to be a plain text - password being used to log in to Steam in its direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
+Это самый простой и небезопасный метод хранения пароля, задаётся значением `0` в параметре `PasswordFormat`. ASF ожидает что в параметре `SteamPassword` будет открытый текст - пароль, который вы используете для входа в Steam в явном виде. Это самый простой для использования вариант, и 100% совместим со всеми вариантами установки, и поэтому используется по умолчанию.
 
 * * *
 
 ### AES
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `PasswordFormat` of `1`. ASF expects `SteamPassword` property to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
+**[AES](https://ru.wikipedia.org/wiki/Advanced_Encryption_Standard)** это стандарт шифрования, считающийся безопасным по современным стандартам, задаётся значением `1` в параметре `PasswordFormat`. ASF ожидает что в параметре `SteamPassword` будет **[base64-кодированная](https://ru.wikipedia.org/wiki/Base64)** последовательность, которая после декодирования даст AES-зашифрованный массив байт, который можно будет расшифровать используя **[вектор инициализации](https://en.wikipedia.org/wiki/Initialization_vector)** и код шифрования ASF.
 
-The method above guarantees security as long as attacker doesn't know built-in ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`.
+Описанный выше метод гарантирует безопасность при условии что атакующему неизвестен встроенный ключ AES-шифрования, используемый для для шифрования и расшифровки паролей. ASF позволяет вам задать ключ с помощью **[аргумента командной строки](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-Line-Arguments-ru-RU)** `--cryptkey`, который вам следует использовать для максимальной безопасности. Если вы решите опустить его, ASF будет использовать свой собственный ключ, который **известен** и жёстко запрограммирован в приложении, и кто угодно может расшифровать пароль зашифрованный ASF. Это всё равно требует некоторых усилий и не так просто сделать, однако это возможно, и поэтому вам всегда следует использовать шифрование `AES` со своим собственным `--cryptkey`, который вы храните в секрете. Метод шифрования AES, используемый в ASF, предоставляет безопасность, которая должна удовлетворить желание сбалансировать простоту `PlainText` и сложность `ProtectedDataForCurrentUser`, однако настоятельно рекомендуется использовать его с пользовательским `--cryptkey`.
 
 * * *
 
 ### ProtectedDataForCurrentUser
 
-Currently the most secure way of storing the password that ASF offers, and much safer than `AES` method explained above, is defined as `PasswordFormat` of `2`. The major advantage of this method is at the same time the major disadvantage - instead of using encryption key (like in `AES`), data is encrypted using login credentials of currently logged in user, which means that it's possible to decrypt the data **only** on the machine it was encrypted on, and in addition to that, **only** by the user who issued the encryption. This ensures that even if you send your entire `Bot.json` to somebody else, he will not be able to decrypt the password without access to your PC. This is excellent security measure, but at the same time has major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time with `None` option, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
+На данный момент самый безопасный метод хранения пароля который предоставляет ASF, гораздо более безопасный чем `AES`, описанный выше, и задаётся значением `2` в параметре `PasswordFormat`. Главное достоинство этого метода это одновременно и главный его недостаток - вместо использования ключа шифрования (как в методе `AES`) данные шифруются с помощью учетных данных пользователя, вошедшего в систему, а это значит что расшифровка данных возможна **только** на той же машине где они зашифрованы, и в добавок к этому **только** тем пользователем, который выполнил шифрование. Это гарантирет, что даже если вы отправите весь файл `Bot.json` кому-то ещё - он не сможет расшифровать пароль без доступа к вашему ПК. Это прекрасная мера безопасности, но одновременно имеет серьёзный недостатк, заключающийся в недостатке совместимости, поскольку зашифрованный этим методом пароль будет несовместим с любым другим пользователем или машиной, включая **вашу собственную**, если вы решите, например, переустановить операционную систему. Однако это всё же самый лучший метод хранения паролей, и если вы беспокоитесь о безопасности `PlainText`, и не хотите вводить пароль каждый раз при отсутствии пароля, то это лучший вариант для вас, поскольку вам не обязательно иметь доступ к конфигурационным файлам с любой машины кроме собственной.
 
-**Please note that this option is available only for machines running Windows OS.**
+**Обратите пожалуйста внимание, эта опция доступна только на машинах под управлением ОС Windows.**
 
 * * *
 
-### None
+### Отсутствие пароля
 
-The only way that guarantees 100% security and ensures that nobody can steal your Steam password. In order to use this option simply set your `SteamPassword` to empty string (`""`) or `null` value. ASF will ask you for your Steam password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords, it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
+Единственный метод гарантирующий 100% безопасность и обеспечивающий что никто не сможет украсть ваш пароль Steam. Чтобы воспользоваться этим методом просто установите параметру `SteamPassword` в качестве значения пустую строку (`""`) или `null`. ASF при необходимости запросит ваш пароль Steam, и не будет его нигде сохранять, только хранить в памяти запущенного процесса, пока вы его не закроете. Хотя это самый безопасный метод работы с паролями, но и самый неудобный, поскольку вам нужно вручную вводить пароль при каждом запуске ASF (когда он требуется). Если для вас это не проблема, это самый лучший вариант с точки зрения безопасности.
 
 * * *
 
 ## Рекомендации
 
-If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
+Если вам не важна совместимость, и вас устраивает как работает метод `ProtectedDataForCurrentUser`, то это **рекомендуемый** вариант хранения пароля в ASF, поскольку он обеспечивает наилучшую безопасность. Метод `AES` это хороший выбор для людей, которые хотят использовать свои конфигурационные файлы на любой машине, а `PlainText` это самый простой метод хранения пароля, если вы не против что любой может посмотреть его в файле JSON.
 
-Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted password, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
+Не забывайте, что все эти 3 метода считаются **небезопасными** если у атакующего есть доступ к вашему ПК. ASF должен иметь возможность расшифровать зашифрованный пароль, а если одна программа работающая на машине может это сделать, то любая программа работающая на той же машине тоже способна это сделать. `ProtectedDataForCurrentUser` это самый безопасный вариант, поскольку **даже другой пользователь на том же ПК не сможет его расшифровать**, но даже его можно расшифровать если кто-то украдёт ваши учётные данные и информацию о машине в добавок к конфигурационным файлам ASF.
 
-For people launching ASF rarely or those who are not bothered with entering the password on each ASF startup, `None` way is the most secure as Steam password is not saved anywhere.
+Для тех, кто редко запускает ASF, или тех, кому не сложно вводить пароль при каждом запуске ASF, **отсутствие пароля** будет самым безопасным методом, поскольку пароль Steam нигде не сохраняется.
 
 * * *
 
-# Decryption
+# Расшифровка
 
-ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `0` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.
+ASF не содержит никаких средств для расшифровки уже зашифрованных паролей, поскольку методы расшифровки используются только для внутреннего доступа к данным внутри процесса. Если вы хотите отменить процедуру шифрования, например чтобы перенести ASF на другую машину при использовании `ProtectedDataForCurrentUser`, то просто переключите `PasswordFormat` в значение `0` (PlainText) и заполните соответственно `SteamPassword`. Затем вы можете запустить ASF как обычно, и начать процедуру с начала.
