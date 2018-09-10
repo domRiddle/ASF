@@ -95,7 +95,7 @@ Numeric properties are defined with their maximum values, so you can also use st
 
 Generic response is a primary return type that we use for all API calls. We use two kinds of generic response - with a result, and without.
 
-Generic response without a result has two mandatory fields that are always provided - `Success` and `Message`. This kind is used in all API calls that do not return any specific result, apart from generic success/failure. This response is used mainly in `DELETE/POST` calls that rarily return a result, for example `DELETE /Api/Bot/{Bot}` call.
+Generic response without a result has two mandatory fields that are always provided - `Success` and `Message`. This kind is used in all API calls that do not return any specific result, apart from generic success/failure. This response is used mainly in `DELETE` / `POST` calls that rarily return a result, for example `DELETE /Api/Bot/{Bot}` call.
 
 ```json
 {
