@@ -87,7 +87,7 @@ Some API endpoints might require from you to specify extra data, such as providi
 
 In all provided examples below, you're expected to modify URL parameter by prepending appropriate `Protocol://Host:Port/OptionalPrefix` to the URL, according to your ASF usage. For example, if you're trying to execute `/Api/ASF` and you're running your IPC on standard `http://127.0.0.1:1242` endpoint, call `http://127.0.0.1:1242/Api/ASF` instead.
 
-Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by JavaScript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
+Numeric properties are defined with their maximum values, so you can also use strong-typing for them, such as `uint` for `AppID`, and `ulong` for `SteamID`. Selected `ulong` fields that are serialized as numbers might include extra `s_` fields serialized as strings that can be consumed by javascript (and other languages with similar limitations) which can't represent 64-bit numbers precisely.
 
 ---
 
