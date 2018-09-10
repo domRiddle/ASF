@@ -81,7 +81,7 @@ Both ways are supported in exactly the same way and it's totally up to you which
 
 ## API
 
-In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP error codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+In general our API is a typical REST API that is based on JSON as a primary way of serializing/deserializing data. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
 Some API endpoints might require from you to specify extra data, such as providing appropriate structure as a body of the request. In this case, in addition to providing required input, you must also set `Content-Type` header to appropriate value, such as `application/json` if your input is provided in JSON. If API endpoint includes some special requirements for an input, it'll be listed on the top of the endpoint description.
 
