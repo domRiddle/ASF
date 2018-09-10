@@ -33,7 +33,7 @@ You're free to post your thoughts, suggestions and bug reports in appropriate **
 
 # IPC API
 
-Our IPC API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. Sending API calls is officially and fully supported by ASF team.
+Our IPC API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our IPC GUI does under the hood, and every other tool can achieve the same. Sending API calls is officially and fully supported by ASF team.
 
 Communication with IPC server provided by ASF can be done by using any http-compatible program, tool or code. In our examples below we'll use **[curl](https://curl.haxx.se)** which is cross-platform, open-source tool for data transfer. You can very easily adapt our curl examples for your own scripts, tools or programs. 
 
