@@ -142,10 +142,7 @@ curl -X GET /Api/ASF
 ```json
 {
 	"BuildVariant": "string",
-	"GlobalConfig": {
-		"AutoRestart": false,
-		"Blacklist": [ 440 ]
-	},
+	"GlobalConfig": {},
 	"MemoryUsage": 4294967295,
 	"ProcessStartTime": "9999-12-31T23:59:59.9999999+12:00",
 	"Version": {
@@ -242,10 +239,7 @@ curl -X GET /Api/Bot/archi
 	"AvatarHash": "string",
 	"IsPlayingPossible": true,
 	"SteamID": 18446744073709551615,
-	"BotConfig": {
-		"Enabled": true,
-		"Paused": true
-	},
+	"BotConfig": {},
 	"KeepRunning": true
 }
 ```
