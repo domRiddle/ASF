@@ -188,7 +188,7 @@ This API endpoint can be used for updating **[GlobalConfig](https://github.com/J
 Currently, following properties are considered sensitive and can be set to `null` in order to be inherited: `WebProxyPassword`.
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"BackgroundGCPeriod":0}}' /Api/ASF
+curl -X POST -H "Content-Type: application/json" -d '{"GlobalConfig":{"AutoRestart":false,"Blacklist":[440]}}' /Api/ASF
 {"Message":"OK","Success":true}
 ```
 
