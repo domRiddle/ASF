@@ -58,7 +58,7 @@ ASF can use various HTTP status codes to explain better what happened. Some of t
 
 * * *
 
-## Authentication
+## Authenticatie
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 
@@ -105,7 +105,7 @@ Generic response without a result has two mandatory fields that are always provi
 
 `Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be `null` if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
 
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates if **API call succeeded**, you should parse `Result` property for checking if a particular action was completed successfully (such as a result of a command).
+`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates **if API call succeeded**. In generic responses with result (explained below), you should parse `Result` property for checking if a particular action was completed successfully (such as output of a command).
 
 * * *
 
@@ -500,7 +500,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com
 
 * * *
 
-## Veelgestelde vragen
+## FAQ (veelgestelde vragen)
 
 ### Is ASF's IPC interface secure and safe to use?
 

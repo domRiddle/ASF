@@ -1,4 +1,4 @@
-# Resgate de keys em segundo plano
+# Ativador de jogos em segundo plano
 
 Resgate de keys em segundo plano é uma característica especial embutida no ASF que permite que você importe uma lista cd-keys da Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Isso é especialmente útil se você tem um monte de keys para resgatar e é certo que você atingirá o **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de terminar.
 
