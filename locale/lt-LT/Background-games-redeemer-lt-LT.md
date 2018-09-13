@@ -1,0 +1,59 @@
+# Pasyvusis žaidimų aktyvatorius
+
+Pasyvusis žaidimų aktyvatorius (angl. Background games redeemer) yra speciali ASF funkcija, kuri leidžia importuoti cd-raktus (kartu su jų vardais), kad jie būtų aktyvuoti fone. Tai ypač patogu, jei jūs turite daug raktų ir esate garantuoti gauti `RateLimited` **[statusą](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** prieš baigiant įvesti visą paketą.
+
+Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis nėra suderinamas kartu su `RedeemingPreferences`. Ši funkcija gali būti naudojama kartu su (arba vietoj) `redeem` **[komandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, jei reikia.
+
+* * *
+
+## Įkėlimas
+
+Įkėlimo procesas galima dvejais būdais - IPC arba naudojantis failu.
+
+### Failas
+
+ASF pats atpažins savo `config` direktorijoje failą, pavadintą `BotName.keys` kur `BotName` jūsų boto pavadinimas. Šis failas turi numatytą griežtą struktūrą: žaidimo pavadinimas ir cd-raktas yra atskirti TAB, eilutė baigiasi NEW LINE, kitaip tariant ENTER klavišu. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
+
+    POSTAL 2    ABCDE-EFGHJ-IJKLM
+    Domino Craft VR 12345-67890-ZXCVB
+    A Week of Circus Terror POIUY-KJHGD-QWERT
+    Terraria    TaiIgnoruojama  TaIgnoruojamaTaipPat   ZXCVB-ASDFG-QWERT
+    
+
+ASF importuos tokį failą tiek paleidimo, tiek veikimo metu. Po sėkmingo jūsų failo analizavimo ir neteisingų įrašų ištrynimo, visi sėkmingai atpažinti žaidimai bus pridėti į aktyvatoriaus eilę ir `BotName.keys` failas pats bus ištrintas iš `config` direktorijos.
+
+### IPC
+
+Be failų metodo ASF taip pat naudoja `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, kuris gali būti naudojamas kartu su IPC ir IPC GUI. Naudotis IPC gali būti efektyviau, nes galima pasirinkti savo atskyriklį vietoj įprastinio TAB ženklo.
+
+* * *
+
+## Eilė
+
+Kai žaidimai yra sėkmingai importuoti, jie yra pridedami į eilę. ASF automatiškai patikrina eilę fone tol, kol botas yra prisijungęs prie Steam tinklo ir eilė nėra tuščia. Raktas, kuris buvo bandytas panaudoti ir negavo rezultato `RateLimited` yra ištrinamas iš eilės su teisingu statusus, įrašytu į failą `config` direktorijoje - arba `BotName.keys.used`, jei buvo panaudoti procese (pvz., `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) arba `BotName.keys.unused` jei nebuvo. ASF specialiai naudoja vartotoja pateiktą vardą, nes nėra garantijos, jog Steam tinklas atsakys tinkamu ir suprantamu žaidimo vardu - tokiu būdu jūs galit žymėti raktus savo pasirinktais vardais.
+
+Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma vienai valandai, tam jog atsipirkimo laikas sumažėtų. Paskui procesas tęsiamas iki tol, kol eilė yra tuščia.
+
+* * *
+
+## Pavyzdys
+
+Tarkime jūs turime 100 raktų sąrašą. Pirmiausiau reikėtų sukurti naują `BotName.keys.new` failą ASF `config` direktorijoje. Mes pridedame `.new` išplėtimą (BotName.keys --> BotName.keys.new), kad ASF suprastų jog šio failo nereikėtų skaityti iškarto, kai tik jis yra sukuriamas (nes tai yra naujas failas, neparengtas importuoti).
+
+Dabar jūs galit atidaryti failą ir kopijuoti-įklijuoti 100 raktų, pataisant formatą, jei reikia. Po pataisymų `BotName.keys.new` failas turės lygiai 100 (arba 101 su paskutine eilute) eilučių; kiekviena eilutė turi `GameName\tcd-key\n`, kur `\t` TAB ir `\n` yra nauja eilutė, struktūrą.
+
+Dabar jau galima pervadinti šį failą iš `BotName.keys.new` į `BotName.keys` tam, kad ASF suprastų, jog jį jau galima atidaryti. Iškarto tai padarius, ASF automatiškai importuos failą (ASF paleisti iš naujo nereikia) ir ištrins, patvirtindamas, jog žaidimai buvo pridėti į eilutę ir patikrinti.
+
+Vietoj `BotName.keys` failo galima naudoti IPC API arba netgi sujungti abu procesus kartu.
+
+Po kiek laiko failai `BotName.keys.used` ir `BotName.keys.unused` gali būti sugeneruoti. Šia failai - mūsų žaidimų panaudojimo rezultatas. Pavyzdžiui, galima pervadinti `BotName.keys.unused` į `BotName2.keys` ir tuomet nepanaudoti raktai bus naudojami kitų botų. Arba nepanaudotus raktus tiesiog galima perkelti į kitą failą ir panaudoti kažkam kitam. Tiesa, geriausia palaukti, kol eilė bus baigta ir `used` ir `unused` failai bus sugeneruoti, taip žinosite, jog visi raktai buvo patikrinti. Jeigu jum labai reikia patikrinti šiuos failus prieš eilės užbaigimą, pirmiausiai reikėtų **perkelti** rezultato failus į kitą direktoriją, tik **tada** juos tikrinti. Taip yra todėl, jog ASF gali pridėti naujų rezultatų kol jūs juos peržiūrite ir taip keli raktai gali būti prarasti, pvz., galite faile pamatyti 3 raktus, failą ištrinti, kai ASF tuo metu pridės ketvirtą raktą - taip jis bus prarastas. Jei nori pasiekti šiuos failus, tuomet perkelkite juos iš ASF `config` direktorijos prieš juos peržiūrint, ar pvz., pervadinant.
+
+Taip pat įmanoma pridėti papildomų žaidimų pakartojant visus žingsnius viršuje, kol yra kitų žaidimų eilėje. ASF tinkamai pridės papildomų įrašų į jau veikiančią eilę ir galiausiai ją panaudos.
+
+* * *
+
+## Pastabos
+
+Pasyvusis žaidimų aktyvatorius naudoja `OrderedDictionary`, todėl kodai bus naudojama failo eilės surąšymo tvarka (arba IPC API). Tai reiškia, jog jūs galite (ir tūrėtumėte) pateikti sąrašą, kuriame raktai yra surašyti pagal priklausomybę nuo viršaus, bet ne nuo apačios. Pavyzdžiui, jūs turite DLC `D` kuriam reikia žaidimo `G`, kuris turi būti aktyvuotas pirmiau, tuomet žaidimo raktas `G` tūrėtų **visada** būti pirmiau prieš DLC `D` raktą. Taip pat jei DLC `D` turi priklausomybę nuo `A`, `B` ir`C`, tuomet visi 3 tūrėtų būti surašyti pirmiau (betkokia tvarka, jei jie neturi priklausomybių).
+
+Nenaudojant šios schemos, DLC nebus aktyvuotas su rezultatu `DoesNotOwnRequiredApp` net patikrinus visą eilę. Jei norite šito išvengti, tuomet visada privalote DLC aktyvuoti po žaidimo, nuo kurio DLC priklauso.

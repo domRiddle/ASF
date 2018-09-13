@@ -1,0 +1,13 @@
+# Ana Sayfa
+
+ASF Wiki'ye hoş geldiniz. Wiki sıkça sorulan sorular, olası sorunlar, kullanım, kurulum ve çok daha fazlası gibi birçok farklı konuyu kapsayan çevrimiçi bir yardım aracıdır. Eğer ASF'nin nasıl çalıştığını, özellikle nasıl kurulacağını, yapılandıracağını ve kullanacağını öğrenmek istiyorsanız, takip etmeniz gereken şey budur.
+
+Ziyaret ettiğiniz Wiki sayfasının dilini değiştirmek için `-locale` komutunu yazabilirsiniz. Örneğin, **[SSS](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)** sayfasını ziyaret etmek yerine, (eğer varsa) Türkçe SSS çevirisinin bulunduğu sayfayı **[FAQ-tr-TR](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-ru-RU)** ziyaret edebilirsiniz.
+
+Aksi belirtilmedikçe (mesela "V2" gibi), bütün Wiki sayfaları daima **[en son ASF sürümü](https://github.com/JustArchi/ArchiSteamFarm/releases)** için geçerlidir. Belirli bir zamandaki bir Wiki sayfasını görmek isterseniz (örneğin biraz eski bir ASF sürümü için), her sayfanın üst kısmında bulunan **[düzeltmeler](https://github.com/JustArchi/ArchiSteamFarm/wiki/_history)** kısmını kullanın ve görmek istediğiniz ASF sürümünüz için uygun bir tarih seçin. Mevcut sürüm için olan tüm sayfaları tuttuğumuz gibi, önceki büyük ASF sürümlerinikileri de tutuyoruz.
+
+Eğer yeni bir kullanıcıysanız, **[kurulum](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** rehberi ile başlamanızı tavsiye ederiz. Diğer tüm ilgili viki sayfalarını, ekranın sağ tarafında bulunan kenar çubuğumuzdan bulabilirsiniz. En baştan başlamanızı öneririz, ancak size az da olsa ilginç görünen herhangi bir şeyi okumaktan çekinmeyin, ASF bilgisi konusunda sınır yoktur.
+
+Daha fazla yardıma ihtiyacınız varsa, **[Discord sunucumuzdan](https://discord.gg/hSQgt8j)** veya Steam grubumuzun **[tartışmalar sayfasından](https://steamcommunity.com/groups/ascfarm/discussions/1)** sorabilirsiniz. Küçük sorular veya yaygın ASF şeylerini tartışmak için Discord sohbetini, genel sorunlar ve hata raporlamaları için grup başlığını kullanmayı değerlendirin.
+
+GitHub **[sorunlar](https://github.com/JustArchi/ArchiSteamFarm/issues)** sayfası, hem özellikler hem de hatalarla ilgili olarak, ASF "yapılacaklar" listesi için kullanılıyor. Oldukça sıkı bir politikaya sahiptir - GitHub teknik destek değildir ve öneri veya hata raporu olmayan hiçbir vaka Github'a gönderilMEmelidir. Genel tartışma, soru veya teknik konular için ASF Discord ve Steam grubunu var. Bir hatayı bildirmek veya bir geliştirme önermek istemediğiniz sürece lütfen GitHub sorunlarını kullanmayın. Bunu yapmadan önce, lütfen bir hatayla uğraştığınızdan emin olun, ya da önerinizin mantıklı olduğundan emin olun, tercihen ilk önce Discord / Steam grubuna sorun. Geçersiz sorunlar hemen kapatılacak ve yanıtlanmayacaktır.
