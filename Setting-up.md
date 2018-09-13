@@ -29,13 +29,11 @@ Sounds simple enough, right? So let's get through it.
 
 ### .NET Core prerequisites
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. Simply follow the instructions, there is a chance that you already have all required libraries, but you should double check.
+First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
 
-For example on Windows, all you need to do is downloading and installing `Microsoft Visual C++ 2015 Redistributable Update 3 RC`, which **could be even already installed by some other game/software that you're using**. On Linux, you have a list of libraries that can be obtained with `apt-get install` or any other package manager that you're using for your distribution. OS X doesn't have any mandatory dependencies for now, but it might change in the future.
+It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
-
-Since it might be quite difficult to extract the info you're looking for, we listed required dependencies also here, but please refer to original .NET Core source in case dependencies change in the future.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
@@ -44,7 +42,7 @@ Since it might be quite difficult to extract the info you're looking for, we lis
 It's possible that redist package was already installed by some other software/game you're using, but you should still double-check by running the installer to be sure. ASF won't run without this dependency (or required Windows updates) being present.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
-Package name depends on the distribution, we listed most common ones. You should obtain them with native package manager for your OS (such as `apt-get` for Debian or `yum` for CentOS).
+Package names depend on the distribution, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt-get` for Debian or `yum` for CentOS).
 - libcurl3 (libcurl)
 - libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
