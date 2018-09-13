@@ -253,7 +253,7 @@ You're using this software at your own risk. It's very unlikely that you can get
 
 ### Did somebody get banned for it?
 
-**Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension.
+**Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
 
 One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
 
