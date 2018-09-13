@@ -79,7 +79,7 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 ### Can ASF idle items from Steam games, such as CS:GO or Unturned?
 
-**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems.
+**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
 
 ---
 
