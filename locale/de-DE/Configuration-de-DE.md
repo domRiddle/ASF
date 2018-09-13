@@ -1,16 +1,16 @@
 # Konfiguration
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+Diese Seite widmet sich der Konfiguration von ASF. Es dient als eine lückenlose Dokumentation des `config` Verzeichnisses, so dass Sie ASF auf Ihre Bedürfnisse abstimmen können.
 
 - **[Einleitung](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
+- **[Web-basierter Konfigurations-Generator](#web-based-configgenerator)**
+- **[Manuelle Konfiguration](#manual-configuration)**
+- **[Globale Konfiguration](#global-config)**
+- **[Bot Konfiguration](#bot-config)**
+- **[Dateistruktur](#file-structure)**
 - **[JSON mapping](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
-- **[Configs compatibility](#configs-compatibility)**
+- **[Konfigurations-Kompatibilität](#configs-compatibility)**
 - **[Auto-reload](#auto-reload)**
 
 * * *
@@ -29,7 +29,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 * * *
 
-## Web-based ConfigGenerator
+## Web-basierter Konfigurations-Generator
 
 The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchi/ArchiSteamFarm/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
@@ -41,7 +41,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Manuelle Konfiguration
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -49,9 +49,9 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 * * *
 
-## Global config
+## Globale Konfiguration
 
-Global config is located in `ASF.json` file and has following structure:
+Die globale Konfigurationsdatei befindet sich in `ASF.json` und hat folgende Struktur:
 
 ```json
 {
@@ -194,7 +194,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Wert | Name      | Beschreibung                                                                                     |
 | ---- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0    | Keine     | No protocol                                                                                      |
+| 0    | Keine     | Kein Protokoll                                                                                   |
 | 1    | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -261,7 +261,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## Bot Konfiguration
 
 As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
 
@@ -579,9 +579,9 @@ However, some people might be concerned even about this little detail, therefore
 
 * * *
 
-## File structure
+## Dateistruktur
 
-ASF is using quite simple file structure.
+ASF benutzt eine einfache Dateistruktur.
 
     ├── config
     │     ├── ASF.json
@@ -701,7 +701,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 * * *
 
-## Configs compatibility
+## Konfigurations-Kompatibilität
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
 

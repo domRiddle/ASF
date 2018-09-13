@@ -2,9 +2,9 @@ Our extended FAQ covers a bit less common questions and answers that you might h
 
 * * *
 
-### Who has created ASF?
+### Wer hat ASF erschaffen?
 
-ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
+ASF wurde von **[Archi](https://github.com/JustArchi)** im October 2015 erschaffen. Falls du dich wunderst, ich bin ein **[Steam-Benutzer](https://steamcommunity.com/profiles/76561198006963719)** genau wie du. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
 
 However, ASF is open-source project, and I can't express enough that I'm not behind everything that you can see here. Yes, I'm still behind majority of things, including core of ASF, but you should be aware that entire **[web-based ConfigGenerator](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#web-based-configgenerator)** was coded by **[@Mole](https://github.com/Aareksio)**, while **[@MrBurrBurr](https://github.com/MrBurrBurr)** is behind **[IPC GUI](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#ipc-gui)**. Apart from that, ASF has a lot of other **[contributors](https://github.com/JustArchi/ArchiSteamFarm/graphs/contributors)** that also helped a lot to make all of this happen. On top of that, there are a lot of third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[Discord](https://discordapp.com/open-source)**, **[AppVeyor](https://www.appveyor.com)**, **[Travis](https://travis-ci.com)**, **[ReSharper](https://www.jetbrains.com/resharper)** and **[Crowdin](https://crowdin.com)**. And of course you can't forget about all the awesome libraries and tools that made ASF happen, especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. ASF also wouldn't be where it is today without my **[patrons](https://www.patreon.com/JustArchi)** supporting me in everything I'm doing here.
 
@@ -18,7 +18,7 @@ It's nice to note that ASF was never made to compete with other idlers, especial
 
 * * *
 
-### OK, where is the catch?
+### Okay, wo ist der Haken?
 
 There is no catch, I created ASF **for myself** and shared it with the rest of community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or other activity that would generate any monetary benefit for me, excluding non-obligatory donations from happy users that is. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee (or not).
 
