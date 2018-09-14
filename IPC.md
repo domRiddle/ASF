@@ -390,8 +390,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 ### `GET /Api/NLog`
 
-### `GET /Api/Log` (deprecated)
-
 This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
 
 The websocket connection established with this endpoint is **read-only** - ASF will accept only **[control frames](https://tools.ietf.org/html/rfc6455#section-5.5)**, especially `Close` frame indicating that websocket connection should be gracefully closed. Sending any data frame will result in connection being terminated.
@@ -403,6 +401,8 @@ HTTP/1.1 200 OK
 # Example of messages being sent by ASF, keep in mind that result string is affected by user-specified NLog logging layout
 {"Message":"OK","Result":"2018-01-31 03:19:34|dotnet-2884|INFO|ASF|Start() IPC server ready!","Success":true}
 ```
+
+For backwards compatibility, this endpoint is also available under now deprecated `/Api/Log` call.
 
 ---
 
