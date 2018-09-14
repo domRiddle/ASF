@@ -18,7 +18,7 @@ If you absolutely hate reading and you'd like to watch a video instead, then you
 
 In general, here is what we'll do in the next few minutes:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Installiere **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
 - **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
@@ -46,10 +46,10 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
 - libcurl3 (libcurl)
-- libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu60 (libicu, neueste Version für deine Distribution, als Beispiel `libicu57` für Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, neueste 1.0.X Version für deine Distribution)
 - zlib1g (zlib)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
@@ -61,7 +61,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now
+- Bisher keine
 
 * * *
 
@@ -77,7 +77,7 @@ If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since per
 
 Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
-An example structure would look like this:
+Eine Beispiel-Struktur würde wie folgt aussehen:
 
     C:\ASF (where you put your own things)
         ├── ASF shortcut.lnk (optional)
@@ -148,11 +148,11 @@ You can now hit "download" button and our web config generator will generate new
 
 Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
-Your `config` directory will now look like this:
+Dein `config` Verzeichnis sieht nun wie folgt aus:
 
 ![Structure 2](https://i.imgur.com/doYnbB9.png)
 
-Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+Glückwunsch! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
 * * *
 
@@ -267,11 +267,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Installiere **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchi/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
+- **[Konfiguriere ASF](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

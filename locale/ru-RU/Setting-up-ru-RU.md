@@ -30,9 +30,9 @@
 
 ### Предусловия для .NET Core
 
-Первое что надо сделать - убедиться, что ваша ОС вообще может запустить ASF. ASF написана на C#, основаный на .NET Core, и может требовать нативные библиотеки, которые пока недоступны для вашей платформы. В зависимости от того, используете вы Windows, Linux или OS X, вам подребуется выполнить различные требования, но все они перечислены в документе **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** (предусловия для .NET Core), которому вы должны следовать. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+Первое что надо сделать - убедиться, что ваша ОС вообще может запустить ASF. ASF написана на C#, основаный на .NET Core, и может требовать нативные библиотеки, которые пока недоступны для вашей платформы. В зависимости от того, используете вы Windows, Linux или OS X, вам подребуется выполнить различные требования, но все они перечислены в документе **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** (предусловия для .NET Core), которому вы должны следовать. Это справочный материал, который вам следует использовать, но ради простоты мы также перечислили все необходимые пакеты ниже, так что вам нет нужды читать документ полностью.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+Совершенно нормально, если некоторые (или деже все) зависимости уже присутствуют в вашей системе из-за стороннего программного обеспечения которым вы пользуетесь. Однако, вы должны убедиться что это действительно так, запустив соответствующий инсталлятор для своей ОС - без этих зависимостей ASF вообще не запустится.
 
 Помните, что для установки варианта под конкретную ОС вам больше ничего не надо делать, особенно устанавливать .NET Core SDK или даже среду исполнения, поскольку пакеты для конкретных ОС уже включают всё это в себя. Вам нужны только предусловия для .NET Core (зависимости) чтобы запустить среду исполнения включенную в ASF.
 
@@ -43,7 +43,7 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Имена пакетов зависят от того, каким дистрибутивом Linux вы пользуетесь, мы перечисляем наиболее распространённые. Вам можете получить их все с помощью встроенного менеджера пакетов для вашей ОС (таким как `apt` для Debian или `yum` для CentOS).
 
 - libcurl3 (libcurl)
 - libicu60 (libicu, последняя версия для вашего дистрибутива, например `libicu57` для Debian 9)

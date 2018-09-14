@@ -14,25 +14,25 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
-    INFO|ASF|Start() Starting IPC server...
-    INFO|ASF|Start() IPC server ready!
+    INFO|ASF|Start() Starte IPC-Server...
+    INFO|ASF|Start() IPC-Server bereit!
     
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine. If ASF's IPC interface was enabled properly, you should see our **[IPC GUI](#ipc-gui)** frontend in your browser.
+ASF's http-Server hört nun auf den ausgewählten Endpunkten. Falls du keine benutzerdefinierte Konfigurationsdatei für IPC angegeben hast wird für IPv4 **[127.0.0.1](http://127.0.0.1:1242)** und für IPv6 **[[::1]](http://[::1]:1242)** auf Standard-Port `1242` verwendet. Du kannst unsere IPC-Oberfläche über die obigen Links aufrufen, vom gleichen Computer. Falls ASF's IPC-Oberfläche richtig konfiguriert wurde, solltest du nun unser **[IPC GUI](#ipc-gui)** in deinem Browser sehen.
 
-![IPC GUI](https://i.imgur.com/VjHtWYu.png)
+![IPC-GUI](https://i.imgur.com/VjHtWYu.png)
 
 * * *
 
-# IPC GUI
+# IPC-GUI
 
 Please note that IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. This is because it's a community project and we're not maintaining it officially without ASF developer in charge of it.
 
-You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Right now, our lead community developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Aktuell ist **[@MrBurrBurr](https://github.com/mrburrburr)** unser Hauptentwickler für das IPC-GUI.
 
 * * *
 
-# IPC API
+# IPC-API
 
 Our IPC API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our IPC GUI does under the hood, and every other tool can achieve the same. Sending API calls is officially and fully supported by ASF team.
 
@@ -564,7 +564,7 @@ Our IPC interface supports extra config file, `IPC.config` that should be put in
 
 When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
 
-The configuration file is based on following JSON structure:
+Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 ```json
 {

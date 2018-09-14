@@ -4,7 +4,7 @@
 
 * **[Começando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** **(comece aqui)**
 * **[Configuração](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-pt-BR)**
-* **[Perguntas frequentes](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
+* **[Perguntas frequentes (FAQ)](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ)**
 
 ## Principal
 
