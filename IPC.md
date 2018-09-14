@@ -388,14 +388,16 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 ---
 
-### `GET /Api/Log`
+### `GET /Api/NLog`
+
+### `GET /Api/Log` (deprecated)
 
 This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
 
 The websocket connection established with this endpoint is **read-only** - ASF will accept only **[control frames](https://tools.ietf.org/html/rfc6455#section-5.5)**, especially `Close` frame indicating that websocket connection should be gracefully closed. Sending any data frame will result in connection being terminated.
 
 ```shell
-curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
+curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/NLog
 HTTP/1.1 200 OK
 
 # Example of messages being sent by ASF, keep in mind that result string is affected by user-specified NLog logging layout
@@ -524,7 +526,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-	location /Api/Log {
+	location /Api/NLog {
 		proxy_pass http://127.0.0.1:1242;
 #		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
