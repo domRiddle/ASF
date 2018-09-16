@@ -402,7 +402,7 @@ HTTP/1.1 200 OK
 {"Message":"OK","Result":"2018-01-31 03:19:34|dotnet-2884|INFO|ASF|Start() IPC server ready!","Success":true}
 ```
 
-For backwards compatibility, this endpoint is also available under now deprecated `/Api/Log` call.
+For backwards compatibility, this endpoint is also available under now deprecated `/Api/Log` call. We'll keep this call around until at least ASF V3.4.
 
 ---
 
