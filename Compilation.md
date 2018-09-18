@@ -44,7 +44,7 @@ Host (useful for support):
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
@@ -56,7 +56,7 @@ If compilation ended successfully, you can find your ASF in `source` flavour in 
 You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
 Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
