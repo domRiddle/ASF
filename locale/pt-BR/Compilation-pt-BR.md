@@ -1,6 +1,6 @@
 # Compilação
 
-Compilação é o processo de criação de arquivo executável. É isso que você quer fazer se você quiser adicionar suas próprias mudanças ao ASF, ou se você, por alguma razão não confia em arquivos executáveis fornecidos em **[lançamentos](https://github.com/JustArchi/ArchiSteamFarm/releases)** oficiais. Se você é um usuário e não um desenvolvedor, é mais provável que você queira usar binários pré-compilados, mas se você quiser usar os seus próprios, ou aprender algo novo, continue a leitura.
+Compilação é o processo de criação de arquivo executável. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. Se você é um usuário e não um desenvolvedor, é mais provável que você queira usar binários pré-compilados, mas se você quiser usar os seus próprios, ou aprender algo novo, continue a leitura.
 
 O ASF pode ser compilado em qualquer plataforma suportada atualmente, desde que você tenha todas as ferramentas necessárias.
 
@@ -8,7 +8,7 @@ O ASF pode ser compilado em qualquer plataforma suportada atualmente, desde que 
 
 ## .NET Core SDK
 
-Independente da plataforma, você precisa do SDK completo do .NET Core (e não apenas o tempo de execução) em para compilar o ASF. Instruções de instalação podem ser encontradas na **[página de instalação do .NET Core](https://www.microsoft.com/net/download)**. Você precisa instalar a versão apropriada do SDK do .NET Core para seu sistema operacional. Após a instalação bem sucedida, o comando `dotnet` deverá estar funcional e operante. Você pode verificar se ele funciona com `dotnet --info`. Certifique-se também de que o seu SDK do .NET Core corresponde aos **[requisitos de tempo de execução](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF.
+Independente da plataforma, você precisa do SDK completo do .NET Core (e não apenas o tempo de execução) em para compilar o ASF. Instruções de instalação podem ser encontradas na **[página de instalação do .NET Core](https://www.microsoft.com/net/download)**. Você precisa instalar a versão apropriada do SDK do .NET Core para seu sistema operacional. Após a instalação bem sucedida, o comando `dotnet` deverá estar funcional e operante. Você pode verificar se ele funciona com `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
 Exemplo de `dotnet--info` no Windows:
 
@@ -43,7 +43,7 @@ Exemplo de `dotnet--info` no Windows:
 Supondo que você tenha o SDK do .NET Core operacional e na versão apropriada, basta navegar até o diretório do ASF e executar:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
 Se você estiver usando Linux/OS X, você pode usar o código `cc.sh`, que fará o mesmo de uma maneira um pouco mais complexa.
@@ -55,7 +55,7 @@ Se a compilação terminou com êxito, você pode encontrar seu ASF `fonte` na p
 Você também pode gerar um pacote .NET Core específico para OS se você tiver uma necessidade particular. Em geral, você não deverá fazer isso, pois você já compilou o tipo `genérico` que você pode rodar em seu já instalado tempo de execução .NET Core, que você usou para a compilação, mas caso você queira:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
 Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal como `win-x64`. Essa compilação também terá as atualizações desabilitadas.
@@ -88,10 +88,10 @@ Claro que todas as sugestões acima são apenas recomendações, você pode usar
 
 ## Marcadores
 
-Não é garantido que a ramificação `master` esteja em um estado que propicie uma compilação bem sucedida ou uma execução sem falhas do ASF, uma vez que é uma ramificação em desenvolvimento, confirme especificado em nosso **[ciclo de lançamentos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Release-cycle)**. Se você deseja compilar o ASF desde a fonte, então você deve usar a **[tag](https://github.com/JustArchi/ArchiSteamFarm/tags)** apropriada para tal, o que garante ao menos uma compilação bem sucedida, e muito provavelmente uma execução sem erros (se a compilação foi marcada como versão estável). Para verificar a "saúde" atual da árvore, você pode usar nossos CIs - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** ou **[Travis](https://travis-ci.org/JustArchi/ArchiSteamFarm)**.
+`master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our CIs - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** or **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
 
 * * *
 
 ## Versões oficiais
 
-Os lançamentos oficiais do ASF são compilados pelo **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** no Windows, com o SDK .NET Core mais recente que corresponde com os **[requisitos de tempo de execução](https://github.com/JustArchi/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF. Depois de passar nos testes, todos os pacotes são implantados no GitHub. Isto também garante transparência, uma vez que o AppVeyor sempre usa uma fonte pública oficial para todas as compilações, e você pode comparar as somas de verificação dos artefatos do AppVeyor com os ativos no GitHub. Os desenvolvedores do ASF não compilam ou publicam as compilações manualmente, exceto para o processo de desenvolvimento privado, incluindo depuração.
+Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. Depois de passar nos testes, todos os pacotes são implantados no GitHub. Isto também garante transparência, uma vez que o AppVeyor sempre usa uma fonte pública oficial para todas as compilações, e você pode comparar as somas de verificação dos artefatos do AppVeyor com os ativos no GitHub. Os desenvolvedores do ASF não compilam ou publicam as compilações manualmente, exceto para o processo de desenvolvimento privado, incluindo depuração.

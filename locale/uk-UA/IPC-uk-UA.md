@@ -6,13 +6,13 @@ Our IPC interface is based on **[Kestrel HTTP server](https://github.com/aspnet/
 
 In addition to API endpoints, our IPC also offers static files hosting used by our IPC GUI frontend that is designed for endusers as an alternative, simplified way to access ASF API.
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our IPC GUI which allows you to easily access them from your favourite web browser.
+IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our IPC GUI which allows you to easily access them from your favourite web browser.
 
 * * *
 
 # Usage
 
-You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
     INFO|ASF|Start() Starting IPC server...
     INFO|ASF|Start() IPC server ready!
@@ -28,7 +28,7 @@ ASF's http server is now listening on selected endpoints. If you didn't provide 
 
 Please note that IPC GUI is currently in **preview** state, which means that officially it's **unsupported** and we're also not accepting bug reports (standalone issues) for it. This is because it's a community project and we're not maintaining it officially without ASF developer in charge of it.
 
-You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchi/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Right now, our lead community developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
+You're free to post your thoughts, suggestions and bug reports in appropriate **[issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues?q=is%3Aissue+is%3Aopen+label%3AIPC)** that is fully dedicated to IPC GUI. Right now, our lead community developer of IPC GUI is **[@MrBurrBurr](https://github.com/mrburrburr)**.
 
 * * *
 
@@ -107,7 +107,7 @@ Generic response without a result has two mandatory fields that are always provi
 
 `Message` - `string` value providing extra details about the response. This could be simple "OK" when request succeeded, or actual failure reason if it didn't. We use this field as a general help for you to know what happened about the request you've sent. Keep in mind that this field is NOT a result of your request, only a description of what happened. Can be `null` if we don't have any specific message for you to retrieve, although we try to avoid that as much as possible.
 
-`Success` - `bool` value providing a simple way to check the result. This is offered as an extra to HTTP status codes, since `2xx` codes are considered `true`, while everything else is considered `false`. Please note that this property only indicates **if API call succeeded**. In generic responses with result (explained below), you should parse `Result` property for checking if a particular action was completed successfully (such as output of a command).
+`Success` - `bool` value that specifies whether the request has been executed successfully. In comparison with HTTP status codes, this property determines the outcome of a particular action and not necessarily the call itself. Most of the time, that action will align nicely with HTTP status codes (`true` for `200 OK` and `false` otherwise), but not always, as the request might have a more complex intermediate state where the action itself is seen as failure but not the entire request. An example of such situation is trying to pause already paused bot, in which case the request will end with `200 OK` (the request was properly executed), but with `Success` of `false` as the bot was paused already. Depending on how you look at it, you might want to interpret it as a success or not, and this is why HTTP status code is more general way of saying whether something was achieved, and `Success` whether something that was actually responsible for that succeeded in doing so.
 
 * * *
 
@@ -157,9 +157,9 @@ curl -X GET /Api/ASF
 }
 ```
 
-`BuildVariant` - `string` value that specifies build variant of currently running ASF process. This can be any variant available under **[releases](https://github.com/JustArchi/ArchiSteamFarm/releases)**, as well as variants that are not officially available for download (such as `docker` variant for our Docker images or `source` variant for unofficial builds).
+`BuildVariant` - `string` value that specifies build variant of currently running ASF process. This can be any variant available under **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, as well as variants that are not officially available for download (such as `docker` variant for our Docker images or `source` variant for unofficial builds).
 
-`GlobalConfig` - specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration. This property can be used for finding out options that the ASF process is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive process-related information such as `WebProxyPassword` are always skipped from being included.
+`GlobalConfig` - specialized C# object used by ASF for accessing to its config. It has exactly the same structure as **[global config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** explained in configuration. This property can be used for finding out options that the ASF process is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive process-related information such as `WebProxyPassword` are always skipped from being included.
 
 `MemoryUsage` - `uint` value that specifies **managed** runtime memory used by ASF process as a whole, in kilobytes.
 
@@ -180,9 +180,9 @@ curl -X GET /Api/ASF
 }
 ```
 
-This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
+This API endpoint can be used for updating **[GlobalConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** of ASF program. In other words, this will update `ASF.json` of `config` directory with **[GlobalConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
-`GlobalConfig` is **[GlobalConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
+`GlobalConfig` is **[GlobalConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular ASF config.
 
 `KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `WebProxyPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
 
@@ -257,7 +257,7 @@ curl -X GET /Api/Bot/archi
 
 `SteamID` is `ulong` unique steamID identificator of currently logged in account in 64-bit form. This property will have a value of `0` if bot is not logged in to Steam Network (therefore it can be used for telling if account is logged in or not).
 
-`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration. This property can be used for finding out options that the bot is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are always skipped from being included.
+`BotConfig` is specialized C# object used by Bot for accessing to its config. It has exactly the same structure as **[bot config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** explained in configuration. This property can be used for finding out options that the bot is configured to work with. Typically this object will include only a subset of all config properties - those that the user has modified (minimalistic config). Sensitive account-related information such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` are always skipped from being included.
 
 `KeepRunning` is a `bool` type that specifies if bot is active. Active bot is a bot that has been started, either by ASF on startup, or by user later during execution. If bot is stopped, this property will be `false`. Keep in mind that this property has nothing to do with bot being connected to Steam network, or not (that is what `SteamID` can be used for).
 
@@ -294,9 +294,9 @@ curl -X GET /Api/Bot/archi
 }
 ```
 
-This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
+This API endpoint can be used for creating/updating **[BotConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** of given bot specified by its `BotName`. In other words, this will update `BotName.json` of `config` directory with **[BotConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object supplied in request body. Returns **[GenericResponse](#genericresponse)** with no result.
 
-`BotConfig` is **[BotConfig](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
+`BotConfig` is **[BotConfig](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** JSON object. This field is mandatory and cannot be `null`. Specifying config properties with their default values might be omitted, just like in regular (minimalistic) ASF config.
 
 `KeepSensitiveDetails` is `bool` type that specifies whether sensitive details such as `SteamLogin` or `SteamPassword` should be inherited from existing config (if available). This field is optional and defaults to `true`. When enabled, sensitive properties defined with value of `null` will be inherited from current config.
 
@@ -374,7 +374,7 @@ Both `UnusedKeys` and `UsedKeys` are `Dictionary<string, string>` objects that m
 }
 ```
 
-This API endpoint can be used for adding extra **[games to redeem in background](https://github.com/JustArchi/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
+This API endpoint can be used for adding extra **[games to redeem in background](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** to given bot specified by its `BotName`. Returns **[GenericResponse](#genericresponse)** with `Result` defined as `OrderedDictionary<string, string>`.
 
 `GamesToRedeemInBackground` is `OrderedDictionary<string, string>` JSON object that maps cd-keys to redeem (`key`) with their names (`value`). This field is mandatory and cannot be `null`. Neither any `key` nor `value` in the dictionary can be `null` or empty. In addition to that, every `key` must have valid Steam cd-key structure, ASF will validate that using built-in regex. Invalid entries will be automatically removed during import process.
 
@@ -387,19 +387,21 @@ curl -X POST -H "Content-Type: application/json" -d '{"GamesToRedeemInBackground
 
 * * *
 
-### `GET /Api/Log`
+### `GET /Api/NLog`
 
 This API endpoint can be used for fetching real-time log messages being written by ASF. In comparison with other endpoints, this one uses **[websocket](https://en.wikipedia.org/wiki/WebSocket)** connection for providing real-time updates. Each message is encoded in **[UTF-8](https://en.wikipedia.org/wiki/UTF-8)** and has a **[GenericResponse](#genericresponse)** structure with `Result` defined as `string` - the message rendered in configured by user NLog-specific layout. On initial connection, ASF will also push a burst of last few logged messages as a short history (by default last 20, but user is free to change this number, as well as disabling history entirely).
 
 The websocket connection established with this endpoint is **read-only** - ASF will accept only **[control frames](https://tools.ietf.org/html/rfc6455#section-5.5)**, especially `Close` frame indicating that websocket connection should be gracefully closed. Sending any data frame will result in connection being terminated.
 
 ```shell
-curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/Log
+curl -X GET -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" /Api/NLog
 HTTP/1.1 200 OK
 
 # Example of messages being sent by ASF, keep in mind that result string is affected by user-specified NLog logging layout
 {"Message":"OK","Result":"2018-01-31 03:19:34|dotnet-2884|INFO|ASF|Start() IPC server ready!","Success":true}
 ```
+
+For backwards compatibility, this endpoint is also available under now deprecated `/Api/Log` call. We'll keep this call around until at least ASF V3.4.
 
 * * *
 
@@ -508,7 +510,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"URL":"https://example.com
 
 ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
 
-However, if you decide to change default `localhost` bind addresses to something else, such as `any`, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
@@ -523,7 +525,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-    location /Api/Log {
+    location /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 #       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -604,4 +606,4 @@ There are 2 properties worth explanation/editing, those are `Endpoints` and `Pat
 
 `PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
 
-Unless you truly need to specify a custom base path, it's best to leave it at default. In addition to that, custom base path is **[not supported by our IPC GUI yet](https://github.com/JustArchi/ArchiSteamFarm/issues/869#issuecomment-419596294)**. Our IPC API is fully compatible with it already.
+Unless you truly need to specify a custom base path, it's best to leave it at default. In addition to that, custom base path is **[not supported by our IPC GUI yet](https://github.com/JustArchiNET/ArchiSteamFarm/issues/869#issuecomment-419596294)**. Our IPC API is fully compatible with it already.

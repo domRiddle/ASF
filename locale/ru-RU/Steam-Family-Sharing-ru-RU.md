@@ -1,21 +1,21 @@
 # Steam Family Sharing
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF поддерживает Steam Family Sharing начиная с версии 2.1.5.5+. Чтобы понять, как ASF работает с этим механизмом, вам следует сначала прочесть, как **[как работает Steam Family Sharing](https://store.steampowered.com/promotion/familysharing)**.
 
 * * *
 
 ## ASF
 
-Support for Steam Family Sharing feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it works out of the box as an extra built-in functionality.
+Поддержка Steam Family Sharing в ASF достаточно прозрачна, в том смысле что она не требует никаких дополнительных параметров конфигурации бота/процесса - она просто работает "из коробки" как дополнительный встроенный функционал.
 
-ASF includes appropriate logic in order to be aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
+ASF включает в себя соответствующую логику для того, чтобы отслеживать использование библиотеки пользователями Steam Family Sharing, и поэтому не будет "выбрасывать" их из игровой сессии из-за запуска игры. ASF будет работать так же, как в случае когда библиотека заблокирована основным аккаунтом, поэтому если библиотека используется либо с вашего клиента steam, либо одним из пользователей Steam Family Sharing, ASF не будет пытаться фармить, и будет вместо этого ожидать пока библиотека освободится.
 
-In addition to above, after logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
+В дополнение к вышесказанному, после входа, ASF обратиться к странице **[управления Steam Family Sharing](https://store.steampowered.com/account/managedevices)** и получит оттуда до 5 `steamIDs`, которым разрешён доступ к вашей библиотеке. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
 
-Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
+В совокупности весь этот функционал позволяет вашим друзьям приостановить процесс фарма командой `pause~`, запустить игру, играть сколько им вздумается, а после окончания игры ASF автоматически возобновит процесс фарма. Разумеется, команда `pause~` не нужна если ASF в данный момент ничего не фармит, поскольку ваши друзья могут просто запустить игру, и логика, описанная выше, проследит чтобы они не были "выброшены" из игровой сессии.
 
 * * *
 
 ## Ограничения
 
-Steam network loves to mislead ASF by broadcasting false status updates, which might lead to ASF believing it's fine to resume process, and in result kick your friend too soon. In order to fight with that issue, it's recommended for you to have your friend on your Steam friendlist - this way ASF in addition to steam network events, can check Steam status of your friend, and guess from playing status if he's indeed done playing yet, or not. This is not mandatory, but because Steam sometimes talks trash, it's recommended, especially if you notice such issues.
+Сеть Steam любит дурачить ASF пересылая неверные обновления состояния, что может привести к ситуации, когда ASF считает что можно продолжать процесс фарма, и в результате "выбросит" вашего друга раньше времени. Для предотвращения таких проблем рекомендуется чтобы ваш друг был в списке ваших друзей в Steam - таким образом ASF, в дополнение к событиям сети Steam, будет проверять статус вашего друга в Steam, и пытаться предугадать по этому статусу, завершил он игру или нет. Это не обязательно, но из-за того что Steam иногда сообщает неверные данные, это рекомендуется, особенно если вы уже столкнулись с подобной проблемой.

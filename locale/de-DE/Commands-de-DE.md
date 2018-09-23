@@ -6,11 +6,11 @@ Die unten angeführten Befehle können über drei verschiedene Wege an einen Bot
 
 - Über den privaten Steam-Chat
 - Über einen Steam-Gruppen-Chat
-- Über **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
 Bitte vergiss nicht, dass jegliche ASF-Interaktion verlangt, dass du gemäß deinen ASF-Einstellungen über die Berechtigungen für den Befehl verfügen musst. Für mehr Informationen lies bitte die Einträge zu den Config-Feldern `SteamUserPermissions` und `SteamOwnerID` durch.
 
-Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** `CommandPrefix` beeinflusst, welches standardmäsig `!` ist. Das heißt, dass du um zum Beispiel den `status`-Befehl auszuführen `!status` (oder dein entsprechendes `CommandPrefix`) schreiben solltest.
+Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `CommandPrefix` beeinflusst, welches standardmäsig `!` ist. Das heißt, dass du um zum Beispiel den `status`-Befehl auszuführen `!status` (oder dein entsprechendes `CommandPrefix`) schreiben solltest.
 
 * * *
 
@@ -30,7 +30,7 @@ Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Grup
 
 ### IPC
 
-Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfekt für Programme von Drittanbietern und Skripte. Es verlangt allerdings, dass ASF im Server-Modus läuft und ein Client die Befehle über das **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** Interface an ASF sendet.
+Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfekt für Programme von Drittanbietern und Skripte. Es verlangt allerdings, dass ASF im Server-Modus läuft und ein Client die Befehle über das **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** Interface an ASF sendet.
 
 ![Screenshot](https://i.imgur.com/TsAHcM0.png)
 
@@ -40,9 +40,9 @@ Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfe
 
 | Befehl                                               | Zugang          | Beschreibung                                                                                                                                                                                          |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                              |
-| `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                       |
-| `2faok <Bots>`                                 | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                      |
+| `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
+| `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
+| `2faok <Bots>`                                 | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
 | `addlicense <Bots> <GameIDs>`            | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
 | `bl <Bots>`                                    | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`              | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
@@ -118,7 +118,7 @@ Einige Befehle sind auch als Aliase verfügbar, um Zeit beim tippen zu sparen:
 
 * * *
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
 
 * * *
 
@@ -193,7 +193,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 ## `redeem^` modes
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
@@ -237,7 +237,7 @@ For example, in order to send trading cards and foils from `MyBot` to `MyMain`, 
 
 ## `input` Befehl
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
 General syntax is `input <Bots> <Type> <Value>`.
 

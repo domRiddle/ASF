@@ -1,8 +1,8 @@
 # 背景啟動序號
 
-背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 如果你想批次啟用多組序號，請確保 `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** 才能完成整個過程。
+背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 如果你想批次啟用多組序號，請確保 `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** 才能完成整個過程。
 
-背景啟用序號是單一 bot 執行的範圍，這表示它不使用 `RedeemingPreferences`。 如果需要，此功能可以與 `redeem` **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** 一起使用。
+背景啟用序號是單一 bot 執行的範圍，這表示它不使用 `RedeemingPreferences`。 如果需要，此功能可以與 `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** 一起使用。
 
 * * *
 
@@ -24,7 +24,7 @@ ASF 將在啟動時或稍後匯入指定的文件。 成功讀取檔案並跳過
 
 ### IPC
 
-除了使用 keys 檔案，ASF 還提供 IPC `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**，包括 IPC 圖形控制台。 使用 IPC 的方法可以更加實用，你可以自訂參數，例如使用分隔符而不是表格鍵。
+除了使用 keys 檔案，ASF 還提供 IPC `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**，包括 IPC 圖形控制台。 使用 IPC 的方法可以更加實用，你可以自訂參數，例如使用分隔符而不是表格鍵。
 
 * * *
 

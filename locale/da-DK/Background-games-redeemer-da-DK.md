@@ -1,8 +1,8 @@
 # Produktaktivering i baggrunden
 
-Produktaktivering i baggrunden er en specialindbygget ASF funktion som tillader dig at importere et givent sæt Steam cd-keys (med deres navne) som aktiveres i baggrunden. Dette er især nyttigt hvis du har mange nøgler der skal indløses og hvor du er sikker på at ramme `RateLimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** før du er færdig med hele partiet.
+Produktaktivering i baggrunden er en specialindbygget ASF funktion som tillader dig at importere et givent sæt Steam cd-keys (med deres navne) som aktiveres i baggrunden. Dette er især nyttigt hvis du har mange nøgler der skal indløses og hvor du er sikker på at ramme `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** før du er færdig med hele partiet.
 
-Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyder at den ikke bruger `RedeemingPreferences`. Denne funktion kan bruges med (eller i stedet for) `reedem` **[kommando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, om nødvendigt.
+Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyder at den ikke bruger `RedeemingPreferences`. Denne funktion kan bruges med (eller i stedet for) `reedem` **[kommando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, om nødvendigt.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF vil importere en sådan fil enten ved botopstart eller ved en senere kørsel
 
 ### IPC
 
-Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** som kan køres af alle IPC værktøjer, inklusiv vores IPC GUI. Brug af IPC kan være bedre, da du kan lave den nødvendige analyse selv, som f.eks. at bruge et brugerdefineret afgræsningstegn i stedet for at være tvunget til at bruge et tabulatortegn.
+Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** som kan køres af alle IPC værktøjer, inklusiv vores IPC GUI. Brug af IPC kan være bedre, da du kan lave den nødvendige analyse selv, som f.eks. at bruge et brugerdefineret afgræsningstegn i stedet for at være tvunget til at bruge et tabulatortegn.
 
 * * *
 

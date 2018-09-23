@@ -105,14 +105,14 @@ Crowdin 플랫폼에서는 원본 텍스트를 지역화된 새로운 위치를 
 
 ASF는 오른쪽에 있는 사이드바 뿐만아니라 거의 모든 페이지에 대한 링크를 포함하고 있어 쉽게 이동할 수 있습니다. 놀라운 사실은 단지 이 모든 것을 변경만 할 수 있는 것이 아니라, 당신의 언어로 현지화된 정확한 페이지를 가리킬 수 있도록 링크도 "수정"할 수 있다는 것입니다. 실제 하는데는 조금 조심스러워야 하지만 가능한 일입니다.
 
-예를 들어, ASF **[홈 페이지](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home-ko-KR)**에는 다음과 같은 문구가 있습니다:
+For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> 처음 오셨다면 **[설치하기](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-ko-KR)** 가이드부터 시작하는 것을 추천합니다.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 원본은 다음과 같습니다:
 
 ```markdown
-처음 오셨다면 **[설치하기](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** 가이드부터 시작하는 것을 추천합니다.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
 Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Show"로 되어있는지를 확인하는 것입니다. 이것은 위키를 현지화하기로 했다면 매우 중요합니다.
@@ -159,12 +159,12 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 이렇게 하고나면 HTML이 다시 마크다운으로 적절하게 번역됩니다:
 
 ```markdown
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
 위키에는 다음과 같이 보입니다:
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
 두번째 경우와 같이 HTML이 없으면 훨씬 쉽습니다. `Hidden texts` -> `Link addresses`로 갑니다.
 
@@ -188,7 +188,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 이것은 특별한 경우로, 이 링크들은 현재 문서 중 해당 항목의 이름을 기반으로 합니다. URL에 `-locale`을 추가하는 일반적 관례를 가진 URL들은 어디에서나 동작하지만, 해당 항목의 이름은 당신과 다른 사람들이 번역을 하므로 링크가 정확한 위치를 가리키도록 할 필요가 있습니다.
 
-예를 들어 **[설정](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ko-KR#소개)** 페이지에는 `#introduction` 링크가 있습니다:
+For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
 * * *
 

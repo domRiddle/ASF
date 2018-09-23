@@ -26,7 +26,7 @@ Linux/OS X:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. Além disso, ao usar codigos de ajuda, você também pode usar a propriedade de ambiente `ASF_ARGS`, como declarou em nossa seção de **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
+Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. Além disso, ao usar codigos de ajuda, você também pode usar a propriedade de ambiente `ASF_ARGS`, como declarou em nossa seção de **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
 Se seu argumento inclui espaços, não se esqueça de indicar isso. Esses dois estão errados:
 
@@ -44,11 +44,11 @@ No entanto, esses dois estão completamente corretos:
 
 ## Argumentos
 
-`--cryptkey <key>` ou `--cryptkey=<key>` - começará o ASF com o valor de chave de criptografia`<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** e causará ASF usar sua chave personalizada `<key>` fornecido em vez de um hardcoded padrão para o executável. Tenha em mente que as senhas criptografadas com esta chave será requerida ela a cada execução do ASF.
+`--cryptkey <key>` ou `--cryptkey=<key>` - começará o ASF com o valor de chave de criptografia`<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** e causará ASF usar sua chave personalizada `<key>` fornecido em vez de um hardcoded padrão para o executável. Tenha em mente que as senhas criptografadas com esta chave será requerida ela a cada execução do ASF.
 
 * * *
 
-`--no-restart` - Esta opção é usada principalmente por nossos contêineres do **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** e forçar `AutoRestart` para `false`. A menos que você tiver uma necessidade específica, você deve configurar a propriedade `AutoRestart` diretamente no seu adquiro de configuração. Essa opção está aqui assim que nosso código de Docker não precisará mexer em sua configuração global para adaptá-la ao seu próprio ambiente. Claro, se você estiver executando o ASF dentro de um código, você pode também fazer uso desta opção (caso contrário é melhor com a propriedade de configuração global).
+`--no-restart` - Esta opção é usada principalmente por nossos contêineres do **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** e forçar `AutoRestart` para `false`. A menos que você tiver uma necessidade específica, você deve configurar a propriedade `AutoRestart` diretamente no seu adquiro de configuração. Essa opção está aqui assim que nosso código de Docker não precisará mexer em sua configuração global para adaptá-la ao seu próprio ambiente. Claro, se você estiver executando o ASF dentro de um código, você pode também fazer uso desta opção (caso contrário é melhor com a propriedade de configuração global).
 
 * * *
 
@@ -72,7 +72,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 
 * * *
 
-`--process-required` - declarar este opção desabilitará o comportamento padrão ASF de desligar quando bots não estão sendo executados. Nenhum comportamento de autodesligamento é especialmente útil em combinação com o **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, onde a maioria dos usuários esperaria seu serviço da web para ser executado independentemente da quantidade de bots que estão habilitados. Se você estiver usando a opção de IPC o processo ASF e preciso ser executado o tempo todo, até você fechá-lo você mesmo, esta é a opção certa.
+`--process-required` - declarar este opção desabilitará o comportamento padrão ASF de desligar quando bots não estão sendo executados. Nenhum comportamento de autodesligamento é especialmente útil em combinação com o **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, onde a maioria dos usuários esperaria seu serviço da web para ser executado independentemente da quantidade de bots que estão habilitados. Se você estiver usando a opção de IPC o processo ASF e preciso ser executado o tempo todo, até você fechá-lo você mesmo, esta é a opção certa.
 
 Se você não pretende executar IPC, esta opção será um tanto inúteis para você, como você só pode iniciar o processo novamente, quando necessário (em oposição ao servidor de web do ASF onde você exige que esteja preparado para receber comandos sempre).
 

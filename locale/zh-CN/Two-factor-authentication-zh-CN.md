@@ -1,33 +1,33 @@
-# 双重验证
+# 双重认证
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+不久前，Valve 引入了名为“履约保证”的系统，对多个账户相关的活动要求额外的验证工具。 您可在**[此处](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)**与**[此处](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**了解更多详情。 在了解 ASF 双重认证逻辑前，先了解双重认证系统是至关重要的。
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
-
-* * *
-
-# ASF logic
-
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+现今，所有的交易可被暂挂至 15 天。这虽对 ASF 说并不是大问题，但仍很恼人，尤其是对想要完全自动化的用户而言。 幸运的是，ASF 拥有对此问题的解决方案，名为 ASF 双重认证。
 
 * * *
 
-# ASF 2FA
+# ASF 逻辑
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+无论您用不用下方所述的 ASF 双重认证，ASF 含有正确逻辑且完全了解由标准两步认证所保护的账户。 它将在有需要的时候（如登录时）向您寻求所需的详细信息。 若您使用 ASF 双重认证，此程序将跳过这些请求并自动生成所需的令牌，为您除去不必要的麻烦并启用额外功能（下方所述）。
 
-To enable ASF 2FA, you need to have:
+* * *
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
+# ASF 两步认证
+
+此想法很简单。 我们已实现了 Steam 客户端、启动与游玩游戏，那为什么不实现移动设备呢？ ASF 两步认证就是您所想的那样。它只是个用于生成双重认证令牌的模块，可跳过交易暂挂及自动确认所有交易，正如通过已识别的移动设备所做的一样。 它复制您已有的验证器，您无需完全使用 ASF 两步认证。
+
+要启用两步认证，您需要：
+
+- Android 设备上可用的 Steam 身份认证器
+- 或 iOS 设备上可用的 Steam 身份认证器
+- 或 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
+- 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份认证器
 
 * * *
 
 ## 导入
 
-From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
+自版本 2.1 起，ASF 不再允许您使用 ASF “Solo” 模式 — 意味着您应拥有且关联了 ASF 支持的可用认证器。 ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 

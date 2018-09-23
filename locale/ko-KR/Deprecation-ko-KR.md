@@ -30,7 +30,7 @@ ASF는 폐기를 2단계로 하여 번역을 더욱 쉽고 문제가 덜 생기�
 
 ## 요약
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
 
 In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which might or might not match your personal preferences).
 
@@ -38,7 +38,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 ## 예시
 
-우리는 pre-V3.1.2.2 버전의 `--server` **[명령줄 인자](https://github.com/JustArchi/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)**를 `IPC` **[전역 설정](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration-ko-KR#global-config)**으로 옮겼습니다.
+We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
 
 ### 1단계
 

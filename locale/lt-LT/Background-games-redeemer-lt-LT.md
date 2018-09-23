@@ -1,8 +1,8 @@
 # Pasyvusis žaidimų aktyvatorius
 
-Pasyvusis žaidimų aktyvatorius (angl. Background games redeemer) yra speciali ASF funkcija, kuri leidžia importuoti cd-raktus (kartu su jų vardais), kad jie būtų aktyvuoti fone. Tai ypač patogu, jei jūs turite daug raktų ir esate garantuoti gauti `RateLimited` **[statusą](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** prieš baigiant įvesti visą paketą.
+Pasyvusis žaidimų aktyvatorius (angl. Background games redeemer) yra speciali ASF funkcija, kuri leidžia importuoti cd-raktus (kartu su jų vardais), kad jie būtų aktyvuoti fone. Tai ypač patogu, jei jūs turite daug raktų ir esate garantuoti gauti `RateLimited` **[statusą](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** prieš baigiant įvesti visą paketą.
 
-Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis nėra suderinamas kartu su `RedeemingPreferences`. Ši funkcija gali būti naudojama kartu su (arba vietoj) `redeem` **[komandos](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, jei reikia.
+Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis nėra suderinamas kartu su `RedeemingPreferences`. Ši funkcija gali būti naudojama kartu su (arba vietoj) `redeem` **[komandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, jei reikia.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF importuos tokį failą tiek paleidimo, tiek veikimo metu. Po sėkmingo jūs�
 
 ### IPC
 
-Be failų metodo ASF taip pat naudoja `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, kuris gali būti naudojamas kartu su IPC ir IPC GUI. Naudotis IPC gali būti efektyviau, nes galima pasirinkti savo atskyriklį vietoj įprastinio TAB ženklo.
+Be failų metodo ASF taip pat naudoja `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, kuris gali būti naudojamas kartu su IPC ir IPC GUI. Naudotis IPC gali būti efektyviau, nes galima pasirinkti savo atskyriklį vietoj įprastinio TAB ženklo.
 
 * * *
 

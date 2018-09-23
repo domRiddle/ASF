@@ -1,8 +1,8 @@
 # Ativador de jogos em segundo plano
 
-Resgate de keys em segundo plano é uma característica especial embutida no ASF que permite que você importe uma lista cd-keys da Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Isso é especialmente útil se você tem um monte de keys para resgatar e é certo que você atingirá o **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de terminar.
+Resgate de keys em segundo plano é uma característica especial embutida no ASF que permite que você importe uma lista cd-keys da Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Isso é especialmente útil se você tem um monte de keys para resgatar e é certo que você atingirá o **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de terminar.
 
-Resgate de keys em segundo plano foi feito para uso em apenas um bot, o que significa que ele não faz uso de `RedeemingPreferences`. Esse recurso pode ser usado junto com (ou no lugar do) **[comando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)** `redeem`, se necessário.
+Resgate de keys em segundo plano foi feito para uso em apenas um bot, o que significa que ele não faz uso de `RedeemingPreferences`. Esse recurso pode ser usado junto com (ou no lugar do) **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, se necessário.
 
 * * *
 
@@ -24,7 +24,7 @@ O ASF importará esse arquivo, seja na inicialização do bot ou posteriormente 
 
 ### IPC
 
-Além de usar o arquivo keys mencionado acima, o ASF também exibe **[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** `GamesToRedeemInBackground` que pode ser executado por qualquer ferramenta IPC, incluindo nossa interface IPC. Usar o IPC pode ser mais poderoso, já que você pode fazê-lo analisando-se propriamente, tal como usando um delimitador customizado ao invés de ser forçado a um caractere de tabulação.
+Além de usar o arquivo keys mencionado acima, o ASF também exibe **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** `GamesToRedeemInBackground` que pode ser executado por qualquer ferramenta IPC, incluindo nossa interface IPC. Usar o IPC pode ser mais poderoso, já que você pode fazê-lo analisando-se propriamente, tal como usando um delimitador customizado ao invés de ser forçado a um caractere de tabulação.
 
 * * *
 

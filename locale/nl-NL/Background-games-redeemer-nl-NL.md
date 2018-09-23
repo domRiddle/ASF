@@ -1,8 +1,8 @@
 # Productcode-activering op de achtergrond
 
-Productcode-activering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (en de productnamen) kunt importeren die op de achtergrond worden geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Ratelimited` **[status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren van de batch.
+Productcode-activering op de achtergrond is een speciaal ingebouwde ASF-functie waarmee je een serie Steam-productcodes (en de productnamen) kunt importeren die op de achtergrond worden geactiveerd. Dit is vooral handig als je een heleboel codes moet activeren waarvan het zeker is dat je de `Ratelimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** zal krijgen voordat je klaar bent met het activeren van de batch.
 
-Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**, indien nodig.
+Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF zal het bestand importeren tijdens het opstarten van de bot of later tijdens
 
 ### IPC
 
-Naast het gebruik van het hierboven besproken bestand, biedt ASF ook een `GamesToRedeemInBackground` **[API-eindpunt](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** die kan worden uitgevoerd door een IPC-tool, inclusief onze IPC GUI. Het gebruik van de IPC kan efficiënter zijn, omdat u zelf de juiste verwerking kunt uitvoeren, zoals het gebruik van een aangepast scheidingsteken in plaats van het vereiste tabteken.
+Naast het gebruik van het hierboven besproken bestand, biedt ASF ook een `GamesToRedeemInBackground` **[API-eindpunt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** die kan worden uitgevoerd door een IPC-tool, inclusief onze IPC GUI. Het gebruik van de IPC kan efficiënter zijn, omdat u zelf de juiste verwerking kunt uitvoeren, zoals het gebruik van een aangepast scheidingsteken in plaats van het vereiste tabteken.
 
 * * *
 

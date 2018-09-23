@@ -6,11 +6,11 @@ Os comandos abaixo podem ser enviados para o bot de três formas diferentes:
 
 - Através do chat privado do Steam
 - Através do chat em grupo do Steam
-- Através do **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Através do **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
 
 Tenha em mente que a interação do ASF requer de você a permissão para utilizar os comandos de acordo com as permissões do ASF. Confira as configurações em `SteamUserPermissions` e `SteamOwnerID` para mais detalhes.
 
-Todos os comandos abaixo são afetados pela **[propriedade de configuração global](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#global-config)** `CommandPrefix`, que é, por padrão, `!`. Isto significa que para executar, por exemplo, o comando `status`, você, na verdade, deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha).
+Todos os comandos abaixo são afetados pela **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `CommandPrefix`, que é, por padrão, `!`. Isto significa que para executar, por exemplo, o comando `status`, você, na verdade, deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha).
 
 * * *
 
@@ -30,7 +30,7 @@ Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em men
 
 ### IPC
 
-Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas de terceiros ou scripts, requer que o ASF seja executado em modo servidor e um cliente executando comandos através da interface **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**.
+Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas de terceiros ou scripts, requer que o ASF seja executado em modo servidor e um cliente executando comandos através da interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
 ![Captura da tela](https://i.imgur.com/TsAHcM0.png)
 
@@ -40,9 +40,9 @@ Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas
 
 | Comando                                              | Permissão de acesso | Descrição                                                                                                                                                                                                                                                        |
 | ---------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2Fa <Bots>`                                   | `Master`            | Gera um código **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** temporário para os bot indicados.                                                                                                                           |
-| `2Fano <Bots>`                                 | `Master`            | Nega todas as confirmações **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para os bots indicados.                                                                                                               |
-| `2faok <Bots>`                                 | `Master`            | Aceita todas as confirmações **[2FA](https://github.com/JustArchi/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para os bots indicados.                                                                                                             |
+| `2Fa <Bots>`                                   | `Master`            | Gera um código **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** temporário para os bot indicados.                                                                                                                        |
+| `2Fano <Bots>`                                 | `Master`            | Nega todas as confirmações **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para os bots indicados.                                                                                                            |
+| `2faok <Bots>`                                 | `Master`            | Aceita todas as confirmações **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para os bots indicados.                                                                                                          |
 | `addlicense <Bots> <GameIDs>`            | `Operator`          | Ativa as `appIDs` (Rede Steam) ou `subIDs` (Loja Steam) indicadas para as contas bots determinadas (apenas jogos gratuitos).                                                                                                                                     |
 | `bl <Bots>`                                    | `Master`            | Lista os usuários bloqueados no módulo de trocas dos bots indicados.                                                                                                                                                                                             |
 | `bladd <Bots> <SteamIDs64>`              | `Master`            | Bloqueia a `steamIDs` indicada no módulo de trocas dos bots determinados.                                                                                                                                                                                        |
@@ -118,7 +118,7 @@ Alguns comandos também estão disponíveis com seus pseudônimos, para facilita
 
 * * *
 
-Não é necessário ter qualquer conta extra para executar comandos através do chat Steam - você pode criar um grupo, definir o `SteamMasterClanID` corretamente a esse grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de bate-papo e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá). Além disso, você também pode usar o **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)**, mas usar a sala de chat é muito mais fácil, e se você tem acesso a uma conta alternativa, então usá-lo ao invés do outro é mais fácil ainda.
+Não é necessário ter qualquer conta extra para executar comandos através do chat Steam - você pode criar um grupo, definir o `SteamMasterClanID` corretamente a esse grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de bate-papo e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá). Além disso, você também pode usar o **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, mas usar a sala de chat é muito mais fácil, e se você tem acesso a uma conta alternativa, então usá-lo ao invés do outro é mais fácil ainda.
 
 * * *
 
@@ -193,7 +193,7 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 ## Métodos `redeem^`
 
-O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Isso funciona como uma substituição temporária da **[propriedade de configuração do bot](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#bot-config)** `RedeemingPreferences`.
+O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Isso funciona como uma substituição temporária da **[propriedade de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -237,7 +237,7 @@ Por exemplo, para enviar cartas colecionáveis e brilhantes do `MyBot` para o `M
 
 ## Comando `input`
 
-O comando input só pode ser usado no modo `Não-interativo`, para enviar os dados indicados via **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** ou bate-papo Steam quando o ASF estiver rodando sem suporte para interação do usuário.
+O comando input só pode ser usado no modo `Não-interativo`, para enviar os dados indicados via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** ou bate-papo Steam quando o ASF estiver rodando sem suporte para interação do usuário.
 
 A sintaxe geral é `input<Bots><Type><Value>`.
 

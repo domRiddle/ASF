@@ -26,7 +26,7 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Komandinės eilutės argumentai taip pat palaikomi ir bendruose pagalbos skriptuose, kaip kad`ArchiSteamFarm.cmd` arba `ArchiSteamFarm.sh`. Taip pat, naudojant papildomus skriptus galima naudoti `ASF_ARGS`, kaip nurodoma **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekcijoje.
+Komandinės eilutės argumentai taip pat palaikomi ir bendruose pagalbos skriptuose, kaip kad`ArchiSteamFarm.cmd` arba `ArchiSteamFarm.sh`. Taip pat, naudojant papildomus skriptus galima naudoti `ASF_ARGS`, kaip nurodoma **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekcijoje.
 
 Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 
@@ -44,11 +44,11 @@ Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 
 ## Argumentai
 
-`--cryptkey <key>` arba `--cryptkey=<key>` - paleis ASF su nustatytais kriptografiniais raktais `<key>` verte. Šie nustatymai peveiks **[Saugumą](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security)** ir privers ASF naudoti pateiktą `<key>` raktą vietoj įprastinio, kuris yra koduotas paleidžiamoje programoje. Tiesa, slaptažodžiai užšifruoti šiuo raktus turės praeiti kiekvieną ASF paleidimą.
+`--cryptkey <key>` arba `--cryptkey=<key>` - paleis ASF su nustatytais kriptografiniais raktais `<key>` verte. Šie nustatymai peveiks **[Saugumą](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** ir privers ASF naudoti pateiktą `<key>` raktą vietoj įprastinio, kuris yra koduotas paleidžiamoje programoje. Tiesa, slaptažodžiai užšifruoti šiuo raktus turės praeiti kiekvieną ASF paleidimą.
 
 * * *
 
-`--no-restart` - dažniausiai naudojamas **[docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker)** konteinerio ir priverčia `AutoRestart` `false`. Jei neturite ypatingo poreikio, vietoj to turėtumėte sukonfigūruoti ` AutoRestart ` savybę. Šis jungiklis yra čia, todėl mūsų konteinerio skriptas nepakeistų globalinės struktųros, kad prisitaikytų ją prie savo aplinkos. Jei ASF naudote skripte, tuomet taip pat naukite ši jungiklį (kitaip geriau palikite global config).
+`--no-restart` - dažniausiai naudojamas **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** konteinerio ir priverčia `AutoRestart` `false`. Jei neturite ypatingo poreikio, vietoj to turėtumėte sukonfigūruoti ` AutoRestart ` savybę. Šis jungiklis yra čia, todėl mūsų konteinerio skriptas nepakeistų globalinės struktųros, kad prisitaikytų ją prie savo aplinkos. Jei ASF naudote skripte, tuomet taip pat naukite ši jungiklį (kitaip geriau palikite global config).
 
 * * *
 
@@ -72,7 +72,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
 
 If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
 

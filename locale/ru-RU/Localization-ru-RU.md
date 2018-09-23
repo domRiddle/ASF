@@ -105,14 +105,14 @@ Wiki в этом плане несколько особенная, поскол�
 
 В ASF есть ссылки почти на каждой странице для облегчения навигации, а также боковую панель справа. Хорошая новость в том, что всё это можно редактировать, "исправляя" ссылки, чтобы они указывали на переведенные на ваш язык страницы. При этом следует соблюдать осторожность, но это возможно.
 
-Например, **[домашняя страница](https://github.com/JustArchi/ArchiSteamFarm/wiki/Home)** ASF включает в себя следующий текст:
+For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> Если вы здесь впервые, рекомендуем начать с инструкции по **[установке](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-ru-RU)**.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 Который исходно имеет вид:
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up)** guide.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
 В системе Crowdin, первое что вам надо сделать это зайти в настройки и убедиться, что у вас отображаются теги HTML ("HTML Tags Displaying" - "Show"). Это очень важно, если вы собираетесь заниматься локализацией wiki.
@@ -159,12 +159,12 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 После того как вы проделали все вышеописанные шаги, перевод будет штатно конвертирован из созданного нами HTML назад в markdown:
 
 ```markdown
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
 И, наконец, в текст в wiki:
 
-> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
 Если в тексте отсутствуют HTML-теги (второй случай), всё ещё проще - вам нужно просто перейти в раздел `Hidden texts` -> `Link addresses` (Скрытый текст -> Адреса ссылок).
 
@@ -188,7 +188,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 Эти ссылки - особый случай, поскольку они зависят от заголовков раздела в текущем документе. Если для глобальных URL у нас есть общий принцип добавление `-locale` в конец URL, и это работает везде, то названия разделов могут быть переведены вами и другими людьми, так что придётся проверять что ссылка ведёт в правильное место.
 
-Например, вы можете встретить ссылку `#introduction` в разделе **[configuration](https://github.com/JustArchi/ArchiSteamFarm/wiki/Configuration#introduction)**:
+For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
 * * *
 

@@ -1,8 +1,8 @@
 # Activateur de Jeux de Fond
 
-L'activateur de jeux de fond est une fonction spéciale intégrée à ASF vous permettant d'importer un groupe donné de clés cd Steam (avec leurs noms) à activer en tâche de fond. C'est particulièrement pratique si vous disposez d'un grand nombre de clés à activer, et que vous êtes certain d'atteindre le statut `RateLimited` avant d'avoir fini de toutes les activer.
+L'activateur de jeux de fond est une fonction spéciale intégrée à ASF vous permettant d'importer un groupe donné de clés cd Steam (avec leurs noms) à activer en tâche de fond. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
 
-L'activateur de jeux de fond est conçu pour n'utiliser qu'une seule commande de bot, et donc n'utilise pas `RedeemingPreferences`. Cette fonction peut être utilisée en même temps que (ou à la place de) **[command](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands)**`redeem`, si besoin est.
+L'activateur de jeux de fond est conçu pour n'utiliser qu'une seule commande de bot, et donc n'utilise pas `RedeemingPreferences`. Cette fonction peut être utilisée en même temps que (ou à la place de) **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**`redeem`, si besoin est.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF importera ce fichier au lancement du bot ou plus tard durant l'exécution. U
 
 ### IPC
 
-En plus d'utiliser le fichier de clés mentionné ci-dessus, ASF expose également l'**[API endpoint](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**`GamesToRedeemInBackground` qui peut être exécuté par n'importe quel outil IPC, y compris notre GUI IPC. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
+En plus d'utiliser le fichier de clés mentionné ci-dessus, ASF expose également l'**[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**`GamesToRedeemInBackground` qui peut être exécuté par n'importe quel outil IPC, y compris notre GUI IPC. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
 
 * * *
 
