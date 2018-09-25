@@ -157,12 +157,12 @@ If you set everything properly, `docker run` command above will make **[IPC clie
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 
-```
+```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-This assumes that you have all ASF config files in `/home/archi/asf`. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your `/home/archi/asf` with a content like below:
+This assumes that you have all ASF config files in `/home/archi/asf`, if not, you should modify the path to the one that matches. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
 
 ```json
 {
