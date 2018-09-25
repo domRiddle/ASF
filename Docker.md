@@ -113,10 +113,12 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNE
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass `--process-required` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special `ASF_ARGS` as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`.
 
 ---
 
@@ -148,6 +150,31 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/ar
 ```
 
 If you set everything properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+
+---
+
+### Complete example
+
+Combining whole knowledge above, an example of a complete setup would look like this:
+
+```
+docker pull justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+```
+
+This assumes that you have all ASF config files in `/home/archi/asf`. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your `/home/archi/asf` with a content like below:
+
+```json
+{
+	"Kestrel": {
+		"Endpoints": {
+			"HTTP": {
+				"Url": "http://*:1242"
+			}
+		}
+	}
+}
+```
 
 ---
 
