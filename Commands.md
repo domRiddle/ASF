@@ -147,10 +147,11 @@ Argument | Name | Child of
 --- | --- | ---
 1 | Profile |
 2 | OwnedGames | Profile
-3 | Playtime | OwnedGames 
-4 | Inventory | Profile
-5 | InventoryGifts | Inventory
-6 | Comments | Profile
+2 | FriendsList | Profile
+4 | Playtime | OwnedGames 
+5 | Inventory | Profile
+6 | InventoryGifts | Inventory
+7 | Comments | Profile
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
@@ -176,17 +177,17 @@ privacy Main Private
 This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
 
 ```
-privacy Main 3,3,3,3,3,3
-privacy Main Public,Public,Public,Public,Public,Public
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
 This way you can also set independent options however you like:
 
 ```
-privacy Main Public,FriendsOnly,Private,Public,Private,Public
+privacy Main Public,FriendsOnly,Public,Private,Public,Private,Public
 ```
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+The above will set profile to public, owned games to friends only, friends list to public, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
