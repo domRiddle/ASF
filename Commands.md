@@ -141,7 +141,7 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 ## `privacy` settings
 
-`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
 Argument | Name | Child of
 --- | --- | ---
