@@ -170,7 +170,7 @@ You can use either a case-insensitive name, or a numeric value. Arguments that w
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
 ```
-privacy Main 0
+privacy Main 1
 privacy Main Private
 ```
 
