@@ -2,7 +2,7 @@
 
 ## Näin pääset alkuun
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Aloittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(aloita täältä)**
 * **[Konfigurointi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[UKK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

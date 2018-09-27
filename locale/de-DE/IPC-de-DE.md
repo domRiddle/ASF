@@ -566,7 +566,7 @@ Our IPC interface supports extra config file, `IPC.config` that should be put in
 
 When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
 
-The configuration file is based on following JSON structure:
+Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 ```json
 {

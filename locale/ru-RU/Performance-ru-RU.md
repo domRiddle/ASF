@@ -50,7 +50,7 @@ ASF явно указывает когда выпала карточка из к
 
 На данный момент двух описанных выше алгоритмов достаточно для максимально эффективного фарма во всех известных сценариях, поэтому добавление других алгоритмов не планируется.
 
-Рады отметить, что в ASF также присутствует ручной(`Manual`) режим фарма, который активируется командой `play`. You can read more about it in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+Рады отметить, что в ASF также присутствует ручной(`Manual`) режим фарма, который активируется командой `play`. Вы можете прочесть об этом больше в разделе "**[команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**".
 
 * * *
 
@@ -80,6 +80,6 @@ ASF явно указывает когда выпала карточка из к
 
 Не имеет значения, можете ли вы использовать глюки Steam другими программами (такими как IM), и не важно, согласны ли вы с нами и считаете такое поведение DoS-атакой, или нет - это решать Valve, но если мы считаем это злоупотреблением непредусмотренными возможностями путём избыточных запросов к сети Steam, то вы можете быть вполне уверены что Valve будет придерживаться тех же взглядов.
 
-ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)** section.
+ASF **никогда** не будет использовать преимущества злоупотреблений, хаков, эксплоитов Steam и прочей активности, которую мы считаем **незаконной или нежелательной** согласно Соглашению подписчика Steam, Правил поведения в Steam, или любому другому надёжному источнику, который будет указывать что кативность ASF является нежелательной для сети Steam, как это указано в разделе **[Правила участия в разработке](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**.
 
-If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. Ме не рекомендуем злоупотреблять глюками Steam и использовать их для собственной выгоды - не только с помощью ASF, но и с помощью других утилит. Однако, в конце концов, это ваш аккаунт, и ваш выбор что делать с ним - просто помните, что мы вас предупредили.
+Если вы хотите любой ценой рискнуть своим аккаунтом Steam ради получения нескольких копеек за карточки Steam быстрее, чем обычно, то увы, ASF никогда не сможет вам предложить нечто подобное в автоматическом режиме, хотя у вас остаётся **[команда](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `play`, с помощью которой вы можете делать что угодно в плане взаимодействия с сетью Steam. Ме не рекомендуем злоупотреблять глюками Steam и использовать их для собственной выгоды - не только с помощью ASF, но и с помощью других утилит. Однако, в конце концов, это ваш аккаунт, и ваш выбор что делать с ним - просто помните, что мы вас предупредили.

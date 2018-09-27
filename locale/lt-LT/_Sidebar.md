@@ -2,7 +2,7 @@
 
 ## Paruošimas
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[ Paruošimas ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (pradėti čia)**
 * **[Konfigūracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[D.U.K](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

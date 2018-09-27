@@ -2,7 +2,7 @@
 
 ## Noțiuni de bază
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Pregătire](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(începe aici)**
 * **[Configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Întrebări frecvente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

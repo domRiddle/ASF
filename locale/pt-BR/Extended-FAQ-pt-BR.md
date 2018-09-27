@@ -1,4 +1,4 @@
-Nosso FAQ estendida cobre perguntas e respostas um pouco menos comuns que você pode ter. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
+Nosso FAQ estendida cobre perguntas e respostas um pouco menos comuns que você pode ter. Para coisas mais comuns, por favor visite o nosso **[FAQ básico](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** em vez disso.
 
 * * *
 

@@ -1,6 +1,6 @@
 # Häufig gestellte Fragen
 
-Unsere Basis-FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Unsere Basis-FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für weniger häufige Fragen besuchen Sie bitte stattdessen unsere **[erweiterte FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Inhaltsverzeichnis
 
@@ -57,9 +57,9 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 * * *
 
-### Farming takes too long, can I somehow speed it up?
+### Das sammeln der Karten dauert so lange - Kann ich es irgendwie beschleunigen?
 
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every damn second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+Das Einzige, was die Geschwindigkeit des Sammelns stark beeinflusst ist der gewählte **[Sammelalgorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** für die jeweilige Bot-Instanz. Alles andere hat einen unwesentlichen Effekt und beschleunigt das Sammeln nicht, wobei manche Dinge, wie zum Beispiel das mehrfache Starten von ASF, es sogar **schlechter** machen. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. Nichtsdestotrotz ist dieser Effekt unwesentlich und den entsprechenden Sammelalgorithmus für den jeweiligen Account zu wählen ist die einzige ausschlaggebende Wahl, die die Geschwindigkeit schwer beeinflussen kann, während alles andere rein kosmetisch ist. Anstatt dich wegen der Geschwindigkeit zu sorgen, solltest du einfach ASF starten und es seinen Job machen lassen - Ich kann dir versichern, dass es das auf die effektivste Art macht, die wir uns ausdenken konnten. Je weniger du dich sorgst, desto zufriedener wirst du sein.
 
 * * *
 

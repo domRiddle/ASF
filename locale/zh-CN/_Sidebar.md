@@ -2,7 +2,7 @@
 
 ## 新手指南
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[ 设置 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (从这里开始) **
 * **[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

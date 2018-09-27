@@ -2,7 +2,7 @@
 
 ## Mise en route
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Mise en place](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(commencez ici)**
 * **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

@@ -2,7 +2,7 @@
 
 ## Bắt đầu
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Thiết lập](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(bắt đầu tại đây)**
 * **[Cấu hình](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[CÂU HỎI THƯỜNG GẶP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

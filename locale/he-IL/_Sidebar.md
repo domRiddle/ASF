@@ -2,7 +2,7 @@
 
 ## מתחילים
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[מתחילים להגדיר](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(התחל כאן)**
 * **[תצורה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[שאלות ותשובות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

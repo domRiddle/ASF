@@ -2,7 +2,7 @@
 
 ## Kom godt i gang
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Opsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start her)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[OSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

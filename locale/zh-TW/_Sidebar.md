@@ -2,7 +2,7 @@
 
 ## 開始使用
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(從這裡開始)**
 * **[組態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

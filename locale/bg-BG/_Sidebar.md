@@ -2,7 +2,7 @@
 
 ## Начални стъпки
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Настройване на](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
 * **[Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Често Задавани Въпроси](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

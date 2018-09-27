@@ -2,7 +2,7 @@
 
 ## Úvod
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[První spuštění](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**
 * **[Konfigurace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Často kladené otázky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

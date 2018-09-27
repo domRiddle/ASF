@@ -110,27 +110,68 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNE
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass `--process-required` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special `ASF_ARGS` as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`.
 
 * * *
 
 ## IPC
 
-For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately. For `IPCPrefixes`, you **must** change it from the default value of `127.0.0.1`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242/`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `127.0.0.1` won't do, as the route is entirely within guest machine.
+For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
 
-Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
+For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```
+
+Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
 
 For example, this command would expose ASF IPC interface to host machine (only):
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set `IPCPrefixes` properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `127.0.0.1:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+If you set everything properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+
+* * *
+
+### Complete example
+
+Combining whole knowledge above, an example of a complete setup would look like this:
+
+```shell
+docker pull justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+```
+
+This assumes that you have all ASF config files in `/home/archi/asf`, if not, you should modify the path to the one that matches. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```
 
 * * *
 

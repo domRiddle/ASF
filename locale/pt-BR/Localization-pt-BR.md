@@ -107,7 +107,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> Se você é um novo usuário, recomendamos começar com o guia de **[instalação](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pt-BR)**.
 
 Which is originally written as:
 

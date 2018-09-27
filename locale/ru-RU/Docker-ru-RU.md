@@ -10,11 +10,11 @@
 
 ### `master`
 
-This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Обычно вам стоит избегать использования этого тега, поскольку на этом уровне в программе наибольшая вероятность наличия ошибок, и эта сборка предназначена для разработчиков и продвинутых пользователей принимающих участие в разработке. Этот образ обновляется с каждым коммитом в ветку master на GitHub, поэтому вы можете ожидать очень частых обновлений (и отказов), так же как и со сборкой AppVeyor. Эта сборка отображает текущее состояние проекта ASF, и не гарантируется что она стабильна и протестирована, как и указано в описании цикла выпуска. Этот тег не следует использовать в среде реального применения.
+Этот тег всегда указывает на сборку ASF из последнего коммита в ветке master, это то же самое что и экспериментальная сборка AppVeyor, описанная в статье "**[Цикл выпуска](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**". Обычно вам стоит избегать использования этого тега, поскольку на этом уровне в программе наибольшая вероятность наличия ошибок, и эта сборка предназначена для разработчиков и продвинутых пользователей принимающих участие в разработке. Этот образ обновляется с каждым коммитом в ветку master на GitHub, поэтому вы можете ожидать очень частых обновлений (и отказов), так же как и со сборкой AppVeyor. Эта сборка отображает текущее состояние проекта ASF, и не гарантируется что она стабильна и протестирована, как и указано в описании цикла выпуска. Этот тег не следует использовать в среде реального применения.
 
 ### `released`
 
-Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. В сравнении с тегом `master`, этот образ обновляется каждый раз когда создаётся новый тег на GitHub. Предназначен для продвинутых пользователей, которые предпочитают самые свежие версии программного обеспечения, находящиеся на грани того, что можно считать стабильным. Мы рекомендуем это если вы по какой-то причине не хотите использовать тег `latest`. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+По аналогии с тегом выше, этот тег всегда соответствует последней **[версии ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, включая предварительные. В сравнении с тегом `master`, этот образ обновляется каждый раз когда создаётся новый тег на GitHub. Предназначен для продвинутых пользователей, которые предпочитают самые свежие версии программного обеспечения, находящиеся на грани того, что можно считать стабильным. Мы рекомендуем это если вы по какой-то причине не хотите использовать тег `latest`. Пожалуйста, обратите внимание, что использование этого тега аналогично использованию **[предварительных версий](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**.
 
 ### `latest`
 
@@ -36,26 +36,26 @@ Very similar to the above, this tag always points to the latest **[released](htt
 
 ## Архитектуры
 
-Образы docker с ASF доступны для 2 архитектур - `x64` и `arm`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
+Образы docker с ASF доступны для 2 архитектур - `x64` и `arm`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**.
 
-Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
+Поскольку мульти-архитектурные теги Docker пока ещё в процессе разработки, сборки под архитектуры, отличающиеся от архитектуры по-умолчанию `x64` на данный момент доступны доступны под тегами с суффиксом `-{ARCH}`. Другими словами, если вы хотите использовать тег `latest` для архитектуры `arm`, просто используйте тег `latest-arm`.
 
 * * *
 
 ## Использование
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
+Полную справку вы можете найти в **[официальной документации docker](https://docs.docker.com/engine/reference/commandline/docker)**, а мы в этом руководстве рассмотрим только базовое использование, но вы можете узнать больше самостоятельно.
 
-### Привет, ASF!
+### Hello ASF!
 
-Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
+Для начала нам надо проверить что наш docker работает правильно, и этот пример послужит для ASF своего рода "**<a href=https://ru.wikipedia.org/wiki/Hello,_world!>hello world</a>**":
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`).
+Команда `docker pull` обеспечивает чтобы использовался самый свежий образ `justarchi/archisteamfarm`, просто на случай если у вас закеширована устаревшая версия. `docker run` создаёт новый контейнер docker с ASF и запускает его на переднем плане (`-it`).
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
 
@@ -110,27 +110,68 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNE
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass `--process-required` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special `ASF_ARGS` as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`.
 
 * * *
 
 ## IPC
 
-For using IPC, firstly you should **[configure ASF to launch it properly](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#server)**, which would be setting `IPC`, `IPCPrefixes` and `SteamOwnerID` **[global configuration properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** appropriately. For `IPCPrefixes`, you **must** change it from the default value of `127.0.0.1`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242/`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `127.0.0.1` won't do, as the route is entirely within guest machine.
+For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
 
-Once we achieve that and ASF properly brings up IPC interface, we need to tell docker to map ASF `1242/tcp` port either with `-P` or `-p` switch.
+For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```
+
+Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
 
 For example, this command would expose ASF IPC interface to host machine (only):
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set `IPCPrefixes` properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `127.0.0.1:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+If you set everything properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+
+* * *
+
+### Complete example
+
+Combining whole knowledge above, an example of a complete setup would look like this:
+
+```shell
+docker pull justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+```
+
+This assumes that you have all ASF config files in `/home/archi/asf`, if not, you should modify the path to the one that matches. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```
 
 * * *
 

@@ -19,7 +19,7 @@
 일반적으로 다음 몇분동안 할 일의 목록입니다:
 
 - **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 설치
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
+- 특정 OS에 맞는 **[최신 버전 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** 다운로드
 - 압축파일을 새 위치에 풀기(리눅스/OS X라면 `chmod +x ArchiSteamFarm` 실행)
 - **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - ASF를 실행하고 마법을 경험하세요
@@ -67,7 +67,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 ### 다운로드
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF는 다양한 변종이 있지만 당신은 OS와 아키텍쳐에 맞는 패키지를 원할 것입니다. 예를들어 `64`-비트 `윈도우`를 사용한다면, `ASF-win-x64` 패키지를 사용하면 됩니다. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF는 **32비트 윈도우**같은 특정OS용 패키지가 없는 다른 OS에서도 실행이 가능합니다. **[일반 설치](#일반 설치)**항목을 참고하시기 바랍니다.
+모든 필요한 종속 프로그램을 다 가지고 있으므로, 다음 단계는 **[최신 ASF 릴리즈](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**를 다운로드 받는 것입니다. ASF는 다양한 변종이 있지만 당신은 OS와 아키텍쳐에 맞는 패키지를 원할 것입니다. 예를들어 `64`-비트 `윈도우`를 사용한다면, `ASF-win-x64` 패키지를 사용하면 됩니다. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF는 **32비트 윈도우**같은 특정OS용 패키지가 없는 다른 OS에서도 실행이 가능합니다. **[일반 설치](#일반 설치)**항목을 참고하시기 바랍니다.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
@@ -136,7 +136,7 @@ Doing the first thing will allow ASF to automatically use your account credentia
 
 ASF requires your login credentials because it includes its own implementation of Steam client and needs the same details to log in as the one that you use yourself. Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section.
 
-You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental PIN to unlock the account, you'll need to toggle advanced settings and put it into `SteamParentalPIN` field.
+You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental to unlock the account, you'll need to put it into `SteamParentalCode` field.
 
 After the decision and optional details, your web page will now look similar to the one below:
 
@@ -185,7 +185,7 @@ This concludes our very basic setting up guide. You can now decide whether you w
 ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
 
 - Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
-- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalPIN` (if using Steam parental settings)
+- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalCode` (if using Steam parental settings)
 
 In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
 

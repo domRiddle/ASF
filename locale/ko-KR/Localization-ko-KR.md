@@ -112,7 +112,7 @@ For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wi
 원본은 다음과 같습니다:
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+처음 오셨다면 **[설치하기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** 가이드부터 시작하는 것을 추천합니다.
 ```
 
 Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Show"로 되어있는지를 확인하는 것입니다. 이것은 위키를 현지화하기로 했다면 매우 중요합니다.

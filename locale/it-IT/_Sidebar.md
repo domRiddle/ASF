@@ -2,7 +2,7 @@
 
 ## Come iniziare
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 * **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Domande frequenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 

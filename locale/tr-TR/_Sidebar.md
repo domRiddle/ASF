@@ -2,7 +2,7 @@
 
 ## Başlarken
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
 * **[Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 
