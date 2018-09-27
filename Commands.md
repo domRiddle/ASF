@@ -147,7 +147,7 @@ Argument | Name | Child of
 --- | --- | ---
 1 | Profile |
 2 | OwnedGames | Profile
-2 | FriendsList | Profile
+3 | FriendsList | Profile
 4 | Playtime | OwnedGames 
 5 | Inventory | Profile
 6 | InventoryGifts | Inventory
