@@ -251,7 +251,7 @@ DeviceID | 2FA device identificator, if missing from `.maFile`.
 Login | `SteamLogin` bot config property, if missing from config.
 Password | `SteamPassword` bot config property, if missing from config.
 SteamGuard | Auth code sent on your e-mail if you're not using 2FA.
-SteamParentalPIN | `SteamParentalPIN` bot config property, if missing from config.
+SteamParentalCode | `SteamParentalCode` bot config property, if missing from config.
 TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA.
 
 `<Value>` is value set for given type. Currently all values are strings.
