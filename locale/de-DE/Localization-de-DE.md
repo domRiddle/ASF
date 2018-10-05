@@ -38,7 +38,7 @@ Diese Flexibilität biten wir besonders für dich, damit du den ASF-Satz leicht 
 
 * * *
 
-### Rezensierung
+### Rezensionen
 
 Wenn dein String bereits von jemand anderem übersetzt wurde, kannst du dafür stimmen. Stimmen macht es möglich die beste Variante einer Übersetzung auszusuchen, anstatt an einem ursprünglichen Vorschlag festzuhalten - Das Verbessert die Qualität der Übersetzungen weiter. Du kannst für bereits verfügbare Vorschläge stimmen oder deine eigenen Vorschlag der Übersetzung einbringen, der durch den selben Prozess gehen wird. Schlussendlich wird ein endgültiger Wert gewählt, basierend auf dem Vorschlag mit den meisten Stimmen oder als Wahl eines Korrekturlesers, der für diese Sprache ausgewählt wurde, der die gegebene Übersetzung persönlich genehmigt (unter Anderem basierend auf deinen Stimmen).
 
@@ -60,9 +60,9 @@ Die generellen Regeln gelten auch für das Korrekturlesen - nimm dir Zeit, hör 
 
 Wenn du ein Problem mit einer bestimmten Übersetzung hast, weil du zum Beispiel nicht weißt, wie sie zu übersetzen ist, eine genehmigte Übersetzung falsch ist, du mehr Kontext benötigst oder Ähnliches, dann Poste bitte einen Kommentar unter dem betroffenen String und markiere ihn mit [X] als ein Problem.
 
-**Bitte vermeide das [x] wenn du keine technische Erklärung oder Aktion eines Admins benötigst**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
+**Bitte vermeide das [x] wenn du keine technische Erklärung oder Aktion eines Admins benötigst**. Es steht dir frei Kommentare für Diskussionen zur Übersetzung eines Strings zu verwenden, aber der "Issue-Tag" sollte nur verwendet werden, wenn eine weitergehende technische Erklärung oder Lösung durch einen Admin benötigt wird und wird typischerweise jemanden betreffen, der deine Sprache nicht spricht, weshalb du Problem-Kommentare möglichst auf Englisch schreiben solltest (damit wir verstehen, was das Problem ist).
 
-Es gibt 4 Typen von Problemen, die wir befürworten:
+Es gibt 4 Typen von Problemen, die wir unterstützen:
 
 * generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
 * Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest.
@@ -79,7 +79,7 @@ Eine Sprache gilt als **übersetzt** wenn ihr Übersetzungsfortschritt 100% erre
 
 Gewählte Sprachen können entsprechende Korrekturleser haben, die Übersetzungen validieren und endgültige Versionen auswählen. Dies ist der letzte Schritt nach der Übersetzung und erlaubt weitere Verbesserungen.
 
-ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Deshalb kannst du deine Bemühungen direkt in der nächsten Version von ASF sehen, sobald die Übersetzung auf Crowdin ist. Typischerweise fügen wir Übersetzungsupdates in dem Moment hinzu, in dem wir die neue ASF-Version herausgeben werden.
+ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Strings sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Deshalb kannst du deine Bemühungen direkt in der nächsten Version von ASF sehen, sobald die Übersetzung auf Crowdin ist. Typischerweise fügen wir Übersetzungsupdates in dem Moment hinzu, in dem wir die neue ASF-Version herausgeben werden.
 
 * * *
 
@@ -112,7 +112,7 @@ For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wi
 Which is originally written as:
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-De)** anzufangen.
 ```
 
 On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.

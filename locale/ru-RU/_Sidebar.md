@@ -2,7 +2,7 @@
 
 ## Начало работы
 
-* **[Установка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(начните тут)**
+* **[Установка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ru-RU)** **(начните тут)**
 * **[Конфигурация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**
 * **[ЧАВО](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ru-RU)**
 

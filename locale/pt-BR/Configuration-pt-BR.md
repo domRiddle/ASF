@@ -3,7 +3,7 @@
 Esta página é dedicada a configuração do ASF. Ela serve como uma documentação completa da pasta `config`, permitindo que você modifique o ASF conforme suas necessidades.
 
 - **[Introdução](#introdução)**
-- **[Gerador de configuração web](#gerador de configuração web)**
+- **[Gerador de configuração web](#gerador-de-configuração-web)**
 - **[Configuração manual](#configuração-manual)**
 - **[Configuração global](#configuração-global)**
 - **[Configuração do Bot](#configuração-do-bot)**

@@ -1,6 +1,6 @@
 # 백그라운드 게임 등록기
 
-백그라운드 게임 등록기는 ASF의 특별한 내장기능으로, 주어진 Steam 키(와 이름)의 집합을 불러오고 백그라운드에서 등록할 수 있게 합니다. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+백그라운드 게임 등록기는 ASF의 특별한 내장기능으로, 주어진 Steam 키(와 이름)의 집합을 불러오고 백그라운드에서 등록할 수 있게 합니다. 이 기능은 특히 등록할 키가 많아서 전체 키 등록완료 전에 `RateLimited` **[상태](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ko-KR#키를 등록할때 나오는 상태의 의미가 뭔가요?)**가 될 것이 확실한 경우 유용합니다.
 
 백그라운드 게임 등록기는 한개의 봇 범위를 갖도록 만들어졌으며, `RedeemingPreferences`를 이용하지 않습니다. 이 기능은 필요하다면 `redeem` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**와 함께 혹은 대신해서 사용할 수 있습니다.
 
@@ -24,7 +24,7 @@ ASF는 봇 시작시에 또는 나중에 실행중에 이 파일을 불러옵니
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. IPC를 사용하면 탭 문자 대신 사용자 지정 구분기호를 사용하여 적절한 구문분석을 직접 할 수 있는 등 더 강력합니다.
+위에서 언급한 키 파일을 이용하는 방법과 함께, ASF는 자체 IPC GUI를 포함한 어떠한 IPC 도구에서도 실행가능한 `GamesToRedeemInBackground` **[API 끝점](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#post-apigamestoredeeminbackgroundbotname)**을 제공합니다. IPC를 사용하면 탭 문자 대신 사용자 지정 구분기호를 사용하여 적절한 구문분석을 직접 할 수 있는 등 더 강력합니다.
 
 * * *
 

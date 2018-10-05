@@ -1,8 +1,8 @@
 # Produktschlüsselaktivierung im Hintergrund
 
-Der Hintergrundproduktschlüsselaktivierer ist eine besondere, in ASF integrierte Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-Produktschlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Der Hintergrundproduktschlüsselaktivierer ist eine besondere, in ASF integrierte Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-Produktschlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` **[Status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-de-de#what-is-the-meaning-of-status-when-redeeming-a-key)** erreichst, bevor du mit allen fertig bist.
 
-Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. Diese Funktion kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-de)** benutzt werden.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF importiert solch eine Datei, entweder beim Bot-Start oder später während d
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** which can be executed by any IPC tool, including our IPC GUI. Die Verwendung der IPC kann leistungsfähiger sein, da Sie selbst ein geeignetes Parsing durchführen können, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt des erforderlichen Tabulatorzeichens.
+Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien legt ASF den `GamesToRedeemInBackground` **[API-Endpunkt](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-de#post-apigamestoredeeminbackgroundbotname)** offen, welcher von jedem IPC-Tool, einschließlich unserer IPC-GUI, verwendet werden kann. Die Verwendung der IPC kann leistungsfähiger sein, da Sie selbst ein geeignetes Parsing durchführen können, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt des erforderlichen Tabulatorzeichens.
 
 * * *
 

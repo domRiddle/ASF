@@ -2,7 +2,7 @@
 
 ## Como começar
 
-* **[Instalação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(comece aqui)**
+* **[Instalação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR)** **(comece aqui)**
 * **[Configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**
 * **[Perguntas frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR)**
 
@@ -22,7 +22,7 @@
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Autenticação de dois passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
-* **[Configuração de pouca memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumentos da linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
 * **[Captura de registros do sistema](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**

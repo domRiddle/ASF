@@ -1,20 +1,20 @@
 # 자주 묻는 질문(FAQ)
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+기본 FAQ에서는 물어볼만한 일반적인 질문과 답변을 담고 있습니다. 덜 일반적인 문제에 대해서는 **[확장된 자주 묻는 질문(FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ko-KR)**을 이용하시기 바랍니다.
 
-# Table of contents
+# 목차
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [일반 사항](#general)
+- [비슷한 도구와 비교](#comparison-with-similar-tools)
+- [보안 / 개인 정보 보호 / VAC / 차단 / 서비스 약관](#security--privacy--vac--bans--tos)
 - [기타](#misc)
 - [이슈](#issues)
 
 * * *
 
-## General
+## 일반 사항
 
-### So how it exactly works?
+### 그래서 정확하게 어떻게 작동하는건가요?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
@@ -43,21 +43,21 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 * * *
 
-### Do I have to put my account credentials?
+### 내 계정 비밀번호를 넣어야 하나요?
 
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**예**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### 카드가 나올때까지 얼마나 오래 기다려야 하나요?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**걸리는 시간만큼 기다려야 합니다** - 정말입니다. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
 
 * * *
 
-### Farming takes too long, can I somehow speed it up?
+### 농사가 너무 오래 걸립니다. 어떻게든 속도를 높일 수 있나요?
 
 The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## 비슷한 도구와 비교
 
 * * *
 
@@ -111,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**예**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -149,9 +149,9 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiN
 
 * * *
 
-### Is ASF faster than Idle Master?
+### ASF가 Idle Master보다 빠른가요?
 
-**Yes**, although the explanation is rather complicated.
+**예**, 비록 설명은 좀 복잡합니다만.
 
 On each new process spawned and terminated on your system, steam client automatically sends a request containing all of your games that you're currently playing - this way steam network can calculate hours and make cards drop. However, steam network counts your time played in 1-second intervals, and sending new request resets the current status. In other words, if you did spawn/kill new process every 0.5 second, you'd never drop any card because every 0.5 second steam client would send a new request and steam network would never count even 1 second of play time. Moreover, because of how operating system works, it's actually quite common to see new processes being spawned/terminated without you even doing anything, so even if you're doing nothing on your PC - there are many processes still working in the background, spawning/terminating other processes all the time. Idle master is based on steam client, so this mechanism affects you if you're using it.
 
@@ -159,45 +159,45 @@ ASF is not based on steam client, it has its own steam client implementation. Th
 
 * * *
 
-### But is the difference really noticeable?
+### 그 차이가 인식할만한가요?
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
+아니오. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
 
 However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
 
 * * *
 
-### Can ASF idle multiple games at once?
+### ASF로 여러 게임을 동시에 농사지을 수 있나요?
 
-**Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
-
-* * *
-
-### Can ASF skip through games fast?
-
-**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+**예**, ASF는 선택된 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 기초해서 해당 기능을 언제 사용할지를 더 잘 압니다. 카드 농사 알고리즘을 직접 선택할수는 없지만, 환경설정을 정확히 함으로서 ASF에게 추천할 수는 있습니다. 당신은 ASF의 환경설정 부분에 집중하고, 알고리즘이 목표를 이루는 가장 최적의 방법을 결정하도록 두십시오.
 
 * * *
 
-### Can ASF automatically idle each game for X hours before cards are added?
+### ASF가 게임을 빠르게 넘길 수 있나요?
 
-**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen.
+**아니오**, ASF는 **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR#steam-glitches)**의 사용을 지원하지도, 권장하지도 않습니다..
 
 * * *
 
-### Can I play a game while ASF is farming?
+### ASF가 카드가 추가되기 전에 각 게임을 자동으로 X시간만큼 농사지을 수 있나요?
 
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**아니오**, 스팀 카드 시스템의 전체적 변화점은 가짜 통계와 유령 플레이어와 싸우도록 되어있는 것입니다. ASF는 필요한 것보다 더 기여하지는 않을 것이며, 그러한 기능을 추가하는 것은 계획되어있지 않고 일어나지 않을 것입니다.
+
+* * *
+
+### ASF가 농사짓는 동안 게임을 플레이할 수 있나요?
+
+**아니오**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## 보안 / 개인 정보 보호 / VAC / 차단 / 서비스 약관
 
 * * *
 
-### Can I get VAC ban for using this?
+### ASF를 사용하면 VAC 차단을 받나요?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
@@ -213,7 +213,7 @@ However, keep in mind that Valve might still add ASF to the blacklist at some po
 
 * * *
 
-### Is it safe?
+### 안전한가요?
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. Code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code.
 
@@ -291,7 +291,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-### I'm using unsupported OS such as 32-bit Windows, can I still use ASF V3?
+### 32비트 윈도우즈 같은 미지원 OS를 사용중입니다. ASF V3를 사용할 수 있나요?
 
 Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section for generic variant.
 
@@ -323,7 +323,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**예**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 
@@ -369,26 +369,26 @@ You can run as many ASF instances on one machine as you like, assuming every ins
 
 * * *
 
-### What is the meaning of status when redeeming a key?
+### 키를 등록할때 나오는 상태의 의미가 뭔가요?
 
-Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
+상태는 등록 시도의 결과를 알려줍니다. 많은 가능한 상태가 있습니다. 아래는 가장 일반적인 것들입니다.
 
-| Status                  | Description                                                                                                                                                                                                                    |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
-| BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
-| DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
-| AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
-| RestrictedCountry       | This is region-locked key and your account is not in the valid region that is permitted to redeem it.                                                                                                                          |
-| DoesNotOwnRequiredApp   | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.                                                                                                    |
-| RateLimited             | You made too many redeem attempts and your account was temporarily blocked. Try again in an hour.                                                                                                                              |
+| 상태                      | 설명                                                                                                                                 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| NoDetail                | 성공을 나타내는 "OK" 상태입니다. 키가 성공적으로 등록되었습니다.                                                                                             |
+| Timeout                 | 스팀 네크워크가 주어진 시간동안 응답을 하지 않았습니다. 키가 등록되었는지 아닌지 알 수 없습니다. 다시 시도하시기 바랍니다.                                                             |
+| BadActivationCode       | 제공된 키가 유효하지 않습니다. 스팀 네트워크에서 유효한 키로 인식되지 않습니다.                                                                                      |
+| DuplicateActivationCode | 제공된 키가 이미 다른 어떤 계정에 등록되었거나, 개발자/배급자가 회수하였습니다.                                                                                      |
+| AlreadyPurchased        | 이 키와 연결된 `packageID`를 이미 계정에 가지고 있습니다. 이 상태는 키가 `DuplicateActivationCode` 인지 아닌지를 알려주는 것은 아님을 유의하십시오. 유효한 키이며, 이번 시도에서 사용되지 않았습니다. |
+| RestrictedCountry       | 지역 제한 키이며 계정이 등록가능한 유효한 지역에 해당하지 않습니다.                                                                                             |
+| DoesNotOwnRequiredApp   | 다른 앱이 없어서 키를 등록할 수 없습니다. 주로 DLC를 등록하려고 하는데 본 게임이 없는 경우입니다.                                                                         |
+| RateLimited             | 너무 많은 등록 시도를 해서 계정이 일시적으로 잠겼습니다. 한시간 뒤에 시도하십시오.                                                                                    |
 
 * * *
 
 ### Are you affiliated with any cards farming/idling service?
 
-**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
+**아니오**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
 
@@ -571,8 +571,6 @@ If you made sure that the date on your machine is appropriate and the error does
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 
-If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. We're already used to that and you shouldn't notify us about new false positives - notify developers of your AV instead, since it's not ASF issue in the first place.
-
-If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
+If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
 
 If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.

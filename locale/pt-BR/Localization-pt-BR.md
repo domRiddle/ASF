@@ -1,58 +1,58 @@
 # Localização
 
-ASF é distribuído pelo serviço Crowdin, que torna possível que qualquer um possa ajudar a traduzindo o ASF em todas as línguas faladas pelo mundo. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+O ASF é traduzido pelo serviço Crowdin, que torna possível que qualquer um possa ajudar a traduzi-lo em todas as línguas faladas pelo mundo. Para uma explicação mais detalhada de como o Crowdin funciona, confira **[introdução ao Crowdin](https://support.crowdin.com/crowdin-intro)**.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+Se você estiver interessado no que está acontecendo atualmente, você pode verificar a **[atividade do ASF no Crowdin](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
 * * *
 
-## Signing up
+## Escopo
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+Nossa plataforma oferece suporte a localização do programa principal do ASF, bem como todo o conteúdo localizável que oferecemos junto com ele. Isso inclui especialmente nosso gerador de configuração web, nossa interface IPC, e nossa wiki. Tudo isso é possível traduzir através da interface amigável do Crowdin.
 
 * * *
 
-### Translating
+## Cadastrando-se
 
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
+Se você gostaria de ajudar com o ASF, seja traduzindo, revisando ou aprovando as traduções, por favor cadastre-se na **[página do nosso projeto no Crowdin](https://crowdin.com/project/archisteamfarm)**. O cadastro é fácil e totalmente gratuito! Após o login você pode escolher os idiomas para os quais você quer ser designado e, em seguida, prosseguir para o projeto do ASF e ajudar o resto da comunidade traduzindo ele para todos os idiomas mais populares!
 
-For example, you could have a string like:
+* * *
 
-> We have {0} games to idle.
+### Traduzindo
 
-But based on your language, following sentence could make more sense:
+Se o idioma de sua escolha conter linhas sem tradução, você pode pegá-las e começar a trabalhar. Nós tentamos fazer o nosso melhor em termos de flexibilidade das traduções, portanto muitas linhas incluem variáveis extras que o ASF fornecerá durante o tempo de execução - essas são colocadas entre colchetes com um número, tal como `{0}`. Isso permite que você altere o formato padrão da linha do ASF, movendo, por exemplo, a variável que ele fornece para um lugar que satisfaça o padrão do seu idioma ao invés de ser forçado a um contexto e formato fixo. Isto é especialmente importante em idiomas como o Hebraico, em que se escreve da direita para a esquerda.
 
-> The number of games to idle is equal to {0}.
+Por exemplo, você poderia ter uma linha assim:
 
-Or:
+> Temos {0} jogos para rodar.
 
-> {0} is the number of games to idle.
+Mas em seu idioma, a seguinte frase poderia fazer mais sentido:
 
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+> O número de jogos para rodar é igual a {0}.
+
+Ou:
+
+> {0} é o número de jogos para rodar.
+
+A flexibilidade é fornecida especialmente para você, então você pode reformular ligeiramente a sentença do ASF para ficar melhor em seu idioma e mover o número fornecido pelo ASF ou outras informações para o lugar que se encaixe em sua tradução (em vez de traduzir cada parte independentemente). Isso melhora a qualidade geral da tradução.
 
 * * *
 
 ### Revisando
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
+Se a frase já foi traduzida por alguém, você pode votar nela. O voto torna possível escolher a melhor variante da tradução ao invés de se prender a sugestão inicial - isso melhora ainda mais a qualidade da tradução. Você pode votar nas sugestões já disponíveis ou sugerir a sua própria tradução, que passará pelo mesmo processo. Eventualmente, a frase final será escolhida pela sugestão mais votada ou pelo revisor escolhido para aquele idioma, que aprova manualmente determinada tradução (baseada em seus votos também).
 
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself!
+**Não é preciso aprovação para ver suas linhas traduzidas no ASF**. Aprovação significa simplesmente que alguém confiável revisou o conteúdo, e escolheu a versão final da tradução. É perfeitamente normal ter traduções criadas pela comunidade não aprovadas, onde você vota pela melhor. Contanto que esteja traduzido, tudo bem! E se você acha que a tradução atual está ruim, você sempre pode votar pela melhor, ou sugerir uma você mesmo!
 
 * * *
 
-### Proof-reading
+### Prova de leitura
 
-It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
+É uma boa ideia ter uma tradução consistente, mesmo que potencialmente possa tomar a liberdade do processo de revisão/votação da comunidade explicado acima. Isto ocorre principalmente porque traduções incorretas que não são necessariamente ruins podem ter tantos votos favoráveis que já não é possível sugerir qualquer tradução melhor, mesmo se alguém a tem.
 
-If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
+Se você tem histórico de contribuições no Crowdin ou qualquer outra plataforma/serviço de localização que podemos verificar e assumir confiável, estaremos felizes em dar-lhe o acesso de revisor para o idioma que você está contribuindo, então você será capaz de aprovar determinada tradução e torná-lo coerente. A prova de leitura não é uma tarefa fácil, especialmente porque o ASF pode ser muito "técnico" as vezes e muito difícil de traduzir, mas entendemos que muitas vezes é necessário para uma perfeita tradução. Portanto, se você pode ajudar revisando determinado idioma, **[diga-nos](https://crowdin.com/messages/create/13177432)**, mas tenha em mente que você precisará suportar seu pedido com contribuições de localização anteriores que podessamos verificar (por exemplo, trabalhando com a localização do ASF no Crowdin, ou com qualquer outro projeto). Nós também podemos permitir que usuários mais avançados realizem uma revisão inicial se nós os conhecemos pessoalmente e eles são capazes de cooperar com o resto da comunidade a fim de melhor localizar o ASF nesse determinado idioma.
 
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
+Regras gerais se aplicam para a prova de leitura - não tenha pressa, ouça seus usuários, trabalhe como um gerente de projetos, resolva problemas, certifique-se de que você está fazendo as coisas melhor e não pior.
 
 * * *
 

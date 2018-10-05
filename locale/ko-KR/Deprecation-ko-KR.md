@@ -1,12 +1,12 @@
 # 폐기(Deprecation)
 
-Starting with ASF V3.1.2.2 부터 개발과 사용이 더욱 일관되도록 일관된 폐기(deprecation) 정책을 따르고 있습니다.
+ASF V3.1.2.2 버전부터 개발과 사용이 더욱 일관되도록 일관된 폐기(deprecation) 정책을 따르고 있습니다.
 
 * * *
 
 ## 폐기란?
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+폐기는 이전에 사용되던 옵션, 인자, 기능이나 사용되지 않는 사용례를 변경하는 작거나 큰 변화의 과정입니다. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
 
 ASF changes rapidly and always strikes for becoming better. This sadly means that we might change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
 

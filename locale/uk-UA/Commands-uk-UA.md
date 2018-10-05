@@ -143,16 +143,17 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 ## `privacy` settings
 
-`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
 | Argument | Ім'я           | Child of   |
 | -------- | -------------- | ---------- |
 | 1        | Profile        |            |
 | 2        | OwnedGames     | Profile    |
 | 3        | Playtime       | OwnedGames |
-| 4        | Inventory      | Profile    |
-| 5        | InventoryGifts | Inventory  |
-| 6        | Comments       | Profile    |
+| 4        | FriendsList    | Profile    |
+| 5        | Inventory      | Profile    |
+| 6        | InventoryGifts | Inventory  |
+| 7        | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
@@ -170,22 +171,22 @@ You can use either a case-insensitive name, or a numeric value. Arguments that w
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
-    privacy Main 0
+    privacy Main 1
     privacy Main Private
     
 
 This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
 
-    privacy Main 3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public
+    privacy Main 3,3,3,3,3,3,3
+    privacy Main Public,Public,Public,Public,Public,Public,Public
     
 
 This way you can also set independent options however you like:
 
-    privacy Main Public,FriendsOnly,Private,Public,Private,Public
+    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
@@ -249,7 +250,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Пароль                  | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
+| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
 
 `<Value>` is value set for given type. Currently all values are strings.

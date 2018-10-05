@@ -143,16 +143,17 @@ Além de sintaxe de classe descrita acima, o argumento `<Bots>` também suporta 
 
 ## Configurações de `privacidade`
 
-`<Settings>` aceita argumentos com **até 6** opções diferentes, separadas, como de costume, por vírgula, que é o delimitador padrão do ASF. Esses argumentos são, em ordem:
+`<Settings>` aceita argumentos com **até 7** opções diferentes, separadas, como de costume, por vírgula, que é o delimitador padrão do ASF. Esses argumentos são, em ordem:
 
 | Argumento | Nome           | Filho de   |
 | --------- | -------------- | ---------- |
 | 1         | Profile        |            |
 | 2         | OwnedGames     | Profile    |
 | 3         | Playtime       | OwnedGames |
-| 4         | Inventory      | Profile    |
-| 5         | InventoryGifts | Inventory  |
-| 6         | Comments       | Profile    |
+| 4         | FriendsList    | Profile    |
+| 5         | Inventory      | Profile    |
+| 6         | InventoryGifts | Inventory  |
+| 7         | Comments       | Profile    |
 
 Para a descrição dos campos acima, visite as **[configurações de privacidade do Steam](https://steamcommunity.com/my/edit/settings)**.
 
@@ -170,22 +171,22 @@ Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, qua
 
 Se você deseja definir **todas as** configurações de privacidade do seu bot chamado `Main` para `Privado`, você pode usar qualquer um comandos abaixo:
 
-    privacy Main 0
+    privacy Main 1
     privacy Main Private
     
 
 Isso acontece porque o ASF assumirá automaticamente todas as outras configurações como sendo `Privada`, então não há nenhuma necessidade de defini-las. Por outro lado, se você gostaria de definir todas as configurações de privacidade para `Público`, então você deve usar qualquer um dos comandos abaixo:
 
-    privacy Main 3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public
+    privacy Main 3,3,3,3,3,3,3
+    privacy Main Public,Public,Public,Public,Public,Public,Public
     
 
 Desta forma você pode também definir opções independentes da forma que preferir:
 
-    privacy Main Public,FriendsOnly,Private,Public,Private,Public
+    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-O comando acima vai definir o perfil como público, jogos na biblioteca como apenas amigos, tempo de jogo como privado, inventário como público, presentes no inventário como privado e os comentários no perfil como público. Você pode ter o mesmo resultado com valores numéricos, se você quiser.
+The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. Você pode ter o mesmo resultado com valores numéricos, se você quiser.
 
 Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu pai. Consulte a relação de argumentos para as opções disponíveis.
 
@@ -249,7 +250,7 @@ A sintaxe geral é `input<Bots><Type><Value>`.
 | Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
 | Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
 | SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
-| SteamParentalPIN        | Propriedade de configuração do bot `SteamParentalPIN`, caso esteja faltando na config.       |
+| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.                             |
 | TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA. |
 
 `<Value>` é o valor definido para o tipo indicado. Atualmente, todos os valores são strings.

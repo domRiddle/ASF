@@ -38,7 +38,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 
 ## 명령어
 
-| Command                                              | 접근              | Description                                                                                                                                                                                           |
+| Command                                              | 접근              | 설명                                                                                                                                                                                                    |
 | ---------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                   | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                 | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
@@ -143,26 +143,27 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 ## `privacy` settings
 
-`<Settings>` argument accepts **up to 6** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
 | Argument | 이름             | Child of   |
 | -------- | -------------- | ---------- |
 | 1        | Profile        |            |
 | 2        | OwnedGames     | Profile    |
 | 3        | Playtime       | OwnedGames |
-| 4        | Inventory      | Profile    |
-| 5        | InventoryGifts | Inventory  |
-| 6        | Comments       | Profile    |
+| 4        | FriendsList    | Profile    |
+| 5        | Inventory      | Profile    |
+| 6        | InventoryGifts | Inventory  |
+| 7        | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | 이름            |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| 값 | 이름            |
+| - | ------------- |
+| 1 | `Private`     |
+| 2 | `FriendsOnly` |
+| 3 | `Public`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -170,22 +171,22 @@ You can use either a case-insensitive name, or a numeric value. Arguments that w
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
-    privacy Main 0
+    privacy Main 1
     privacy Main Private
     
 
 This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
 
-    privacy Main 3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public
+    privacy Main 3,3,3,3,3,3,3
+    privacy Main Public,Public,Public,Public,Public,Public,Public
     
 
 This way you can also set independent options however you like:
 
-    privacy Main Public,FriendsOnly,Private,Public,Private,Public
+    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
@@ -197,16 +198,16 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | 이름                    | Description                                                           |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| 값    | 이름                    | 설명                                                                    |
+| ---- | --------------------- | --------------------------------------------------------------------- |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -218,7 +219,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value      | Alias | Description                                                   |
+| 값          | Alias | 설명                                                            |
 | ---------- | ----- | ------------------------------------------------------------- |
 | All        | A     | Same as enabling all item types below                         |
 | Background | BG    | Profile background to use on your Steam profile               |
@@ -243,13 +244,13 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | 설명                                                                         |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | 비밀번호                    | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalPIN        | `SteamParentalPIN` bot config property, if missing from config.            |
+| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
 
 `<Value>` is value set for given type. Currently all values are strings.

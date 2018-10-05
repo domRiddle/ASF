@@ -44,11 +44,11 @@ Aber diese beiden sind völlig in Ordnung:
 
 ## Argumente
 
-`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Beachte, dass Passwörter, welche mit diesem Schlüssel verschlüsselt sind, diesen bei jedem ASF Start erfordern.
+`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option betrifft die **[Sicherheit](https://github.com/JustArchi/ArchiSteamFarm/wiki/Security-de-DE)** und führt zur Verwendung des angegebenen Passwords `<key>` anstatt eines standardmäßig in die ausführbare Datei einprogrammierten. Beachte, dass Passwörter, welche mit diesem Schlüssel verschlüsselt sind, diesen bei jedem ASF Start erfordern.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Wenn du keinen besonderen Bedarf hast, solltest du stattdessen die Eigenschaft `AutoRestart` direkt in deiner Konfiguration setzen. Dieser Schalter existiert nur damit unser Docker-Skript deine globale Konfiguration nicht modifizieren muss, um sie an die eigene Umgebung anzupassen. Wenn du ASF innerhalb eines Skripts ausführst, kannst du natürlich auch diesen Schalter verwenden (ansonsten ist es besser, wenn du die globale Konfigurationseigenschaft verwendest).
+`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Wenn du keinen besonderen Bedarf hast, solltest du stattdessen die Eigenschaft `AutoRestart` direkt in deiner Konfiguration setzen. Dieser Schalter existiert nur damit unser Docker-Skript deine globale Konfiguration nicht modifizieren muss, um sie an die eigene Umgebung anzupassen. Wenn du ASF innerhalb eines Skripts ausführst, kannst du natürlich auch diesen Schalter verwenden (ansonsten ist es besser, wenn du die globale Konfigurationseigenschaft verwendest).
 
 * * *
 
@@ -72,7 +72,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative Pfade fu
 
 * * *
 
-`--process-required` - Durch die Deklaration dieses Schalters wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. Wenn du die Option IPC verwendest oder anderweitig einen ASF-Prozess benötigst, welcher die ganze Zeit läuft, bis du ihn selbst beendest, ist dies die richtige Option.
+`--process-required` - Durch die Deklaration dieses Schalters wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Das Nicht-Beenden ist besonders nützlich in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API, von welcher die Mehrheit der Benutzer erwarten würde, dass ihr Server unabhängig von der Anzahl der aktivierten Bots läuft. Wenn du die Option IPC verwendest oder anderweitig einen ASF-Prozess benötigst, welcher die ganze Zeit läuft, bis du ihn selbst beendest, ist dies die richtige Option.
 
 Wenn du nicht vorhast, die IPC auszuführen, ist diese Option für dich ziemlich nutzlos, da du den Prozess bei Bedarf einfach neu starten kannst (im Gegensatz zu ASF's Webserver, wo Sie ihn ständig hören müssen, um Befehle zu senden).
 

@@ -1,57 +1,57 @@
 # 환경설정
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+이 페이지는 ASF 환경설정에 대한 내용입니다. 이는 `config` 디렉토리에 대한 완전한 설명이며, ASF를 당신의 입맛에 맞게 조정하게 해줍니다.
 
-- **[Introduction](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
-- **[JSON mapping](#json-mapping)**
-- **[Compatibility mapping](#compatibility-mapping)**
-- **[Configs compatibility](#configs-compatibility)**
-- **[Auto-reload](#auto-reload)**
-
-* * *
-
-## Introduction
-
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
-
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
-
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
-
-Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
-
-**[Back to top](#configuration)**
+- **[소개](#소개)**
+- **[웹 기반 환경설정 생성기(ConfigGenerator)](#웹-기반-환경설정-생성기)**
+- **[수동 환경설정](#수동-환경설정)**
+- **[일반 환경설정](#일반-환경설정)**
+- **[봇 환경설정](#봇-환경설정)**
+- **[파일 구조](#파일-구조)**
+- **[JSON 매핑](#json-매핑)**
+- **[호환성 매핑](#호환성-매핑)**
+- **[환경설정 호환성](#환경설정-호환성)**
+- **[자동 재시작](#자동-재시작)**
 
 * * *
 
-## Web-based ConfigGenerator
+## 소개
 
-The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+ASF 환경설정은 두개의 주요 부분으로 나누어집니다. 일반(프로세스) 환경설정과 모든 봇의 환경설정입니다. 모든 봇은 각각 `봇이름.json`이라는 이름의 봇 환경설정 파일을 가집니다. `봇이름`은 봇의 이름입니다. ASF 일반(프로세스) 설정은 `ASF.json`이라는 단일 파일입니다.
 
-Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
+봇은 ASF 프로세스에 참여하는 단일 스팀 계정입니다. 정상적으로 작동하기 위해서 ASF는 최소한 **하나** 이상의 정의된 봇 인스턴스가 필요합니다. 프로세스가 강제하는 봇 인스턴스의 개수제한은 없습니다. 원하는 만큼 봇(스팀 계정)을 사용할 수 있습니다.
 
-The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
+ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikipedia.org/wiki/JSON)** 형식을 사용합니다. 사람에게 친숙하고, 읽을 수 있으며 프로그램을 설정할 수 있는 가장 보편적인 형식입니다. 걱정하지 마십시오. ASF를 설정하기 위해 JSON을 알 필요는 없습니다. 어떤 종류의 bash 스크립트로 ASF 환경설정을 대량생성하길 원하는 경우가 있어서 언급했을 뿐입니다.
 
-**[Back to top](#configuration)**
+환경설정은 정확한 JSON 환경설정을 작성하여 수동으로 혹은 훨씬 쉽고 편리한 **[웹 기반 환경설정 생성기(ConfigGenerator)](https://justarchinet.github.io/ASF-WebConfigGenerator)**를 이용해서 가능합니다. 고급 사용자가 아니라면 아래에서 설명할 환경설정 생성기를 사용하는 것을 추천합니다.
 
-* * *
-
-## Manual configuration
-
-I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
-
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## Global config
+## 웹 기반 환경설정 생성기(ConfigGenerator)
 
-Global config is located in `ASF.json` file and has following structure:
+웹 기반 환경설정 생성기(ConfigGenerator)의 목적은 ASF 환경설정 파일을 생성하는데 사용하는 친숙한 화면을 제공하기 위해서입니다. 웹 기반 환경설정 생성기는 100% 클라이언트 기반입니다. 즉 입력한 세부내용은 다른 어디로도 보내지지 않고 로컬에서만 처리된다는 뜻입니다. 이렇게 해서 보안성과 신뢰성을 보장할 수 있습니다. 모든 파일을 다운로드 받고 `index.html` 파일을 당신의 웹 브라우저에서 실행하면 **[오프라인](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**으로 작동할 수도 있습니다.
+
+웹 기반 환경설정 생성기는 크롬과 파이어폭스에서 정상작동됨을 검증하였습니다. 또한 자바스크립트가 가능한 대부분의 유명한 웹 브라우저에서도 정상적으로 작동할 것입니다.
+
+사용법은 매우 간단합니다. 적절한 탭을 선택해서 생성을 원하는 `ASF` 또는 `봇` 환경설정을 선택합니다. ASF 버전과 환경설정 파일의 버전이 맞는지 다시한번 확인 후, 모든 세부내용을 입력하고 "다운로드" 버튼을 누릅니다. 이 파일을 ASF의 `config` 디렉토리로 옮깁니다. 필요하다면 기존의 파일에 덮어쓰기 합니다. 매 최종수정마다 이를 반복합니다. 환경설정에서 가능한 옵션에 대한 설명은 이 섹션의 나머지 부분을 참고하십시오.
+
+**[위로 돌아가기](#환경설정)**
+
+* * *
+
+## 수동 환경설정
+
+웹기반 환경설정 생성기를 사용하는 것을 매우 권장합니다만, 모종의 이유로 사용을 원하지 않는 경우에는 직접 정확한 환경설정파일을 만들 수도 있습니다. 적절한 구조에서 잘 시작하기 위해서 `example.json` 파일을 참고하십시오. 새로 설정할 봇을 위해 이를 복사해서 사용할 수도 있습니다. 우리가 만든 화면을 사용하지 않기 때문에, 환경설정 내용이 **[유효한지](https://jsonlint.com)** 다시 한번 확인해야 합니다. ASF는 구문 분석이 안되면 실행이 안됩니다. 모든 가능한 항목의 적절한 JSON 구조는 아래의 **[JSON 매핑](#json-매핑)** 항목과 설명을 참고하십시오.
+
+**[위로 돌아가기](#환경설정)**
+
+* * *
+
+## 일반 환경설정
+
+일반 환경설정은 `ASF.json` 파일에 들어있으며 다음과 같은 구조를 가집니다.
 
 ```json
 {
@@ -86,13 +86,13 @@ Global config is located in `ASF.json` file and has following structure:
 }
 ```
 
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
+**팁:** 저 옵션을 바꾸길 원하지 않는 한, 모든 것을 기본값으로 놔두어도 괜찮습니다. 그러면 이제 `ASF.json` 파일을 닫고 봇 환경설정으로 넘어갈 수 있습니다.
 
 * * *
 
-All options are explained below:
+모든 옵션은 다음과 같습니다.
 
-`AutoRestart` - `bool` type with default value of `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you might want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+`AutoRestart` - `bool` 타입으로 기본값은 `true`입니다. 이 속성값은 필요할때 ASF가 자동으로 재시작할지를 정의합니다. `UpdatePeriod` 혹은 `update` 명령으로 수행되는 ASF업데이트나, `ASF.json` 환경설정 변경, `restart` 명령 등 ASF가 재시작을 필요로 하는 몇가지 이벤트가 있습니다. 일반적으로, 재시작은 두 부분으로 이루어져 있습니다. 새로운 프로세스의 생성과 현재 프로세스의 종료입니다. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you might want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
 
@@ -195,9 +195,9 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | Value | 이름        | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
 | 0     | None      | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| 1     | TCP       | **[Transmission Control Protocol](https://ko.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2     | UDP       | **[User Datagram Protocol](https://ko.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4     | WebSocket | **[WebSocket](https://ko.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -257,7 +257,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
@@ -312,7 +312,7 @@ After deciding how you want to name your bot, open its file, and start with conf
 
 * * *
 
-All options are explained below:
+모든 옵션은 다음과 같습니다.
 
 `AcceptGifts` - `bool` type with default value of `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
 
@@ -430,42 +430,42 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `MatchableTypes` - `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | 이름                | Description                                                   |
-| ----- | ----------------- | ------------------------------------------------------------- |
-| 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
-| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground | Profile background to use on your Steam profile               |
-| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 값 | 이름                | 설명                                                            |
+| - | ----------------- | ------------------------------------------------------------- |
+| 0 | Unknown           | Every type that doesn't fit in any of the below               |
+| 1 | BoosterPack       | Unpacked booster pack                                         |
+| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4 | ProfileBackground | Profile background to use on your Steam profile               |
+| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
 * * *
 
-`OnlineStatus` - `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`OnlineStatus` - `byte` 타입으로 기본값은 `1`입니다. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
 
-| Value | 이름             |
-| ----- | -------------- |
-| 0     | Offline        |
-| 1     | Online         |
-| 2     | Busy           |
-| 3     | Away           |
-| 4     | Snooze         |
-| 5     | LookingToTrade |
-| 6     | LookingToPlay  |
-| 7     | Invisible      |
+| 값 | 이름             |
+| - | -------------- |
+| 0 | 오프라인           |
+| 1 | 온라인            |
+| 2 | 다른 용무 중        |
+| 3 | 자리 비움          |
+| 4 | 수면 중           |
+| 5 | LookingToTrade |
+| 6 | LookingToPlay  |
+| 7 | Invisible      |
 
-`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
+`오프라인` 상태는 주 계정에 극도로 유용합니다. 알다시피 게임을 농사지으면 스팀 상태가 "XXX를 플레이중"으로 나타나며, 실제로는 농사를 짓고 있는데 플레이를 하는것으로 혼동울 주어 당신의 친구들이 오해할 수 있습니다. `오프라인` 상태를 사용하면 ASF로 카드 농사중일때 "게임중"으로 표시하지 않아 이런 문제를 해결해줍니다. 이것은 ASF가 정상작동하기 위해서 스팀 커뮤니티에 로그인할 필요가 없기 때문에 가능합니다. 우리는 사실 스팀 네트워크에 접속해서, 게임을 플레이중이지만, 우리의 존재를 전혀 알리지 않습니다. 오프라인 상태에서 플레이했던 게임도 플레이 시간에 포함되며, 프로필의 "최근에 플레이한 게임"에 표시된 다는 것을 명심하십시오.
 
-In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and whether ASF would like it or not, Steam broadcasts all those messages and other events to it. This is not a problem if you have both ASF and your own Steam client running, as both clients receive exactly the same events. However, if just ASF is running, Steam network could mark certain events and messages as "delivered", despite of your traditional Steam client not receiving it due to not being present. Offline status also solves this problem, as ASF is never considered for any community events in this case, so all unread messages and other events will be properly marked as unread when you come back.
+그 외에, 이 기능은 ASF는 실행중이지만 스팀 클라이언트는 동시에 열어놓지 않고도 알림과 읽지 않은 메시지를 수신하려는 경우에 중요합니다. 이것은 ASF가 스팀 클라이언트 그 자체인 것 처럼 행동하며, ASF가 그렇게 하던 아니던 스팀이 모든 메시지와 이벤트를 ASF로 보내주기 때문입니다. ASF와 스팀 클라이언트를 둘 다 실행하는 것은 문제가 없습니다. 두 클라이언트 모두 정확하게 동일한 이벤트를 수신합니다. 하지만 만약 ASF가 실행중이라면 스팀 클라이언트가 존재하지 않아 받을 수 없음에도 불구하고 특정 이벤트와 메시지를 "배달된" 것으로 표시할 수도 있습니다. 오프라인 상태는 이 문제도 해결합니다. ASF는 이 경우 어떤 커뮤니티 이벤트트로도 간주되지 않기때문에 모든 읽지 않은 메시지와 다른 이벤트가 당신이 돌아오면 읽지 않은 상태로 정상적으로 표시될 것입니다.
 
 It's important to note that ASF running on `Offline` mode will **not** be able to receive commands in usual Steam chat way, as the chat, as well as entire community presence is in fact, entirely offline. A solution to this issue is using `Invisible` mode instead which works in a similar way (not exposing status), but keeps the ability to receive and respond to messages (so also a potential to dismiss notifications and unread messages as stated above). `Invisible` mode makes the most sense on alt accounts that you don't want to expose (status-wise), but still be able to send commands to.
 
 However, there is one catch with `Invisible` mode - it doesn't go well with primary accounts. This is because **any** Steam session that is currently online **exposes** the status, even if ASF itself does not. This is caused by the current limitation/bug of the Steam network that isn't possible to be fixed on ASF side, so if you want to use `Invisible` mode you will also need to ensure that **all** other sessions to the same account use `Invisible` mode as well. This will be the case on alt accounts where ASF is hopefully the only active session, but on primary accounts you'll almost always prefer to show as `Online` to your friends, hiding only ASF activity, and in this case `Invisible` mode will be entirely useless for you (we recommend to use `Offline` mode instead). Hopefully this limitation/bug will be eventually solved in the future by Valve, but I wouldn't expect that to happen anytime soon...
 
-If you're unsure how to set up this property, it's recommended to use a value of `0` (`Offline`) for primary accounts, and default `1` (`Online`) otherwise.
+이 속성값을 어떻게 설정할지 잘 모르겠다면, 주 계정은 `0` (`오프라인`)으로 놓고 다른 계정은 기본값인 `1` (`온라인`) 로 두는 것을 추천합니다.
 
 * * *
 
@@ -575,13 +575,13 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## File structure
+## 파일 구조
 
-ASF is using quite simple file structure.
+ASF는 꽤 간단한 파일구조를 사용합니다.
 
     ├── config
     │     ├── ASF.json
@@ -598,9 +598,9 @@ ASF is using quite simple file structure.
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하나만을 이동/복사하는 것으로 충분합니다. 그리고 이것이 ASF 백업으로 권장되는 방법입니다.
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+`log.txt` 파일은 마지막 ASF 실행으로 생성된 로그를 담고 있습니다. 이 파일은 어떠한 민감한 정보도 포함하고 있지 않으며, 이슈나 충돌, 혹은 지난번 ASF 실행에서 무슨일이 있었는지 정보로써도 굉장히 가치가 있습니다. 이슈나 버그가 발생하면 우리는 이 파일을 자주 요청하게 될 것입니다. ASF는 이 파일을 자동으로 관리하지만, 고급 사용자라면 ASF **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)** 모듈을 더 깊이 조절할 수 있습니다.
 
 `config` directory is the place that holds configuration for ASF, including all of its bots.
 
@@ -610,23 +610,23 @@ In order to move ASF to new location, for example another PC, it's enough to mov
 
 Apart from config files, ASF also uses `config` directory for storing databases.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **이 파일을 수정해서는 안됩니다**.
 
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## JSON mapping
+## JSON 매핑
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+모든 환경설정 속성값은 타입이 있습니다. 속성값의 타입은 유효한 값을 정의합니다. 주어진 타입에 유효한 값만 사용할 수 있습니다. 유효하지 않은 값을 사용하면 ASF는 환경설정을 수행할 수 없습니다.
 
 **We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
 
@@ -634,25 +634,25 @@ Types used by ASF are native C# types, which are specified below:
 
 * * *
 
-`bool` - Boolean type accepting only `true` and `false` values.
+`bool` - `true`와 `false` 값만 받는 불린타입입니다.
 
-Example: `"Enabled": true`
-
-* * *
-
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
-
-Example: `"ConnectionTimeout": 60`
+예: `"Enabled": true`
 
 * * *
 
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+`byte` - `0`부터 `255` 까지의 정수만 받는 Unsigned 바이트 타입입니다.
+
+예: `"ConnectionTimeout": 60`
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`uint` - `0`부터 `4294967295` 까지의 정수만 받는 Unsigned 정수 타입입니다.
 
-Example: `"SteamMasterClanID": 103582791440160998`
+* * *
+
+`ulong` - `0`부터 `18446744073709551615` 까지의 정수만 받는 Unsigned long 정수 타입입니다.
+
+예: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
@@ -689,37 +689,37 @@ Using `B + C` would result in value of `6`, using `A + C` would result in value 
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## Compatibility mapping
+## 호환성 매핑
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## Configs compatibility
+## 환경설정 호환성
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**
 
 * * *
 
-## Auto-reload
+## 자동 재시작
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지할 수 있습니다. 이에 따라 ASF는 자동적으로 아래와 같은 행동을 합니다.
 
-- Create (and start, if needed) new bot instance, when you create its config
-- Stop (if needed) and remove old bot instance, when you delete its config
-- Stop (and start, if needed) any bot instance, when you edit its config
-- Restart (if needed) the bot under new name, when you rename its config
+- 새로운 봇 환경설정을 만드는 경우 그 봇 인스턴스의 생성 및 시작(필요한 경우)
+- 예전 봇 환경설정을 삭제하는 경우 그 봇 인스턴스의 중지(필요한 경우) 및 제거
+- 봇 환경설정을 수정하는 경우 그 봇 인스턴스의 중지 및 시작(필요한 경우)
+- 봇 환경설정 이름을 변경하는 경우 새 이름으로 봇 재시작(필요한 경우)
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+위의 모든 것은 투명하고 프로그램의 재시작이나 다른 영향이 없는 봇 인스턴스의 중지 없이 자동으로 수행됩니다.
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+게다가 ASF는 `AutoRestart`가 허용되어있다면 `ASF.json` 환경설정이 변경되면 ASF를 재시작합니다. 동일하게 삭제하거나 이름을 바꾸면 프로그램은 종료됩니다.
 
-**[Back to top](#configuration)**
+**[위로 돌아가기](#환경설정)**

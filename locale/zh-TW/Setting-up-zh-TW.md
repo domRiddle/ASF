@@ -1,36 +1,36 @@
-# Setting up
+# 設定
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+如果你是第一次來到這裡，歡迎！ 我們很高興看到另一位對我們的項目感興趣的旅行者，但請記住能力越強責任越大 - 只要你**足夠小心學習如何使用它**，ASF 能夠完成許多不同的 Steam 相關事務。 這將會是一個陡峭的學習曲線，我們希望您在這方面閱讀維基，它會詳細解釋了一切如何運作。
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+如果你還在這裡，那就表示你可以忍受了我們上面的文字，非常好。 除非你跳過它，否則你很快就會有一個**[很糟的時刻](https://www.youtube.com/watch?v=WJgt6m6njVw)**... 無論如何，ASF是一個控制台應用程序，這意味著應用程式本身沒有你習慣的友好圖型介面。 ASF主要設計是在伺服器上執行，所以它只是一個服務 (daemon) 而非桌面應用程式。
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
-
-* * *
-
-## Quick video setup
-
-If you absolutely hate reading and you'd like to watch a video instead, then you can take a look at the one recorded by **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** under **[this link](https://www.youtube.com/watch?v=gi2UjXtGWgc)**. Please note that you should still refer to the wiki for further explanation and up-to-date setting up guide. While we consider YouTube video as a good material for actually showing how things are configured and launched, we can't easily update it when things are changed, so it should be a reference material only. If you care about detailed explanation, documentation and complete setup, then you should continue reading our **[OS-specific setup](#os-specific-setup)** instead, using YouTube video as optional reference material only. Still, we note it here, as it can be useful in **some** places, but we recommend reading our wiki over watching anyway.
+然而這並不代表著你不能在 PC 上使用它，或它在某種程度上比平常更複雜，並不是這樣的。 ASF是一個獨立的程式，不需要安裝並且可以立即使用，但這之前需要進行設置。 設置 ASF 啟動它之後應該做什麼。 如果你在沒有設置的情況下啟動它，那麼 ASF 將不會做任何事情，就是這麼簡單。
 
 * * *
 
-## OS-specific setup
+## 快速設定影片
 
-In general, here is what we'll do in the next few minutes:
-
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
-
-Sounds simple enough, right? So let's get through it.
+如果你非常討厭閱讀並想要看影片來取代它，那麼你可以看看 **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** 在此 **[連結](https://www.youtube.com/watch?v=gi2UjXtGWgc)** 下錄製的影片。 請注意，你仍應參考維基以獲取進一步說明和最新的設置指南。 雖然我們認為 YouTube 影片是實際展示設置和啟動的好材料，但是當程式變化時我們無法很快更新它，因此它只是一個參考資料。 如果您關心詳細說明、文件和完整設置，那麼您應該繼續閱讀我們的**[ 特定作業系統設置 ](#os-specific-setup)**，而不是僅使用 YouTube 影片作為參考資料。 不過，我們依然提到它，因為它在**某些**地方很有用，但無論如何我們依然希望能來看看我們的維基。
 
 * * *
 
-### .NET Core prerequisites
+## 特定作業系統設置
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+一般來說，這是我們在接下來的幾分鐘內要做的事情：
+
+- 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
+- 下載適合你作業系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
+- 將解壓縮到你指定的位置 ( 並且 `chmod +x ArchiSteamFarm`，若使用Linux/OS X 系統)。
+- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+- 執行 ASF 並觀賞神奇的一刻
+
+聽起來有夠簡單，是吧? 所以讓我們繼續吧。
+
+* * *
+
+### .NET 核心套件
+
+第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 c# 編寫的, 基於 .NET 核心, 並且可能需要你的系統上尚未使用的本機庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
 
 It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
@@ -39,7 +39,7 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates might be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- 強烈建議確保已安裝所有Windows更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，並可能需要更多更新檔。 如果您的Windows更新到最新版，則上述所有都已安裝。 在安裝 Visual C ++ 之前，請確保滿足這些要求。
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
@@ -65,7 +65,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 * * *
 
-### Downloading
+### 下載
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
@@ -99,7 +99,7 @@ Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe`
 
 After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
-![Structure](https://i.imgur.com/k85csaZ.png)
+![架構](https://i.imgur.com/k85csaZ.png)
 
 This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 
@@ -267,11 +267,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
