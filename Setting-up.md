@@ -114,7 +114,7 @@ Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebC
 
 After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
-![Bot tab](https://i.imgur.com/BUkUEYt.png)
+![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
@@ -144,7 +144,7 @@ Save that file into `config` directory of ASF. You can use previously-created `c
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/doYnbB9.png)
+![Structure 2](https://i.imgur.com/2s7ZUUu.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
