@@ -17,8 +17,6 @@ INFO|ASF|Start() IPC server ready!
 
 ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process. If ASF's IPC interface was enabled properly, you should see our **[ASF-ui](#asf-ui)** frontend in your browser.
 
-![IPC GUI](https://i.imgur.com/vCu2ZY5.png)
-
 ---
 
 # ASF-ui
@@ -26,6 +24,8 @@ ASF's http server is now listening on selected endpoints. If you didn't provide 
 ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
 
 As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
+
+![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
 
 ---
 
