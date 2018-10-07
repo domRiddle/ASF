@@ -39,25 +39,6 @@ Communication with IPC server provided by ASF can be done by using any http-comp
 
 ---
 
-## HTTP status codes
-
-Our API makes use of standard HTTP status codes, and we use them according to the RFC. In the most simplified explanation, our API will return `200 OK` status if your API call succeeded, and non-200 otherwise. This should be used as a primary way to detect whether your ASF API call succeeded or not.
-
-ASF can use various HTTP status codes to explain better what happened. Some of them include:
-
-- `200 OK` - the request has completed successfully.
-- `400 BadRequest` - the request has failed because of an error, parse our response body for actual reason. Most of the time this is ASF, understanding the request, but refusing to execute it due to provided reason.
-- `401 Unauthorized` - ASF has `IPCPassword` set, but you've failed to **[authenticate](#authentication)** properly.
-- `403 Forbidden` - ASF has `IPCPassword` set and you've failed to **[authenticate](#authentication)** properly too many times, try again in an hour.
-- `404 NotFound` - the URL that you're trying to reach does not exist. Confirm with our **[swagger frontend](#swagger-frontend)** below whether you're accessing appropriate endpoint.
-- `405 MethodNotAllowed` - the HTTP method you're trying to use is not allowed for this API endpoint. This can be caused e.g. by sending `GET` request where ASF expects `POST`, or vice-versa. This code can also be used when trying to access websocket endpoint without initiating a websocket connection (upgrade).
-- `406 NotAcceptable` - your `Content-Type` header is not acceptable for this API endpoint. This is mainly used in requests that require from you a specific body as an input, and you didn't declare in what format it's provided.
-- `411 LengthRequired` - your `POST` request is missing `Content-Length` header. Length must be defined even in requests that do not have a body (use length of 0 in this case).
-- `500 InternalServerError` - IPC server ran into fatal condition, this indicates ASF issue that should be reported and corrected. We do not normally use this status anywhere in the code, please let us know.
-- `503 ServiceUnavailable` - ASF ran into one of possible exceptions during execution of this request. If not explained in the response, ASF log should be able to tell more.
-
----
-
 ## Authentication
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
@@ -80,7 +61,11 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 ## Swagger frontend
 
-TODO
+Our IPC interface, in additon to ASF API and ASF-ui also includes swagger frontend, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger frontend serves as a middle-man between our API implementation and other tools implementing them (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed in other projects, allowing you to write and test ASF API with ease.
+
+Apart from using our swagger frontend as complete documentation of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger frontend is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
+
+![Swagger frontend](https://i.imgur.com/mLpd5e4.png)
 
 ---
 
