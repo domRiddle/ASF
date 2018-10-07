@@ -23,7 +23,7 @@ On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC
 
 On the medium ground there is our **[Swagger frontend](#swagger-frontend)** which acts as a frontend to ASF API. This serves as a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that integrates with ASF.
 
-On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides completely user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API.
+On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API.
 
 ---
 
