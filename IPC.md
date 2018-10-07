@@ -1,6 +1,6 @@
 # IPC
 
-ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
 
 IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
 
@@ -39,11 +39,11 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 # ASF API
 
-Our IPC interface is based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** and comes with **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
-Our ASF API can be accessed by sending appropriate requests to appropriate endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
+Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
 
-Communication with IPC server provided by ASF can be done by using any http-compatible program, tool or code. Some API endpoints might require from you to specify extra data, such as providing appropriate structure as a body of the request. In this case, in addition to providing required input, you must also set `Content-Type` header to appropriate value, such as `application/json` if your input is provided in JSON.
+For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger frontend](#swagger-frontend)**.
 
 ---
 
