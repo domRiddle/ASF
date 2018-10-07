@@ -61,9 +61,9 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 ## Swagger frontend
 
-Our IPC interface, in additon to ASF API and ASF-ui also includes swagger frontend, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger frontend serves as a middle-man between our API implementation and other tools implementing them (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed in other projects, allowing you to write and test ASF API with ease.
+Our IPC interface, in additon to ASF API and ASF-ui also includes swagger frontend, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger frontend serves as a middle-man between our API implementation and other tools implementing them (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
-Apart from using our swagger frontend as complete documentation of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger frontend is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
+Apart from using our swagger frontend as a complete documentation of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger frontend is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
 
 ![Swagger frontend](https://i.imgur.com/mLpd5e4.png)
 
