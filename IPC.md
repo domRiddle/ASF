@@ -15,7 +15,15 @@ INFO|ASF|Start() Starting IPC server...
 INFO|ASF|Start() IPC server ready!
 ```
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process. If ASF's IPC interface was enabled properly, you should see our **[ASF-ui](#asf-ui)** frontend in your browser.
+ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+
+ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+
+On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to implement in your own tools, utilities and projects in order to communicate with ASF directly.
+
+On the medium ground there is our **[Swagger frontend](#swagger-frontend)** which acts as a frontend to ASF API. This serves as a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that integrates with ASF.
+
+On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides completely user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API.
 
 ---
 
