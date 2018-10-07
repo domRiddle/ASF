@@ -45,6 +45,8 @@ Our ASF API can be accessed by sending appropriate requests to appropriate `/Api
 
 For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger frontend](#swagger-frontend)**.
 
+![ASF API](https://i.imgur.com/yggjf5v.png)
+
 ---
 
 ## Authentication
