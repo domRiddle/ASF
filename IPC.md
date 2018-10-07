@@ -69,7 +69,7 @@ Apart from using our swagger frontend as complete documentation of ASF API, you 
 
 ---
 
-## FAQ
+# FAQ
 
 ### Is ASF's IPC interface secure and safe to use?
 
