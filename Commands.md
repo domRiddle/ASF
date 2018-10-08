@@ -58,7 +58,7 @@ Command | Access | Description
 `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `loot <Bots>` | `Master` | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot@ <Bots> <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` of `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
+`loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot& <Bots>` | `Master` | Switches looting of given bot instances between enabled/disabled state.
 `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
 `owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
@@ -79,7 +79,7 @@ Command | Access | Description
 `stop <Bots>` | `Master` | Stops given bot instances.
 `transfer <Bots> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items from given bot instances to target bot.
 `transfer@ <Bots> <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.
-`transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master` | Sends all Steam items from given `AppID` of `ContextID` of given bot instances to target bot.
+`transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.
 `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).
 `version` | `FamilySharing` | Prints version of ASF.
@@ -215,27 +215,6 @@ V | Validate | Validates keys for proper format and automatically skips invalid 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
 `redeem^ primary FF,SI key1,key2,key3`
-
----
-
-## `transfer` modes
-
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
-
-Value | Alias | Description
---- | --- | ---
-All | A | Same as enabling all item types below
-Background | BG | Profile background to use on your Steam profile
-Booster | BO | Booster pack
-Card | C | Steam trading card, being used for crafting badges (non-foil)
-Emoticon | E | Emoticon to use in Steam Chat
-Foil | F | Foil variant of `Card`
-Gems | G | Steam gems being used for crafting boosters, sacks included
-Unknown | U | Every type that doesn't fit in any of the above
-
-For example, in order to send trading cards and foils from `MyBot` to `MyMain`, you'd execute:
-
-`transfer MyBot C,F MyMain`
 
 ---
 
