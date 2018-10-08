@@ -123,12 +123,6 @@ It's not required to have any extra account for executing commands though Steam 
 
 ---
 
-When using **IPC**, keep in mind that:
-- Commands don't have to be prefixed by `CommandPrefix`, ASF prefixes them for you automatically if needed
-- When using commands that are based on `current bot instance`, ASF will choose **any** of currently enabled bots, therefore it's highly recommended to use `given bot instances` commands instead.
-
----
-
 ### `<Bots>` argument
 
 `<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
