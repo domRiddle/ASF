@@ -77,7 +77,9 @@ Command | Access | Description
 `stats` | `Owner` | Prints process statistics, such as managed memory usage.
 `status <Bots>` | `FamilySharing` | Prints status of given bot instances.
 `stop <Bots>` | `Master` | Stops given bot instances.
-`transfer <Bots> <Modes> <Bot>` | `Master` | Sends from given bot instances to given `Bot` instance, all inventory items that are matching given `modes`, explained **[below](#transfer-modes)**.
+`transfer <Bots> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items from given bot instances to target bot.
+`transfer@ <Bots> <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.
+`transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master` | Sends all Steam items from given `AppID` of `ContextID` of given bot instances to target bot.
 `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).
 `version` | `FamilySharing` | Prints version of ASF.
