@@ -14,7 +14,7 @@ However, ASF is open-source project, and I can't express enough that I'm not beh
 
 ASF was created with primary purpose of being fully automated Steam idling tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF has progressed, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
 
-It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, with blackjack and hookers!
+It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, the way I wanted it.
 
 ---
 
