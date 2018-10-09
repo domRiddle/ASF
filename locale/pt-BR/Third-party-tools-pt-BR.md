@@ -15,21 +15,21 @@ Por favor, saiba que as ferramentas abaixo não são mantidas pelos desenvolvedo
 
 ## Pacotes
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
-- **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
+- **[Repositório no AUR #1](https://aur.archlinux.org/packages/asf)**, permite que você instale facilmente o ASF no Arch Linux.
+- **[Repositório no AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permite que você instale facilmente o ASF no Arch Linux.
+- **[DESATUALIZADO] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permite que você instale facilmente o ASF V2 em vários sistema de servidor. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
+- **[DESATUALIZADO] [Brew Formula](http://brewformulas.org/ArchiSteamFarm)**, permite que você instale facilmente o ASF V2 com o homebrew. Ainda não atualizado para a versão mais recente do ASF, portanto seu uso é desencorajado. Talvez você possa ajudar?
 
 * * *
 
 ## Bots / Bibliotecas
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, biblioteca python para uma maior integração com a interface IPC do ASF.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração com o ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração com o ASF.
 
 * * *
 
-## Want to find more?
+## Quer saber mais?
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.
+Recomendamos a tag **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** no GitHub para ver todos os projetos que integram com o ASF.

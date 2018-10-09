@@ -304,6 +304,11 @@ After deciding how you want to name your bot, open its file, and start with conf
     "SteamTradeToken": null,
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
+    "TransferableTypes": [
+        1,
+        3,
+        5
+    ],
     "UseLoginKeys": true
 }
 ```
@@ -569,6 +574,24 @@ For further explanation of ASF trading logic, and description of every available
 
 * * *
 
+`TransferableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
+
+| Value | Namn              | Description                                                   |
+| ----- | ----------------- | ------------------------------------------------------------- |
+| 0     | Unknown           | Every type that doesn't fit in any of the below               |
+| 1     | BoosterPack       | Unpacked booster pack                                         |
+| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4     | ProfileBackground | Profile background to use on your Steam profile               |
+| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+
+Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+
+Default ASF setting is based on most common usage of the bot, with transfering only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+
+* * *
+
 `UseLoginKeys` - `bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
@@ -678,7 +701,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Namn |
+| Value | Name |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

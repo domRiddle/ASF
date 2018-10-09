@@ -57,9 +57,9 @@ docker run -it --name asf justarchi/archisteamfarm
 
 Команда `docker pull` обеспечивает чтобы использовался самый свежий образ `justarchi/archisteamfarm`, просто на случай если у вас закеширована устаревшая версия. `docker run` создаёт новый контейнер docker с ASF и запускает его на переднем плане (`-it`).
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
+Если всё завершилось успешно, после получения всех слоев и запуска контейнера вы должны увидеть что ASF успешно запустился и сообщил вам что в нём не задано ботов, это хорошо - мы проверили что ASF корректно работает в docker. Нажмите `CTRL+P` а затем `CTRL+Q` чтобы выйти контейнера docker на переднем плане, а затем остановите контейнер с ASF командой `docker stop asf`, и удалите его командой `docker rm asf`.
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+Если вы внимательно посмотрите на команды выше, вы заметите что мы не задали тег, и поэтому по умолчанию автоматически используется тег `latest`. Если вы хотите использовать тег, отличный от `latest`, например `latest-arm`, его надо задать в явном виде:
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
@@ -68,26 +68,26 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 * * *
 
-## Using a volume
+## Использование тома
 
-If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
+Если вы используете ASF в контейнере docker то очевидно что вам нужно сконфигурировать саму программу. Это можно сделать различными методами, но мы рекомендуем создать папку ASF `config` на локальной машине, и подключить её как общий том к контейнеру docker с ASF.
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
+Например, предположим что ваша папка config для ASF находится по адресу `/home/archi/ASF/config`. Эта папка содержит `ASF.json` а также файлы конфигурации для ботов, которых мы хотим запустить. Теперь всё что нам нужно сделать это просто подключить эту папку как общий том к нашему контейнеру docker, там где ASF ожидает найти свою папку конфигурации (`/app/config`).
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF.
+Вот и всё, теперь ваш контейнер docker с ASF будет использовать общую папку с вашей локальной машины в режиме чтения и записи, а это всё что вам нужно для конфигурирования ASF.
 
-Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
+Разумеется, это только один из возможных способов получить желаемое, никто не мешает вам, к примеру, создать свой собственный `Dockerfile` который будет копировать файлы конфигурации в папку `/app/config` в контейнере docker с ASF. В этой инструкции мы описываем только основы использования.
 
-### Volume permissions
+### Разрешения для тома
 
-ASF is by default run with default `root` user inside a container. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which might not be desired situation when using a shared volume.
+ASF по умолчанию запускается под пользователем `root` внутри контейнера. С точки зрения безопасности это не проблема, поскольку мы уже находимся внутри контейнера Docker, но это влияет на общий том, поскольку созданные в нём файлы будут обычно иметь в качестве владельца `root`, что может быть нежелательным при использовании общего тома.
 
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
+Docker позволяет вам указать **[флаг](https://docs.docker.com/engine/reference/run/#user)** ` --user` команде `docker run`, что задаст пользователя по умолчанию, под которым будет запускаться ASF. Вы можете посмотреть ваши `uid` и `gid` например с помощью команды `id`, и затем передать их в команде. Например, если нужный вам пользователь имеет `uid` и `gid` равные 1000:
 
 ```shell
 docker pull justarchi/archisteamfarm

@@ -304,6 +304,11 @@ After deciding how you want to name your bot, open its file, and start with conf
     "SteamTradeToken": null,
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
+    "TransferableTypes": [
+        1,
+        3,
+        5
+    ],
     "UseLoginKeys": true
 }
 ```
@@ -569,6 +574,24 @@ For further explanation of ASF trading logic, and description of every available
 
 * * *
 
+`TransferableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
+
+| Value | 이름                | Description                                                   |
+| ----- | ----------------- | ------------------------------------------------------------- |
+| 0     | Unknown           | Every type that doesn't fit in any of the below               |
+| 1     | BoosterPack       | Unpacked booster pack                                         |
+| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4     | ProfileBackground | Profile background to use on your Steam profile               |
+| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+
+Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+
+Default ASF setting is based on most common usage of the bot, with transfering only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+
+* * *
+
 `UseLoginKeys` - `bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
@@ -581,7 +604,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## 파일 구조
 
-ASF는 꽤 간단한 파일구조를 사용합니다.
+ASF is using quite simple file structure.
 
     ├── config
     │     ├── ASF.json
@@ -598,9 +621,9 @@ ASF는 꽤 간단한 파일구조를 사용합니다.
     └── ...
     
 
-ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하나만을 이동/복사하는 것으로 충분합니다. 그리고 이것이 ASF 백업으로 권장되는 방법입니다.
+In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
 
-`log.txt` 파일은 마지막 ASF 실행으로 생성된 로그를 담고 있습니다. 이 파일은 어떠한 민감한 정보도 포함하고 있지 않으며, 이슈나 충돌, 혹은 지난번 ASF 실행에서 무슨일이 있었는지 정보로써도 굉장히 가치가 있습니다. 이슈나 버그가 발생하면 우리는 이 파일을 자주 요청하게 될 것입니다. ASF는 이 파일을 자동으로 관리하지만, 고급 사용자라면 ASF **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)** 모듈을 더 깊이 조절할 수 있습니다.
+`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
 
 `config` directory is the place that holds configuration for ASF, including all of its bots.
 
@@ -610,11 +633,11 @@ ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하�
 
 Apart from config files, ASF also uses `config` directory for storing databases.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **이 파일을 수정해서는 안됩니다**.
+`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **이 파일을 수정해서는 안됩니다**.
+`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **이 파일을 수정해서는 안됩니다**.
+`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
 
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 
@@ -626,7 +649,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## JSON 매핑
 
-모든 환경설정 속성값은 타입이 있습니다. 속성값의 타입은 유효한 값을 정의합니다. 주어진 타입에 유효한 값만 사용할 수 있습니다. 유효하지 않은 값을 사용하면 ASF는 환경설정을 수행할 수 없습니다.
+Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
 **We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
 
@@ -634,25 +657,25 @@ Types used by ASF are native C# types, which are specified below:
 
 * * *
 
-`bool` - `true`와 `false` 값만 받는 불린타입입니다.
+`bool` - Boolean type accepting only `true` and `false` values.
 
-예: `"Enabled": true`
-
-* * *
-
-`byte` - `0`부터 `255` 까지의 정수만 받는 Unsigned 바이트 타입입니다.
-
-예: `"ConnectionTimeout": 60`
+Example: `"Enabled": true`
 
 * * *
 
-`uint` - `0`부터 `4294967295` 까지의 정수만 받는 Unsigned 정수 타입입니다.
+`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
+
+Example: `"ConnectionTimeout": 60`
 
 * * *
 
-`ulong` - `0`부터 `18446744073709551615` 까지의 정수만 받는 Unsigned long 정수 타입입니다.
+`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
 
-예: `"SteamMasterClanID": 103582791440160998`
+* * *
+
+`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+
+Example: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
@@ -711,15 +734,15 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 ## 자동 재시작
 
-ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지할 수 있습니다. 이에 따라 ASF는 자동적으로 아래와 같은 행동을 합니다.
+Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 
 - 새로운 봇 환경설정을 만드는 경우 그 봇 인스턴스의 생성 및 시작(필요한 경우)
 - 예전 봇 환경설정을 삭제하는 경우 그 봇 인스턴스의 중지(필요한 경우) 및 제거
 - 봇 환경설정을 수정하는 경우 그 봇 인스턴스의 중지 및 시작(필요한 경우)
 - 봇 환경설정 이름을 변경하는 경우 새 이름으로 봇 재시작(필요한 경우)
 
-위의 모든 것은 투명하고 프로그램의 재시작이나 다른 영향이 없는 봇 인스턴스의 중지 없이 자동으로 수행됩니다.
+All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
-게다가 ASF는 `AutoRestart`가 허용되어있다면 `ASF.json` 환경설정이 변경되면 ASF를 재시작합니다. 동일하게 삭제하거나 이름을 바꾸면 프로그램은 종료됩니다.
+In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
 
 **[위로 돌아가기](#환경설정)**

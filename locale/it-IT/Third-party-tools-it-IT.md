@@ -17,14 +17,14 @@ Si prega di notare che i seguenti strumenti non sono mantenuti dal team di ASF e
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
-- **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
+- **[OBSOLETO][Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permettendovi di installare facilmente ASF V2 su vari sistemi. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
+- **[OBSOLETO][Brew formula](http://brewformulas.org/ArchiSteamFarm)**, permettendovi di installare facilmente ASF V2 con homebrew. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
 
 * * *
 
 ## Bot / Librerie
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, libreria di python per un'ulteriore intregrazione con l'interfaccia IPC di ASF.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot di telegram con l'integrazione per ASF, scritto in python.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, un altro bot di telegram (minimale) con l'integrazione per ASF, scritto in python.
 

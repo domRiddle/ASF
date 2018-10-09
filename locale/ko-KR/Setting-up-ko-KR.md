@@ -8,15 +8,9 @@
 
 * * *
 
-## 간단 설치 영상
+## OS-specific setup
 
-읽는 것을 정말로 싫어하고 대신 영상보는 것을 좋아한다면, 여기 **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)**의 **[이 영상](https://www.youtube.com/watch?v=gi2UjXtGWgc)**을 참고하세요. 더 많은 설명과 최신 설치 가이드는 위키를 참고해야 한다는 것을 명심하시기 바랍니다. 유튜브 영상은 실제로 어떻게 설정되고 실행되는지를 보여주는 좋은 자료라고 생각합니다. 하지만 뭔가 바뀌며면 쉽게 업데이트할 수가 없어서 참고자료일 수 밖에 없습니다. 세부적인 설명, 설명서, 완전한 설치방법을 원한다면 **[특정 OS에 설치하기](#특정 OS에 설치하기)**를 읽어보시고 유튜브 영상은 가능한 참고자료로만 사용하십시오. 아직도 **어떤** 곳에서는 유용할 수 있다는 점을 알지만, 어쨌건 우리 위키를 읽어보기를 권장합니다.
-
-* * *
-
-## 특정 OS에 설치하기
-
-일반적으로 다음 몇분동안 할 일의 목록입니다:
+In general, here is what we'll do in the next few minutes:
 
 - **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 설치
 - 특정 OS에 맞는 **[최신 버전 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** 다운로드
@@ -24,17 +18,17 @@
 - **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - ASF를 실행하고 마법을 경험하세요
 
-꽤 간단한 것 같죠? 자 이제 해봅시다.
+Sounds simple enough, right? So let's get through it.
 
 * * *
 
 ### .NET Core 필수 구성 요소
 
-첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다.다 This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
 
 It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
-특정 OS용 빌드는 이미 모든 것을 포함하고 있으므로 .NET Core SDK나 런타임의 설치 등 다른 어떤 것도 할 필요가 없다는 것을 명심하십시오. ASF에 포함된 .NET Core 런타임을 실행하기 위해서는 .NET Core 필수 구성 요소(종속 프로그램)만 필요합니다.
+Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
 
 #### **[윈도우](https://docs.microsoft.com/ko-kr/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
@@ -52,7 +46,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - libssl1.0.2 (libssl, openssl-libs, 배포판의 최신 1.0.X 버전)
 - zlib1g (zlib)
 
-이 중 적어도 몇개는 이미 설치되어 있을 것입니다. (오늘날 거의 모든 리눅스 배포판의 필수요소인 zlib1g 같은 것들)
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
 If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
 
@@ -67,17 +61,17 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 ### 다운로드
 
-모든 필요한 종속 프로그램을 다 가지고 있으므로, 다음 단계는 **[최신 ASF 릴리즈](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**를 다운로드 받는 것입니다. ASF는 다양한 변종이 있지만 당신은 OS와 아키텍쳐에 맞는 패키지를 원할 것입니다. 예를들어 `64`-비트 `윈도우`를 사용한다면, `ASF-win-x64` 패키지를 사용하면 됩니다. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF는 **32비트 윈도우**같은 특정OS용 패키지가 없는 다른 OS에서도 실행이 가능합니다. **[일반 설치](#일반 설치)**항목을 참고하시기 바랍니다.
+Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-패키지를 받았다면 zip파일을 압축을 풉니다.(**[7-zip](https://www.7-zip.org)**을 권장합니다.). 엄청나게 많은 폴더와 파일이 보일것입니다. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
+Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
 
-리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일에 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
-ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
+Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
-다음은 구조도 예시입니다:
+An example structure would look like this:
 
     C:\ASF (필요한 스크립트나 파일은 여기에 넣으십시오)
         ├── ASF shortcut.lnk (선택사항)
@@ -91,19 +85,19 @@ ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 �
              └── (...)
     
 
-이것이 우리가 권장하는 구조입니다. 사용을 위해서 ASF에 포함된 수많은 파일과 폴더를 거칠 필요없이 설정(config) 폴더와 메인 실행파일의 바로가기만 있으면 됩니다.
+This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
 
-좋습니다. 이제 ASF 폴더가 사용준비되었습니다. 원한다면 다음 단계는 넘어가도 됩니다. ASF 구조를 정리하는 것은 필수작업은 아닙니다. 하지만 삶이 조금 쉬워지긴 합니다.
+Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
 
-ASF 폴더를 열어서 핵심 실행 파일을 찾으십시오. 윈도우는 `ArchiSteamFarm.exe`이고 리눅스나 OS X는 `ArchiSteamFarm`입니다. 마우스 오른쪽 버튼을 누르고 "복사"를 선택합니다. 이제 바탕화면 같이 ASF 바로가기를 실제로 놓을 곳으로 가서 마우스 오른쪽 버튼을 누르고 "바로가기 붙여넣기"를 선택합니다. 바로가기는 "ASF" 같이 원하는 이름으로 바꿀 수 있습니다. `config` 디렉토리는 ASF 실행파일이 있는 곳에 있으며, 동일하게 해줍니다.
+Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
 
-정리가 끝나면 아래와 같이 아주 편리한 구조를 갖게 됩니다.
+After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
 ![Structure](https://i.imgur.com/k85csaZ.png)
 
-이렇게 해서 혼란없이 ASF 실행파일과 설정 파일에 쉽게 접근할 수 있습니다. 제 경우에는 위에서 말한 구조를 사용하기로 결정했습니다. 제 ASF 파일들은 "Core" 디렉토리에 바로 들어있습니다. 구조는 원하는대로 적용할 수 있습니다. ASF와 설정 바로가기는 바탕화면에 두고 ASF 디렉토리는 예를 들어 `C:\ASF`에 놓을 수도 있습니다. 하기 나름입니다.
+This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 
-리눅스와 OS X 이용자들도 동일하게 하는 것을 권장합니다. `ln -s`이라는 훌륭한 심볼릭 링크 메카니즘을 사용하면 됩니다.
+Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
 
 * * *
 
@@ -119,7 +113,7 @@ Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebC
 
 After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
-![Bot tab](https://i.imgur.com/BUkUEYt.png)
+![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
@@ -140,17 +134,13 @@ You can also decide to leave just one field empty, such as `SteamPassword`, ASF 
 
 After the decision and optional details, your web page will now look similar to the one below:
 
-![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
+![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name:
-
-![Bot tab 3](https://i.imgur.com/ylyvzvL.png)
-
-Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/doYnbB9.png)
+![Structure 2](https://i.imgur.com/2s7ZUUu.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
@@ -213,11 +203,11 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 * * *
 
-#### Using IPC GUI
+#### Using ASF-ui
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
+ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
 
-In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 
 For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
 
@@ -237,21 +227,21 @@ Now you can generate your config by downloading it and replacing the original `A
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use it for example for sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as accessing other available to you functionality through friendly graphical web interface.
+If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
-![IPC 3](https://i.imgur.com/TsAHcM0.png)
+![IPC 3](https://i.imgur.com/vCu2ZY5.png)
 
-Please note that IPC GUI is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage, such as sending a command.
+Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
 
 * * *
 
 ### 요약
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
-## 일반 설치
+## Generic setup
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 

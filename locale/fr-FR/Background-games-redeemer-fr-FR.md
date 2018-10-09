@@ -1,6 +1,6 @@
 # Activateur de Jeux de Fond
 
-L'activateur de jeux de fond est une fonction spéciale intégrée à ASF vous permettant d'importer un groupe donné de clés cd Steam (avec leurs noms) à activer en tâche de fond. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+L'activateur de jeux de fond est une fonction spéciale intégrée à ASF vous permettant d'importer un groupe donné de clés cd Steam (avec leurs noms) à activer en tâche de fond. C'est particulièrement pratique si vous disposez d'un grand nombre de clés à activer, et que vous êtes certain d'atteindre le `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** avant d'avoir fini de toutes les activer.
 
 L'activateur de jeux de fond est conçu pour n'utiliser qu'une seule commande de bot, et donc n'utilise pas `RedeemingPreferences`. Cette fonction peut être utilisée en même temps que (ou à la place de) **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**`redeem`, si besoin est.
 
@@ -42,7 +42,7 @@ Considérons que vous avez une liste de 100 clés. Tout d'abord, vous devez cré
 
 Maintenant, nous pouvons ouvrir notre nouveau fichier et copier-coller notre liste de 100 clés dedans, en réglant le format si besoin est. Après nos réglages, le fichier `BotName.keys.new` aura exactement 100 (ou 101, avec le dernier retour à la ligne) lignes, chaque ligne ayant une structure de `GameName\tcd-key\n`, où `\t` correspond à une tabulation et `\n` à un retour à la ligne.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Vous êtes maintenant prêt à renommer ce fichier de `BotName.keys.new` à `BotName.keys` afin d'indiquer à ASF qu'il est prêt à être récupéré. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 
 Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
 

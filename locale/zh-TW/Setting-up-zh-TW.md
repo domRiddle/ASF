@@ -8,15 +8,9 @@
 
 * * *
 
-## 快速設定影片
+## OS-specific setup
 
-如果你非常討厭閱讀並想要看影片來取代它，那麼你可以看看 **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** 在此 **[連結](https://www.youtube.com/watch?v=gi2UjXtGWgc)** 下錄製的影片。 請注意，你仍應參考維基以獲取進一步說明和最新的設置指南。 雖然我們認為 YouTube 影片是實際展示設置和啟動的好材料，但是當程式變化時我們無法很快更新它，因此它只是一個參考資料。 如果您關心詳細說明、文件和完整設置，那麼您應該繼續閱讀我們的**[ 特定作業系統設置 ](#os-specific-setup)**，而不是僅使用 YouTube 影片作為參考資料。 不過，我們依然提到它，因為它在**某些**地方很有用，但無論如何我們依然希望能來看看我們的維基。
-
-* * *
-
-## 特定作業系統設置
-
-一般來說，這是我們在接下來的幾分鐘內要做的事情：
+In general, here is what we'll do in the next few minutes:
 
 - 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
 - 下載適合你作業系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
@@ -24,13 +18,13 @@
 - **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 - 執行 ASF 並觀賞神奇的一刻
 
-聽起來有夠簡單，是吧? 所以讓我們繼續吧。
+Sounds simple enough, right? So let's get through it.
 
 * * *
 
 ### .NET 核心套件
 
-第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 c# 編寫的, 基於 .NET 核心, 並且可能需要你的系統上尚未使用的本機庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
+First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
 
 It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
@@ -99,7 +93,7 @@ Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe`
 
 After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
-![架構](https://i.imgur.com/k85csaZ.png)
+![Structure](https://i.imgur.com/k85csaZ.png)
 
 This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 
@@ -119,7 +113,7 @@ Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebC
 
 After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
-![Bot tab](https://i.imgur.com/BUkUEYt.png)
+![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
@@ -140,17 +134,13 @@ You can also decide to leave just one field empty, such as `SteamPassword`, ASF 
 
 After the decision and optional details, your web page will now look similar to the one below:
 
-![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
+![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name:
-
-![Bot tab 3](https://i.imgur.com/ylyvzvL.png)
-
-Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/doYnbB9.png)
+![Structure 2](https://i.imgur.com/2s7ZUUu.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
@@ -213,11 +203,11 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 * * *
 
-#### Using IPC GUI
+#### Using ASF-ui
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
+ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
 
-In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 
 For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
 
@@ -237,17 +227,17 @@ Now you can generate your config by downloading it and replacing the original `A
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use it for example for sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as accessing other available to you functionality through friendly graphical web interface.
+If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
-![IPC 3](https://i.imgur.com/TsAHcM0.png)
+![IPC 3](https://i.imgur.com/vCu2ZY5.png)
 
-Please note that IPC GUI is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage, such as sending a command.
+Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
 
 * * *
 
 ### Summary
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 

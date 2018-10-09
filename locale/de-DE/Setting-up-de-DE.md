@@ -8,15 +8,9 @@ Dies heißt allerdings nicht, dass du ASF nicht an deinem normalen PC verwenden 
 
 * * *
 
-## Schnellinstallatiosvideo
+## OS-specific setup
 
-Wenn du das Lesen absolut hasst und lieber ein Video ansehen würdest, dann kannst du einen Blick auf das Video von **[@GamingTaylor](https://www.youtube.com/channel/UCTjrsQgjZmBzYzWaAh0zI3Q)** unter **[diesem Link](https://www.youtube.com/watch?v=gi2UjXtGWgc)** werfen. Bitte vergiss nicht, dass du immer noch das Wiki lesen solltest für weitere Erklärungen und einem aktuellerem Installationsguide. Obwohl wir das YouTube-Video als gutes Material für das Herzeigen, wie man ASF konfiguriert und startet, halten, können wir es leider nicht einfach aktualisieren, wenn sich etwas ändert, weshalb du es nur als Referenzmaterial sehen solltest. Wenn du dich für detaillierte Erklärungen, Dokumentation und ein komplettes Setup interessierst, dann solltest du mit dem Lesen der **[betriebssystemabhängigen Installationsanleitung](#os-specific-setup)** fortfahren und das YouTube-Video nur als optionales Referenzmaterial sehen. Trotzdem merken wir hier an, dass es an **manchen** Stellen nützlich sein kann, wir aber das Lesen des Wikis gegenüber dem Ansehen des Videos bevorzugen.
-
-* * *
-
-## betriebssystemabhängige Installation
-
-Hier ist, was wir in den nächsten paar Minuten machen werden:
+In general, here is what we'll do in the next few minutes:
 
 - **[.NET Core Abhängigkeiten](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installieren.
 - Die **[neueste ASF Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in der entsprechenden betriebssystemabhängigen Variante herunterladen.
@@ -24,17 +18,17 @@ Hier ist, was wir in den nächsten paar Minuten machen werden:
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - ASF starten und der Magie ihren Lauf lassen.
 
-Hört sich einfach genug an, richtig? Dann lass uns anfangen.
+Sounds simple enough, right? So let's get through it.
 
 * * *
 
 ### .NET Core Abhängigkeiten
 
-Der erste Schritt ist das versichern, dass dein Betriebssytem ASF ordnungsgemäß ausführen kann. ASF ist in C# programmiert, basierend auf .NET Core und benötigt möglicherweise native Bibliotheken, die auf deiner Plattform noch nicht verfügbar sind. Abhängig davon, ob du Windows, Linux oder OS X verwendest, wirst du unterschiedliche Voraussetzungen haben, welche allerdings alle im **[.NET Core Abhängigkeiten](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**-Dokument, dem du folgen solltest, aufgelistet sind. Dieses ist Referenzmaterial, das verwendet werden sollte, allerdings haben wir im Sinne der Einfachheit auch alle benötigten Pakete unten aufgelistet, damit du nicht das gesamte Dokument lesen musst.
+First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
 
-Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in deinem System existieren, weil sie mit der Software Dritter, welche du verwendest, mitinstalliert wurden. Trotzdem solltest du sicherstellen, dass dies wirklich der Fall ist indem du das entsprechende Installationsprogramm für dein Betriebssytem ausführst - Ohne diese Abhängigkeiten wird ASF nicht einmal starten.
+It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
-Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder des Runtimes, da betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Abhängigkeiten um das .NET Core Runtime das bereits in ASF inkludiert ist auszuführen.
+Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
@@ -43,7 +37,7 @@ Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nich
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Du kannst alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
+Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
 - libcurl3 (libcurl)
 - libicu60 (libicu, neueste Version für deine Distribution, als Beispiel `libicu57` für Debian 9)
@@ -52,9 +46,9 @@ Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen
 - libssl1.0.2 (libssl, openssl-libs, neueste 1.0.X Version für deine Distribution)
 - zlib1g (zlib)
 
-Zumindest einige von diesen sollten bereits nativ auf dienem System verfügbar sein (wie zum Beispiel zlib1g, welches heute in fast jeder Linux Distribution verwendet wird).
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
-Wenn du die `linux-arm`-Variante installieren willst, dann benötigst du temporär auch die .NET Core 2.0 Abhängigkeiten:
+If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
 
 - libunwind8 (libunwind)
 - libuuid1 (libuuid)
@@ -67,17 +61,17 @@ Wenn du die `linux-arm`-Variante installieren willst, dann benötigst du tempor�
 
 ### Herunterladen
 
-Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste Schritt der Download der **[neuesten ASF-Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF ist in mehreren Varianten verfügbar, aber du bist nur am Paket interessiert, das deinem Betriebssystem und der Architektur deines PCs entspricht. Zum Beispiel, wenn du `64`-bit `Win`dows verwendest, dann willst du die `ASF-win-x64`-Variante. Für mehr Information über die verfügbaren Varianten, besuche bitte den **[Kompabilitäts](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**-Artikel. ASF kann auch unter Betriebssystemen ausgeführt werden, für die wir kein betriebssystemspezifisches Paket zur Verfügung stellen. Ein Beispiel hierfür ist **32-bit Windows**. Dafür gehe bitte zur **[generischen Installation](#generic-setup)**.
+Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Wenn du dein Paket heruntergeladen und das zip-Archiv extrahiert hast (wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**), hast du ein riesiges Durcheinander von Ordnern und Dateien. Keine Angst. Wir werden das gleich aufräumen.
+Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
 
-Wenn du Linux oder OS X verwendest, vergiss nicht mit `chmod +x ArchiSteamFarm`, die Berechtigungen zu setzen, da diese in einem zip-Archiv nicht gesetzt sind. Dies muss nur nach dem initialen Entpacken gemacht werden.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
-Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Updates werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
+Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
-Eine Beispiel-Struktur würde wie folgt aussehen:
+An example structure would look like this:
 
     C:\ASF (hier tust du deine eigenen Dateien hin)
         ├── ASF Abkürzung.lnk (optional)
@@ -119,7 +113,7 @@ Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebC
 
 After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
 
-![Bot tab](https://i.imgur.com/BUkUEYt.png)
+![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
 If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
 
@@ -140,19 +134,15 @@ You can also decide to leave just one field empty, such as `SteamPassword`, ASF 
 
 After the decision and optional details, your web page will now look similar to the one below:
 
-![Bot tab 2](https://i.imgur.com/BUmF0Wr.png)
+![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name:
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
-![Bot tab 3](https://i.imgur.com/ylyvzvL.png)
+Your `config` directory will now look like this:
 
-Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+![Structure 2](https://i.imgur.com/2s7ZUUu.png)
 
-Dein `config` Verzeichnis sieht nun wie folgt aus:
-
-![Structure 2](https://i.imgur.com/doYnbB9.png)
-
-Glückwunsch! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
 * * *
 
@@ -213,11 +203,11 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 * * *
 
-#### Using IPC GUI
+#### Using ASF-ui
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[IPC GUI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#ipc-gui)** that is currently in preview state, but can be used without bigger issues.
+ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
 
-In order to use IPC GUI, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 
 For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
 
@@ -237,17 +227,17 @@ Now you can generate your config by downloading it and replacing the original `A
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use it for example for sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as accessing other available to you functionality through friendly graphical web interface.
+If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
-![IPC 3](https://i.imgur.com/TsAHcM0.png)
+![IPC 3](https://i.imgur.com/vCu2ZY5.png)
 
-Please note that IPC GUI is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage, such as sending a command.
+Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
 
 * * *
 
 ### Zusammenfassung
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our IPC GUI interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
