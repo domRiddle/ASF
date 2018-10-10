@@ -8,32 +8,32 @@
 
 ## ליבה
 
-* **[תאימות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[רקע משחק](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[פקודות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[תאימות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[ביצועים](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[מסחר](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[סטים שיתוף משחקים עם משפחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[סטטיסטיקה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[סטים שיתוף משחקים עם משפחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[מסחר](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## מתקדם
 
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[התקנת זיכרון נמוך](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[התקנת שימוש גבוה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[ארגומנטים של שורת פקודה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[רישום](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[הוצא משימוש](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[התקנת שימוש גבוה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[מקום](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[רישום](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[התקנת זיכרון נמוך](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[אבטחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[שימוש בכלים צד שלישי](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[הוצא משימוש](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## מפתחים
 
 * **[הידור](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
-* **[רישיון](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[רישיון](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

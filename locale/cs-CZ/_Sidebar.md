@@ -8,32 +8,32 @@
 
 ## Hlavní nastavení
 
-* **[Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Příkazy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Obchodování](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistiky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Obchodování](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Další nastavení
 
-* **[Rozšířené otázky a odpovědi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Argumenty příkazového řádku](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalizace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Zabezpečení](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Aplikace třetích stran](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Vývojáři
 
 * **[Kompilace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Jak přispět?](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

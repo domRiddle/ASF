@@ -8,32 +8,32 @@
 
 ## Basisfuncties
 
-* **[Compatibiliteit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Productcode-activering op de achtergrond](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commando's](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Compatibiliteit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Uitvoering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Ruilhandel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Steam-gezinsbibliotheek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistieken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam-gezinsbibliotheek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Ruilhandel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Geavanceerd
 
-* **[Uitgebreide FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Tweestapsverificatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Configuratie met hoge prestaties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Opdrachtregelparameters](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Verouderde functies](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Uitgebreide FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Configuratie met hoge prestaties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Localisatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Configuratie met laag geheugenverbruik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Beveiliging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Programma's van derden](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Verouderde functies](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Tweestapsverificatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Ontwikkelaars
 
 * **[Compilatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Release-cyclus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
-* **[Licentie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Richtlijnen voor bijdragen](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Licentie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[Release-cyclus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

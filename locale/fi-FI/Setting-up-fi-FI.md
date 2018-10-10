@@ -8,7 +8,7 @@ Tämä ei silti tarkoita ettei sitä voisi käyttää kotikoneellasi tai että s
 
 * * *
 
-## OS-specific setup
+## Käyttöjärjestelmättäinen käyttöönotto
 
 In general, here is what we'll do in the next few minutes:
 
@@ -241,7 +241,7 @@ You've successfully set up ASF to use your Steam accounts and you've already cus
 
 * * *
 
-## Generic setup
+## Yleiset asetukset
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 

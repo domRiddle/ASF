@@ -1,14 +1,14 @@
-# Captura de registros do sistema
+# Registros
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+O ASF permite que você configure seu próprio módulo de registro que será usado durante o tempo de execução. Você pode fazer isso colocando um arquivo especial chamado `NLog.config` na pasta do aplicativo. Você pode ler toda a documentação do NLog na **[wiki do NLog](https://github.com/NLog/NLog/wiki/Configuration-file)**, mas além disso você encontrará alguns exemplos disso aqui também.
 
 * * *
 
-## Default logging
+## Registro padrão
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+Usar uma configuração NLog personalizada automaticamente desativa o registro padrão do ASF, que inclui `ColoredConsole` e `File`. Em outras palavras, sua configuração substitui **completamente** os registros padrões do ASF, o que significa que se você quiser manter, por exemplo, o destino `ColoredConsole`, você deve defini-lo você mesmo. Isso te permite não só adicionar destinos de registro **extras**, mas também a desabilitar ou modificar os **padrões**.
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+Se você quiser usar o registro padrão do ASF sem quaisquer modificações, você não precisa fazer nada; você também não precisa defini-lo em um `NLog.config` personalizado. Não use um `NLog.config` personalizado se você não quiser modificar o registro padrão do ASF. Para referência, o equivalente ao registro padrão do ASF codificado seria:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -31,27 +31,27 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## Integração do ASF
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF inclui alguns truques legais de código que melhoram sua integração com o NLog, permitindo que você capture mensagens específicas mais facilmente.
 
-NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
+A variável `${logger}` específica do NLog vai sempre distinguir a fonte da mensagem - será sempre o `BotName` de um dos seus bots, ou `ASF` se a mensagem vier diretamente do processo do ASF. Assim você pode capturar facilmente mensagens de bots individuais ou (apenas) do processo do ASF, em vez de todas de uma vez, com base no nome dessa variável.
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+O ASF tenta marcar mensagens adequadamente com base nos níveis de aviso fornecidos pelo NLog, que torna possível para você pegar apenas mensagens específicas de níveis de registro específicos em vez de todos eles. Claro, o nível de registro de uma mensagem específica não pode ser personalizado, uma vez que é uma decisão codificada no ASF a seriedade de determinada mensagem, mas você pode tornar o ASF menos/mais silencioso conforme achar necessário.
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+O ASF registra informações extras, tais como mensagens de usuário/bate-papo no nível de log `Trace`. O registro padrão do ASF registra apenas o nível `Debug` e acima, que esconde essa informação extra, já que ela não é necessária para a maioria dos usuários, além de atravancar a saída contendo potencialmente mensagens mais importantes. Você pode no entanto fazer uso dessa informação reabilitando o nível de log `Trace`, especialmente em combinação com registrar apenas um bot específico, com o evento que você está interessado.
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+Em geral, o ASF tenta torná-lo tão fácil e conveniente para você quanto possível, registrando apenas as mensagens que você quer ao invés de forçá-lo a filtrá-las manualmente com alguma ferramenta de terceiros, tal como `grep` e semelhantes. Basta configurar o NLog corretamente conforme descrito abaixo, e você deverá ser capaz de especificar até mesmo regras complexas de registro com destinos personalizados como bancos de dados inteiros.
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+Em relação a versão o ASF tenta sempre ser fornecido com a versão mais atualizada do NLog disponível na **[NuGet](https://www.nuget.org/packages/NLog)** na data do lançamento do ASF. Muitas vezes é uma versão mais recente que a última versão estável, portanto você não deve ter problemas em usar qualquer recurso que você possa encontrar na wiki do NLog no ASF, mesmo recursos que estão em desenvolvimento e no estado WIP - apenas certifique-se de que você também está usando a última versão do ASF.
 
-As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
+Como parte da integração, o ASF também inclui suporte para destinos de registros NLog adicionais, que serão explicados abaixo.
 
 * * *
 
-## Examples
+## Exemplos
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+Vamos começar com algo fácil. Nós usaremos apenas o alvo **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)**. Nosso arquivo `NLog.config` inicial ficará assim:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -66,11 +66,11 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. That's it.
+A explicação da configuração acima é bastante simples - definimos um **alvo de registro** (na tag `target`) que é `ColoredConsole`, então nós redirecionamos **todos os registros** (`*`) de nível `Debug` e superior ao alvo `ColoredConsole` que havíamos definido anteriormente. É isso.
 
-If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, regardless of hardcoded ASF NLog configuration.
+Se você iniciar o ASF com o arquivo `NLog.config` acima, apenas o alvo `ColoredConsole` estará ativo e o ASF não vai gravar nada no arquivo (`File`), independentemente da configuração de NLog copificada no ASF.
 
-Now let's say that we don't like default format of `${longdate}|${level:uppercase=true}|${logger}|${message}` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+Agora vamos dizer que não gostamos do formato padrão `${longdate}|${level:uppercase=true}|${logger}|${message}` e queremos registrar apenas as mensagens. Podemos fazê-lo, modificando o **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** do nosso alvo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

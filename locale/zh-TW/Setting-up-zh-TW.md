@@ -8,9 +8,9 @@
 
 * * *
 
-## OS-specific setup
+## 特定作業系統設置
 
-In general, here is what we'll do in the next few minutes:
+一般來說，這是我們在接下來的幾分鐘內要做的事情：
 
 - 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
 - 下載適合你作業系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
@@ -18,13 +18,13 @@ In general, here is what we'll do in the next few minutes:
 - **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 - 執行 ASF 並觀賞神奇的一刻
 
-Sounds simple enough, right? So let's get through it.
+聽起來有夠簡單，是吧? 所以讓我們繼續吧。
 
 * * *
 
 ### .NET 核心套件
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 c# 編寫的, 基於 .NET 核心, 並且可能需要你的系統上尚未使用的本機庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
 
 It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
 
@@ -93,7 +93,7 @@ Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe`
 
 After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
-![Structure](https://i.imgur.com/k85csaZ.png)
+![架構](https://i.imgur.com/k85csaZ.png)
 
 This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 

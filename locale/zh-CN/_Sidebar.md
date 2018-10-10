@@ -8,32 +8,32 @@
 
 ## 内核
 
-* **[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[批量激活游戏](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Steam家庭库共享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam家庭库共享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## 高级
 
-* **[扩展FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[双重验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[日志](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[废弃的](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[工具面板](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[扩展FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[日志](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[安全](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[废弃的](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[双重认证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## 开发者设置
 
 * **[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
-* **[许可](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[贡献指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[许可](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

@@ -2,23 +2,23 @@
 
 O ASF inclui sua própria interface IPC que pode ser usada para maior interação com o processo. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+O IPC pode ser usado para muitas coisas diferentes, dependendo de suas necessidades e habilidades. Por exemplo, você pode usá-lo para ver o status do ASF e de todos os bots, enviar comandos ASF, buscar e editar a configuração global ou dos bots, adicionar novos bots, excluir bots existentes, adicionar keys para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)** ou acessar o arquivo de log do ASF. Todas essas ações são expostas pela nossa API, o que significa que você pode codificar suas próprias ferramentas e scripts que serão capazes de se comunicar com o ASF e influenciá-lo durante o tempo de execução. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
 
 * * *
 
 # Uso
 
-You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+Você pode habilitar a nossa interface IPC definindo o parâmetro de **[configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-global)** `IPC` como true. O ASF indicará a execução do IPC em seu log que você pode usar para verificar se a interface IPC foi iniciada corretamente:
 
     INFO|ASF|Start() Iniciando o servidor IPC...
     INFO|ASF|Start() Servidor IPC pronto!
     
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+O servidor http do ASF agora vai escutar nos endpoints selecionados. Se você não forneceu um arquivo de configuração personalizado para o IPC eles serão baseados em IPv4 **[127.0.0.1](http://127.0.0.1:1242)** e baseado em IPv6 **[[:: 1]](http://[::1]:1242)** na porta do padrão `1242`. You can access our IPC interface by above links, from the same machine as the one running ASF process.
 
 ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to implement in your own tools, utilities and projects in order to communicate with ASF directly.
+On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
 
 On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
 
@@ -40,7 +40,7 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
-Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
+Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. Você pode usar esses API endpoints para criar seus próprios scripts auxiliares, ferramentas, interfaces gráficas e afins. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
 
 For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
 
@@ -70,7 +70,7 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 ## Swagger documentation
 
-Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools implementing them (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
+Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
 

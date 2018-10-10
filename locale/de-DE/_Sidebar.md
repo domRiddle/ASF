@@ -8,32 +8,32 @@
 
 ## Kernfunktionalität
 
-* **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[Hintergrundproduktschlüsselaktivierer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Produktschlüsselaktivierung im Hintergrund](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Kompabilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Sammelprozess](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Steam-Familienbibliothek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistiken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam-Familienbibliothek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Erweiterte Einstellungen
 
-* **[Erweiterte FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Befehlszeilenargumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Veraltete Funktionen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Hochleistungs-Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Speichereffiziente Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Hochleistungs-Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Konsolen-Argumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Lokalisierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Drittanbieter-Programme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Veraltete Funktionen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Entwickler
 
 * **[Kompilierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Li­zen­zie­rung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Beitragsrichtlinien](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

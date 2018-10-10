@@ -574,7 +574,7 @@ Para obter mais explicações sobre a lógica de trocas do ASF e uma descrição
 
 * * *
 
-`TransferableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
+`TransferableTypes` - tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 5`. Essa propriedade define que tipos de itens do Steam serão considerados para transferência entre bots durante o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `transfer`. O ASF garantirá que apenas itens definidos em `TransferableTypes` serão incluídos na oferta de troca, portanto, essa propriedade permite que você escolha o que você deseja receber em uma oferta de troca que está sendo enviada para um de seus bots.
 
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
@@ -584,19 +584,19 @@ Para obter mais explicações sobre a lógica de trocas do ASF e uma descrição
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
-| 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
+| 6     | SteamGems         | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
-Default ASF setting is based on most common usage of the bot, with transfering only booster packs, and trading cards (including foils). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Por favor, tenha em mente que todos os tipos não definidos acima serão classificados como `Unknown`, o que é especialmente importante quando a Valve libera um novo item da Steam, que será marcado como `Unknown` pelo ASF também, até que seja adicionado aqui (em uma versão futura). That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+A configuração padrão do ASF baseia-se no uso mais comum do bot, transferindo apenas pacotes de cartas e cartas colecionáveis (incluindo as brilhantes). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Por favor, tenha em mente que todos os tipos não definidos acima serão classificados como `Unknown`, o que é especialmente importante quando a Valve libera um novo item da Steam, que será marcado como `Unknown` pelo ASF também, até que seja adicionado aqui (em uma versão futura). É por isso que, em geral, não é recomendado incluir o tipo `Unknown` em seu `TransferableTypes`, a menos que você saiba o que está fazendo, e compreende também que o ASF enviará seu inventário inteiro em uma oferta de troca se a rede Steam der algum problema novamente e reportar todos os seus itens como `Unknown`. Minha sugestão é não incluir tipo `Unknown` em `TransferableTypes`, mesmo que você espere transferir tudo.
 
 * * *
 
-`UseLoginKeys` - `bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`UseLoginKeys` - tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF deve usar o mecanismo de chaves de login para essa conta Steam. O mecanismo de chaves de login funciona de forma muito semelhante a opção "lembrar-me neste computador" do cliente oficial do Steam, que permite que o ASF armazene e use a chave de login temporária para a próxima tentativa de conexão, ignorando a necessidade de fornecer a senha, Steam Guard ou código 2FA, enquanto nossa chave de login for válida. A chave de login é armazenada no arquivo `BotName.db` e atualizada automaticamente. É por isso que você não precisa fornecer senha/SteamGuard/código 2FA após se conectar com o ASF uma vez.
 
-Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+Chaves de login são usadas por padrão para sua conveniência, portanto você não precisa inserir o `SteamPassword`, SteamGuard ou o código 2FA (quando não usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) em cada login. Também é uma excelente alternativa, já que a chave de login pode ser usada apenas uma única vez e não revela sua senha original de forma alguma. Exatamente o mesmo método é usado pelo seu cliente Steam original, que salva seu nome de usuário e chave de login para a sua próxima tentativa de conexão, sendo efetivamente o mesmo que usar `SteamLogin` com `UseLoginKeys` e `SteamPassword` vazio no ASF.
 
-However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+No entanto, algumas pessoas podem ficar preocupadas até mesmo com esse pequeno detalhe, portanto esta opção está disponível aqui para o caso de você querer garantir que o ASF não armazene nenhum tipo de token que permitiria retomar a sessão anterior após ela ser fechada, o que resultará na autenticação sendo totalmente obrigatória em cada tentativa de logon. Desabilitar essa opção vai funcionar exatamente da mesma forma que não marcar a opção "Lembrar-me neste computador" no cliente Steam oficial. A menos que você saiba o que está fazendo, você deve mantê-la com o valor `true` padrão.
 
 **[Voltar ao topo](#configuração)**
 
@@ -604,7 +604,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## Estrutura de arquivos
 
-ASF is using quite simple file structure.
+O ASF usa uma estrutura de arquivos bem simples.
 
     ├── config
     │     ├── ASF.json
@@ -621,27 +621,27 @@ ASF is using quite simple file structure.
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+Para mudar o ASF para outro local, outro PC por exemplo, basta mover/copiar apenas pasta `config`, e essa é a forma recomendada de fazer qualquer forma de "backup do ASF".
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+O arquivo `log.txt` contém o registro gerado pela última execução do ASF. Esse arquivo não contem nenhuma informação confidencial, e é extremamente útil quando acontecem problemas, travamentos ou simplesmente como informação sobre o que aconteceu na última vez que o ASF foi executado. Muitas vezes nós pediremos por esse arquivo se você se deparar com problemas. O ASF administra automaticamente esse arquivo para você, mas você pode fazer ajustes no módulo **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** do ASF se você for um usuário avançado.
 
-`config` directory is the place that holds configuration for ASF, including all of its bots.
+A pasta `config` é onde fica a configuração do ASF, incluindo todos os seus bots.
 
-`ASF.json` is a global ASF configuration file. This config is used for specifying how ASF behaves as a process, which affects all of the bots and program itself. You can find global properties there, such as ASF process owner, auto-updates or debugging.
+`ASF.json` é o arquivo de configuração global do ASF. Esta configuração é usada para especificar como o ASF se comporta como um processo, o que afeta todos os bots e o próprio programa. Você pode encontrar propriedades globais aqui, tal como a do proprietário do processo ASF, atualizações automáticas ou depuração.
 
-`BotName.json` is a config of given bot instance. This config is used for specifying how given bot instance behaves, therefore those settings are specific to that bot only and not shared across other ones. This allows you to configure bots with various different settings and not necessarily all of them working in exactly the same way.
+`BotName.json` é um arquivo de configuração de determinada conta bot. Esta configuração é usada para especificar como determinado bot se comporta, portanto, essas configurações são específicas para esse bot e não é compartilhada com os outros. Isso permite que você configure bots com várias configurações diferentes e não necessariamente todos eles trabalhando exatamente da mesma forma.
 
-Apart from config files, ASF also uses `config` directory for storing databases.
+Além dos arquivos de configuração, o ASF também usa a pasta `config` para armazenar bancos de dados.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+`ASF.db` é o arquivo de banco de dados global do ASF. Ele atua como um armazenamento global persistente e é usado para salvar várias informações relacionadas ao processo ASF, tais como IPs de servidores locais Steam. **Não edite este arquivo**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+`BotName.db` é um arquivo de banco de dados de determinada conta bot. Este arquivo é usado para armazenar dados cruciais sobre determinada conta bot em uma armazenamento persistente, como chaves de login ou ASF 2FA. **Não edite este arquivo**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+`BotName.bin` é um arquivo especial de determinada conta bot, que mantém informações sobre o hash de segurança Steam. O hash de segurança é usado para autenticação usando o módulo `SteamGuard`, muito semelhante ao arquivo `ssfn` da Steam. **Não edite este arquivo**.
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
+`BotName.keys` é um arquivo especial que pode ser usado para importar keys para o **[ativador de jogos em segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)**. Ele não é obrigatório e nem gerado pelo ASF, mas reconhecido por ele. Esse arquivo é apagado automaticamente quando as keys são importadas com sucesso.
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+`BotName.maFile` é um arquivo especial que pode ser usado para importar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**. Ele não é obrigatório e nem gerado pelo ASF, mas reconhecido por ele se o seu `BotName` ainda não usa o ASF 2FA. Esse arquivo é apagado automaticamente quando o ASF 2FA for importado com sucesso.
 
 **[Voltar ao topo](#configuração)**
 
@@ -649,57 +649,57 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## Mapeamento JSON
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+Cada propriedade de configuração tem seu tipo. O tipo da propriedade define os valores que são válidos para ela. Você só pode usar valores que são válidos para cada campo - se você usar um valor inválido o ASF não será capaz de analisar sua configuração.
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
+**É altamente recomendado usar o ConfigGenerator (Gerador de Configuração) para gerar as configurações** - ele lida com a maioria das coisas de baixo nível (tais como validação de tipos) para você, então você só precisa definir valores adequados e você também não precisa entender de tipos de variáveis especificados abaixo. Esta seção é dedicada principalmente para as pessoas que querem gerar/editar as configurações manualmente, para que elas saibam quais valores podem usar.
 
-Types used by ASF are native C# types, which are specified below:
-
-* * *
-
-`bool` - Boolean type accepting only `true` and `false` values.
-
-Example: `"Enabled": true`
+Os tipos usados pelo ASF são nativos do C#, e são especificados abaixo:
 
 * * *
 
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
+`bool` - Tipo booleano que aceita apenas os valores `true` (verdadeiro) e `false` (falso).
 
-Example: `"ConnectionTimeout": 60`
-
-* * *
-
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+Exemplo: `"Enabled": true`
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`byte` - Tipo byte sem sinal, aceita apenas números inteiros de `0` a `255` (inclusive).
 
-Example: `"SteamMasterClanID": 103582791440160998`
-
-* * *
-
-`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Both empty sequence as well as `null` value is treated the same by ASF, so it's up to your preference which one you want to use.
-
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+Exemplo: `"ConnectionTimeout": 60`
 
 * * *
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
-
-Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+`uint` - Tipo integral sem sinal, aceita apenas números inteiros de `0` a `4294967295` (inclusive).
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`.
+`ulong` - Tipo integral longo sem sinal, aceita apenas números inteiros de `0` a `18446744073709551615` (inclusive).
 
-Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+Exemplo: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
-`flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
+`string` - Cadeia de caracteres, aceita qualquer sequência de caracteres, incluindo sequência vazia `""` e `null`. Tanto uma sequencia vazia quanto o valor `null` são tratados da mesma forma pelo ASF, então fica a seu critério decidir qual usar.
 
-For example, given following values:
+Exemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeuNomeDeUsuário"`
+
+* * *
+
+`ImmutableHashSet<valueType>` - Coleção (conjunto) imutável de valores únicos de determinado `valueType`. Em JSON, é definido como uma matriz de elementos de determinado `valueType`.
+
+Exemplo de `ImmutableHashSet <uint>`: `"Blacklist": [267420, 303700, 335590]`
+
+* * *
+
+`ImmutableDictionary<keyType, valueType>` - Dicionário (mapa) imutável que designa a uma chave especificada em `keyType` o valor especificado em `valueType`. Em JSON, é definida como um objeto com pares de valor chave. Tenha em mente que o `keyType` deve estar sempre entre aspas, mesmo se for um valor do tipo `ulong`.
+
+Exemplo de `ImmutableDictionary<ulong, byte>`:`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+
+* * *
+
+`flags` - Atributos flag combinam diversas propriedades diferentes em um valor final aplicando operações bit a bit. Isso permite que você escolha qualquer combinação possível de vários valores diferentes ao mesmo tempo. O valor final é construído pela soma dos valores de todas as opções habilitadas.
+
+Por exemplo, dados os valores seguintes:
 
 | Valor | Nome |
 | ----- | ---- |
@@ -708,9 +708,9 @@ For example, given following values:
 | 2     | B    |
 | 4     | C    |
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+Usar `B + C` resultaria no valor `6`, usar `A + C` resultaria no valor `5`, usar `C` resultaria no valor `4` e assim por diante. Isso permite que você crie qualquer combinação possível de valores permitidos - se você decidir habilitar todos eles, fazendo `None + A + B + C`, você teria o valor `7`. Note também que um flag com o valor `0` é ativado por definição em todas as outras combinações possíveis, embora muitas vezes seja um flag que não habilite nada específico (tal como `None`).
 
-So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
+Então, como você pode ver, no exemplo acima temos 3 flags disponíveis para ligar/desligar (`A`, `B`, `C`), e 8 valores globais possíveis (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
 
 **[Voltar ao topo](#configuração)**
 
@@ -718,7 +718,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 ## Mapeamento de compatibilidade
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
+Devido a limitações, o JavaScript é incapaz de serializar corretamente simples campos `ulong` em JSON ao usar o ConfigGenerator (gerador de configuração baseado na web), campos `ulong` serão processados como strings com o prefixo `s_` na configuração resultante. Assim, por exemplo, `"SteamOwnerID": 76561198006963719` será escrito pelo ConfigGenerator como `"s_SteamOwnerID": "76561198006963719"`. O ASF inclui uma lógica adequada para lidar automaticamente com o mapeamento dessas strings, então as entradas `s_` no seu arquivo de configuração são válidas e corretamente geradas. Se você estiver gerando o arquivo de configuração por sua conta, recomendamos manter os campos `ulong` iguais ao original, porém, caso você não possa fazer isso, você também pode seguir este esquema e codificá-las como strings com o prefixo `s_` adicionado aos seus nomes. Esperamos resolver essa limitação do JavaScript um dia.
 
 **[Voltar ao topo](#configuração)**
 
@@ -726,7 +726,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ## Configuração de compatibilidade
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
+É prioridade para o ASF permanecer compatível com configurações anteriores. Como você já deve saber, a falta de propriedades de configuração são tratadas como se elas tivessem sido definidas com seus **valores padrão**. Portanto, se novas propriedades de configuração forem introduzidas em novas versões do ASF, todas as suas configurações se manterão **compatíveis** com a nova versão, e o ASF tratará a nova propriedade de configuração como se definida com o **valor padrão**. Você sempre pode adicionar, remover ou editar as propriedades de configuração conforme sua necessidade. Recomendamos limitar a definição de propriedades de configuração para apenas aqueles que você quer mudar, já que dessa forma você automaticamente herda os valores padrão de todas as demais, não apenas mantendo sua configuração limpa mas também aumentando a compatibilidade caso a gente decida mudar o valor padrão de uma propriedade que você não quer mudar por conta própria. Sinta-se livre para verificar o arquivo de configuração de exemplo `minimal.json` que segue esse conceito.
 
 **[Voltar ao topo](#configuração)**
 
@@ -734,15 +734,15 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 ## Recarregamento automático
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+Desde o ASF V2.1.6.2+, o programa está ciente de configurações sendo modificadas em "tempo real" - graças a isso, o ASF vai automaticamente:
 
 - Criar (e iniciar, se necessário) um novo bot, quando você criar a configuração do mesmo
 - Parar (se necessário) e remover o bot antigo, quando você excluir a sua configuração
 - Parar (e iniciar, se necessário) qualquer bot, quando você editar a configuração do mesmo
 - Reiniciar (se necessário) o bot com novo nome, quando você renomear sua configuração
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+Todas as ações acima serão feitas automaticamente, sem a necessidade de reiniciar o programa, ou matar os o processo de outros bots (não afetados pelas mudanças).
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+Além disso, o ASF também se reiniciará (se o `AutoRestart` permitir) caso você modifique a configuração global do ASF `ASF.json`. Da mesma forma, o programa vai fechar se você excluir ou renomeá-la.
 
 **[Voltar ao topo](#configuração)**

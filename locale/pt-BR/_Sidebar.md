@@ -8,32 +8,32 @@
 
 ## Principal
 
-* **[Compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**
-* **[Ativador de códigos em segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)**
-* **[Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**
+* **[Ativador de códigos em segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**
-* **[Compartilhamento de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Compartilhamento de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Avançado
 
-* **[Perguntas Frequentes Adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Argumentos da linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Autenticação de dois passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
-* **[Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Perguntas Frequentes Adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Argumentos da linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Captura de registros do sistema](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Localização (idioma)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Ferramentas de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools-pt-BR)**
-* **[Depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Autenticação de dois passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Desenvolvedores
 
 * **[Compilação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-pt-BR)**
-* **[Ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
-* **[Licença](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Guias de contribuição](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Licença](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[Ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

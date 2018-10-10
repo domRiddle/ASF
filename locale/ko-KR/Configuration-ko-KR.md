@@ -192,12 +192,12 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `SteamProtocols` - `byte flags` type with default value of `5`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | 이름        | Description                                                                                      |
-| ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None      | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://ko.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://ko.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://ko.wikipedia.org/wiki/WebSocket)**                                         |
+| 값 | 이름        | 설명                                                                                               |
+| - | --------- | ------------------------------------------------------------------------------------------------ |
+| 0 | None      | No protocol                                                                                      |
+| 1 | TCP       | **[Transmission Control Protocol](https://ko.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2 | UDP       | **[User Datagram Protocol](https://ko.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4 | WebSocket | **[WebSocket](https://ko.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -261,7 +261,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## 봇 환경설정
 
 As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
 
@@ -333,14 +333,14 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `BotBehaviour` - `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | 이름                            | Description                                                           |
-| ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
-| 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
-| 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
-| 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
-| 8     | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications   |
-| 16    | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read    |
+| 값  | 이름                            | 설명                                                                    |
+| -- | ----------------------------- | --------------------------------------------------------------------- |
+| 0  | None                          | No special bot behaviour, the least invasive mode, default            |
+| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
+| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
+| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
+| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications   |
+| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read    |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -372,24 +372,24 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `FarmingOrders` - `ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | 이름                        | Description                                                                      |
-| ----- | ------------------------- | -------------------------------------------------------------------------------- |
-| 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
-| 1     | AppIDsAscending           | Try to farm games with lowest `appID`s first                                     |
-| 2     | AppIDsDescending          | Try to farm games with highest `appID`s first                                    |
-| 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
-| 4     | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
-| 5     | HoursAscending            | Try to farm games with lowest number of hours played first                       |
-| 6     | HoursDescending           | Try to farm games with highest number of hours played first                      |
-| 7     | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
-| 8     | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
-| 9     | Random                    | Try to farm games in totally random order (different on each run of the program) |
-| 10    | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
-| 11    | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
-| 12    | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
-| 13    | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
-| 14    | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
-| 15    | MarketableDescending      | Try to farm games with marketable card drops first                               |
+| 값  | 이름                        | 설명                                                                               |
+| -- | ------------------------- | -------------------------------------------------------------------------------- |
+| 0  | Unordered                 | No sorting, slightly improving CPU performance                                   |
+| 1  | AppIDsAscending           | Try to farm games with lowest `appID`s first                                     |
+| 2  | AppIDsDescending          | Try to farm games with highest `appID`s first                                    |
+| 3  | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
+| 4  | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
+| 5  | HoursAscending            | Try to farm games with lowest number of hours played first                       |
+| 6  | HoursDescending           | Try to farm games with highest number of hours played first                      |
+| 7  | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
+| 8  | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
+| 9  | Random                    | Try to farm games in totally random order (different on each run of the program) |
+| 10 | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
+| 11 | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
+| 12 | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
+| 13 | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
+| 14 | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
+| 15 | MarketableDescending      | Try to farm games with marketable card drops first                               |
 
 Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
 
@@ -417,15 +417,15 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `LootableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | 이름                | Description                                                   |
-| ----- | ----------------- | ------------------------------------------------------------- |
-| 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
-| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground | Profile background to use on your Steam profile               |
-| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 값 | 이름                | 설명                                                            |
+| - | ----------------- | ------------------------------------------------------------- |
+| 0 | Unknown           | Every type that doesn't fit in any of the below               |
+| 1 | BoosterPack       | Unpacked booster pack                                         |
+| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4 | ProfileBackground | Profile background to use on your Steam profile               |
+| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -484,12 +484,12 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 `RedeemingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | 이름               | Description                                                                    |
-| ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | None             | No redeeming preferences, typical                                              |
-| 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
-| 2     | Distributing     | Distribute all keys among itself and other bots                                |
-| 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
+| 값 | 이름               | 설명                                                                             |
+| - | ---------------- | ------------------------------------------------------------------------------ |
+| 0 | None             | No redeeming preferences, typical                                              |
+| 1 | Forwarding       | Forward keys unavailable to redeem to other bots                               |
+| 2 | Distributing     | Distribute all keys among itself and other bots                                |
+| 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -543,12 +543,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `SteamUserPermissions` - `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | 이름            | Description                                                                                                                                                                                        |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
-| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| 값 | 이름            | 설명                                                                                                                                                                                                 |
+| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2 | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3 | Master        | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -560,13 +560,13 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `TradingPreferences` - `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | 이름                  | Description                                                                                                                                                                     |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
-| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
-| 2     | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
-| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                             |
+| 값 | 이름                  | 설명                                                                                                                                                                              |
+| - | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
+| 1 | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
+| 2 | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
+| 4 | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
+| 8 | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                             |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -576,15 +576,15 @@ For further explanation of ASF trading logic, and description of every available
 
 `TransferableTypes` - `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | 이름                | Description                                                   |
-| ----- | ----------------- | ------------------------------------------------------------- |
-| 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
-| 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground | Profile background to use on your Steam profile               |
-| 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 값 | 이름                | 설명                                                            |
+| - | ----------------- | ------------------------------------------------------------- |
+| 0 | Unknown           | Every type that doesn't fit in any of the below               |
+| 1 | BoosterPack       | Unpacked booster pack                                         |
+| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
+| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
+| 4 | ProfileBackground | Profile background to use on your Steam profile               |
+| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
+| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -604,7 +604,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## 파일 구조
 
-ASF is using quite simple file structure.
+ASF는 꽤 간단한 파일구조를 사용합니다.
 
     ├── config
     │     ├── ASF.json
@@ -621,9 +621,9 @@ ASF is using quite simple file structure.
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하나만을 이동/복사하는 것으로 충분합니다. 그리고 이것이 ASF 백업으로 권장되는 방법입니다.
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+`log.txt` 파일은 마지막 ASF 실행으로 생성된 로그를 담고 있습니다. 이 파일은 어떠한 민감한 정보도 포함하고 있지 않으며, 이슈나 충돌, 혹은 지난번 ASF 실행에서 무슨일이 있었는지 정보로써도 굉장히 가치가 있습니다. 이슈나 버그가 발생하면 우리는 이 파일을 자주 요청하게 될 것입니다. ASF는 이 파일을 자동으로 관리하지만, 고급 사용자라면 ASF **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)** 모듈을 더 깊이 조절할 수 있습니다.
 
 `config` directory is the place that holds configuration for ASF, including all of its bots.
 
@@ -633,11 +633,11 @@ In order to move ASF to new location, for example another PC, it's enough to mov
 
 Apart from config files, ASF also uses `config` directory for storing databases.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **이 파일을 수정해서는 안됩니다**.
 
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 
@@ -649,7 +649,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## JSON 매핑
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+모든 환경설정 속성값은 타입이 있습니다. 속성값의 타입은 유효한 값을 정의합니다. 주어진 타입에 유효한 값만 사용할 수 있습니다. 유효하지 않은 값을 사용하면 ASF는 환경설정을 수행할 수 없습니다.
 
 **We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
 
@@ -657,25 +657,25 @@ Types used by ASF are native C# types, which are specified below:
 
 * * *
 
-`bool` - Boolean type accepting only `true` and `false` values.
+`bool` - `true`와 `false` 값만 받는 불린타입입니다.
 
-Example: `"Enabled": true`
-
-* * *
-
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
-
-Example: `"ConnectionTimeout": 60`
+예: `"Enabled": true`
 
 * * *
 
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+`byte` - `0`부터 `255` 까지의 정수만 받는 Unsigned 바이트 타입입니다.
+
+예: `"ConnectionTimeout": 60`
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`uint` - `0`부터 `4294967295` 까지의 정수만 받는 Unsigned 정수 타입입니다.
 
-Example: `"SteamMasterClanID": 103582791440160998`
+* * *
+
+`ulong` - `0`부터 `18446744073709551615` 까지의 정수만 받는 Unsigned long 정수 타입입니다.
+
+예: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
@@ -701,12 +701,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | 이름   |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| 값 | 이름   |
+| - | ---- |
+| 0 | None |
+| 1 | A    |
+| 2 | B    |
+| 4 | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
@@ -734,15 +734,15 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 ## 자동 재시작
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지할 수 있습니다. 이에 따라 ASF는 자동적으로 아래와 같은 행동을 합니다.
 
 - 새로운 봇 환경설정을 만드는 경우 그 봇 인스턴스의 생성 및 시작(필요한 경우)
 - 예전 봇 환경설정을 삭제하는 경우 그 봇 인스턴스의 중지(필요한 경우) 및 제거
 - 봇 환경설정을 수정하는 경우 그 봇 인스턴스의 중지 및 시작(필요한 경우)
 - 봇 환경설정 이름을 변경하는 경우 새 이름으로 봇 재시작(필요한 경우)
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+위의 모든 것은 투명하고 프로그램의 재시작이나 다른 영향이 없는 봇 인스턴스의 중지 없이 자동으로 수행됩니다.
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+게다가 ASF는 `AutoRestart`가 허용되어있다면 `ASF.json` 환경설정이 변경되면 ASF를 재시작합니다. 동일하게 삭제하거나 이름을 바꾸면 프로그램은 종료됩니다.
 
 **[위로 돌아가기](#환경설정)**

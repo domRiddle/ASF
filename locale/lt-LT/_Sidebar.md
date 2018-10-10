@@ -8,32 +8,32 @@
 
 ## Pagrindas
 
-* **[Suderinamumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Pasyvusis žaidimų aktyvatorius](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Komandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Suderinamumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Efektyvumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Mainai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistika](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Mainai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Papildoma
 
-* **[Išplėstinis D.U.K](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Komandinės eilutės argumentai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Dviejų lygių autentifikavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Mažos atminties sąranka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Išplėstinis D.U.K](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Didelio našumo sąranką](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[Komandų eilutės argumentai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Žurnalas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalizacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Žurnalas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Mažos atminties sąranka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Saugumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Trečiųjų šalių įrankiai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Dviejų lygių autentifikavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Kūrėjai
 
 * **[Kompiliavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Išleidimų ciklas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
-* **[Licencija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Pagalbinės gairės](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Licencija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[Išleidimų ciklas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

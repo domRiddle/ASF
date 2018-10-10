@@ -1,36 +1,36 @@
 # IPC
 
-ASF включает в себя собственный, уникальный интерфейс IPC который может использоваться для дальнейшего взаимодействия с процессом. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF включает в себя собственный, уникальный интерфейс IPC который может использоваться для дальнейшего взаимодействия с процессом. IPC это сокращение от "inter-process communication" - **[Межпроцессное взаимодействие](https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B6%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BD%D0%BE%D0%B5_%D0%B2%D0%B7%D0%B0%D0%B8%D0%BC%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5)**, а проще говоря - это "веб-интерфейс ASF" на базе **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)**, который может использоваться для дальнейшей интеграции с процессом ASF, как в роли интерфейса для пользователя (ASF-ui), так и в роли сервера для сторонних приложений (ASF API).
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+IPC может использоваться для множества различных вещей, в зависимости от ваших нужд и способностей. Например, вы можете использовать его для получения статуса ASF и всех ботов, отправки команд ASF, получения и изменения конфигурационных файлов, добавления новых ботов, удаления существующих ботов, добавления ключей в **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)** или для доступа к журналу ASF. Все эти действия доступны через наше API, а значит вы можете создавать собственные утилиты и скрипты, которые смогут взаимодействовать с ASF и влиять на него в процессе работы. В добавок к этому, часть действий (таких как отправка команд) также реализованы в нашем ASF-ui, который позволяет вам легко получить к ним доступ через дружественный веб-интерфейс.
 
 * * *
 
 # Использование
 
-You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+Вы можете активировать наш интерфейс IPC включив **[параметр глобальной конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** `IPC`. ASF сообщит о запуске IPC в своём журнале, который вы можете проверить чтобы узнать что IPC интерфейс удачно запущен:
 
     INFO|ASF|Start() Запуск IPC сервера...
     INFO|ASF|Start() IPC сервер готов!
     
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+Http сервер ASF теперь ожидает входящих запросов на нескольких конечных точках. Если вы не создали пользовательский конфигурационный файл для IPC, это будут адрес формата IPv4 **[127.0.0.1](http://127.0.0.1:1242)** и адрес формата IPv6 **[[::1]](http://[::1]:1242)** с портом по умолчанию `1242`. Вы можете получить доступ к интерфейсу IPC по ссылкам выше на той же машине, где запущен процесс ASF.
 
-ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+Есть три способа доступа к интерфейсу IPC ASF, вы можете выбрать один из них в зависимости от планируемого использования.
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to implement in your own tools, utilities and projects in order to communicate with ASF directly.
+На самом нижнем уровне нахоится **[ASF API](#asf-api)**, это ядро нашего интерфейса IPC, и позволяет работать всему остальному. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
 
-On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+Средним уровнем является **[документация Swagger ](#Документация-swagger)**, которая представляет из себя графический интерфейс для ASF API. Это полная документация ASF API, а также инструмент, позволяющий использовать их более удобно. Вам стоит познакомиться с этим инструментом если вы планируете создать свой инструмент, утилиту или другой проект который должен обмениваться данными с ASF посредством API.
 
-On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
+Самый высокий уровень это **[ASF-ui](#asf-ui)**, который основан на нашем ASF API и предоставляет дружественный к пользователю способ выполнять различные действия в ASF. Это интерфейс IPC используемый по умолчанию для конечных пользователей, и прекрасный пример того что вы можете создать на базе ASF API. Если захотите, вы можете использовать собственный веб-интерфейс для ASF, указав рабочую папку ASF с помощью **[аргумента командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU#Аргументы)** `--path` с расположенной в нём папкой `www`.
 
 * * *
 
 # ASF-ui
 
-ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
+ASF-ui это проект сообщества, цель которого создать дружественный к пользователю графический веб-интерфейс для конечных пользователей. Он служит интерфейсом для наших **[ASF API](#asf-api)**, позволяющим с лёгкостью выполнять различные действия. Это интерфейс поставляемый с ASF по умолчанию.
 
-As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
+Как сказано выше, ASF-ui это проект разрабатываемый нашим сообществом, и поэтому он не поддерживается основными разработчиками ASF. У него свой собственный путь развития в **[репозитории ASF-ui](https://github.com/JustArchiNET/ASF-ui)**, и именно туда вам следует адресовать все вопросы, проблемы, сообщения об ошибках и предложения.
 
 ![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
 
@@ -38,59 +38,59 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 # ASF API
 
-Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+Наш ASF API представляет собой веб-API, построенный с учётом **[REST](https://ru.wikipedia.org/wiki/REST)** и основанный на JSON в качестве основного формата данных. Мы стараемся максимально точно описать ответ, используя как коды состояний HTTP (когда это применимо), так и ответ, который вы можете самостоятельно разобрать чтобы выяснить, окончился ли запрос успешно, и если нет - то почему.
 
-Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
+Доступ к нашему ASF API может быть получен путём отправки соответствующих запросов на соответствующие конечные точки `/Api`. Вы можете использовать эти конечные точки API для создания своих вспомогательных скриптов, утилит, интерфейсов и тому подобного. Именно это делает ASF-ui "под капотом", и любая утилита может делать то же самое. ASF API официально поддерживается и обслуживается основной командой ASF.
 
-For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
+Полную документацию по всем доступным конечным точкам, описаниям, запросам, ответам, кодам состояния http и всему остальному, что относится к ASF API, вы найдёте в нашей **[документации Swagger](#Документация-swagger)**.
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
 * * *
 
-## Authentication
+## Аутентификация
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
+Интерфейс IPC ASF по умолчанию не нуждается ни в какой аутентификации, поскольку `IPCPassword` установлено значение `null`. Однако, если вы активировали `IPCPassword`, указав ему не пустое значение, любой запрос к API ASF требует пароль, совпадающий с установленным в `IPCPassword`. Если вы пропустили аутентификацию или указали неверный пароль, вы получите ошибку `401 - Unauthorized`. Если вы продолжите отправлять запросы без аутентификации, со временем вы получите временную блокировку с ошибкой `403 - Forbidden`.
 
-Authentication can be done through two separate ways.
+Аутентификация может быть выполнена двумя разными способами.
 
 ### Заголовок `Authentication`
 
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+В основном вам следует использовать заголовки запроса HTTP, установив значение поля `Authentication` равным вашему паролю. Как этого добиться зависит от того, каким инструментом вы пользуетесь для доступа к интерфейсу IPC ASF, например если вы пользуетесь `curl` вам следует добавить в качестве аргумента `-H 'Authentication: MyPassword'`. Таким способом аутентификация передаётся в заголовках запроса, где и должна быть.
 
 ### Параметр `password` в строке запроса
 
-Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
+В качестве альтернативы вы можете добавить параметр `password` в конец URL, который хотите вызвать, например вызывая `/Api/ASF?password=MyPassword` вместо `/Api/ASF`. Этот подход достаточно хорош, но как видите он раскрывает пароль в открытом виде, что не всегда допустимо. В добавок это дополнительный параметр в строке запроса, что загромождает вид URL, и создаёт впечатление что он применим только к этому URL, хотя на самом деле пароль применяется ко всему обмену с ASF API.
 
 * * *
 
-Both ways are supported and it's totally up to you which one you want to choose. We recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string as well, mainly because of various limitations related to request headers. A good example includes lack of custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC). In this situation query string is the only way to authenticate.
+Оба способа поддерживаются, и только вам решать каким из них пользоваться. Мы рекомендуем использовать заголовки HTTP везде где возможно, поскольку с точки зрения использования это более подходящий метод, чем строка запроса. Однако мы также поддерживаем строку запроса, в основном из-за различных ограничений, связанными с заголовками запроса. Хорошим примером этого служит отсутствие пользовательских заголовков при инициализации соединения websocket из javascript (хотя это совершенно корректно с точки зрения RFC). В этой ситуации строка запроса единственный способ аутентификации.
 
 * * *
 
-## Swagger documentation
+## Документация Swagger
 
-Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools implementing them (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
+Наш интерфейс IPC, в дополнение к ASF API и ASF-ui также включает в себя документацию Swagger, которая доступна по **[адресу](http://127.0.0.1:1242/swagger)** `/swagger` . Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). Она содержит полную документацию и список всех доступных конечных точек API в **[спецификации](https://ru.wikipedia.org/wiki/OpenAPI_(%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F))** **[OpenAPI](https://swagger.io/resources/open-api)**, которая легко может быть использована в других проектах, позволяя вам легко писать и тестировать ASF API.
 
-Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
+Помимо использования документации Swagger как полного описания ASF API, вы можете использовать её также как дружественный к пользователю способ вызывать различные конечные точки API, в основном те, которые не реализованы в ASF-ui. Поскольку наша документация Swagger генерируется автоматически из кода ASF, она гарантировано будет актуальной и будет включать в себя все функции доступные в ASF.
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+![Документация Swagger](https://i.imgur.com/mLpd5e4.png)
 
 * * *
 
-# ЧаВО
+# ЧАВО
 
-### Is ASF's IPC interface secure and safe to use?
+### Безопасно ли использовать интерфейс IPC в ASF?
 
-ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
+ASF по умолчанию ожидает соединений только по адресам `localhost`, а значит доступ к IPC ASF **невозможен** с любой машины, кроме той где запущен ASF. Если вы не изменяли адрес конечных точек, атакующему понадобится доступ к вашей машине чтобы получить доступ к IPC ASF, а значит он настолько безопасен насколько это возможно, и никто не может получить к нему доступ, даже из вашей локальной сети.
 
-However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+Однако, если вы решите изменить установленные по умолчанию адреса привязки `localhost` на что-то другое, то вам следует установить соответствующие правила брандмауэра **самостоятельно**, чтобы разрешить только доверенным IP-адресам доступ к интерфейсу ASF. В дополнение к этому, мы настоятельно рекомендуем установить `IPCPassword`, что добавит ещё один дополнительный уровень безопасности. Возможно вы также захотите в этом случае использовать интерфейс IPC ASF за обратным прокси, что подробно описано ниже.
 
-### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
+### Можно ли использовать IPC ASF за обратным прокси, таким как Apache или Nginx?
 
-**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**Да**, наш IPC полностью совместим с такой конфигурацией, так что вы можете использовать также с другими утилитами для дополнительной безопасности или совместимости, если хотите. В целом, используемый в ASF Kestrel http server достаточно безопасен и не представляет риска при прямом подключении из интернета, но если вы поставите его позади обратного прокси, такого как Apache или Nginx, вы можете получить дополнительный функционал, недоступный в ином случае, такой как например защита интерфейса ASF с помощью **[Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
-Example Nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
+Пример конфигурации Nginx вы можете найти ниже. Мы включили полный блок `server`, хотя вам в основном будут интересны блоки `location`. Дальнейшую информацию вы можете найти в **[документации nginx](https://nginx.org/ru/docs/)**.
 
 ```nginx
 server {
@@ -126,21 +126,21 @@ server {
 }
 ```
 
-### Can I access IPC interface through HTTPS protocol?
+### Могу ли я получить доступ к IPC через протокол HTTPS?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**Да**, вы можете сделать это двумя разными способами. Рекомендуемый способ это использовать для этого обратный прокси (как описано выше), в этом случае вы можете получить доступ к своему веб-серверу по https как обычно, а затем подключить его к интерфейсу IPC ASF на той же машине. Таким образом ваш трафик полностью зашифрован и вам не нужно вносить никаких изменений в настройки IPC для поддержки такой конфигурации.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+Второй способ подразумевает задание **[пользовательской конфигурации](#Пользовательская-конфигурация)** для интерфейса IPC ASF, в которой вы можете активировать конечные точки https и задать соответствующие сертификаты https для использования в Kestrel http server. Этот способ рекомендуется только если у вас нет дргугого веб-сервера и вы не хотите добавлять его только ради ASF. В остальных случаях гораздо проще получить удовлетворительную конфигурацию используя механизм обратного прокси.
 
 * * *
 
-## Custom configuration
+## Пользовательская конфигурация
 
-Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+Наш интерфейс IPC поддерживает дополнительный файл конфигурации, `IPC.config`, который следует расположить в стандартной папке `config` вашего ASF.
 
-When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+При наличии, этот файл задаёт расширенную настройку используемого в ASF Kestrel http server, а также другие, связанные с IPC, настройки. Если у вас нет какой-то конкретной необходимости, вам нет смысла использовать этот файл, поскольку ASF уже использует разумные значения по умолчанию.
 
-The configuration file is based on following JSON structure:
+Конфигурационный файл основан на следующей структуре JSON:
 
 ```json
 {
@@ -172,12 +172,12 @@ The configuration file is based on following JSON structure:
 }
 ```
 
-There are 2 properties worth explanation/editing, those are `Endpoints` and `PathBase`.
+В нём есть 2 свойства, которые стоит объяснить/отредактировать, это `Endpoints` и `PathBase`.
 
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `IPv4-http`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+`Endpoints` - это массив конечных точек, каждая из которых имеет уникальное имя (такое как `IPv4-http`) и свойство `Url`, задающее адрес для ожидания запросов в формате `Protocol://Host:Port`. По умолчанию, ASF ожидает запросов по адресам http IPv4 и IPv6, но мы добавили примеры настроек для https, которые вы можете при необходимости использовать. Вам следует объявлять только те конечные точки, которые вам нужны, мы включили 4 в пример выше только чтобы вам было удобнее их редактировать.
 
-`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which might pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) at a minimum in this case.
+`Host` может принимать различные значение, включая значение `*` которое соединяет http сервер ASF со всеми доступными интерфейсами. Будьте предельно осторожны при использовании значений `Host`, позволяющих удалённый доступ. Это позволит доступ к интерфейсу IPC ASF с других машин, что может представлять собой угрозу безопасности. Мы настоятельно рекомендуем в данном случае использовать как минимум `IPCPassword` (и желательно также ваш собственный брандмауэр).
 
-`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
+`PathBase` - Это базовый путь, который будет использоваться интерфейсом IPC. Этот параметр необязательный, по умолчанию имеет значение `/` и для большинства случаев его изменение не требуется. Изменив этот параметр вы разместите весь интерфейс IPC по заданному префиксу, например по адресу `http://127.0.0.1:1242/MyPrefix` вместо `http://127.0.0.1:1242`. Использование пользовательского `PathBase` может быть желательным в комбинации с обратным прокси, если вы хотите проксировать только отдельный URL, например `mydomain.com/ASF` вместо всего домена `mydomain.com` целиком. Обычно для этого требуется создать правило rewrite для вашего веб-сервера, которое будет перенаправлять `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, но вместо этого вы можете задать пользовательский `PathBase` равным `/ASF` и получить более простую настройку `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
 
-Unless you truly need to specify a custom base path, it's best to leave it at default.
+Если у вас нет насущной необходимости задать пользовательский базовый путь, лучше оставить ему значение по умолчанию.

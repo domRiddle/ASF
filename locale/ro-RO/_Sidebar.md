@@ -8,32 +8,32 @@
 
 ## Setări de bază
 
-* **[Compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Activatorul de coduri în plan secundar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comenzi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Performanță](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Realizarea de schimburi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
-* **[Împărtășire în familie Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Statistici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Împărtășire în familie Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Realizarea de schimburi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Setări avansate
 
-* **[Întrebări frecvente extinse](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Logare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Versiuni vechi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Traducere](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Logare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Securitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Unelte terțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Versiuni vechi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Dezvoltatori
 
 * **[Compilare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Ciclu de lansare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licenţă](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Ghid pentru contributii](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Ciclu de lansare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

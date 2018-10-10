@@ -83,7 +83,7 @@ Probably the most "complex" method of calling ASF, perfect for third-party tools
 | `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
 | `update`                                                                   | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
-| `version`                                                                  | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `versione`                                                                 | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *
 

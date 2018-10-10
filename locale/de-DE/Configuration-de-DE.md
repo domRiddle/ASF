@@ -604,7 +604,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## Dateistruktur
 
-ASF is using quite simple file structure.
+ASF benutzt eine einfache Dateistruktur.
 
     ├── config
     │     ├── ASF.json

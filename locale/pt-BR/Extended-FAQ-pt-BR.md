@@ -14,7 +14,7 @@ No entanto, o ASF é um projeto de código aberto e é preciso informar que eu n
 
 O ASF foi criado com o objetivo de ser um sistema completamente automatizado que rodasse jogos Steam para o Linux, sem a necessidade de dependências externas (como o cliente Steam). De fato, esse ainda é seu objetivo principal e seu foco, pois meu conceito do ASF não mudou desde lá e eu ainda estou usando da mesma forma que eu usava em 2015. É claro, houveram **muitas** mudanças desde lá, e eu fico feliz de ver o quanto o ASF evoluiu, a maioria por causa de seus usuários pois eu jamais escreveria metade dos recursos apenas por mim.
 
-É legal notar que o ASF não foi feito para competir com outros programas, especialmente com o **[Idle Master](https://www.steamidlemaster.com)**, pois o ASF nuca foi projetado para ser um aplicativo de área de trabalho. Se você analisar o objetivo primário do ASF descrito anteriormente, então você verá que o Idle Master é **o exato oposto** disso. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, the way I wanted it.
+É legal notar que o ASF não foi feito para competir com outros programas, especialmente com o **[Idle Master](https://www.steamidlemaster.com)**, pois o ASF nuca foi projetado para ser um aplicativo de área de trabalho. Se você analisar o objetivo primário do ASF descrito anteriormente, então você verá que o Idle Master é **o exato oposto** disso. Enquanto você pode encontrar programas semelhantes ao ASF hoje, nada era bom o bastante para mim na época (e ainda não são hoje), então eu criei meu próprio idler, da maneira que eu queria.
 
 * * *
 
