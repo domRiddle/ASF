@@ -6,7 +6,7 @@ Die unten angeführten Befehle können über drei verschiedene Wege an einen Bot
 
 - Über den privaten Steam-Chat
 - Über einen Steam-Gruppen-Chat
-- Über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Bitte vergiss nicht, dass jegliche ASF-Interaktion verlangt, dass du gemäß deinen ASF-Einstellungen über die Berechtigungen für den Befehl verfügen musst. Für mehr Informationen lies bitte die Einträge zu den Config-Feldern `SteamUserPermissions` und `SteamOwnerID` durch.
 
@@ -24,15 +24,15 @@ Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](
 
 ### Steam Gruppenchat
 
-Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
+Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
 
 * * *
 
 ### IPC
 
-Wahrscheinlich die "komplexeste" Methode mit ASF zu kommunizieren. IPC ist perfekt für Programme von Drittanbietern und Skripte. Es verlangt allerdings, dass ASF im Server-Modus läuft und ein Client die Befehle über das **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** Interface an ASF sendet.
+The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://i.imgur.com/TsAHcM0.png)
+![Screenshot](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 

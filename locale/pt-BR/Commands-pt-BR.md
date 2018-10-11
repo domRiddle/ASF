@@ -6,7 +6,7 @@ Os comandos abaixo podem ser enviados para o bot de três formas diferentes:
 
 - Através do chat privado do Steam
 - Através do chat em grupo do Steam
-- Através do **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Tenha em mente que a interação do ASF requer de você a permissão para utilizar os comandos de acordo com as permissões do ASF. Confira as configurações em `SteamUserPermissions` e `SteamOwnerID` para mais detalhes.
 
@@ -24,15 +24,15 @@ Definitivamente o método mais fácil de interagir com o ASF - basta executar o 
 
 ### Bate-papo em grupo pelo Steam
 
-Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada.
+Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada. You most likely don't want to use this method for more bots than 1.
 
 * * *
 
 ### IPC
 
-Provavelmente a forma mais "complexa" de chamar o ASF, perfeito para ferramentas de terceiros ou scripts, requer que o ASF seja executado em modo servidor e um cliente executando comandos através da interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
+The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Captura da tela](https://i.imgur.com/TsAHcM0.png)
+![Captura da tela](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 

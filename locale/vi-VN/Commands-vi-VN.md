@@ -6,7 +6,7 @@ Các command sau có thể gửi tới bot theo 3 cách:
 
 - Through steam private chat
 - Through steam group chat
-- Qua **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Đọc qua `SteamUserPermissions` và `SteamOwnerID` để biết thêm.
 
@@ -24,15 +24,15 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 ### Steam group chat
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
+Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
 
 * * *
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://i.imgur.com/TsAHcM0.png)
+![Screenshot](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 

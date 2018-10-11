@@ -94,36 +94,36 @@ docker pull justarchi/archisteamfarm
 docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
+Не забывайте что по умолчанию папка `/app`, используемая ASF, всё равно принадлежит `root`. Если вы запустите ASF от произвольного пользователя, то ваш процесс ASF не будет иметь прав на запись в свои собственные файлы. Этот доступ не является обязательным для работы, но он необходим например для автоматического обновления. Чтобы это исправить достаточно сменить владельца всех файлов ASF со значения по умолчанию `root` на нужного вам пользователя.
 
 ```shell
 docker exec -u root asf chown -hR 1000:1000 /app
 ```
 
-This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1000:1000` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
+Это нужно сделать только один раз после создания вашего контейнера командой `docker run`, и только если вы решите запускать процесс ASF под своим пользователем. Также не забывайте заменить аргумент `1000:1000` в командах выше на `uid` и `gid` которые вы реально хотите использовать для запуска ASF.
 
 * * *
 
 ## Аргументы командной строки
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. Например:
+ASF позволяет передавать **[аргументы командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** в контейнер docker используя переменную среды `ASF_ARGS`. Она может быть задана при вызове `docker run` с помощью аргумента `-e`. Например:
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+Это корректно передаст ваш аргумент `--cryptkey` процессу ASF, запущенному внутри контейнера docker. Разумеется, если вы продвинутый пользователь, вы также можете изменить `ENTRYPOINT` и передавать нужные аргументы командной строки самостоятельно.
 
-Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special `ASF_ARGS` as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`.
+Кроме случая, когда вы хотите передать ключ шифрования или иные продвинутые опции, обычно вам нет нужны указывать `ASF_ARGS`, поскольку наши контейнеры docker уже сконфигурированы на запуск с разумными параметрами по умолчанию `--no-restart`, `--process-required` и `--process-required`.
 
 * * *
 
 ## IPC
 
-For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
+Для использования IPC, вам сначала нужно установить **[параметру глобальной конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** `IPC` значение `true`. В добавок к этому, вам **необходимо** заменить адрес ожидания запросов по-умолчанию `localhost`, поскольку docker не может маршрутизировать внешний трафик на loopback-интерфейс. Пример настройки, при которой запросы будут ожидаться со всех интерфейсов - `http://*:1242`. Разумеется, вы можете указать также более строгие настройки, такие как только приём запросов только от внутренней сети, или сети VPN, но это должен быть маршрут, доступный извне - `localhost` не подходит, поскольку этот маршрут полностью находится внутри гостевой машины.
 
-For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
+Чтобы сделать описанное выше, вам нужно использовать **[пользовательскую конфигурацию IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU#Пользовательская-конфигурация)**, аналогичную приведенной ниже:
 
 ```json
 {
@@ -137,29 +137,29 @@ For doing the above you should use **[custom IPC config](https://github.com/Just
 }
 ```
 
-Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
+После того, как мы настроим IPC на использование интерфейса, отличного от loopback, нам нужно сообщить docker что необходимо подключить порт ASF `1242/tcp` с помощью аргумента командной строки `-P` либо `-p`.
 
-For example, this command would expose ASF IPC interface to host machine (only):
+Например, эта команда сделает доступным интерфейс ASF IPC (только) для хост-машины:
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set everything properly, `docker run` command above will make **[IPC client examples](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#client)** work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+Если вы всё настроили правильно, команда `docker run`, приведенная выше сделает возможность выполнять **[примеры работы с IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU#client)** на вашей хост-машине, по стандартному адресу `localhost:1242`, который теперь корректно маршрутизируется на гостевую машину. Приятно отметить, что мы не маршрутизируем этот адрес дальше, поэтому соединение будет работать только с хост-машины docker, а значит останется безопасным.
 
 * * *
 
-### Complete example
+### Полный пример
 
-Combining whole knowledge above, an example of a complete setup would look like this:
+Объединив знания, полученные выше, мы можем сделать полный пример конфигурации, он будет выглядеть примерно так:
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-This assumes that you have all ASF config files in `/home/archi/asf`, if not, you should modify the path to the one that matches. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+Подразумевается что все конфигурационные файлы ASF находятся в папке `/home/archi/asf`, если же нет - вам нужно соответственно изменить путь. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
 
 ```json
 {
@@ -177,8 +177,8 @@ This assumes that you have all ASF config files in `/home/archi/asf`, if not, yo
 
 ## Советы профессионалов
 
-When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it might still be a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
+Когда ваш контейнер docker с ASF уже готов, вам не нужно каждый раз использовать команду `docker run`. Вы можете легко запускать/останавливать контейнер docker с ASF командами `docker stop asf` и `docker start asf`. Помните, что если вы не пользуетесь тегом `latest`, то обновление ASF потребует от вас снова выполнить `docker stop`, `docker rm`, `docker pull` и `docker run`. Это связано с тем, что вам нужно пересобирать ваш контейнер из свежего образа ASF каждый раз когда вы хотите использовать версию ASF, включенную в этот образ. Для образов с тегом `latest`, в ASF включена возможность автоматического обновления, поэтому пересборка образа не нужна для использования последней версии ASF (но делать это время от времени всё равно может оказаться полезным, чтобы получить свежую среду выполнения .NET Core и используемую ОС).
 
-As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
+Как сказано выше, ASF c тегами отличными от `latest` не будут обновляться автоматически, а это значит что **вы** отвечаете за использование последней версии репозитория `justarchi/archisteamfarm`. Это имеет много преимуществ, потому что обычно приложение не должно изменять свой код во время работы, но мы также понимаем удобство того факта что вам не нужно беспокоиться о версии ASF в контейнере docker. Если вас заботят хорошие практики и правильное использование docker, мы рекомендуем использовать тег `released` вместо `latest`, но если вы не хотите заботиться о нём и просто хотите чтобы ASF работало и обновлялось автоматически, тег `latest` тоже подойдёт.
 
-You should typically run ASF in docker container with `Headless: true` global setting. This will clearly tell ASF that you're not here to provide missing details and it should not ask for those. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. This way ASF won't have to wait infinitely for user input that will not happen (and waste resources while doing so).
+Обычно вам следует запускать контейнер docker с ASF с глобальной настройкой `Headless: true`. Это явным образом укажет ASF что вы не сможете ввести недостающие данные и запрашивать их не следует. Разумеется, для начальной настройки вам стоит рассмотреть возможность оставить этот параметр равным `false`, чтобы вы легко могли всё настроить, но при длительном использовании вы обычно не привязаны к консоли ASF, и поэтому имеет смысл сообщить об этом ASF и использовать при необходимости **[команду](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `input`. Таким образом ASF не придётся бесконечно ждать пользовательского ввода, который никогда не произойдёт (и тратить на это ресурсы).

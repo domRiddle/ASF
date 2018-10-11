@@ -6,7 +6,7 @@ De commando's kunnen op drie verschillende manieren naar een bot worden verzonde
 
 - Via een Steam privéchat
 - Via een Steam groepsgesprek
-- Via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apicommandcommand)**
+- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Hou er rekening mee dat je voor het communiceren met ASF de rechten nodig hebt in je ASF-instellingen om een commando te kunnen gebruiken. Check de `SteamUserPermissions` en de `SteamOwnerID` config-instellingen voor meer details.
 
@@ -24,15 +24,15 @@ Dit is de makkelijkste manier om met ASF te communiceren. Stuur de commando naar
 
 ### Steam groepsgesprek
 
-Vergelijkbaar met de bovenstaande optie, maar dan via het groepsgesprek van jouw Steam-groep. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account.
+Vergelijkbaar met de bovenstaande optie, maar dan via het groepsgesprek van jouw Steam-groep. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
 
 * * *
 
 ### IPC
 
-Probably the most "complex" method of calling ASF, perfect for third-party tools or scripting, requires ASF to be run in server mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://i.imgur.com/TsAHcM0.png)
+![Screenshot](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 

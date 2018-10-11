@@ -134,7 +134,7 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 * * *
 
-## Custom configuration
+## Benutzerdefinierte Konfiguration
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 

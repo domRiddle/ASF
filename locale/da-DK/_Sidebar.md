@@ -21,7 +21,7 @@
 * **[Kommandolinjeargumenter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Udfasning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Udvidet OSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Højydelsesopsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalisering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
@@ -29,11 +29,11 @@
 * **[Lav-hukommelsesopsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Sikkerhed](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Tredjeparts-værktøjer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[To-faktor autentificering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Udviklere
 
 * **[Kompilering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Retningslinjer for bidrag](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licens](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Udgivelsescyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

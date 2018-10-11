@@ -21,7 +21,7 @@
 * **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Versiuni vechi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Întrebări frecvente extinse](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Traducere](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
@@ -34,6 +34,6 @@
 ## Dezvoltatori
 
 * **[Compilare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Ghid pentru contributii](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licenţă](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Ciclu de lansare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

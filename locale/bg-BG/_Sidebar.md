@@ -14,7 +14,7 @@
 * **[Производителност](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Статистики](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam Семейно споделяне](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Търговия](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[Търговия / Размени](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Разширени настройки
 
