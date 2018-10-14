@@ -8,7 +8,7 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 ## Scope
 
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 ---
 
