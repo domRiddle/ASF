@@ -336,14 +336,8 @@ As you should know already, every bot should have its own config. Example bot co
 	"HoursUntilCardDrops": 3,
 	"IdlePriorityQueueOnly": false,
 	"IdleRefundableGames": true,
-	"LootableTypes": [
-		1,
-		3,
-		5
-	],
-	"MatchableTypes": [
-		5
-	],
+	"LootableTypes": [1, 3, 5],
+	"MatchableTypes": [5],
 	"OnlineStatus": 1,
 	"PasswordFormat": 0,
 	"Paused": false,
@@ -358,11 +352,7 @@ As you should know already, every bot should have its own config. Example bot co
 	"SteamTradeToken": null,
 	"SteamUserPermissions": {},
 	"TradingPreferences": 0,
-	"TransferableTypes": [
-		1,
-		3,
-		5
-	],
+	"TransferableTypes": [1, 3, 5],
 	"UseLoginKeys": true
 }
 ```
