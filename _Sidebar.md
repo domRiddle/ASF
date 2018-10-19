@@ -1,6 +1,6 @@
 English | Russian
 --- | ---
-![Test](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true) | (https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/ru.svg?sanitize=true)
+![Test](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true) | ![Test2](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true)
 
 # **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 
