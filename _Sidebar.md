@@ -1,9 +1,8 @@
-English | Russian
+English | Português | Русский
 --- | ---
-![Test](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true) | ![Test2](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true)
+[![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg?sanitize=true)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/br.svg?sanitize=true)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/ru.svg?sanitize=true)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)
 
-# **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-
+---
 
 ## Getting started
 
