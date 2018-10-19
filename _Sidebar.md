@@ -3,6 +3,8 @@
 
 ***
 
+## **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+
 ## Getting started
 
 * **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
