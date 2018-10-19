@@ -3,7 +3,7 @@
 
 ***
 
-## **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+# **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 
 ## Getting started
 
