@@ -19,7 +19,7 @@
 ## Nâng cao
 
 * **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Dừng cập nhật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Thiết lập hiệu suất cao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**

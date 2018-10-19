@@ -6,7 +6,7 @@ Các command sau có thể gửi tới bot theo 3 cách:
 
 - Through steam private chat
 - Through steam group chat
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Qua **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Đọc qua `SteamUserPermissions` và `SteamOwnerID` để biết thêm.
 

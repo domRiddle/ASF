@@ -297,7 +297,7 @@ ASF включает в себя расширенную поддержку жу�
 
 ### HistoryTarget
 
-Эта цель для внутреннего использования в ASF, она необходима для формирования истории журнала фиксированного размера для использования в IPC GUI. В общем случае вам следует задавать эту цель только если вы используете собственную конфигурацию NLog и при этом хотите сохранить историю журнала в IPC GUI. Также она может быть задана если вы хотите изменить значение по умолчанию в параметре `maxCount`.
+This target is used internally by ASF for providing fixed-size logging history in `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** that can be afterwards consumed by ASF-ui and other tools. In general you should define this target only if you're already using custom NLog config for other customizations and you also want the log to be exposed in ASF API, e.g. for ASF-ui. It can also be declared when you'd want to modify default layout or `maxCount` of saved messages.
 
 Поддерживается во всех средах используемых ASF.
 

@@ -297,7 +297,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ### HistoryTarget
 
-This target is used internally by ASF for providing fixed-size logging history for IPC GUI usage. In general you should define this target only if you're using custom NLog config for other customizations and you also want logging history in IPC GUI. It can also be declared when you'd want to modify default value of `maxCount`.
+This target is used internally by ASF for providing fixed-size logging history in `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** that can be afterwards consumed by ASF-ui and other tools. In general you should define this target only if you're already using custom NLog config for other customizations and you also want the log to be exposed in ASF API, e.g. for ASF-ui. It can also be declared when you'd want to modify default layout or `maxCount` of saved messages.
 
 Supported in all environments used by ASF.
 

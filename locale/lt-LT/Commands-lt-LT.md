@@ -6,7 +6,7 @@ Komandos apačioje gali būti nusiųstos botams trimis skirtingais būdais:
 
 - Naudojantis Steam privačių pokalbiu
 - Per Steam grupės pokalbį
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Per **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Prisiminkite, jog ASF reikalauja jus turėti atitinkamas teises į skirtingas komandas. Pasiskaitykite `SteamUserPermissions` ir `SteamOwnerID` nustatymų skiltį, jei norite sužinoti daugiau.
 

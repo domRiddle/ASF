@@ -223,7 +223,7 @@ You need to do only one more thing, toggle advanced settings, find `IPC` option,
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can generate your config by downloading it and replacing the original `ASF.json` in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 

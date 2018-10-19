@@ -8,7 +8,7 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 ## Scope
 
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our web config generator, our IPC GUI, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 * * *
 
@@ -212,10 +212,15 @@ This way our local link will keep working, since it'll now point to name of the 
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 範例：
 
-    This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
-    
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status - this should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+
+However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+
+As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
 If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
 

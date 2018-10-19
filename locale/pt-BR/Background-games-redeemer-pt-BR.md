@@ -1,6 +1,6 @@
 # Ativador de jogos em segundo plano
 
-O ativador de jogos em segundo plano é uma característica especial embutida no ASF que permite que você importe uma lista de cd-keys da Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Isso é especialmente útil se você tem um monte de keys para resgatar e é certo que você atingirá o **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de terminar.
+O ativador de jogos em segundo plano é uma característica especial embutida no ASF que permite que você importe uma lista de cd-keys do Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Isso é especialmente útil se você tem um monte de keys para resgatar e é certo que você atingirá o **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de terminar.
 
 Resgate de keys em segundo plano foi feito para uso em apenas um bot, o que significa que ele não faz uso de `RedeemingPreferences`. Esse recurso pode ser usado junto com (ou no lugar do) **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, se necessário.
 

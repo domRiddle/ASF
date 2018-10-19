@@ -146,7 +146,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-Если вы всё настроили правильно, команда `docker run`, приведенная выше сделает возможность выполнять **[примеры работы с IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU#client)** на вашей хост-машине, по стандартному адресу `localhost:1242`, который теперь корректно маршрутизируется на гостевую машину. Приятно отметить, что мы не маршрутизируем этот адрес дальше, поэтому соединение будет работать только с хост-машины docker, а значит останется безопасным.
+If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. Приятно отметить, что мы не маршрутизируем этот адрес дальше, поэтому соединение будет работать только с хост-машины docker, а значит останется безопасным.
 
 * * *
 

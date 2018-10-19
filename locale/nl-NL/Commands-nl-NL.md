@@ -6,7 +6,7 @@ De commando's kunnen op drie verschillende manieren naar een bot worden verzonde
 
 - Via een Steam privéchat
 - Via een Steam groepsgesprek
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Hou er rekening mee dat je voor het communiceren met ASF de rechten nodig hebt in je ASF-instellingen om een commando te kunnen gebruiken. Check de `SteamUserPermissions` en de `SteamOwnerID` config-instellingen voor meer details.
 

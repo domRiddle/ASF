@@ -6,7 +6,7 @@ Komendy poniżej mogą być wysłane do botów na 3 różne sposoby:
 
 - Przez prywatną wiadomość na steam
 - Przez czat grupowy
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Przez **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Pamiętaj że interakcja z ASF wymaga od Ciebie posiadania odpowiednich uprawnień. Sprawdź atrybuty `SteamUserPermissions` i `SteamOwnerID` pliku konfiguracyjnego aby dowiedzieć się więcej.
 

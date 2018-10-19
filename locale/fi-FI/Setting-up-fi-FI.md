@@ -10,23 +10,23 @@ Tämä ei silti tarkoita ettei sitä voisi käyttää kotikoneellasi tai että s
 
 ## Käyttöjärjestelmättäinen käyttöönotto
 
-In general, here is what we'll do in the next few minutes:
+Yleisesti ottaen tässä on, mitä teemme seuraavien minuuttien aikana:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
+- Asenna **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Lataa **[viimeisin ASF julkaisu](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** käyttämäsi käyttöjärjestelmän mukaisesti.
+- Pura arkisto uuteen kohteeseen (ja `chmod +x ArchiSteamFarm` jos käytät Linux/OS X).
+- **[Konfiguroi ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- Käynnistä ASF ja näe taikoja.
 
-Sounds simple enough, right? So let's get through it.
+Kuulostaa helpolta, eikö? Aloitetaampa sitten.
 
 * * *
 
 ### .NET Core prerequisites
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+Ensimmäiseksi pitää varmistaa voiko käyttöjärjestelmälläsi edes käynnistää ASF kunnolla. ASF on kirjoitettu C#:llä, se perustuu .NET Coreen ja saattaa vaatia natiivejä kirjastoja, jotka eivät ole edes saatavilla sinun alustallesi vielä. Riippuen siitä käytätkö Windowsia, Linuxia tai OS X:ää, sinulla on aina eri vaatimukset, kuitenkin kaikki nämä ovat listattuja **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** dokumentissa, jota sinun tulisi seurata. Tämä on meidän vertailumateriaali, jota pitäisi käyttää, mutta yksinkertaisuuden vuoksi olemme myös tarkentaneet kaikki tarvittavat paketit, joten sinun ei tarvitse lukea koko dokumenttia.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+On täysin normaalia, että järjestelmässäsi on jo olemassa joitakin (tai jopa kaikkia) riippuvuuksia, koska käytät kolmannen osapuolen ohjelmistoja, joita käytät. Kuitenkin, sinun kannattaa varmistaa että sinulla on varmasti kaikki käynnistämiseen tarvittavat ohjelmat käyttöjärjestelmässäsi - ilman niitä ASF ei käynnisty ollenkaan.
 
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
 
@@ -223,7 +223,7 @@ You need to do only one more thing, toggle advanced settings, find `IPC` option,
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can generate your config by downloading it and replacing the original `ASF.json` in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
@@ -257,11 +257,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Asenna **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[Konfiguroi ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

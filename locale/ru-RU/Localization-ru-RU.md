@@ -8,7 +8,7 @@
 
 ## Цели и задачи
 
-Наша платформа поддерживает локализацию основной программы ASF, а также полную локализацию содержимого, поставляемого вместе с ним. В частности, это включает в себя web-конфигуратор, интерфейс IPC, а также эту wiki. Всё это можно переводить через удобный интерфейс Crowdin.
+Наша платформа поддерживает локализацию основной программы ASF, а также полную локализацию содержимого, поставляемого вместе с ним. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. Всё это можно переводить через удобный интерфейс Crowdin.
 
 * * *
 
@@ -212,13 +212,18 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 Будьте очень осторожны при переводе предложений, содержащих блоки `<code></code>`. Блоки кода используются чтобы показать фиксированные имена в коде ASF, или иные термины, не подлежащие переводу. Например:
 
-    This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
-    
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-Как видите, слово `RateLimited` заключено здесь в блок кода, и описывает внутреннее состояние в коде ASF - его не нужно переводить. Точно так же, вам не следует переводить другие блоки кода, такие как имена конфигурационных параметров (например, `TradingPreferences`), члены перечислений (например опции `Stable` и `Experimental` параметра `UpdateChannel`) и тому подобное.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Точно так же, вам не следует переводить другие блоки кода, такие как имена конфигурационных параметров (например, `TradingPreferences`), члены перечислений (например опции `Stable` и `Experimental` параметра `UpdateChannel`) и тому подобное.
 
-Если вы считаете, что в блок кода включено что-то неподходящее, или что текст не заключённый в блок кода должен быть в нём - не стесняйтесь спросить нас на crowdin создав комментарий с отметкой **[issue](#Проблемы)**.
+However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+
+As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+
+If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
 
 * * *
 
-Спасибо Вам за помощь в переводе ASF на все языки мира!
+Thank you for helping us translating ASF into all languages spoken worldwide!

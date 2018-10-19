@@ -6,7 +6,7 @@ Die unten angeführten Befehle können über drei verschiedene Wege an einen Bot
 
 - Über den privaten Steam-Chat
 - Über einen Steam-Gruppen-Chat
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Bitte vergiss nicht, dass jegliche ASF-Interaktion verlangt, dass du gemäß deinen ASF-Einstellungen über die Berechtigungen für den Befehl verfügen musst. Für mehr Informationen lies bitte die Einträge zu den Config-Feldern `SteamUserPermissions` und `SteamOwnerID` durch.
 

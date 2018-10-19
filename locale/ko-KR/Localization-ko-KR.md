@@ -8,7 +8,7 @@ ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 �
 
 ## 범위
 
-우리 플랫폼은 메인 프로그램인 ASF와, 같이 제공하는 현지화 가능한 전체 콘텐츠의 현지화를 지원합니다. 즉, 웹 환경설정 생성기, IPC GUI 및 위키도 현지화에 포함됩니다. 모든 것이 편리한 Crowdin 인터페이스를 통해 번역가능합니다.
+우리 플랫폼은 메인 프로그램인 ASF와, 같이 제공하는 현지화 가능한 전체 콘텐츠의 현지화를 지원합니다. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. 모든 것이 편리한 Crowdin 인터페이스를 통해 번역가능합니다.
 
 * * *
 
@@ -212,13 +212,18 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 `<code></code>` 블록안에 있는 문장을 번역할 때는 매우 조심하십시오. 코드 블록은 번역하면 안되는 ASF의 고정된 코드 이름이나 용어를 가리킵니다. 예를 들면 다음과 같습니다:
 
-    이는 특히 등록할 키가 많고 전체를 다 등록하기 전에 <code>RateLimited</code>에 도달할 것이 확실한 경우에 유용합니다.
-    
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-보다시피 위의 `RateLimited` 단어는 코드 블록 안에 있으며 ASF 내부 코드 상태를 가리키므로 번역되어서는 안됩니다. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
 
-만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
+However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+
+As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+
+If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
 
 * * *
 
-ASF를 전세계에서 사용되는 모든 언어로 번역하는데 도와주셔서 감사합니다!
+Thank you for helping us translating ASF into all languages spoken worldwide!

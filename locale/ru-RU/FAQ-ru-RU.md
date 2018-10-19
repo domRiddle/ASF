@@ -418,117 +418,123 @@ ASF лицензирован по либеральной лицензии Apache
 
 * * *
 
-### В чём разница между ошибками и предупреждениями в журнале?
+### Why playtime of games idled through ASF doesn't increase?
 
-ASF записывает в журнал информацию разных уровней регистрации. Наша задача - **точно** описать что делает ASF, включая ошибки Steam с которыми можно столкнуться, и прочие возможные проблемы. Большую часть времени - не всё из этого имеет значение, поэтому в ASF используются два разных уровня регистрации проблем - уровень предупреждений и уровень ошибок.
-
-Общее правило для ASF то, что предупреждения это **не** ошибки, и следовательно о них **не** надо сообщать разработчику. Предупреждение это индикатор того, что произошло что-то нежелательное. Если Steam не отвечает, или API выдаёт ошибки, или ваша сеть слишком медленная - всё это предупреждения, а это значит что мы ожидали, что такое могло произойти, поэтому не надо надоедать разработчику ASF по этому поводу. Разумеется, вы можете спросить о них, или попросить помощи у нашей поддержки, но не следует считать что это ошибки ASF, о которых необходимо сообщить (кроме случаев, когда мы сами об этом попросим).
-
-Ошибки же, напротив, указывают на ситуацию которой не должно было случиться, поэтому о них следует сообщать, если конечно вы уверены что это не результат ваших действий. Если это распространенная ситуация, и её возникновение ожидаем - тогда эту ошибку следует превратить в предупреждение. В противном случае - это ошибка, которую следует исправить, а не просто игнорировать, конечно если это не результат технических проблем на вашей стороне. Например, удаление файла `ASF.json` приведёт к возникновению ошибки, поскольку ASF не может работать без этого файла, но это вы удалили его, поэтому об этой ошибке не нужно сообщать нам (разве что если ASF не прав и файл на самом деле на месте).
-
-Короче говоря - сообщайте об ошибках, не сообщайте о предупреждениях. Вы можете спросить о предупреждениях и получить помощь в связи с ними в местах отведенных нами для оказания поддержки (группа Steam и чат Discord).
+It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. If it was possible to skip playtime while idling cards then you can be sure that we'd have it implemented in ASF long time ago, and actually use it in default settings. But we don't, and we don't exactly because it's not possible - just because the playtime isn't updated in real-time doesn't mean that it's not recorded.
 
 * * *
 
-### ASF не запускается, окно программы закрывается сразу после запуска!
+### What is the difference between a warning and an error in the log?
 
-Если у вас даже не создаётся файл `log.txt`, то вероятнее всего вы забыли установить предусловия для .NET Core, как описано в руководстве по **[установке](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ru-RU#Установка-для-конкретных-ОС)**. Другие общие проблемы могут включать в себя запуск неподходящего для вашей ОС варианта ASF, или иное отсутствие зависимостей среды исполнения .NET Core. Если окно консоли закрывается слишком быстро, и вы не успеваете прочесть сообщение об ошибке, вам нужно открыть отдельную консоль и запустить ASF через неё. Например под Windows, откройте папку ASF, зажмите клавишу `Shift`, кликните правой кнопкой мыши внутри папки и выберите в выпадающем меню пункт "Открыть окно команд" (или PowerShell), а затем введите в консоли `.\ArchiSteamFarm.exe` и нажмите enter. Таким образом вы сможете получить сообщение о том, почему ASF не запускается.
+ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
 
-* * *
+General ASF rule is that warnings are **not** errors, therefore they should **not** be reported. A warning is an indicator to you that something potentially unwanted happen. Whether it was Steam not reacting, API throwing errors or your network connection being down - it's a warning, and it means we expected it to happen, so don't bother ASF development with it. Of course you're free to ask about them or get help by using our support, but you shouldn't assume that those are ASF errors worth reporting (unless we confirm otherwise).
 
-### ASF отключает мою сессию клиента Steam, когда я играю! / `Этот аккаунт уже где-то используется`
+Errors on the other hand indicate a situation that should not happen, therefore they're worth reporting as long as you made sure that it's not you who is causing them. If it's a common situation that we expect to happen, then it'll be converted to a warning instead. Otherwise, it's possibly a bug that should be corrected, not silently ignored, assuming it's not a result of your own technical issue. For example, removing core `ASF.json` file will throw an error, as ASF can't operate without that file, but it was you who removed it, so you should not report that error to us (unless you confirmed that ASF is wrong and the file is there).
 
-Этот текст отображается в оверлее Steam, и говорит что ваш аккаунт используется где-то ещё в то время как вы играете. У этой проблемы могут быть две разные причины.
-
-Одна причина - это "сломанные" пакеты (игры) которые не умеют правильно удерживать игровую блокировку, но при этом ожидают что блокировка контролируется клиентом. Пример такого пакета - Skyrim SE. Ваш клиент Steam штатно запускает игру, но игра не регистрирует себя как используемую. Из-за этого, ASF видит что можно продолжать процесс, что и делает, и это выкидывает вас из сети Steam, поскольку Steam внезапно обнаруживает что ваш аккаунт используется в другом месте.
-
-Вторая возможная причина - когда вы играете на вашем ПК, а ASF находится в режиме ожидания (особенно на другой машине) и вы теряете подключение к сети. В этом случае, сеть Steam отмечает вас как оффлайн, и освобождает игровую блокировку (как и в случае выше), из-за чего ASF (например, на другой машине) продолжает фармить. Когда ваш ПК возвращается онлайн, Steam не может получить игровую блокировку (поскольку её удерживает ASF, опять же как и в случае выше) и отображает то же сообщение.
-
-С обоими проблемами очень сложно бороться на стороне ASF, поскольку ASF продолжает фарм как только сеть Steam сообщает что аккаунт снова свободен. Именно это происходит когда вы выходите из игры, но со сломанными пакетами это происходит немедленно, даже если игра ещё запущена. У ASF нет способа определить, были ли у вас проблемы с соединением, вы штатно вышли из игры или ваша игра просто не умеет правильно устанавливать игровую блокировку.
-
-Единственный способ бороться с этой проблемой - вручную ставить бота на паузу командой `pause` перед началом игры, и возобновлять фарм командой `resume` когда вы закончили. Как альтернатива - вы можете просто игнорировать эту проблему и играть так, как вы бы играли с клиентом Steam оффлайн.
+In one TL;DR sentence - report errors, don't report warnings. You can still ask about warnings and receive help in our support sections.
 
 * * *
 
-### `Отключен от Steam!` - Я не могу установить соединение с серверами Steam.
+### ASF can't start, the program window immediately closes after being launched!
 
-ASF может только **пытаться** установить соединение с серверами Steam, и это может не удастся по разным причинам, включая проблемы с сетевым подключением, падениями серверов Steam, настройки вашего брандмауэра, какие-то сторонние программы, неверно настроенная маршрутизация или временные проблемы. Вы можете включить режим `Debug` чтобы получить подробные сообщения в журнале, где будут указаны конкретные причины, но в большинстве случае это вызвано вашими собственными действиями, такими как использование "CS:GO MM Server Picker" который добавляет в блеклист множество IP Steam, делая очень сложным подключение к сети Steam.
-
-ASF будет прилагать все усилия к установке соединения, это включает в себя не только обновление списка серверов, но и попытки подключения к другим IP, если текущий отказал, так что если это временная проблема с каким-то конкретным сервером или маршрутом, ASF рано или поздно подключится. Однако, если вы находитесь за брандмауэром, или по другой причине не можете получить доступ к серверам Steam, то вам придётся решать это проблему самостоятельно, возможно с помощью режима `Debug`.
-
-Также возможно что ваша машина не может установить соединение с серверами Steam используя протокол, установленный в ASF по умолчанию. Вы можете изменить протоколы, которые разрешено использовать ASF, изменяя параметр глобальной конфигурации `SteamProtocols`. Например, если у вас проблемы с доступом к Steam с помощью протокола `SteamProtocols`, вы можете попробовать `UDP` или `WebSocket`.
-
-В маловероятном случае, когда у вас закешированы неправильные адреса серверов, например из-за того что вы перенесли папку `config` с другой машины, расположенной в другой стране, может помочь удаление файла `ASF.db` с целью обновить адреса серверов Steam при следующем запуске. Чаще всего этого не нужно делать, поскольку этот список автоматически обновляется при первом запуске, а также после успешной установки соединения.
+If even `log.txt` is not being generated then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
 
 * * *
 
-### `Не удаётся получить информацию о значках, попробуем позже!`
+### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
 
-Обычно это означает что вы используете ПИН семейного просмотра для доступа к аккаунту и забыли указать его в конфигурационном файле ASF. Вам нужно указать правильный ПИН в параметре конфигурации бота `SteamParentalCode`, иначе ASF не сможет получить доступ к большинству онлайн данных, и следовательно - не сможет правильно работать. Прочтите раздел **[Конфигурация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** чтобы узнать больше о параметре `SteamParentalCode`.
+This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
-Среди других причин могут быть временные проблемы со Steam, проблемы с сетью и тому подобное. Если проблема не решается сама собой через несколько часов, и вы абсолютно убеждены что настроили ASF правильно - можете сообщить об этом нам.
+One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
+
+Second reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
+
+Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
+
+The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done. Alternatively you can just ignore the problem and act the same as if you played with offline Steam client.
 
 * * *
 
-### ASF не работает, выдаёт ошибки `Запрос окончился неудачей после 5 попыток!`
+### `Disconnected from Steam!` - I can't establish connection with Steam servers.
 
-Обычно это означает что вы используете ПИН семейного просмотра для доступа к аккаунту и забыли указать его в конфигурационном файле ASF. Вам нужно указать правильный ПИН в параметре конфигурации бота `SteamParentalCode`, иначе ASF не сможет получить доступ к большинству онлайн данных, и следовательно - не сможет правильно работать. Прочтите раздел **[Конфигурация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** чтобы узнать больше о параметре `SteamParentalCode`.
+ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
 
-Если причина не в ПИН семейного просмотра, то это одна из самых распространённых ошибок, привыкайте - это значит просто что ASF отправил запрос сети Steam и не получил верного ответа, в добавок - даже после 4 повторов. Обычно это означает что Steam либо упал, либо испытывает какие-то сложности, либо находится на техобслуживании - ASF предусматривает такие ситуации, и о них не стоит беспокоиться, если конечно они не возникают всё время, больше нескольких часов, и у других пользователей нет подобных проблем.
+ASF will do its best to establish connection, which includes not only asking about updated list of servers but also trying another IP when last one fails, so if it's truly a temporary problem with some specific server or route, ASF will connect sooner or later. However, if you're behind firewall or in some other way unable to reach Steam servers, then obviously you need to fix it yourself, with potential help of `Debug` mode.
 
-Как проверить что Steam упал? **[Steam Status](https://steamstat.us)** - прекрасный способ проверить, что стим **должен** работат, если вы видите там ошибки, особенно связанные с сообществом или Web API, то у стима проблемы, либо дайте ASF возможность решить проблему самостоятельно, либо сами подождите несколько часов.
+It's also possible that your machine is not able to establish connection with Steam servers using default protocol in ASF. You can alter protocols that ASF is permitted to use by modifying `SteamProtocols` global configuration property. For example, if you have problems reaching Steam with `TCP` protocol, then you can try `UDP` or `WebSocket`.
 
-Однако это не всегда так, в некоторых ситуациях проблемы со Steam могут быть не обнаружены Steam Status, например такое случилось когда Valve сломали поддержку HTTPS для сообщества Steam 7 июня 2016 - при попытке получить доступ к **[сообществу Steam](https://steamcommunity.com)** через HTTPS выдавалась ошибка. Поэтому не стоит слепо доверять тому, что выдаёт Steam Status, лучше самостоятельно проверить что всё работает как положено.
+In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to machine located in another country, deleting `ASF.db` in order to refresh Steam servers on next launch might help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established.
 
-И наконец, если ничего не помогает - вы всегда можете включить режим `Debug` и сами посмотреть в журнале ASF почему запросы завершаются неудачей. Например, в описанном выше случае с HTTPS причина была:
+* * *
+
+### `Could not get badges information, will try again later!`
+
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
+
+Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
+
+* * *
+
+### ASF is failing with `Request failed despite of 5 tries` errors!
+
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
+
+If parental PIN is not the reason, then this is a most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
+
+How to check if Steam is being down? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties, either leave ASF alone and let it do its job after a short while, or wait yourself.
+
+That's however not always the case, as in some situations Steam issues might not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
+
+Lastly, if nothing helps you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
 
     <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
     An error occurred while processing your request.<p>
     
 
-Очевидно что это проблема со Steam и в ASF это не починить. Вы всегда можете попробовать вручную зайти по ссылке, указанной в ASF, и проверить, работает ли она - если нет, вы будете знать почему ASF тоже не может получить доступ. Если же вручную ссылка работает, но ошибка не проходит больше пары дней - возможно стоит эту ситуацию исследовать и сообщить о ней разработчикам.
+Which is clearly Steam issue and nothing to fix in ASF. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and error doesn't go away after a day or two, it might be worth investigating and reporting.
 
-Прежде чем это сделать, вы должны **убедиться что ошибка стоит того, чтобы о ней сообщать**. Если она описана в этом FAQ, например проблема с отправкой обменов, то сообщать о ней не стоит. Если это временная проблема, которая возникла только раз или два, особенно когда ваша сеть работала нестабильно или сервера Steam были отключены - о ней тоже не стоит сообщать. Однако, если вы смогли воспроизвести ошибку несколько раз подряд, в течении 2 дней, перезапустили ASF и вашу машину в процессе, и убедились что в FAQ нет записей об этом - возможно стоит задать вопрос разработчику.
-
-* * *
-
-### ASF выглядит зависшим, и не выводит ничего в консоли пока не нажму какую-нибудь клавишу!
-
-Вероятнее всего вы пользуетесь Windows и у вашей консоли включено выделение мышью. Почему так происходит можно прочитать на **[StackOverflow](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** (на английском). Вам нужно отключить выделение мышью, для чего кликните правой кнопкой мыши на заголовке окна ASF, выберите "Свойства", перейдите на закладку "Настройки" и снимите галочку в соответствующем пункте.
+Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this might be worth asking about.
 
 * * *
 
-### ASF не может принимать и отправлять запросы обмена!
+### ASF seems to freeze and doesn't print anything on the console until I press a key!
 
-Начнем с очевидного - новые аккаунты в стим имеют ограничения. Пока вы не разблокируете аккаунт пополнив кошелёк Steam или потратив в магазине эквивалент 5$, ASF не может принимать или отправлять запросы c этого аккаунта. В этом случае ASF будет писать что инвентарь пуст, поскольку все карточки нельзя обменять. Также ASF не сможет получить никакие обмены, поскольку это требует возможности получить ключ API, а эта возможность отключена для ограниченных аккаунтов. Короче говоря - обмены не работают на ограниченных аккаунтах, без исключений.
-
-Далее, если вы не пользуетесь **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, возможно что ASF на самом деле принял/отправил обмен, но вам нужно подтвердить обмен через e-mail. Аналогично, если вы пользуетесь классической 2ФА, вам нужно подтвердить обмен в вашем аутентификаторе. Подтверждения сейчас **обязательные**, поэтому если вы не хотите подтверждать обмены самостоятельно - подумайте о добавлении или импорте аутентифицатора в 2ФА ASF.
-
-Также обратите внимание, что обмениваться можно либо с друзьями, либо с людьми для которых вам известна ссылка для обмена. Если вы пытаетесь запустить обмен от бота к мастеру, например с помощью `loot`, то вам нужно чтобы бот был либо в вашем списке друзей, либо в его конфигурационном файле был указан ваш токен обмена в параметре `SteamTradeToken`. Убедитесь что токен актуальный - иначе отправить обмен не удастся.
-
-И наконец, помните о том, что на новых устройствах даётся блокировка обмена на 7 дней, поэтому если вы только что добавили свой аккаунт в ASF, подождите хотя бы 7 дней - после этого периода всё должно работать. Это ограничение включает в себя как **приём** так и **отправку** обменов. Блокировка не всегда срабатывает, есть люди у которых отправка обменов работает сразу. Однако для большинства пользователей блокировка **работает**, даже если вы можете отправлять и принимать обмены через официальный клиент Steam на той же машине. Просто терпеливо ждите, вы не можете ничего сделать чтобы ускорить этот процесс.
-
-И наконец, помните что один аккаунт может иметь только 5 незавершенных обменов с другим аккаунтом, поэтому ASF не сможет отправить обмен если у вас уже есть 5 (или более) незавершённых обмена между этим ботом и вашим аккаунтом. Эта проблема встречается редко, но о ней стоит упомянуть, особенно если вы настроили ASF на автоматическую отправку обменов, но при этом не пользуетесь 2ФА ASF и забыли их подтвердить.
-
-Если ничего не помогает, вы всегда можете включить режим `Debug` и самостоятельно проверить, почему обмены завершились неудачей. Обратите внимание, что Steam большую часть времени выдаёт ерунду, и полученная причина может не иметь никакого логического смысла, или вообще быть неправильной - если вы собираетесь разбираться в причинах, вам понадобятся глубокие знания о Steam и его глюках. Довольно часто бывает, что проблемы возникают без каких-то логических причин, и единственное что можно посоветовать в такой ситуации - заново добавить аккаунт в ASF (и снова подождать 7 дней). А иногда эта проблема *волшебным образом* проходит сама собой, как и появилась. Однако обычно это либо блокировка на 7 дней, либо временная проблема самого Steam, либо и то и другое одновременно. Лучше всего подождать несколько дней прежде чем вручную проверять что не так, если у вас конечно нет желания погрузиться в отладку чтобы найти реальную причину (и скорее всего вам всё равно придётся ждать, потому что текст ошибки не будет иметь никакого смысла и ничем вам не поможет).
-
-В любом случае, ASF может только **пытаться** отправить правильный запрос к Steam чтобы принять/отправить обмен. Обработает ли Steam этот запрос, или нет, лежит за пределами ответственности ASF, и ASF не может волшебным образом заставить его работать. В этой функции нет ошибок, и нечего улучшать, потому что вся обработка происходит за пределами ASF. Поэтому не просите починить то, что не сломано, и не спрашивайте, почему ASF не может принимать и отправлять запросы - **я не знаю, и ASF тоже не знает**. Либо смиритесь с этим, либо чините сами.
+You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
 
 * * *
 
-### Почему мне приходится вводить код 2ФА/SteamGuard при каждом входе? / `Удалён истёкший ключ входа!`
+### ASF can't accept or send trades!
 
-ASF использует так называемые ключи входа (если вы оставили параметр `UseLoginKeys` включенным) для повторного входа в Steam (аналогично пункту "запомнить пароль" в официальном клиенте) - код 2ФА/SteamGuard требуется ввести только один раз. Однако, из-за проблем и глюков Steam, вполне возможен вариант что ответная часть ключа входа не будет сохранена в сети, я уже встречался с подобной проблемой не только с ASF, но и с официальном клиентом Steam (нужно было вводить логин и пароль при каждом входе, несмотря на установку опции "запомнить мой пароль").
+Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
-Вы можете удалить файл `BotName.db` (+ `BotName.bin`, если он есть) на проблемном аккаунте и заново присоединить ASF к своему аккаунту, но это не обязательно поможет. Реально действующее решение с помощью ASF - это импортировать аутентификатор в **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)** - тогда ASF сможет генерировать коды для входа автоматически, когда они нужны, без необходимости вводить их вручную. Обычно эта проблема волшебным образом решается сама собой через некоторое время, поэтому вы можете просто подождать, пока это произойдёт. Конечно вы можете также попросить о помощи Гейба, потому что я не могу заставить сеть Steam принимать наши ключи входа.
+Next, if you do not use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
-Дополнительно замечу, что вы можете выключить использование ключей входа установив параметру `UseLoginKeys` значение `false`, но это имеет смысл делать только если ASF может входить полностью автоматически. Сейчас единственный способ добиться этого - это верный пароль в параметре `SteamPassword` и настроенный **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, поскольку в этом случае нам вообще не нужно полагаться на ключи входа, поскольку у нас есть все необходимые учетные данные (пароль и код 2ФА) для каждого входа.
+Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
+
+Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
+
+And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarely a problem, but it's also worth mentioning, especially if you set ASF to auto-send trades, yet you're not using ASF 2FA and forgot to actually confirm them.
+
+If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason might not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
+
+In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself.
 
 * * *
 
-### Мне выдаёт ошибку: `Не удалось войти в Steam: InvalidPassword/RateLimitExceeded`
+### Why do I have to put 2FA/SteamGuard code on each login? / `Removed expired login key`
 
-Эта ошибка может иметь очень много причин, например:
+ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
+
+You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask GabeN for solution, because I can't force Steam network to accept our login keys.
+
+As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but you should do that only if ASF has fully automated way to make initial login. Right now this is possible only with valid `SteamPassword` and **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, since in this case we don't need to rely on login keys at all, as we have required login credentials (password and 2FA key) available on each login.
+
+* * *
+
+### I'm getting error: `Unable to login to Steam: InvalidPassword or RateLimitExceeded`
+
+This error can mean a lot of things, some of them include:
 
 - Неверная комбинация логина/пароля (очевидная причина)
 - Устаревший ключ входа, используемый ASF для входа
@@ -537,40 +543,40 @@ ASF использует так называемые ключи входа (ес
 - Необходимость решения капчи для входа (вероятнее всего из-за одной из двух причин выше)
 - Любая другая причина по которой сеть Steam может отказать вам во входе.
 
-В случае защиты от перебора и ограничения по частоте - проблема сама исчезнет после некоторого времени, просто ждите и не пытайтесь входить. Если вы часто сталкиваетесь с этой проблемой, возможно вам стоит увеличить значение параметра `LoginLimiterDelay` в ASF. Частые перезапуски программы и прочие намеренные и ненамеренные попытки входа однозначно не помогут с этой проблемой, поэтому постарайтесь этого избежать.
+In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
-В случае устаревшего ключа входа - ASF удалит старый ключ и запросит новый при следующем входе (для этого потребуется код 2ФА если аккаунт защищён с помощью 2ФА. Если на вашем аккаунте используется 2ФА ASF, код будет сгенерирован автоматически). Если вы часто сталкиваетесь с этой проблемой - возможно что Steam по какой-то причине решил игнорировать запросы на сохранение ключа входа, как описано в описании проблемы выше. Этого можно избежать отключив механизм ключей входа целиком, с помощью параметра `UseLoginKeys`, однако мы не рекомендуем этого делать.
+In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You might avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
 
-И наконец, если вы использовали неверную комбинацию логина и пароля, очевидно что вам надо это исправить, или отключить бота который пытается использовать эти учётные данные. ASF не может определить, означает ли ошибка `InvalidPassword` действительно неверные учетные данные, или одну из причин описанных выше, поэтому будет пытаться до победного конца.
+And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 
-Имейте в виду, что в ASF есть встроенная система адекватного реагирования на глюки Steam, рано или поздно оно подключится и продолжит работу, поэтому нет необходимости что-то предпринимать если проблема временная. Перезапуск ASF в надежде на то, что это волшебным образом решит проблему, сделает только хуже (поскольку новый процесс ASF не будет знать о том, что в прошлый раз ASF не смог войти, и будет пытаться подключиться вместо того чтобы ждать), поэтому старайтесь избегать этого, кроме случая когда вы точно знаете что делаете.
+Keep in mind that ASF has its own built-in system to react accordingly to steam quirks, eventually it will connect and resume its job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
 
-И наконец, как и со всеми запросами к Steam, ASF может только **пытаться** войти, используя предоставленные учетные данные. Будет ли запрос успешным или нет - за пределами влияния и логики ASF - это не ошибка, и это нельзя ни исправить ни улучшить.
-
-* * *
-
-### `System.Threading.Tasks.TaskCanceledException: Запрос был отменён.`
-
-Это предупреждение означает что Steam не ответил на запрос ASF за заданное время. Обычно это вызвано перебоями в работе сети Steam и никак не влияет на ASF. В других случаях это аналогично запросу, завершившемуся неудачей после 5 попыток. В большинстве случае сообщать об этой проблеме бессмысленно, мы не можем заставить Steam отвечать на наши запросы.
+Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF - there is no bug, and nothing can be fixed neither improved in this regard.
 
 * * *
 
-### `System.Net.Http.WinHttpException: Произошла ошибка безопасности`
+### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
-Эта ошибка появляется когда ASF не может установить защищённое соединение с заданным сервером, практически всегда это означает проблемы с сертификатами SSL.
-
-В большинстве случаев эта ошибка вызвана **неверным временем/датой на вашей машине**. У каждого сертификата SSL есть дата выдачи и дата окончания. Если на вашем компьютере неверная дата, и она выходит за пределы, указанные в сертификате - то сертификату нельзя доверять, поскольку это может быть признаком атаки посредника, и ASF отказывается устанавливать соединение.
-
-Очевидным решением будет установить правильную дату на вашей машине. Настоятельно рекомендуется использовать автоматическую синхронизацию времени, такую как встроенная синхронизация в Windows, или `ntpd` под Linux.
-
-Если вы убедились что дата на вашей машине правильная, а ошибка не пропала, то можно предположить что это не временная проблема, которая решится сама собой, и сертификаты SSL на вашей машине могут быть устаревшими или неверными. В этом случае убедитесь что ваша машина может устанавливать защищённые соединения, например проверив, можете ли вы получить доступ к `https://github.com` в любом удобном браузере, или с помощью консольных утилит, таких как `curl`. Если вы убедились, что это работает, не стесняйтесь сообщить о проблеме в нашей группе Steam.
+This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing despite of 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
 
 * * *
 
-### Мой антивирус нашёл вирус в ASF! Что происходит?
+### `System.Net.Http.WinHttpException: A security error occurred`
 
-**Убедитесь, что вы скачали ASF из надёжного источника**. Единственный официальный и надёжный источник это **[страница релизов ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** на GitHub (и из этого же источника качаются автоматические обновления). - **любой другой источник ненадёжен по определению, и может содержать вредоносный код, добавленный другими людьми** - вам не следует доверять другим местам для скачивания, убедитесь что вы получили ASF именно от нас.
+This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
 
-Если вы убедились, что скачали ASF из надёжного источника, то вероятнее всего это просто ложно-положительное срабатывание антивируса. Это **происходило раньше**,**происходит сейчас**, и **будет происходить в будущем**. Если вы беспокоитесь о реальной безопасности использования ASF, то я рекомендую просканировать ASF большим количеством антивирусов для получения реального соотношения срабатываний, например с помощью сайта **[VirusTotal](https://www.virustotal.com)** (или другого аналогичного сервиса на ваш выбор).
+In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted as potential MITM attack and ASF refuses to make a connection.
 
-Если антивирус которым вы пользуетесь ошибочно определятет ASF как вредоносное ПО, будет **хорошей идеей отправить образец файла разработчикам вашего антивируса, чтобы они могли проанализировать его и улучшить работу своей системы распознавания**, поскольку совершенно очевидно что она работает не так хорошо, как вы думаете. В коде ASF нет подобных проблем, нам нечего исправить по этому поводу, поскольку мы не распространяем вредоносное ПО, поэтому нет смысла сообщать нам о ложно-положительных срабатываниях. Мы настоятельно рекомендуем отправить образец ASF для дальнейшего анализа, как сказано выше, но если вы не хотите этим заниматься - вы всегда можете добавить ASF в исключения своего антивируса, отключить антивирус, или просто использовать другой антивирус. К сожалению, мы привыкли к плохой работе антивирусов, поскольку время от времени они обнаруживают ASF как вирус, обычно это длится очень недолго, и разработчики это исправляют, но как мы уже сказали выше - **это происходило**, **происходит** и **будет происходить** всё время. В ASF нет никакого вредоносного кода, вы можете проверить код ASF самостоятельно и даже скомпилировать ASF из исходного кода. Мы не хакеры и не занимаемся обфускацией кода ASF с целью скрыться от работы эвристического анализатора антивирусов и избежать ложно-положительных срабатываний, поэтому не ожидайте что мы будем чинить то, что не сломано - нет никакого "вируса", который мы могли бы исправить.
+Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as native synchronization available on Windows, or `ntpd` on Linux.
+
+If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts might be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
+
+* * *
+
+### ASF is being detected as a malware by my AntiVirus! Что происходит?
+
+**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
+
+If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
+
+If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.

@@ -223,7 +223,7 @@ Você precisa fazer só mais uma coisa: alternar para as configurações avança
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Agora você pode gerar sua configuração, baixá-la e substituir o arquivo `ASF.json` original na pasta `config`, como de costume. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
+Now you can download your ASF config and put it in your `config` directory, as usual. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
