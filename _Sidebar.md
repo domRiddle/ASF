@@ -3,13 +3,12 @@
 
 ***
 
-# **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+## Basics
 
-## Getting started
-
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
 ## Core
