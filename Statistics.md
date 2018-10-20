@@ -59,7 +59,7 @@ Please note that you will **not** be displayed on the website if you do not meet
 
 ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now.
 
-If you're looking for easy way to access our listing, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** access that you can use.
+If you're looking for easy way to access our listing, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use.
 
 ### Notice
 
