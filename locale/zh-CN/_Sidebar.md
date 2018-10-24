@@ -1,10 +1,15 @@
-# **[首页](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## 新手指南
+* * *
 
-* **[ 设置 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (从这里开始) **
+## Basics
+
+* **[首页](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[ 设置 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (从这里开始) **
 
 ## 内核
 

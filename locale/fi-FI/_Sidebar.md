@@ -1,10 +1,15 @@
-# **[Aloitus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Näin pääset alkuun
+* * *
 
-* **[Aloittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(aloita täältä)**
+## Basics
+
+* **[Aloitus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfigurointi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[UKK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Aloittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(aloita täältä)**
 
 ## Ydin
 

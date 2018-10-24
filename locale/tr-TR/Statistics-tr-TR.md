@@ -8,7 +8,7 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 * * *
 
-## Güncel gizlilik politikası
+# Güncel gizlilik politikası
 
 `İstatistikler` aktifken şunlar olacaktır:
 
@@ -33,19 +33,19 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-## Usage of data
+# Usage of data
 
 All values specified in point b) are being used for our **Public ASF STM listing** explained below, and only for that.
 
 * * *
 
-### Public ASF STM listing
+## Public ASF STM listing
 
 Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** and serves a very simple purpose of allowing all users to quickly match ASF bots for dupes.
 
 Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
 
-**How it exactly works:**
+### How it exactly works
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
 
@@ -54,6 +54,14 @@ This allows our website to record which accounts can be used for matching, as we
 Users are sorted according to their inventories (in descending order) - `MatchableTypes` unique games count, then `MatchableTypes` items count, with addition of `MatchEverything` bots being listed on the top with `Any` banner.
 
 Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so point b) is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and might refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+
+### API
+
+ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
+
+If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use.
+
+### Notice
 
 *The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
 

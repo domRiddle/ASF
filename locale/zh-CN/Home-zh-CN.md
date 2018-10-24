@@ -2,7 +2,7 @@
 
 欢迎阅读ASF Wiki！ Wiki 是一份在线帮助文档，涵盖众多不同类别的主题，包括常见问题、可能遇到的问题、使用方法、设置等等。 如果你希望学习ASF的使用方法，比如说安装、配置以及使用方面，那么这个你需要关注这个页面。
 
-你可以在任何 Wiki 网页后加上 `-locale` 语言后缀来更改页面语言。 例如， 在查看 **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** 时，你可以改为查看 **[FAQ-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ru-RU)** 来获得翻译为俄罗斯语的页面(如果翻译可用的话)。
+你可以在任何 Wiki 网页后加上 `-locale` 语言后缀来更改页面语言。 For example, instead of visiting **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, you can visit **[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)** that contains home page translated into Russian (if available).
 
 All wiki pages always apply to **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
 

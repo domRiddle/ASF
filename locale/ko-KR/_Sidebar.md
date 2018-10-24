@@ -1,10 +1,15 @@
-# **[홈](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ko-KR)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## 시작하기
+* * *
 
-* **[설치하기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ko-KR)** **(여기부터 시작하세요)**
+## Basics
+
+* **[홈](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**
 * **[자주 묻는 질문(FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ko-KR)**
+* **[설치하기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ko-KR)** **(여기부터 시작하세요)**
 
 ## 핵심
 

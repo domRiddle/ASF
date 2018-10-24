@@ -1,10 +1,15 @@
-# **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Getting started
+* * *
 
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+## Basics
+
+* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Najčešće postavljana pitanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 ## Jezgro
 

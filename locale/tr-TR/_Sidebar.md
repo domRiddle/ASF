@@ -1,10 +1,15 @@
-# **[Ana sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Başlarken
+* * *
 
-* **[Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
+## Basics
+
+* **[Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
 
 ## Temel
 

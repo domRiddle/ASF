@@ -1,4 +1,4 @@
-# Instalação
+# Primeiros passos
 
 Se você está aqui pela primeira vez, bem-vindo! Estamos felizes em saber que outro viajante está interessado em nosso projeto, no entanto tenha em mente que grandes poderes trazem grandes responsabilidades; o ASF é capaz de fazer muitas coisas relacionadas ao Steam, mas somente enquanto você se **preocupar em aprender como usá-lo**. Há uma curva de aprendizagem aqui e esperamos que você leia a wiki a este respeito, que explica detalhadamente como tudo funciona.
 
@@ -223,7 +223,7 @@ Você precisa fazer só mais uma coisa: alternar para as configurações avança
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can download your ASF config and put it in your `config` directory, as usual. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
+Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `config`. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 

@@ -1,10 +1,15 @@
-# **[Trang chủ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Bắt đầu
+* * *
 
-* **[Thiết lập](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(bắt đầu tại đây)**
+## Basics
+
+* **[Trang chủ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Cấu hình](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[CÂU HỎI THƯỜNG GẶP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Thiết lập](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(bắt đầu tại đây)**
 
 ## Cơ bản
 

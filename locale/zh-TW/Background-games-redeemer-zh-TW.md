@@ -24,7 +24,7 @@ ASF 將在啟動時或稍後匯入指定的文件。 成功讀取檔案並跳過
 
 ### IPC
 
-除了使用 keys 檔案，ASF 還提供 IPC `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**，包括 IPC 圖形控制台。 使用 IPC 的方法可以更加實用，你可以自訂參數，例如使用分隔符而不是表格鍵。
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
 
 * * *
 

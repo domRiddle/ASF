@@ -24,7 +24,7 @@ ASF는 봇 시작시에 또는 나중에 실행중에 이 파일을 불러옵니
 
 ### IPC
 
-위에서 언급한 키 파일을 이용하는 방법과 함께, ASF는 자체 IPC GUI를 포함한 어떠한 IPC 도구에서도 실행가능한 `GamesToRedeemInBackground` **[API 끝점](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#post-apigamestoredeeminbackgroundbotname)**을 제공합니다. IPC를 사용하면 탭 문자 대신 사용자 지정 구분기호를 사용하여 적절한 구문분석을 직접 할 수 있는 등 더 강력합니다.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
 
 * * *
 

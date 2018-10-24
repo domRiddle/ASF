@@ -1,10 +1,15 @@
-# **[Homepage](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Come iniziare
+* * *
 
-* **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
+## Basics
+
+* **[Homepage](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Domande frequenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 
 ## Core
 

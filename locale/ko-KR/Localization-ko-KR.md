@@ -222,8 +222,8 @@ However, just because those words should not be translated, doesn't mean that yo
 
 As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+ASF를 전세계에서 사용되는 모든 언어로 번역하는데 도와주셔서 감사합니다!

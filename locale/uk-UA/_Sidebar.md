@@ -1,10 +1,15 @@
-# **[Головна](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Приступаючи до роботи
+* * *
 
-* **[Налаштування](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(почати тут)**
+## Basics
+
+* **[Головна](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Конфігурація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[ЧаПи](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Налаштування](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(почати тут)**
 
 ## Основні настройки
 

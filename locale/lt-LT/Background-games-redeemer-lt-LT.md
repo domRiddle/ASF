@@ -24,7 +24,7 @@ ASF importuos tokį failą tiek paleidimo, tiek veikimo metu. Po sėkmingo jūs�
 
 ### IPC
 
-Be failų metodo ASF taip pat naudoja `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)**, kuris gali būti naudojamas kartu su IPC ir IPC GUI. Naudotis IPC gali būti efektyviau, nes galima pasirinkti savo atskyriklį vietoj įprastinio TAB ženklo.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
 
 * * *
 

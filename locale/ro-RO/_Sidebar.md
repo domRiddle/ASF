@@ -1,10 +1,15 @@
-# **[Pagina principală](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Noțiuni de bază
+* * *
 
-* **[Pregătire](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(începe aici)**
+## Basics
+
+* **[Pagina principală](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Întrebări frecvente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Pregătire](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(începe aici)**
 
 ## Setări de bază
 

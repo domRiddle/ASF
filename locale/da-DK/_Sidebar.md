@@ -1,10 +1,15 @@
-# **[Hjem](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Kom godt i gang
+* * *
 
-* **[Opsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start her)**
+## Basics
+
+* **[Hjem](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[OSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Opsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start her)**
 
 ## Kernefunktioner
 

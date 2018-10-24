@@ -1,10 +1,15 @@
-# **[Accueil](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Mise en route
+* * *
 
-* **[Mise en place](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(commencez ici)**
+## Basics
+
+* **[Accueil](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Mise en place](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(commencez ici)**
 
 ## Fonctions Principales
 

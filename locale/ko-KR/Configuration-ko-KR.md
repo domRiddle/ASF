@@ -521,7 +521,7 @@ Of course, types that you should use for this property typically include only `2
 
 ### `OnlineStatus`
 
-`byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`byte` type with default value of `1`. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
 
 | 값 | 이름             |
 | - | -------------- |
@@ -534,15 +534,15 @@ Of course, types that you should use for this property typically include only `2
 | 6 | LookingToPlay  |
 | 7 | Invisible      |
 
-`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
+`오프라인` 상태는 주 계정에 극도로 유용합니다. 알다시피 게임을 농사지으면 스팀 상태가 "XXX를 플레이중"으로 나타나며, 실제로는 농사를 짓고 있는데 플레이를 하는것으로 혼동울 주어 당신의 친구들이 오해할 수 있습니다. `오프라인` 상태를 사용하면 ASF로 카드 농사중일때 "게임중"으로 표시하지 않아 이런 문제를 해결해줍니다. 이것은 ASF가 정상작동하기 위해서 스팀 커뮤니티에 로그인할 필요가 없기 때문에 가능합니다. 우리는 사실 스팀 네트워크에 접속해서, 게임을 플레이중이지만, 우리의 존재를 전혀 알리지 않습니다. 오프라인 상태에서 플레이했던 게임도 플레이 시간에 포함되며, 프로필의 "최근에 플레이한 게임"에 표시된 다는 것을 명심하십시오.
 
-In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and whether ASF would like it or not, Steam broadcasts all those messages and other events to it. This is not a problem if you have both ASF and your own Steam client running, as both clients receive exactly the same events. However, if just ASF is running, Steam network could mark certain events and messages as "delivered", despite of your traditional Steam client not receiving it due to not being present. Offline status also solves this problem, as ASF is never considered for any community events in this case, so all unread messages and other events will be properly marked as unread when you come back.
+그 외에, 이 기능은 ASF는 실행중이지만 스팀 클라이언트는 동시에 열어놓지 않고도 알림과 읽지 않은 메시지를 수신하려는 경우에 중요합니다. 이것은 ASF가 스팀 클라이언트 그 자체인 것 처럼 행동하며, ASF가 그렇게 하던 아니던 스팀이 모든 메시지와 이벤트를 ASF로 보내주기 때문입니다. ASF와 스팀 클라이언트를 둘 다 실행하는 것은 문제가 없습니다. 두 클라이언트 모두 정확하게 동일한 이벤트를 수신합니다. 하지만 만약 ASF가 실행중이라면 스팀 클라이언트가 존재하지 않아 받을 수 없음에도 불구하고 특정 이벤트와 메시지를 "배달된" 것으로 표시할 수도 있습니다. 오프라인 상태는 이 문제도 해결합니다. ASF는 이 경우 어떤 커뮤니티 이벤트트로도 간주되지 않기때문에 모든 읽지 않은 메시지와 다른 이벤트가 당신이 돌아오면 읽지 않은 상태로 정상적으로 표시될 것입니다.
 
 It's important to note that ASF running on `Offline` mode will **not** be able to receive commands in usual Steam chat way, as the chat, as well as entire community presence is in fact, entirely offline. A solution to this issue is using `Invisible` mode instead which works in a similar way (not exposing status), but keeps the ability to receive and respond to messages (so also a potential to dismiss notifications and unread messages as stated above). `Invisible` mode makes the most sense on alt accounts that you don't want to expose (status-wise), but still be able to send commands to.
 
 However, there is one catch with `Invisible` mode - it doesn't go well with primary accounts. This is because **any** Steam session that is currently online **exposes** the status, even if ASF itself does not. This is caused by the current limitation/bug of the Steam network that isn't possible to be fixed on ASF side, so if you want to use `Invisible` mode you will also need to ensure that **all** other sessions to the same account use `Invisible` mode as well. This will be the case on alt accounts where ASF is hopefully the only active session, but on primary accounts you'll almost always prefer to show as `Online` to your friends, hiding only ASF activity, and in this case `Invisible` mode will be entirely useless for you (we recommend to use `Offline` mode instead). Hopefully this limitation/bug will be eventually solved in the future by Valve, but I wouldn't expect that to happen anytime soon...
 
-If you're unsure how to set up this property, it's recommended to use a value of `0` (`Offline`) for primary accounts, and default `1` (`Online`) otherwise.
+이 속성값을 어떻게 설정할지 잘 모르겠다면, 주 계정은 `0` (`오프라인`)으로 놓고 다른 계정은 기본값인 `1` (`온라인`) 로 두는 것을 추천합니다.
 
 * * *
 
@@ -706,7 +706,7 @@ However, some people might be concerned even about this little detail, therefore
 
 ## 파일 구조
 
-ASF is using quite simple file structure.
+ASF는 꽤 간단한 파일구조를 사용합니다.
 
     ├── config
     │     ├── ASF.json
@@ -723,9 +723,9 @@ ASF is using quite simple file structure.
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups".
+ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하나만을 이동/복사하는 것으로 충분합니다. 그리고 이것이 ASF 백업으로 권장되는 방법입니다.
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about for file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+`log.txt` 파일은 마지막 ASF 실행으로 생성된 로그를 담고 있습니다. 이 파일은 어떠한 민감한 정보도 포함하고 있지 않으며, 이슈나 충돌, 혹은 지난번 ASF 실행에서 무슨일이 있었는지 정보로써도 굉장히 가치가 있습니다. 이슈나 버그가 발생하면 우리는 이 파일을 자주 요청하게 될 것입니다. ASF는 이 파일을 자동으로 관리하지만, 고급 사용자라면 ASF **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)** 모듈을 더 깊이 조절할 수 있습니다.
 
 `config` directory is the place that holds configuration for ASF, including all of its bots.
 
@@ -751,7 +751,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ## JSON 매핑
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+모든 환경설정 속성값은 타입이 있습니다. 속성값의 타입은 유효한 값을 정의합니다. 주어진 타입에 유효한 값만 사용할 수 있습니다. 유효하지 않은 값을 사용하면 ASF는 환경설정을 수행할 수 없습니다.
 
 **We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
 
@@ -759,25 +759,25 @@ Types used by ASF are native C# types, which are specified below:
 
 * * *
 
-`bool` - Boolean type accepting only `true` and `false` values.
+`bool` - `true`와 `false` 값만 받는 불린타입입니다.
 
-Example: `"Enabled": true`
-
-* * *
-
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
-
-Example: `"ConnectionTimeout": 60`
+예: `"Enabled": true`
 
 * * *
 
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+`byte` - `0`부터 `255` 까지의 정수만 받는 Unsigned 바이트 타입입니다.
+
+예: `"ConnectionTimeout": 60`
 
 * * *
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`uint` - `0`부터 `4294967295` 까지의 정수만 받는 Unsigned 정수 타입입니다.
 
-Example: `"SteamMasterClanID": 103582791440160998`
+* * *
+
+`ulong` - `0`부터 `18446744073709551615` 까지의 정수만 받는 Unsigned long 정수 타입입니다.
+
+예: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
@@ -836,15 +836,15 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 ## 자동 재시작
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지할 수 있습니다. 이에 따라 ASF는 자동적으로 아래와 같은 행동을 합니다.
 
 - 새로운 봇 환경설정을 만드는 경우 그 봇 인스턴스의 생성 및 시작(필요한 경우)
 - 예전 봇 환경설정을 삭제하는 경우 그 봇 인스턴스의 중지(필요한 경우) 및 제거
 - 봇 환경설정을 수정하는 경우 그 봇 인스턴스의 중지 및 시작(필요한 경우)
 - 봇 환경설정 이름을 변경하는 경우 새 이름으로 봇 재시작(필요한 경우)
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+위의 모든 것은 투명하고 프로그램의 재시작이나 다른 영향이 없는 봇 인스턴스의 중지 없이 자동으로 수행됩니다.
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+게다가 ASF는 `AutoRestart`가 허용되어있다면 `ASF.json` 환경설정이 변경되면 ASF를 재시작합니다. 동일하게 삭제하거나 이름을 바꾸면 프로그램은 종료됩니다.
 
 **[위로 돌아가기](#환경설정)**

@@ -8,7 +8,7 @@ Se você estiver interessado no que está acontecendo atualmente, você pode ver
 
 ## Escopo
 
-Nossa plataforma oferece suporte a localização do programa principal do ASF, bem como todo o conteúdo localizável que oferecemos junto com ele. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. Tudo isso é possível traduzir através da interface amigável do Crowdin.
+Nossa plataforma oferece suporte a localização do programa principal do ASF, bem como todo o conteúdo localizável que oferecemos junto com ele. Isso inclui especialmente nosso Gerador de Configuração Web (ASF-WebConfigGenerator), ASF-ui, e nossa wiki. Tudo isso é possível traduzir através da interface amigável do Crowdin.
 
 * * *
 
@@ -214,16 +214,16 @@ Tenha muito cuidado quando você traduzir frases que contenham blocos `<code></c
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Da mesma forma, você não deve traduzir outros códigos de blocos, tais como nomes de parâmetros de configuração (por exemplo: `TradingPreferences`) campos enum (por exemplo: as opções `Stable` e `Experimental` do parâmetro `UpdateChannel`) e demais.
+Como você pode ver, a palavra `RateLimited` está entre blocos de código e indicam um código de estado interno do ASF que não deve ser traduzido. Da mesma forma, você não deve traduzir outros códigos de blocos, tais como nomes de parâmetros de configuração (por exemplo: `TradingPreferences`) campos enum (por exemplo: as opções `Stable` e `Experimental` do parâmetro `UpdateChannel`) e demais.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+No entanto, não é porque essas palavras não devem ser traduzidas que você não pode adicionar uma tradução ao lado delas, entre parênteses por exemplo.
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> Isso é muito útil se você tem um monte de keys para resgatar e é certo que você atingirá o estado `RateLimited` (muitas tentativas de ativação) antes de terminar.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+Como você pode ver acima, nós adicionamos "muitas tentativas de ativação" ao lado de `RateLimited` para traduzir o significado desse status de forma amigável, enquanto mantemos ao mesmo tempo o original do ASF, aquele que o usuário pode ver durante o uso do programa. Da mesma forma você pode traduzir/explicar outros casos semelhantes de várias palavras e frases.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+Se você acredita que algo inapropriado foi incluso em um bloco de código, ou que há um texto que não está em um mas deveria, sinta-se livre para nos perguntar em um comentário do Crowdin marcado como **[issue](#issues)**.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+Obrigado por nos ajudar a traduzir o ASF em todas as línguas faladas no mundo!

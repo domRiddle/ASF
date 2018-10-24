@@ -1,10 +1,15 @@
-# **[Início](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Como começar
+* * *
 
-* **[Primeiros passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR)** **(comece aqui)**
+## Básico
+
+* **[Início](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR)**
 * **[Configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**
 * **[Perguntas frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR)**
+* **[Primeiros passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR)** **(comece aqui)**
 
 ## Principal
 

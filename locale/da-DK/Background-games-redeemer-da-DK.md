@@ -24,7 +24,7 @@ ASF vil importere en sådan fil enten ved botopstart eller ved en senere kørsel
 
 ### IPC
 
-Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#post-apigamestoredeeminbackgroundbotname)** som kan køres af alle IPC værktøjer, inklusiv vores IPC GUI. Brug af IPC kan være bedre, da du kan lave den nødvendige analyse selv, som f.eks. at bruge et brugerdefineret afgræsningstegn i stedet for at være tvunget til at bruge et tabulatortegn.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
 
 * * *
 

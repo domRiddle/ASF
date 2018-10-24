@@ -1,10 +1,15 @@
-# **[首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## 開始使用
+* * *
 
-* **[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(從這裡開始)**
+## Basics
+
+* **[首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[組態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(從這裡開始)**
 
 ## 核心
 

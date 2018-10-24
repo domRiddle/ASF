@@ -1,10 +1,15 @@
-# **[Начало](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Начални стъпки
+* * *
 
-* **[Настройване на](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
+## Basics
+
+* **[Начало](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Често Задавани Въпроси](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Настройване на](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
 
 ## Основни
 

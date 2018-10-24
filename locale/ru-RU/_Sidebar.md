@@ -1,12 +1,17 @@
-# **[Главная](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Начало работы
+* * *
 
-* **[Установка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ru-RU)** **(начните тут)**
+## Основы
+
+* **[Главная](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**
 * **[Конфигурация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**
 * **[ЧАВО](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ru-RU)**
+* **[Установка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ru-RU)** **(начните тут)**
 
-## Основные настройки
+## Основные возможности
 
 * **[Фоновая активация ключей](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**
 * **[Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**
@@ -16,7 +21,7 @@
 * **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-ru-RU)**
 * **[Обмены](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ru-RU)**
 
-## Дополнительные настройки
+## Дополнительно
 
 * **[Аргументы командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**
 * **[Устаревание](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-ru-RU)**

@@ -38,7 +38,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Komendy
 
-| Command                                                                    | Dostęp          | Opis                                                                                                                                                                                                  |
+| Komenda                                                                    | Dostęp          | Opis                                                                                                                                                                                                  |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
@@ -111,7 +111,7 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komenda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |

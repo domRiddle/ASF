@@ -1,10 +1,15 @@
-# **[Pradžia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Paruošimas
+* * *
 
-* **[ Paruošimas ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (pradėti čia)**
+## Basics
+
+* **[Pradžia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfigūracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[D.U.K](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[ Paruošimas ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (pradėti čia)**
 
 ## Pagrindas
 

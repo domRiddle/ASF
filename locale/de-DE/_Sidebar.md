@@ -1,10 +1,15 @@
-# **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|                                                                                                                                                        |                                                                                                                                                              |                                                                                                                                                              |
 
-## Erste Schritte
+* * *
 
-* **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(fang hier an)**
+## Grundlagen
+
+* **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Häufig gestellte Fragen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(fang hier an)**
 
 ## Kernfunktionalität
 
