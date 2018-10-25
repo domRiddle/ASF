@@ -1,35 +1,35 @@
 # Сторонние приложения
 
-Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web applications through internal libraries for further integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+Утилиты, перечисленные здесь, были написаны исключительно (или в основном) для использования совместно с ASF. Они покрывают весь спектр начиная с простых веб-приложений, включая внутренние библиотеки для удобства интеграции, и заканчивая полнофункциональными ботами для других платформ. Если вы хотите добавить что-то в этот список - свяжитесь с нами на нашем сервере Discord или в нашей группе Steam.
 
-Please note that below tools are not maintained by ASF team and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the tool you're about to use is legit enough for you.
+Пожалуйста, обратите внимание, что утилиты ниже не поддерживаются командой ASF и поэтому мы не даём никаких гарантий относительно них, особенно в части безопасности, надёжности и соответствия соглашению подписчика Steam. Этот список поддерживается только для справок. Вы должны самостоятельно убедиться, что утилита, которую вы собираетесь использовать, вам подходит.
 
 * * *
 
 ## Инструменты
 
-- **[Keys extractor](https://ske.cloudswift.me)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/Cloud-Swift/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, which allows to manage multiple ASF configs more easily.
+- **[Keys extractor](https://ske.cloudswift.me)**, позволяет вам копировать/вставлять ключи в различных форматах и формировать команду `redeem` для ASF. Вы найдёте подробности в **[репозитории на GitHub](https://github.com/Cloud-Swift/SKE)**.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, позволяет проще управлять большим количеством конфигурационных файлов ASF.
 
 * * *
 
-## Packaging
+## Пакетная установка
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
-- **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
-
-* * *
-
-## Боты/Библиотеки
-
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[репозиторий AUR #1](https://aur.archlinux.org/packages/asf)**, позволяющий легко установить ASF на Arch linux.
+- **[репозиторий AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, позволяющий легко установить ASF на Arch linux.
+- **[УСТАРЕЛО] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, позволяющий легко установить ASF V2 на различных системах. Не обновлялось для последней версии ASF, поэтому использовать не рекомендуется. Возможно вы сможете помочь?
+- **[УСТАРЕЛО] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, позволяющий легко установить ASF V2 с помощь homebrew. Не обновлялось для последней версии ASF, поэтому использовать не рекомендуется. Возможно вы сможете помочь?
 
 * * *
 
-## Want to find more?
+## Боты / Библиотеки
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, библиотека на языке python для удобной интеграции с интерфейсом ASF IPC.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, бот для telegram, написанный на python и интегрированный с ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, другой (минималистичный) бот для telegram, написанный на python и интегрированный с ASF.
+
+* * *
+
+## Хотите найти больше?
+
+Мы рекомендуем использовать на GitHub тег **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** для всех проектов, имеющих интеграцию с ASF.

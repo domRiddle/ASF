@@ -8,7 +8,7 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 * * *
 
-# Current privacy policy
+# Aktuelle Datenschutzerklärung
 
 Wenn `Statistics` aktiv sind, wird folgendes passieren:
 
@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-# Usage of data
+# Nutzung der Daten
 
 All values specified in point b) are being used for our **Public ASF STM listing** explained below, and only for that.
 
@@ -45,7 +45,7 @@ Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** 
 
 Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
 
-### How it exactly works
+### Wie es genau funktioniert
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
 
@@ -67,7 +67,7 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 * * *
 
-## Opting out
+## Zustimmung verweigern
 
 Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
 

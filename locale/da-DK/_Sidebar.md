@@ -4,7 +4,7 @@
 
 * * *
 
-## Basics
+## Grundlæggende
 
 * **[Hjem](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**

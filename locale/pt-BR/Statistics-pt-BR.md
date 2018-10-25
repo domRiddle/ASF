@@ -57,11 +57,11 @@ Note que você **não** vai ser exibido no site se você não cumprir todos os r
 
 ### API
 
-ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
+A listagem API do STM só aceita bots ASF no momento. Não há como inserir bots de terceiros em nossa listagem por enquanto (já que não podemos rever seus códigos facilmente e assegurar que eles satisfazem nossa lógica de trocas).
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use.
+Se você está procurando por uma maneira fácil de acessar nossa lista de forma programática nós temos o endpoint **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** muito simples que você pode usar.
 
-### Notice
+### Aviso
 
 *Todo o conceito, juntamente com a integração entre o site e o ASF ainda está em versão beta - ele pode ser melhorado/mudado com o passar do tempo - até mesmo removido se acharmos que não há muito interesse por essa funcionalidade.*
 
