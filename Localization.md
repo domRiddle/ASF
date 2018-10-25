@@ -90,6 +90,26 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ---
 
+## Pluralization
+
+Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+
+We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+
+> Released {PLURAL:n|one hour|{n} hours} ago
+
+`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see than in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `one hour` and `{n} hours`.
+
+However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+
+> Wydany {PLURAL:n|jedną godzinę|{n} godziny|{n} godzin|{n} godziny} temu
+
+This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the proper form for provided `{n}` number.
+
+It's not mandatory to define all plural forms used by your language. If missing, our localization platform will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for hours is "godziny", and not "godzin" as in "many".
+
+---
+
 ## Wiki
 
 Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
