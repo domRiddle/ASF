@@ -98,7 +98,7 @@ We're doing our best to offer you flexible localization, and as long as possible
 
 > Released {PLURAL:n|one hour|{n} hours} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see than in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `one hour` and `{n} hours`.
+`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `one hour` and `{n} hours`.
 
 However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
 
