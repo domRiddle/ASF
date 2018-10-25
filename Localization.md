@@ -104,7 +104,7 @@ However, our Polish language actually includes 4 of them - "one", "few", "many" 
 
 > Wydany {PLURAL:n|jeden miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the proper form for provided `{n}` number.
+This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
 
 It's not mandatory to define all plural forms used by your language. If missing, our localization platform will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
 
