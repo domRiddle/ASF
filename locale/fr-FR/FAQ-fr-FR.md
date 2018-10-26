@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 - [Comparaison avec d’autres outils similaires](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Divers](#misc)
-- [Issues](#issues)
+- [Problèmes](#issues)
 
 * * *
 
@@ -402,7 +402,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problèmes
 
 * * *
 

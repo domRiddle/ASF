@@ -14,20 +14,20 @@ Peu importe si vous utilisez le ASF 2FA expliqué ci-dessous ou non, ASF inclut 
 
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+L’idée est simple. Nous avons déjà implémenter le client steam, mettre en œuvre le lancement et jouer à un jeu, donc pourquoi pas implémenter un appareil mobile ? ASF 2FA est exactement ce que vous pensez que c’est, c’est juste un module chargé de générer des jetons 2FA comme périphérique mobile reconnu valide, qui nous permet d’ignorer les délais d'attente et confirmer automatiquement tous les échanges. Il fait double emploi avec votre authentificateur existante, il n’est pas nécessaire d’utiliser exclusivement le 2FA d'ASF.
 
-To enable ASF 2FA, you need to have:
+Pour activer ASF 2FA, vous devez avoir :
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
+- Authentificateur steam actif sur votre Android
+- Authentificateur steam actif sur votre IOS
+- ou authentificateur steam actif sur **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
+- ou authentificateur steam actif sur **[WinAuth](https://winauth.github.io/winauth)**
 
 * * *
 
 ## Importation
 
-From version V2.1 onwards, ASF no longer allows you to use ASF 2FA "solo" mode - it means that you should have already linked and operational authenticator that is supported by ASF. ASF currently supports four different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, and you're about to link for the first time, I strongly encourage to use WinAuth, which can be then imported to ASF (and used by you).
+Depuis la version V2.1, ASF ne vous permet plus d’utiliser le mode « solo » de ASF 2FA - cela signifie que vous devriez avoir déjà l'authentificateur lié et opérationnel qui est pris en charge par ASF. ASF prend actuellement en charge les quatre sources différentes de 2FA - Android, iOS, SteamDesktopAuthenticator et WinAuth. Si vous n'avez pas encore d'authentificateur actuellement, et que vous vous apprêtez à l'activer pour la première fois, je vous encourage fortement à utilisé WinAuth, qui peut être importé sur ASF (et utiliser par vous).
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 

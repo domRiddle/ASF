@@ -4,17 +4,17 @@ ASF prend en charge plusieurs arguments de ligne de commande qui peuvent affecte
 
 * * *
 
-## Usage
+## Utilisation
 
-Usage depends on your OS and ASF flavour.
+Son utilisation dépend de votre OS et ASF.
 
-Generic:
+Générique :
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
 ```
 
-Windows:
+Windows :
 
 ```powershell
 .\ArchiSteamFarm.exe --argument --otherOne

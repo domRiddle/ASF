@@ -6,7 +6,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 * * *
 
-# Usage
+# Utilisation
 
 You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
