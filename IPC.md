@@ -87,7 +87,7 @@ ASF by default listens only on `localhost` addresses, which means that accessing
 
 However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
-### Can I access ASF API through my own tool or userscript?
+### Can I access ASF API through my own tools or userscripts?
 
 Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all resources (`*`) as long as `IPCPassword` is set, as an extra security measure. This allows you to set custom `IPCPassword` then execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
