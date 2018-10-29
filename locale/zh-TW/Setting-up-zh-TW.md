@@ -63,7 +63,7 @@ If you're going to run `linux-arm` variant, then temporarily you also need .NET 
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
-![Assets](https://i.imgur.com/Ym2xPE5.png)
+![更新檔](https://i.imgur.com/Ym2xPE5.png)
 
 Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
 
@@ -140,7 +140,7 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![架構 2](https://i.imgur.com/2s7ZUUu.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 

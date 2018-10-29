@@ -1,6 +1,6 @@
-# Setting up
+# Mise en place: 
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+Si vous arrivez ici pour la première fois, bienvenue! Nous sommes très heureux de voir encore un autre voyageur intéressé par notre projet, bien que vous ayez à l'esprit qu'une grande responsabilité implique une grande responsabilité - ASF est capable de faire beaucoup de choses différentes liées à Steam, mais seulement tant que vous ** prenez le temps pour apprendre à l'utiliser** Il s’agit là d’une courbe d’apprentissage, et nous attendons de vous que vous lisiez le wiki à cet égard, qui explique en détail le fonctionnement de tout.
 
 If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
 
@@ -217,7 +217,8 @@ For my account, this is `76561198006963719` number. You'll have a similar one, a
 
 Now navigate once again to our web config generator and input that number as SteamOwnerID.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
+![SteamOwnerID
+](https://i.imgur.com/V6jslfQ.png)
 
 You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
 
@@ -225,7 +226,8 @@ You need to do only one more thing, toggle advanced settings, find `IPC` option,
 
 Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
+![IPC 2
+](https://i.imgur.com/ZmkO8pk.png)
 
 If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
@@ -235,7 +237,7 @@ Please note that ASF-ui is currently in preview state and not everything is avai
 
 * * *
 
-### Summary
+### Résumé
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 

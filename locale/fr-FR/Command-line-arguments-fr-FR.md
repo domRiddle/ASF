@@ -1,6 +1,6 @@
 # Arguments de ligne de commande
 
-ASF prend en charge plusieurs arguments de ligne de commande qui peuvent affecter l’exécution du programme. Ils peuvent être utilisés par des utilisateurs avancés pour spécifier au programme son mode de fonctionnement. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF prend en charge plusieurs arguments de ligne de commande qui peuvent affecter l’exécution du programme. Ils peuvent être utilisés par des utilisateurs avancés pour spécifier au programme son mode de fonctionnement. Par rapport au fichier de configuration `ASF.json` par défaut, les arguments de ligne de commande sont utilisés pour l'initialisation principale (e.g. `--path`). paramètres spécifiques à la plate-forme (e.g. `--system-required`) ou données sensibles (e.g. `--cryptkey`).
 
 * * *
 
@@ -26,16 +26,15 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Les arguments de ligne de commande sont également pris en charge dans les scripts d'assistance génériques tels que ` ArchiSteamFarm.cmd </ 0> ou <code> ArchiSteamFarm.sh </ 0>. De plus, lorsque vous utilisez des scripts d'assistance, vous pouvez également utiliser la propriété d'environnement <code> ASF_ARGS </ 0>, comme indiqué dans notre section <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments">docker</ 1>.</p>
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+<p>Si votre argument comprend des espaces, n'oubliez pas de le citer. Ces deux sont faux</p>
 
-```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
+<pre><code class="shell">./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
-```
+`</pre> 
 
-However, those two are completely fine:
+Cependant, ces deux la sont complètement bien:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
@@ -44,15 +43,15 @@ However, those two are completely fine:
 
 ## Arguments
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` ou `--cryptkey=<key>` - démarrera ASF avec une clé cryptographique personnalisée de la valeur `<key>`. Cette option affecte la ** sécurité </ 0> et obligera ASF à utiliser votre clé `<key>` fournie à la place de la clé par défaut codée dans l'exécutable. Gardez à l'esprit que les mots de passe chiffrés avec cette clé nécessiteront sa transmission à chaque exécution du fichier ASF.</p> 
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - cette fonctionnalité est principalement utilisé par nos **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** ` et force  <code>AutoRestart` de <0> false</ 0>. Sauf si vous avez un besoin particulier, vous devriez plutôt configurer la propriété `AutoRestart` directement dans votre configuration. Cette fonctionalité est ici pour que notre script docker n'ait pas besoin de toucher votre configuration globale afin de l'adapter à son propre environnement. Bien sûr, si vous exécutez ASF dans un script, vous pouvez également utiliser cette fonctionalité (sinon, la configuration globale est préférable).
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` (and optionally also `www`) directory without a need of duplicating binary in the same place. It might come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--path <path>` ou `--path=<path>` - ASF navigue toujours vers son propre répertoire au démarrage. En spécifiant cet argument, ASF naviguera vers un répertoire donné après l’initialisation, ce qui vous permet d’utiliser un chemin personnalisé pour `config` (et éventuellement aussi `www`) le répertoire sans avoir besoin de dupliquer le binaire au même endroit. Cela peut s'avérer particulièrement utile si vous souhaitez séparer le binaire de la configuration réelle, comme cela est fait dans un paquet de type Linux - de cette façon, vous pouvez utiliser un binaire (à jour) avec plusieurs configurations différentes. Le chemin peut être relatif en fonction de l'emplacement actuel du binaire ASF ou en absolu. Lorsque vous exécutez plusieurs instances du même fichier binaire, n'oubliez pas que vous devez généralement désactiver les mises à jour automatiques, car elles ne sont pas synchronisées. N'oubliez pas non plus que cette commande pointe vers le nouveau "ASF home" - le répertoire qui a la même structure que l'ASF d'origine, avec le répertoire `config` à l'intérieur.
 
 Exemple :
 
@@ -72,12 +71,12 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` la fonctionnalité de ce commutateur désactivera le la méthode ASF par défaut d'arrêt lorsque aucun bot ne s'exécute. Aucun comportement d’arrêt automatique n’est particulièrement utile en combinaison avec **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, où la majorité des utilisateurs s’attendraient à ce que leur service Web s’exécute, quel que soit le nombre de bots activés. Si vous utilisez l'option IPC ou si vous avez besoin que le processus ASF soit actif jusqu'à ce que vous le fermiez vous-même, c'est la bonne option.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+Si vous n'avez pas l'intention de faire fonctionner IPC, cette option sera plutôt inutile pour vous, car vous pouvez simplement relancer le processus si nécessaire (contrairement au serveur Web d'ASF où vous avez besoin de l'écouter tout le temps pour pouvoir envoyer des commandes).
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required</ 0> - la déclaration de ce commutateur incitera ASF à signaler au système d'exploitation que le processus nécessite que le système soit opérationnel pendant toute sa durée de vie. Actuellement, ce commutateur n'a d'effet que sur les machines Windows où il sera interdit à votre système de passer en mode veille tant que le processus est en cours d'exécution. Cela peut s’avérer particulièrement utile lorsque vous marchez au ralenti sur votre PC ou votre ordinateur portable pendant la nuit, car ASF sera en mesure de maintenir votre système en veille pendant son repos, puis, une fois cette opération effectuée, elle s’arrêtera comme d’habitude, ce qui permettra à votre système de fonctionner correctement. entrer à nouveau en mode veille, donc économiser de l'énergie immédiatement une fois que la phase de repos est terminé.</p>
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+<p>Gardez à l’esprit que pour un arrêt automatique correct de la fonction ASF, il vous faut d’autres paramètres, en particulier pour éviter <code>--process-required` et en veillant à ce que tous vos robots suivent `ShutdownOnFarmingFinished`. Bien sûr, l’arrêt automatique n’est qu’une possibilité pour cette fonction, et non une obligation, car vous pouvez également utiliser cet fonction avec, par exemple, `--process-required`, ce qui rend votre système éveillé à l'infini après le démarrage d'ASF.

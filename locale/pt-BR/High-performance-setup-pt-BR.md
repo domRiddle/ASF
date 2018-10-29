@@ -36,6 +36,7 @@ No entanto, se memória não é um problema para você (como o coletor de lixo l
 
 ## Otimização recomendada
 
+- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - Habilite a coleta de lixo de servidor mudando o parâmetro `System.GC.Server` em `ArchiSteamFarm.runtimeconfig.json` de `false` para `true`. Isso habilitará o coletor de lixo de servidor que pode ser visto imediatamente pelo aumento de uso de memória comparado com o coletor de lixo de estação de trabalho.
 - Se não puder aceitar esse aumento no uso de memória, considere colocar o valor `0` em `GCLatencyLevel` para ter "o melhor dos dois mundos". No entanto, se sua memória não aguenta é melhor manter tudo nos valores padrão; o coletor de lixo de servidor se auto-ajusta durante o tempo de execução e é inteligente o bastante para usar menos memória quando seu sistema operacional necessita dela.
 

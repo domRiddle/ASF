@@ -1,18 +1,18 @@
-# Leistung
+# Performance
 
-The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
+Das Hauptziel von ASF ist es, so effektiv wie möglich zu sammeln, basierend auf zwei Arten von Daten, mit denen es arbeiten kann - einem kleinen Satz von benutzerdefinierten Daten, die für ASF unmöglich sind selbst zu erraten/kontrollieren, und einem größeren Satz von Daten, der von ASF automatisch überprüft werden kann.
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
-
-* * *
-
-Some time ago Valve changed the algorithm for card drops. From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+Im Automatikmodus erlaubt ASF dir nicht, die Spiele auszuwählen, die gesammelt werden sollen, noch erlaubt es dir, den Algorithmus für das Karten sammeln zu ändern. **ASF weiß besser als du, was es tun sollte und welche Entscheidungen es treffen sollte, um so schnell wie möglich zu sammeln**. Dein Ziel ist es, die Konfigurationseigenschaften richtig einzustellen, da ASF sie nicht alleine erraten kann, alles andere ist abgedeckt.
 
 * * *
 
-ASF currently includes two farming algorithms:
+Vor einiger Zeit hat Valve den Algorithmus um Karten zu erhalten geändert. Von diesem Zeitpunkt an können wir Steam-Konten nach zwei Kategorien kategorisieren: die **mit eingeschränkten** Karten drops und die **ohne**. Der einzige Unterschied zwischen diesen beiden Typen ist die Tatsache, dass Konten mit eingeschränkten Karten drops keine Karten aus dem gegebenen Spiel erhalten können, bis sie das gegebene Spiel für mindestens `X` Stunden spielen. Es hat den Anschein, dass ältere Konten, die nie um Rückerstattung gebeten haben, **unbeschränkte Karten drops** haben, während neue Konten und diejenigen, die um Rückerstattung gebeten haben, **beschränkte Karten drops** haben. Dies ist jedoch nur eine Theorie und sollte nicht als Tatsache betrachtet werden. Deshalb gibt es **keine offensichtliche Antwort** und ASF verlässt sich darauf, dass **du** ihm sagst, welcher Fall für dein Konto geeignet ist.
 
-**Simple** algorithm works best for accounts that have unrestricted card drops. This is primary algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
+* * *
+
+ASF beinhaltet derzeit zwei Sammel-Algorithmen:
+
+**Einfacher** Algorithmus funktioniert am besten bei Konten, die über unbegrenzte Karten drops verfügen. Dies ist der primäre Algorithmus, der von ASF verwendet wird. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
@@ -54,7 +54,7 @@ It's nice to note that ASF also includes `Manual` farming mode that can be activ
 
 * * *
 
-## Steam glitches
+## Steam Pannen
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 

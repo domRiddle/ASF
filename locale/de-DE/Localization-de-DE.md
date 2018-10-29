@@ -1,6 +1,6 @@
-# Übersetzung
+# Lokalisierung
 
-ASF wird von einem Service namens Crowdin unterstützt, was es jedem ermöglicht ASF in jegliche Sprachen zu übersetzen. Für eine detailliertere Erklärung wie Crowdin funktioniert lies dir bitte die **[Einführung in Crowdin](https://support.crowdin.com/crowdin-intro)** durch.
+ASF wird von dem Dienst Crowdin unterstützt, wodurch es jedem ermöglicht wird ASF in alle weltweit gesprochenen Sprachen zu übersetzen. Für eine detailliertere Erklärung wie Crowdin funktioniert lies dir bitte die **[Einführung in Crowdin](https://support.crowdin.com/crowdin-intro)** durch.
 
 Wenn du daran interessiert bist, was zur Zeit vor sich geht, kannst du die **[aktuellen ASF Crowdin Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
 
@@ -8,7 +8,7 @@ Wenn du daran interessiert bist, was zur Zeit vor sich geht, kannst du die **[ak
 
 ## Umfang
 
-Unsere Plattform unterstützt zusätzlich zur Übersetzung des Hauptprogramms ASF auch die Übersetzung des gesamten Inhalts, den wir zusammen mit ASF anbieten. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All das kann man bequem durch das Crowdin-Interface übersetzen.
+Unsere Plattform unterstützt zusätzlich zur Übersetzung des Hauptprogramms ASF auch die Übersetzung des gesamten Inhalts, den wir zusammen mit ASF anbieten. Dies beinhaltet insbesondere unseren ASF-WebConfigGenerator, ASF-ui sowie auch das Wiki selbst. All das kann man bequem durch das Crowdin-Interface übersetzen.
 
 * * *
 
@@ -18,7 +18,7 @@ Wenn du bei ASF helfen willst, entweder durch Übersetzen selbst, oder das Rezen
 
 * * *
 
-### Übersetzung
+### Übersetzen
 
 Wenn bei der Sprache deiner Wahl noch Strings fehlen, kannst du sie dir direkt nehmen und an der Übersetzung arbeiten. Wir versuchten unser Bestes im Bezug auf Flexibilität der Übersetzungen, weshalb viele Strings extra Variablen beinhalten, die ASF während der Laufzeit zur Verfügung stellen wird. Diese sind in Form von Nummern in geschwungenen Klammern eingeschlossen wie zum Beispiel `{0}`. Das erlaubt dir das Standard-ASF-Format aufzubrechen und den String an eine Position zu verschieben, der deiner Sprache und Übersetzung entspricht, anstatt an strengen Kontext und Format gebunden zu sein. Das ist besonders wichtig in Sprachen wie Hebräisch, die von rechts nach links gelesen werden.
 
@@ -91,51 +91,51 @@ Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werde
 
 * * *
 
-## Pluralization
+## Pluralisierung
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+Jede Sprache hat ihre eigenen Regeln in Bezug auf die Pluralisierung. Diese Regeln findest du unter **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)**, welche ihre Anzahl und genauen Sprachbedingungen angibt.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+Wir tun unser Bestes, um dir eine flexible Lokalisierung anzubieten, und so lange wie möglich, wird dies auch Regeln für Pluralisierung beinhalten. Als Beispiel werden wir heute folgende Zeichenkette ins Polnische übersetzen:
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+`PLURAL` Schlüsselwort wird hier besonders behandelt, da es dir erlaubt, alle Pluralformen einzubeziehen, die deine Sprache unterstützt. Wenn du einen Blick auf CLDR wirfst, wirst du sehen, dass es im Englischen nur 2 kardinale Formen gibt - "eine" und "andere". Und wie du oben sehen kannst, haben wir beide definiert - `{n} month` und `{n} months`.
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+Unsere polnische Sprache umfasst jedoch 4 von ihnen - "eine", "wenige", "viele" und "andere". Das bedeutet, dass wir alle für die vollständige Umsetzung definieren sollten. Unsere Übersetzungsprogramme sind bereits intelligent genug, um eine geeignete Pluralform basierend auf Sprachregeln auszuwählen, so dass du nur alle diese in der Übersetzung definieren musst:
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+Auf diese Weise haben wir alle 4 Pluralformen für unsere polnische Sprache definiert, und da unsere Lokalisierungsbibliothek bereits die genauen Regeln kennt, wird sie das richtige Formular für die angegebene `{n}` Nummer korrekt verwenden.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+Es ist nicht zwingend erforderlich, alle von deiner Sprache verwendeten Pluralformen zu definieren. Wenn sie fehlt, verwendet unsere Lokalisierungsbibliothek die zuletzt definierte Form an ihrer Stelle. Es ist eine gute Idee, alle von deiner Sprache verwendeten Pluralformen zu definieren, aber in einigen Fällen können die verbleibenden Pluralformen die gleichen sein wie die letzten, in diesem Fall ist es nicht notwendig, sie zu wiederholen. In unserem obigen Beispiel war es zwingend erforderlich, da die "andere" Form im Polnischen für Monate "miesiąca" ist und nicht "miesięcy" wie in "vielen".
 
 * * *
 
 ## Wiki
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
+Unsere Crowdin-Plattform ermöglicht es dir sogar selbst das Wiki zu lokalisieren. Dies ist ein sehr mächtiges Programm, da es dir ermöglicht, eine komplette ASF-Dokumentation in deiner Muttersprache zu erstellen und so das allerletzte Problem bei der ASF-Lokalisierung effektiv zu lösen. Zusammen mit der Übersetzung des Programms und alle seiner Teile macht dies die Lokalisierung komplett.
 
-Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
+Wiki ist in dieser Hinsicht etwas Besonderes, da es eine Online-Hilfe ist, bei der man sich nicht zu sehr an den ursprünglichen Satz halten muss. Das bedeutet, dass du mit deiner Sprache so natürlich wie möglich umgehen und eine originelle Bedeutung und Hilfe liefern solltest - nicht unbedingt mit der ursprünglichen Zeichenkette, den verwendeten Wörtern und der tatsächlichen Interpunktion. Scheu dich nicht die Zeichenkette in etwas viel natürlicheres für deine Sprache umzuschreiben, solange du die allgemeine Richtung und die im Satz enthaltene Hilfe einhältst.
 
 * * *
 
-### Global links
+### Globale Links
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+Unsere Crowdin-Plattform ermöglicht es dir auch, den Originaltext so anzupassen, dass er auf neue (lokalisierte) Standorte verweist.
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+ASF enthält Links auf fast jeder Seite zur leichteren Navigation sowie eine Seitenleiste auf der rechten Seite. Die fantastische Tatsache ist, dass du all das bearbeiten kannst, indem du Links "fixierst", um auf richtige lokalisierte Seiten für deine Sprache zu verweisen. Es erfordert ein wenig Vorsicht, wenn du das tust, aber es ist möglich.
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+Zum Beispiel enthält die **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** von ASF folgenden Text:
 
-> Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** anzufangen.
+> Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** anzufangen.
 
-Which is originally written as:
+Der eigentlich so geschrieben wird:
 
 ```markdown
-Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-De)** anzufangen.
+Wenn du ein neuer Benutzer bist, empfehlen wir dir mit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-DE)** anzufangen.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+Auf Crowdin solltest du zuerst zu deinen Editor-Einstellungen gehen und sicherstellen, dass HTML-Tags für dich auf "Show" gesetzt sind. Dies ist sehr wichtig, wenn du dich dazu entscheidest das Wiki zu übersetzen.
 
 * * *
 
@@ -143,12 +143,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+Nun, während der Übersetzung auf Crowdin, je nach Formatierung, siehst du ASF-Links im Text entweder als:
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* Zu übersetzende Zeichenkette zusammen mit HTML-Tags (Mehrheit der Zeichenketten, wobei nur ein Teil des Satzes ein Link ist)
+* Einzelne zu übersetzende Zeichenkette, mit Link in `Hidden texts` -> `Link addresses` (selten, wo die gesamte Zeichenkette ein Link ist, am häufigsten in der Seitenleiste)
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), so dass wir es in Crowdin folgendermaßen sehen werden:
 
 * * *
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you click ALT+C (or copy source button) and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Dies wäre ein Beispiel für eine Übersetzung in die polnische Sprache:
 
 * * *
 
@@ -202,11 +202,11 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Lokale Links
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+Im gesamten Wiki findest du auch lokale Links, die auf einen bestimmten Abschnitt des Dokuments verweisen. Diese Links beginnen mit dem `#` Zeichen.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+Dies sind nun Sonderfälle, da diese Links auf den Namen der Abschnitte des aktuellen Dokuments basieren. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
 
 For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
@@ -216,7 +216,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+Da wir das Wort "Introduction" in "Wprowadzenie" für unsere polnische Sprache übersetzen werden, müssen wir diesen Link korrigieren, da er sonst nicht mehr funktioniert.
 
 * * *
 
@@ -224,17 +224,17 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+Auf diese Weise funktioniert unser lokaler Link weiterhin, da er nun auf den Namen des Bereichs zeigt, den wir verwenden. Du kannst Links innerhalb von HTML-Tags auf die gleiche Weise korrigieren.
 
 * * *
 
-### Code blocks
+### Codeblöcke
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Zum Beispiel:
+Seie äußerst sorgfältig, wenn du Sätze mit `<code></code>` Blöcken übersetzt. Der Codeblock zeigt feste ASF-Codenamen oder Begriffe an die nicht übersetzt werden sollten. Zum Beispiel:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+Wie du sehen kannst, befindet sich das Wort `RateLimited` hier in einem Codeblock und zeigt den internen ASF-Code-Status an, der nicht übersetzt werden sollte. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
 
 However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
 
@@ -242,8 +242,8 @@ However, just because those words should not be translated, doesn't mean that yo
 
 As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder es einen Text gibt der sich nicht in einem Codeblock befindet, sich aber in einem Codeblock befinden sollte, kannst du gerne hier auf Crowdin fragen, indem du ein entsprechendes **[Problem](#Probleme)** erstellst.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+Vielen Dank, dass du uns bei der Übersetzung von ASF in alle weltweit gesprochenen Sprachen unterstützt!

@@ -8,9 +8,9 @@ Dies heißt allerdings nicht, dass du ASF nicht an deinem normalen PC verwenden 
 
 * * *
 
-## betriebssystemabhängige Installation
+## Betriebssystemspezifisches Setup
 
-Hier ist, was wir in den nächsten paar Minuten machen werden:
+Folgendes werden wir in den nächsten paar Minuten machen:
 
 - **[.NET Core Abhängigkeiten](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installieren.
 - Die **[neueste ASF Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in der entsprechenden betriebssystemabhängigen Variante herunterladen.
@@ -85,9 +85,9 @@ Eine Beispiel-Struktur würde wie folgt aussehen:
              └── (...)
     
 
-This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
+Dies ist auch eine Struktur, die wir empfehlen würden, so dass du nicht durch eine große Anzahl von Dateien und Ordnern gehen musst, die in ASF enthalten sind, da du für die Verwendung nur eine Verknüpfung zu Konfigurationsordner und Hauptbinärdatei benötigst.
 
-Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
+Okay, wir bereiten nun den ASF-Ordner für die Verwendung vor. Wenn du möchtest, kannst du jetzt zum nächsten Schritt übergehen, da das Bereinigen der ASF-Struktur nicht erforderlich ist, aber es wird dein Leben ein wenig einfacher machen.
 
 Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
 
@@ -258,10 +258,10 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 With extra steps:
 
 - Installiere **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Ließ die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**, wenn du nicht sicher bist, welche Version du installieren sollst.
+- Lade die **[aktuellste ASF-Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generischer Variante herunter.
+- Entpack das Archiv an einen neuen Ort (und `chmod +x ArchiSteamFarm.sh` wenn du unter Linux/OS X bist).
+- **[Konfiguriere ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

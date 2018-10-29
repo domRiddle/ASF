@@ -156,7 +156,7 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 * * *
 
-어떤 경우건 상관없이 먼저 ALT+C 또는 copy source 버튼을 누르고 평소처럼 번역을 하고, HTML이 있다면 전체 HTML을 그대로 둡니다. 다음은 폴란드어의 번역 예제입니다:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. 다음은 폴란드어의 번역 예제입니다:
 
 * * *
 
@@ -166,7 +166,7 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 링크가 최신 ASF 릴리즈 등 위키 외부로 나가는 범용 링크라면 수정할 필요가 없으므로 그대로 둡니다. 저장을 누르면 다음으로 넘어갑니다.
 
-만약 링크가 위의 예시처럼 **위키 내부를 가리킨다면**, 실제로 지역화된 새로운 위치를 가리키도록 수정할 수 있습니다. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+만약 링크가 위의 예시처럼 **위키 내부를 가리킨다면**, 실제로 지역화된 새로운 위치를 가리키도록 수정할 수 있습니다. 아래와 같이 `<a>` 태그 안에 있는 대상 URL의 끝에 `-locale`을 추가하면 됩니다:
 
 * * *
 
@@ -174,19 +174,19 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+매우 조심하시기 바랍니다. 그리고 URL이 실제로 존재하는지 확인하여야 합니다. 만약 실수하면 그 링크는 동작하지 않을 것입니다. 성공했다면, 이제 번역된 페이지를 가리키는 링크를 가진 완전히 작동하는 번역이 되었습니다. 이 경우에는 `Setting-up-pl-PL` 페이지입니다.
 
-Doing the steps above will properly translate our HTML back to markdown:
+이렇게 하고나면 HTML이 다시 마크다운으로 적절하게 번역됩니다:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+위키에는 다음과 같이 보입니다:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+두번째 경우와 같이 HTML이 없으면 훨씬 쉽습니다. `Hidden texts` -> `Link addresses`로 갑니다.
 
 * * *
 
@@ -194,7 +194,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+여기에서 HTML 태그 없이 링크를 새로운 위치를 가리키도록 수정합니다.
 
 * * *
 
@@ -204,11 +204,11 @@ From there you can easily correct the link to point to new location, without eve
 
 ### 내부 링크
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+위키에서 문서의 특정 항목을 가리키는 내부 링크를 찾을 수 있습니다. 이 링크는 `#` 문자로 시작합니다.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+이것은 특별한 경우로, 이 링크들은 현재 문서 중 해당 항목의 이름을 기반으로 합니다. URL에 `-locale`을 추가하는 일반적 관례를 가진 URL들은 어디에서나 동작하지만, 해당 항목의 이름은 당신과 다른 사람들이 번역을 하므로 링크가 정확한 위치를 가리키도록 할 필요가 있습니다.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+예를 들어 **[설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#소개)** 페이지에는 `#introduction` 링크가 있습니다:
 
 * * *
 
@@ -216,7 +216,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+우리는 "introduction"이라는 단어를 폴란드어 "Wprowadzenie"로 번역할 것이므로, 단어가 변경되면 링크가 작동을 멈추지 않도록 수정할 필요가 있습니다.
 
 * * *
 
@@ -224,17 +224,17 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+이렇게 함으로써 내부 링크는 정상 작동하여 우리가 사용하는 항목의 이름을 가리킬 것입니다. HTML 태그 안에 있는 링크도 정확하게 동일한 방법으로 수정할 수 있습니다.
 
 * * *
 
 ### 코드 블록
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 예를 들면 다음과 같습니다:
+`<code></code>` 블록안에 있는 문장을 번역할 때는 매우 조심하십시오. 코드 블록은 번역하면 안되는 ASF의 고정된 코드 이름이나 용어를 가리킵니다. 예를 들면 다음과 같습니다:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
 
 However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
 
@@ -242,8 +242,8 @@ However, just because those words should not be translated, doesn't mean that yo
 
 As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+ASF를 전세계에서 사용되는 모든 언어로 번역하는데 도와주셔서 감사합니다!

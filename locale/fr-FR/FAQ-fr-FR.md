@@ -1,12 +1,12 @@
 # FAQ (Questions fréquemment posées)
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Notre FAQ de base couvre les questions courantes et réponses que vous pourriez avoir. Pour une matière moins fréquentes, veuillez consulter notre **[FAQ avancée](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** au lieu de cela.
 
 # Tables des matières
 
 - [Général](#general)
 - [Comparaison avec d’autres outils similaires](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [Sécurité / Vie Privée / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Divers](#misc)
 - [Problèmes](#issues)
 
@@ -14,569 +14,569 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 
 ## Général
 
-### So how it exactly works?
+### Comment ça marche exactement?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam Cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Avant d'essayer de comprendre ce qu'est ASF, vous devez vous assurer de bien comprendre ce que sont les cartes Steam et comment les obtenir, ce qui est décrit dans la FAQ officielle **[ici](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+En bref, les cartes Steam sont des objets de collection auxquels vous êtes admissible lorsque vous possédez un jeu en particulier. Vous pouvez les utiliser pour confectionner des badges, vendre sur le marché Steam ou à toute autre chose de votre choix.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Les points essentiels sont à nouveau mentionnés ici, car les gens en général ne sont pas d'accord avec cela :
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **Oui, vous devez posséder le jeu pour pouvoir prétendre à une carte. Le partage familial ne compte pas.**
+- **Non, vous ne pouvez pas exploiter le jeu à l'infini, chaque jeu a un nombre fixe de cartes. Une fois que vous n'avez plus de cartes à obtenir dans un jeu, ce n'est plus un jeu éligible à l'obtention des cartes.**
+- **Non, vous ne pouvez pas retirer des cartes de jeux F2P sans y dépenser de l'argent. Cela implique constamment des jeux F2P comme Team Fortress 2 ou Dota 2.**
+- **Non, vous ne pouvez pas obtenir de cartes sur des comptes limités (ceux qui n'ont jamais dépensé 5 $ en magasin Steam), quels que soient leurs jeux. C'était possible dans le passé, mais ce n'est plus le cas.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Ainsi, comme vous pouvez le constater, des cartes Steam vous sont attribuées si vous jouez à un jeu que vous avez acheté ou à un jeu F2P dans lequel vous investissez de l'argent. En d’autres termes, si vous jouez assez longtemps dans un jeu, toutes les cartes de ce jeu seront ajoutées à votre inventaire, ce qui vous permettra de créer un badge, de les vendre ou d'en faire ce que vous voulez.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+ASF en tant que programme est assez complexe à comprendre en totalité. Par conséquent, au lieu d’expliquer tous les détails techniques, nous vous proposons une explication très simplifiée ci-dessous.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF se connecte à votre compte Steam via le mini client Steam intégré à l'aide des informations d'identification fournies. Une fois connecté, il analyse vos **[badges](https://steamcommunity.com/my/badges)** afin de rechercher les jeux disponibles pour le farming (vous pouvez obtenir X autres cartes en jouant à ce jeu). Après avoir analysé toutes les pages et construit la liste finale des jeux disponibles, ASF choisit l'algorithme de farming le plus efficace et lance le processus. Le processus dépend de **[l'algorithme d'agriculture de cartes choisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**, mais il consiste généralement à jouer à un jeu éligible et à vérifier périodiquement (plus à chaque suppression d'élément) si le jeu a fini. Si oui, ASF peut passer au titre suivant. , en utilisant la même procédure, jusqu’à ce que tous les jeux soient complètement développés.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Gardez à l'esprit que l'explication ci-dessus est simplifiée et ne décrit pas une douzaine de fonctionnalités supplémentaires offertes par ASF. Visitez le reste de **[notre wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** si vous souhaitez connaître tous les détails de ASF. J'ai essayé de le rendre assez simple à comprendre pour tout le monde, sans apporter de détails techniques - les utilisateurs avancés sont encouragés à aller plus loin.
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+En tant que programme, ASF offre de la magie. Tout d'abord, il n'est pas nécessaire de télécharger l'un de vos fichiers de jeu, il peut jouer à des jeux immédiatement.   Deuxièmement, il est totalement indépendant de votre client Steam habituel - vous n'avez pas besoin d'avoir le client Steam en cours d'exécution ni même de l'avoir installé.   . Troisièmement, c'est une solution automatisée - ce qui signifie qu'ASF fait automatiquement tout ce qui est derrière votre dos, sans qu'il soit nécessaire de lui dire quoi faire - ce qui vous permet de gagner du temps. Enfin, il n’a pas à tromper le réseau Steam en émulant un processus (utilisé par exemple par Idle Master), car il peut communiquer directement avec lui. Super rapide et léger, il est également une solution étonnante pour tous ceux qui souhaitent obtenir des cartes facilement et sans tracas. Cela s'avère particulièrement utile si vous le laissez en arrière-plan tout en faisant autre chose, ou même en mode hors connexion.
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+Tout ce qui précède est agréable, mais ASF a également des limitations techniques imposées par Steam: nous ne pouvons pas laisser farmer les jeux que vous ne possédez pas, nous ne pouvons pas laisser farmer les jeux indéfiniment afin de dépasser les limites imposées, et nous ne pouvons pas farmer pendant que vous jouez. Tout cela devrait être "logique", vu le fonctionnement d'ASF, mais il est bon de noter qu'ASF n'a pas de super pouvoirs et ne fera pas quelque chose d'impossible physiquement, alors gardez cela à l'esprit - comme si vous aviez dit à quelqu'un de vous connecter à votre compte depuis un autre PC et de mettre ces jeux à farmer à votre place.
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
-
-* * *
-
-### Do I have to put my account credentials?
-
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
-
-Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
+Donc, pour résumer, ASF est un programme qui vous aide à retirer les cartes auxquelles vous êtes éligible, sans tracas. Il offre également plusieurs autres fonctions, mais ignorons pour le moment.
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### Dois-je mettre les informations d'identification de mon compte?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**Oui**. ASF requiert les informations d'identification de votre compte de la même manière que le client officiel Steam, car il utilise la même méthode pour les interactions avec le réseau Steam. Cela ne signifie toutefois pas que vous devez entrer les informations d'identification de votre compte dans les configurations ASF, vous pouvez continuer à utiliser ASF avec `null` /empty `SteamLogin` et/ou `SteamPassword`, et saisissez ces données sur chaque exécution ASF, si nécessaire (ainsi que plusieurs autres informations d'identification de connexion, reportez-vous à la configuration). De cette manière, vos données ne sont enregistrées nulle part, mais ASF ne peut bien entendu pas démarrer automatiquement sans votre aide. ASF propose également plusieurs autres moyens d’augmenter votre **[sécurité](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, alors n'hésitez pas à lire cette partie du wiki si vous êtes un utilisateur expérimenté. Si vous ne l'êtes pas et que vous ne souhaitez pas utiliser les informations d'identification de votre compte dans les configurations ASF, ne le faites tout simplement pas et saisissez-les au besoin lorsque ASF les demande.
 
-* * *
-
-### Farming takes too long, can I somehow speed it up?
-
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+Gardez à l'esprit que l'outil ASF est pour votre usage personnel et que vos informations d'identification ne quittent jamais votre ordinateur. De plus, vous ne les partagez pas avec qui que ce soit, ce qui est une condition de Steam ToS - une chose très importante que beaucoup de gens oublient. Vous n'envoyez pas vos coordonnées à nos serveurs ou à des tiers, mais directement aux serveurs Steam de Valve.
 
 * * *
 
-### But ASF said that farming will take about X time!
+### Combien de temps dois-je attendre que les cartes tombent?
 
-ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
-
-* * *
-
-### Can ASF work on my android/smartphone?
-
-ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
-
-It's very likely that in the future we'll see working .NET Core for Android itself.
+**Autant de temps que necéssaire</ 0> - sérieusement. Chaque développeur a ses propres difficultés de farming définies par les développeurs et les éditeurs, et c’est à eux de décider à quelle vitesse lâcher les cartes. La majorité des jeux donnent une car par phase de 30 minutes de jeu, mais il existe également des jeux qui vous obligent à jouer plusieurs heures avant d'obtenir une carte. En outre, il est possible que votre compte ne reçoive pas de cartes de jeux auxquels vous n'avez pas encore joué, comme indiqué dans la section **Performances </ 0>. N'essayez pas de deviner combien de temps ASF devrait prendre pour farmer un jeu - ce n'est pas à vous, ni à ASF de décider. Il n'y a rien que vous puissiez faire pour accélérer les choses, et il n'y a pas de "bug" lié au fait que les cartes ne sont pas fournis à temps - vous ne contrôlez pas le processus d'obtention des cartes, pas plus que ASF. Dans le meilleur des cas, vous recevrez en moyenne une carte par phase de 30 minutes. Dans le pire des cas, vous ne recevrez aucune carte, même pendant 4 heures depuis le démarrage d'ASF. Ces deux situations sont normales et sont décrites dans notre section **[Performances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**.</p> 
 
 * * *
 
-### Can ASF idle items from Steam games, such as CS:GO or Unturned?
+### Le farming prend trop de temps, puis-je l'accélérer?
 
-**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
-
-* * *
-
-### Can I choose which games should be idled?
-
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
-
-In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+La seule chose qui affecte la vitesse du farming est l’option **[Algorithme de farming des cartes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** sélectionnée pour votre instance de bot. Tout le reste a un effet négligeable et ne rendra pas le farming plus rapide, alors que certaines actions telles que le lancement du processus ASF à plusieurs reprises vont même **l’aggraver**. Si vous souhaitez réellement exploiter chaque seconde du processus d’agriculture, ASF vous permet d’affiner certaines variables telles que `FarmingDelay` - elles sont toutes expliquées dans **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. Cependant, comme je l'ai dit, l'effet est négligeable, et choisir l'algorithme de farming des cartes approprié pour un compte est l'un et le seul choix crucial qui puisse influer fortement sur la vitesse de farming. Tout le reste est purement cosmétique. Au lieu de vous préoccuper de la rapidité de votre exploitation, lancez simplement ASF et laissez-la faire son travail. Je peux vous assurer qu'il le fait de la manière le plus efficace possible. Moins vous vous en souciez, plus vous serez satisfait.
 
 * * *
 
-### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
+### Mais ASF a déclaré que le farming prendrait environ X temps!
 
-Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we didn't test this.
-
-* * *
-
-## Comparaison avec d’autres outils similaires
+ASF vous donne une idée approximative basée sur le nombre de cartes que vous devez obtenir, ainsi que sur l'algorithme choisi. Ce délai est très proche du temps que vous passerez réellement à farmer, ce qui est généralement plus long que cela, ASF ne prenant que le meilleur des cas, ignorant toutes les bizarreries du réseau Steam, les déconnexions Internet, la surcharge des serveurs Steam, etc. Cela devrait être considéré uniquement comme un indicateur général de la durée pendant laquelle vous pouvez vous attendre à ce que ASF farme, très souvent dans le meilleur des cas, car le temps réel diffère, même de manière significative dans certains cas. Comme indiqué ci-dessus, n'essayez pas de deviner combien de temps un jeu sera farmer, ce n'est pas à vous, ni à ASF de décider.
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF peut-il fonctionner sur mon Android / smartphone?
 
-The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
+ASF est un programme C # qui nécessite une implantation efficace de .NET Core. Actuellement, il n’existe pas de version .NET Core native pour Android lui-même, mais il existe des versions similaires et fonctionnelles pour Linux sur l’architecture ARM. Il est donc tout à fait possible d’utiliser quelque chose comme **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** pour installer Linux, puis utiliser ASF dans un téléphone avec chroot Linux comme d'habitude.
 
-This is also why you shouldn't compare ASF to IM based on IM expectations. You should treat ASF and IM as entirely independent programs with their own exclusive sets of features. Some of them indeed overlap and you can find a particular feature in both of them, but very rarely, as ASF is serving its purpose with entirely different approach compared to IM.
-
-* * *
-
-### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
-
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
-
-ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
-
-ASF also has proper logic of **series** videos. There are many videos on Steam that have cards, yet are announced with wrong `appID` on the badges page, such as **[Double Fine Adventure](https://store.steampowered.com/app/402590)** - IM will falsely idle wrong `appID`, which will yield no drops and process being stuck. Once again, you'll need to either blacklist it or skip manually, both requiring your attention. ASF automatically discovers proper `appID` for idling which does result in card drops.
-
-In addition to that, ASF is **much more stable and reliable** when it comes to network problems and Steam quirks - it works most of the time and doesn't require your attention at all once configured, while IM often breaks for many people, requires extra fixes or simply doesn't work regardless. It's also fully dependent on your Steam client, which means that it can't work when your Steam client is experiencing any serious issues. ASF is working properly as long as it can connect to Steam network, and doesn't require Steam client running or even being installed.
-
-Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. There are dozen of extra less and more important reasons which you might learn about in the rest of the FAQ. So shortly speaking, **yes**, you should use ASF even when you don't need any extra ASF feature that is available when compared to IM.
-
-In addition to that, IM is officially discontinued and might break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM already doesn't work for a lot of people, and that number is only going up, not down. You should avoid using obsolete software in the first place, not only IM but all other deprecated programs as well. No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security.
+Il est très probable qu'à l'avenir, nous verrons fonctionner .NET Core sur Android directement.
 
 * * *
 
-### What interesting features ASF offers that Idle Master does not?
+### ASF peut t-il farmer les éléments de jeux issus de Steam, tels que CS: GO ou Unturned ?
 
-It depends what you consider "interesting" for you. If you plan to idle more accounts than one then the answer is already obvious since ASF allows you to idle all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
-
-First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. But you already know that, so let's move onto some more interesting features:
-
-- **You can idle offline** (`OnlineStatus` of `Offline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game to your friends, making only ASF part invisible and not affecting your account at all.
-
-- **You can skip refundable games** (`IdleRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
-
-- **You can automatically mark new items as received** (`BotBehaviour` of `DismissInventoryNotifications` feature). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
-
-- **You can automatically receive cards from Steam events** (`AutoSteamSaleEvent` feature). ASF allows you to automate going through discovery queue and voting in Steam Awards during Steam sale, of course only if you'd like to make use of that. This saves enormous amount of time each day while Steam sale is on, and ensures that you'll never miss your daily card drops again.
-
-- **You can customize preferred farming order with more available options** (`FarmingOrders` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alphabetically? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
-
-- **ASF can help you complete your sets** (`TradingPreferences` with `SteamTradeMatcher` feature). With a bit more advanced tinkering, you can convert your ASF into fully-featured user-bot that will automatically accept **[STM](https://www.steamtradematcher.com)** offers, helping you each day to match your sets without any user interaction. ASF even includes its very own ASF 2FA module allowing you to import your Steam mobile authenticator and let you fully automate the entire process with accepting confirmations as well. Or, maybe you want to accept manually and let ASF only prepare those trades for you? That's once again, fully up to you to decide.
-
-- **ASF can redeem keys in background for you** (**[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** feature). Maybe you have a hundred of keys from various bundles that you're too lazy to redeem yourself, going through bunch of windows and agreeing to Steam terms and conditions over and over again. Why not copy-paste your list of keys into ASF and let it do its job? ASF will automatically redeem all of those keys in background, providing you with appropriate output to let you know how each redeem attempt turned out. Moreover, if you have hundreds of keys, you're guaranteed to get rate-limited by Steam sooner or later, and ASF also knows about that, it'll patiently wait for the rate-limit to go away, and resume where it left.
-
-We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, pointing out every single feature of the program, but we have to draw a line somewhere. This is it, this is a list of features that you can enjoy as ASF user, where just one of those could easily be considered a major reason to never look back, and we actually listed **a lot** of them, with even more you can learn about on the rest of our wiki. Ah yes, and we didn't even go into detail with things like ASF's API allowing you to script your own commands, or glorious bots management, since we wanted to keep it simple.
+**Non**, cela va à l'encontre de Steam ToS et Valve a clairement indiqué cela, lors de la dernière vague d'interdictions communautaires visant à farmer des articles de TF2. ASF est un programme de farming de cartes Steam, et non un élément de jeu. Il ne dispose d'aucune fonctionnalité pour créer des éléments de jeu. Il n'est pas prévu d'ajouter une telle fonctionnalité à l'avenir, en raison notamment d'une violation des conditions d'utilisation de Steam. S'il vous plaît ne demandez pas à ce sujet - le mieux que vous puissiez obtenir est un rapport d'un utilisateur mauvais et vous aurez des problèmes. Il en va de même pour tous les autres types d'items à obtenir, tels que les drop CS: GO broadcasts. ASF se concentre exclusivement sur les cartes à échanger Steam.
 
 * * *
 
-### Is ASF faster than Idle Master?
+### Est-ce que je peux choisir quels jeux devraient être farmer ?
 
-**Yes**, although the explanation is rather complicated.
+**Oui**, de différentes manières. Si vous souhaitez modifier l'ordre par défaut de la file d'attente de farming, vous pouvez utiliser `FarmingOrders` **[dans le fichier de configuration du bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**. Si vous souhaitez mettre manuellement à la liste noire des jeux pour que le farming ne soit pas automatique, vous pouvez utiliser la liste noire disponible qui est disponible avec la **[commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `ib`. Si vous souhaitez tout activer sans donner la priorité à certains jeux, vous pouvez utiliser la file d'attente prioritaire disponible avec la **[commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Enfin, si vous souhaitez farmer uniquement les jeux spécifiques de votre choix, vous pouvez utiliser `IdlePriorityQueueOnly` **[dans le fichier de configuration du bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** afin d'y parvenir, en ajoutant les jeux sélectionnées à file d'attente en priorité.
 
-On each new process spawned and terminated on your system, steam client automatically sends a request containing all of your games that you're currently playing - this way steam network can calculate hours and make cards drop. However, steam network counts your time played in 1-second intervals, and sending new request resets the current status. In other words, if you did spawn/kill new process every 0.5 second, you'd never drop any card because every 0.5 second steam client would send a new request and steam network would never count even 1 second of play time. Moreover, because of how operating system works, it's actually quite common to see new processes being spawned/terminated without you even doing anything, so even if you're doing nothing on your PC - there are many processes still working in the background, spawning/terminating other processes all the time. Idle master is based on steam client, so this mechanism affects you if you're using it.
-
-ASF is not based on steam client, it has its own steam client implementation. Thanks to that, what ASF is doing, is not spawning any process, but actually sending one, real request to steam network that we started playing a game. This is the same request that would be sent by steam client, but because we have actual control over the ASF steam client, we don't need to spawn new processes, and we're not mimicking steam client regarding send request on every process change, so the mechanism explained above doesn't affect us. Thanks to that, we never interrupt that 1 second interval on steam web side, and that enhances our farming speed.
+En plus de la gestion du module de farming automatique des cartes décrit ci-dessus, vous pouvez également basculer ASF en mode de farming manuelle à l’aide de la **[commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `play </ 0> ou utiliser certains autres paramètres externes divers, tels que <code> GamesPlayedWhileIdle` **[dans le fichier de configuration du bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 * * *
 
-### But is the difference really noticeable?
+### Je suis un utilisateur Linux / OS X, les jeux à farmer depuis ASF ne sont-ils pas indisponibles pour mon système d'exploitation? Est-ce que ASF continura à fonctionner avec les jeux 64-bits lorsque je l'exécute sur un système d'exploitation 32-bits?
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
-
-However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
+Oui, ASF ne se soucie même pas de télécharger des fichiers de jeu réels. Il fonctionnera donc avec toutes vos licences liées à votre compte Steam, quelles que soient les exigences techniques de la plate-forme. Cela devrait également fonctionner pour les jeux liés à une région spécifique (jeux liés à une région) même lorsque vous n'êtes pas dans la région correspondante, bien que nous n'ayons pas testé cela.
 
 * * *
 
-### Can ASF idle multiple games at once?
-
-**Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
+## Comparaison avec des outils similaires
 
 * * *
 
-### Can ASF skip through games fast?
+### ASF est-il similaire à Idle Master?
 
-**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+La seule similitude est l'objectif principal des deux programmes, qui consiste à mettre les jeux Steam au farming afin de recevoir des cartes. Tout le reste, y compris la méthode de farming, les algorithmes utilisés, la structure du programme, la fonctionnalité, la compatibilité, se terminant par le code source lui-même, est complètement différent et ces deux programmes n’ont rien de commun, même la base principale (IM est en cours d’exécution avec NET Framework, ASF sur .NET Core). ASF a été créé pour résoudre des problèmes de IM qu'il n'était pas possible de résoudre avec une simple modification de code. C’est pourquoi ASF a été écrit à partir de rien, sans utiliser une seule ligne de code ni une idée générale de la part de IM, car ce code et ces idées étaient totalement erronés. pour commencer. IM et ASF sont comme Windows et Linux - les deux sont des systèmes d'exploitation et peuvent être installés sur votre PC, mais ils ne partagent presque rien les uns avec les autres, mis à part le même objectif.
 
-* * *
-
-### Can ASF automatically idle each game for X hours before cards are added?
-
-**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen.
+C'est aussi pourquoi vous ne devriez pas comparer ASS à IM en fonction des attentes de IM. Vous devez traiter ASF et IM comme des programmes entièrement indépendants dotés de leurs propres ensembles exclusifs de fonctionnalités. Certaines d’entre elles se chevauchent en fait et vous pouvez trouver une caractéristique particulière dans les deux, mais très rarement, car ASF remplit son objectif avec une approche totalement différente de celle de IM.
 
 * * *
 
-### Can I play a game while ASF is farming?
+### Est t-il nécessaire d’utiliser ASF, si j’utilise actuellement Idle Master et que cela fonctionne bien pour moi?
 
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**Oui**. ASF est beaucoup plus fiable et comprend de nombreuses fonctions intégrées qui sont **cruciales**, quel que soit le mode de farming, que IM ne propose tout simplement pas.
 
-Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
+ASF dispose de la logique appropriée pour les **jeux inédits</ 0>. IM essaiera de farmer les jeux pour lesquelles des cartes ont déjà été ajoutées, même si elles n’ont pas encore été publiées. Bien sûr, il n’est pas possible de mettre ces jeux au farming avant la date de sortie. Votre processus d farming sera donc bloqué. Cela nécessitera soit de l'ajouter à la liste noire, d'attendre sa publication ou de l'ignorer manuellement. Aucune de ces solutions n’est bonne et toutes requièrent votre attention. ASF évite automatiquement (temporairement) le farming de jeux inédits et y revient plus tard, évitant ainsi complètement le problème et y apportant une solution efficace.</p> 
 
-* * *
+ASF dispose également d’une logique appropriée pour les vidéos de la **série**. De nombreuses vidéos sur Steam contiennent des cartes, mais sont annoncées avec un `appID` erroné sur la page des badges, telles que **[Double Fine Adventure](https://store.steampowered.com/app/402590)** - IM farm dans ce cas de manière erronée `appID`, qui ne produira aucune chute et le processus sera bloqué. Encore une fois, vous devrez le mettre sur liste noire ou l'ignorer manuellement, les deux nécessitant votre attention. ASF découvre automatiquement le `appID` approprié pour le farming ce qui entraîne une obtention des cartes.
 
-## Security / Privacy / VAC / Bans / ToS
+En outre, ASF est **beaucoup plus stable et fiable** en ce qui concerne les problèmes de réseau et les problèmes liés à Steam. Il fonctionne la plupart du temps et ne nécessite aucune attention de votre part une fois configuré, alors que IM pour beaucoup de gens, nécessite des corrections supplémentaires ou ne fonctionne tout simplement pas malgré tout. Cela dépend également entièrement de votre client Steam, ce qui signifie que cela ne peut pas fonctionner lorsque votre client Steam rencontre des problèmes graves. ASF fonctionne correctement tant qu'il peut se connecter au réseau Steam et ne nécessite pas l'exécution du client Steam, ni même son installation.
 
-* * *
+Celles-ci sont 3 raisons <0 très importantes</strong> pour lesquelles vous devriez envisager d’utiliser ASF, car elles affectent directement tout le monde pour le farming des cartes Steam et il n’y a aucun moyen de dire "cela ne me concerne pas", car les maintenances et les bizarreries de Steam sont passé par tout le monde. Il existe une douzaine de raisons supplémentaires, moins importantes et plus importantes, que vous pourriez découvrir dans la suite de la FAQ. En bref, **oui**, vous devez utiliser ASF même lorsque vous n’avez besoin d’aucune fonctionnalité ASF supplémentaire par rapport à IM.
 
-### Can I get VAC ban for using this?
-
-No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
+En plus de cela, IM est officiellement arrêtée et risque de disparaître complètement à l'avenir, sans que personne ne se préoccupe de le réparer, compte tenu de l'existence de solutions beaucoup plus puissantes (pas uniquement ASF). IM ne fonctionne déjà pas pour beaucoup de gens, et ce nombre ne fait qu'augmenter, pas diminuer. Évitez d’abord d’utiliser des logiciels obsolètes, pas seulement IM, mais également tous les autres programmes obsolètes. Non maintiens actif signifie que personne ne se soucie de savoir si cela fonctionne ou non, personne ne le vérifie et **personne n'est responsable de sa fonctionnalité**, ce qui est crucial pour la sécurité.
 
 * * *
 
-### Can using ASF prevent me from playing on VAC-secured servers, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
+### Quelles sont les fonctionnalités intéressantes proposées par ASF et que Idle Master n’a pas?
 
-ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
+Cela dépend de ce que vous considérez comme "intéressant" pour vous. Si vous envisagez d’utiliser plus de comptes que un, la réponse est évidente, car ASF vous permet de les utiliser tous avec une solution unique, ce qui vous permet d’économiser des ressources, d'éviter de vous compliquer la vie et de résoudre des problèmes de compatibilité. Toutefois, si vous vous posez cette question, il est fort probable que vous ne répondez pas à ce besoin particulier. Évaluons donc les autres avantages applicables à un seul compte utilisé dans ASF.
 
-According to users and best of my knowledge, this is the case right now, as nobody reported any issues like stated in the link above while using ASF. We couldn't reproduce the issue above with ASF as well, while clearly reproducing it with Idle Master.
+Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (**[ci-dessus](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)**) sont essentielles pour le farming quel que soit votre objectif final. Très souvent, cela suffit déjà pour envisager l’utilisation de ASF. Mais vous le savez déjà, passons donc à des fonctionnalités plus intéressantes:
 
-However, keep in mind that Valve might still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason. Still, in the worst case you'll be unable to play, like stated above, because VAC-free guarantee of ASF is still here regardless if Steam blacklists ASF binary, or not (and you can still launch ASF on any other machine without Steam client being installed at all). Right now there is no need to do any of that, and let's hope it stays like this.
+- **Vous pouvez mettre farmer en mode hors connexion** (`OnlineStatus` de la fonction `Offline`). Le farming hors ligne vous permet d'ignorer entièrement votre statut Steam dans le jeu, ce qui vous permet de continuer à farmer avec ASF tout en affichant "Online" sur Steam en même temps, sans que vos amis ne se rendent compte que ASF joue à un jeu pour vous. . Cette fonctionnalité est supérieure, car elle vous permet de rester en ligne sur votre client Steam, sans gêner vos amis avec des modifications constantes du jeu, ni les induire en erreur en leur faisant croire que vous jouez à un jeu alors qu'en réalité vous ne le faite pas. Ce seul point justifie l'utilisation d'ASF si vous respectez vos propres amis, mais ce n'est qu'un début. Il est également agréable de noter que cette fonctionnalité n'a rien à voir avec les paramètres de confidentialité de Steam. Si vous lancez le jeu vous-même, vous vous présenterez correctement dans le jeu à vos amis, rendant uniquement la partie ASF invisible et n'affectant en rien votre compte. .
 
-* * *
-
-### Is it safe?
-
-If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. Code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code.
-
-If you for whatever reason don't trust our builds, you can always compile and use ASF from source, including all libraries that ASF is using (such as SteamKit2), which are open-source too. In the end however, it's always a matter of trust to the developer(s) of your application, so you should decide yourself if you consider ASF safe or not, potentially supporting your decision with technical arguments. Do not blindly believe something only because I said so - check yourself, as that's the only way to make sure.
-
-* * *
-
-### Can I get banned for this?
-
-In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
-
-The only real point that considers ASF is the following:
-
-> You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.
-
-The question is what in fact is Subscription Marketplace process. As we can read:
-
-> An example of a Subscription Marketplace is the Steam Community Market
-
-We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. However...
-
-> Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).
-
-Therefore, as with every Steam software, ASF is not authorized by Valve and I cannot guarantee that you won't be suspended if Valve suddenly decides that they're banning accounts using ASF now. This is exceptionally unlikely considering the fact that ASF is being used on more than half a million of Steam accounts, but still a possibility, regardless of actual probability.
-
-Especially because:
-
-> In regard to all Subscriptions, Contents and Services that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
-
-However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they might cause problems VAC-wise. The key word here is **Steam** idlers, for example ASF, and not **game** idlers.
-
-Please note that above is only our interpretation of Steam ToS and various points - ASF is licensed under Apache 2.0 License, which clearly states:
-
-> Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
-You're using this software at your own risk. It's very unlikely that you can get banned for that, but if you do, you can blame only yourself for that.
-
-* * *
-
-### Did somebody get banned for it?
-
-**Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
-
-One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
-
-> Hello XXX, Thank you for contacting Steam Support. It looks like this account was used to manage a network of bot accounts. Botting is a violation of the Steam Subscriber Agreement.
-
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare common sense and minimum of fair use in regards to Steam service, and *most likely* you'll be fine.
-
-Another case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
-
-> Your account was blocked for violation of the agreement of the subscriber Steam. Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
-
-This case is once again very hard to analyze, because of vague response from Steam support that barely offers any details. Based on my personal thoughts, this user probably exchanged Steam cards for some kind of money (level up bot?) or in some other way tried to cash out on Steam. In case you were unaware, this is also illegal according to Steam ToS.
-
-Last case involved user with 120+ bots being banned for breach of **[Steam online conduct](https://store.steampowered.com/online_conduct?l=english)**.
-
-> Hello XXX, Thank you for contacting Steam Support. This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
-
-This case is a bit easier to analyze because of extra details provided by the user. Apparently the user was using **a very outdated ASF version** that included a bug causing ASF to send excessive number of requests to Steam servers. The bug itself did not exist at first but was activated due to Steam breaking change that was fixed in future version. **ASF is supported only in **[latest stable version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** released on GitHub**. Software is written by humans, and humans tend to make mistakes. If the mistake has a global scope, it's quickly being patched up and released to all users as a bugfix. Valve won't suddenly ban half a million of ASF users due to my mistake, for obvious reasons. However, if you intentionally resign from using up-to-date ASF, then by definition you're in a very small minority of users that are **exposed to incidents like these** due to **no support**, as there is nobody watching over your outdated version of ASF, nobody fixing it and nobody ensuring that you won't get outright banned by just launching it. **Please use up-to-date software**, not only ASF, but all other applications as well.
-
-* * *
-
-All of the incidents above have one thing in common - ASF is just a tool and it's **your** decision how you're going to make use of it. You do not get banned for using ASF directly, but for **how** you're using it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself about your ASF usage in the first place. I'm not hiding any information that could help you, e.g. the fact that ASF got some people banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, avoid creating a massive network of idling bots, do not send hundreds of trades at the same time, always use up-to-date ASF version and you *should* be fine. Every single incident of this nature for **some reason** always happened to people running hundreds of accounts in the first place. Whether it's just a coincidence or some actual factor, that's up to you to decide. I'm not offering any legal advice, only giving you my thoughts that you can find useful, or disregard them entirely and operate only on facts linked above.
-
-* * *
-
-### What privacy information ASF discloses?
-
-You can find detailed explanation in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
-
-* * *
-
-## Divers
-
-* * *
-
-### I'm using unsupported OS such as 32-bit Windows, can I still use ASF V3?
-
-Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section for generic variant.
-
-* * *
-
-### ASF is great! Can I make a donation?
-
-Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchiNET/ArchiSteamFarm)**. It's nice to note that in addition to generic money donations we also accept Steam items, so nothing is stopping you from donating skins, keys or a small part of the cards that you've idled with ASF if you'd like to. Thank you in advance for your generosity!
-
-* * *
-
-### I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
-
-Yes, you must set it in `SteamParentalCode` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
-
-* * *
-
-### I don't want ASF to farm any games by default, yet I want to use extra ASF features. Is this possible?
-
-Yes, you can set `Paused` bot config property to `true` in order to launch ASF with paused cards farming module, then you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
-
-* * *
-
-### Can ASF minimize to tray?
-
-ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
-
-* * *
-
-### Does using ASF preserve eligibility for receiving booster packs?
-
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
-
-* * *
-
-### Is there any way to communicate with ASF?
-
-Yes, through steam chat, or by using **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**. Check out **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** section for more info.
-
-* * *
-
-### I'd like to help with ASF translation, what do I need to do?
-
-Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** section.
-
-* * *
-
-### I have only one (main) account added to ASF, can I still issue commands through steam chat?
-
-**Yes**, it's explained in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** section. You can do so through Steam group chat.
-
-* * *
-
-### ASF seems to be working, but I'm not receiving any card drops!
-
-Cards farming rate differs from game to game, as you can read in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `BotBehaviour` of `DismissInventoryNotifications` bot config property. Check out **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** for details.
-
-* * *
-
-### How to completely stop ASF process for my account?
-
-Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `stop` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** and `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** is for.
-
-* * *
-
-### How many bots can I run with ASF?
-
-ASF as a program doesn't have any upper limit of bot instances, however you're still being limited by Steam Network. Currently you can run up to 100-110 bots with single IP and single ASF instance. It is possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself (such as making sure that all of them in fact are logging in and working at the same time). Also notice that the limit above in general depends on many internal factors - it's approximation rather than strict limit - you will most likely be able to run more/less bots than specified above.
-
-* * *
-
-### Can I run more ASF instances then?
-
-You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit `InvalidPassword/RateLimitExceeded` issue described below, as logging in requests are not being synchronized between ASF instances. Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using its own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues. You won't gain anything from launching more than 1 instance per a single IP/interface.
-
-* * *
-
-### What is the meaning of status when redeeming a key?
-
-Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
-
-| Status                  | Description                                                                                                                                                                                                                    |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
-| BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
-| DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
-| AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
-| RestrictedCountry       | This is region-locked key and your account is not in the valid region that is permitted to redeem it.                                                                                                                          |
-| DoesNotOwnRequiredApp   | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.                                                                                                    |
-| RateLimited             | You made too many redeem attempts and your account was temporarily blocked. Try again in an hour.                                                                                                                              |
-
-* * *
-
-### Are you affiliated with any cards farming/idling service?
-
-**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
-
-> You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
-
-ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement/english)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
-
-In addition to that, official Steam ToS clearly states that:
-
-> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
-
-It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with Steam ToS evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates Steam ToS** and might result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
-
-* * *
-
-## Problèmes
-
-* * *
-
-### ASF doesn't detect game `X` as available for farming, yet I know it includes Steam trading cards!
-
-There are two main reasons here. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
-
-In short, card drops icon in Steam store doesn't mean anything, check your **[badge pages](https://steamcommunity.com/my/badges)** for confirmation whether a game has card drops enabled or not - this is also what ASF is doing. If your game doesn't appear on the list as a game with cards possible to drop, then this game is **not** possible to idle, regardless of reason.
-
-Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being idled by ASF right away. Unless you're hitting some other bug, such as ASF being unable to check badge pages (described below), it's simply a cache effect and on ASF side Steam is still reporting outdated badges page. This issue should solve itself sooner or later, when cache gets invalidated. There is also no way to fix this on our side.
-
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to idling blacklist, use `IdleRefundableGames` of `false` and so on.
-
-* * *
-
-### Why playtime of games idled through ASF doesn't increase?
-
-It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. If it was possible to skip playtime while idling cards then you can be sure that we'd have it implemented in ASF long time ago, and actually use it in default settings. But we don't, and we don't exactly because it's not possible - just because the playtime isn't updated in real-time doesn't mean that it's not recorded.
-
-* * *
-
-### What is the difference between a warning and an error in the log?
-
-ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
-
-General ASF rule is that warnings are **not** errors, therefore they should **not** be reported. A warning is an indicator to you that something potentially unwanted happen. Whether it was Steam not reacting, API throwing errors or your network connection being down - it's a warning, and it means we expected it to happen, so don't bother ASF development with it. Of course you're free to ask about them or get help by using our support, but you shouldn't assume that those are ASF errors worth reporting (unless we confirm otherwise).
-
-Errors on the other hand indicate a situation that should not happen, therefore they're worth reporting as long as you made sure that it's not you who is causing them. If it's a common situation that we expect to happen, then it'll be converted to a warning instead. Otherwise, it's possibly a bug that should be corrected, not silently ignored, assuming it's not a result of your own technical issue. For example, removing core `ASF.json` file will throw an error, as ASF can't operate without that file, but it was you who removed it, so you should not report that error to us (unless you confirmed that ASF is wrong and the file is there).
-
-In one TL;DR sentence - report errors, don't report warnings. You can still ask about warnings and receive help in our support sections.
-
-* * *
-
-### ASF can't start, the program window immediately closes after being launched!
-
-If even `log.txt` is not being generated then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
-
-* * *
-
-### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
-
-This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
-
-One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
-
-Second reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
-
-Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
-
-The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done. Alternatively you can just ignore the problem and act the same as if you played with offline Steam client.
-
-* * *
-
-### `Disconnected from Steam!` - I can't establish connection with Steam servers.
-
-ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
-
-ASF will do its best to establish connection, which includes not only asking about updated list of servers but also trying another IP when last one fails, so if it's truly a temporary problem with some specific server or route, ASF will connect sooner or later. However, if you're behind firewall or in some other way unable to reach Steam servers, then obviously you need to fix it yourself, with potential help of `Debug` mode.
-
-It's also possible that your machine is not able to establish connection with Steam servers using default protocol in ASF. You can alter protocols that ASF is permitted to use by modifying `SteamProtocols` global configuration property. For example, if you have problems reaching Steam with `TCP` protocol, then you can try `UDP` or `WebSocket`.
-
-In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to machine located in another country, deleting `ASF.db` in order to refresh Steam servers on next launch might help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established.
-
-* * *
-
-### `Could not get badges information, will try again later!`
-
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
-
-Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
-
-* * *
-
-### ASF is failing with `Request failed despite of 5 tries` errors!
-
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
-
-If parental PIN is not the reason, then this is a most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
-
-How to check if Steam is being down? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties, either leave ASF alone and let it do its job after a short while, or wait yourself.
-
-That's however not always the case, as in some situations Steam issues might not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
-
-Lastly, if nothing helps you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example, above HTTPS issue caused:
-
-    <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
-    An error occurred while processing your request.<p>
+- **Vous pouvez ignorer les jeux remboursables</ 0> (fonctionnalité `IdleRefundableGames`). ASF a une logique intégrée appropriée pour les jeux remboursables et vous pouvez configurer ASF pour ne pas utiliser automatiquement les jeux remboursables pour les cartes. Cela vous permet d’évaluer vous-même si votre jeu nouvellement acheté dans le magasin Steam valait votre argent, sans qu'ASF ne tente de lui retirer des cartes dès que possible. Si vous y jouez plus de 2 heures ou 2 semaines après votre achat, ASF procédera au farming ce jeu car il ne sera plus remboursable. Jusque-là, vous avez le plein contrôle, que vous en appréciez ou non, et vous pouvez facilement vous le faire rembourser si nécessaire, sans avoir à mettre manuellement ce jeu en liste noire ou à ne pas utiliser ASF pendant toute sa durée.</p></li> 
     
-
-Which is clearly Steam issue and nothing to fix in ASF. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and error doesn't go away after a day or two, it might be worth investigating and reporting.
-
-Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this might be worth asking about.
-
-* * *
-
-### ASF seems to freeze and doesn't print anything on the console until I press a key!
-
-You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
-
-* * *
-
-### ASF can't accept or send trades!
-
-Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
-
-Next, if you do not use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
-
-Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
-
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster.
-
-And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarely a problem, but it's also worth mentioning, especially if you set ASF to auto-send trades, yet you're not using ASF 2FA and forgot to actually confirm them.
-
-If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason might not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
-
-In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself.
-
-* * *
-
-### Why do I have to put 2FA/SteamGuard code on each login? / `Removed expired login key`
-
-ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
-
-You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask GabeN for solution, because I can't force Steam network to accept our login keys.
-
-As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but you should do that only if ASF has fully automated way to make initial login. Right now this is possible only with valid `SteamPassword` and **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, since in this case we don't need to rely on login keys at all, as we have required login credentials (password and 2FA key) available on each login.
-
-* * *
-
-### I'm getting error: `Unable to login to Steam: InvalidPassword or RateLimitExceeded`
-
-This error can mean a lot of things, some of them include:
-
-- Invalid Login/Password combination (obviously)
-- Expired login key used by ASF for logging in
-- Too many failed login attempts in short period of time (anti-bruteforce)
-- Too many login attempts in short period of time (rate-limiting)
-- Requirement of captcha to log in (very likely to be caused by two reasons above)
-- Any other reason Steam Network might have preventing you from logging in.
-
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
-
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You might avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
-
-And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
-
-Keep in mind that ASF has its own built-in system to react accordingly to steam quirks, eventually it will connect and resume its job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
-
-Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF - there is no bug, and nothing can be fixed neither improved in this regard.
-
-* * *
-
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
-
-This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing despite of 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
-
-* * *
-
-### `System.Net.Http.WinHttpException: A security error occurred`
-
-This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
-
-In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted as potential MITM attack and ASF refuses to make a connection.
-
-Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as native synchronization available on Windows, or `ntpd` on Linux.
-
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts might be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
-
-* * *
-
-### ASF is being detected as a malware by my AntiVirus! What's going on?
-
-**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
-
-If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
-
-If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.
+    - **Vous pouvez automatiquement marquer les nouveaux éléments comme étant reçus** (`BotBehaviour` avec la fonctionnalité `DismissInventoryNotifications`). Si vous farmer avec ASF, votre compte recevra de nouvelles cartes. Vous savez déjà que cela va se produire. Informez donc ASF de cette notification inutile, en veillant à ce que seules les informations importantes attirent votre attention. Bien sûr, seulement si vous le souhaitez.
+    
+    - **Vous pouvez recevoir automatiquement des cartes d’événements Steam** (fonctionnalité `AutoSteamSaleEvent`). ASF vous permet d’automatiser la navigation dans la liste de découverte et le vote dans les Steam Awards lors des soldes Steam, bien sûr uniquement si vous souhaitez en profiter. Cela économise énormément de temps chaque jour lorsque les soldes Steam sont activée et garantit que vous ne manquerez plus jamais de vos cartes quotidiennes.
+    
+    - **Vous pouvez personnaliser l’ordre de farming préféré avec d'avantage d’options disponibles** (fonctionnalité `FarmingOrders`). Peut-être voudriez-vous commencer par faire tourner vos jeux nouvellement achetés? Ou vos plus vieux? Selon le nombre de de cartes? Les niveaux de badge que vous avez déjà créés? Heures jouées? Ordre alphabétique? Selon AppID? Ou peut-être totalement aléatoire? C’est à vous de décider.
+    
+    - **ASF peut vous aider à compléter vos ensemble** ( `TradingPreferences` avec la fonction `SteamTradeMatcher`). Avec un bricolage un peu plus avancé, vous pouvez convertir votre ASF en un bot utilisateur complet qui acceptera automatiquement les offres **[STM](https://www.steamtradematcher.com)**, vous aidant chaque jour à faire correspondre vos ensembles sans aucune interaction de l'utilisateur. ASF inclut même son propre module ASF 2FA vous permettant d’importer votre authentificateur mobile Steam et de vous permettre d’automatiser entièrement le processus en acceptant également les confirmations. Ou peut-être souhaitez-vous accepter manuellement et laisser ASF uniquement préparer ces transactions pour vous? C’est à vous de décider.
+    
+    - **ASF peut activer des clés en arrière-plan pour vous** (fonction **[activation de jeux en arrière-plan](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**). Peut-être avez-vous une centaine de clés de divers ensembles que vous êtes trop paresseux pour vous racheter, en passant par plusieurs fenêtres et en acceptant les conditions d'utilisation de Steam encore et encore. Pourquoi ne pas copier-coller votre liste de clés dans ASF et le laisser faire son travail? ASF activera automatiquement toutes ces clés en arrière-plan, vous fournissant ainsi le résultat approprié pour vous informer du résultat de chaque tentative d'activation. De plus, si vous avez des centaines de clés, Steam sera tôt ou tard sûr de limiter les taux, et ASF le sait aussi. Il attend patiemment que la limite de taux disparaisse et reprenne sa position d'origine.</ul> 
+    
+    Nous pourrions maintenant continuer avec l'ensemble du **[wiki ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, en soulignant chaque fonctionnalité du programme, mais nous devons tracer une ligne quelque part. Voilà une liste de fonctionnalités dont vous pouvez bénéficier en tant qu'utilisateur d'ASF. Une seule de celles-ci pourrait facilement être considérée comme une raison majeure pour ne jamais reveniren arrière, et nous en avons même répertorié **beaucoup **, avec encore plus, vous pouvez en apprendre d'avantage sur le reste de notre wiki. Ah oui, et nous n’avons même pas abordé de détails tels que l’API d’ASF, qui vous permet de programmer vos propres commandes, ou la gestion de bots glorieux, car nous voulions rester simples.
+    
+    * * *
+    
+    ### ASF est-il plus rapide que Idle Master?
+    
+    **Oui**, bien que l'explication soit plutôt compliquée.
+    
+    À chaque nouveau processus créé et terminé sur votre système, le client Steam envoie automatiquement une requête contenant tous les jeux auxquels vous êtes en train de jouer. Ainsi, le réseau Steam peut calculer le nombre d'heures et fournir les cartes. Cependant, le réseau Steam compte votre temps joué par intervalles d'une seconde et l'envoi d'une nouvelle requête afin de réinitialiser le statut actuel. En d'autres termes, si vous créiez / supprimiez un nouveau processus toutes les 0,5 seconde, vous n'aurez jamais de carte, car chaque client Steam de 0,5 seconde envoyait une nouvelle requête et le réseau Steam ne comptera jamais même une seconde de temps de jeu. De plus, en raison du fonctionnement du système d’exploitation, il est assez courant de voir de nouveaux processus en train d’être créés / arrêtés sans même que vous ne fassiez rien. Même si vous ne faites rien sur votre PC, de nombreux processus fonctionnent toujours en arrière-plan, ce qui génère / mettre fin à d’autres processus tout le temps. IM est basé sur le client Steam, donc ce mécanisme vous concerne si vous l'utilisez.
+    
+    ASF n'est pas basé sur le client Steam, il dispose de sa propre implantation. Grâce à cela, ce que ASF est en train de faire ne génère aucun processus, mais envoie en fait une demande réelle au réseau Steam pour que nous commencions à jouer à un jeu. C'est la même demande qui serait envoyée par le client steam, mais comme nous avons le contrôle effectif du client steam d'ASF, nous n'avons pas besoin de générer de nouveaux processus et nous ne sommes pas en train d'imiter le client steam concernant la demande d'envoi à chaque changement de processus. , donc le mécanisme expliqué ci-dessus ne nous affecte pas. Grâce à cela, nous n'interrompons jamais cet intervalle d'une seconde côté Steam, ce qui améliore notre vitesse de culture.
+    
+    * * *
+    
+    ### Mais la différence est-elle vraiment perceptible?
+    
+    Non. Les interruptions qui se produisent avec le client Steam normal et IM ont un effet négligeable sur les obtentions de carte. Ce n'est donc pas une différence notable qui améliorerait la qualité de ASF.
+    
+    Cependant, **il y a** une différence, et vous pouvez clairement remarquer que, selon l'affluence de votre système d'exploitation, les cartes **tomberont** plus rapidement, de quelques secondes à quelques secondes. minutes, si vous êtes extrêmement malchanceux. Bien que je n’envisage pas d’utiliser ASF uniquement parce qu’il forunis les cartes plus rapidement, ASF et Idle Master étant tous deux affectés par le fonctionnement de Steam Web, ASF interagit plus efficacement avec Steam Web, tandis que Idle Master ne peut pas contrôler le client Steam. (de sorte que ce n’est pas la faute de Idle Master, mais bien du client Steam lui-même).
+    
+    * * *
+    
+    ### Est-ce que ASF peut activer plusieurs jeux en même temps?
+    
+    **Oui**, même si ASF sait mieux utiliser cette fonctionnalité, en fonction de l’algorithme de farming **[sélectionné](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Vous n'avez pas le choix direct sur l'algorithme de farming des cartes, mais vous pouvez en suggérer un, via la fonctionnalité correcte des options de configuration. Vous devez vous concentrer sur la partie configuration de ASF et laisser les algorithmes décider du moyen le plus optimal pour atteindre l'objectif.
+    
+    * * *
+    
+    ### Est-ce que ASF peut parcourir les jeux rapidement?
+    
+    **Non**, ASF ne prend pas en charge ni encourage l'utilisation de **[gliches Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+    
+    * * *
+    
+    ### Est-ce que ASF peut automatiquement utiliser chaque jeu pendant X heures avant l’obtention des cartes?
+    
+    **Non**, le changement de système de cartes de Steam visait essentiellement à lutter contre de fausses statistiques et des joueurs fantômes. ASF ne contribuera pas à cela plus que nécessaire, l'ajout d'une telle fonctionnalité n'est pas planifié et ne se produira pas.
+    
+    * * *
+    
+    ### Puis-je jouer à un jeu pendant qu'ASF est en train de farmer ?
+    
+    **Non**. Contrairement à IM, ASF inclut un client Steam indépendant et le réseau Steam ne permet à **qu'un client Steam à la fois ** de jouer à un jeu. Vous pouvez cependant déconnecter ASF à tout moment en démarrant une partie (et en cliquant sur "OK" lorsqu'on lui demande si le réseau Steam doit déconnecter un autre client). ASF attendra alors patiemment jusqu'à ce que vous ayez fini de jouer, puis reprendra le processus. Alternativement, vous pouvez toujours jouer en mode hors connexion à tout moment, si cela vous convient.
+    
+    N'oubliez pas que le taux d'obtention des cartes lorsque vous jouez à plusieurs jeux est proche de 0; il n'y a donc aucun avantage direct à ce que vous puissiez le faire avec IM, alors qu'il existe de solides avantages de ne pas interférer avec d'autres jeux lancés avec ASF, ce qui est crucial. par exemple VAC-sage.
+    
+    * * *
+    
+    ## Sécurité / Vie Privée / VAC / Bans / ToS
+    
+    * * *
+    
+    ### Puis-je obtenir une interdiction VAC en utilsant ASF ?
+    
+    Non, ce n'est pas possible car ASF (contrairement à Idle Master ou SAM) n'interfère en aucune manière avec le client Steam ni avec ses processus. Il est physiquement impossible d’obtenir une interdiction VAC pour utiliser ASF, même lorsque vous jouez sur des serveurs sécurisés lorsque ASF est en cours d’exécution, car **ASF ne nécessite même pas l’installation de Steam Client** pour fonctionner correctement. ASF est le seul programme de farming pouvant actuellement garantir l’absence de ban VAC.
+    
+    * * *
+    
+    ### Est-ce que l’utilisation d’ASF peut m’empêcher de jouer sur des serveurs sécurisés par VAC, comme indiqué **[ici](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
+    
+    ASF ne nécessite pas l'exécution du client Steam, ni même son installation. Selon ce concept, **cela** ne devrait pas causer de problèmes liés à VAC, car ASF garantit l'absence d'interférences avec le client Steam et tous ses processus. C'est le point principal en parlant de la garantie sans ban VAC qu'ASF offre.
+    
+    Selon les utilisateurs et autant que je sache, c'est le cas à l'heure actuelle, car personne n'a signalé de problème comme indiqué dans le lien ci-dessus lors de l'utilisation de ASF. Nous ne pouvions pas reproduire le problème ci-dessus avec ASF, tout en le reproduisant clairement avec Idle Master.
+    
+    Cependant, gardez à l'esprit que Valve pourrait toujours ajouter ASF à la liste noire à un moment donné, mais c'est tout à fait absurde, car même s'ils le faisaient, vous pouvez toujours jouer à des jeux sécurisés par VAC depuis votre PC et utiliser ASF en même temps, par exemple. Je suis donc presque sûr qu'ils savent très bien qu'ASF ne doit pas être un suspect en matière de VAC et qu'ils ne rendront pas notre vie plus difficile en inscrivant ASF sur une liste noire sans raison. Néanmoins, dans le pire des cas, vous ne pourrez pas jouer, comme indiqué ci-dessus, car la garantie ASF sans ban VAC est toujours présente, que la liste noire de ASF soit binaire ou non (et que vous puissiez toujours lancer ASF sur toute autre machine sans Steam client en cours d'installation). À l'heure actuelle, il n'est pas nécessaire de faire quoi que ce soit et espérons que cela reste comme ça.
+    
+    * * *
+    
+    ### Est-ce sûr ?
+    
+    Si vous vous demandez si ASF est un logiciel sûr, cela signifie qu'il ne causera aucun dommage à votre ordinateur, ne volera pas vos données personnelles, n'installera pas de virus ou autre chose du genre - c'est sûr. Le code est open-source et les fichiers binaires distribués sont toujours compilés à partir de **[sources accessibles au public](https://en.wikipedia.org/wiki/Open-source_software)** par **[systèmes d'intégration continue automatisés et sécurisés](https://en.wikipedia.org/wiki/Build_automation)**, et même par les développeurs eux-mêmes. Chaque génération est reproductible en suivant notre script de génération et donnera exactement le même code **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binaire).
+    
+    Si, pour une raison quelconque, vous ne faites pas confiance à nos versions, vous pouvez toujours compiler et utiliser ASF depuis la source, y compris toutes les bibliothèques utilisées par ASF (telles que SteamKit2), qui sont également à code source ouvert. Cependant, au final, il s’agit toujours d’une question de confiance envers le ou les développeurs de votre application. Vous devez donc décider vous-même si vous considérez ASF comme étant sûre ou non, en appuyant éventuellement votre décision par des arguments techniques. Ne croyez pas stupidement quelque chose uniquement parce que je l'ai dit - vérifiez-vous, car c'est le seul moyen de vous en assurer.
+    
+    * * *
+    
+    ### Puis-je être banni pour cela?
+    
+    Pour répondre à cette question, examinons de plus près **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam n’interdit pas l’utilisation de plusieurs comptes. En fait, **[elle le permet](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)**, ce qui implique que vous pouvez utiliser le même authentificateur de mobile sur plusieurs comptes. Cependant, cela ne permet pas de partager des comptes avec d'autres personnes, mais nous ne le faisons pas ici.
+    
+    Le seul véritable point qui tient compte d’ASF est le suivant :
+    
+    > Vous n'êtes pas autorisé à utiliser des astuces, des logiciels d'automatisation (bots), des mods, des hacks ou tout autre logiciel tiers non autorisé pour modifier ou automatiser un processus du marché des abonnements.
+    
+    La question est de savoir en quoi consiste le processus du marché des abonnements. Comme on peut le lire:
+    
+    > Un exemple de marché d'abonnement est le marché communautaire Steam
+    
+    Nous ne modifions ni n'automatisons pas le processus du marché des abonnements si, par marché des abonnements, nous comprenons le marché communautaire de Steam ou le magasin Steam. Toutefois...
+    
+    > Valve peut annuler votre compte ou tout abonnement particulier à tout moment dans le cas où (a) Valve cesserait de fournir ces abonnements à des abonnés se trouvant dans la même situation, ou (b) vous enfreignez l'une des conditions du présent contrat (y compris les conditions d'abonnement ou les conditions d'utilisation et Règles d'utilisation).
+    
+    Par conséquent, comme avec tous les logiciels Steam, ASF n’est pas autorisé par Valve et je ne peux pas garantir que vous ne serez pas suspendu si Valve décidait soudainement qu’ils interdisaient désormais les comptes utilisant ASF. Ceci est exceptionnellement peu probable compte tenu du fait qu'ASF est utilisé sur plus d'un demi-million de comptes Steam, mais reste une possibilité, quelle que soit la probabilité réelle.
+    
+    Spécialement parce que:
+    
+    > En ce qui concerne tous les abonnements, contenus et services qui ne sont pas créés par Valve, Valve ne filtre pas ce contenu tiers disponible sur Steam ou par d’autres sources. Valve n'assume aucune responsabilité pour ce contenu tiers. Certains logiciels d'application tiers peuvent être utilisés par des entreprises à des fins professionnelles. Toutefois, vous ne pouvez acquérir ces logiciels via Steam que pour un usage personnel et privé.
+    
+    Cependant, Valve reconnaît clairement que les "utilisateurs de Steam" existent, comme indiqué **[ici](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, donc si vous me le demandiez, je suis à peu près sûr que s’ils ne l’allaient pas, ils feraient déjà quelque chose à la place. de souligner qu’ils pourraient causer des problèmes en matière de VAC. Le mot clé ici est **utilisateurs de Steam**, par exemple de ASF, et non **utilisateurs de jeu**.
+    
+    Veuillez noter que ci-dessus n’est que notre interprétation de Steam ToS et de divers points - ASF est sous licence Apache 2.0, qui stipule clairement:
+    
+    > Sauf stipulation contraire de la loi en vigueur ou convenue par écrit, ASF est distribuée "EN L'ÉTAT", SANS AUCUNE GARANTIE NI CONDITION, de manière expresse ou implicite.
+    
+    Vous utilisez ce logiciel à vos risques et périls. Il est très peu probable que vous puissiez être banni pour cela, mais si vous le faites, vous ne pouvez vous en prendre qu'à vous-même.
+    
+    * * *
+    
+    ### Quelqu'un a-t-il été banni pour cela?
+    
+    **Oui**, nous avons eu au moins quelques incidents jusqu'à présent qui ont entraîné une sorte de suspension Steam. Que ASF en soit ou non la cause fondamentale est une tout autre histoire que nous ne connaîtrons probablement jamais.
+    
+    Un cas concernait un gars avec plus de 1 000 robots ou plus faisant l'objet d'une interdiction de commerce (avec tous les robots), probablement en raison d'une utilisation excessive de `ASF` exécuté sur tous les robots en même temps, ou d'un autre côté suspect, une grosse quantité de transactions en très peu de temps.
+    
+    > Bonjour XXX, Merci d'avoir contacté le support Steam. Il semble que ce compte ait été utilisé pour gérer un réseau de comptes bot. L'utilisation de bots est une violation du contrat Steam.
+    
+    S'il vous plaît, faites preuve de bon sens et ne présumez pas que vous pouvez faire de telles choses folles uniquement parce qu'ASF vous permet de le faire. Faire `loot ASF` sur plus de 1 000 bots peut facilement être considéré comme une attaque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, et personnellement, je ne suis pas choqué que quelqu'un ait été banni pour une telle chose. Veuillez garder à l’esprit le bon sens et le minimum d’utilisation équitable concernant le service Steam, et *probablement* tous ira bien.
+    
+    Un autre cas concerne un type de 170 bots qui a été banni lors des soldes d'hiver 2017 de Steam.
+    
+    > Votre compte a été bloqué pour violation de l'accord de l'utilisateur Steam. À en juger par les échanges et d’autres facteurs, ce compte a été utilisé pour collecter illégalement des cartes à collectionner sur Steam, ainsi que des activités connexes et non seulement commerciales. Le compte a été bloqué de manière permanente et le support Steam ne peut pas fournir de support supplémentaire sur ce problème.
+    
+    Cette affaire est encore une fois très difficile à analyser, en raison de la réponse du support de Steam qui offre à peine des détails. D'après mes réflexions personnelles, cet utilisateur a probablement échangé des cartes Steam contre une sorte d'argent (mise à niveau?) Ou d'une autre manière tenté de retirer de l'argent de Steam. Au cas où vous ne le sauriez pas, ceci est également interdit selon Steam ToS.
+    
+    Le dernier cas concernait un utilisateur avec plus de 120 robots bannis pour violation de la **[conduite à tenir en ligne de Steam](https://store.steampowered.com/online_conduct?l=english)**.
+    
+    > Bonjour XXX, Merci d'avoir contacté le support Steam. Ce compte et d'autres ont été utilisés pour flooder notre infrastructure réseau, ce qui constitue une violation de la conduite à tenir en ligne de Steam. Le compte a été bloqué de manière permanente et le support Steam ne peut pas fournir de support supplémentaire sur ce problème.
+    
+    Cette affaire est un peu plus facile à analyser en raison des détails supplémentaires fournis par l'utilisateur. Apparemment, l’utilisateur utilisait **une version ASF très obsolète** qui incluait un bug obligeant ASF à envoyer un nombre excessif de demandes aux serveurs Steam. Le bug lui-même n’existait pas au début, mais a été activé en raison de la modification radicale de Steam qui a été corrigée dans une version ultérieure. **ASF est uniquement pris en charge dans ** la [ dernière version stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** publiée sur GitHub **. Les logiciels sont écrits par des humains et les humains ont tendance à faire des erreurs. Si l'erreur a une portée globale, elle est rapidement corrigée et diffusée à tous les utilisateurs sous forme de correctif. Valve n'interdit soudainement pas un demi-million d'utilisateurs d'ASF à cause de mon erreur, pour des raisons évidentes. Toutefois, si vous renoncez délibérément à utiliser une version ASF à jour, vous êtes par définition une très petite minorité d'utilisateurs **exposés à des incidents comme ceux-ci** en raison de **pas de prise en charge**, personne ne surveille votre version obsolète d'ASF, personne ne la répare et personne ne s'assure que vous ne serez pas totalement banni du simple fait de le lancer. **Veuillez utiliser un logiciel à jour**, pas seulement ASF, mais également toutes les autres applications.
+    
+    * * *
+    
+    Tous les incidents ci-dessus ont une chose en commun: ASF n’est qu’un outil et **votre décision** de décider de l’utilisation qui en est faite. Vous n'êtes pas banni pour utiliser ASF directement, mais pour **comment** vous l'utilisez. Il peut s’agir d’un outil d’aide fonctionnant pour le farming d’un seul compte ou d’un réseau de grande taille composé de milliers de bots. Dans aucun de ces cas, je ne donne de conseils juridiques et vous devez d’abord décider vous-même de votre utilisation de ASF. Je ne cache aucune information qui pourrait vous aider, par exemple. le fait qu'ASF ait banni certaines personnes, car je n'ai aucune raison de le faire - c'est à vous de choisir ce que vous voulez faire avec ces informations. Si vous me demandez, faites preuve de bon sens, évitez de créer un vaste réseau de bots inactifs, n’envoyez pas des centaines de transactions en même temps, utilisez toujours la version ASF la plus récente et vous *devriez* être bien. Chaque incident de cette nature pour une **raison quelconque** a toujours été réservé à des personnes qui géraient des centaines de comptes. Que ce soit juste une coïncidence ou un facteur réel, c'est à vous de décider. Je ne vous offre aucun conseil juridique, je ne fais que vous donner mes pensées que vous pouvez trouver utiles, ou les ignorer entièrement et ne traiter que des faits liés ci-dessus.
+    
+    * * *
+    
+    ### Quelles sont les informations de confidentialité divulguées par ASF?
+    
+    Vous trouverez des explications détaillées dans la section **[statistiques](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**. Vous devriez l'examiner si vous tenez à votre vie privée, par exemple. si vous vous demandez pourquoi les comptes utilisés dans ASF rejoignent notre groupe Steam. ASF ne collecte aucune information sensible et ne le partage avec aucun tiers.
+    
+    * * *
+    
+    ## Divers
+    
+    * * *
+    
+    ### J'utilise un système d'exploitation non pris en charge tel que Windows 32 bits. Puis-je quand même utiliser ASF V3?
+    
+    Oui, et cette version n’est en aucun cas prise en charge, mais n’est pas officiellement construite. Consultez la section ** compatibilité </ 0> pour la variante générique.</p> 
+    
+    * * *
+    
+    ### C'est super ! Puis-je faire un don?
+    
+    Oui, et nous sommes ravis d'apprendre que vous appréciez notre projet! Vous pouvez trouver différentes possibilités de dons sous chaque **[publication](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** et également **[sur la page principale](https://github.com/JustArchiNET/ArchiSteamFarm)**. Il est agréable de noter qu'en plus des dons en argent génériques, nous acceptons également les articles Steam. Rien ne vous empêche donc de donner des skins, des clés ou une petite partie des cartes que vous avez utilisées avec ASF, si vous le souhaitez. Je vous remercie pour votre générosité!
+    
+    * * *
+    
+    ### J'utilise le code PIN parental de Steam pour protéger mon compte. Dois-je le saisir quelque part?
+    
+    Oui, vous devez le définir dans la fonctionnalité de configuration du bot `SteamParentalCode`. En effet, ASF accède à de nombreuses parties protégées de votre compte Steam et il est impossible pour ASF de fonctionner sans ce dernier.
+    
+    * * *
+    
+    ### Je ne veux pas qu'ASF farm des jeux par défaut, mais je veux utiliser des fonctionnalités supplémentaires d'ASF. Est-ce possible?
+    
+    Oui, vous pouvez définir `Paused` dans le fichier de configuration du bot sur `true` afin de lancer ASF avec le module de gestion des cartes en pause. Vous pouvez ensuite utiliser des fonctionnalités supplémentaires d'ASF, telles que `GamesPlayedWhileIdle`.
+    
+    * * *
+    
+    ### ASF peut-il se réduire au minimum?
+    
+    ASF est une application console, il n'y a pas de fenêtre à minimiser, car celle-ci est créée pour vous par votre système d'exploitation. Vous pouvez toutefois utiliser tout outil tiers capable de le faire, tel que **[RBTray](http://rbtray.sourceforge.net)** pour Windows ou **[screen](https://linux.die.net/man/1/screen)** pour Linux / OS X. Ce ne sont que des exemples, il y en a beaucoup d'autres des applications avec des fonctionnalités similaires.
+    
+    * * *
+    
+    ### Est-ce que le fait d’utiliser ASF préserve l’éligibilité pour recevoir des boosters?
+    
+    **Oui**. ASF utilise la même méthode que le client officiel pour se connecter au réseau Steam. Par conséquent, il conserve également la possibilité de recevoir des booster pour les comptes en cours d'utilisation. Cependant, il n'est pas confirmé si la connexion à la communauté Steam est réellement nécessaire ou non. Par conséquent, afin de l'assurer je suggère de garder `OnlineStatus` sur `Online`, au moins jusqu'à ce que quelqu'un le confirme cela suffit d'utiliser le réseau Steam. Cela devrait être bon de cette manière, mais je ne suis pas sûr.
+    
+    * * *
+    
+    ### Y a-t-il un moyen de communiquer avec ASF?
+    
+    Par l’intermédiaire de l'0>IPC</a></strong>. Consultez la section **[Commandes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** pour plus d'informations.
+    
+    * * *
+    
+    ### J'aimerais aider à la traduction d'ASF, que dois-je faire?
+    
+    Merci de votre intérêt! Vous trouverez des explications détaillées dans la section **[localisation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**.
+    
+    * * *
+    
+    ### Un seul compte (principal) a été ajouté à ASF. Puis-je quand même émettre des commandes via le chat Steam?
+    
+    **Oui**, cela est expliqué dans la section **[Commandes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)**. Vous pouvez le faire via le chat du groupe Steam.
+    
+    * * *
+    
+    ### ASF semble fonctionner, mais je ne reçois aucune carte!
+    
+    Le taux de farming des cartes diffère d’un jeu à l’autre, comme vous pouvez le lire dans **[performances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Cela prend un certain temps, généralement **plusieurs heures par jeux**, et vous ne devez pas vous attendre à ce que les cartes tombent quelques minutes après le lancement du programme. Si vous constatez qu'ASF vérifie activement le statut des cartes et bascule le jeu lorsque celui-ci est complètement fini, tout fonctionne correctement - vous faites probablement référence aux notifications d'inventaire, qui sont automatiquement rejetées par ASF via `BotBehaviour` de `DismissInventoryNotifications` dans le fichier de configuration du bot. Consultez **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** pour plus de détails.
+    
+    * * *
+    
+    ### Comment arrêter complètement le processus ASF pour mon compte?
+    
+    Arrêtez simplement le processus ASF, par exemple en cliquant sur [X] sur la fenêtre du programme. Si, au lieu de cela, vous souhaitez arrêter un bot particulier de votre choix mais en garder d'autres en cours d'exécution, consultez `Enabled` dans **[les fichiers de configuration du bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** ou la **[commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `stop`. Si vous souhaitez plutôt arrêter le processus de mise en veille automatique tout en maintenant ASF actif pour votre compte, alors c’est à quoi servent ` en pause ` **[ la propriété de configuration de bot ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** et `en pause` **[commande ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+    
+    * * *
+    
+    ### Combien de bots puis-je utiliser avec ASF?
+    
+    ASF en tant que programme n'a pas de limite supérieure de bot, cependant vous êtes toujours limité par Steam Network. Actuellement, vous pouvez exécuter jusqu'à 100-110 bots avec une seule adresse IP et une seule instance ASF. Il est possible d'exécuter plus de bots avec plus d'adresses IP et plus d'instances ASF. N'oubliez pas que si vous utilisez autant de bots, vous devez en contrôler le nombre vous-même (par exemple, vous assurer qu'ils sont tous connectés et en même temps). Notez également que la limite ci-dessus dépend généralement de nombreux facteurs internes - il s'agit d'une approximation plutôt que d'une limite stricte - vous serez probablement en mesure de faire fonctionner plus / moins de bots que spécifié ci-dessus.
+    
+    * * *
+    
+    ### Puis-je exécuter plus d'instances ASF alors?
+    
+    Vous pouvez exécuter autant d'instances ASF que vous le souhaitez sur une machine, en supposant que chaque instance a son propre répertoire et ses propres configurations, et qu'un compte utilisé dans une instance n'est pas utilisé dans une autre. Cependant, demandez-vous pourquoi vous voulez faire cela. ASF est optimisé pour gérer une douzaine, voire une centaine de comptes en même temps, et le lancement de cette douzaine de bots dans leurs propres instances ASF dégrade les performances, prend plus de ressources système d'exploitation et entraîne un manque de synchronisation entre les robots - par exemple Il est plus probable que le problème `InvalidPassword / RateLimitExceeded` décrit ci-dessous soit rencontré, car les demandes de journalisation ne sont pas synchronisées entre les instances ASF. Par conséquent, ma **suggestion forte** consiste à toujours exécuter au maximum une instance ASF par adresse IP / interface. Si vous avez plus d'adresses IP / interfaces, vous pouvez bien sûr exécuter d'avantage d'instances ASF, chaque instance utilisant sa propre adresse IP / interface. Sinon, lancer plusieurs d'instances ASF est totalement inutile, non seulement dégrade les performances et prend plus de ressources de système d'exploitation (telles que la mémoire), mais provoque également un manque de synchronisation et augmente le nombre de problèmes. Vous ne gagnerez rien en lançant plus d'une instance par IP / interface.
+    
+    * * *
+    
+    ### Quel est la signification du statut lors de l'utilisation d'une clé?
+    
+    Le statut indique comment la tentative d'activation a été effectué. Il existe de nombreux statuts différents. Les plus courants incluent:
+    
+    | Statut                  | Description                                                                                                                                                                                                                               |
+    | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | NoDetail                | Etat "OK" indiquant le succès - la clé a été utilisée avec succès.                                                                                                                                                                        |
+    | Timeout                 | Le réseau Steam n'a pas répondu dans le délai imparti, nous ne savons pas si la clé a été utilisée, ou pas (probablement, mais vous pouvez réessayer).                                                                                    |
+    | BadActivationCode       | La clé fournie n'est pas valide (n'est reconnue comme aucune clé valide par le réseau Steam).                                                                                                                                             |
+    | DuplicateActivationCode | La clé fournie a déjà été utilisée par un autre compte ou révoquée par le développeur/éditeur.                                                                                                                                            |
+    | AlreadyPurchased        | Votre compte possède déjà `packageID` connecté à cette clé. Gardez à l'esprit que cela n'indique pas si la clé est `DuplicateActivationCode ` ou pas - seulement qu'elle est valide et qu'elle n'a pas été utilisée dans cette tentative. |
+    | RestrictedCountry       | Cette clé est verrouillée par région et votre compte n'est pas dans la région valide qui est autorisée.                                                                                                                                   |
+    | DoesNotOwnRequiredApp   | Vous ne pouvez pas échanger cette clé car il vous manque une autre application, principalement un jeu de base, lorsque vous essayez d'utiliser un package DLC.                                                                            |
+    | RateLimited             | Vous avez effectué trop de tentatives et votre compte a été temporairement bloqué. Réessayez dans une heure.                                                                                                                              |
+    
+    * * *
+    
+    ### Êtes-vous affilié à un service cards farming/idling service?
+    
+    **Non**. ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement/english)** que:
+    
+    > Vous êtes responsable de la confidentialité de votre identifiant et de votre mot de passe, ainsi que de la sécurité de votre système informatique. Valve n'est pas responsable de l'utilisation de votre mot de passe et de votre compte, ni de toutes les communications et activités sur Steam résultant de l'utilisation de votre nom d'utilisateur et de votre mot de passe par vous-même, par toute personne à qui vous auriez pu intentionnellement ou par négligence divulgué votre nom d'utilisateur e /ou mot de passe en violation de cette clause de confidentialité.
+    
+    ASF est sous licence Apache 2.0, une licence libérale qui permet aux autres développeurs d’intégrer ASF dans leurs propres projets et services de manière légale. Cependant, ces projets de tiers utilisant ASF ne sont pas garantis pour être sûr, revus, approprié ou licite selon **[Vapeur ToS](https://store.steampowered.com/subscriber_agreement/english)**. Si vous souhaitez connaître notre opinion, **nous vous encourageons vivement à ne PAS partager les informations de votre compte avec des services tiers**. Si un tel service s'avère être une **arnaque typique**, le problème vous échappera, sans le compte Steam et le plus souvent, ASF n'assumera aucune responsabilité pour les services tiers prétendant être sûr et sécurisé, car l'équipe d'ASF n'a pas autorisé ni examiné aucun de ceux-ci. En d'autres termes, **vous les utilisez à vos risques et périls, contrairement à notre suggestion ci-dessus**.
+    
+    En plus de cela, Steam ToS officiel indique clairement que:
+    
+    > Vous n'êtes pas autorisé à révéler, partager ou autoriser des tiers à utiliser votre mot de passe ou votre compte, sauf autorisation exceptionnelle de Valve.
+    
+    C'est votre compte et votre choix. Juste ne dites pas que personne ne vous a prévenu. ASF en tant que programme respecte toutes les règles mentionnées ci-dessus, car vous ne partagez pas les informations de votre compte avec qui que ce soit, et vous utilisez le programme pour votre usage personnel, mais tout autre "service de gestion de cartes" requiert vos identifiants de compte. , donc il viole également la règle ci-dessus (en fait plusieurs d'entre eux). Comme dans le cas de l’évaluation de Steam ToS, nous n’offrons aucun conseil juridique et vous devez choisir vous-même si vous souhaitez utiliser ces services ou non. Selon nous, **il enfreint directement Steam ToS** et pourrait entraîner suspension si Valve découvre. Comme indiqué ci-dessus, **nous vous recommandons vivement de NE PAS utiliser ces services**.
+    
+    * * *
+    
+    ## Problèmes
+    
+    * * *
+    
+    ### ASF ne détecte pas le jeu `X` disponible pour le farming, mais je sais qu’il comprend des cartes à échanger Steam!
+    
+    Il y a deux raisons principales ici. La première et la plus évidente raison est le fait que vous vous référez au **magasin Steam**, dans lequel un jeu donné est annoncé comme un jeu activé pour l'obtention de cartes. Cette hypothèse est **fausse**, car elle indique simplement que le jeu **contient des** des cartes inclus, mais que cette fonction n'est pas nécessairement **activée immédiatement** pour ce jeu. Vous pouvez en savoir plus à ce sujet dans **[annonce officielle](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
+    
+    En bref, l’icône de l'obtention de cartes dans le magasin Steam ne veut rien dire, vérifiez dans les **[pages de vos badges](https://steamcommunity.com/my/badges)** si un jeu est activé ou non - c'est ce que ASF fait. Si votre jeu n'apparaît pas sur la liste en tant que jeu avec des cartes qu'il est possible d'abandonner, ce jeu **n'est pas possible** de devenir inactif, quelle qu'en soit la raison.
+    
+    Le deuxième problème est moins évident, et c’est la situation dans laquelle vous pouvez voir que votre jeu est effectivement disponible avec des cartes sur la page de votre badge, sans toutefois être immédiatement utilisé par ASF. À moins que vous ne rencontriez un autre bug, tel qu'ASF ne pouvant pas vérifier les pages de badge (décrit ci-dessous), il s'agit simplement d'un effet de cache et du côté ASF, Steam continue de signaler des page de badges obsolètes. Ce problème devrait se résoudre tôt ou tard, lorsque le cache sera invalidé. Il n'y a également aucun moyen de régler ce problème de notre côté.
+    
+    Bien sûr, tout cela suppose que vous utilisez ASF avec les paramètres non modifiés par défaut, car vous pouvez également ajouter ce jeu à la liste noire, utilisez `IdleRefundableGames` de `false`, etc..
+    
+    * * *
+    
+    ### Pourquoi la durée de jeu des jeux inactifs via ASF n'augmente-t-elle pas?
+    
+    Oui, mais **pas en temps réel**. Steam enregistre votre temps de lecture à intervalles fixes et planifie sa mise à jour, mais vous n'êtes pas sûr de l'avoir immédiatement mis à jour dès que vous quittez la session, et encore moins pendant une telle heure. S'il était possible de passer l'heure de lecture en utilisant des cartes non obtenues, vous pouvez être sûr que nous l'aurions déjà implanté dans ASF il y a longtemps et que nous l'utilisrons dans les paramètres par défaut. Mais nous ne le faisons pas, et nous ne le faisons pas exactement parce que ce n'est pas possible - le fait que la lecture ne soit pas mise à jour en temps réel ne signifie pas qu'elle n'est pas enregistrée.
+    
+    * * *
+    
+    ### Quelle est la différence entre un avertissement et une erreur dans le journal?
+    
+    ASF écrit dans son journal une multitude d'informations sur différents niveaux de journalisation. Notre objectif est d'expliquer **précisément** ce que fait ASF, y compris les problèmes auxquels il doit faire face, ainsi que d'autres problèmes à résoudre. La plupart du temps, tout n’est pas pertinent, c’est la raison pour laquelle nous utilisons deux principaux niveaux dans ASF en termes de problèmes: un niveau d’avertissement et un niveau d’erreur.
+    
+    La règle générale ASF est que les avertissements ne sont **pas**, ils doivent donc **pas** être signalés. Un avertissement vous indique que quelque chose de potentiellement indésirable se produit. Que ce soit Steam qui ne réagit pas, les erreurs de lancement d'API ou votre connexion réseau en panne - il s'agit d'un avertissement, et cela signifie que nous nous attendions à ce que cela se produise. Ne gênez donc pas le développement d'ASF. Bien sûr, vous êtes libre de poser des questions à leur sujet ou d'obtenir de l'aide en utilisant notre support, mais vous ne devez pas supposer qu'il s'agit d'erreurs ASF qui méritent d'être signalées (sauf confirmation contraire de notre part).
+    
+    Les erreurs, par contre, indiquent une situation qui ne devrait pas se produire. Elles méritent donc d'être signalées si vous vous assurez que ce n'est pas vous qui les causez. Si nous nous attendons à ce qu'une situation courante se produise, elle sera convertie en un avertissement. Sinon, il s'agit probablement d'un bogue qui devrait être corrigé et non ignoré silencieusement, en supposant que cela ne soit pas le résultat de votre propre problème technique. Par exemple, la suppression du fichier principal `ASF.json` génère une erreur, car ASF ne peut fonctionner sans ce fichier. C’est vous qui l’avez supprimé. Vous ne devez donc pas nous signaler cette erreur (sauf si vous avez confirmé qu'ASF est erroné et que le fichier est là).
+    
+    Dans une phrase TL;DR - signaler les erreurs, ne signalez pas les avertissements. Vous pouvez toujours poser des questions sur les avertissements et recevoir de l'aide dans nos sections d'assistance.
+    
+    * * *
+    
+    ### ASF ne peut pas démarrer, la fenêtre du programme se ferme immédiatement après son lancement!
+    
+    Si même ` log.txt ` n'est pas généré, vous avez probablement oublié d'installer les conditions préalables .NET Core, comme indiqué dans le guide **[ Configuration ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)**. Parmi les autres problèmes courants, citons la tentative de lancer une variante ASF erronée pour votre système d’exploitation ou, d’une autre manière, des dépendances natives .NET Core runtime manquantes. Si la fenêtre de la console se ferme trop tôt pour que vous puissiez lire le message, ouvrez une console indépendante et lancez le fichier binaire ASF à partir de cet emplacement. Par exemple, sous Windows, ouvrez le répertoire ASF, maintenez la touche ` Shift ` enfoncée, cliquez avec le bouton droit de la souris sur le dossier et choisissez "ouvrir la fenêtre de commande ici" (ou powershell), puis tapez dans la console `.\ArchiSteamFarm.exe. ` et appuyez sur Entrée. De cette façon, vous obtiendrez un message précis indiquant pourquoi ASF ne démarre pas correctement.
+    
+    * * *
+    
+    ### ASF lance ma session client Steam pendant que je joue! / `Ce compte est connecté sur un autre PC`
+    
+    Cela s’affiche sous forme de message dans l’incrustation Steam indiquant que le compte est utilisé ailleurs pendant que vous jouez. Ce problème peut avoir deux raisons différentes.
+    
+    Une des raisons est due à des paquets cassés (jeux) qui, en particulier, ne tiennent pas un verrou de jeu correctement, mais s'attendent à ce que ce verrou soit possédé par le client. Skyrim SE est un exemple de ce type de paquet. Votre client Steam lance le jeu correctement, mais ce jeu ne s’enregistre pas comme étant utilisé. A cause de cela, ASF voit qu'il est libre de reprendre le processus, ce qui est le cas, et cela vous éloigne du réseau Steam, car Steam détecte soudainement que le compte est utilisé à un autre endroit.
+    
+    La deuxième raison peut apparaître si vous jouez sur votre PC alors qu'ASF est en attente (en particulier sur une autre machine) et que vous perdez votre connexion réseau. Dans ce cas, le réseau Steam vous marque comme étant hors ligne et libère le verrou de lecture (comme ci-dessus), ce qui déclenche la reprise du farming par ASF (sur une autre machine, par exemple). Lorsque votre ordinateur revient en ligne, Steam ne peut plus acquérir le verrou de lecture (qui est maintenant détenu par ASF, similaire au précédent) et affiche le même message.
+    
+    Les deux causes du côté d’ASF sont en réalité très difficiles à contourner, car ASF reprend simplement l’agriculture une fois que le réseau Steam l’a informé que le compte était libre d’être utilisé à nouveau. C’est ce qui se passe normalement lorsque vous fermez le jeu, mais avec les paquets cassés, cela peut se produire immédiatement, même si votre jeu est toujours en cours d’exécution. ASF n'a aucun moyen de savoir si vous êtes déconnecté, si vous avez arrêté de jouer ou si vous continuez de jouer à un jeu qui ne tient pas le jeu de manière appropriée.
+    
+    La seule solution appropriée à ce problème consiste à suspendre manuellement votre bot avec `pause` avant de commencer à jouer et à le reprendre avec `resume` une fois que vous avez terminé. Sinon, vous pouvez simplement ignorer le problème et agir comme si vous jouiez avec un client Steam hors ligne.
+    
+    * * *
+    
+    ### `Déconnecté de Steam!` - Je ne parviens pas à établir la connexion avec les serveurs Steam.
+    
+    ASF peut uniquement **essayer** d’établir une connexion avec des serveurs Steam. Cette défaillance peut échouer pour de nombreuses raisons, notamment l’absence de connexion Internet, la désactivation de Steam, la connexion bloqué par votre pare-feu, des outils tiers et des fichiers configurés de manière incorrecte. ou des échecs temporaires. Vous pouvez activer le mode `Debug` pour extraire un journal plus détaillé exposant les raisons exactes des échecs, bien que cela soit généralement dû à vos propres actions, telles que l'utilisation de "CS: GO MM Server Picker" qui met beaucoup de listes noires dans Steam IP, rendant très difficile l’accès au réseau Steam.
+    
+    ASF fera de son mieux pour établir la connexion, ce qui implique non seulement de demander une liste de mise à jour des serveurs, mais également d'essayer une autre adresse IP en cas d'échec de la dernière. Par conséquent, s'il s'agit vraiment d'un problème temporaire avec un serveur ou une route spécifique, ASF se connectera tôt ou tard. Cependant, si vous êtes derrière un pare-feu ou si, d’une autre manière, vous ne parvenez pas à atteindre les serveurs Steam, vous devez évidemment le réparer vous-même, avec l’aide éventuelle du mode `Debug`.
+    
+    Il est également possible que votre machine ne puisse pas établir de connexion avec les serveurs Steam en utilisant le protocole par défaut dans ASF. Vous pouvez modifier les protocoles qu'ASF est autorisé à utiliser en modifiant le fichier de configuration globale `SteamProtocols`. Par exemple, si vous rencontrez des problèmes pour accéder à Steam avec le protocole `TCP`, vous pouvez essayer `UDP` ou `WebSocket`.
+    
+    Il est très peu probable que des serveurs incorrects soient mis en cache, par exemple en raison du déplacement du dossier ASF `config` d’un ordinateur à un autre situé dans un autre pays, en supprimant `ASF.db` dans l’ordre. Rafraîchir les serveurs Steam au prochain lancement pourrait aider. Très souvent, cela n'est pas nécessaire car cette liste est automatiquement actualisée lors du premier lancement, ainsi que lors de l'établissement de la connexion.
+    
+    * * *
+    
+    ### `Impossible d'obtenir des informations sur les badges, j'essaierai plus tard!`
+    
+    Cela signifie généralement que vous utilisez le code PIN parental de Steam pour accéder à votre compte, mais vous avez oublié de le définir dans la configuration ASF. Vous devez entrer un code PIN valide dans le fichier de configuration du bot avec `SteamParentalCode`, sinon ASF ne pourra pas accéder à la plupart du contenu Web et ne pourra donc pas fonctionner correctement. Rendez-vous sur **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** pour en savoir plus sur le `SteamParentalCode`.
+    
+    D'autres raisons peuvent inclure un problème temporaire de Steam, un problème de réseau ou autre. Si le problème ne se résout pas après plusieurs heures et que vous êtes certain d'avoir configuré ASF correctement, n'hésitez pas à nous le faire savoir.
+    
+    * * *
+    
+    ### ASF échoue avec `La requête a échoué malgré 5 tentatives`!
+    
+    Cela signifie généralement que vous utilisez le code PIN parental de Steam pour accéder à votre compte, mais vous avez oublié de le définir dans la configuration ASF. Vous devez entrer un code PIN valide `SteamParentalCode` dans le fichier de configuration du bot, sinon ASF ne pourra pas accéder à la plupart du contenu Web et ne pourra donc pas fonctionner correctement. Rendez-vous sur **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** pour en savoir plus sur le `SteamParentalCode`.
+    
+    Si le code PIN parental n’est pas la raison, c’est une erreur très courante et vous devriez vous y habituer - cela signifie simplement que ASF a envoyé une demande à Steam Network et n’a pas obtenu de réponse valide, en plus de cela - en 4 tentatives. Cela signifie généralement que Steam est en panne, ou en maintenance. ASF en est conscient et vous ne devez pas vous en inquiéter, à moins que cela ne se produise plusieurs heures à la fois et que les autres utilisateurs ne rencontrent pas de tels problèmes. 
+    
+    Comment vérifier si Steam est en panne? <0 Steam Status</a></strong> est une excellente source de vérification de **Steam**, si vous remarquez des erreurs, notamment de type API de communauté ou Web, alors que Steam rencontre des difficultés, quittez ASF et laissez-le faire son travail seul après un moment, ou attendez vous-même.
+    
+    Ce n'est toutefois pas toujours le cas, car dans certaines situations, les problèmes de Steam pouvaient ne pas être détectés par Steam Status, par exemple, lorsque Valve a interrompu la prise en charge HTTPS de la communauté Steam le 7 juin 2016 - l'accès à **[ SteamCommunity](https://steamcommunity.com)** via HTTPS était une erreur. Par conséquent, ne faites pas aveuglément confiance à Steam Status, il est préférable de vérifier vous-même si tout fonctionne comme prévu.
+    
+    Enfin, si rien ne vous aide, vous pouvez toujours activer le mode `Debug` et voir dans le journal ASF pourquoi les demandes échouent. Par exemple, le problème HTTPS ci-dessus a causé:
+    
+        <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
+        An error occurred while processing your request.<p>
+        
+    
+    Ce qui est clairement le problème de Steam et il y a rien à réparer dans ASF. Vous pouvez toujours essayer de visiter vous-même le lien mentionné par ASF et vérifier si cela fonctionne. Sinon, vous saurez pourquoi ASF ne peut pas y accéder. Si tel est le cas et que l'erreur ne disparaît pas après un jour ou deux, il peut être intéressant de rechercher et de signaler.
+    
+    Avant de le faire, vous devez **vous assurer que l’erreur vaut la peine d’être signalée**. Si cela est mentionné dans cette FAQ, comme un problème lié au trading, alors c'est fini. S'il s'agit d'un problème temporaire qui s'est produit une ou deux fois, en particulier lorsque votre réseau était instable ou que Steam était en panne, le problème est résolu. Toutefois, si vous pouviez reproduire votre problème plusieurs fois de suite, pendant 2 jours, redémarrez ASF et votre machine au cours du processus et assurez-vous qu'il n'y a aucune entrée de FAQ dans cette section pour aider à le résoudre. Demander à propos de ce problème.
+    
+    * * *
+    
+    ### ASF semble se figer et n'imprime rien sur la console tant que je n'ai pas appuyé sur une touche!
+    
+    Vous utilisez probablement Windows et le mode QuickEdit de votre console est activé. Reportez-vous à **[cette](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question sur StackOverflow pour obtenir des explications techniques. Vous devez désactiver le mode QuickEdit en cliquant avec le bouton droit de la souris sur la fenêtre de la console ASF, en ouvrant les propriétés et en décochant la case appropriée.
+    
+    * * *
+    
+    ### ASF ne peut accepter ou envoyer de trades!
+    
+    Ce qui est évident en premier - les nouveaux comptes commencent de manière limitée. Tant que vous n'avez pas déverrouillé le compte en chargeant son portefeuille ou en dépensant 5$ dans le magasin, ASF ne peut accepter ni envoyer de transactions via ce compte. Dans ce cas, ASF indiquera que l'inventaire semble vide, car chaque carte qu'il contient est non échangeable. En outre, il ne sera pas possible de recevoir d'opération, car cette partie nécessite qu'ASF soit en mesure de récupérer la clé d'API, et la fonctionnalité de clé d'API est désactivée pour les comptes limités. En bref, la négociation est désactivée pour tous les comptes limités, sans exception.
+    
+    Ensuite, si vous n'utilisez pas **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, il est possible qu'ASF ait effectivement accepté / envoyé un échange, mais vous devez le confirmer via votre adresse électronique. De même, si vous utilisez 2FA classique, vous devez confirmer le commerce via votre authentificateur. Les confirmations sont **obligatoires** maintenant. Si vous ne souhaitez pas les accepter par vous-même, envisagez soit d'ajouter, soit d'importer votre authentificateur dans ASF 2FA.
+    
+    Notez également que vous ne pouvez échanger qu'avec vos amis et les personnes ayant un lien commercial connu. Si vous essayez d'initier un échange Bot-> Master, tel qu'un `loot`, vous devez alors avoir votre bot sur votre liste d'amis ou votre `SteamTradeToken` déclaré dans la configuration de Bot. . Assurez-vous que le jeton est valide - sinon, vous ne pourrez pas envoyer de transaction.
+    
+    Enfin, rappelez-vous que les verrous commerciaux des nouveaux appareils sont verrouillés pendant 7 jours. Si vous venez d'ajouter votre compte à ASF, attendez au moins 7 jours. Tout devrait fonctionner après cette période. Cette limitation inclut ** les deux **accepter **et** envoyer les échanges. Cela ne déclenche pas toujours, et il y a des gens qui peuvent envoyer et accepter des transactions instantanément. La majorité des personnes sont toutefois affectées et le verrouillage ** se produira **, même si vous pouvez envoyer et accepter des transactions via votre client Steam sur le même ordinateur. Attendez patiemment, vous ne pouvez rien faire pour accélérer les choses.
+    
+    Enfin, n'oubliez pas qu'un compte ne peut avoir que 5 transactions en attente sur un autre. ASF ne pourra donc pas envoyer de transactions si vous en avez déjà 5 (ou plus) en attente. C’est rarement un problème, mais il convient également de le mentionner, en particulier si vous définissez ASF pour l’envoi automatique d’opérations, alors que vous n’utilisez pas ASF 2FA et que vous avez oublié de les confirmer.
+    
+    Si rien ne vous aide, vous pouvez toujours activer le mode `Débogage` et vérifier vous-même pourquoi les demandes échouent. Veuillez noter que Steam parle la plupart du temps d'un non-sens, et que la raison fournie n'a peut-être pas de sens logique, voire même qu'elle est tout à fait fausse. Si vous décidez d'interpréter cette raison, assurez-vous d'avoir une connaissance correcte de Steam et de ses caprices. Il est également assez courant de voir ce problème sans raison logique, et la seule solution suggérée dans ce cas consiste à rajouter un compte à ASF (et à attendre 7 jours de plus). Parfois, ce problème se corrige également * comme par magie *, de la même manière qu'il se brise. Cependant, il s’agit généralement d’un blocage des échanges de 7 jours, d’un problème temporaire de steam ou des deux. Il est préférable de lui donner quelques jours avant de vérifier manuellement ce qui ne va pas, à moins que vous ne souhaitiez déboguer la cause réelle (et vous serez généralement obligé d'attendre de toute façon, car le message d'erreur n'aura aucun sens, ni ne vous aidera au moindre).
+    
+    Dans tous les cas, ASF peut uniquement **essayer** d'envoyer une demande appropriée à Steam afin d'accepter / d'envoyer une transaction. Que Steam accepte ou non cette requête est hors de portée d'ASF, et ASF ne la fera pas fonctionner comme par magie. Il n'y a pas de bogue lié à cette fonctionnalité, et il n'y a rien à améliorer, car la logique se passe en dehors d'ASF. Par conséquent, ne demandez pas de matériel de réparation qui ne soit pas cassé, et ne demandez pas non plus pourquoi ASF ne peut accepter ou envoyer de transactions - ** je ne sais pas et ASF ne le sait pas non plus **. Soit vous vous en occupez, soit vous corrigez vous-même.
+    
+    * * *
+    
+    ### Pourquoi dois-je mettre le code 2FA / Steam Guard à chaque connexion? / `Removed expired login key`
+    
+    ASF utilise des clés de connexion (si vous maintenez `UseLoginKeys` activé) pour maintenir les informations d'identification valides, le même mécanisme que celui utilisé par Steam - 2FA / SteamGuard n'est requis qu'une seule fois. Cependant, en raison de problèmes de réseau Steam et de bizarreries, il est tout à fait possible que la clé de connexion ne soit pas enregistrée sur le réseau. J'ai déjà rencontré de tels problèmes non seulement avec ASF, mais également avec le client Steam classique (nécessité de saisir login + mot de passe à chaque passage, indépendamment de l’option "se souvenir de moi").
+    
+    Vous pouvez supprimer `BotName.db` (+ `BotName.bin`, le cas échéant) du compte affecté et essayer à nouveau de lier ASF à votre compte, mais cela peut ne pas réussir. La vraie solution basée sur ASF consiste à importer votre authentificateur en tant que **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. De cette façon, ASF peut générer automatiquement des tokens au besoin, sans avoir à les saisir manuellement. Habituellement, le problème se résout comme par magie après un certain temps, vous pouvez donc simplement attendre que cela se produise. Bien sûr, vous pouvez également demander une solution à GabeN, car je ne peux pas forcer le réseau Steam à accepter nos clés de connexion.
+    
+    En guise de remarque, vous pouvez également désactiver les clés de connexion avec la propriété `UseLoginKeys` config définie sur `false`, mais uniquement si ASF dispose d'un moyen entièrement automatisé pour établir la connexion initiale. Pour le moment, cela n’est possible qu’avec des `SteamPassword ` et des **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** valides, car dans ce cas, nous n’avons pas besoin de clés de connexion, car nous avons besoin des informations de connexion. (mot de passe et clé 2FA) disponibles à chaque connexion.
+    
+    * * *
+    
+    ### Je reçois une erreur: ` Impossible de se connecter à Steam: InvalidPassword ou RateLimitExceeded `
+    
+    Cette erreur peut signifier beaucoup de choses, parmi lesquelles:
+    
+    - Combinaison login/mot de passe invalide (évidemment)
+    - Clé de connexion expirée utilisée par ASF pour se connecter
+    - Trop de tentatives de connexion infructueuses sur une courte période (anti-bruteforce)
+    - Trop de tentatives de connexion sur une courte période (limitation du débit)
+    - Obligation de captcha pour se connecter (très probablement pour deux raisons ci-dessus)
+    - Toute autre raison que Steam Network pourrait vous empêcher de vous connecter.
+    
+    En cas d'anti-bruteforce et de limitation de débit, le problème disparaîtra au bout d'un certain temps, alors attendez et ne tentez pas de vous connecter entre-temps. Si vous rencontrez souvent ce problème, il est peut-être sage d'augmenter la propriété de configuration `LoginLimiterDelay` de ASF. Les redémarrages de programme excessifs et les autres demandes de connexion intentionnelles / non intentionnelles ne vous aideront certainement pas à résoudre ce problème, essayez donc de l'éviter si possible.
+    
+    En cas d'expiration de la clé de connexion, ASF supprimera l'ancienne clé et en demandera une nouvelle lors de la prochaine connexion (ce qui vous demandera de mettre un jeton 2FA si votre compte est protégé par 2FA. Si votre compte utilise ASF 2FA, le jeton sera généré et utilisé automatiquement). Si vous rencontrez souvent ce problème, il est possible que, pour une raison quelconque, Steam ait décidé d’ignorer nos demandes de sauvegarde de la clé de connexion, comme indiqué dans le problème ci-dessus. Vous pouvez éviter ce problème en n'utilisant pas du tout de clés de connexion avec la propriété de configuration `UseLoginKeys`, mais nous vous déconseillons de suivre cette voie.
+    
+    Et enfin, si vous avez utilisé une mauvaise combinaison login / mot de passe, vous devez évidemment le corriger ou désactiver le bot qui tente de se connecter à l'aide de ces informations d'identification. ASF ne peut pas déterminer par elle-même si `InvalidPassword` signifie des informations d'identification non valides ou l'une des raisons répertoriées ci-dessus. Par conséquent, il continuera d'essayer jusqu'à ce qu'il réussisse.
+    
+    N'oubliez pas qu'ASF dispose de son propre système intégré pour réagir en conséquence aux aléas de steam. Elle finira par se connecter et reprendre son travail. Par conséquent, il n'est pas nécessaire de faire quoi que ce soit si le problème est temporaire. Redémarrer ASF afin de résoudre les problèmes comme par magie ne fera qu'aggraver les choses (comme les nouveaux ASF ne sauront pas l'état précédent d'ASF, à savoir ne pas pouvoir se connecter et essayer de se connecter au lieu d'attendre), évitez de le faire à moins que vous savez ce que vous faites.
+    
+    Enfin, comme pour toute demande Steam - ASF ne peut que **essayer** de se connecter, en utilisant les informations d'identification fournies. Que cette demande aboutisse ou non est hors du champ d'application et de la logique d'ASF - il n'y a pas de bogue, et rien ne peut être corrigé ni amélioré à cet égard.
+    
+    * * *
+    
+    ### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+    
+    Cet avertissement signifie que Steam n'a pas répondu à la demande ASF dans le temps imparti. Généralement, cela est causé par le hoquet de réseau Steam et n'affecte en rien ASF. Dans d’autres cas, c’est la même chose qu’une requête échouant malgré 5 tentatives. Signaler ce problème n'a aucun sens la plupart du temps, car nous ne pouvons pas forcer Steam à répondre à nos demandes.
+    
+    * * *
+    
+    ### `System.Net.Http.WinHttpException: A security error occurred`
+    
+    Cette erreur se produit lorsque ASF ne peut pas établir de connexion sécurisée avec un serveur , presque exclusivement à cause de la méfiance du certificat SSL.
+    
+    Dans presque tous les cas, cette erreur est provoquée par **une date/heure erronée sur votre ordinateur**. Chaque certificat SSL a une date d'émission et une date d'expiration. Si votre date est invalide et hors de ces deux limites, le certificat ne peut pas être approuvé en tant qu'attaque potentielle par MITM et ASF refuse d'établir une connexion.
+    
+    La solution évidente consiste à régler correctement la date sur votre machine. Il est vivement recommandé d'utiliser la synchronisation automatique des dates, telle que la synchronisation native disponible sous Windows, ou `ntpd` sous Linux.
+    
+    Si vous vous êtes assuré que la date indiquée sur votre ordinateur est appropriée et que l'erreur ne veut pas disparaître, alors, en supposant qu'il ne s'agisse pas d'un problème temporaire qui devrait disparaître rapidement, les certificats SSL sur lesquels votre système a confiance peuvent être périmés ou invalide. Dans ce cas, vous devez vous assurer que votre ordinateur peut établir des connexions sécurisées, par exemple en vérifiant si vous pouvez accéder à `https://github.com` avec le navigateur de votre choix ou à un outil CLI tel que `curl`. Si vous avez confirmé que cela fonctionne correctement, n'hésitez pas à publier un numéro sur notre groupe Steam.
+    
+    * * *
+    
+    ### ASF est détecté comme un malware par mon antivirus! Que se passe-t-il ?
+    
+    ** Assurez-vous d'avoir téléchargé ASF à partir d'une source approuvée**. La seule source officielle et de confiance est la page **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** sur GitHub (c'est également la source des mises à jour automatiques ASF) - ** toute autre source n'est pas fiable par définition et peut contenir des logiciels malveillants ajoutés par d'autres personnes ** - par définition, ne faites confiance à aucun autre emplacement de téléchargement, et veillez à ce que vos fichiers ASF proviennent toujours de nous.
+    
+    Si vous confirmez qu'ASF est téléchargé à partir d'une source approuvée, il s'agit très probablement d'un faux positif. Cela **s'est produit dans le passé**, **se produit actuellement** et **se produira dans le futur**. Si vous êtes préoccupé par la sécurité lors de l'utilisation d'ASF, je vous suggère d'analyser ce dernier avec différents outils de détection, par exemple via **[VirusTotal](https://www.virustotal.com)** (ou tout autre service Web de votre choix).
+    
+    Si le AV que vous utilisez détecte faussement ASF en tant que programme malveillant, alors ** il est judicieux de renvoyer cet exemple de fichier aux développeurs de votre système audiovisuel afin qu'ils puissent l'analyser et améliorer leur moteur de détection **, aussi clairement que cela ne fonctionne pas aussi bien que vous le pensez. Il n’ya pas de problème dans le code ASF, et il n’y a rien non plus à résoudre pour nous, puisque nous ne distribuons pas de logiciels malveillants au départ, il n’a donc aucun sens de nous signaler ces faux positifs. Nous vous recommandons vivement d’envoyer un échantillon ASF pour une analyse plus approfondie, comme indiqué ci-dessus, mais si vous ne voulez pas vous en soucier, vous pouvez toujours ajouter ASF à une sorte d’exception AV, désactivez votre AV ou utilisez-en simplement un autre. Malheureusement, nous sommes habitués à ce que les antivirus soient stupides, car certains détectent de temps à autre ASF comme un virus, qui dure généralement très peu de temps et qui est rapidement corrigé par les développeurs, mais comme nous l’avons souligné plus haut - ** il est arrivé **, ** arrive ** et ** se produira ** tout le temps. ASF n'inclut pas de code malveillant, vous pouvez le réviser et même le compiler vous-même à la source. Nous ne sommes pas des hackers pour obscurcir le code ASF afin de cacher les heuristiques AV et les faux positifs, alors n'attendez pas de nous pour réparer ce qui n'est pas cassé - il n'y a pas de "virus" à réparer.

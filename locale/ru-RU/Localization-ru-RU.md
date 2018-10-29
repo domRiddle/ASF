@@ -91,23 +91,23 @@
 
 * * *
 
-## Pluralization
+## Множественное число
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+В каждом языке свои правила использования слов во множественном числе. Эти правила можно найти в **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** (Общий Репозиторий Языковых Данных), в котором указано их число и конкретные языковые условия.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+Мы прилагаем все усилия чтобы предоставить возможность гибкой локализации, и там где возможно это включает в себя правила для множественного числа. Например, мы переводим следующую строку на польский язык:
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+Ключевое слово `PLURAL` обрабатывается особым образом, позволяющем вам укахаьб все формы множественного числа, существующие в вашем языке. Если взглянуть на CLDR, мы видим что в английском языке только 2 формы для количественных числительных (cardinal) - "one" и "other". И как вы видите выше, обе формы заданы - `{n} month` и `{n} months`.
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+Однако, в польском языке таких форм уже 4 - "one", "few", "many" и "other". Это значит что для полноты перевода мы должны задать их все. Наши инструменты локализации достаточно умны чтобы выбрать нужную форму множественного числа на основе правил языка, поэтому вам нужно только задать их все в переводе:
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+Таким образом мы задаём все 4 формы множественного числа для польского языка, и поскольку наша библиотека для локализации уже знает точные правила, она будет использовать правильную форму для подставляемого в `{n}` числа.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+Не обязательно указывать все формы множественного числа, используемые в вашем языке. Если какой-то формы не хватает, наша библиотека локализации будет использовать вместо неё последнюю из заданных. Стоит задавать все формы множественного числа, используемые в вашем языка, но в некоторых случаях формы множественного числа могут совпадать, и тогда нет смысла их повторять. В примере выше это было необходимо, поскольку форма "other" в польском языке "miesiąca", а не "miesięcy", как в форме "many".
 
 * * *
 
@@ -156,7 +156,7 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 
 * * *
 
-Независимо от случая, сначала нужно нажать ALT+C (или кнопку "Copy Source" - копировать содержимое) и перевести строку как обычно, оставив весь HTML (если он присутствует) без изменений. Вот пример перевода для польского языка:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Вот пример перевода для польского языка:
 
 * * *
 

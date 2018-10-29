@@ -1,16 +1,16 @@
 # Hochleistungs-Setup
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
+Dies ist genau das Gegenteil von **[Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)** und normalerweise möchtest du diesen Tipps folgen, wenn du die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter erhöhen willst, für potenzielle Kosten einer erhöhten Speichernutzung.
 
 * * *
 
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausgewogene Abstimmung geht. Daher gibt es nicht viel was man tun kann, um die Leistung weiter zu steigern, obwohl man auch nicht völlig ohne Möglichkeiten da steht. Beachte jedoch, dass diese Optionen standardmäßig nicht aktiviert sind, was bedeutet, dass sie nicht gut genug sind, um sie für die Mehrheit der Anwendungen als ausgewogen zu betrachten. Deshalb solltest du selbst entscheiden, ob diese Optionen zur Speichererweiterung für dich akzeptabel sind.
 
 * * *
 
-## Runtime tuning (advanced)
+## Laufzeitoptimierung (Fortgeschritten)
 
-Below tricks **involve serious memory increase** and should be used with caution.
+Die folgenden Tricks **beanspruchen eine ernsthafte Speicherzunahme** und sollten mit Vorsicht verwendet werden.
 
 `ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
 
@@ -36,6 +36,7 @@ However, if memory is not a problem for you (as GC still takes into account your
 
 ## Empfohlene Optimierung
 
+- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - Enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. This will enable server GC which can be immediately seen as being active by memory increase compared to workstation GC.
 - If you can't afford that much memory increase, consider using `GCLatencyLevel` of `0` to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
 

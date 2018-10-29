@@ -1,6 +1,6 @@
 # Protokollierung
 
-ASF allows you to configure your own custom logging module that will be used during runtime. Dies funktioniert, indem du eine spezielle Datei mit dem Namen `NLog.config` in dem Programmverzeichnis ablegst. Du kannst die gesamte Dokumentation über NLog auf der **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)** nachlesen, zusätzlich wirst du auch hier nützliche Beispiele dazu finden.
+ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul zu konfigurieren, das während der Laufzeit verwendet wird. Dies funktioniert, indem du eine spezielle Datei mit dem Namen `NLog.config` in dem Programmverzeichnis ablegst. Du kannst die gesamte Dokumentation über NLog auf der **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)** nachlesen, zusätzlich wirst du auch hier nützliche Beispiele dazu finden.
 
 * * *
 
@@ -33,7 +33,7 @@ Wenn du die Standard ASF Protokollierung ohne irgendwelche Veränderung verwende
 
 ## ASF Integration
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es dir ermöglichen, bestimmte Nachrichten leichter zu erfassen.
 
 NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
 
@@ -51,7 +51,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 ## Beispiele
 
-Lass uns mit etwas einfachem anfangen. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+Lass uns mit etwas einfachem anfangen. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Unsere initiale `NLog.config` wird so aussehen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

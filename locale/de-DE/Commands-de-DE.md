@@ -24,13 +24,13 @@ Alle unten angeführten Befehle werden durch das **[globale Konfigurationsfeld](
 
 ### Steam Gruppenchat
 
-Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
+Sehr ähnlich zur oben genannten Möglichkeit, allerdings diesmal über den Gruppenchat einer vorgegebenen Steam-Gruppe. Beachte, dass diese Option die korrekt eingestellte Eigenschaft `SteamMasterClanID` erfordert, in diesem Fall wird der Bot auch im Gruppen-Chat auf Befehle warten (und sich bei Bedarf diesem anschließen). Dies kann auch für "Selbstgespräche" genutzt werden, da es kein dediziertes Bot-Konto erfordert. Du willst diese Methode höchstwahrscheinlich nicht für mehr Bots als 1 verwenden.
 
 * * *
 
 ### IPC
 
-The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+Die fortschrittlichste und flexibelste Art der Befehlsausführung, perfekt für die Benutzerinteraktion (ASF-ui) sowie für Drittanbieter-Programme oder Skripte (ASF-API), erfordert, dass ASF im `IPC` Modus ausgeführt wird und einen Client der Befehle über die **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** Schnittstelle ausführt.
 
 ![Screenshot](https://i.imgur.com/pzKE4EJ.png)
 
@@ -38,20 +38,20 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Befehle
 
-| Befehl                                                                     | Zugang          | Beschreibung                                                                                                                                                                                          |
+| Befehl                                                                     | Zugriff         | Beschreibung                                                                                                                                                                                          |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
-| `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
-| `2faok <Bots>`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
-| `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
-| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
-| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                                                     | `Besitzer`      | Stoppt den kompletten ASF-Prozess.                                                                                                                                                                    |
-| `farm <Bots>`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
+| `2fa <Bots>`                                                         | `Master`        | Generiert temporäre **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**-Codes für gegebene Bot-Instanzen.                                                        |
+| `2fano <Bots>`                                                       | `Master`        | Lehnt alle ausstehenden **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**-Bestätigungen für gegebene Bot-Instanzen ab.                                         |
+| `2faok <Bots>`                                                       | `Master`        | Akzeptiert alle ausstehenden **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**-Bestätigungen für gegebene Bot-Instanzen.                                       |
+| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Aktiviert gegebene `appIDs` (Steam-Netzwerk) oder `subIDs` (Steam-Shop) auf gegebenen Bot-Instanzen (nur kostenlose Spiele).                                                                          |
+| `bl <Bots>`                                                          | `Master`        | Listet Benutzer aus dem Handelsmodul der gegebenen Bot-Instanzen auf, die auf der schwarzen Liste stehen.                                                                                             |
+| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Setzt gegebene `steamIDs` auf die Schwarze Liste des Handelsmodul der gegebenen Bot-Instanzen.                                                                                                        |
+| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Entfernt gegebene `steamIDs` von der schwarzen Liste des Handelsmoduls der gegebenen Bot-Instanzen.                                                                                                   |
+| `exit`                                                                     | `Owner`         | Stoppt den kompletten ASF-Prozess.                                                                                                                                                                    |
+| `farm <Bots>`                                                        | `Master`        | Startet das Karten-Sammelmodul für gegebene Bot-Instanzen neu.                                                                                                                                        |
 | `help`                                                                     | `FamilySharing` | Zeigt Hilfe an (Link zu dieser Seite).                                                                                                                                                                |
-| `input <Bots> <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
-| `ib <Bots>`                                                          | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
+| `input <Bots> <Type> <Value>`                            | `Master`        | Setzt den gegebenen Eingabetyp auf den gegebenen Wert für gegebene Bot-Instanzen. Funktioniert nur im `Headless`-Modus, genauer erklärt **[unten](#input-command)**.                                  |
+| `ib <Bots>`                                                          | `Master`        | Listet Anwendungen auf, die vom automatischen Sammeln von gegebenen Bot-Instanzen ausgeschlossen sind.                                                                                                |
 | `ibadd <Bots> <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |
 | `ibrm <Bots> <AppIDs>`                                         | `Master`        | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                            |
 | `iq <Bots>`                                                          | `Master`        | Lists priority idling queue of given bot instances.                                                                                                                                                   |
@@ -91,9 +91,9 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei den Argumenten dieser (wie zum Beispiel Botnamen) ist sich an entsprechende Groß- und Kleinschreibung zu halten.
 
-`<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
+Das Argument `<Bots>` ist in allen Befehlen optional. Wenn spezifiziert wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem aktuellen Bot ausgeführt der den Befehl erhält. Mit anderen Worten, `status A` der an Bot `B` gesendet wird ist dasselbe wie `status` an Bot `A` zu senden.
 
-**Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
+**Zugriff** des Befehls definiert **minimale** `EPermission` von `SteamUserPermissions` die für die Verwendung des Befehls erforderlich ist - mit Ausnahme von `Owner` das als `SteamOwnerID` in der globalen Konfigurationsdatei (und höchste verfügbare Berechtigung) definiert ist.
 
 Plural arguments, such as `<Bots>`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `status <Bots>` can be used as `status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `status` to each bot in a separate chat window. Please note that there is no space after `,`.
 
@@ -105,7 +105,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
 
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+*Und selbst in diesem Fall solltest du stattdessen den privaten Chat mit der Syntax `<Bots>` verwenden.*
 
 * * *
 
@@ -218,7 +218,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Beschreibung                                                               |
+| Typ                     | Beschreibung                                                               |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -227,7 +227,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` ist der Wert, der für einen gegebenen Typ festgelegt ist. Derzeit sind alle Werte Zeichenketten.
 
 ### Beispiel
 
@@ -235,7 +235,7 @@ Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei
 
 Um das zu tun müssen wir folgende Befehle ausführen:
 
-`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
+`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 
 `input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
 

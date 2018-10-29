@@ -1,74 +1,74 @@
 # Компиляция
 
-Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
+Компиляция - это процесс создания исполняемого файла. Это то, что вы хотите сделать, если хотите добавить свои собственные изменения в ASF или если по какой-либо причине вы не доверяете исполняемым файлам, указанным в официальных **[выпусках](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. Если вы пользователь, а не разработчик, скорее всего, вы хотите использовать уже предварительно скомпилированные двоичные файлы, но если вы хотите использовать свои собственные или узнать что-то новое, продолжайте читать.
 
-ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
+ASF может быть скомпилирован на любой поддерживаемой платформе, если у вас есть все необходимые для этого инструменты.
 
 * * *
 
 ## .NET Core SDK 
 
-Regardless of platform, you need full .NET Core SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://www.microsoft.com/net/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Независимо от платформы, для компиляции ASF необходим полный .NET Core SDK (а не только время выполнения). Инструкции по установке можно найти на странице **[.NET Core ](https://www.microsoft.com/net/download)**. Вам необходимо установить соответствующую версию .NET Core SDK для вашей ОС. После успешной установки, команда ` dotnet ` должна работать и действовать. Вы можете проверить, работает ли она с ` dotnet -info `. Также убедитесь, что ваш .NET Core SDK соответствует требованиям ASF **[ требования к среде выполнения ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
-Example of `dotnet --info` on Windows:
+Пример ` dotnet --info ` в Windows:
 
-    .NET Core SDK (reflecting any global.json):
-     Version:   2.1.300
-     Commit:    adab45bf0c
+    .NET Core SDK (отражающий любой global.json):
+     Версия: 2.1.300
+     Commit: adab45bf0c
     
-    Runtime Environment:
-     OS Name:     Windows
-     OS Version:  10.0.17134
-     OS Platform: Windows
-     RID:         win10-x64
-     Base Path:   C:\Program Files\dotnet\sdk\2.1.300\
+    Среда выполнения:
+     Название ОС: Windows
+     Версия ОС: 10.0.17134
+     Платформа ОС: Windows
+     RID: win10-x64
+     Базовый путь: C: \ Program Files \ dotnet \ sdk \ 2.1.300 \
     
-    Host (useful for support):
-      Version: 2.1.0
-      Commit:  caa7b7e2ba
+    Хост (полезен для поддержки):
+      Версия: 2.1.0
+      Commit: caa7b7e2ba
     
-    .NET Core SDKs installed:
-      2.1.300 [C:\Program Files\dotnet\sdk]
+    .NET Core SDK установлены:
+      2.1.300 [C: \ Program Files \ dotnet \ sdk]
     
-    .NET Core runtimes installed:
-      Microsoft.AspNetCore.All 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
-      Microsoft.AspNetCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-      Microsoft.NETCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+    Установленные среды выполнения .NET Core:
+      Microsoft.AspNetCore.All 2.1.0 [C: \ Program Files \ dotnet \ shared \ Microsoft.AspNetCore.All]
+      Microsoft.AspNetCore.App 2.1.0 [C: \ Program Files \ dotnet \ shared \ Microsoft.AspNetCore.App]
+      Microsoft.NETCore.App 2.1.0 [C: \ Program Files \ dotnet \ shared \ Microsoft.NETCore.App]
     
 
 * * *
 
 ## Компиляция
 
-Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to ASF directory and execute:
+Предполагая, что у вас есть ОС .NET Core SDK и как раз в подходящей версии, просто перейдите в каталог ASF и выполните:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Релиз" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
-If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+Если вы используете Linux/OS X, вместо этого вы можете использовать скрипт ` cc.sh `, который будет делать то же самое, но несколько сложнее.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
+Если компиляция завершилась успешно, вы можете найти свой ASF в ` источник ` flavour в каталоге ` ArchiSteamFarm / out / generic `. Это то же самое, что и официальная сборка ` generic ` ASF, но она заставила ` UpdateChannel ` и ` UpdatePeriod ` ` 0 `.
 
 ### Пакеты под конкретные ОС
 
-You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
+Вы также можете создать специальный пакет .NET Core для вашей ОС, если у вас есть такая потребность. В общем, вы не должны этого делать, потому что вы только что скомпилировали ` generic ` flavour, который вы можете запустить с уже установленной версией .NET Core, которую вы использовали для компиляции в первую очередь, но только в если вы хотите:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Релиз" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
-Of course, replace `linux-x64` with OS-architecture you want to target, such as `win-x64`. This build will also have updates disabled.
+Конечно, замените ` linux-x64 ` на OS-архитектуру, на которую вы хотите настроить таргетинг, например ` win-x64 `. Обновления этой сборки также будут отключены.
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.1` to `net472`. Keep in mind that you'll need appropriate **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK.
+В очень редком случае, когда вы захотите создать билд ` generic-netf `, вы можете изменить целевую структуру с ` netcoreapp2.1 ` на ` net472 `. Имейте в виду, что вам потребуется соответствующий пакет **[ .NET Framework ](https://www.microsoft.com/net/download/visual-studio-sdks)** для компиляции варианта ` netf `, в дополнение к .NET Core SDK.
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Релиз" -f "net472" -o "out/generic-netf"
 ```
 
-In even more rare case, if you can't install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly:
+В еще более редком случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за построения билда на ` linux-x86 ` с ` mono `), вы может вызвать ` msbuild ` напрямую:
 
 ```shell
 msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
@@ -78,9 +78,9 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## Разработка
 
-If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, for Windows we recommend **[latest Visual Studio](https://www.visualstudio.com/downloads)** (free community version is more than enough). We also suggest to use it together with **[ReSharper](https://www.jetbrains.com/resharper)**, although it's not a free product.
+Если вы хотите отредактировать код ASF, для этой цели вы можете использовать любую совместимую с .NET Core IDE, хотя это необязательно, поскольку вы также можете редактировать с помощью блокнота и скомпилировать команду ` dotnet ` как описано выше. Тем не менее, для Windows мы рекомендуем **[ последнюю версию Visual Studio ](https://www.visualstudio.com/downloads)** (бесплатной community version более чем достаточно). Мы также предлагаем использовать его вместе с **[ ReSharper ](https://www.jetbrains.com/resharper)**, хотя это не бесплатный продукт.
 
-If you'd like to work with ASF code on Linux/OS X instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. It's not as rich as classic Visual Studio, but it's good enough.
+Если вы хотите работать с кодом ASF на Linux/OS X, мы рекомендуем **[ последнюю версию Visual Studio Code ](https://code.visualstudio.com/download)**. Оно не обладает такими возможностями как классическая Visual Studio, но и этого вполне достаточно.
 
 Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. We use Visual Studio + ReSharper for ASF development, with a small part of third-party `tools` that you can find in the repo.
 

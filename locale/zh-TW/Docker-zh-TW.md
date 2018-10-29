@@ -1,16 +1,16 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it might be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+從版本3.0.3.2 開始, ASF 現在也可使用 **[ docker container](https://www.docker.com/what-container)**。 在 docker 容器中運行 ASF 通常對於臨時使用者沒有任何好處, 但它可能是在伺服器上使用 ASF 的絕佳方式, 確保 ASF在沙盒環境中運行, 與其他所有應用程式分離。 我們的 docker repo 可以在 **[ 此處 ](https://hub.docker.com/r/justarchi/archisteamfarm)** 找到。
 
 * * *
 
-## Tags
+## 標籤
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF 有4種主要類型的 **[ 標籤 ](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**：
 
 ### `master`
 
-This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the master GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
+此標記始終指向從主分支中的最新提交生成的 ASF, 其工作原理與 **[ 發佈週期 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** 中描述的實驗 AppVeyor 生成相同。 通常, 您應該避免此標記, 因為它有大量的漏洞，是以開發為目的專們給開發人員和高級使用者。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
 
 ### `released`
 

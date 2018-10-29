@@ -91,23 +91,23 @@ Para obter uma lista completa de todos os idiomas disponíveis para os quais o A
 
 * * *
 
-## Pluralization
+## Pluralização
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+Cada idioma tem suas próprias regras em relação à pluralização. Essas regras podem ser encontradas no **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** que especifica o número e as condições exatas de linguagem.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+Estamos fazendo o melhor para lhe oferecer uma tradução flexível, e tanto quanto possível isto também irá incluir regras de plural. Por exemplo, vamos traduzir a seguinte sentença para o Polonês:
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+A palavra chave `PLURAL` aqui é tratada de forma especial já que ela permite que você inclua todas as formas de plural que seu idioma aceite. Se você der uma olhada no CLDR, você verá que na sentença em inglês existem apenas 2 formas de cardinais - "one" e "other". E como você pode ver acima, temos ambas definidas: `{n} month` e `{n} months`.
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+No entanto, nosso idioma polonês inclui 4: "um", "alguns", "muitos" e "outro". Isto significa que nós devemos definir todos eles. Nossas ferramentas de tradução são inteligentes o bastante para escolher a forma plural correta com base nas regras de linguagem, portanto, você só tem que defini-los na tradução:
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+Desta forma definimos todas as 4 formas de plural para o idioma polonês, e já que a nossa biblioteca de localização já sabe as regras exatas, ela devidamente usará o formulário correto para o número `{n}` definido.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+Não é obrigatório definir todas as formas de plural usadas pela sua linguagem. Se faltar alguma, nossa biblioteca de localização usará a última forma definida em seu lugar. É uma boa ideia definir todas as formas de plural usadas pelo seu idioma, mas em alguns casos as formas plurais subsequentes podem ser igual a última e, nesse caso, não é necessário repeti-las. No nosso exemplo acima isso era obrigatório, já que a "outra" forma em polonês para meses é "miesiąca" e não "miesięcy" como em "muitos".
 
 * * *
 
@@ -156,7 +156,7 @@ No exemplo acima vemos o primeiro caso (já que apenas "setting up" é um link),
 
 * * *
 
-Independentemente do caso, você usa o atalho ALT+C (ou clica no botão "Copy source") e traduz normalmente, deixando todo o HTML (se houver) intacto. Segue um exemplo da tradução para o polonês:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Segue um exemplo da tradução para o polonês:
 
 * * *
 

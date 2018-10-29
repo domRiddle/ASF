@@ -1,4 +1,4 @@
-# Kompabilität
+# Kompatibilität
 
 ASF ist eine, auf .NET Core basierende, C#-Anwendung. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
 

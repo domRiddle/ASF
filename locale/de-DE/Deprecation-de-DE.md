@@ -1,6 +1,6 @@
 # Veraltete Funktionen
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
+Ab ASF V3.1.2.2.2 werden wir eine konsequente Vernichtungspolitik verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
 
 * * *
 

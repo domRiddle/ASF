@@ -1,8 +1,8 @@
-# Produktschlüsselaktivierung im Hintergrund
+# Hintergrundproduktschlüsselaktivierer
 
 Der Hintergrundproduktschlüsselaktivierer ist eine besondere, in ASF integrierte Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-Produktschlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` **[Status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-de-de#what-is-the-meaning-of-status-when-redeeming-a-key)** erreichst, bevor du mit allen fertig bist.
 
-Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. Diese Funktion kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-de)** benutzt werden.
+Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. Dieses Feature kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-DE)** benutzt werden.
 
 * * *
 
@@ -24,7 +24,7 @@ ASF importiert solch eine Datei, entweder beim Bot-Start oder später während d
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
+Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien legt ASF den `GamesToRedeemInBackground` **[ASF API-Endpunkt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** offen, welcher von jedem IPC-Tool, einschließlich unserem ASF-ui, verwendet werden kann. Die Verwendung von IPC kann mächtiger sein, da du selbst ein geeignetes Parsing durchführen kannst, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt an das Tabulatorzeichen gebunden zu sein oder sogar komplett individuelle Zeichenstrukturen.
 
 * * *
 

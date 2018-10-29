@@ -1,14 +1,14 @@
-# Häufig gestellte Fragen
+# FAQ
 
-Unsere Basis-FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für weniger häufige Fragen besuchen Sie bitte stattdessen unsere **[erweiterte FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
+Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für weniger häufig gestellte Fragen besuche bitte stattdessen unser **[erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**.
 
 # Inhaltsverzeichnis
 
-- [Allgemein](#general)
-- [Vergleich mit ähnlichen Tools](#comparison-with-similar-tools)
-- [Sicherheit / Datenschutz / VAC / Banns / Nutzungsbedingungen](#security--privacy--vac--bans--tos)
-- [Sonstiges](#misc)
-- [Probleme](#issues)
+- [Allgemein](#allgemein)
+- [Vergleich mit ähnlichen Programmen](#vergleich-mit-ähnlichen-programmen)
+- [Sicherheit / Datenschutz / VAC / Banns / Nutzungsbedingungen](#sicherheit-datenschutz-vac-banns-nutzungsbedingungen)
+- [Sonstiges](#sonstiges)
+- [Probleme](#probleme)
 
 * * *
 
@@ -27,25 +27,25 @@ Hier werden noch einmal Kernpunkte genannt, weil Leute ihnen im Allgemeinen nich
 - **Nein, du kannst keine Karten von F2P Spiele bekommen ohne Geld in ihnen ausgegeben zu haben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2.**
 - **Nein, du kannst keine Kartendrops auf einem eingeschränkten Account (diejenigen die nie 5€ im Steam Store ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+Wie du sehen kannst, werden dir Steam-Karten verliehen, weil du ein Spiel spielst, das du gekauft hast oder ein F2P-Spiel in das du Geld gesteckt hast. Mit anderen Worten, wenn du ein Spiel lange genug spielst fallen alle Karten für dieses Spiel in dein Inventar, so dass du ein Abzeichen erstellen, die Karten verkaufen oder tun kannst, was du willst.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+ASF als Programm ist recht komplex zu verstehen, so dass wir, anstatt alle technischen Details zu erklären, im Folgenden eine sehr vereinfachte Erklärung anbieten werden.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF meldet sich über den integrierten Mini Steam-Client mit den von dir angegebenen Anmeldeinformationen bei deinem Steam-Konto an. Nach erfolgreicher Anmeldung analysiert es deine **[Abzeichen](https://steamcommunity.com/my/badges)** um Spiele zu finden, die für das Sammeln verfügbar sind (Du kannst X weitere Karten erhalten, wenn du dieses Spiel spielst). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Karten-Drop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Beachte, dass die obige Erklärung vereinfacht ist und nicht Dutzende von zusätzlichen Features und Funktionen beschreibt die ASF anbietet. Besuche den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)**, wenn du jedes Detail von ASF wissen willst. Ich habe versucht es einfach zu halten, damit es für alle verständlich ist, ohne technische Details einzubringen - fortgeschrittene Benutzer werden ermutigt, tiefer zu graben.
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+Nun als Programm bietet ASF etwas Magie. Erstens, es muss keine deiner Spieldateien herunterladen, es kann sofort Spiele spielen. Zweitens ist es völlig unabhängig von deinem normalen Steam-Client - du musst den Steam-Client nicht laufen lassen oder gar installiert haben. Drittens ist es eine automatisierte Lösung - was bedeutet, dass ASF automatisch alles hinter deinem Rücken erledigt, ohne dass du ihm sagen musst, was er tun soll - was dir Ärger und Zeit erspart. Letztendlich muss es das Steam-Netzwerk nicht durch Prozessemulation (die z.B. Idle Master verwendet) austricksen, da es direkt mit ihm kommunizieren kann. Es ist auch superschnell und leicht und ist eine erstaunliche Lösung für alle, die Karten ohne großen Aufwand bekommen wollen - es ist besonders nützlich, wenn man es im Hintergrund laufen lässt, während man etwas anderes macht oder sogar im Offline-Modus spielt.
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+All das oben Gesagte ist schön, aber ASF hat auch einige technische Einschränkungen, die von Steam erzwungen werden - wir können keine Spiele sammeln, die du nicht besitzt, wir können keine Spiele für immer sammeln, um zusätzliche Drops über das erzwungene Limit hinaus zu bekommen, und wir können keine Spiele sammeln, während du spielst. All das sollte "logisch" sein, wenn man bedenkt, wie ASF funktioniert, aber es ist schön zu beachten, dass ASF keine Superkräfte hat und nichts tun wird, was physisch unmöglich ist, also denk daran - es ist im Grunde genommen dasselbe, als ob du jemandem gesagt hättest, dass er sich von einem anderen PC aus in dein Konto einloggen und diese Spiele für dich sammeln soll.
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
+Zusammenfassend lässt sich sagen: ASF ist ein Programm, das dir hilft, die Karten, für die du berechtigt bist, ohne großen Aufwand sammeln zu lassen. Es bietet auch einige andere Funktionen, aber lasst uns vorerst bei dieser bleiben.
 
 * * *
 
-### Do I have to put my account credentials?
+### Muss ich meine Zugangsdaten angeben?
 
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**Ja**. ASF benötigt deine Kontoanmeldeinformationen auf die gleiche Weise wie der offizielle Steam-Client, da er die gleiche Methode für die Steam-Netzwerkinteraktion verwendet. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
@@ -111,7 +111,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Ja**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -323,7 +323,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
+**Ja**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used. However, it's not confirmed if logging in to Steam community is actually required or not, therefore in order to be sure I suggest to keep `OnlineStatus` on `Online`, at least until somebody confirms that using Steam network alone is enough. It should be, but I'm not sure.
 
 * * *
 

@@ -17,13 +17,13 @@ Diese Seite widmet sich der Konfiguration von ASF. Es dient als eine lückenlose
 
 ## Einleitung
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+Die ASF-Konfiguration gliedert sich in zwei Hauptteile - die globale (Prozess-)Konfiguration und die Konfiguration jedes einzelnen Bots. Jeder Bot hat seine eigene Bot-Konfigurationsdatei namens `BotName.json` (wobei `BotName` der Name des Bots ist), während die globale ASF (Prozess-)Konfiguration eine einzige Datei namens `ASF.json` ist.
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+Ein Bot ist ein einzelnes Steam-Konto welches am ASF-Prozess teilnimmt. Um ordnungsgemäß zu funktionieren benötigt ASF mindestens **eine** definierte Bot-Instanz. Es gibt keine prozessbedingte Begrenzung der Bot-Instanzen, so dass du so viele Bots (Steam-Konten) verwenden kannst wie du willst.
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
+ASF verwendet das **[JSON](https://en.wikipedia.org/wiki/JSON)** Format zum Speichern seiner Konfigurationsdateien. Es ist ein benutzerfreundliches, lesbares und sehr universelles Format in dem du das Programm konfigurieren kannst. Keine Sorge, du musst JSON nicht kennen um ASF zu konfigurieren. Ich habe es nur erwähnt, falls du bereits ASF-Konfigurationen mit einer Art Bash-Skript massenhaft erstellen möchtest.
 
-Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
+Die Konfiguration kann entweder manuell erfolgen - durch die Erstellung geeigneter JSON-Konfigurationen oder durch die Verwendung unseres **[Web-basierten ConfigGenerators](https://justarchinet.github.io/ASF-WebConfigGenerator)**, der viel einfacher und komfortabler sein sollte. Wenn du kein fortgeschrittener Benutzer bist, schlage ich vor, den Konfigurationsgenerator zu verwenden, der im Folgenden beschrieben wird.
 
 **[Zum Seitenanfang](#configuration)**
 
@@ -31,7 +31,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 ## Web-basierter Konfigurations-Generator
 
-The purpose of web-based ConfigGenerator is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+Der Zweck des webbasierten ConfigGenerator ist es, dir ein benutzerfreundliches Frontend zur Verfügung zu stellen das zum Erzeugen von ASF-Konfigurationsdateien verwendet werden kann. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
 Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
 
@@ -214,7 +214,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistiken`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -238,10 +238,10 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Wert | Name      | Beschreibung                                                                                     |
 | ---- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0    | Keine     | Kein Protokoll                                                                                   |
-| 1    | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| 0    | None      | Kein Protokoll                                                                                   |
+| 1    | TCP       | **[Transmission Control Protocol](https://de.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2    | UDP       | **[User Datagram Protocol](https://de.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4    | WebSocket | **[WebSocket](https://de.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -385,7 +385,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Wert | Name                          | Beschreibung                                                          |
 | ---- | ----------------------------- | --------------------------------------------------------------------- |
-| 0    | Keine                         | No special bot behaviour, the least invasive mode, default            |
+| 0    | None                          | No special bot behaviour, the least invasive mode, default            |
 | 1    | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2    | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4    | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -465,7 +465,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `HoursUntilCardDrops`
 
-`byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
+`byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. Dies ist jedoch nur eine Theorie und sollte nicht als Tatsache betrachtet werden. The default value for this property was set based on "lesser evil" and majority of use cases.
 
 * * *
 
@@ -564,7 +564,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Wert | Name             | Beschreibung                                                                   |
 | ---- | ---------------- | ------------------------------------------------------------------------------ |
-| 0    | Keine            | No redeeming preferences, typical                                              |
+| 0    | None             | No redeeming preferences, typical                                              |
 | 1    | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2    | Distributing     | Distribute all keys among itself and other bots                                |
 | 4    | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -641,7 +641,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Wert | Name          | Beschreibung                                                                                                                                                                                       |
 | ---- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Keine         | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 0    | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1    | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2    | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3    | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -660,7 +660,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Wert | Name                | Beschreibung                                                                                                                                                                    |
 | ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Keine               | No trading preferences - accepts only `Master` trades                                                                                                                           |
+| 0    | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
 | 1    | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
 | 2    | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
 | 4    | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
@@ -761,13 +761,13 @@ Types used by ASF are native C# types, which are specified below:
 
 `bool` - Boolean type accepting only `true` and `false` values.
 
-Example: `"Enabled": true`
+Beispiel: `"Enabled": true`
 
 * * *
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"ConnectionTimeout": 60`
+Beispiel: `"ConnectionTimeout": 60`
 
 * * *
 
@@ -777,25 +777,25 @@ Example: `"ConnectionTimeout": 60`
 
 `ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
 
-Example: `"SteamMasterClanID": 103582791440160998`
+Beispiel: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
 `string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Both empty sequence as well as `null` value is treated the same by ASF, so it's up to your preference which one you want to use.
 
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+Beispiele: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
 * * *
 
 `ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
 
-Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
 `ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`.
 
-Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+Beispiel für `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 * * *
 
@@ -803,12 +803,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Wert | Name  |
-| ---- | ----- |
-| 0    | Keine |
-| 1    | A     |
-| 2    | B     |
-| 4    | C     |
+| Wert | Name |
+| ---- | ---- |
+| 0    | None |
+| 1    | A    |
+| 2    | B    |
+| 4    | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
