@@ -4,7 +4,7 @@ ASF unterstützt mehrere Befehlszeilenargumente, die die Programmlaufzeit beeinf
 
 * * *
 
-## Gebrauchsweise
+## Nutzung
 
 Die Verwendung ist abhängig vom verwendeten Betriebssystem und der ASF Variante.
 

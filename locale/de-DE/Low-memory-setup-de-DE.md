@@ -16,9 +16,9 @@ This is also why ASF process memory varies from setup to setup, as ASF will do i
 
 * * *
 
-Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
+Natürlich gibt es viele Möglichkeiten, wie du ASF helfen kannst die richtige Richtung in Bezug auf den Speicher den du verwenden möchtest zu lenken. Im Allgemeinen ist es am besten, den Garbage-Collector in Ruhe arbeiten zu lassen und das zu tun, was er für das Beste hält. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
 
-Below suggestions are divided into a few categories, with varied difficulty.
+Die folgenden Vorschläge sind in einige Kategorien unterteilt, mit unterschiedlichem Schwierigkeitsgrad.
 
 * * *
 
@@ -74,7 +74,7 @@ This offers little improvement, but might make GC even more aggressive when syst
 
 * * *
 
-You can enable both by setting appropriate `COMPlus_` environment variables. For example, on Linux:
+You can enable both by setting appropriate `COMPlus_` environment variables. Als Beispiel unter Linux:
 
 ```shell
 export COMPlus_GCLatencyLevel=0
@@ -82,7 +82,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-Or on Windows:
+Oder unter Windows:
 
 ```bat
 SET COMPlus_GCLatencyLevel=0

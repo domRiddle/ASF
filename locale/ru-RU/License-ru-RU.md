@@ -1,35 +1,35 @@
 # Лицензия
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Если не указано иначе, ASF лицензируется по **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Краткий обзор того, что вы можете и чего не можете делать вы можете найти на сайте **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**, а также вы можете прочесть неофициальный перевод на русский язык, расположенный **[тут](http://www.dataved.ru/2011/03/apache-license-2.html)**, но не забывайте, что юридическую силу имеет только полная английская версия.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+Лицензия ASF очень либеральная, и вам разрешено делать намного больше чем при стандартной лицензии GPL, в том числе вы можете использовать ASF в коммерческих проектах без необходимости открывать исходный код. В кратце, как сказано в tl;dr Legal:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> You can do what you like with the software, as long as you include the required notices (Вы можете делать что угодно с программным обеспечением, если вы прикладываете к нему необходимое уведомление). This permissive license contains a patent license from the contributors of the code (Эта либеральная лицензия содержит патентную лицензию от соавторов кода).
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` might be licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, могут лицензироваться с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
 
 * * *
 
 ## Примечания
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Если вы создаёте своё собственное программное обеспечение или сервис на базе ASF как части кода, пожалуйста ознакомьтесь с пунктом 6 лицензии (для удобства в скобках приведен перевод, но юридическую силу имеет только английский текст):
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Trademarks (Товарные знаки). This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file (Эта лицензия не дает разрешения на использование торговых наименований, товарных знаков, знаков обслуживания или названий продуктов Лицензиара, за исключением случаев разумного и обычного использования при описании происхождения Работы и воспроизведении содержания файла NOTICE.).
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+Мы не даём вам прямого разрешения на использование имени продукта ASF/ArchiSteamFarm в вашем программном обеспечении, но мы разрешаем его использовать в некоторых сценариях основанных на здравом смысле:
 
-You **can**:
+Вы **можете**:
 
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- Утверждать что ваше программное обеспечение/служба **основывается на** ASF (или его исходном коде)
+- Описывать своё программное обеспечение/службу как **форк ASF**
+- Утверждать, что ваше программное обеспечение/служба работает при поддержке ASF, если вы **не** вносили изменений в исходный код
+- Использовать ASF с целью различных отсылок, как например указание ссылок на происхождения программного обеспечения/службы, на нашу wiki, или *"as required for reasonable and customary use in describing the origin of the Work"* (случаев разумного и обычного использования при описании происхождения Работы)
 
-You **can't**:
+Вы **не можете**:
 
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+- Утверждать что ваше программное обеспечение/служба **это** ASF
+- Описывать своё программное обеспечение/службу как **ASF**
+- Утверждать, что ваше программное обеспечение/служба работает при поддержке ASF, если вы **вносили** изменения в исходный код
+- Использовать ложную рекламу, как например утверждать что ASF или его разработчики аффилированны с вашим программным обеспечением/службой
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+Если у вас есть сомнения — пожалуйста, свяжитесь с нами, мы будем рады ответить на все ваши правовые вопросы и вопросы связанные с лицензированием.

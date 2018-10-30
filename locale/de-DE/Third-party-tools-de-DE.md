@@ -26,7 +26,7 @@ Bitte beachte, dass die folgenden Programme nicht vom ASF-Team gewartet werden u
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, eine Python-Bibliothek zur weiteren Integration mit der IPC-Schnittstelle von ASF.
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ein in Python geschriebener Telegramm-Bot zur ASF-Integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ein weiterer in Python geschriebener (minimaler) Telegramm-Bot zur ASF-Integration.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ein weiterer (minimaler) in Python geschriebener Telegramm-Bot zur ASF-Integration.
 
 * * *
 

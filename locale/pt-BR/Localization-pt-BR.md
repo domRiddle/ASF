@@ -156,7 +156,7 @@ No exemplo acima vemos o primeiro caso (já que apenas "setting up" é um link),
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Segue um exemplo da tradução para o polonês:
+Independentemente do caso, você deve copiar a frase a ser traduzida e traduzi-la normalmente, deixando todo o HTML (se houver) intacto. Segue um exemplo da tradução para o polonês:
 
 * * *
 

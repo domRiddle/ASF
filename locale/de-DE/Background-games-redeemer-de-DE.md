@@ -12,7 +12,7 @@ Der Importprozess kann über zwei Wege durchgeführt werden, entweder durch Verw
 
 ### Datei
 
-ASF erkennt in seinem `Konfigurations`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, wird der erste Eintrag als Spielname und der letzte Eintrag als Produktschlüssel erachtet und alles dazwischen wird ignoriert. Zum Beispiel:
+ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, wird der erste Eintrag als Spielname und der letzte Eintrag als Produktschlüssel erachtet und alles dazwischen wird ignoriert. Zum Beispiel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB

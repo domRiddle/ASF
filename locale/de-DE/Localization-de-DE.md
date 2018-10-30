@@ -156,7 +156,7 @@ In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Li
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Dies wäre ein Beispiel für eine Übersetzung in die polnische Sprache:
+Unabhängig vom Fall solltest du zuerst den Quelltext kopieren und wie gewohnt übersetzen, wobei du das gesamte HTML (falls vorhanden) intakt lässt. Dies wäre ein Beispiel für eine Übersetzung in die polnische Sprache:
 
 * * *
 

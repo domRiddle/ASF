@@ -156,7 +156,7 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. Вот пример перевода для польского языка:
+Независимо от случая, сначала нужно скопировать содержимое исходной строки и перевести строку как обычно, оставив весь HTML (если он присутствует) без изменений. Вот пример перевода для польского языка:
 
 * * *
 

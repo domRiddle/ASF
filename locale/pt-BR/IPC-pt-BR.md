@@ -86,9 +86,9 @@ Por padrão o ASF escuta apenas nos endereços `localhost`, o que significa que 
 
 No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. Além disso, recomendamos configurar um `IPCPassword`, que vai adicionar uma camada extra de segurança. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
 
-### Can I access ASF API through my own tools or userscripts?
+### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins (`*`) as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica </strong> **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing), e permitimos o acesso de todas as origens (`*`) contanto que `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).</p> 
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 
