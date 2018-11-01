@@ -1,6 +1,6 @@
 # CÂU HỎI THƯỜNG GẶP
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Câu hỏi thường gặp cơ bản của chúng tôi bao gồm các câu hỏi và câu trả lời chuẩn mà bạn có thể có. Đối với một vấn đề ít phổ biến hơn, vui lòng truy cập **[Câu hỏi thường gặp mở rộng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** của chúng tôi.
 
 # Nội dung
 
@@ -29,7 +29,7 @@ Những điểm cốt lỗi một lần nữa sẽ được nêu ở đây, vì 
 
 Như bạn thấy, thẻ Steam được thưởng cho bạn khi bạn chơi trò chơi mà bạn mua, hoặc bỏ tiền vào trò chơi miễn phí. Nói một cách khác, nếu bạn chơi trò chơi đủ lâu, tất cả các thẻ cho trò chơi đó sẽ rớt vào túi vật dụng của bạn, để bạn có thể hoàn thành huy hiệu, bán chúng, hoặc làm bất kỳ điều gì bạn muốn.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+ASF là một chương trình khá phức tạp để hiểu đầy đủ, vì vậy thay vì giải thích tất cả các chi tiết kỹ thuật, chúng tôi sẽ đưa ra một lời giải thích rất đơn giản dưới đây.
 
 ASF đăng nhập vào tài khoản Steam của bạn thông qua Steam Client được tạo bên trong chương trình bằng cách sử dụng thông tin mà bạn cung cấp. Sau khi đã đăng nhập thành công, nó phân tích của **[huy hiệu](https://steamcommunity.com/my/badges)** của bạn để tìm các trò chơi có sẵn cho farm (Bạn có thể nhận thêm được X thẻ từ chơi trò chơi này). Sau khi phân tích tất cả các trang và xây dựng danh sách cuối cùng của các trò chơi có sẵn, ASF chọn thuật toán farm hiệu quả nhất và bắt đầu quá trình. Quá trình này phụ thuộc vào lựa chọn **[thuật toán farm thẻ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**, nhưng thường nó bao gồm chơi trò chơi đủ điều kiện và kiếm tra theo định kỳ (cộng với mỗi vật phẩm rớt) nếu trò chơi đã farm đủ - nếu đủ, ASF có thể tiếp tục với các trò chơi tiếp theo, sử dụng cùng một phương pháp, cho đến khi tất cả các trò chơi đã farm hoàn tất.
 

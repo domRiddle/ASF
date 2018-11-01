@@ -1,20 +1,20 @@
 # Giấy phép
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Trừ khi được nêu khác, ASF được cấp phép dưới **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Cho một cách nhìn tổng quan về việc bạn có thể và không thể làm, bạn có thể sử dụng **[tl;dr Pháp luật](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+Giấy phép ASF rất dễ dãi và bạn được phép làm nhiều thứ hơn so với giấy phép chuẩn GPL, bao gồm sử dụng ASF trong các dự án thương mại mà không cần làm mã nguồn mở. Ngắn gọn, như đã nêu bởi tl;dr Pháp luật:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> Bạn có thể làm bất kì điều gì bạn thích với phần mềm, miễn là bạn bao gồm các thông báo yêu cầu. Giấy phép dễ dãi này chứa một giấy phép bằng sáng chế từ những người đóng góp cho mã nguồn.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` might be licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Xin lưu ý các **[thành phần ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** đính kèm với `PackageReference` có thể được cấp phép dưới điều kiện khác, như **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Điều tương tự đối với tất cả các dự án bên thứ ba mà ASF sử dụng, đặc biệt tất cả các `công cụ` có giấy phép riêng của nó.
 
 * * *
 
 ## Remarks
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Nếu bạn đang tạo phần mềm/dịch vụ của bạn dựa trên ASF hoặc một phần mã nguồn của nó, vui lòng xem xét điều 6 của giấy phép:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Thương hiệu. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
 
 We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
 

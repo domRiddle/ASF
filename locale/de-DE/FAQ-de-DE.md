@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Vergleich mit ähnlichen Tools
+## Vergleich mit ähnlichen Programmen
 
 * * *
 
@@ -369,7 +369,7 @@ You can run as many ASF instances on one machine as you like, assuming every ins
 
 * * *
 
-### What is the meaning of status when redeeming a key?
+### Was bedeutet Status beim Einlösen eines Produktschlüssels?
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 

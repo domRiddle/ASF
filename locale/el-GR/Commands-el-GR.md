@@ -10,7 +10,7 @@ Below commands can be sent to the bot through three different ways:
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
 
 * * *
 
@@ -82,7 +82,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.                                                                               |
 | `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
-| `update`                                                                   | `Owner`         | Checks GitHub for ASF updates (this is done automatically every 24 hours if `AutoUpdates`).                                                                                                           |
+| `update`                                                                   | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
 | `έκδοση`                                                                   | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *

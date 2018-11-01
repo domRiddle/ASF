@@ -36,15 +36,15 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ## Architekturen
 
-Ein ASF-Docker-Image steht derzeit für zwei Architekturen zur Verfügung - `X64` und `Arm`. Du kannst im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** mehr darüber lesen.
+Ein ASF-Docker-Image steht derzeit für zwei Architekturen zur Verfügung - `X64` und `Arm`. Du kannst im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
 
 Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
 
 * * *
 
-## Benutzung
+## Nutzung
 
-Für eine komplette Referenz verwende die **[offizielle Docker-Dokumentation](https://docs.docker.com/engine/reference/commandline/docker)**. Wir decken nur grundlegende Verwendung in dieser Anleitung ab. Du bist herzlich dazu eingeladen auch noch tiefer zu graben.
+Für eine vollständige Referenz solltest du die **[offizielle Docker-Dokumentation](https://docs.docker.com/engine/reference/commandline/docker)** verwenden. Wir werden in diesem Leitfaden nur die grundlegende Verwendung behandeln. Du bist herzlich dazu eingeladen, noch tiefer zu graben.
 
 ### Hallo ASF!
 
@@ -104,13 +104,13 @@ This has to be done only once after you created your container with `docker run`
 
 * * *
 
-## Konsolen-Argumente
+## Befehlszeilenargumente
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. Zum Beispiel:
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_ARGS=--cryptkey MeinPasswort" --name asf justarchi/archisteamfarm
 ```
 
 This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
@@ -150,7 +150,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 * * *
 
-### Complete example
+### Vollständiges Beispiel
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 

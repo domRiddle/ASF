@@ -48,11 +48,6 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
-If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
-
-- libunwind8 (libunwind)
-- libuuid1 (libuuid)
-
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
 - None for now
@@ -93,7 +88,7 @@ Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe`
 
 After a small cleanup, you'll now have a very convenient structure similar to the one below:
 
-![架構](https://i.imgur.com/k85csaZ.png)
+![Structure](https://i.imgur.com/k85csaZ.png)
 
 This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
 
@@ -140,7 +135,7 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![架構 2](https://i.imgur.com/2s7ZUUu.png)
+![Structure 2](https://i.imgur.com/2s7ZUUu.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 

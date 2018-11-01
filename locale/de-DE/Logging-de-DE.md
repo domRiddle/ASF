@@ -244,7 +244,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### Allgemeine Optionen
 
-*name* - Name of the target.
+*name* - Name des Ziels.
 
 * * *
 
@@ -322,7 +322,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### Allgemeine Optionen
 
-*name* - Name of the target.
+*name* - Name des Ziels.
 
 * * *
 

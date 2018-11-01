@@ -2,13 +2,13 @@
 
 Kompilierung ist der Prozess der Erstellung von ausführbaren Dateien. Dies ist, was du tun willst, wenn du deine eigenen Änderungen zu ASF hinzufügen willst oder wenn du aus irgendeinem Grund nicht auf ausführbare Dateien vertraust, die in offiziellen **[Veröffentlichungen](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** bereitgestellt werden. Wenn du ein Benutzer und kein Entwickler bist, möchtest du höchstwahrscheinlich bereits vorkompilierte Binärdateien verwenden, aber wenn du deine eigenen verwenden oder etwas Neues lernen möchtest, lies weiter.
 
-ASF kann auf allen momentan unterstützten Platformen kompiliert werden so lange du alle benötigten Werkzeuge hierzu hast.
+ASF kann auf allen momentan unterstützten Plattformen kompiliert werden so lange du alle benötigten Programme hierzu hast.
 
 * * *
 
 ## .NET Core SDK
 
-Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nicht nur Runtime), um ASF zu kompilieren. Eine Installationsanleitung findest du auf der **[.NET Core Installationsseite](https://www.microsoft.com/net/download)**. Du musst die passende .NET Core SDK-Version für dein Betriebssystem installieren. Nach erfolgreicher Installation sollte der Befehl `dotnet` funktionieren und betriebsbereit sein. Du kannst mit `dotnet --info` überprüfen ob es funktioniert. Achte auch darauf, dass dein .NET Core SDK mit ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** übereinstimmt.
+Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nicht nur Runtime) um ASF zu kompilieren. Eine Installationsanleitung findest du auf der **[.NET Core Installationsseite](https://www.microsoft.com/net/download)**. Du musst die passende .NET Core SDK-Version für dein Betriebssystem installieren. Nach erfolgreicher Installation sollte der Befehl `dotnet` funktionieren und betriebsbereit sein. Du kannst mit `dotnet --info` überprüfen ob es funktioniert. Achte auch darauf, dass dein .NET Core SDK mit den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** übereinstimmt.
 
 Beispiel von `dotnet --info` unter Windows:
 
@@ -52,7 +52,7 @@ Wenn die Kompilierung erfolgreich beendet wurde, findest du dein ASF im `source`
 
 ### Betriebssystemspezifisch
 
-Du kannst auch OS-spezifisches .NET Core Paket generieren, wenn du einen bestimmten Grund hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime laufen lassen kannst, die du für die Kompilierung verwendet hast, aber nur für den Fall, dass du es möchtest:
+Du kannst auch das betriebssystemspezifische .NET Core Paket generieren, wenn du einen bestimmten Grund hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime laufen lassen kannst, die du für die Kompilierung verwendet hast, aber nur für den Fall, dass du es möchtest:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"

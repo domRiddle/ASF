@@ -1,8 +1,8 @@
 # Zwei-Faktor-Authentifizierung
 
-Vor einiger Zeit hat Valve ein System namens "Escrow" eingeführt, das einen zusätzlichen Authentifikator für verschiedene kontobezogene Aktivitäten benötigt. Du kannst **[hier](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** und **[hier](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** mehr darüber lesen. Es ist wichtig, das 2FA-System zuerst zu verstehen, bevor man versucht, die Logik hinter ASF 2FA zu verstehen.
+Vor einiger Zeit hat Valve ein System namens "Treuhand" eingeführt, das einen zusätzlichen Authentifikator für verschiedene kontobezogene Aktivitäten erfordert. Du kannst **[hier](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** und **[hier](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** mehr darüber lesen. Es ist wichtig, das 2FA-System zuerst zu verstehen, bevor man versucht, die Logik hinter ASF 2FA zu verstehen.
 
-Wie Sie sehen können, werden alle Trades bis zu 15 Tage lang zurückgehalten, was für unser ASF kein großes Problem darstellt, aber dennoch ärgerlich sein kann, besonders für diejenigen, die eine vollständige Automatisierung wünschen. Glücklicherweise enthält ASF eine Lösung für dieses Problem, genannt ASF 2FA.
+Wie du sehen kannst, werden alle Handelsangebote für bis zu 15 Tage zurückgehalten, was kein großes Problem für unsere ASF ist, aber dennoch ärgerlich sein kann, besonders für diejenigen, die eine vollständige Automatisierung wünschen. Glücklicherweise enthält ASF eine Lösung für dieses Problem, genannt ASF 2FA.
 
 * * *
 
@@ -68,7 +68,7 @@ Bitte bestätige, dass die Annahme von Bestätigungen tatsächlich funktioniert.
 
 Für iOS kannst du **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)** verwenden. Dies ist möglich, da du entschlüsselte Backups erstellen, auf deinem PC installieren und das Programm verwenden kannst, um Steam-Daten zu extrahieren, die sonst unmöglich zu bekommen sind (zumindest ohne Jailbreak, aufgrund der iOS-Verschlüsselung).
 
-Gehe zu **[neuester Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald du die Daten extrahiert hast kannst du sie z.B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF 2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
+Gehe zu der **[neuesten Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald du die Daten extrahiert hast kannst du sie z.B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF 2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
 
 Für Fragen/Probleme besuche bitte **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
@@ -137,7 +137,7 @@ Du benötigst einen 2FA-Code, um auf das 2FA-geschützte Konto zuzugreifen, das 
 
 * * *
 
-### Kann ich meinen Original-Authentifikator verwenden nach dem Import zu ASF 2FA?
+### Kann ich nach dem Import zu ASF 2FA meinen Original-Authentifikator verwenden?
 
 Ja, dein Original-Authentifikator bleibt funktionsfähig und du kannst ihn zusammen mit ASF 2FA verwenden. Das ist der springende Punkt des Verfahrens - wir importieren deine Authentifikationsinformationen in ASF damit ASF sie nutzen und ausgewählte Bestätigungen in deinem Namen akzeptieren kann.
 
@@ -167,7 +167,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Erweiterte Einstellungen
+## Weiteres
 
 Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 

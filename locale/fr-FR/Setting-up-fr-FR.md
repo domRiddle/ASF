@@ -48,11 +48,6 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
 
-If you're going to run `linux-arm` variant, then temporarily you also need .NET Core 2.0 dependencies:
-
-- libunwind8 (libunwind)
-- libuuid1 (libuuid)
-
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
 - None for now
@@ -226,8 +221,7 @@ You need to do only one more thing, toggle advanced settings, find `IPC` option,
 
 Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
-![IPC 2
-](https://i.imgur.com/ZmkO8pk.png)
+![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
 If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 

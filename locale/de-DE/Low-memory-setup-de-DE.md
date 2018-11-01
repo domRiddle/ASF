@@ -1,14 +1,14 @@
 # Speichereffizientes Setup
 
-Dies ist genau das Gegenteil vom **[Hochleistungs-Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)** und normalerweise möchtest du diesen Tipps folgen, wenn du den Speicherverbrauch von ASF verringern willst, um die Gesamtbelastung zu senken.
+Dies ist genau das Gegenteil von **[Hochleistungs-Setup](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)** und normalerweise möchtest du diesen Tipps folgen, wenn du den Speicherverbrauch von ASF verringern willst, um die Gesamtbelastung zu senken.
 
 * * *
 
-ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to various issues. Obwohl ASF leicht ist, hat es keine Angst davor, das Betriebssystem nach mehr Speicher zu fragen, wenn Speicher benötigt wird, damit ASF mit optimaler Geschwindigkeit arbeiten kann.
+ASF ist per Definition extrem ressourcenschonend und je nach Nutzung ist sogar ein 128 MB VPS mit Linux in der Lage, es auszuführen, obwohl es nicht empfohlen wird so niedrig zu gehen da dies zu verschiedenen Problemen führen kann. Obwohl ASF leicht ist, hat es keine Angst davor, das Betriebssystem nach mehr Speicher zu fragen, wenn Speicher benötigt wird, damit ASF mit optimaler Geschwindigkeit arbeiten kann.
 
-ASF als Anwendung versucht, so optimiert und effizient wie möglich zu sein, wobei auch die während der Ausführung verwendeten Ressourcen berücksichtigt werden. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", that can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every extra page, which results in concurrent fetching and parsing of remaining pages. That "extra" memory usage (compared to bare minimum for operation) can dramatically speed up execution and overall performance, for the cost of increased memory usage that is needed to do all of those things in parallel. Similar thing is happening to all other general ASF tasks that can be run in parallel, e.g. with parsing active trade offers, ASF can parse all of them at once, as they're all independent of each other. On top of that, ASF (C# runtime) will **not** return unused memory back to OS immediately afterwards, which you can quickly notice in form of ASF process only taking more and more memory, but never giving that memory back to the OS. Some people might already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
+ASF als Anwendung versucht, so optimiert und effizient wie möglich zu sein, wobei auch die während der Ausführung verwendeten Ressourcen berücksichtigt werden. Wenn es um Speicher geht, zieht ASF die Performance dem Speicherverbrauch vor, was zu temporären Speicherspitzen führen kann, was z.B. bei Konten mit mehr als 3 Abzeichen-Seiten auffällt, da ASF die erste Seite abruft und analysiert, daraus die Gesamtzahl der Seiten liest und dann für jede zusätzliche Seite die Abrufaufgabe startet, was zum gleichzeitigen Abrufen und Parsen der verbleibenden Seiten führt. Dieser "zusätzliche" Speicherverbrauch (im Vergleich zu einem absoluten Minimum für den Betrieb) kann die Ausführung und die Gesamtleistung drastisch beschleunigen, und zwar auf Kosten des erhöhten Speicherverbrauchs, der erforderlich ist um all diese Dinge parallel auszuführen. Ähnliches geschieht mit allen anderen allgemeinen ASF-Aufgaben, die parallel ausgeführt werden können, z.B. mit dem Parsen aktiver Handelsangebote, ASF kann sie alle auf einmal analysieren, da sie alle unabhängig voneinander agieren. Darüber hinaus wird ASF (C# Runtime) ungenutzten Speicher **nicht** sofort danach an das Betriebssystem zurückgeben, was man in Form eines ASF-Prozesses schnell bemerken kann, der nur mehr und mehr Speicher benötigt, aber diesen Speicher nie an das Betriebssystem zurückgibt. Einige Leute mögen es bereits fragwürdig finden, vielleicht sogar ein Memory-Leak vermuten, aber keine Sorge, all das ist zu erwarten.
 
-ASF is extremely well optimized, and makes use of available resources as much as possible. High memory usage of ASF doesn't mean that ASF actively **uses** that memory and **needs it**. Very often ASF will keep allocated memory as "room" for future actions, because we can drastically improve performance if we don't need to ask OS for every memory chunk that we're about to use. The runtime should automatically release unused ASF memory back to OS when OS will **truly** need it. **[Unused memory is wasted memory](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. You run into issues when the memory you **need** is higher than the memory that is available for you, not when ASF keeps some extra allocated with purpose of speeding up functions that will execute in a moment. You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
+ASF ist extrem gut optimiert und nutzt die vorhandenen Ressourcen so gut wie möglich. Eine hohe Speicherauslastung von ASF bedeutet nicht, dass ASF aktiv diesen Speicher **verwendet** und ** ihn benötigt**. Sehr oft behält ASF zugewiesenen Speicher als "Raum" für zukünftige Aktionen, da wir die Leistung drastisch verbessern können, wenn wir nicht für jeden Speicherabschnitt, den wir verwenden wollen, das Betriebssystem fragen müssen. Die Runtime sollte automatisch ungenutzten ASF-Speicher an das Betriebssystem zurückgeben, wenn das Betriebssystem ihn **wirklich** benötigt. **[Ungenutzter Speicher ist verschwendeter Speicher](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. Du stößt auf Probleme, wenn der Speicher, den du **benötigst** höher ist als der Speicher, der für dich verfügbar ist, nicht wenn ASF einige zusätzliche zugewiesene Ressourcen behält, mit dem Ziel, Funktionen zu beschleunigen, die in einem Moment ausgeführt werden. Du stößt auf Probleme, wenn dein Linux-Kernel den ASF-Prozess aufgrund von OOM (out of memory) beendet, nicht wenn du den ASF-Prozess als Top-Speicherverbraucher in `htop` siehst.
 
 Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
 
@@ -33,10 +33,10 @@ Below tricks **do not affect performance negatively** and can be safely applied 
 
 Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
 
-The most resources-heavy functions are:
+Die ressourcenintensivsten Funktionen sind:
 
-- Badge page parsing
-- Inventory parsing
+- Das Parsen der Abzeichen-Seite
+- Das Parsen des Inventars
 
 Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
 
@@ -44,17 +44,17 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ## Laufzeitoptimierung (Fortgeschritten)
 
-Below tricks **involve performance degradation** and should be used with caution.
+Die folgenden Tricks **beeinträchtigen die Performance-Minderung** und sollten mit Vorsicht angewendet werden.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` ermöglicht es dir, die ASF-Runtime einzustellen, insbesondere zwischen Server GC und Workstation GC zu wechseln.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+> Der Garbage Collector ist selbstoptimierend und kann in einer Vielzahl von Szenarien eingesetzt werden. Du kannst mit Hilfe einer Einstellung in der Konfigurationsdatei die Art der Garbage Collection basierend auf den Eigenschaften der Systemlast festlegen. Die CLR bietet die folgenden Arten von Garbage Collection:
 > 
-> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcserver> element in the runtime configuration schema.
+> Workstation Garbage Collection, die für alle Client-Arbeitsplätze und Einzel-PCs gilt. Dies ist die Standardeinstellung für das <gcserver> Element im Runtime-Konfigurationsschema.
 > 
-> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> Server Garbage Collection, die für Serveranwendungen bestimmt ist, die einen hohen Datendurchsatz und Skalierbarkeit erfordern. Die Server Garbage Collection kann sowohl nicht zeitgleich als auch im Hintergrund erfolgen.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+Weitere Informationen findest du unter **[Grundlagen der Garbage Collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 

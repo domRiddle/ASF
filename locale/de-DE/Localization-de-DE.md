@@ -14,7 +14,7 @@ Unsere Plattform unterstützt zusätzlich zur Übersetzung des Hauptprogramms AS
 
 ## Anmeldung
 
-Wenn du bei ASF helfen willst, entweder durch Übersetzen selbst, oder das Rezensieren oder Genehmigen von Übersetzungen, bitte melde dich auf der **[Crowdin Projektseite](https://crowdin.com/project/archisteamfarm)** an. Die Registrierung ist einfach und absolut gratis! Nach dem Einloggen kannst du Sprachen auswählen, denen du gern zugewiesen werden möchtest und anschließend zu den ASF strings gehen und dem Rest der Community beim Übersetzen von ASF in alle Sprachen der Welt helfen!
+Wenn du bei der Arbeit an ASF helfen möchtest, entweder durch Übersetzen, Überprüfen oder Genehmigen von Übersetzungen, melde dich bitte auf unserer **[Crowdin-Projektseite](https://crowdin.com/project/archisteamfarm)** an. Die Registrierung ist einfach und absolut kostenlos! Nach dem Einloggen kannst du Sprachen auswählen, denen du gern zugewiesen werden möchtest und anschließend zu den ASF strings gehen und dem Rest der Community beim Übersetzen von ASF in alle Sprachen der Welt helfen!
 
 * * *
 
@@ -38,7 +38,7 @@ Diese Flexibilität biten wir besonders für dich, damit du den ASF-Satz leicht 
 
 * * *
 
-### Rezensionen
+### Überprüfung
 
 Wenn dein String bereits von jemand anderem übersetzt wurde, kannst du dafür stimmen. Stimmen macht es möglich die beste Variante einer Übersetzung auszusuchen, anstatt an einem ursprünglichen Vorschlag festzuhalten - Das Verbessert die Qualität der Übersetzungen weiter. Du kannst für bereits verfügbare Vorschläge stimmen oder deine eigenen Vorschlag der Übersetzung einbringen, der durch den selben Prozess gehen wird. Schlussendlich wird ein endgültiger Wert gewählt, basierend auf dem Vorschlag mit den meisten Stimmen oder als Wahl eines Korrekturlesers, der für diese Sprache ausgewählt wurde, der die gegebene Übersetzung persönlich genehmigt (unter Anderem basierend auf deinen Stimmen).
 
@@ -164,9 +164,9 @@ Unabhängig vom Fall solltest du zuerst den Quelltext kopieren und wie gewohnt �
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+Wenn es sich bei dem Link um einen generischen Link handelt, der außerhalb des Wikis liegt (z.B. auf die neueste ASF-Version), kannst du ihn so lassen wie er ist, da du ihn in diesem Fall nicht bearbeiten solltest. Du kannst ihn speichern und weitermachen.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+Wenn der Link jedoch weiter **innerhalb** des Wikis zeigt, wie der oben genannte, kannst du ihn tatsächlich korrigieren, um auf einen neuen (lokalisierten) Pfad zu verweisen. Du erreichst dies, indem du `-locale` sorgfältig an die Ziel-URL im `<a>`-Tag anhängst, wie unten beschrieben:
 
 * * *
 
@@ -174,19 +174,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+Achte darauf, dass deine URL tatsächlich existiert, denn wenn du einen Fehler machst wird dieser Link nicht mehr funktionieren. Wenn du erfolgreich warst, hast du jetzt eine voll funktionsfähige Übersetzung mit einem Link, der auf die übersetzte (in unserem Fall `Setting-up-pl-PL`) Seite zeigt.
 
-Doing the steps above will properly translate our HTML back to markdown:
+Wenn du die obigen Schritte ausführst, wird unser HTML-Code korrekt zurück in Markdown übersetzt:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+Und schließlich in den Wiki-Text:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+Wenn kein HTML vorhanden ist (zweiter Fall), ist das noch einfacher, da du einfach zu `Hidden texts` -> `Link addresses` gehen kannst.
 
 * * *
 
@@ -194,7 +194,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+Von dort aus kannst du den Link zum Verweis auf eine neue Position leicht korrigieren ohne dich überhaupt um HTML kümmern zu müssen:
 
 * * *
 
@@ -204,11 +204,11 @@ From there you can easily correct the link to point to new location, without eve
 
 ### Lokale Links
 
-Im gesamten Wiki findest du auch lokale Links, die auf einen bestimmten Abschnitt des Dokuments verweisen. Diese Links beginnen mit dem `#` Zeichen.
+Im gesamten Wiki findest du auch lokale Links die auf einen bestimmten Abschnitt des Dokuments verweisen. Diese Links beginnen mit dem `#` Zeichen.
 
-Dies sind nun Sonderfälle, da diese Links auf den Namen der Abschnitte des aktuellen Dokuments basieren. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+Dies sind nun Sonderfälle, da diese Links auf den Namen der Abschnitte des aktuellen Dokuments basieren. Während wir für URLs die allgemeine Konvention haben der URL die `-locale` hinzuzufügen (dies funktioniert überall), werden Abschnittsnamen von dir und anderen Leuten übersetzt, also musst du sicherstellen, dass sie auf den richtigen Ort zeigen.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+Beispielsweise findest du den Link `#introduction` in unserem Abschnitt **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)**:
 
 * * *
 
@@ -224,23 +224,23 @@ Da wir das Wort "Introduction" in "Wprowadzenie" für unsere polnische Sprache �
 
 * * *
 
-Auf diese Weise funktioniert unser lokaler Link weiterhin, da er nun auf den Namen des Bereichs zeigt, den wir verwenden. Du kannst Links innerhalb von HTML-Tags auf die gleiche Weise korrigieren.
+Auf diese Weise funktioniert unser lokaler Link weiterhin, da er nun auf den Namen des Bereichs zeigt den wir verwenden. Du kannst Links innerhalb von HTML-Tags auf die gleiche Weise korrigieren.
 
 * * *
 
 ### Codeblöcke
 
-Seie äußerst sorgfältig, wenn du Sätze mit `<code></code>` Blöcken übersetzt. Der Codeblock zeigt feste ASF-Codenamen oder Begriffe an die nicht übersetzt werden sollten. Zum Beispiel:
+Sei äußerst sorgfältig, wenn du Sätze mit `<code></code>` Blöcken übersetzt. Der Codeblock zeigt feste ASF-Codenamen oder Begriffe an die nicht übersetzt werden sollten. Zum Beispiel:
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` Status erreichst, bevor du mit deiner gesamten Charge fertig bist.
 
-Wie du sehen kannst, befindet sich das Wort `RateLimited` hier in einem Codeblock und zeigt den internen ASF-Code-Status an, der nicht übersetzt werden sollte. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+Wie du sehen kannst, befindet sich das Wort `RateLimited` hier in einem Codeblock und zeigt den internen ASF-Code-Status an, der nicht übersetzt werden sollte. Ebenso solltest du keine anderen Codeblöcke übersetzen, wie z.B. Namen von Konfigurationseigenschaften (z.B. `TradingPreferences`), Enum-Mitglieder (z.B. `Stable` und `Experimental` Optionen von `UpdateChannel`) und ähnliches.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+Nur weil diese Wörter nicht übersetzt werden sollten, bedeutet das nicht, dass du ihnen keine entsprechende Übersetzung hinzufügen kannst, zum Beispiel in Klammern.
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` (zu häufiges Aktivieren) Status erreichst, bevor du mit deiner gesamten Charge fertig bist.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+Wie du oben sehen kannst, haben wir neben `RateLimited` "zu häufiges Aktivieren" hinzugefügt, um diesen Status benutzerfreundlich zu übersetzen, während gleichzeitig das ursprüngliche ASF-Wort beibehalten wird, dass der Benutzer während der Nutzung des Programms eventuell sieht. Auf die gleiche Weise kannst du auch andere ähnliche Fälle von verschiedenen Wörtern und Sätzen übersetzen/erklären.
 
 Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder es einen Text gibt der sich nicht in einem Codeblock befindet, sich aber in einem Codeblock befinden sollte, kannst du gerne hier auf Crowdin fragen, indem du ein entsprechendes **[Problem](#Probleme)** erstellst.
 

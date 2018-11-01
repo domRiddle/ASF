@@ -4,7 +4,7 @@ Dies ist genau das Gegenteil von **[Speichereffizientes Setup](https://github.co
 
 * * *
 
-ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausgewogene Abstimmung geht. Daher gibt es nicht viel was man tun kann, um die Leistung weiter zu steigern, obwohl man auch nicht völlig ohne Möglichkeiten da steht. Beachte jedoch, dass diese Optionen standardmäßig nicht aktiviert sind, was bedeutet, dass sie nicht gut genug sind, um sie für die Mehrheit der Anwendungen als ausgewogen zu betrachten. Deshalb solltest du selbst entscheiden, ob diese Optionen zur Speichererweiterung für dich akzeptabel sind.
+ASF versucht bereits die Performance zu bevorzugen, wenn es um die allgemeine ausgewogene Abstimmung geht. Daher gibt es nicht viel was man tun kann um die Performance weiter zu steigern, obwohl man auch nicht völlig ohne Möglichkeiten da steht. Beachte jedoch, dass diese Optionen standardmäßig nicht aktiviert sind, was bedeutet, dass sie nicht gut genug sind, um sie für die Mehrheit der Anwendungen als ausgewogen zu betrachten. Deshalb solltest du selbst entscheiden, ob diese Optionen zur Speichererweiterung für dich akzeptabel sind.
 
 * * *
 
@@ -12,32 +12,32 @@ ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausge
 
 Die folgenden Tricks **beanspruchen eine ernsthafte Speicherzunahme** und sollten mit Vorsicht verwendet werden.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` ermöglicht es dir, die ASF-Runtime einzustellen, insbesondere zwischen Server GC und Workstation GC zu wechseln.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+> Der Garbage Collector ist selbstoptimierend und kann in einer Vielzahl von Szenarien eingesetzt werden. Du kannst mit Hilfe einer Einstellung in der Konfigurationsdatei die Art der Garbage Collection basierend auf den Eigenschaften der Systemlast festlegen. Die CLR bietet die folgenden Arten von Garbage Collection:
 > 
-> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcserver> element in the runtime configuration schema.
+> Workstation Garbage Collection, die für alle Client-Arbeitsplätze und Einzel-PCs gilt. Dies ist die Standardeinstellung für das <gcserver> Element im Runtime-Konfigurationsschema.
 > 
-> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> Server Garbage Collection, die für Serveranwendungen bestimmt ist, die einen hohen Datendurchsatz und Skalierbarkeit erfordern. Die Server Garbage Collection kann sowohl nicht zeitgleich als auch im Hintergrund erfolgen.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+Weitere Informationen findest du unter **[Grundlagen der Garbage Collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
+ASF verwendet standardmäßig die Garbage Collection der Workstation. Dies liegt vor allem an einem ausgewogenen Verhältnis zwischen Speichernutzung und Performance, das für wenige Bots mehr als ausreichend ist, da normalerweise ein einzelner gleichzeitiger Hintergrund-GC-Thread schnell genug ist um den gesamten von ASF zugewiesenen Speicher zu bewältigen.
 
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
+Heutzutage haben wir jedoch eine Menge an CPU-Kernen, von denen ASF sehr profitieren kann, indem wir für jede verfügbare CPU vCore einen eigenen GC-Thread bereitstellen. Dies kann die Leistung bei komplexen ASF-Aufgaben wie dem Parsen von Abzeichen-Seiten oder dem Inventar erheblich verbessern, da jede CPU vCore helfen kann, im Gegensatz zu nur 2 (Haupt und GC). Server GC wird für Maschinen mit 3 CPU vCores und mehr empfohlen, Workstation GC wird automatisch erzwungen, wenn deine Maschine nur 1 CPU vCore hat, und wenn du genau 2 hast, dann kannst du beide ausprobieren (die Ergebnisse können variieren).
 
-You can enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. Keep in mind that you might need to do it more than once, as ASF will still use `false` by default after auto-update.
+Du kannst den Server GC aktivieren, indem du in der `ArchiSteamFarm.runtimeconfig.json` Datei die `System.GC.Server` Eigenschaft von `false` auf `true` umstellst. Bedenke, dass du es möglicherweise mehr als einmal tun musst, da ASF nach dem automatischen Update standardmäßig immer noch `false` verwendet.
 
-Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You might find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[GC latency level](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory.
+Server GC selbst führt nicht zu einer sehr großen Speicherzunahme, wenn er einfach nur aktiv ist, aber er hat viel größere Generationsgrößen und ist daher viel fauler, wenn es darum geht, dem Betriebssystem Speicher zurückzugeben. Du befindest dich möglicherweise an einem Sweet Spot, an dem Server GC die Leistung signifikant erhöht und du sie weiterhin nutzen möchtest, aber gleichzeitig kannst du dir nicht leisten, dass der enorme Speicherzuwachs, der durch die Verwendung entsteht, zunimmt. Zum Glück für dich gibt es eine "Das Beste aus beiden Welten"-Einstellung, indem du den Server GC mit **[GC latency level](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#gclatencylevel)** auf `0` gesetzt hast, was immer noch Server GC ermöglicht, aber die Größe der Generierung einschränkt und mehr auf den Speicher setzt.
 
-However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's much better to not change `GCLatencyLevel` at all, achieving superior performance in result.
+Wenn der Speicher jedoch kein Problem für dich ist (da GC immer noch deinen verfügbaren Speicher berücksichtigt und sich selbst optimiert), ist es viel besser, `GCLatencyLevel` überhaupt nicht zu ändern, da man so eine höhere Leistung als Ergebnis erlangt.
 
 * * *
 
 ## Empfohlene Optimierung
 
-- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
-- Enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. This will enable server GC which can be immediately seen as being active by memory increase compared to workstation GC.
-- If you can't afford that much memory increase, consider using `GCLatencyLevel` of `0` to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
+- Vergewissere dich, dass du den Standardwert `MaxPerformance` für `OptimizationMode` verwendest. Dies ist bei weitem die wichtigste Einstellung, da die Verwendung des Wertes `MinMemoryUsage` dramatische Auswirkungen auf die Performance hat.
+- Aktiviere den Server GC, indem du in der `ArchiSteamFarm.runtimeconfig.json` Datei die `System.GC.Server` Eigenschaft von `false` auf `true` umstellst. Dadurch wird der Server-GC aktiviert, der durch eine Speichererhöhung im Vergleich zum Arbeitsplatz-GC sofort als aktiv angesehen werden kann.
+- Falls du dir eine solche Speicherzunahme nicht leisten kannst, solltest du `GCLatencyLevel` mit einem Wert von `0` verwenden um "das Beste aus beiden Welten" zu erreichen. Wenn dein Speicher es sich jedoch leisten kann, dann ist es besser, es bei der Standardeinstellung zu belassen - Server GC optimiert sich bereits während der Laufzeit und ist intelligent genug um weniger Speicher zu verbrauchen, wenn dein Betriebssystem es wirklich benötigt.
 
-If you've enabled server GC and kept `GCLatencyLevel` at default setting, then you have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum.
+Wenn du den Server GC aktiviert hast und `GCLatencyLevel` auf Standardeinstellung belassen hast, dann hast du eine überragende ASF-Performance, die auch bei Hunderten oder Tausenden von aktivierten Bots blitzschnell sein sollte. Die CPU sollte kein Engpass mehr sein, da ASF in der Lage ist, bei Bedarf die gesamte CPU-Leistung zu nutzen, was die benötigte Zeit auf ein Minimum reduziert.

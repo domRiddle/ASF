@@ -1,18 +1,18 @@
 # Hintergrundproduktschlüsselaktivierer
 
-Der Hintergrundproduktschlüsselaktivierer ist eine besondere, in ASF integrierte Funktion, welche es dir erlaubt, eine bestimmte Menge an Steam-Produktschlüsseln (zusammen mit deren Namen) im Hintergrund aktivieren zu lassen. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` **[Status](https://github.com/JustArchi/ArchiSteamFarm/wiki/FAQ-de-de#what-is-the-meaning-of-status-when-redeeming-a-key)** erreichst, bevor du mit allen fertig bist.
+Der Hintergrundproduktschlüsselaktivierer ist ein speziell eingebautes ASF-Feature, mit dem du einen bestimmten Satz von Steam-Produktschlüsseln (zusammen mit ihren Namen) importieren kannst. Diese können dann im Hintergrund aktiviert werden. Das ist besonders nützlich, wenn du eine große Menge an Produktschlüsseln aktivieren möchtest und du sicherlich den `RateLimited` **[Status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE#was-bedeutet-status-beim-einlösen-eines-produktschlüssels?)** erreichst, bevor du mit deiner gesamten Charge fertig bist.
 
-Der Hintergrundproduktschlüsselaktivierer ist dafür gedacht, eine einzelne Bot-Umgebung zu nutzen, das bedeutet, dass dieser nicht die `RedeemingPreferences` verwendet. Dieses Feature kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-DE)** benutzt werden.
+Der Hintergrundproduktschlüsselaktivierer verfügt über einen einzigen Bot-Umfang, was bedeutet, dass er `RedeemingPreferences` nicht verwendet. Dieses Feature kann bei Bedarf entweder zusammen mit oder anstelle des `redeem` **[Befehls](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-DE)** benutzt werden.
 
 * * *
 
 ## Import
 
-Der Importprozess kann über zwei Wege durchgeführt werden, entweder durch Verwendung einer Datei oder der IPC.
+Der Importvorgang kann auf zwei Arten durchgeführt werden - entweder über eine Datei oder über IPC.
 
 ### Datei
 
-ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, wird der erste Eintrag als Spielname und der letzte Eintrag als Produktschlüssel erachtet und alles dazwischen wird ignoriert. Zum Beispiel:
+ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,17 +20,17 @@ ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.key
     Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
     
 
-ASF importiert solch eine Datei, entweder beim Bot-Start oder später während der Ausführung. Nach erfolgreichem Parsen deiner Datei und dem eventuellem Auslassen von ungültigen Einträgen werden alle korrekt erkannten Spiele der Hintergrundwarteschlange hinzugefügt, und die Datei `BotName.keys` wird dann aus dem Dateiordner `config` gelöscht.
+ASF importiert diese Datei entweder beim Start des Bots oder später während der Ausführung. Nach dem erfolgreichen Parsen deiner Datei und dem eventuellen Weglassen ungültiger Einträge werden alle ordnungsgemäß erkannten Spiele der Hintergrundwarteschlange hinzugefügt und die Datei `BotName.keys` selbst wird aus dem Verzeichnis `config` entfernt.
 
 ### IPC
 
-Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien legt ASF den `GamesToRedeemInBackground` **[ASF API-Endpunkt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** offen, welcher von jedem IPC-Tool, einschließlich unserem ASF-ui, verwendet werden kann. Die Verwendung von IPC kann mächtiger sein, da du selbst ein geeignetes Parsing durchführen kannst, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt an das Tabulatorzeichen gebunden zu sein oder sogar komplett individuelle Zeichenstrukturen.
+Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien legt ASF den `GamesToRedeemInBackground` **[ASF API-Endpunkt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-api)** offen, welcher von jedem IPC-Tool, einschließlich unserem ASF-ui, verwendet werden kann. Die Verwendung von IPC kann mächtiger sein, da du selbst ein geeignetes Parsing durchführen kannst, wie zum Beispiel die Verwendung eines benutzerdefinierten Trennzeichens anstatt an das Tabulatorzeichen gebunden zu sein oder sogar komplett individuelle Zeichenstrukturen.
 
 * * *
 
 ## Warteschlange
 
-Sobald die Spiele erfolgreich importiert wurden, werden sie der Warteschlange hinzugefügt. ASF arbeitet sich automatisch durch seine Hintergrundwarteschlange, solange der Bot mit dem Steam-Netzwerk verbunden ist und die Warteschlange nicht leer ist. Ein bei dem Aktivierungsvorgang verwendeter Produktschlüssel, welcher nicht zu einem `RateLimited` führte, wird aus der Warteschlange entfernt und mit seinem Ergebnis ordnungsgemäß in eine Datei im `config` Ordner geschrieben - entweder in `BotName.keys.used`, wenn der Produktschlüssel im Prozess verwendet wurde (z.B. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) oder andernfalls `BotName.keys.unused`. ASF verwendet absichtlich den Namen Ihres Spiels, da der Produktschlüssel nicht zwingend einen aussagekräftigen Namen vom Steam-Netzwerk erhält - auf diese Weise können Sie Ihre Schlüssel sogar mit benutzerdefinierten Namen versehen, falls erforderlich/gewünscht.
+Sobald die Spiele erfolgreich importiert wurden, werden sie der Warteschlange hinzugefügt. ASF arbeitet sich automatisch durch seine Hintergrundwarteschlange, solange der Bot mit dem Steam-Netzwerk verbunden ist und die Warteschlange nicht leer ist. Ein bei dem Aktivierungsvorgang verwendeter Produktschlüssel, welcher nicht zu einem `RateLimited` führte, wird aus der Warteschlange entfernt und mit seinem Ergebnis ordnungsgemäß in eine Datei im `config` Ordner geschrieben - entweder in `BotName.keys.used`, wenn der Produktschlüssel im Prozess benutzt wurde (z.B. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) oder andernfalls `BotName.keys.unused`. ASF verwendet absichtlich den Namen deines Spiels, da der Produktschlüssel nicht zwingend einen aussagekräftigen Namen vom Steam-Netzwerk erhält - auf diese Weise kannst du deine Produktschlüssel sogar mit benutzerdefinierten Namen versehen, falls erforderlich/gewünscht.
 
 Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wird die Warteschlange vorübergehend für eine volle Stunde unterbrochen, um die Abklingzeit abzuwarten. Danach wird der Prozess dort fortgesetzt, wo er unterbrochen wurde, und endet, wenn die gesamte Warteschlange leer ist.
 

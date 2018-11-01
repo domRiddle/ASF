@@ -1,49 +1,50 @@
 # Veraltete Funktionen
 
-Ab ASF V3.1.2.2.2 werden wir eine konsequente Vernichtungspolitik verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
+Ab ASF V3.1.2.2.2 werden wir eine konsequente Verfallspolitik verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
 
 * * *
 
-## What is deprecation?
+## Was ist Verfall (engl. Deprecation)?
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+Verfall (engl. Deprecation) ist der Prozess, kleinere oder größere Änderungen vorzunehmen, die zuvor verwendete Optionen, Argumente, Funktionalitäten oder Anwendungsfälle obsolet machen. Verfall (engl. Deprecation) bedeutet in der Regel, dass eine bestimmte Sache einfach in eine andere (ähnliche) Form umgeschrieben wurde, und du solltest rechtzeitig dafür sorgen, dass du sie entsprechend umstellst. In diesem Fall geht es einfach darum, die gegebene Funktionalität an einen geeigneteren Ort zu verlagern.
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we might change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+ASF verändert sich schnell und strebt immer danach, besser zu werden. Dies bedeutet leider, dass wir einige bestehende Funktionen ändern oder in ein anderes Teilstück des Programms verschieben müssen, damit es von neuen Funktionen, Kompatibilität oder Stabilität profitieren kann. Dank dessen müssen wir nicht an veralteten oder einfach schmerzhaft falschen Entscheidungen festhalten, die wir vor Jahren getroffen haben. Wir versuchen immer, einen vernünftigen Ersatz anzubieten, der der erwarteten Nutzung der zuvor verfügbaren Funktionalität entspricht, weshalb der Verfall (engl. Deprecation) meist harmlos ist und kleine Korrekturen für die vorherige Benutzung erfordert.
 
 * * *
 
-## Deprecation stages
+## Verfalls-Stufen
 
-ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
+ASF wird zwei Phasen der Verwerfung (engl. Deprecation) folgen, die den Übergang viel einfacher und weniger lästig machen.
 
 ### Stufe 1
 
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
+Stufe 1 tritt ein, wenn ein bestimmtes Feature veraltet ist, mit sofortiger Verfügbarkeit einer anderen Lösung (oder keiner, wenn es keine Pläne zur Wiedereinführung gibt).
 
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
+Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen, das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem du, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all deinen Programmen und Strukturen den richtigen Wechsel vornehmen kannst, um neues Verhalten zu befriedigen. Du kannst bestätigen, ob du alle entsprechenden Änderungen vorgenommen hast, indem du die Verfalls-Warnung nicht mehr siehst.
 
 ### Stufe 2
 
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt, was bedeutet, dass ASF nicht einmal bestätigt, dass du veraltete Features verwendest, geschweige denn respektierst, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt, was du versuchst zu tun.
 
 * * *
 
 ## Zusammenfassung
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+Du hast mehr oder weniger einen **ganzen Monat**, um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn du ein gelegentlicher ASF-Benutzer bist. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen wirksam werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn du ASF nach mehr als einem Monat Inaktivität startest, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und deine Nutzung manuell an die aktuelle anzupassen.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which might or might not match your personal preferences).
+In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit deinen persönlichen Präferenzen übereinstimmt).
 
 * * *
 
 ## Beispiel
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+Wir haben das in V3.1.2.2 enthaltenen **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE)** `--server` in die **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-c
+de-DE#ipc)** `IPC` verschoben.
 
 ### Stufe 1
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+Stufe 1 fand in der Version V3.1.2.2 statt, wo wir der Verwendung von `--server` eine entsprechende Warnung hinzugefügt haben. Das Argument `--server` wurde automatisch in die globale Konfigurationseigenschaft `IPC: true` übernommen, die vorerst genau so funktioniert wie der alte `--server` Schalter. Dies ermöglichte es jedem, einen entsprechenden Schalter zu betätigen, bevor ASF die Verwendung des alten Arguments einstellt.
 
 ### Stufe 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+Stufe 2 fand in der Version V3.1.3.0 statt, direkt nach V3.1.2.9 stabil mit Stufe 1, wie oben beschrieben. Stufe 2 bewirkte, dass ASF das Argument `--server` überhaupt nicht mehr anerkannte und es wie jedes andere ungültig übergebene Argument, was keine Auswirkungen auf das Programm mehr hat, behandelte. Für Leute, die immer noch nicht ihre Verwendung von `--server` in `IPC: true` geändert haben, führte dies dazu, dass IPC ganz und gar nicht mehr funktionierte, da ASF kein entsprechendes Zuordnen mehr durchführte.

@@ -10,7 +10,7 @@ Os comandos abaixo podem ser enviados para o bot de três formas diferentes:
 
 Tenha em mente que a interação com o ASF requer que você tenha permissão para utilizar os comandos de acordo com as configurações do ASF. Confira os parâmetros de configuração `SteamUserPermissions` e `SteamOwnerID` para obter mais detalhes.
 
-Todos os comandos abaixo são afetados pelo **[parâmetro de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-global)** `CommandPrefix`, que é, por padrão, `!`. Isto significa que para executar, por exemplo, o comando `status`, você deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha).
+Todos os comandos abaixo são afetados pela **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)** `CommandPrefix`, que é, por padrão, `!`. Isto significa que para executar, por exemplo, o comando `status`, você deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha).
 
 * * *
 
@@ -82,7 +82,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) cujos `RealAppIDs` coincidam com o indicado, do bot indicado para o bot de destino (Target).                                                                    |
 | `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`            | Envia todos itens Steam do `AppID` determinado com `ContextID` dos bots indicados para o bot de destino (Target).                                                                                                                                                 |
 | `unpack <Bots>`                                                      | `Master`            | Abre todos os pacotes de cartas armazenados no inventario dos bots indicados.                                                                                                                                                                                     |
-| `update`                                                                   | `Owner`             | Verifica atualizações para o ASF no GitHub (isso é feito automaticamente a cada 24 horas se `AutoUpdates` estiver ativo).                                                                                                                                         |
+| `update`                                                                   | `Owner`             | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                  |
 | `version`                                                                  | `FamilySharing`     | Mostra a versão do ASF.                                                                                                                                                                                                                                           |
 
 * * *

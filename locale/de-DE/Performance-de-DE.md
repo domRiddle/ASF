@@ -12,7 +12,7 @@ Vor einiger Zeit hat Valve den Algorithmus um Karten zu erhalten geändert. Von 
 
 ASF beinhaltet derzeit zwei Sammel-Algorithmen:
 
-**Einfacher** Algorithmus funktioniert am besten bei Konten, die über unbegrenzte Karten drops verfügen. Dies ist der primäre Algorithmus, der von ASF verwendet wird. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
+**Einfacher** Algorithmus funktioniert am besten bei Konten, die über unbegrenzte Karten drops verfügen. Dies ist der primäre Algorithmus, der von ASF verwendet wird. Bot findet Spiele für das Sammeln und sammelt sie einzeln, bis alle Karten gesammelt wurden. Dies liegt daran, dass die Karten-Sammel-Rate beim Sammeln von mehr als einem Spiel gegen Null tendiert und völlig ineffektiv ist.
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 

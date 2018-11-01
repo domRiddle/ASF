@@ -4,7 +4,7 @@
 
 * * *
 
-## Basics
+## Khái niệm cơ bản
 
 * **[Trang chủ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Cấu hình](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -23,18 +23,18 @@
 
 ## Nâng cao
 
-* **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Tham số dòng lệnh](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Dừng cập nhật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[CÂU HỎI THƯỜNG GẶP MỞ RỘNG](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Thiết lập hiệu suất cao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Bản địa hóa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Bản ghi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Thiết lập bộ nhớ thấp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Công cụ bên thứ ba](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Xác thực 2 bước](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Dành cho lập trình viên
 

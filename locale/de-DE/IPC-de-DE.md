@@ -2,13 +2,13 @@
 
 ASF beinhaltet eine eigene einzigartige IPC-Schnittstelle, die für die weitere Interaktion mit dem Prozess verwendet werden kann. IPC steht für **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** und in der einfachsten Definition ist es ein "ASF-Weboberfläche" basierend auf **[Kestrel HTTP Server](https://github.com/aspnet/KestrelHttpServer)**, welches für die weitere Integration mit dem Prozess, sowohl als Frontend für Endbenutzer (ASF-ui) als auch Backend für Drittanbieter-Integrationen (ASF-API) verwendet werden kann.
 
-IPC kann für viele verschiedene Dinge verwendet werden, je nach deinen Fähigkeiten und Bedürfnissen. Du kannst es beispielsweise dafür verwenden, um den Status von ASF und allen Bots abzurufen, ASF-Befehle zu senden, Globale- und Bot-Konfigurationen abzurufen und zu bearbeiten, neue Bots hinzuzufügen, bestehende Bots zu löschen, Produktschlüssel an den **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** zu senden oder auf das ASF-Protokoll zuzugreifen. Alle diese Aktionen werden durch unsere API offengelegt, was bedeutet, dass du deine eigenen Programme und Skripte schreiben kannst, die in der Lage sind, mit ASF zu kommunizieren und während der Laufzeit zu beeinflussen. Darüber hinaus sind ausgewählte Aktionen (z.B. das Senden von Befehlen) auch in unserem ASF-ui vorhanden, so dass du über eine benutzerfreundliche Weboberfläche einfach darauf zugreifen kannst.
+IPC kann für viele verschiedene Dinge verwendet werden, je nach deinen Fähigkeiten und Bedürfnissen. Du kannst es beispielsweise dafür verwenden, um den Status von ASF und allen Bots abzurufen, ASF-Befehle zu senden, Globale- und Bot-Konfigurationen abzurufen und zu bearbeiten, neue Bots hinzuzufügen, bestehende Bots zu löschen, Produktschlüssel an den **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** zu senden oder auf das ASF-Protokoll zuzugreifen. Alle diese Aktionen werden durch unsere API offengelegt, was bedeutet, dass du deine eigenen Programme und Skripte schreiben kannst, die in der Lage sind, mit ASF zu kommunizieren und während der Laufzeit zu beeinflussen. Darüber hinaus sind ausgewählte Aktionen (z.B. das Senden von Befehlen) auch in unserem ASF-ui vorhanden, so dass du über eine benutzerfreundliche Weboberfläche einfach darauf zugreifen kannst.
 
 * * *
 
-# Gebrauchsweise
+# Nutzung
 
-Du kannst unsere IPC-Schnittstelle aktivieren, indem du `IPC` **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** aktivierst. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
+Du kannst unsere IPC-Schnittstelle aktivieren, indem du `IPC` **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#ipc)** aktivierst. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
 
     INFO|ASF|Start() Starte IPC-Server...
     INFO|ASF|Start() IPC-Server bereit!
@@ -20,15 +20,15 @@ Die IPC-Schnittstelle von ASF bietet je nach der von dir geplanten Nutzung drei 
 
 Auf der untersten Ebene gibt es **[ASF API](#asf-api)**, das ist der Kern unserer IPC-Schnittstelle und ermöglicht den Betrieb aller anderen. Dies ist es, was du in deinen eigenen Programmen, Dienstprogrammen und Projekten verwenden solltest, um direkt mit ASF zu kommunizieren.
 
-Auf der mittleren Ebene befindet sich unsere **[Swagger-Dokumentation](#swagger-documentation)**, die als Frontend für die ASF-API dient. Es bietet eine vollständige Dokumentation der ASF-API und ermöglicht einen einfacheren Zugriff darauf. Dies ist es, was du überprüfen solltest, wenn du vorhast ein Programm, ein Dienstprogramm oder andere Projekte zu schreiben, die über die API mit ASF kommunizieren sollen.
+Auf der mittleren Ebene befindet sich unsere **[Swagger-Dokumentation](#swagger-dokumentation)**, die als Frontend für die ASF-API dient. Es bietet eine vollständige Dokumentation der ASF-API und ermöglicht einen einfacheren Zugriff darauf. Dies ist es, was du nutzen solltest, wenn du vorhast ein Programm, ein Dienstprogramm oder andere Projekte zu schreiben, die über die API mit ASF kommunizieren sollen.
 
-Auf der obersten Ebene gibt es **[ASF-ui](#asf-ui)**, das auf unserer ASF-API basiert und eine benutzerfreundliche Möglichkeit bietet, verschiedene ASF-Aktionen auszuführen. Dies ist unsere Standard IPC-Schnittstelle für Endanwender und ein perfektes Beispiel dafür, was du mit der ASF-API erstellen kannst. Wenn du möchtest, kannst du deine eigene benutzerdefinierte Web-Benutzeroberfläche für die Verwendung mit ASF benutzen, indem du `--path` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** angibst und das benutzerdefinierten `www` Verzeichnis verwendest.
+Auf der obersten Ebene gibt es **[ASF-ui](#asf-ui)**, das auf unserer ASF-API basiert und eine benutzerfreundliche Möglichkeit bietet, verschiedene ASF-Aktionen auszuführen. Dies ist unsere Standard IPC-Schnittstelle für Endanwender und ein perfektes Beispiel dafür, was du mit der ASF-API erstellen kannst. Wenn du möchtest, kannst du deine eigene benutzerdefinierte Web-Benutzeroberfläche für die Verwendung mit ASF benutzen, indem du `--path` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#argumente)** angibst und das benutzerdefinierten `www` Verzeichnis verwendest.
 
 * * *
 
 # ASF-ui
 
-ASF-ui ist ein Gemeinschaftsprojekt, das darauf abzielt, eine benutzerfreundliche grafische Weboberfläche für Endbenutzer zu erstellen. Um dies zu erreichen, fungiert es als Frontend für unsere **[ASF API](#asf-api)**, so dass du verschiedene Aktionen mit Leichtigkeit durchführen kannst. Dies ist die Standardoberfläche, mit der ASF ausgeliefert wird.
+ASF-ui ist ein Gemeinschaftsprojekt, das darauf abzielt, eine benutzerfreundliche grafische Weboberfläche für Endbenutzer zu erstellen. Um dies zu erreichen, fungiert es als Frontend für unsere **[ASF API](#asf-api)**, so dass du verschiedene Aktionen mit Leichtigkeit durchführen kannst. Dies ist die Standardoberfläche mit der ASF ausgeliefert wird.
 
 Wie bereits erwähnt, ist ASF-ui ein Community-Projekt, das nicht von kern ASF-Entwicklern betreut wird. Es folgt seinem eigenen Fluss in der **[ASF-ui Repository](https://github.com/JustArchiNET/ASF-ui)**, welches für alle damit verbundenen Fragen, Probleme, Fehlerberichte und Vorschläge verwendet werden sollte.
 
@@ -64,21 +64,21 @@ Alternativ kannst du den Parameter `password` an das Ende der URL anhängen die 
 
 * * *
 
-Beide Wege werden unterstützt und es liegt ganz bei dir, welche du wählen möchtest. Wir empfehlen HTTP-Header überall dort zu verwenden, wo es möglich ist, da es in der Verwendung sinnvoller ist als Query-String. Wir unterstützen jedoch auch Query-Strings, hauptsächlich wegen verschiedener Einschränkungen in Bezug auf Request-Header. Ein gutes Beispiel ist das Fehlen von benutzerdefinierten Headern beim Einleiten einer Websocket-Verbindung in Javascript (obwohl sie nach RFC vollständig gültig ist). In dieser Situation ist ein Query-String die einzige Möglichkeit sich zu authentifizieren.
+Beide Wege werden unterstützt und es liegt ganz bei dir, welche du wählen möchtest. Wir empfehlen HTTP-Header überall dort zu verwenden, wo es möglich ist, da es in der Verwendung sinnvoller ist als ein Query-String. Wir unterstützen jedoch auch Query-Strings, hauptsächlich wegen verschiedener Einschränkungen in Bezug auf Request-Header. Ein gutes Beispiel ist das Fehlen von benutzerdefinierten Headern beim Einleiten einer Websocket-Verbindung in JavaScript (obwohl sie nach RFC vollständig gültig ist). In dieser Situation ist ein Query-String die einzige Möglichkeit sich zu authentifizieren.
 
 * * *
 
 ## Swagger Dokumentation
 
-Unsere IPC-Schnittstelle, zusätzlich zu ASF API und ASF-ui, beinhaltet auch die Swagger-Dokumentation, die unter `/swagger` **[URL](http://127.0.0.1:1242/swagger)** verfügbar ist. Die Swagger-Dokumentation dient als Mittelsmann zwischen unserer API-Implementierung und anderen Programmen, die sie verwenden (z.B. ASF-ui). Es bietet eine vollständige Dokumentation und Verfügbarkeit aller API-Endpunkte in der Spezifikation **[OpenAPI](https://swagger.io/resources/open-api)**, die von anderen Projekten problemlos genutzt werden kann, so dass du ASF-API mit Leichtigkeit schreiben und testen kannst.
+Unsere IPC-Schnittstelle, zusätzlich zu ASF API und ASF-ui, beinhaltet auch die Swagger-Dokumentation, die unter der `/swagger` **[URL](http://127.0.0.1:1242/swagger)** verfügbar ist. Die Swagger-Dokumentation dient als Mittelsmann zwischen unserer API-Implementierung und anderen Programmen, die sie verwenden (z.B. ASF-ui). Es bietet eine vollständige Dokumentation und Verfügbarkeit aller API-Endpunkte in der Spezifikation **[OpenAPI](https://swagger.io/resources/open-api)**, die von anderen Projekten problemlos genutzt werden kann, so dass du ASF-API mit Leichtigkeit schreiben und testen kannst.
 
-Neben der Verwendung unserer Swagger-Dokumentation als komplette Spezifikation der ASF-API kannst du sie auch als benutzerfreundliche Möglichkeit verwenden, verschiedene API-Endpunkte auszuführen, vor allem solche die nicht von ASF-ui implementiert werden. Da unsere Swagger-Dokumentation automatisch aus ASF-Quelltext generiert wird, hast du die Garantie, dass die Dokumentation immer auf dem neuesten Stand mit den Features ist die ASF bietet.
+Neben der Verwendung unserer Swagger-Dokumentation als komplette Spezifikation der ASF-API kannst du sie auch als benutzerfreundliche Möglichkeit verwenden, verschiedene API-Endpunkte auszuführen, vor allem solche die nicht von ASF-ui implementiert werden. Da unsere Swagger-Dokumentation automatisch aus ASF-Quelltext generiert wird, hast du die Garantie, dass die Dokumentation immer auf dem neuesten Stand der Features ist die ASF bietet.
 
 ![Swagger Dokumentation](https://i.imgur.com/mLpd5e4.png)
 
 * * *
 
-# FAQ (oft gestellte Fragen)
+# FAQ
 
 ### Ist die IPC-Schnittstelle von ASF sicher und sicher in der Anwendung?
 

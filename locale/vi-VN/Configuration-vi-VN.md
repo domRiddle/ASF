@@ -1,13 +1,13 @@
 # Cấu hình
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+Trang này dành riêng cho cấu hình ASF. Nó được xem như một tài liệu hoàn chỉnh về `cấu hình`, cho phép bạn điều chỉnh ASF theo nhu cầu của bạn.
 
-- **[Introduction](#introduction)**
+- **[Giới thiệu](#introduction)**
 - **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
+- **[Cấu hình thủ công](#manual-configuration)**
+- **[Cấu hình chung](#global-config)**
+- **[Cấu hình bot](#bot-config)**
+- **[Cấu trúc tập tin](#file-structure)**
 - **[JSON mapping](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
 - **[Configs compatibility](#configs-compatibility)**
@@ -15,7 +15,7 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 * * *
 
-## Introduction
+## Giới thiệu
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -41,7 +41,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Cấu hình thủ công
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -49,7 +49,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 * * *
 
-## Global config
+## Cấu hình chung
 
 Global config is located in `ASF.json` file and has following structure:
 

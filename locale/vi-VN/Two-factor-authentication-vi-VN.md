@@ -1,4 +1,4 @@
-# Two-factor authentication
+# Xác thực 2 bước
 
 A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
 
@@ -39,7 +39,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 * * *
 
-### Android phone
+### Điện thoại Android
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** included non-root **[method](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** a while ago, but it's no longer the case and it's not possible to access protected Steam files without root. The only currently supported non-root method is making a `/data` backup in one way or another and manually fetching appropriate files from it on your PC. Because such thing highly depends on the OS and is not in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
 

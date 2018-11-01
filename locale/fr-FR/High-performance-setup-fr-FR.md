@@ -36,7 +36,7 @@ Toutefois, si la mémoire ne vous pose pas de problème (car GC tient toujours c
 
 ## Optimisation recommandée
 
-- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
+- Assurez-vous que vous utilisez la valeur par défaut `OptimizationMode`, qui correspond à `MaxPerformance`. Il s'agit de loin du paramètre le plus important, car l'utilisation de la valeur `MinMemoryUsage` a des effets considérables sur les performances.
 - Activez le serveur GC en commutant la propriété ` System.GC.Server ` de ` ArchiSteamFarm.runtimeconfig.json ` de ` false ` à ` true `. Cela permettra au serveur GC qui peut être immédiatement considéré comme actif par augmentation de la mémoire par rapport au poste de travail GC.
 - Si vous ne pouvez pas vous permettre une telle augmentation de mémoire, envisagez d’utiliser ` GCLatencyLevel ` sur ` 0 ` pour obtenir «le meilleur des deux mondes». Toutefois, si votre mémoire le permet, il est préférable de la conserver par défaut. Le serveur GC se peaufine déjà pendant l'exécution et est suffisamment intelligent pour utiliser moins de mémoire lorsque votre système d'exploitation en a réellement besoin.
 
