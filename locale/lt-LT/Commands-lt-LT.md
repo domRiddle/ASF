@@ -10,7 +10,7 @@ Komandos apačioje gali būti nusiųstos botams trimis skirtingais būdais:
 
 Prisiminkite, jog ASF reikalauja jus turėti atitinkamas teises į skirtingas komandas. Pasiskaitykite `SteamUserPermissions` ir `SteamOwnerID` nustatymų skiltį, jei norite sužinoti daugiau.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. Tai reiškia, jog vykdant komandą, pvz., `status`, reikia rašyti `!status` (arba savo sugalvotą `CommandPrefix`).
+Visos komandos apačioje gali būti paveiktos `CommandPrefix` **[globalių nustatymų atributo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, kuris yra `!` pagal nutylėjimą. Tai reiškia, jog vykdant komandą, pvz., `status`, reikia rašyti `!status` (arba savo sugalvotą `CommandPrefix`).
 
 * * *
 
@@ -44,6 +44,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `2fano <Bots>`                                                       | `Master`        | Atmeta visus **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** laukiamus patvirtinimus.                                                                        |
 | `2faok <Bots>`                                                       | `Master`        | Priima visus **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** laukiamus patvirtinimus.                                                                        |
 | `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Aktyvuoja duotus `appIDs` (Steam tinklo) arba `subIDs` (Steam parduotuvės) duotiems botams (tik nemokami žaidimai).                                                                                   |
+| `balance <Bots>`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                          |
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |

@@ -82,7 +82,7 @@ Wenn du ASF-Quelltext bearbeiten möchtest, kannst du zu diesem Zweck jede .NET 
 
 Wenn du stattdessen den ASF-Quelltext unter Linux/OS X arbeiten möchtest, empfehlen wir **[aktuellen Visual Studio Code](https://code.visualstudio.com/download)**. Es ist nicht so umfangreich wie das klassische Visual Studio, aber es ist gut genug.
 
-Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst, es kommt auf den Befehl `dotnet build` an. Wir verwenden Visual Studio + ReSharper für die ASF-Entwicklung, mit einem kleinen Teil der Drittanbieter `tools`, die Sie im Repo finden können.
+Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst, es kommt auf den Befehl `dotnet build` an. Wir verwenden Visual Studio + ReSharper für die ASF-Entwicklung, mit einem kleinen Teil der Drittanbieter `Programme`, die du in der Repository finden kannst.
 
 * * *
 
@@ -94,4 +94,4 @@ Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden wa
 
 ## Offizielle Veröffentlichungen
 
-Offizielle ASF-Veröffentlichungen werden von **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** unter Windows kompiliert, mit der neuesten .NET Core SDK, welche den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** entspricht. Nach bestandenen Tests werden alle Pakete auf GitHub bereitgestellt. Dies garantiert auch Transparenz, da AppVeyor für alle Builds immer offizielle öffentliche Quellen verwendet und man Prüfsummen von AppVeyor-Artefakten mit GitHub Assets vergleichen kann. ASF-Entwickler kompilieren oder veröffentlichen Builds nicht manuell, außer für den privaten Entwicklungsprozess, einschließlich Debugging.
+Offizielle ASF-Veröffentlichungen werden von **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** unter Windows kompiliert, mit der neuesten .NET Core SDK, welche den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** entspricht. Nach bestandenen Tests werden alle Pakete auf GitHub bereitgestellt. Dies garantiert auch Transparenz, da AppVeyor für alle Builds immer offizielle öffentliche Quellen verwendet und man Prüfsummen von AppVeyor-Artefakten mit GitHub Assets vergleichen kann. ASF-Entwickler kompilieren oder veröffentlichen Builds nicht manuell, außer für den privaten Entwicklungsprozess, einschließlich Debugging.

@@ -8,7 +8,7 @@ ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 �
 
 ## 범위
 
-우리 플랫폼은 메인 프로그램인 ASF와, 같이 제공하는 현지화 가능한 전체 콘텐츠의 현지화를 지원합니다. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. 모든 것이 편리한 Crowdin 인터페이스를 통해 번역가능합니다.
+우리 플랫폼은 메인 프로그램인 ASF와, 같이 제공하는 현지화 가능한 전체 콘텐츠의 현지화를 지원합니다. 즉, ASF-웹 환경설정 생성기, ASF-ui 및 위키도 현지화에 포함됩니다. 모든 것이 편리한 Crowdin 인터페이스를 통해 번역가능합니다.
 
 * * *
 
@@ -91,23 +91,23 @@ ASF 프로젝트의 번역 가능한 전체 언어 목록은 **[여기를 참고
 
 * * *
 
-## Pluralization
+## 복수화
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+모든 언어는 복수화에 관한 각각의 규칙이 있습니다. 이 규칙은 숫자와 언어 상태를 특정하는 **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** 에서 찾을 수 있습니다.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+유연한 지역화를 위해 최선을 다하고 있습니다. 그리고 가능한한 복수 규칙을 포함할 것입니다. 예를 들어, 오늘은 다음의 문자열을 폴란드어로 번역할것입니다.
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+여기에 있는 `PLURAL` 키워드는 당신의 언어가 지원하는 모든 복수 형태를 포함할수 있게 해주도록 특별한 방식으로 다루어집니다. CLDR을 보면, 영어는 "one"과 "other"의 오직 두가지 기수 형태만 있습니다. 위에서 보는 것처럼 이 두가지를 `{n} month` 와 `{n} months`로 정의하였습니다.
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+그러나 폴란드 언어는 실제로 "one", "few", "many", 그리고 "other"의 4가지가 있습니다. 이는 모두 직접 정의해야 함을 뜻합니다. 우리의 현지화 도구는 매우 똑독해서 언어 규칙에 따라 적절한 복수형태를 선택해줍니다. 따라서 번역에서는 그 모두를 아래와 같이 정의하여야 합니다.
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+이 방식으로 폴란드어의 4개 복수형태를 정의하였습니다. 현지화 라이브러리가 정확한 규칙을 이미 알고 있으므로, 제공된 `{n}` 숫자에 따라서 정확한 형태를 사용할 것입니다.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+당신의 언어로 모든 복수 형태를 정의하는 것이 의무사항은 아닙니다. 만약 정의가 없다면 현지화 라이브러리는 그 자리에 있는 제일 마지막 형태를 사용할 것입니다. 당신의 언어에서 사용되는 모든 복수형을 정의하는 것은 좋은 생각이지만, 어떤 경우에서는 나머지 복수형태가 마지막 것과 같을수도 있습니다. 그런 경우 이를 반복할 필요가 없습니다. 위의 예제에서는 모두 정의하는 것이 필수였습니다. 폴란드어의 월(months)의 "other"형태는 "miesiąca"이고, "many"형태의 "miesięcy"가 아닙니다. 
 
 * * *
 
@@ -156,7 +156,7 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. 다음은 폴란드어의 번역 예제입니다:
+어떤 경우건 상관없이 먼저 원본 문자열을 복사하고, 평소처럼 번역을 하거나 HTML이 있다면 전체 HTML을 그대로 둡니다. 다음은 폴란드어의 번역 예제입니다:
 
 * * *
 
@@ -232,15 +232,15 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 `<code></code>` 블록안에 있는 문장을 번역할 때는 매우 조심하십시오. 코드 블록은 번역하면 안되는 ASF의 고정된 코드 이름이나 용어를 가리킵니다. 예를 들면 다음과 같습니다:
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> 이는 특히 등록할 키가 많고 전체를 다 등록하기 전에 `RateLimited`에 도달할 것이 확실한 경우에 유용합니다.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
+보다시피 위의 `RateLimited` 단어는 코드 블록 안에 있으며 ASF 내부 코드 상태를 가리키므로 번역되어서는 안됩니다. 마찬가지로 `TradingPreferences` 등 설정 항목의 이름, `UpdateChannel` 항목의 옵션값인 `Stable`과 `Experimental`과 같은 열거형 항목 등 다른 코드 블록도 번역해서는 안됩니다.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+하지만, 이 단어들이 번역되어서는 안된다고해서 괄호등을 사용해서 적절한 번역을 그 옆에 넣어서는 안된다는 것은 아닙니다.
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+위에서 볼수 있듯이, 상태를 친절한 방법으로 번역하기 위해서 "너무 많은 등록"이라는 뜻의 "zbyt częstej aktywacji"를 `RateLimited` 옆에 추가했습니다. 동시에 프로그램을 사용하면서 사용자가 볼 수 있는 원본 ASF의 의미를 유지했습니다. 같은 방식으로 다른 비슷한 여러 단어와 문장을 번역하거나 설명할 수 있습니다.
 
 만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
 

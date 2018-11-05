@@ -82,19 +82,19 @@ Neben der Verwendung unserer Swagger-Dokumentation als komplette Spezifikation d
 
 ### Ist die IPC-Schnittstelle von ASF sicher und sicher in der Anwendung?
 
-ASF hört standardmäßig nur auf `localhost` Adressen, was bedeutet, dass der Zugriff auf ASF IPC von jedem anderen Rechner als deinem eigenen **nicht möglich ist**. Wenn du keine Standardendpunkte änderst, bräuchte der Angreifer einen direkten Zugriff auf deinen eigenen Computer, um auf ASF IPC zugreifen zu können, daher ist er so sicher wie möglich und es besteht keine Möglichkeit, dass andere Personen auf ihn zugreifen, auch nicht aus deinem eigenen LAN.
+ASF hört standardmäßig nur auf `localhost` Adressen, was bedeutet, dass der Zugriff auf ASF IPC von jedem anderen Rechner als deinem eigenen **nicht möglich ist**. Wenn du keine Standard-Endpunkte änderst, bräuchte der Angreifer einen direkten Zugriff auf deinen eigenen Computer, um auf ASF IPC zugreifen zu können, daher ist er so sicher wie möglich und es besteht keine Möglichkeit, dass andere Personen auf ihn zugreifen, auch nicht aus deinem eigenen LAN.
 
 Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localhost` Adressen an etwas anderes zu binden, dann solltest du die richtigen Firewall-Regeln **selbst** festlegen, um nur autorisierten IPs den Zugriff auf die IPC-Schnittstelle von ASF zu ermöglichen. Zusätzlich dazu empfehlen wir dringend, `IPCPassword` einzurichten, was eine weitere Ebene der zusätzlichen Sicherheit bietet. Es ist auch sinnvoll, die IPC-Schnittstelle von ASF in diesem Fall hinter einem Reverse-Proxy auszuführen, was im Folgenden näher erläutert wird.
 
 ### Kann ich mit eigenen Programmen oder Benutzerskripten auf die ASF-API zugreifen?
 
-Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden, was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der Logik **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)**, und wir erlauben Zugriff von allen Ursprüngen (`*`), solange `IPCPassword` gesetzt ist, als zusätzliche Sicherheitsmaßnahme. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
+Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der Logik **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)**, und wir erlauben Zugriff von allen Ursprüngen (`*`), solange `IPCPassword` gesetzt ist, als zusätzliche Sicherheitsmaßnahme. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
 ### Kann ich ASF IPC hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
 
-**Ja**, unser IPC ist vollständig kompatibel mit einem solchen Setup, so dass du ihn auch vor deinen eigenen Programmen hosten kannst, für zusätzliche Sicherheit und Kompatibilität, wenn du möchtest. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z.B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**Ja**, unser IPC ist voll kompatibel mit einem solchen Setup, so dass wenn du möchtest du ihn auch direkt vor deinen eigenen Programmen hosten kannst, um zusätzliche Sicherheit und Kompatibilität zu gewährleisten. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z.B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
-Beispielhafte Nginx-Konfiguration findest du unten. Wir haben den vollen `server` Block integriert, obwohl du dich hauptsächlich für `location` interessiert bist. Bitte lies die **[nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
+Eine beispielhafte Nginx-Konfiguration findest du unten. Wir haben den vollen `server` Block eingefügt, obwohl du dich hauptsächlich für `location` interessierst. Bitte lies die **[nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
 
 ```nginx
 server {
@@ -132,9 +132,9 @@ server {
 
 ### Kann ich über das HTTPS-Protokoll auf die IPC-Schnittstelle zugreifen?
 
-**Ja**, du kannst es auf zwei verschiedene Arten erreichen. Eine empfohlene Methode wäre die Verwendung eines Reverse-Proxy für diesen (oben beschriebenen), bei dem du wie üblich über https auf deinen Webserver zugreifst und dich über ihn mit der IPC-Schnittstelle von ASF auf derselben Maschine verbindest. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
+**Ja**, du kannst es auf zwei verschiedene Arten erreichen. Eine empfohlene Methode wäre die Verwendung eines Reverse-Proxy (oben beschrieben), bei dem du wie üblich über https auf deinen Webserver zugreifen und dich über ihn mit der IPC-Schnittstelle von ASF auf derselben Maschine verbinden kannst. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
 
-Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#custom-configuration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
+Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein zufriedenstellendes Setup mit Hilfe eines Reverse-Proxy-Mechanismus zu erreichen.
 
 * * *
 

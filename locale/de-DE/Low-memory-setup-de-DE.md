@@ -10,35 +10,35 @@ ASF als Anwendung versucht, so optimiert und effizient wie möglich zu sein, wob
 
 ASF ist extrem gut optimiert und nutzt die vorhandenen Ressourcen so gut wie möglich. Eine hohe Speicherauslastung von ASF bedeutet nicht, dass ASF aktiv diesen Speicher **verwendet** und ** ihn benötigt**. Sehr oft behält ASF zugewiesenen Speicher als "Raum" für zukünftige Aktionen, da wir die Leistung drastisch verbessern können, wenn wir nicht für jeden Speicherabschnitt, den wir verwenden wollen, das Betriebssystem fragen müssen. Die Runtime sollte automatisch ungenutzten ASF-Speicher an das Betriebssystem zurückgeben, wenn das Betriebssystem ihn **wirklich** benötigt. **[Ungenutzter Speicher ist verschwendeter Speicher](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. Du stößt auf Probleme, wenn der Speicher, den du **benötigst** höher ist als der Speicher, der für dich verfügbar ist, nicht wenn ASF einige zusätzliche zugewiesene Ressourcen behält, mit dem Ziel, Funktionen zu beschleunigen, die in einem Moment ausgeführt werden. Du stößt auf Probleme, wenn dein Linux-Kernel den ASF-Prozess aufgrund von OOM (out of memory) beendet, nicht wenn du den ASF-Prozess als Top-Speicherverbraucher in `htop` siehst.
 
-Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
+Der Garbage Collector, der in ASF verwendet wird, ist ein sehr komplexer Mechanismus, intelligent genug, um nicht nur ASF selbst, sondern auch dein Betriebssystem und andere Prozesse zu berücksichtigen. Wenn du viel freien Speicher hast, wird ASF um alles bitten, was nötig ist, um die Leistung zu verbessern. Dies kann sogar bis zu 1 GB (mit Server GC) betragen. Wenn der Arbeitsspeicher deines Betriebssystems fast erschöpft ist, gibt ASF automatisch einen Teil davon an das Betriebssystem zurück, um die Dinge zu erleichtern, was dazu führen kann, dass der Gesamtverbrauch an ASF-Speicher nur noch 50 MB beträgt. Der Unterschied zwischen 50 MB und 1 GB ist enorm, aber das gilt auch für den Unterschied zwischen einem kleinen 512 MB VPS und einem großen dedizierten Server mit 32 GB. Wenn ASF garantieren kann, dass dieser Speicher sinnvoll ist und gleichzeitig nichts anderes ihn gerade jetzt benötigt, zieht er es vor, ihn zu behalten und sich automatisch auf der Grundlage von Routinen zu optimieren, die in der Vergangenheit ausgeführt wurden. Der in ASF verwendete GC ist selbstanpassend und erzielt umso bessere Ergebnisse, je länger der Prozess läuft.
 
-This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, and is usually around 4 MB for just a few bots, up to 30 MB if you use stuff like **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** and other advanced features. Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
+Dies ist auch der Grund, warum der ASF-Prozessspeicher von Setup zu Setup variiert, da ASF sein Bestes tut, um die verfügbaren Ressourcen **so effizient wie möglich** zu nutzen und nicht auf eine feste Art und Weise, wie es zu Windows XP-Zeiten der Fall war. Der tatsächliche (reale) Speicherverbrauch, den ASF verwendet, kann mit dem `stats` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** überprüft werden und liegt normalerweise bei etwa 4 MB für nur wenige Bots, bis zu 30 MB, wenn du Dinge wie **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** und andere erweiterte Features verwendest. Bedenke, dass der von dem Befehl `stats` zurückgegebene Speicher auch freien Speicher beinhaltet, der noch nicht vom Garbage Collector zurückgefordert wurde. Alles andere ist gemeinsamer Laufzeitspeicher (ca. 40-50 MB) und Ausführungsspielraum (variiert). Aus diesem Grund kann der gleiche ASF auch nur 50 MB in einer speicherarmen VPS-Umgebung verwenden, während er sogar bis zu 1 GB auf deinem Desktop verwendet. ASF passt sich aktiv an die jeweilige Umgebung an und wird versuchen, ein optimales Gleichgewicht zu finden, um dein Betriebssystem weder unter Druck zu setzen noch seine eigene Leistung einzuschränken, wenn du viel ungenutzten Speicher hast, der in Gebrauch genommen werden könnte.
 
 * * *
 
-Natürlich gibt es viele Möglichkeiten, wie du ASF helfen kannst die richtige Richtung in Bezug auf den Speicher den du verwenden möchtest zu lenken. Im Allgemeinen ist es am besten, den Garbage-Collector in Ruhe arbeiten zu lassen und das zu tun, was er für das Beste hält. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
+Natürlich gibt es viele Möglichkeiten, wie du ASF helfen kannst die richtige Richtung in Bezug auf den Speicher den du verwenden möchtest zu lenken. Im Allgemeinen ist es am besten, den Garbage-Collector in Ruhe arbeiten zu lassen und das zu tun, was er für das Beste hält. Aber das ist nicht immer möglich, zum Beispiel, wenn dein Linux-Server auch mehrere Websites, MySQL-Datenbank und PHP-Worker hostet, dann kannst du es dir nicht wirklich leisten, dass ASF sich selbst reduziert, wenn du in der Nähe von OOM liegst, da es normalerweise zu spät ist und der Leistungsabfall früher kommt. Dies ist in der Regel der Fall, wenn du an einer weiteren Optimierung interessiert bist und deshalb diese Seite liest.
 
 Die folgenden Vorschläge sind in einige Kategorien unterteilt, mit unterschiedlichem Schwierigkeitsgrad.
 
 * * *
 
-## ASF Einrichtung (einfach)
+## ASF Setup (einfach)
 
-Below tricks **do not affect performance negatively** and can be safely applied to all setups.
+Die folgenden Tricks **beeinträchtigen die Performance nicht negativ** und können sicher auf allen Setups angewendet werden.
 
-- Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
-- Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
-- Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `start` it without renaming it back, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
-- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
+- Führe niemals mehr als eine ASF-Instanz aus. ASF ist dazu gedacht, eine unbegrenzte Anzahl von Bots auf einmal zu verarbeiten, und wenn du nicht jede ASF-Instanz an eine andere Interface/IP-Adresse bindest, solltest du genau **einen** ASF-Prozess haben, mit mehreren Bots (falls erforderlich).
+- Nutze `ShutdownOnFarmingFinished`. Ein aktiver Bot benötigt mehr Ressourcen als ein deaktivierter. Es ist keine nennenswerte Einsparung, da der Zustand des Bot noch beibehalten werden muss, aber du sparst eine gewisse Menge an Ressourcen, insbesondere alle mit dem Netzwerk verbundenen Ressourcen, wie TCP-Sockets. Du brauchst nur einen aktiven Bot um die ASF-Instanz am Laufen zu halten und du kannst bei Bedarf jederzeit andere Bots aufrufen.
+- Halte die Anzahl deiner Bots niedrig. Nicht `Enabled` Bot-Instanz benötigen weniger Ressourcen, da ASF sich nicht die Mühe macht, sie zu starten. Bedenke auch, dass ASF für jede deiner Konfigurationen einen Bot erstellen muss. Wenn du also den gegebenen Bot nicht `start` musst und du etwas mehr Speicherplatz sparen willst, kannst du `Bot.json` vorübergehend umbenennen, z.B. in `Bot.json.bak`, um zu vermeiden, dass der Status für deine deaktivierte Bot-Instanz in ASF erzeugt wird. Auf diese Weise kannst du es nicht `start`, ohne es umzubenennen, aber ASF wird sich auch nicht die Mühe machen, den Zustand dieses Bot im Speicher zu halten und Platz für andere Dinge zu lassen (sehr kleine Ersparnis, in 99,9% der Fälle solltest du dich nicht damit beschäftigen, behalte einfach deine Bots mit `Enabled` von `false`).
+- Optimiere deine Konfigurationen. Insbesondere die globale ASF-Konfiguration hat viele Variablen, die angepasst werden müssen, z.B. durch die Erhöhung von `LoginLimiterDelay` werden deine Bots langsamer, was es bereits gestarteten Instanzen ermöglicht, Abzeichen in der Zwischenzeit zu holen, anstatt deine Bots schneller aufzurufen, was mehr Ressourcen beansprucht, da mehr Bots gleichzeitig größere Aufgaben erledigen (z.B. Parsen von Abzeichen). Je weniger Arbeit zur gleichen Zeit erledigt werden muss - desto weniger Speicherplatz wird verbraucht.
 
-Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
+Das sind einige Dinge, die du im Hinterkopf behalten kannst, wenn es um die Speichernutzung geht. Diese Dinge haben jedoch keine "entscheidende" Bedeutung für die Speichernutzung, da die Speichernutzung hauptsächlich von Dingen kommt, mit denen ASF es zu tun hat, und nicht von internen Strukturen, die für das Sammeln von Karten verwendet werden.
 
 Die ressourcenintensivsten Funktionen sind:
 
 - Das Parsen der Abzeichen-Seite
 - Das Parsen des Inventars
 
-Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
+Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das Lesen von Abzeichen-Seiten handelt, und wenn es sich um sein Inventar handelt (z.B. das Senden von Handelsangeboten oder das Arbeiten mit STM). Denn ASF hat es mit einer wirklich großen Datenmenge zu tun - der Speicherverbrauch deines Lieblingsbrowsers, der diese beiden Seiten startet, wird nicht niedriger sein. Tut mir leid, so funktioniert es - verringere die Anzahl deiner Abzeichen-Seiten und halte die Anzahl deiner Inventar-Gegenstände niedrig, das kann sicher helfen.
 
 * * *
 
@@ -56,25 +56,25 @@ Die folgenden Tricks **beeinträchtigen die Performance-Minderung** und sollten 
 
 Weitere Informationen findest du unter **[Grundlagen der Garbage Collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
-ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
+ASF verwendet bereits die Workstation GC, aber du kannst sicherstellen, dass dies wirklich der Fall ist, indem du überprüfst, ob in der `ArchiSteamFarm.runtimeconfig.json` Datei die `System.GC.Server` Eigenschaft auf `false` gesetzt ist.
 
-In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** that you can use - `gcTrimCommitOnLowMemory` and `GCLatencyLevel`.
+Zusätzlich zur Verifizierung, dass Workstation GC aktiv ist, gibt es auch interessante **[Konfigurationsknöpfe](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)**, die du verwenden kannst - `gcTrimCommitOnLowMemory` und `GCLatencyLevel`.
 
 ### `GCLatencyLevel`
 
-> Specifies the GC latency level that you want to optimize for.
+> Gibt die GC-Latenzstufe an, für die du optimieren möchtest.
 
-This works exceptionally well by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
+Dies funktioniert außerordentlich gut, da die Größe der GC-Generationen begrenzt wird und führt dazu, dass GC sie häufiger und aggressiver bereinigt. Die standardmäßige (symmetrische) Latenzstufe ist `1`, wir werden `0` verwenden wollen, was sich nach der Speichernutzung richtet.
 
 ### `gcTrimCommitOnLowMemory`
 
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
+> Wenn wir die Einstellung vorgenommen haben, trimmen wir den engagierten Raum aggressiver für das ephemere Segment. Dies wird verwendet, um viele Instanzen von Serverprozessen auszuführen, bei denen sie so wenig Speicher wie möglich gebunden halten wollen.
 
-This offers little improvement, but might make GC even more aggressive when system will be low on memory.
+Dies bietet zwar wenig Vorteile, könnte GC aber noch aggressiver machen, wenn das System wenig Speicherplatz hat.
 
 * * *
 
-You can enable both by setting appropriate `COMPlus_` environment variables. Als Beispiel unter Linux:
+Du kannst beides aktivieren, indem du die entsprechenden `COMPlus_` Umgebungsvariablen einstellst. Als Beispiel unter Linux:
 
 ```shell
 export COMPlus_GCLatencyLevel=0
@@ -90,22 +90,22 @@ SET COMPlus_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.exe
 ```
 
-Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+Insbesondere `GCLatencyLevel` wird sehr nützlich sein, da wir überprüft haben, dass die Laufzeit tatsächlich Programmcode für den Speicher optimiert und somit den durchschnittlichen Speicherverbrauch signifikant reduziert, selbst bei Server-GC. Es ist einer der besten Tricks, die du anwenden kannst, wenn du den ASF-Speicherverbrauch deutlich senken und gleichzeitig die Leistung mit `OptimizationMode` nicht zu stark beeinträchtigen willst.
 
 * * *
 
-## ASF tuning (intermediate)
+## ASF-Abstimmung (mittelmäßig)
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollten mit Vorsicht angewendet werden.
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- Als letzten Ausweg kannst du ASF für `MinMemoryUsage` durch `OptimizationMode` in der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** einstellen. Lies sorgfältig seinen Zweck, da dies eine ernsthafte Leistungseinbuße ist und fast keine Vorteile für den Speicher hat. Dies ist normalerweise **das Letzte, was du tun willst**, lange nachdem du die **[Laufzeitoptimierung](#runtime-tuning-advanced)** durchgeführt hast, um sicherzustellen, dass du keine andere Wahl hast.
 
 * * *
 
 ## Empfohlene Optimierung
 
-- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
-- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
+- Beginne mit den einfachen ASF-Setup-Tricks, vielleicht benutzt du deinen ASF einfach falsch, wie z.B. den Prozess für alle deine Bots mehrmals zu starten oder alle aktiv zu halten, wenn du nur ein oder zwei zum Autostart brauchst.
+- Wenn es immer noch nicht ausreicht, aktiviere alle oben aufgeführten Konfigurationsknöpfe, indem du die entsprechenden `COMPlus_` Umgebungsvariablen einstellst. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.
+- Wenn auch das nicht geholfen hat, aktiviere als letztes Mittel `MinMemoryUsage` `OptimizationMode`. Dies zwingt ASF, fast alles in synchroner Angelegenheit auszuführen, was es viel langsamer macht, aber auch nicht auf Thread-Pool angewiesen ist, um die Dinge auszugleichen, wenn es um die parallele Ausführung geht.
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.
+Es ist physisch unmöglich, den Speicher noch weiter zu verringern, dein ASF ist bereits in Bezug auf die Leistung stark beeinträchtigt und du hast alle deine Möglichkeiten ausgeschöpft, sowohl code- als auch laufzeitbezogen. Überlege dir, etwas zusätzlichen Speicher für ASF hinzuzufügen, selbst 128 MB würden einen großen Unterschied machen.

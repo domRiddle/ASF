@@ -1,12 +1,12 @@
 # Performance
 
-The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
+L'objectif principal d'ASF est d'exploiter de la manière la plus efficace possible, en se basant sur deux types de données sur lesquelles elle peut opérer: un petit ensemble de données fournies par l'utilisateur qu'il est impossible pour ASF de deviner / vérifier par lui-même, et un ensemble plus grand de données qui peut être vérifié automatiquement par ASF.
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
+En mode automatique, ASF ne vous permet pas de choisir les jeux à exploiter ni de modifier l’algorithme de farming des cartes. **ASF sait mieux que vous ce qu’il devrait faire et quelles décisions elle devrait prendre afin de farmer le plus vite possible**. Votre objectif est de définir correctement les fonctions de configuration, car ASF ne peut les deviner, tout le reste est couvert.
 
 * * *
 
-Some time ago Valve changed the algorithm for card drops. From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+Il y a quelque temps, Valve a modifié l'algorithme pour l'obtention de cartes. À partir de ce moment, nous pouvons classer les comptes Steam en deux catégories: les **avec** obtention de carte restreintes et les **sans**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
 
 * * *
 

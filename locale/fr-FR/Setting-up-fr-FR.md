@@ -221,7 +221,8 @@ You need to do only one more thing, toggle advanced settings, find `IPC` option,
 
 Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
+![IPC 2
+](https://i.imgur.com/ZmkO8pk.png)
 
 If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
