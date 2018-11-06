@@ -193,7 +193,7 @@ Unless you truly need to specify a custom base path, it's best to leave it at de
 
 ### Example config
 
-```
+```json
 {
 	"Kestrel": {
 		"Endpoints": {
