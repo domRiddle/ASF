@@ -157,20 +157,20 @@ The configuration file is based on following JSON structure:
 {
 	"Kestrel": {
 		"Endpoints": {
-			"IPv4-http": {
+			"example-http4": {
 				"Url": "http://127.0.0.1:1242"
 			},
-			"IPv6-http": {
+			"example-http6": {
 				"Url": "http://[::1]:1242"
 			},
-			"IPv4-https": {
+			"example-https4": {
 				"Url": "https://127.0.0.1:1242",
 				"Certificate": {
 					"Path": "/path/to/certificate.pfx",
 					"Password": "passwordToPfxFileAbove"
 				}
 			},
-			"IPv6-https": {
+			"example-https6": {
 				"Url": "https://[::1]:1242",
 				"Certificate": {
 					"Path": "/path/to/certificate.pfx",
