@@ -388,7 +388,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### Êtes-vous affilié à un service cards farming/idling service?
     
-    **Non**. ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement/english)** que:
+    **Non** ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement/english)** que:
     
     > Vous êtes responsable de la confidentialité de votre identifiant et de votre mot de passe, ainsi que de la sécurité de votre système informatique. Valve n'est pas responsable de l'utilisation de votre mot de passe et de votre compte, ni de toutes les communications et activités sur Steam résultant de l'utilisation de votre nom d'utilisateur et de votre mot de passe par vous-même, par toute personne à qui vous auriez pu intentionnellement ou par négligence divulgué votre nom d'utilisateur e /ou mot de passe en violation de cette clause de confidentialité.
     

@@ -22,7 +22,7 @@ Die folgenden Vorschläge sind in einige Kategorien unterteilt, mit unterschiedl
 
 * * *
 
-## ASF Setup (einfach)
+## ASF Setup (Einfach)
 
 Die folgenden Tricks **beeinträchtigen die Performance nicht negativ** und können sicher auf allen Setups angewendet werden.
 
@@ -94,7 +94,7 @@ Insbesondere `GCLatencyLevel` wird sehr nützlich sein, da wir überprüft haben
 
 * * *
 
-## ASF-Abstimmung (mittelmäßig)
+## ASF-Abstimmung (Mittelmäßig)
 
 Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollten mit Vorsicht angewendet werden.
 

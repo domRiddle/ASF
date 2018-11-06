@@ -21,9 +21,9 @@ Die ASF-Konfiguration gliedert sich in zwei Hauptteile - die globale (Prozess-)K
 
 Ein Bot ist ein einzelnes Steam-Konto welches am ASF-Prozess teilnimmt. Um ordnungsgemäß zu funktionieren benötigt ASF mindestens **eine** definierte Bot-Instanz. Es gibt keine prozessbedingte Begrenzung der Bot-Instanzen, so dass du so viele Bots (Steam-Konten) verwenden kannst wie du willst.
 
-ASF verwendet das **[JSON](https://en.wikipedia.org/wiki/JSON)** Format zum Speichern seiner Konfigurationsdateien. Es ist ein benutzerfreundliches, lesbares und sehr universelles Format in dem du das Programm konfigurieren kannst. Keine Sorge, du musst JSON nicht kennen um ASF zu konfigurieren. Ich habe es nur erwähnt, falls du bereits ASF-Konfigurationen mit einer Art Bash-Skript massenhaft erstellen möchtest.
+ASF verwendet das **[JSON](https://en.wikipedia.org/wiki/JSON)** Format zum Speichern seiner Konfigurationsdateien. Es ist ein benutzerfreundliches, lesbares und sehr universelles Format in dem du das Programm konfigurieren kannst. Keine Sorge, du musst kein JSON können um ASF zu konfigurieren. Ich habe es nur erwähnt, falls du bereits daran denkst ASF-Konfigurationen mit einer Art Bash-Skript massenhaft zu erstellen.
 
-Die Konfiguration kann entweder manuell, durch Erstellung korrekter JSON-Konfigurationen, erfolgen oder durch Verwendung unseres **[Web-basierten ConfigGenerators](https://justarchinet.github.io/ASF-WebConfigGenerator)**, was viel einfacher und komfortabler sein sollte. Wenn du kein fortgeschrittener Benutzer bist, schlage ich vor, den Konfigurationsgenerator zu verwenden, der im Folgenden beschrieben wird.
+Die Konfiguration kann entweder manuell, durch Erstellung korrekter JSON-Konfigurationen, erfolgen oder durch die Verwendung unseres **[Web-basierten ConfigGenerators](https://justarchinet.github.io/ASF-WebConfigGenerator)**, was viel einfacher und komfortabler sein sollte. Wenn du kein fortgeschrittener Benutzer bist, schlage ich vor, den Konfigurationsgenerator zu verwenden, der im Folgenden beschrieben wird.
 
 **[Zum Seitenanfang](#konfiguration)**
 
@@ -31,11 +31,11 @@ Die Konfiguration kann entweder manuell, durch Erstellung korrekter JSON-Konfigu
 
 ## Web-basierter ConfigGenerator
 
-Der Zweck des web-basierten ConfigGenerator ist es, dir ein benutzerfreundliches Frontend zur Verfügung zu stellen das zum Erzeugen von ASF-Konfigurationsdateien verwendet werden kann. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von dir eingegebenen Daten nicht versendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** funktionieren kann, wenn du alle Dateien herunterladen und `index.html` in deinem Lieblingsbrowser ausführen möchtest.
+Der Zweck des web-basierten ConfigGenerator ist es, dir ein benutzerfreundliches Frontend zur Verfügung zu stellen das zum Erzeugen von ASF-Konfigurationsdateien verwendet werden kann. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von dir eingegebenen Daten nirgendwo hin gesendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** funktioniert, wenn du alle Dateien herunterlädst und `index.html` in deinem Lieblingsbrowser öffnest.
 
-Der web-basierte ConfigGenerator ist so konzipiert, dass er unter Chrome und Firefox ordnungsgemäß läuft, sollte aber in allen gängigen JavaScript-fähigen Browsern ordnungsgemäß funktionieren.
+Der web-basierte ConfigGenerator wurde unter Chrome und Firefox getestet, sollte aber in allen gängigen JavaScript-fähigen Browsern ordnungsgemäß funktionieren.
 
-Die Verwendung ist denkbar einfach - man wähle, ob man die Konfiguration `ASF` oder `Bot` durch Umschalten auf die entsprechende Registerkarte generieren möchte, stelle sicher, dass die gewählte Version der Konfigurationsdatei zu deiner ASF-Version passt, gebe dann alle Details ein und klicke auf die Schaltfläche "Herunterladen". Bewege diese Datei in das ASF `config` Verzeichnis und überschreibe bei Bedarf vorhandene Dateien. Wiederhole dies für alle eventuellen weiteren Änderungen und lies den Rest dieses Abschnitts, um alle verfügbaren Konfigurationsoptionen zu erlernen.
+Die Verwendung ist denkbar einfach - man wählt über die entsprechenden Registerkarten, ob man eine Konfiguration für `ASF` oder `Bot` erstellen möchte, überprüft ob die gewählte Version der Konfigurationsdatei zur verwendeten ASF-Version passt, füllt dann die entsprechenden Felder aus und klickt abschließend auf die Schaltfläche "Herunterladen". Verschiebe diese Datei in das ASF `config` Verzeichnis und überschreibe bei Bedarf vorhandene Dateien. Wiederhole diese Schritte bei allen zukünftigen Anpassungen. Der Rest dieses Abschnitts erklärt alle zur Verfügung stehenden Konfigurationsmöglichkeiten.
 
 **[Zum Seitenanfang](#konfiguration)**
 
@@ -43,7 +43,7 @@ Die Verwendung ist denkbar einfach - man wähle, ob man die Konfiguration `ASF` 
 
 ## Manuelle Konfiguration
 
-Ich empfehle dringend, den webbasierten Konfigurationsgenerator zu verwenden, aber wenn du aus irgendeinem Grund nicht willst, dann kannst du auch selbst richtige Konfigurationen erstellen. Überprüfe `example.json` für einen guten Einstieg in die richtige Struktur, du kannst diese Datei kopieren und als Basis für deinen neu konfigurierten Bot verwenden. Da du nicht unser Frontend verwendest, stelle sicher, dass deine Konfiguration **[gültig](https://jsonlint.com)** ist, da ASF das Einlesen ablehnt, wenn es nicht analysiert werden kann. Für eine korrekte JSON-Struktur aller verfügbaren Felder sieh dir den **[JSON-Mapping](#json-mapping)** Abschnitt und die Dokumentation unten an.
+Ich empfehle dir unbedingt den web-basierten ConfigGenerator zu verwenden. Solltest du diesen aus irgendeinem Grund nicht verwenden wollen kannst du natürlich auch selbst gültige Konfigurationen erstellen. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Für eine korrekte JSON-Struktur aller verfügbaren Felder sieh dir den Abschnitt **[JSON-Mapping](#json-mapping)** und die Dokumentation unten an.
 
 **[Zum Seitenanfang](#konfiguration)**
 
@@ -51,7 +51,7 @@ Ich empfehle dringend, den webbasierten Konfigurationsgenerator zu verwenden, ab
 
 ## Globale Konfiguration
 
-Die globale Konfigurationsdatei befindet sich in `ASF.json` und hat folgende Struktur:
+Die globale Konfiguration befindet sich in der Datei `ASF.json` und hat folgende Struktur:
 
 ```json
 {
@@ -86,11 +86,11 @@ Die globale Konfigurationsdatei befindet sich in `ASF.json` und hat folgende Str
 }
 ```
 
-**Tipp:** Sofern du keine dieser Optionen ändern möchtest, solltest du alles auf Standardwerte belassen, deshalb kannst du `ASF.json` schließen und zur Bot-Konfiguration übergehen.
+**Tipp:** Sofern du keine dieser Optionen ändern möchtest solltest du alles auf den Standardwerten belassen. Deshalb kannst du `ASF.json` schließen und zur Bot-Konfiguration übergehen.
 
 * * *
 
-Alle Optionen werden im Folgenden erläutert:
+Alle Optionen werden nachfolgend erklärt:
 
 ### `AutoRestart`
 
@@ -102,9 +102,9 @@ Wenn das der Fall ist, ist diese Eigenschaft speziell für dich und du kannst si
 
 ### `Blacklist`
 
-`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wie der Name schon sagt, definiert diese globale Konfigurationseigenschaft AppIDs (Spiele), die vom automatischen ASF-Sammel-Prozess vollständig ignoriert werden. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
+`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wie der Name schon sagt, definiert diese globale Konfigurationseigenschaft AppIDs (Spiele), die vom automatischen ASF-Sammel-Prozess vollständig ignoriert werden. Leider liebt es Steam, Sommer/Winter-Sale-Abzeichen als "verfügbar für Kartenabgabe" zu kennzeichnen, was den ASF-Prozess verwirrt, indem es den Eindruck erweckt, dass es sich um ein gültiges Spiel handelt, das gesammelt werden sollte. Wenn es keine schwarze Liste gäbe, würde ASF irgendwann beim Sammeln eines Spiels "hängen" bleiben, das eigentlich kein Spiel ist, und unendlich warten, bis die Karten gesammelt wurden, was nicht passieren wird. Die schwarze Liste von ASF dient dazu, diese Abzeichen als nicht für das Sammeln verfügbar zu kennzeichnen, so dass wir sie bei der Entscheidung, was zu Sammeln ist, stillschweigend ignorieren und nicht in die Falle tappen können.
 
-ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
+ASF enthält standardmäßig zwei schwarze Listen - `GlobalBlacklist`, die fest in den ASF-Code kodiert und nicht editierbar ist, und normale `Blacklist`, die hier definiert ist. `GlobalBlacklist` wird zusammen mit der ASF-Version aktualisiert und enthält typischerweise alle "schlechten" AppIDs zum Zeitpunkt der Veröffentlichung, so dass du, wenn die aktuelle Version von ASF verwendet wird, nicht deine eigene `Blacklist` pflegen musst, die hier definiert ist. Der Hauptzweck dieser Eigenschaft ist es, dir die Möglichkeit zu geben, neue, zum Zeitpunkt der ASF-Veröffentlichung unbekannte AppIDs auf die schwarze Liste zu setzen, die nicht gesammelt werden sollten. Die fest programmierte `GlobalBlacklist` wird so schnell wie möglich aktualisiert, daher ist es nicht erforderlich, dass du deine eigene `Blacklist` aktualisierst, wenn du die neueste ASF-Version verwendest, aber ohne `Blacklist` wärst du gezwungen, ASF zu aktualisieren, um "weiterzumachen", wenn Valve ein neues Sale-Abzeichen veröffentlicht - ich möchte dich nicht zwingen, den neuesten ASF-Code zu verwenden, daher ist diese Eigenschaft hier, um es dir zu ermöglichen, ASF selbst zu "reparieren", wenn du aus irgendeinem Grund nicht auf neue fest programmierte `GlobalBlacklist` in der neuen ASF-Version aktualisieren willst oder kannst, aber du willst dein altes ASF am Laufen halten. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
@@ -112,7 +112,7 @@ If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` 
 
 ### `CommandPrefix`
 
-`string` Typ mit Standardwert von `!`. This property specifies **case-sensitive** prefix used for ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. In other words, this is what you need to prepend to each ASF command in order to make ASF listen to you. Es ist möglich, diesen Wert auf `null` oder leer zu setzen, damit ASF kein Befehlspräfix verwendet, in diesem Fall gibst du Befehle mit ihren einfachen Bezeichnern ein. However, doing so will potentially decrease ASF's performance as ASF is optimized to not parse message further if it doesn't start with `CommandPrefix` - if you intentionally decide to not use it, ASF will be forced to read all messages and respond to them, even if they're not ASF commands. Therefore it's recommended to keep using some `CommandPrefix`, such as `/` if you don't like default value of `!`. For consistency, `CommandPrefix` affects the entire ASF process. Unless you have a reason to edit this property, you should keep it at default.
+`string` Typ mit Standardwert von `!`. This property specifies **case-sensitive** prefix used for ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. In other words, this is what you need to prepend to each ASF command in order to make ASF listen to you. Es ist möglich, diesen Wert auf `null` oder leer zu setzen, damit ASF kein Befehlspräfix verwendet, in diesem Fall gibst du Befehle mit ihren einfachen Bezeichnern ein. However, doing so will potentially decrease ASF's performance as ASF is optimized to not parse message further if it doesn't start with `CommandPrefix` - if you intentionally decide to not use it, ASF will be forced to read all messages and respond to them, even if they're not ASF commands. Therefore it's recommended to keep using some `CommandPrefix`, such as `/` if you don't like default value of `!`. For consistency, `CommandPrefix` affects the entire ASF process. Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 * * *
 
@@ -124,7 +124,7 @@ If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` 
 
 ### `ConnectionTimeout`
 
-`byte` Typ mit Standardwert von `60`. This property defines timeouts for various network actions done by ASF, in seconds. In particular, `ConnectionTimeout` defines timeout in seconds for HTTP and IPC requests, `ConnectionTimeout / 10` defines maximum number of failed heartbeats, while `ConnectionTimeout / 30` defines number of minutes we allow for initial Steam network connection request. Default value of `60` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher (like `90`). Keep in mind that bigger values will not magically fix slow or even inaccessible Steam servers, so we shouldn't infinitely wait for something that won't happen and simply try again later. Setting this value too high will result in excessive delay in catching network issues, as well as in decrease of overall performance. Setting this value too low will decrease overall stability and performance as well, as ASF will abort valid request still being parsed. Therefore setting this value lower than default has no advantage in general, as Steam servers tend to be slow from time to time, and might require more time for parsing ASF requests. Default value is a balance between believing that our network connection is stable, and doubting in Steam network to handle our request in given timeout. If you want to detect issues sooner and make ASF reconnect/respond faster, default value should do (or very slightly below, making ASF less patient). If you instead notice that ASF is running into network issues, such as failing requests, heartbeats being lost or connection to Steam interrupted, it might make sense to increase this value if you're sure that it's **not** caused by your network, but by Steam itself, as increasing timeouts makes ASF more "patient" and not deciding to reconnect right away. It might also make sense to increase this value if you have rather slow internet that requires more time to process the data being transmitted. In short, default value should be decent for most cases, but you might want to increase it if needed. Still, going far above the default value doesn't make much sense either, since bigger timeouts won't magically fix inaccessible Steam servers. Unless you have a reason to edit this property, you should keep it at default.
+`byte` Typ mit Standardwert von `60`. This property defines timeouts for various network actions done by ASF, in seconds. In particular, `ConnectionTimeout` defines timeout in seconds for HTTP and IPC requests, `ConnectionTimeout / 10` defines maximum number of failed heartbeats, while `ConnectionTimeout / 30` defines number of minutes we allow for initial Steam network connection request. Default value of `60` should be fine for majority of people, however, if you have rather slow network connection or PC, you might want to increase this number to something higher (like `90`). Keep in mind that bigger values will not magically fix slow or even inaccessible Steam servers, so we shouldn't infinitely wait for something that won't happen and simply try again later. Setting this value too high will result in excessive delay in catching network issues, as well as in decrease of overall performance. Setting this value too low will decrease overall stability and performance as well, as ASF will abort valid request still being parsed. Therefore setting this value lower than default has no advantage in general, as Steam servers tend to be slow from time to time, and might require more time for parsing ASF requests. Default value is a balance between believing that our network connection is stable, and doubting in Steam network to handle our request in given timeout. If you want to detect issues sooner and make ASF reconnect/respond faster, default value should do (or very slightly below, making ASF less patient). If you instead notice that ASF is running into network issues, such as failing requests, heartbeats being lost or connection to Steam interrupted, it might make sense to increase this value if you're sure that it's **not** caused by your network, but by Steam itself, as increasing timeouts makes ASF more "patient" and not deciding to reconnect right away. It might also make sense to increase this value if you have rather slow internet that requires more time to process the data being transmitted. In short, default value should be decent for most cases, but you might want to increase it if needed. Still, going far above the default value doesn't make much sense either, since bigger timeouts won't magically fix inaccessible Steam servers. Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 * * *
 
@@ -184,7 +184,7 @@ If you're running ASF on the server, you might want to use this option together 
 
 ### `IPCPassword`
 
-`string` Typ mit Standardwert von `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
+`string` Typ mit Standardwert von `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 * * *
 
@@ -204,7 +204,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `MaxTradeHoldDuration`
 
-`byte` Typ mit Standardwert von `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
+`byte` Typ mit Standardwert von `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 * * *
 
@@ -243,7 +243,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
+Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
 By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -273,7 +273,7 @@ Unless you have a **strong** reason to disable this feature, you should keep aut
 
 Der Standardwert wurde unter der Annahme festgelegt, dass ASF das einzige Programm ist, das auf die Steam-Webdienste zugreift, insbesondere `steamcommunity.com`, `api.steampowered.com` und `store.steampowered.com`. Wenn du andere Programme verwendest, die Anfragen an dieselben Webdienste senden, dann solltest du sicherstellen, dass dein Programm ähnliche Funktionen wie `WebLimiterDelay` enthält und beide auf das Doppelte des Standardwerts setzt, was `400` wäre. Dies garantiert, dass du unter keinen Umständen mehr als 1 Anfrage pro 200 ms senden wirst.
 
-In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it might lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that might send excessive number of requests to the same web-services that ASF is making use of. In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per 200 ms.
+Im Allgemeinen wird das Herabsetzen von `WebLimiterDelay` unter den Standardwert **stark abgeraten**, da es zu verschiedenen IP-bezogenen Sperren führen kann, von denen einige dauerhaft sein können. Der Standardwert ist gut genug, um eine einzelne ASF-Instanz auf dem Server auszuführen und ASF im Normalfall zusammen mit dem ursprünglichen Steam-Client zu verwenden. Es sollte für die meisten Anwendungen zutreffend sein, und du solltest es nur erhöhen (nie senken), wenn du - abgesehen von der Verwendung von ASF - auch ein anderes Programm verwendest, das eine übermäßige Anzahl von Anfragen an dieselben Webdienste senden könnte, die ASF nutzt. Kurz gesagt, die globale Anzahl aller Anfragen, die von einer einzelnen IP an eine einzelne Steam-Domäne gesendet werden, sollte nie mehr als 1 Anfrage pro 200 ms überschreiten.
 
 Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
@@ -317,11 +317,11 @@ Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf 
 
 ## Bot Konfiguration
 
-Wie du bereits wissen solltest, sollte jeder Bot seine eigene Konfiguration haben. Die Beispiel-Bot-Konfiguration ist in der Datei `example.json` enthalten, die für die Bot-Konfiguration verwendet werden sollte. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
+As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
-**Notice:** There are several names which are reserved and can't be used for bot configs. Those are: **ASF**, **example** and **minimal**. ASF will ignore such configuration files. ASF will also ignore configuration files starting with a dot.
+**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
 
-Nachdem du entschieden hast, wie du deinen Bot nennen möchtest, öffne seine Datei und beginne mit der Konfiguration. Du solltest die folgende Struktur beachten:
+The bot config has following structure:
 
 ```json
 {
@@ -361,7 +361,7 @@ Nachdem du entschieden hast, wie du deinen Bot nennen möchtest, öffne seine Da
 
 * * *
 
-Alle Optionen werden im Folgenden erläutert:
+Alle Optionen werden nachfolgend erklärt:
 
 ### `AcceptGifts`
 
@@ -392,7 +392,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 | 8    | DismissInventoryNotifications | Veranlasst ASF dazu, alle Inventar-Benachrichtigungen automatisch zu entfernen              |
 | 16   | MarkReceivedMessagesAsRead    | Führt dazu, dass ASF automatisch alle empfangenen Nachrichten als gelesen markiert          |
 
-Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to its activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use selected options for main accounts as well.
 
@@ -483,21 +483,21 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Wert | Name              | Beschreibung                                                  |
-| ---- | ----------------- | ------------------------------------------------------------- |
-| 0    | Unknown           | Every type that doesn't fit in any of the below               |
-| 1    | BoosterPack       | Unpacked booster pack                                         |
-| 2    | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3    | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4    | ProfileBackground | Profile background to use on your Steam profile               |
-| 5    | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6    | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Wert | Name              | Beschreibung                                                                                  |
+| ---- | ----------------- | --------------------------------------------------------------------------------------------- |
+| 0    | Unknown           | Jeder Typ, der nicht in eine der folgenden Kategorien passt                                   |
+| 1    | BoosterPack       | Booster pack containing 3 random cards from a game                                            |
+| 2    | Emoticon          | Emoticon zur Verwendung im Steam-Chat                                                         |
+| 3    | FoilTradingCard   | Folienvariante von `TradingCard`                                                              |
+| 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
+| 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
+| 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
-Default ASF setting is based on most common usage of the bot, with looting only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything.
+Default ASF setting is based on most common usage of the bot, with looting only booster packs, and trading cards (including foils). Die hier definierte Eigenschaft ermöglicht es dir, dieses Verhalten so zu verändern, dass es dich zufrieden stellt. Bitte bedenke, dass alle nicht oben definierten Typen als `Unknown` Typ angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in der zukünftigen Version) hinzugefügt wird. That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything.
 
 * * *
 
@@ -505,15 +505,15 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Wert | Name              | Beschreibung                                                  |
-| ---- | ----------------- | ------------------------------------------------------------- |
-| 0    | Unknown           | Every type that doesn't fit in any of the below               |
-| 1    | BoosterPack       | Unpacked booster pack                                         |
-| 2    | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3    | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4    | ProfileBackground | Profile background to use on your Steam profile               |
-| 5    | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6    | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Wert | Name              | Beschreibung                                                                                  |
+| ---- | ----------------- | --------------------------------------------------------------------------------------------- |
+| 0    | Unknown           | Jeder Typ, der nicht in eine der folgenden Kategorien passt                                   |
+| 1    | BoosterPack       | Booster pack containing 3 random cards from a game                                            |
+| 2    | Emoticon          | Emoticon zur Verwendung im Steam-Chat                                                         |
+| 3    | FoilTradingCard   | Folienvariante von `TradingCard`                                                              |
+| 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
+| 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
+| 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
@@ -569,7 +569,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 | 2    | Distributing     | Distribute all keys among itself and other bots                                |
 | 4    | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -658,13 +658,13 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
-| Wert | Name                | Beschreibung                                                                                                                                                                    |
-| ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
-| 1    | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
-| 2    | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4    | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
-| 8    | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                             |
+| Wert | Name                | Beschreibung                                                                                                                                                                                                                |
+| ---- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | None                | Keine Handelspräferenzen - akzeptiert nur `Master` Handelsangebote                                                                                                                                                          |
+| 1    | AcceptDonations     | Akzeptiert Handelsangebote, bei denen wir nichts verlieren                                                                                                                                                                  |
+| 2    | SteamTradeMatcher   | Akzeptiert Duplikat-Matching **[STM](https://www.steamtradematcher.com)**-ähnliche Handelsangebote. Weitere Informationen findest du unter **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** |
+| 4    | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                                           |
+| 8    | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                                         |
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
@@ -676,15 +676,15 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 
 `ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam-Gegenstands-Typen für die Übertragung zwischen Bots während `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
 
-| Wert | Name              | Beschreibung                                                  |
-| ---- | ----------------- | ------------------------------------------------------------- |
-| 0    | Unknown           | Jeder Typ, der nicht in eine der folgenden Kategorien passt   |
-| 1    | BoosterPack       | Unpacked booster pack                                         |
-| 2    | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3    | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4    | ProfileBackground | Profile background to use on your Steam profile               |
-| 5    | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6    | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| Wert | Name              | Beschreibung                                                                                  |
+| ---- | ----------------- | --------------------------------------------------------------------------------------------- |
+| 0    | Unknown           | Jeder Typ, der nicht in eine der folgenden Kategorien passt                                   |
+| 1    | BoosterPack       | Booster pack containing 3 random cards from a game                                            |
+| 2    | Emoticon          | Emoticon zur Verwendung im Steam-Chat                                                         |
+| 3    | FoilTradingCard   | Folienvariante von `TradingCard`                                                              |
+| 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
+| 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
+| 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -828,7 +828,7 @@ Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei 
 
 ## Konfigurations-Kompatibilität
 
-Es ist für ASF oberste Priorität, mit älteren Konfigurationen kompatibel zu bleiben. Wie du bereits weißt, werden fehlende Konfigurationseigenschaften genauso behandelt, wie wenn sie mit ihren **Standardwerten** angegeben würden. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten. Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da du auf diese Weise automatisch Standardwerte für alle anderen vererbst, nicht nur deine Konfiguration sauber hältst, sondern auch die Kompatibilität erhöhst, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die du nicht explizit selbst festlegen möchtest. Zögere nicht, die Beispiel-Konfigurationsdatei `minimal.json` zu lesen, die diesem Konzept folgt.
+Es ist für ASF oberste Priorität, mit älteren Konfigurationen kompatibel zu bleiben. Wie du bereits weißt, werden fehlende Konfigurationseigenschaften genauso behandelt, wie wenn sie mit ihren **Standardwerten** angegeben würden. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten. Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da du auf diese Weise automatisch Standardwerte für alle anderen vererbst, nicht nur deine Konfiguration sauber hältst, sondern auch die Kompatibilität erhöhst, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die du nicht explizit selbst festlegen möchtest.
 
 **[Zum Seitenanfang](#konfiguration)**
 

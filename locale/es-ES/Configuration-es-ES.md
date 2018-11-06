@@ -43,7 +43,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 ## Manual configuration
 
-I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check `example.json` for a good start in proper structure, you can copy that file and use as a base for your newly configured bot. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
+I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
 **[Back to top](#configuration)**
 
@@ -317,11 +317,11 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ## Bot config
 
-As you should know already, every bot should have its own config. Example bot config is included in `example.json` file, which should be used for bot configuration. Simply **copy paste** `example.json` to a new file, and remember to name it appropriately, as it will be your bot instance. You should start from configuring your **primary** account, so some good suggestions for filename is `primary.json`, `1.json` or `YourNickname.json`.
+As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
-**Notice:** There are several names which are reserved and can't be used for bot configs. Those are: **ASF**, **example** and **minimal**. ASF will ignore such configuration files. ASF will also ignore configuration files starting with a dot.
+**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
 
-After deciding how you want to name your bot, open its file, and start with configuration. You should notice following structure:
+The bot config has following structure:
 
 ```json
 {
@@ -488,7 +488,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | Value | Nombre            | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
 | 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
 | 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
@@ -508,7 +508,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | Value | Nombre            | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
 | 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
 | 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
@@ -679,7 +679,7 @@ For further explanation of ASF trading logic, and description of every available
 | Value | Nombre            | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack       | Unpacked booster pack                                         |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
 | 2     | Emoticon          | Emoticon to use in Steam Chat                                 |
 | 3     | FoilTradingCard   | Foil variant of `TradingCard`                                 |
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
@@ -828,7 +828,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ## Configs compatibility
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself. Feel free to check `minimal.json` example configuration file that follows this concept.
+It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself.
 
 **[Back to top](#configuration)**
 

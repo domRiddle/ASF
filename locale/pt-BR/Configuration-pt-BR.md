@@ -43,7 +43,7 @@ O uso é muito simples: selecione se você deseja gerar uma configuração `ASF`
 
 ## Configuração manual
 
-Eu recomendo fortemente usar o gerador de configuração web, mas se por algum motivo você não quiser, então você pode criar configurações adequadas manualmente. Confira o arquivo `example.json` para ter uma boa ideia da estrutura adequada, você pode copiar esse arquivo e usar como base para os bots que vai configurar. Já que que você não estará usando nossa interface, certifique-se que sua configuração é **[válida](https://jsonlint.com)**, pois o ASF não vai carregá-la se ela não puder ser analisada. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção de **[mapeamento JSON](#mapeamento-json)** e a documentação abaixo.
+Eu recomendo fortemente usar o gerador de configuração web, mas se por algum motivo você não quiser, então você pode criar configurações adequadas manualmente. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção de **[mapeamento JSON](#mapeamento-json)** e a documentação abaixo.
 
 **[Voltar ao topo](#configuração)**
 
@@ -317,11 +317,11 @@ A menos que você tenha uma razão para editar essa propriedade, você deve mant
 
 ## Configuração do Bot
 
-Como você já deve saber, cada bot deve ter sua própria configuração. Um exemplo de configuração bot está incluso no arquivo `example.json`, que deve ser usado para configuração do bot. Simplesmente **copie e cole** o `example.json` para um novo arquivo e lembre-se de nomeá-la adequadamente, pois ela será sua conta bot. Você deve começar configurando sua conta **principal**, portanto, algumas boas sugestões para o nome do arquivo é `primary.json`, `1. json` ou `SeuApelido.json`.
+As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
-**Observação:** Há alguns nomes que são reservados e não podem ser usados para nomear configurações de bot. São eles: **ASF**, **example** e **minimal**. O ASF vai ignorar arquivos de configuração com esses nomes. O ASF também ignora arquivos cujo nome comece com um ponto.
+**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
 
-Depois de decidir como você deseja nomear seu bot, abra o arquivo e comece a configuração. Você vai notar a seguinte estrutura:
+The bot config has following structure:
 
 ```json
 {
@@ -488,7 +488,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas                                                            |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
@@ -508,7 +508,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas                                                            |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
@@ -679,7 +679,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas                                                            |
+| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
@@ -828,7 +828,7 @@ Devido a limitações, o JavaScript é incapaz de serializar corretamente simple
 
 ## Configuração de compatibilidade
 
-É prioridade para o ASF permanecer compatível com configurações anteriores. Como você já deve saber, a falta de propriedades de configuração são tratadas como se elas tivessem sido definidas com seus **valores padrão**. Portanto, se novas propriedades de configuração forem introduzidas em novas versões do ASF, todas as suas configurações se manterão **compatíveis** com a nova versão, e o ASF tratará a nova propriedade de configuração como se definida com o **valor padrão**. Você sempre pode adicionar, remover ou editar as propriedades de configuração conforme sua necessidade. Recomendamos limitar a definição de propriedades de configuração para apenas aqueles que você quer mudar, já que dessa forma você automaticamente herda os valores padrão de todas as demais, não apenas mantendo sua configuração limpa mas também aumentando a compatibilidade caso a gente decida mudar o valor padrão de uma propriedade que você não quer mudar por conta própria. Sinta-se livre para verificar o arquivo de configuração de exemplo `minimal.json` que segue esse conceito.
+É prioridade para o ASF permanecer compatível com configurações anteriores. Como você já deve saber, a falta de propriedades de configuração são tratadas como se elas tivessem sido definidas com seus **valores padrão**. Portanto, se novas propriedades de configuração forem introduzidas em novas versões do ASF, todas as suas configurações se manterão **compatíveis** com a nova versão, e o ASF tratará a nova propriedade de configuração como se definida com o **valor padrão**. Você sempre pode adicionar, remover ou editar as propriedades de configuração conforme sua necessidade. Recomendamos limitar a definição de propriedades de configuração para apenas aqueles que você quer mudar, já que dessa forma você automaticamente herda os valores padrão de todas as demais, não apenas mantendo sua configuração limpa mas também aumentando a compatibilidade caso a gente decida mudar o valor padrão de uma propriedade que você não quer mudar por conta própria.
 
 **[Voltar ao topo](#configuração)**
 

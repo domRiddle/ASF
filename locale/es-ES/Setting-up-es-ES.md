@@ -112,7 +112,7 @@ Después de abrir la página, cambia a la pestaña "Bot". Ahora deberías ver un
 
 Si por cualquier motivo la versión de ASF que hayas descargado es más antigua que la que el generador de configuración usa por defecto, simplemente elige tu versión de ASF del menú desplegable. Esto puede ocurrir ya que el generador de configuración puede ser usado para generar configuraciones para versiones más nuevas de ASF (prelanzamiento) que aún no han sido marcadas como estables. Has descargado la última versión estable de ASF que se ha verificado que funciona confiablemente.
 
-Empieza por poner un nombre para tu bot en el campo resaltado en rojo. Este puede ser cualquier nombre que desees utilizar, tal como tu "nickname", nombre de la cuenta, un número, o cualquier otra cosa. Solo hay 3 palabras que no puedes usar, estas son: `ASF`, `example` y `minimal`. Además de eso el nombre de tu bot no puede empezar con un punto (ASF intencionalmente ignora esos archivos). También recomendamos que evites usar espacios, puedes usar `_` como separador de palabras si es necesario.
+Empieza por poner un nombre para tu bot en el campo resaltado en rojo. Este puede ser cualquier nombre que desees utilizar, tal como tu "nickname", nombre de la cuenta, un número, o cualquier otra cosa. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. Además de eso el nombre de tu bot no puede empezar con un punto (ASF intencionalmente ignora esos archivos). También recomendamos que evites usar espacios, puedes usar `_` como separador de palabras si es necesario.
 
 Después de decidir tu nombre, cambia el interruptor de `Enabled` para que esté activo, esto determina si tu bot es iniciado automáticamente por ASF tras la ejecución (del programa).
 
