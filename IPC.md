@@ -91,9 +91,15 @@ However, if you decide to change default `localhost` bind addresses to something
 
 Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins (`*`) as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
+### Can I access ASF's IPC remotely, e.g. from other machine?
+
+Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that, e.g. `http://*:1242`.
+
+Keep in mind that when enabling remote access, **you** are responsible for ensuring its security. At the bare minimum you should have `IPCPassword` set, but we strongly recommend to also use other means, e.g. firewall that would limit access to ASF's port only from whitelisted IPs.
+
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
-**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**. Keep in mind that when using reverse-proxy, you're partially responsible for ASF's security, e.g. limiting access to your web server only from whitelisted IPs.
 
 Example Nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
 
