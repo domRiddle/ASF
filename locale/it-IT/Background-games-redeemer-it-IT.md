@@ -2,25 +2,25 @@
 
 Il riscatto giochi in background è una caratteristica speciale incorporata in ASF che ti permette di importare un dato numero di chiavi di Steam (insieme con i loro nomi) per essere riscattate in background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. Questa funzione può essere usata insieme a (o al posto di) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, se necessario.
 
 * * *
 
-## Import
+## Importa
 
-The import process can be done through two ways - either by using a file, or IPC.
+L'importazione può essere effettuata in due modi: usando un file o con IPC.
 
 ### File
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. Questo file ha una struttura richiesta e fissa composta dal nome del gioco con la propria cd-key, separati dal carattere tab e terminando con un a capo. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che resta viene ignorato. Per esempio:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Domino Craft VR    12345-67890-ZXCVB
+    A Week of Circus Terror    POIUY-KJHGD-QWERT
+    Terraria    QuestoVieneIgnorato    AncheQuestoVieneIgnorato    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF importerà questo file sia all'avvio del bot, che più tardi durante l'esecuzione. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
 
 ### IPC
 

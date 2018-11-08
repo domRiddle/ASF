@@ -90,6 +90,10 @@ However, if you decide to change default `localhost` bind addresses to something
 
 Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins (`*`) as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
+### Can I access ASF's IPC remotely, e.g. from another machine?
+
+Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that, e.g. `http://*:1242`.
+
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
 **Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
@@ -150,20 +154,20 @@ The configuration file is based on following JSON structure:
 {
     "Kestrel": {
         "Endpoints": {
-            "IPv4-http": {
+            "example-http4": {
                 "Url": "http://127.0.0.1:1242"
             },
-            "IPv6-http": {
+            "example-http6": {
                 "Url": "http://[::1]:1242"
             },
-            "IPv4-https": {
+            "example-https4": {
                 "Url": "https://127.0.0.1:1242",
                 "Certificate": {
                     "Path": "/path/to/certificate.pfx",
                     "Password": "passwordToPfxFileAbove"
                 }
             },
-            "IPv6-https": {
+            "example-https6": {
                 "Url": "https://[::1]:1242",
                 "Certificate": {
                     "Path": "/path/to/certificate.pfx",
@@ -185,3 +189,17 @@ There are 2 properties worth explanation/editing, those are `Endpoints` and `Pat
 `PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
+
+### Example config
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```

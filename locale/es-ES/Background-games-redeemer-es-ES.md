@@ -1,26 +1,26 @@
-# Background games redeemer
+# Activador de juegos en segundo plano
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de Steam keys(junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de keys para activar y te garantiza llegar a tu `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** antes de que termines con tu lote entero.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+El activador de juegos en segundo plano esta hecho para tener un solo bot de único propósito, por lo que este no hace uso de las `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** de ser necesario.
 
 * * *
 
-## Import
+## Importar
 
-The import process can be done through two ways - either by using a file, or IPC.
+El proceso de importación puede hacerse de dos maneras - ya sea a través de un archivo o por IPC.
 
-### File
+### Archivo
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF reconocerá en su directorio de `config` un archivo llamado `BotName.keys` donde `BotName` es el nombre de tu bot. El archivo se espera que tenga una estructura definida como, nombre del juego junto con su key, separados por un tab y terminando con un salto de linea. Si varios tabs son usados, entonces el primer espacio se considera el nombre del juego y el último espacio es la key y todo lo que esté en medio sera ignorado. Por ejemplo:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
     A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    Terraria    EstoSeIgnora   EstoSeIgnoraTambién    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF importará dicho archivo, ya sea durante el arranque del bot, o después durante su ejecucción. Después de revisar el archivo y eventualmente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será removido del directorio de `config`.
 
 ### IPC
 

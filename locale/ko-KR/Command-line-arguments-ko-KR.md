@@ -26,7 +26,7 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 ./ArchiSteamFarm --인자1 --인자2
 ```
 
-명령줄 인자는 `ArchiSteamFarm.cmd`나 `ArchiSteamFarm.sh` 같은 일반 도우미 스크립트에서도 지원합니다. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+명령줄 인자는 `ArchiSteamFarm.cmd`나 `ArchiSteamFarm.sh` 같은 일반 도우미 스크립트에서도 지원합니다. 그외에 도우미 스크립트를 사용할때 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR#command-line-arguments)** 항목에 명시된 것 처럼 `ASF_ARGS` 환경변수를 사용할 수 있습니다.
 
 인자에 공백이 들어간다면 따옴표로 표시하는 것을 잊지마십시오. 아래 두개는 잘못되었습니다:
 
@@ -44,21 +44,21 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 ## 인자
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` 혹은 `--cryptkey=<key>` - `<key>`값의 자체 암호화 키를 가지고 ASF를 시작합니다. 이 옵션은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)**에 영향을 주고 ASF가 실행파일에 하드코딩된 기본 키 대신 제공된 자체 `<key>`키를 사용하도록 합니다. ASF가 실행될 때마다 이 키로 암호화된 암호가 그 키를 필요로함을 명심하십시오.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - 이 스위치는 주로 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR)** 컨테이너에서 사용하며 `AutoRestart` 값을 `false`로 강제합니다. 특별한 필요가 없다면 환경설정에서 `AutoRestart` 항목을 직접 설정하여야 합니다. 이 스위치는 도커 스크립트가 자체 환경설정을 적용할때 일반 환경설정을 건드리지 않아도 되도록 합니다. 물론 ASF를 스크립트 내부에서 실행하고 있다면 이 스위치를 활용할 수 있습니다. (그렇지 않다면 일반 환경설정 항목이 낫습니다)
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` (and optionally also `www`) directory without a need of duplicating binary in the same place. It might come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--path <path>` 혹은 `--path=<path>` - ASF는 설치시에 자체 디렉토리를 탐색합니다. 이 인자를 지정하면 ASF는 설치 후에 주어진 디렉토리를 탐색하고, 바이너리를 동일한 장소에 복제할 필요 없이 `config` 혹은 `www` 디렉토리의 사용자 지정경로로 사용할 수 있습니다. 리눅스형태의 패키징에서 그런 것 처럼 바이너리와 실제 환경설정을 분리하고자 할때 특히 유용합니다. 이 방식으로 여러 다른 설치본을 하나의 (최신) 바이너리만으로 사용할 수 있습니다. 경로는 ASF 바이너리의 현재 위치에서 상대경로 또는 절대경로로 지정할 수 있습니다. 동일한 바이너리를 다중 인스턴스로 실행할 때는 인스턴스 간 동기화가 되지 않으므로 자동 업데이트를 비활성화해야 함을 명심하십시오. 또한 이 명령어는 원본 ASF와 동일한 구조를 가지고 있고, `config` 디렉토리가 내부에 있는 새로운 "ASF home"을 가리킴을 명심하십시오.
 
 예시:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 절대경로
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 상대경로도 잘 작동함
 ```
 
     ├── /opt
@@ -72,12 +72,12 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` - 실행중인 봇이 없는 경우 ASF를 종료하는 기본 설정을 비활성합니다. 자동 종료 금지 설정은 대부분의 사용자가 활성화된 봇의 갯수와 상관없이 웹서비스가 돌아가기를 원하는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)**와의 조합에서 특히 유용합니다. IPC 옵션을 사용중이거나 ASF를 직접 종료할때까지 계속 실행되기를 원하는 경우 알맞는 옵션입니다.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+IPC를 실행할 생각이 없다면 그다지 쓸모 없습니다. 필요할때마다 ASF를 시작하면 됩니다.(이와 반대로 ASF 웹서버는 당신이 보내는 명령을 위해 항상 대기하고 있습니다)
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required` - ASF가 전체 생애주기동안 시스템이 살아있어야 한다는 신호를 운영체제에 보내도록 합니다. 현재 이 스위치는 윈도 기기에서만 유효하며 프로세스가 실행되는 한 대기모드로 들어가는 것을 방지합니다. 밤에 PC나 랩탑에서 농사를 짓는 경우 특히 유용합니다. 농사를 짓는 동안 시스템은 계속 깨어있다가 ASF는 끝나면 평소처럼 꺼지고 시스템도 다시 대기모드로 들어가도록 하여 농사가 끝나면 전기를 즉시 절약합니다.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+정확한 자동 종료를 위해 다른 ASF 설정도 필요함을 명심하십시오. 특히 `--process-required`를 피하고 모든 봇이 `ShutdownOnFarmingFinished` 설정을 따르는지를 확인하십시오. 물론 자동종료는 이 기능의 오직 한 가능성이고 필요조건은 아닙니다. 예를들어 이 옵션을 `--process-required`와 같이 사용한다면 ASF를 실행한 이후 시스템이 영원히 깨어있도록 할 수 있습니다.

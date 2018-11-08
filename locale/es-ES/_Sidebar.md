@@ -4,7 +4,7 @@
 
 * * *
 
-## Basics
+## General
 
 * **[Inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -13,7 +13,7 @@
 
 ## Núcleo
 
-* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
@@ -27,11 +27,11 @@
 * **[Depreciación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Preguntas frecuentes extendido](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Configuración de alto rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Ubicación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Logueo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Configuación de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Herramientas de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
 * **[Segundo factor de autenticación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**

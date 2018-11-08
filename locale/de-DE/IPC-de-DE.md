@@ -90,11 +90,15 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der Logik **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)**, und wir erlauben Zugriff von allen Ursprüngen (`*`), solange `IPCPassword` gesetzt ist, als zusätzliche Sicherheitsmaßnahme. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
-### Kann ich ASF IPC hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
+### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einer anderen Maschine aus?
 
-**Ja**, unser IPC ist voll kompatibel mit einem solchen Setup, so dass wenn du möchtest du ihn auch direkt vor deinen eigenen Programmen hosten kannst, um zusätzliche Sicherheit und Kompatibilität zu gewährleisten. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z.B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+Ja, wir empfehlen dafür einen Reverse-Proxy zu verwenden (siehe unten). Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf der gleichen Maschine auf die IPC-Schnittstelle von ASF zugreift. Andernfalls, wenn du nicht mit einem Reverse-Proxy arbeiten möchtest, kannst du die **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** mit entsprechender URL verwenden, z.B. `http://*:1242`.
 
-Eine beispielhafte Nginx-Konfiguration findest du unten. Wir haben den vollen `server` Block eingefügt, obwohl du dich hauptsächlich für `location` interessierst. Bitte lies die **[nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
+### Kann ich die IPC-Schnittstelle von ASF hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
+
+**Ja**, unser IPC ist vollständig kompatibel mit einem solchen Setup, so dass du ihn auch vor deinen eigenen Programmen hosten kannst, für zusätzliche Sicherheit und Kompatibilität, wenn du möchtest. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z.B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+
+Eine beispielhafte Nginx-Konfiguration findest du unten. Wir haben den kompletten `server` Block hinzugefügt, obwohl du dich hauptsächlich für `location` interessierst. Bitte lies die **[Nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
 
 ```nginx
 server {
@@ -132,9 +136,9 @@ server {
 
 ### Kann ich über das HTTPS-Protokoll auf die IPC-Schnittstelle zugreifen?
 
-**Ja**, du kannst es auf zwei verschiedene Arten erreichen. Eine empfohlene Methode wäre die Verwendung eines Reverse-Proxy (oben beschrieben), bei dem du wie üblich über https auf deinen Webserver zugreifen und dich über ihn mit der IPC-Schnittstelle von ASF auf derselben Maschine verbinden kannst. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
+**Ja**, du kannst es auf zwei verschiedene Arten erreichen. Eine empfohlene Methode wäre die Verwendung eines Reverse-Proxy für diesen (oben beschriebenen), bei dem du wie üblich über https auf deinen Webserver zugreifst und dich über ihn mit der IPC-Schnittstelle von ASF auf derselben Maschine verbindest. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
 
-Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein zufriedenstellendes Setup mit Hilfe eines Reverse-Proxy-Mechanismus zu erreichen.
+Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#custom-configuration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
 
 * * *
 
@@ -150,20 +154,20 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 {
     "Kestrel": {
         "Endpoints": {
-            "IPv4-http": {
+            "example-http4": {
                 "Url": "http://127.0.0.1:1242"
             },
-            "IPv6-http": {
+            "example-http6": {
                 "Url": "http://[::1]:1242"
             },
-            "IPv4-https": {
+            "example-https4": {
                 "Url": "https://127.0.0.1:1242",
                 "Certificate": {
                     "Path": "/path/to/certificate.pfx",
                     "Password": "passwordToPfxFileAbove"
                 }
             },
-            "IPv6-https": {
+            "example-https6": {
                 "Url": "https://[::1]:1242",
                 "Certificate": {
                     "Path": "/path/to/certificate.pfx",
@@ -185,3 +189,17 @@ Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich
 `PathBase` - Dies ist der Basispfad der von der IPC-Schnittstelle verwendet wird. Diese Eigenschaft ist optional, voreingestellt auf `/` und sollte für die meisten Anwendungsfälle nicht geändert werden müssen. Wenn du diese Eigenschaft änderst, hostest du die gesamte IPC-Schnittstelle auf einem benutzerdefinierten Präfix, zum Beispiel `http://127.0.0.1:1242/MeinPrefix` anstelle von `http://127.0.0.1:1242` allein. Die Verwendung von einem benutzerdefinierten `PathBase` kann in Kombination mit der spezifischen Einrichtung eines Reverse-Proxy erwünscht sein, bei dem du nur eine bestimmte URL proxyen möchtest, z.B. `meinedomain.com/ASF` statt der gesamten `meinedomain.com` Domain. Normalerweise würde das erfordern, dass du eine Umschreibungsregel für deinen Webserver schreibst, die `meinedomain.com/ASF/Api/X` -> `127.0.0.0.1:1242/Api/X` abbilden würde. Aber stattdessen kannst du einen benutzerdefinierten `PathBase` von `/ASF` definieren und eine einfachere Einrichtung von `meinedomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X` erreichen.
 
 Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es am besten ihn bei der Standardeinstellung zu belassen.
+
+### Beispielhafte Konfiguration
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP": {
+                "Url": "http://*:1242"
+            }
+        }
+    }
+}
+```

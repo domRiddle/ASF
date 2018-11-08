@@ -43,7 +43,7 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
 
 ## 수동 환경설정
 
-웹기반 환경설정 생성기를 사용하는 것을 매우 권장합니다만, 모종의 이유로 사용을 원하지 않는 경우에는 직접 정확한 환경설정파일을 만들 수도 있습니다. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. 모든 가능한 항목의 적절한 JSON 구조는 아래의 **[JSON 매핑](#json-매핑)** 항목과 설명을 참고하십시오.
+웹기반 환경설정 생성기를 사용하는 것을 매우 권장합니다만, 모종의 이유로 사용을 원하지 않는 경우에는 직접 정확한 환경설정파일을 만들 수도 있습니다. 정확한 구조를 위해 아래의 JSON 예제를 참조하여, 이를 파일로 복사하여 자신의 환경설정의 기본으로 사용할 수도 있습니다. 우리의 프론트엔드를 사용하지 않으므로 환경설정이 **[유효한지](https://jsonlint.com)** 확인해야 합니다. 그렇지 않으면 ASF는 파싱할 수 없어 로딩을 거부할 것입니다. 모든 가능한 항목의 적절한 JSON 구조는 아래의 **[JSON 매핑](#json-매핑)** 항목과 설명을 참고하십시오.
 
 **[위로 돌아가기](#환경설정)**
 
@@ -381,16 +381,16 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 ### `BotBehaviour`
 
-`byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
+`byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 다양한 이벤트 발생시 ASF 봇의 행동을 아래와 같이 정의합니다.
 
-| 값  | 이름                            | 설명                                                                    |
-| -- | ----------------------------- | --------------------------------------------------------------------- |
-| 0  | None                          | No special bot behaviour, the least invasive mode, default            |
-| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
-| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
-| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
-| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications   |
-| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read    |
+| 값  | 이름                                          | 설명                                  |
+| -- | ------------------------------------------- | ----------------------------------- |
+| 0  | 없음(None)                                    | 특별한 행동 없음, 가장 덜 공격적인 모드, 기본값        |
+| 1  | 유효하지 않은 친구초대 거절(RejectInvalidFriendInvites) | ASF는 유효하지 않은 친구 요청을 거절합니다.(무시 아님)   |
+| 2  | 유효하지 않은 거래 거절(RejectInvalidTrades)          | ASF는 유효하지 않은 거래 제안을 거절합니다.(무시 아님)   |
+| 4  | 유효하지 않은 그룹 초대 거절(RejectInvalidGroupInvites) | ASF는 유효하지 않은 그룹 초대를 거절합니다.(무시 아님)   |
+| 8  | 보관함 알림 해제(DismissInventoryNotifications)    | ASF가 모든 보관함 알림을 자동으로 해제합니다.         |
+| 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다. |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -410,48 +410,48 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ### `CustomGamePlayedWhileFarming`
 
-`string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to change default `OnlineStatus`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
+문자열(`string`) 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 변경하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
 ### `CustomGamePlayedWhileIdle`
 
-`string` type with default value of `null`. Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
+문자열(`string`) 타입으로 기본값은 `null`입니다. `CustomGamePlayedWhileFarming`와 비슷하지만 농사가 끝난 계정 등 ASF가 할 일이 없을 경에 사용합니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
 ### `Enabled`
 
-`bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 이 봇의 활성화 여부를 정의합니다. 활성화된 봇 인스턴스(`true`)는 ASF 실행시에 자동으로 시작되고, 비활성된 봇 인스턴스(`false`)는 수동으로 시작해야 합니다. 기본값으로 모든 봇이 비활성화되어 있습니다. 따라서 자동으로 시작할 모든 봇의 이 속성값을 `true`로 바꾸어야 합니다.
 
 * * *
 
 ### `FarmingOrders`
 
-`ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
+`ImmutableHashSet<byte>` 타입으로 기본값은 비어있습니다. 이 속성값은 해당 봇 계정에서 ASF가 사용할 **선호하는** 농사 순서를 정의합니다. 현재 가능한 농사 순서는 다음과 같습니다.
 
-| 값  | 이름                        | 설명                                                                               |
-| -- | ------------------------- | -------------------------------------------------------------------------------- |
-| 0  | Unordered                 | No sorting, slightly improving CPU performance                                   |
-| 1  | AppIDsAscending           | Try to farm games with lowest `appID`s first                                     |
-| 2  | AppIDsDescending          | Try to farm games with highest `appID`s first                                    |
-| 3  | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
-| 4  | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
-| 5  | HoursAscending            | Try to farm games with lowest number of hours played first                       |
-| 6  | HoursDescending           | Try to farm games with highest number of hours played first                      |
-| 7  | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
-| 8  | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
-| 9  | Random                    | Try to farm games in totally random order (different on each run of the program) |
-| 10 | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
-| 11 | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
-| 12 | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
-| 13 | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
-| 14 | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
-| 15 | MarketableDescending      | Try to farm games with marketable card drops first                               |
+| 값  | 이름                                       | 설명                               |
+| -- | ---------------------------------------- | -------------------------------- |
+| 0  | 순서 없음(Unordered)                         | 정렬하지 않음, CPU 성능 약간 개선            |
+| 1  | App ID 오름차순(AppIDsAscending)             | `appID`가 작은 게임부터 먼저 농사 시도        |
+| 2  | App ID 내림차순(AppIDsDescending)            | `appID`가 큰 게임부터 먼저 농사 시도         |
+| 3  | 카드 드롭 오름차순(CardDropsAscending)           | 얻을 수 있는 카드의 수가 적은 게임부터 먼저 농사 시도  |
+| 4  | 카드 드롭 내림차순(CardDropsDescending)          | 얻을 수 있는 카드의 수가 많은 게임부터 먼저 농사 시도  |
+| 5  | 시간 오름차순(HoursAscending)                  | 플레이 시간이 적은 게임부터 먼저 농사 시도         |
+| 6  | 시간 내림차순(HoursDescending)                 | 플레이 시간이 많은 게임부터 먼저 농사 시도         |
+| 7  | 이름 오름차순(NamesAscending)                  | A부터 시작하는 알파벳 순으로 농사 시도           |
+| 8  | 이름 내림차순(NamesDescending)                 | Z부터 시작하는 알파벳 역순으로 농사 시도          |
+| 9  | 무작위(Random)                              | 완전히 무작위 순서로 농사 시도(프로그램 실행시마다 변경) |
+| 10 | 배지 레벨 오름차순(BadgeLevelsAscending)         | 배지 레벨이 낮은 게임부터 먼저 농사 시도          |
+| 11 | 배지 레벨 내림차순(BadgeLevelsDescending)        | 배지 레벨이 높은 게임부터 먼저 농사 시도          |
+| 12 | 등록 날짜 시간 오름차순(RedeemDateTimesAscending)  | 계정 등록이 오래된 게임부터 먼저 농사 시도         |
+| 13 | 등록 날짜 시간 내림차순(RedeemDateTimesDescending) | 계정 등록이 최근인 게임부터 먼저 농사 시도         |
+| 14 | 장터화 오름차순(MarketableAscending)            | 카드 판매불가인 게임부터 먼저 농사 시도           |
+| 15 | 장터화 내림차순(MarketableDescending)           | 카드 판매가능인 게임부터 먼저 농사 시도           |
 
-Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
+이 속성값은 배열이므로 고정된 순서를 여러 다른 설정을 사용할 수 있게 해 줍니다. 예를 들어 카드 판매가능한 게임을 먼저, 배지 레벨이 높은 게임을 그 다음에, 마지막으로 알파벳순으로 정렬하려고 `15`, `11`, 그리고 `7` 값을 포함할 수 있습니다. 추측할 수 있듯이 순서가 영향을 줍니다. 거꾸로 하면(`7`, `11`, 그리고 `15`)는 완전히 다른 뭔가가 됩니다. 대부분의 사람들은 한 가지 순서만 사용하지만, 만약 원한다면 추가 매개 변수로 더 깊이있게 정렬할 수 있습니다.
 
-Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games with highest playtime first, and only then sorting everything further by your chosen `FarmingOrders`. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer performance over `FarmingOrders`).
+위의 설명에 있는 "시도"라는 단어에 유의하십시오. 실제 ASF의 순서는 선택한 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 심하게 영향을 받고 정렬방식은 동일한 성능측면을 고려한 경우에만 영향을 줍니다. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games with highest playtime first, and only then sorting everything further by your chosen `FarmingOrders`. Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer performance over `FarmingOrders`).
 
 There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
@@ -459,7 +459,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appID`s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appID`s, therefore if you put more games than that, only first `32` will be respected (and extra ones being ignored).
+`ImmutableHashSet<uint>` 타입으로 기본값은 비어있습니다. If ASF has nothing to farm it can play your specified steam games (`appID`s) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appID`s, therefore if you put more games than that, only first `32` will be respected (and extra ones being ignored).
 
 * * *
 
@@ -521,7 +521,7 @@ Of course, types that you should use for this property typically include only `2
 
 ### `OnlineStatus`
 
-`byte` type with default value of `1`. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
 
 | 값 | 이름             |
 | - | -------------- |
@@ -548,7 +548,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 ### `PasswordFormat`
 
-`byte` type with default value of `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+`byte` 타입으로 기본값은 `0`입니다. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
 
 * * *
 
@@ -560,7 +560,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 ### `RedeemingPreferences`
 
-`byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
+`byte flags` 타입으로 기본값은 `0`입니다. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
 | 값 | 이름               | 설명                                                                             |
 | - | ---------------- | ------------------------------------------------------------------------------ |
@@ -623,7 +623,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SteamPassword`
 
-`string` type with default value of `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+문자열(`string`) 타입으로 기본값은 `null`입니다. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
@@ -656,7 +656,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 ### `TradingPreferences`
 
-`byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
+`byte flags` 타입으로 기본값은 `0`입니다. This property defines ASF behaviour when in trading, and is defined as below:
 
 | 값 | 이름                  | 설명                                                                                                                                                                              |
 | - | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

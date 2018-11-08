@@ -6,15 +6,15 @@ ASF V3.1.2.2 버전부터 개발과 사용이 더욱 일관되도록 일관된 �
 
 ## 폐기란?
 
-폐기는 이전에 사용되던 옵션, 인자, 기능이나 사용되지 않는 사용례를 변경하는 작거나 큰 변화의 과정입니다. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+폐기는 이전에 사용되던 옵션, 인자, 기능이나 사용되지 않는 사용례를 변경하는 작거나 큰 변화의 과정입니다. 폐기는 보통 주어진 것이 단순히 다른 유사한 형태로 다시 쓰여졌다는 것을 뜻하고, 이를 적절한 시기에 적절히 전환해야 합니다. 이 경우 더 적절한 장소로 기능을 단순히 옮겼습니다.
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we might change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+ASF는 급속히 변화하고 항상 더 나아집니다. 이는 슬프게도 새로운 기능, 호환성 또는 안정성을 위해 우리가 기존의 기능을 변경하거나 프로그램의 다른 부분으로 옮길수도 있다는 뜻입니다. 그 덕에 쓰이지 않거나 단순히 몇년전의 잘못된 의사결정에 매달리지 않아도 됩니다. 우리는 항상 기존에 가능했던 기능의 예상되는 사용법에 맞는 합리적인 대체를 제공하려고 노력하고 있습니다. 따라서 폐기는 대부분 무해하고 이전의 사용법에 작은 수정만을 필요로 합니다.
 
 * * *
 
 ## 폐기의 단계
 
-ASF는 폐기를 2단계로 하여 번역을 더욱 쉽고 문제가 덜 생기도록 합니다.
+ASF는 폐기를 2단계로 하여 이전을 더욱 쉽게하고 문제가 덜 생기도록 합니다.
 
 ### 1단계
 
@@ -24,26 +24,26 @@ ASF는 폐기를 2단계로 하여 번역을 더욱 쉽고 문제가 덜 생기�
 
 ### 2단계
 
-2단계는 위에서 설명한 1단계가 일어난 후 안정화 버전이 배포되는 때입니다. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+2단계는 위에서 설명한 1단계가 일어난 후 안정화 버전이 배포되는 때입니다. 이 단계는 폐기된 기능을 완전히 제거합니다. ASF는 당신이 폐기된 기능을 사용하려는 것을 인정하지 않습니다. 현재의 코드에는 존재하지 않습니다. ASF는 이제 당신이 하려는 것을 인식할 수 없기 때문에 더이상 경고를 표시하지 않습니다.
 
 * * *
 
 ## 요약
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+적절한 전환을 위해서는 약 **한 달** 정도가 있고, 일반적인 ASF 사용자라면 전환에 충분한 시간입니다. 그 기간이 지나면, ASF는 당신에게 알리지 않고 특정 기능을 작동중단함으로써 더이상 구 설정값이 효과가 있을지를 보장하지 않습니다(2단계). ASF를 실행 안한지 한달 이상이 지난 후에 ASF를 실행했다면 다시 **[처음부터 시작](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ko-KR)**하거나, 놓쳤던 모든 변경사항을 읽업고 현재의 사용법을 수동으로 적용하는 것을 추천합니다.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which might or might not match your personal preferences).
+대부분의 경우, 폐기 경고를 무시하는 것은 일반적인 ASF 기능을 사용불가능하게 만들지는 않습니다. 그러나 개인적인 설정에 맞거나 맞지 않는 기본적인 동작만으로 줄어들 것입니다.
 
 * * *
 
 ## 예시
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+우리는 pre-V3.1.2.2 버전의 `--server` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)**를 `IPC` **[전역 설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#global-config)**으로 옮겼습니다.
 
 ### 1단계
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+`--server`의 사용에 적절한 경고를 추가한 V3.1.2.2 버전에서 1단계가 일어납니다. 구식이 된 `--server` 인자는 자동으로 일반 환경설정 값 `IPC: true`으로 매핑되어, 일정 시간동안 예전의 `--server` 스위치와 정확하게 동일하게 동작합니다. 이렇게 해서 모든 사람들이 ASF가 오래된 인자를 받아들이는 것을 멈추기 전에 적절하게 전환할 수 있습니다.
 
 ### 2단계
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+위에서 설명한 1단계가 있던 V3.1.2.9 버전의 바로 다음인 V3.1.3.0 버전에서 2단계가 일어납니다. 2단계에서는 `--server` 인자를 인식하는 것을 완전히 중지합니다. 이는 다른 모든 잘못된 인수들처럼 다루어지고, 더이상 프로그램에 어떠한 영향도 줄 수 없습니다. 아직 `--server`의 사용을 `IPC: true`로 변경하지 않은 사람들은 IPC가 기능을 멈춥니다. ASF가 더이상 적절한 매핑을 하지 않기 때문입니다.

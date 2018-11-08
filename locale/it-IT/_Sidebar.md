@@ -4,12 +4,12 @@
 
 * * *
 
-## Basics
+## Base
 
-* **[Homepage](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Domande frequenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
+* **[Installazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 
 ## Core
 
@@ -18,10 +18,10 @@
 * **[Compatibilità](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Prestazioni](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Statistiche](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Condivisione Steam Family](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Condivisione familiare di Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Scambi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-## Avanzato
+## Avanzate
 
 * **[Argomenti della riga di comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Deprecazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
