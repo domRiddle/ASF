@@ -43,7 +43,7 @@ O uso é muito simples: selecione se você deseja gerar uma configuração `ASF`
 
 ## Configuração manual
 
-Eu recomendo fortemente usar o gerador de configuração web, mas se por algum motivo você não quiser, então você pode criar configurações adequadas manualmente. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção de **[mapeamento JSON](#mapeamento-json)** e a documentação abaixo.
+Eu recomendo fortemente usar o gerador de configuração web, mas se por algum motivo você não quiser, então você pode criar configurações adequadas manualmente. Veja os exemplos JSON abaixo para ter uma boa ideia da estrutura correta, você pode copiar o conteúdo eu um arquivo e usá-lo como base para a sua configuração. Já que você não está usando nosso gerador de configurações, certifique-se de que sua configuração é **[válida](https://jsonlint.com)** pois o ASF não vai carregá-la se ela não puder ser validada. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção de **[mapeamento JSON](#mapeamento-json)** e a documentação abaixo.
 
 **[Voltar ao topo](#configuração)**
 
@@ -317,11 +317,11 @@ A menos que você tenha uma razão para editar essa propriedade, você deve mant
 
 ## Configuração do Bot
 
-As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
+Como você já deve saber, cada bot deve ter sua própria configuração baseada no exemplo de estrutura JSON abaixo. Comece decidindo como você deseja nomear seu bot (por exemplo: `1.json`, `main.json`, `primary.json` ou `QualquerCoisa.json`) e vá para configuração.
 
-**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
+**Observação:** O bot não pode ser nomeado como `ASF` (esse nome é reservado para configuração global), o ASF também vai ignorar qualquer arquivo de configuração cujo nome comece com um ponto.
 
-The bot config has following structure:
+A configuração do bot tem a seguinte estrutura:
 
 ```json
 {
@@ -488,7 +488,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
+| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
@@ -508,7 +508,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
+| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
@@ -679,7 +679,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | Valor | Nome              | Descrição                                                                   |
 | ----- | ----------------- | --------------------------------------------------------------------------- |
 | 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Booster pack containing 3 random cards from a game                          |
+| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
 | 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |

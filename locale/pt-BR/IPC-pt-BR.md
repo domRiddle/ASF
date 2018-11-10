@@ -90,9 +90,9 @@ No entanto, se você decidir mudar os endereços padrão do `localhost`, então 
 
 Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica </strong> **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing), e permitimos o acesso de todas as origens (`*`) contanto que `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).</p> 
 
-### Can I access ASF's IPC remotely, e.g. from another machine?
+### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
-Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that, e.g. `http://*:1242`.
+Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada, por exemplo: `http://*:1242`.
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 
@@ -190,7 +190,7 @@ Há duas propriedades que merecem explicação/edição, são `Endpoints` e `Pat
 
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
 
-### Example config
+### Exemplo de configuração
 
 ```json
 {
