@@ -6,7 +6,7 @@ Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für wen
 
 - [Allgemein](#allgemein)
 - [Vergleich mit ähnlichen Programmen](#vergleich-mit-ähnlichen-programmen)
-- [Sicherheit / Datenschutz / VAC / Sperren / Nutzungsbedingungen](#sicherheit-datenschutz-vac-sperren-nutzungsbedingungen)
+- [Sicherheit / Datenschutz / VAC / Sperren / Nutzungsbedingungen](#sicherheit--datenschutz--vac--sperren--nutzungsbedingungen)
 - [Sonstiges](#sonstiges)
 - [Probleme](#probleme)
 
@@ -16,24 +16,24 @@ Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für wen
 
 ### Also wie funktioniert das genau?
 
-Bevor Sie versuchen zu verstehen, was ASF ist, sollten Sie sicherstellen, dass Sie verstehen, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
+Bevor du versuchst zu verstehen, was ASF ist, solltest du sicherstellen, dass du verstehst, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 
-Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die Sie berechtigt sind, wenn Sie ein bestimmtes Spiel besitzen, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck Ihrer Wahl verwendet werden.
+Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die du berechtigt bist, wenn du ein bestimmtes Spiel besitzt, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck deiner Wahl verwendet werden.
 
 Hier werden noch einmal Kernpunkte genannt, weil Leute ihnen im Allgemeinen nicht zustimmen wollen:
 
-- **Ja, Sie müssen das Spiel besitzen, um für Kartendrops berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
-- **Nein, du kannst das Spiel nicht unendlich lange farmen - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel bekommen hast wird es nicht mehr gefarmt.**
+- **Ja, du musst das Spiel besitzen, um für Kartendrops berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
+- **Nein, du kannst das Spiel nicht unendlich lange sammeln - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel bekommen hast wird es nicht mehr gesammelt.**
 - **Nein, du kannst keine Karten von F2P Spiele bekommen ohne Geld in ihnen ausgegeben zu haben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2.**
-- **Nein, du kannst keine Kartendrops auf einem eingeschränkten Account (diejenigen die nie 5€ im Steam Store ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
+- **Nein, du kannst keine Kartendrops auf einem eingeschränkten Konto (diejenigen die nie 5€ im Steam Shop ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
 Wie du sehen kannst, werden dir Steam-Karten verliehen, weil du ein Spiel spielst, das du gekauft hast oder ein F2P-Spiel in das du Geld gesteckt hast. Mit anderen Worten, wenn du ein Spiel lange genug spielst fallen alle Karten für dieses Spiel in dein Inventar, so dass du ein Abzeichen erstellen, die Karten verkaufen oder tun kannst, was du willst.
 
 ASF als Programm ist recht komplex zu verstehen, so dass wir, anstatt alle technischen Details zu erklären, im Folgenden eine sehr vereinfachte Erklärung anbieten werden.
 
-ASF meldet sich über den integrierten Mini Steam-Client mit den von dir angegebenen Anmeldeinformationen bei deinem Steam-Konto an. Nach erfolgreicher Anmeldung analysiert es deine **[Abzeichen](https://steamcommunity.com/my/badges)** um Spiele zu finden, die für das Sammeln verfügbar sind (Du kannst X weitere Karten erhalten, wenn du dieses Spiel spielst). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Karten-Drop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
+ASF meldet sich über den integrierten mini Steam-Client mit den von dir angegebenen Anmeldeinformationen bei deinem Steam-Konto an. Nach erfolgreicher Anmeldung analysiert es deine **[Abzeichen](https://steamcommunity.com/my/badges)** um Spiele zu finden, die für das Sammeln verfügbar sind (Du kannst X weitere Karten erhalten, wenn du dieses Spiel spielst). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Kartendrop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
 
-Beachte, dass die obige Erklärung vereinfacht ist und nicht Dutzende von zusätzlichen Features und Funktionen beschreibt die ASF anbietet. Besuche den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)**, wenn du jedes Detail von ASF wissen willst. Ich habe versucht es einfach zu halten, damit es für alle verständlich ist, ohne technische Details einzubringen - fortgeschrittene Benutzer werden ermutigt, tiefer zu graben.
+Beachte, dass die obige Erklärung vereinfacht ist und nicht Dutzende von zusätzlichen Features und Funktionen beschreibt die ASF anbietet. Besuche den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)**, wenn du jedes Detail von ASF wissen willst. Ich habe versucht es einfach zu halten, damit es für alle verständlich ist, ohne technische Details einzubringen - fortgeschrittene Benutzer werden ermutigt, tiefer zu graben.
 
 Nun als Programm bietet ASF etwas Magie. Erstens, es muss keine deiner Spieldateien herunterladen, es kann sofort Spiele spielen. Zweitens ist es völlig unabhängig von deinem normalen Steam-Client - du musst den Steam-Client nicht laufen lassen oder gar installiert haben. Drittens ist es eine automatisierte Lösung - was bedeutet, dass ASF automatisch alles hinter deinem Rücken erledigt, ohne dass du ihm sagen musst, was er tun soll - was dir Ärger und Zeit erspart. Letztendlich muss es das Steam-Netzwerk nicht durch Prozessemulation (die z.B. Idle Master verwendet) austricksen, da es direkt mit ihm kommunizieren kann. Es ist auch superschnell und leicht und ist eine erstaunliche Lösung für alle, die Karten ohne großen Aufwand bekommen wollen - es ist besonders nützlich, wenn man es im Hintergrund laufen lässt, während man etwas anderes macht oder sogar im Offline-Modus spielt.
 

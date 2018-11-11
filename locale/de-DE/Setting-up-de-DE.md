@@ -4,7 +4,7 @@ Wenn du hier zum ersten Mal angekommen bist, herzlich willkommen! Wir freuen uns
 
 Wenn du immer noch hier bist, heißt das, dass du den Text oben überstanden hast, was toll ist. Außer du hast ihn übersprungen, was heißt, dass du bald **[schlechte Zeiten](https://www.youtube.com/watch?v=WJgt6m6njVw)** vor dir hast... Wie auch immer: ASF ist eine Konsolenanwendung, was bedeutet, dass das Programm selbst keine freundliche Benutzeroberfläche hat, wie du es eventuell gewohnt bist. ASF sollte hauptsächlich auf Servern laufen, so dass es als Dienst (Daemon) und nicht als Desktop-App fungiert.
 
-Das bedeutet jedoch nicht, dass du es nicht auf deinem PC benutzen kannst oder dass die Benutzung etwas komplizierter ist als sonst, nichts dergleichen. ASF ist ein eigenständiges Programm, das keine Installation benötigt und "out of the box" direkt funktioniert. Allerdings erfordert es immer noch einer Konfiguration bevor es nützlich wird. Die Konfiguration sagt ASF was es tatsächlich tun soll, nachdem du es gestartet hast. Wenn du ASF ohne Konfiguration startest, dann wird es genau nichts machen. Ganz einfach.
+Das bedeutet jedoch nicht, dass du es nicht auf deinem PC benutzen kannst oder dass die Benutzung etwas komplizierter ist als sonst, nichts dergleichen. ASF ist ein eigenständiges Programm, das keine Installation benötigt und sofort einsatzbereit ist. Allerdings wird eine Konfiguration erfordert, bevor es nützlich wird. Die Konfiguration sagt ASF, was es nach dem Start tatsächlich tun soll. Wenn du ASF ohne Konfiguration startest, dann wird es nichts tun. Ganz einfach.
 
 * * *
 
@@ -13,7 +13,7 @@ Das bedeutet jedoch nicht, dass du es nicht auf deinem PC benutzen kannst oder d
 Folgendes werden wir in den nächsten paar Minuten machen:
 
 - **[.NET Core Prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installieren.
-- Die **[neueste ASF Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in der entsprechenden betriebssystemabhängigen Variante herunterladen.
+- Die **[neueste ASF Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in der entsprechenden betriebssystemspezifischen Variante herunterladen.
 - Das Archiv in einen neuen Ordner entpacken (und mit `chmod +x ArchiSteamFarm` ausführbar machen, wenn du dich auf Linux oder OS X befindest).
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - ASF starten und der Magie ihren Lauf lassen.
@@ -24,16 +24,16 @@ Hört sich einfach an, richtig? Dann lass uns anfangen.
 
 ### .NET Core Prerequisites
 
-Der erste Schritt ist das versichern, dass dein Betriebssytem ASF ordnungsgemäß ausführen kann. ASF ist in C# programmiert, basierend auf .NET Core und benötigt möglicherweise native Bibliotheken, die auf deiner Plattform noch nicht verfügbar sind. Abhängig davon, ob du Windows, Linux oder OS X verwendest, wirst du unterschiedliche Voraussetzungen haben, welche allerdings alle im **[.NET Core Abhängigkeiten](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**-Dokument, dem du folgen solltest, aufgelistet sind. Dieses ist Referenzmaterial, das verwendet werden sollte, allerdings haben wir im Sinne der Einfachheit auch alle benötigten Pakete unten aufgelistet, damit du nicht das gesamte Dokument lesen musst.
+Der erste Schritt ist sicherzustellen, dass dein Betriebssystem ASF überhaupt richtig ausführen kann. ASF ist in C# programmiert, basierend auf .NET Core und benötigt möglicherweise native Bibliotheken, die auf deiner Plattform noch nicht verfügbar sind. Abhängig davon, ob du Windows, Linux oder OS X verwendest, wirst du unterschiedliche Voraussetzungen haben, welche allerdings alle im **[.NET Core Prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**-Dokument, dem du folgen solltest, aufgelistet sind. Dieses ist Referenzmaterial, das verwendet werden sollte, allerdings haben wir im Sinne der Einfachheit auch alle benötigten Pakete unten aufgelistet, damit du nicht das gesamte Dokument lesen musst.
 
 Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in deinem System existieren, weil sie mit der Software Dritter, welche du verwendest, mitinstalliert wurden. Trotzdem solltest du sicherstellen, dass dies wirklich der Fall ist indem du das entsprechende Installationsprogramm für dein Betriebssytem ausführst - Ohne diese Abhängigkeiten wird ASF nicht einmal starten.
 
-Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder des Runtimes, da betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Abhängigkeiten um das .NET Core Runtime das bereits in ASF inkludiert ist auszuführen.
+Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder der Runtimes, da die betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Prerequisites (Abhängigkeiten) um die .NET Core Runtime, die bereits in ASF enthalten ist, auszuführen.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 für 64-Bit Windows, x86 für 32-Bit Windows)
-- Wir empfehlen stark sicherzustellen, dass alle Windows updates installiert sind. Du benötigst zumindest **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Updates nötig sein. Es sind bereits alle installiert, wenn dein Windows aktuell ist. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
+- Wir dringend empfohlen sicherzustellen, dass alle Windows Aktualisierungen installiert sind. Du benötigst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
@@ -64,13 +64,13 @@ Wenn du dein Paket heruntergeladen und das zip-Archiv extrahiert hast (wir empfe
 
 Wenn du Linux oder OS X verwendest, vergiss nicht mit `chmod +x ArchiSteamFarm`, die Berechtigungen zu setzen, da diese in einem zip-Archiv nicht gesetzt sind. Dies muss nur nach dem initialen Entpacken gemacht werden.
 
-Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Updates werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
+Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 
     C:\ASF (hier tust du deine eigenen Dateien hin)
-        ├── ASF Abkürzung.lnk (optional)
-        ├── Config Abkürzung.lnk (optional)
+        ├── ASF Verknüpfung.lnk (optional)
+        ├── Config Verknüpfung.lnk (optional)
         ├── Befehle.txt (optional)
         ├── MeinZusätzlichesSkript.bat (optional)
         ├── ... (Alle anderen Dateien deiner Wahl, optional)
@@ -90,7 +90,7 @@ Nach einer kleinen Säuberung hast du nun eine sehr komfortable Struktur, ähnli
 
 ![Structure](https://i.imgur.com/k85csaZ.png)
 
-Auf diese Weise kannst du problemlos und ohne großen Aufwand auf ASF-Binär- und Konfigurationsdateien zugreifen. In meinem Fall habe ich mich für die oben genannte Struktur entschieden, so dass sich meine ASF-Dateien im Verzeichnis "Core" befinden. Du kannst diese Struktur nach Belieben anpassen, wie z.B. ASF + config Verknüpfungen auf dem Desktop kopieren und das ASF-Verzeichnis z.B. in `C:\ASF` legen, du kannst es dir aussuchen.
+Auf diese Weise kannst du problemlos und ohne großen Aufwand auf ASF-Binär- und Konfigurationsdateien zugreifen. In meinem Fall habe ich mich für die oben genannte Struktur entschieden, so dass sich meine ASF-Dateien im Verzeichnis "Core" befinden. Du kannst diese Struktur nach Belieben anpassen, wie z.B. ASF + config Verknüpfungen auf dem Desktop kopieren und das ASF-Verzeichnis z.B. in `C:\ASF` legen. Das liegt ganz bei dir.
 
 Linux/OS X-Benutzern wird empfohlen, dasselbe zu tun, du kannst einen ausgezeichneten Mechanismus für symbolische Links verwenden, der über `ln -s` verfügbar ist.
 
@@ -184,7 +184,7 @@ Also lass uns das tun, wenn du ASF ausführst und das Sammeln beginnst, wirst du
 
 ![Steam](https://i.imgur.com/sCdSMZj.png)
 
-Lass uns das dann ändern. Aktiviere die erweiterten Einstellungen im Webkonfigurationsgenerator und suche `CustomGamePlayedWhileFarming`. Sobald du das getan hast, füge dort deinen eigenen benutzerdefinierten Text ein, den du anzeigen möchtest, wie zum Beispiel "Idling cards":
+Lass uns das jetzt ändern. Aktiviere die erweiterten Einstellungen im Webkonfigurationsgenerator und suche `CustomGamePlayedWhileFarming`. Sobald du das getan hast, füge dort deinen eigenen benutzerdefinierten Text ein, den du anzeigen möchtest, wie zum Beispiel "Idling cards":
 
 ![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
 
@@ -253,7 +253,7 @@ Für das generische Pakete kannst du dem gesamten betriebssystemspezifischen Lei
 Mit zusätzlichen Schritten:
 
 - Installiere **[.NET Core Prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Ließ die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**, wenn du nicht sicher bist, welche Version du installieren sollst.
+- Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Ließ die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)**, wenn du nicht sicher bist, welche Version du installieren sollst.
 - Lade die **[aktuellste ASF-Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generischer Variante herunter.
 - Entpack das Archiv an einen neuen Ort (und `chmod +x ArchiSteamFarm.sh` wenn du unter Linux/OS X bist).
 - **[Konfiguriere ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.

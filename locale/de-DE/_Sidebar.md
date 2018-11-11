@@ -23,7 +23,7 @@
 
 ## Fortgeschrittene Funktionalität
 
-* **[Konsolen-Argumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE)**
+* **[Befehlszeilenargumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE)**
 * **[Veraltete Funktionen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-de-DE)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE)**
 * **[Erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**

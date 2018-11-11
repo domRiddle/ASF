@@ -24,27 +24,27 @@ ASF importará dicho archivo, ya sea durante el arranque del bot, o después dur
 
 ### IPC
 
-Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground`**[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que también se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
+Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar el IPC puede ser más provechoso, permitiendo una customización mas personalizada, como usar un delimitador propio en vez de un tab como viene por defecto, o incluso cambiar completamente la estructura de las keys.
 
 * * *
 
-## Queue
+## Cola
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Una vez los juegos sean importados exitosamente, seran añadidos a la cola. ASF recorrerá automáticamente dicha cola en segundo plano mientras que el bot este conectado a la red de Steam y la cola no este vacía. Cuando una key se intente activar y no resulte en `RateLimited`, esta será removida de la cola, con el resultado de dicho intento escrito en un archivo en el directorio `config` - ya sea `BotName.keys.used` si la key fue usada en el proceso (por ejemplo `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) o `BotName.keys.unused` en caso contrario. ASF usará el nombre que hayas proveido, esto debido a que no es posible garantizar que la red de Steam retorne un nombre significativo a la hora de activar una key - de esta manera puedes etiquetar tus keys usando nombres personalizados en caso de ser necesario o si el usuario así lo desea.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Si durante el proceso la cuenta llega a su `RateLimited`, la cola sera temporalmente suspendida por una hora para esperar que el limite de activación desaparezca. Cuando este limite desaparezca, el proceso continuará, hasta que la cola quede completamente vacía.
 
 * * *
 
-## Example
+## Ejemplo
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Supongamos que tienes una lista de 100 keys. Primeramente debes crear un nuevo archivo `BotName.keys.new` en el directorio `config` de ASF. Le agregamos la extensión `.new` para que ASF no intente usar este archivo de inmediato en el momento que es creado (ya que el mismo está en blanco y no esta listo para ser importado aún).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Ahora puedes abrir el archivo y pegar las 100 keys dentro del mismo, arreglando el formato de la lista si es necesario. Después de arreglar nuestro archivo `BotName.keys.new` tendremos exactamente 100 (o 101, incluyendo el último salto de linea) lineas, cada uno con un estructura de `GameName\tcd-key\n` donde `\t` es un tab y `\n` es un salto de linea.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Ahora puedes cambiarle el nombre al archivo de `BotName.keys.new` a `BotName.keys` para que ASF sepa que está listo para ser leído. En el momento en que hagas esto, ASF automáticamente importará el archivo (sin necesidad de reiniciar) y posteriormente lo borrará, confirmado que todos los juegos fueron leidos y agregados a la cola.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+En vez de usar el archivo `BotName.keys`, también puedes usar la función del IPC, o incluso combinar ambas si así lo desea.
 
 After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
 

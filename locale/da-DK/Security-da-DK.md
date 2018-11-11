@@ -8,7 +8,7 @@ In order to use encrypted password, you should firstly log in to Steam as usual 
 
 * * *
 
-### Simpel tekst
+### PlainText
 
 This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF forventer `SteamPassword` property til at være en almindelig tekst - adgangskode bruges til at logge på Steam i sin direkte form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
 
@@ -30,7 +30,7 @@ Currently the most secure way of storing the password that ASF offers, and much 
 
 * * *
 
-### Ingen
+### None
 
 The only way that guarantees 100% security and ensures that nobody can steal your Steam password. In order to use this option simply set your `SteamPassword` to empty string (`""`) or `null` value. ASF will ask you for your Steam password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords, it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
 
