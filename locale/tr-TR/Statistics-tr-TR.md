@@ -12,7 +12,7 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 `İstatistikler` aktifken şunlar olacaktır:
 
-a) ASF'de kullanılan her hesap **[Steam grubumuza](https://steamcommunity.com/groups/ascfarm)** katılacaktır. Bu üç sebepten dolayı yapılır:
+a) ASF'de kullanılan her hesap **[Steam grubumuza](https://steamcommunity.com/gid/103582791440160998)** katılacaktır. Bu üç sebepten dolayı yapılır:
 
 * **Size** grup duyurularını, özellikle yeni versiyonları, kritik sorunları, Steam sorunlarını ve topluluğun haberdar edilmesi gereken diğer önemli şeyleri sağlar (ASF ile alakasız istenmeyen içerik olmayacağını garanti ediyoruz)
 * Sorular sorarak, problemleri çözerek, sorunları bildirerek veya geliştirme önerileri aracılığıyla **sizin** teknik desteğimizi kullanmanıza olanak tanır

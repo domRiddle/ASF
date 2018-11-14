@@ -1,28 +1,28 @@
 # Komutlar
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF, bot örneklerinin ve sürecin davranışlarını kontrol etmek için kullanılabilecek çeşitli komutları destekler.
 
-Below commands can be sent to the bot through three different ways:
+Alttaki komutlar üç farklı yoldan bota gönderilebilir:
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Steam özel sohbet vasıtasıyla
+- Steam grup sohbeti vasıtasıyla
+- **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** vasıtasıyla
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+Aşağıdaki tüm komutlar, `CommandPrefix` **[genel yapılandırma özelliğinden etkilenir](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**; varsayılan olarak `!` şeklindedir. Bu, örnek `status` komutu, aslında `!status` şeklinde yazmalısınız (veya bunun yerine özel `CommandPrefix` kullanabilirsiniz).
 
 * * *
 
-### Steam private chat
+### Steam özel sohbet
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Ekran Görüntüsü](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
-### Steam group chat
+### Steam grup sohbeti
 
 Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
 
@@ -32,13 +32,13 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://i.imgur.com/pzKE4EJ.png)
+![Ekran Görüntüsü](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 
 ## Komutlar
 
-| Command                                                                    | Erişim          | Description                                                                                                                                                                                           |
+| Komut                                                                      | Erişim          | Açıklama                                                                                                                                                                                              |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
@@ -88,7 +88,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 * * *
 
-### Notes
+### Notlar
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -112,7 +112,7 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komut        | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -137,25 +137,25 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `Gizlilik` ayarları
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | İsim           | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Argüman | İsim           | Child of   |
+| ------- | -------------- | ---------- |
+| 1       | Profile        |            |
+| 2       | OwnedGames     | Profile    |
+| 3       | Playtime       | OwnedGames |
+| 4       | FriendsList    | Profile    |
+| 5       | Inventory      | Profile    |
+| 6       | InventoryGifts | Inventory  |
+| 7       | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | İsim          |
+| Değer | İsim          |
 | ----- | ------------- |
 | 1     | `Private`     |
 | 2     | `FriendsOnly` |
@@ -163,7 +163,7 @@ While valid values for all of them are:
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### Örnek
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -211,7 +211,7 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 * * *
 
-## `input` command
+## `Giriş` komutları
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -219,7 +219,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Tip                     | Açıklama                                                                   |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -230,7 +230,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Örnek
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

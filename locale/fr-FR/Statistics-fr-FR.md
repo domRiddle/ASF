@@ -12,7 +12,7 @@ Nous gardons l’utilisation des statistiques au strict minimum, et chaque infor
 
 Lorsque les `statistiques` sont actives, les choses suivantes arriveront :
 
-a) tout compte utilisé dans ASF rejoindra notre **[groupe steam](https://steamcommunity.com/groups/ascfarm)**. Pour trois raisons :
+a) tout compte utilisé dans ASF rejoindra notre **[groupe steam](https://steamcommunity.com/gid/103582791440160998)**. Pour trois raisons :
 
 * Il **vous** fournit des annonces, surtout concernant les nouvelles versions, les questions cruciales, problèmes Steam et autres choses qui sont importantes afin de maintenir la communauté à jour (pas de spam avec ASF garanti)
 * Il **vous**permet d’utiliser notre support technique, en posant des questions, résoudre les problèmes, ou suggérer des améliorations

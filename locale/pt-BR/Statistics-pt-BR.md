@@ -12,7 +12,7 @@ Nós mantemos o uso de estatísticas no mínimo, e toda informação sendo colet
 
 Enquanto a propriedade `Statistics` está ativada, acontecerá o seguinte:
 
-a) Todas as contas sendo usadas no ASF irão se juntar ao nosso **[grupo Steam](https://steamcommunity.com/groups/ascfarm)**. Isso é feito por três motivos:
+a) Todas as contas sendo usadas no ASF irão se juntar ao nosso **[grupo Steam](https://steamcommunity.com/gid/103582791440160998)**. Isso é feito por três motivos:
 
 * Isso envia à **você** anúncios do grupo, especialmente versões novas, problemas críticos, problemas do Steam e outras coisas que são importantes para manter a comunidade atualizada (garantimos nenhum spam não relacionado ao ASF)
 * Isso permite que **você** use nosso suporte técnico, fazendo perguntas, resolvendo problemas, relatando erros ou sugerindo melhorias

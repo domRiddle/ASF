@@ -167,7 +167,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Weiteres
+## Erweitert
 
 Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 

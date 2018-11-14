@@ -8,7 +8,7 @@ ASF versucht bereits die Performance zu bevorzugen, wenn es um die allgemeine au
 
 * * *
 
-## Laufzeitoptimierung (Fortgeschritten)
+## Laufzeitoptimierung (Erweitert)
 
 Die folgenden Tricks **beanspruchen eine ernsthafte Speicherzunahme** und sollten mit Vorsicht verwendet werden.
 

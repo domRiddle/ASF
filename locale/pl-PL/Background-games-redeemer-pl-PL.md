@@ -1,8 +1,8 @@
 # Aktywacja gier w tle
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Aktywacja kluczy w tle jest specjalną, wbudowaną funkcją ASF która pozwala na importowanie dużej ilości kluczy (wraz z ich nazwami) które zostaną aktywowane na danym koncie. To jest szczególnie przydatne gdy masz dużą kluczy do aktywowania na raz i wiesz że osiągniesz **[stan](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` zanim aktywują się wszystkie.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Funkcja aktywacji kluczy w tle została napisana żeby się wykonała w jednej pętli, co powoduje, że nie korzysta z `RedeemingPreferences`. Można używać razem (lub zamians) **[polecenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`.
 
 * * *
 

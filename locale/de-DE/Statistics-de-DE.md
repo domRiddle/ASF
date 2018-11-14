@@ -12,7 +12,7 @@ Wir halten die Verwendung von Statistiken auf ein Minimum beschränkt und jede e
 
 Wenn `Statistics` aktiv ist passiert Folgendes:
 
-a) Jedes in ASF benutzte Konto wird unserer **[Steam-Gruppe](https://steamcommunity.com/groups/ascfarm)** beitreten. Dies geschieht aus drei Gründen:
+a) Jedes in ASF benutzte Konto wird unserer **[Steam-Gruppe](https://steamcommunity.com/gid/103582791440160998)** beitreten. Dies geschieht aus drei Gründen:
 
 * Es bietet **dir** Gruppenankündigungen, insbesondere bei neuen Versionen, kritischen Problemen, Steam-Problemen und andere Dingen, die wichtig sind, um die Community auf dem Laufenden zu halten (kein Spam, der nichts mit ASF zu tun hat)
 * Es ermöglicht **dir**, unsere technische Unterstützung in Anspruch zu nehmen, indem du Fragen stellst, Probleme löst, Probleme meldest oder Verbesserungsvorschläge machst

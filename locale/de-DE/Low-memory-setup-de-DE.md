@@ -42,7 +42,7 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 * * *
 
-## Laufzeitoptimierung (Fortgeschritten)
+## Laufzeitoptimierung (Erweitert)
 
 Die folgenden Tricks **beeinträchtigen die Performance-Minderung** und sollten mit Vorsicht angewendet werden.
 

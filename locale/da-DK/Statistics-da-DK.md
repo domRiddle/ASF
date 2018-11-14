@@ -1,4 +1,4 @@
-# Statistics
+# Statistik
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
@@ -12,7 +12,7 @@ We keep usage of statistics to bare minimum, and every single information being 
 
 When `Statistics` are active, following things will happen:
 
-a) Every account being used in ASF will join our **[steam group](https://steamcommunity.com/groups/ascfarm)**. This is done for three reasons:
+a) Every account being used in ASF will join our **[steam group](https://steamcommunity.com/gid/103582791440160998)**. This is done for three reasons:
 
 * It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
