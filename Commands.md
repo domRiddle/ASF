@@ -57,6 +57,7 @@ Command | Access | Description
 `iq <Bots>` | `Master` | Lists priority idling queue of given bot instances.
 `iqadd <Bots> <AppIDs>` | `Master` | Adds given `appIDs` to priority idling queue of given bot instances.
 `iqrm <Bots> <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
+`level <Bots>` | `Master` | Shows Steam account level of given bot instances.
 `loot <Bots>` | `Master` | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot@ <Bots> <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
