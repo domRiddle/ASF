@@ -212,6 +212,8 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 `redeem^ primary FF,SI key1,key2,key3`
 
+It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
+
 ---
 
 ## `input` command
