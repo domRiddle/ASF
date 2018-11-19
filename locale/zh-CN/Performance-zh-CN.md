@@ -20,7 +20,7 @@ Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDr
 
 * * *
 
-### **There is no obvious answer which algorithm is better for you**.
+### **哪种算法更适合您并没有一个明确的答案**。
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
@@ -28,7 +28,7 @@ Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do t
 
 * * *
 
-### What is the best way to find out if your account is restricted?
+### 检查您的账号是否被限制的最好方法是什么？
 
 Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 
@@ -50,11 +50,11 @@ By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effec
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
-It's nice to note that ASF also includes `Manual` farming mode that can be activated by `play` command. You can read more about it in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+It's nice to note that ASF also includes `Manual` farming mode that can be activated by `play` command. 您可以阅读**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**章节了解详情。
 
 * * *
 
-## Steam glitches
+## Steam 漏洞
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 
@@ -70,16 +70,16 @@ A good example of what is considered as a **Steam glitch** is not that uncommon 
 - **Considered as a logic flaw** - closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
 - **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it might no longer work for the second time.
 
-Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](https://store.steampowered.com/online_conduct/?l=english)**.
+Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. 持续向 Steam 网络发送大量启动/停止游戏的请求会被视为一种 **[DoS 攻击](https://en.wikipedia.org/wiki/Denial-of-service_attack)**并且**直接违反 [Steam 在线行为准则](https://store.steampowered.com/online_conduct/)**。
 
-> As a Steam subscriber you agree to abide by the following conduct rules.
+> 作为一名 Steam 用户，您同意遵守以下行为准则。
 > 
-> You will not:
+> 您将不会：
 > 
-> Institute attacks upon a Steam server or otherwise disrupt Steam.
+> 对 Steam 服务器展开攻击或以其他方式破坏 Steam。
 
 It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you agree with us and consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
 
 ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)** section.
 
-If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.
+如果您仍然愿意为了几分钱的卡牌冒险加快挂卡速度，ASF 永远不会支持自动执行这样的操作。但您仍然可以手动执行 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**进行您想要对 Steam 网络做的任何事情。 We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.

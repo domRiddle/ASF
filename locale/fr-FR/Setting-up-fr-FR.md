@@ -102,15 +102,15 @@ Nous sommes maintenant prêts à faire la dernière étape, la configuration. C'
 
 Tout d'abord, la **[page de configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** vous expliquera **tout** ce qui est lié à la configuration, mais elle contient surtout un énorme masse de nouvelles informations, que nous n'allons pas utiliser directement pour la grande majorité. On va plutôt vous expliquer comment trouver les infos que vous cherchez.
 
-La Configuration d'ASF peut être faite de deux manières - soit en utilisant notre interface web (config generator), ou manuellement. Tout cela est expliqué plus précisément dans la section **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, donc référez-y vous si vous avez besoin d'informations plus détaillées. We'll use web config generator way, since it's much easier.
+La Configuration d'ASF peut être faite de deux manières - soit en utilisant notre interface web (config generator), ou manuellement. Tout cela est expliqué plus précisément dans la section **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, donc référez-y vous si vous avez besoin d'informations plus détaillées. Nous allons utiliser la page de configuration vu que c'est plus simple.
 
-Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebConfigGenerator)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
+Naviguez à la **[page de génération de config](https://justarchinet.github.io/ASF-WebConfigGenerator)** avec votre browser, vous aurez besoin de javascript activé si vous l'avez manuellement désactivé. Nous recommandons Chrome ou Firefox, mais ça devrait marcher sur la plupart des browsers.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+Après avoir ouvert la page, allez sur l'onglet "Bot". Vous devriez maintenant voire une page similaire à celle ci-dessous:
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
+Si par hasard la version d'ASF que vous avez téléchargée est plus vieille que le config generator utilise par défaut, choisissez simplement votre version d'ASF dans le menu déroulant. Cela peut habituellement arriver lorsque vous vous servez du config generator pour des pre-releases d'ASF, qui ne sont pas encore distribuées en stable You've downloaded latest stable release of ASF that is verified to work reliably.
 
 Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
 

@@ -1,18 +1,18 @@
-# 后台批量激活游戏
+# 后台游戏激活器
 
-后台批量激活游戏是一个ASF特别内建的功能，它可以帮助你导入指定序列的Steam CD-Key（连同他们的名字），然后在后台帮你兑换它们。 This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+后台游戏激活器是一个特殊的 ASF 内置功能，它可以帮助您导入一组 Steam 游戏序列号（连同游戏的名字），然后在后台帮您激活它们。 如果您有大量的序列号需要激活，在所有序列号完成激活前肯定会触发 `RateLimited` **[状态](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#激活游戏序列号时的状态是什么意思)**，此时后台激活功能将十分有用。
 
-后台游戏激活仅针对单一bot有效，也就是说会覆盖`RedeemingPreferences`的设置 This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+后台游戏激活器仅对单个机器人有效，也就是说它不会采用 `RedeemingPreferences` 的设置。 如有需要，这个功能可以和 `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**一起使用（或者代替它）。
 
 * * *
 
 ## 导入
 
-导入操作可以通过以下两种方式-通过文件或者IPC
+有两种方式进行导入操作——通过文件或者 IPC。
 
 ### 文件
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated by a tab character and ending with a newline. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. 例如:
+ASF 会识别 `config` 文件夹下名为 `BotName.keys` 的文件，其中 `BotName` 是机器人的名字。 该文件必须遵循严格的固定格式，每行由游戏名称和游戏序列号组成，两者之间由 Tab 分隔，最后以一个新空白行结束。 如果存在多个 Tab，则第一项会被认为是游戏名称，最后一项会被认为是游戏序列号，中间所有内容将被忽略。 例如：
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,40 +20,40 @@ ASF will recognize in its `config` directory a file named `BotName.keys` where `
     Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
-ASF will import such file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+ASF 会在启动时或者运行过程中随时导入该文件。 在成功解析并忽略所有无效项后，所有正确识别的游戏将会被添加到后台队列，`BotName.keys` 文件将被自动从 `config` 文件夹移除。
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
+除了上述游戏序列号文件外，ASF 也开放了可供任意 IPC 工具（包括我们的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端点](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-api)**。 使用 IPC 功能会更强大，因为可以使用您觉得合适的方式进行解析。例如使用自定义分隔符，而不是强制使用 Tab 分隔，甚至可以完全自定义序列号格式。
 
 * * *
 
 ## 队列
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+当游戏成功导入后，它们会被加入到队列当中。 只要机器人已连接到 Steam 网络，并且队列不为空，ASF 就会自动处理其后台队列。 如果一个序列号尝试激活完成并且没有返回 `RateLimited` 结果，它将会被移出队列并根据其激活结果写入位于 `config` 文件夹下的文件当中。当序列号被使用时（例如结果为：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），将会被写入 `BotName.keys.used` 文件中，否则就会写入 `BotName.keys.unused` 文件中。 由于 Steam 网络不一定会返回序列号对应游戏的正确名称，所以 ASF 会使用您提供的游戏名称。这样您就可以根据需要使用自定义名称标记您的序列号。
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+如果在激活过程中账号遇到 `RateLimited` 状态，队列会暂停一小时以等待冷却时间结束。 然后，激活过程将会从中断的地方继续，直到队列为空。
 
 * * *
 
-## 范例
+## 示例
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+假设您有一个包含 100 个序列号的列表。 首先您应该在 ASF 的 `config` 文件夹下创建一个名为 `BotName.keys.new` 的文件。 我们加上 `.new` 后缀是为了防止 ASF 在创建文件的那一刻立即读取该文件（因为它是一个空白文件，尚未准备好导入）。
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+现在您可以打开刚创建的文件并将 100 个序列号粘贴进去，如果需要则修正格式。 之后 `BotName.keys.new` 文件中应该正好有 100 行（如果末尾有空行的话就是 101 行），每一行的格式均为 `游戏名称\t游戏序列号\n`，其中 `\t` 是 Tab 制表符，`\n` 是换行符。
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+您现在可以将该文件从 `BotName.keys.new` 重命名为 `BotName.keys`，以便让 ASF 知道该文件已经准备好被导入。 重命名完成的那一刻，ASF 会自动导入该文件（不需要重启），在确认所有游戏都被解析并加入到队列后，该文件将被删除。
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+除了 `BotName.keys` 文件，您还可以使用 IPC API 端点，甚至也可以根据需要混合两种方式使用。
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+过一段时间后，可能会生成 `BotName.keys.used` 和 `BotName.keys.unused` 两个文件。 这两个文件包含了激活过程的结果。 举个例子，您可以将 `BotName.keys.unused` 重命名为 `BotName2.keys`，以此将未使用的序列号分发给别的机器人，因为前一个机器人并没有使用这些序列号。 或者您也可以将其中未使用的序列号复制粘贴到其他文件留作他用。 需要记住的是，ASF 处理队列时，新的项目会被添加到 `used` 和 `unused` 两个输出文件中，因此建议等待队列完全清空后再使用这两个文件。 如果必须要在队列完全清空之前访问这些输出文件，应该先将需要访问的文件**移动**到别的文件夹，**然后**再对其做进一步处理。 这是因为 ASF 可能会在您处理这些文件的时候添加新的结果进去，这可能导致某些序列号丢失。例如，您读取了一个包含 3 个序列号的文件，然后删除了这个文件，但 ASF 在此期间向被您删除的文件内新增的 4 个新的序列号就丢失了。 如果您想访问这些文件，确保先将它们从 ASF 的 `config` 目录中移出，例如将其重命名。
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+同样也可以在队列已有游戏的时候导入别的游戏，只需要重复上述步骤就行了。 ASF 会正确地添加新条目到正在执行的队列中并最终处理它。
 
 * * *
 
 ## 备注
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+后台序列号激活器在底层使用了 `OrderedDictionary`，意思是游戏序列号将会按照文件中（或者 IPC API 调用）的顺序激活。 这意味着，如果一条序列号需要拥有另一条序列号所激活的产品才能激活，那么需要先激活的序列号应该写在另一条的前面。 例如，如果您有 DLC `D` ，它需要先激活游戏 `G` 才能被激活，这就需要**始终**将游戏 `G` 的游戏序列号排在 DLC `D` 的前面。 同样，如果激活 DLC `D` 之前需要先激活 `A`、`B` 和 `C`，那么这三个就应该放在前面（任意顺序均可，除非它们各自也有依赖关系）。
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+如果不按照上面所说的方式激活，就会导致 DLC 无法被激活并返回 `DoesNotOwnRequiredApp`，即使您的账号在完成整个激活队列之后已经可以激活该 DLC，它也不会在此时被激活。 要想避免这种错误，就必须保证队列里的 DLC 始终列在游戏本体之后。

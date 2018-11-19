@@ -1,6 +1,6 @@
 # 低内存方案
 
-This is exact opposite of **[high-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
+这篇文档与**[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-CN)**完全相反，如果您愿意牺牲一些性能换取较小的内存用量，请阅读以下内容。
 
 * * *
 
@@ -12,7 +12,7 @@ ASF is extremely well optimized, and makes use of available resources as much as
 
 Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
 
-This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, and is usually around 4 MB for just a few bots, up to 30 MB if you use stuff like **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** and other advanced features. Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
+This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. ASF 实际的内存用量可以通过 `stats` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**查看。如果您机器人的数量很少，通常它只会占用大约 4 MB 内存，但如果启用了 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 和其他额外功能，ASF 将会占用多达 30 MB 内存。 Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
 
 * * *
 
@@ -22,7 +22,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 * * *
 
-## ASF setup (easy)
+## ASF 设置（简单）
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
@@ -42,19 +42,19 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 * * *
 
-## Runtime tuning (advanced)
+## 运行时环境调优（高级）
 
 Below tricks **involve performance degradation** and should be used with caution.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` 允许您调整 ASF 运行时环境，尤其是允许您在服务器 GC 和工作站 GC 之间切换。
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+> 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：
 > 
-> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcserver> element in the runtime configuration schema.
+> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 This is the default setting for the <gcserver> element in the runtime configuration schema.
 > 
-> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+您可以在**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**阅读更多。
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
@@ -94,15 +94,15 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 * * *
 
-## ASF tuning (intermediate)
+## ASF 调优（中级）
 
 Below tricks **involve serious performance degradation** and should be used with caution.
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**调整 `MinMemoryUsage`。 Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. 通常这是**您应该最后尝试的方式**，如果您按照**[运行时环境调优](#运行时环境调优高级)**作出的调整仍然不能满足需求。
 
 * * *
 
-## Recommended optimization
+## 建议的优化
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.

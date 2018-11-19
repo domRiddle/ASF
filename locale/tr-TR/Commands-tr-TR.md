@@ -194,7 +194,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | İsim                  | Description                                                           |
+| Değer | İsim                  | Açıklama                                                              |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |

@@ -1,141 +1,141 @@
 # 本地化
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+借助 Crowdin 服务的支持，任何人都可以提供帮助，将 ASF 翻译成世界各地的语言。 关于 Crowdin 的运作细节，请访问 **[Crowdin 简介](https://support.crowdin.com/crowdin-intro)**。
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+如果您对目前的情况感兴趣，可以访问 **[ASF Crowdin 动态](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
 * * *
 
-## Signing up
+## 范围
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+我们的平台支持 ASF 主程序，以及我们一并提供的所有可翻译内容的本地化工作。 这包括 ASF-WebConfigGenerator（配置生成器）、ASF-ui 以及我们的 Wiki。 所有这些项目都可以通过方便的 Crowdin 接口进行翻译。
 
 * * *
 
-### Translating
+## 注册
 
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
+如果您愿意帮助 ASF，无论是翻译、审核或者批准翻译，请在我们的 **[Crowdin 项目主页](https://crowdin.com/project/archisteamfarm)**注册。 注册过程非常容易并且完全免费！ 在登录之后，您可以选择要参与翻译的语言，然后选择一份 ASF 文本，并且帮助社区的其他人将 ASF 翻译成各种语言！
 
-For example, you could have a string like:
+* * *
+
+### 翻译
+
+如果您选择的语言仍然有未翻译的文本，您可以立刻开始翻译它们。 我们尝试尽全力保证翻译的灵活性，因此很多文本包含由 ASF 在运行时动态提供的额外变量——这些变量是由花括号扩住的数字，例如 `{0}`。 这一特性使您可以调整 ASF 文本的格式，例如，将 ASF 提供的变量移动到适合您的语言翻译的地方，而不再受限于严格的上下文与格式。 这对于希伯来语等 RTL（从右向左书写）语言来说尤为重要。
+
+例如，您可能遇到这样的文本：
 
 > We have {0} games to idle.
 
-But based on your language, following sentence could make more sense:
+但根据您的语言，也许这样的句式更加合理：
 
 > The number of games to idle is equal to {0}.
 
-Or:
+或者：
 
 > {0} is the number of games to idle.
 
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+这样的灵活性特别为译者设计，所以您可以稍微改写 ASF 的句子，使其更适合您的语言，并且将 ASF 提供的数字等信息安排在适合您的翻译的位置（而不是分别翻译各个部分）。 整体的翻译质量因此而得到提升。
 
 * * *
 
-### Reviewing
+### 审核
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
+如果一条文本已经有其他人提供翻译，您可以为其投票。 投票的目的是选择最佳的翻译形式，而不是始终保留最早的建议——这进一步提高了整体翻译质量。 您可以为已有的建议投票，或者提交您自己的翻译建议，您提供的建议同样会经过投票这一过程。 最终，翻译结果将会在得票最多的建议，或者该语言的审校者个人选择的翻译中产生（同样也基于您投票的结果）。
 
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself!
-
-* * *
-
-### Proof-reading
-
-It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
-
-If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
-
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
+**您的翻译文本无需得到批准也可以出现在 ASF 中**。 批准仅仅表示有受信任者审核了此内容，即选择最终的翻译版本。 无人审核的、由社区主导的翻译是完全可行的，这种情况下您只需为最佳翻译投票。 只要文本被翻译，就是好事！ 并且，如果您认为目前的翻译很差，您可以随时为更好的翻译投票，或者提交您自己的建议！
 
 * * *
 
-### 问题
+### 审校
 
-If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
+保持翻译的一致性是个好主意，即使这可能会削弱上述的社区审核/投票机制的自由。 这主要是因为一些不算特别糟糕的错误翻译可能会获得很多赞成票，导致即使译者有更好的翻译建议也无法提交。
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
+如果您在 Crowdin 上，或者其他我们可信赖的本地化平台/服务上有参与贡献的经验，我们很高兴为您提供您所贡献语言的审校权限，使您可以审核批准翻译，保持翻译的一致性。 审校并非简单的工作，特别是因为 ASF 经常会涉及技术内容并且很难翻译，但是我们知道它通常需要一份完美的翻译。 因此，如果您可以帮助审校某门语言，**[请联系我们](https://crowdin.com/messages/create/13177432)**，但请注意，您需要在请求中说明您过去的本地化经验，使我们可以验证（例如在 Crowdin 上为 ASF 或者其他任何项目贡献过翻译）。 如果我们亲自了解他们，并且他们能够与社区的其他成员合作，最好地以该语言本地化 ASF，我们也可以允许更多高级用户参与初步审校过程。
 
-There are currently 4 supported type of issues:
-
-* General question - for everything else that doesn't fit any issue below. In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
-* Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.
-* Lack of contextual information - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
-* Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved.
+审校的通用规则：不要急躁、倾听他人、掌控项目、解决问题，确保自己做到更好而不是更差。
 
 * * *
 
-### Translation progress
+### 议题
 
-Every language has two states of completion - translation, and proof-reading.
+如果您在特定的翻译下遇到了问题，例如，您不知道如何翻译、已批准的翻译不正确、您需要更详细的上下文信息，请在对应的文本下发表留言，并且勾选 [X] Issue 将其标记为议题。
 
-Language is considered **translated** when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.
+**如果您不需要技术/开发方面的说明或者管理员操作，请避免使用议题**。 您可以随意在文本下发表留言讨论翻译相关的内容，但议题仅应该在您需要进一步技术解释或者需要管理员提供帮助时使用，并且它通常会涉及一些甚至不会您所翻译的语言的人员摸索以在撰写议题时请始终使用英语（使我们可以理解议题的含义）。
 
-Selected languages might have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
+目前有这 4 种议题受到支持：
 
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.
-
-* * *
-
-## Missing languages
-
-By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
-
-For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
+* 一般议题——所有不符合下述其他类型的议题。 通常，应**尽量避免**这种议题，如果遇到的问题不符合其它情况，很可能它并**不是**一个翻译议题。 但这一选项仍然为所有其它情况保留。
+* 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。
+* 缺少上下文信息——如果您不确定您正在翻译 ASF 的哪一部分、文本的上下文是什么、它的作用是什么，那就应该使用这一议题。 这一类型仅应被用于 ASF 开发，表示您不确定应该如何翻译这条文本，需要技术支持。
+* 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。
 
 * * *
 
-## Pluralization
+### 翻译进度
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+每种语言都有两阶段的完成状态——翻译与审校。
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+当翻译进度达到 100% 时，这门语言将被视为**翻译完成**。 此时每一条 ASF 使用的字符串都有一条很好的翻译。 然而，这并不意味着没有改进的空间——社区投票随时可用，您仍然可以提供更好的翻译建议，或者为已有翻译投票。 请注意，当我们在开发过程中更改文本或者添加文本时，完整翻译的语言的进度也会降到 100% 以下。 如果您希望在这种情况下收到电子邮件，可以设置相关的 Crowdin 通知。
+
+您选择的语言可能有合适的审校者进行验证翻译并批准最终版本的工作。 这是一条翻译诞生后面对的最后一关，可以进一步改进本地化。
+
+ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 100% 翻译。 实际选择的文本通常是当时得票数最多的一个，除非有审校者选择了另一个（罕见）。 因而，只要在 Crowdin 上提交翻译，您就可以在下一个 ASF 版本中看到您的工作成果——通常我们会在将要发布 ASF 新版本时合并本地化更新。
+
+* * *
+
+## 缺少语言
+
+默认情况下，ASF 将会启用世界范围内最热门的 30 种语言的翻译工作。 如果您希望增加另一门语言（或者一门已有语言的方言），请**[联系我们](https://crowdin.com/messages/create/13177432)**，我们会尽快添加。 我们不希望启用几百种无人翻译的各种语言，这就是我们限制其数量的原因。 如果您想翻译一些未列出的语言，请随时与我们联系，添加另一种语言对我们来说很容易。
+
+要查看目前完整的 ASF 可翻译语言列表，**[点击这里](https://support.crowdin.com/api/language-codes)**。
+
+* * *
+
+## 复数形式
+
+每种语言都有自己独有的复数规则。 这些规则可以在 **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** 上找到，针对不同的数字和确切的语言条件。
+
+我们尽力为您提供本地化的灵活性，这也尽可能包括了复数规则。 例如，假设我们需要将这条文本翻译为波兰语：
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+这里的 `PLURAL` 关键字以特殊方式处理，使您可以提供您语言所支持的全部复数形式。 如果您阅读了 CLDR，您会发现英语仅有两种基数形式——“一个”和“多个”。 正如您在上面所看到的，我们在此定义了两种形式——`{n} month` 与 `{n} months`。
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+然而，波兰语实际上有四种复数形式——“一个”、“少量”、“很多”和“其他”。 这意味着我们需要定义所有这四种形式才算完成。 我们的本地化工具已经足够智能，可以根据语言规则选择适当的复数形式，因此您只需要在翻译中定义所有可用的形式：
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+通过这种方式，我们定义了波兰语中的 4 种复数形式，并且因为我们的本地化库已经知道了确切的规则，现在它可以针对不同的 `{n}` 数字选择正确的复数形式。
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+定义您的语言中所有复数形式并非总是必要的。 如果有缺少，我们的本地化库将会使用这里最后定义的形式。 定义您的语言中所有复数形式的确很好，但有时剩余的复数形式可能与最后一个相同，在这种情况下没有必要重复它。 在上面的示例中，这种定义是必要的，因为波兰语中“其他”形式的“月”是“miesiąca”，而不是“很多”形式的“miesięcy”。
 
 * * *
 
 ## Wiki
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
+我们的 Crowdin 平台甚至可以让您本地化 Wiki 本身。 这是一个非常强大的工具，因为它使您可以用母语编写整个 ASF 文档，有效地解决了 ASF 本地化进程的最后一个问题。 加上程序和组件部分的翻译，就是完整的本地化。
 
-Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
+Wiki 在这方面有些特别，因为它是在线帮助，您无需过于拘泥于原始的句子。 这意味着您希望尽可能自然地用您的语言来传达原始的含义和帮助——无需坚持使用源文本的句式、词汇或标点符号。 只要您仍然保持大致的方向，保留原始文本的帮助信息，您尽可以将整个句子重写为您的语言中更自然的表达方式。
 
 * * *
 
-### Global links
+### 全局链接
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+我们的 Crowdin 平台同样允许您调整原始文本以指向新的（本地化的）位置。
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+ASF 的几乎每个页面上都包含链接与右边栏以便于导航。 最赞的是，您可以编辑所有这些链接，使其指向正确的本地化页面。 您在做这项工作的时候需要更小心，但这是可以做到的。
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+例如，ASF 的 **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** 页面包含一条这样的文本：
 
 > If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
-Which is originally written as:
+这条文本的原始形式为：
 
 ```markdown
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+在 Crowdin 上，您需要做的第一件事情，是打开编辑器设置，并确保 HTML 标签被设置为“Show”（显示）。 如果您决定本地化 Wiki，那么这个选项非常重要。
 
 * * *
 
@@ -143,12 +143,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+现在，在翻译过程中，取决于格式，您将会在文本中看到下列形式的 ASF 链接：
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* 要与 HTML 标签一起翻译的文本（大部分是文本，句子的一部分是链接）
+* 单独翻译文本，而链接包含在 `Hidden texts` -> `Link addresses` 中（罕见，整个文本都是链接，在边栏中最常见）
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+上面的示例是第一种形式（因为其中只有“setting up”是链接），所以在 Crowdin 中会显示成：
 
 * * *
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+无论是哪种情况，首先您都应该复制源字符串并像往常一样翻译，但要保留完整的 HTML（如果有的话）。 这是一个将其翻译到波兰语的示例：
 
 * * *
 
@@ -164,9 +164,9 @@ Regardless of case, firstly you should copy the source string and translate it a
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+现在，如果这个链接是一个指向 Wiki 外部的普通链接（例如指向 ASF 的最新版本），您可以保持它不变。 您可以直接保存并前往下一条文本。
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+然而，如果这个链接**确实**指向 Wiki 内部，如上所述，您可以将其指向新的（本地化的）位置。 您需要小心地将 `-locale` 语言代码添加到 `<a>` 标签的目标 URL 中，例如：
 
 * * *
 
@@ -174,19 +174,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+您需要非常小心，并确保这个 URL 确实存在，因为如果您犯了错误，该链接将会失效。 如果没有问题，现在您就有了一条功能齐全的翻译，所有链接都指向翻译过的（在我们的例子中是 `Setting-up-pl-PL`）页面。
 
-Doing the steps above will properly translate our HTML back to markdown:
+按照上述步骤操作将会正确地把我们的 HTML 转换回 Markdown：
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+最终变成实际的 Wiki 文本：
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+如果是第二种情况，没有出现 HTML，您可以直接前往 `Hidden texts` -> `Link addresses` 部分。
 
 * * *
 
@@ -194,7 +194,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+在这里，您可以直接将链接修改为新地址，完全不需要考虑 HTML：
 
 * * *
 
@@ -202,13 +202,13 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### 页内链接
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+在 Wiki 中，您还能看到指向文档中某一小节的页内链接。 这种链接以一个井号 `#` 开头。
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+现在这种情况较为特殊，因为这些链接基于当前文档中各小节的标题。 对于 URL，我们通常可以将 `-locale` 添加到 URL，并且在任何情况下都可用，但小节标题将因为您或其他人的翻译而产生变化，因此您需要确保它们指向正确的位置。
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+例如，您会在我们的 **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/#introduction)** 章节中找到 `#introduction` 链接：
 
 * * *
 
@@ -216,7 +216,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+因为我们将要把“Introduction”翻译成波兰语的“Wprowadzenie”，我们需要修正这个链接，否则在翻译之后，这个链接就会失效。
 
 * * *
 
@@ -224,26 +224,26 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+这样，我们的页内链接仍然可用，因为它现在指向了我们翻译后的新标题。 您可以采用完全相同的方式修正 HTML 标签中的链接。
 
 * * *
 
-### Code blocks
+### 代码块
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 例如:
+翻译包含 `<code>` 代码块的句子需要非常小心。 代码块表示不应被翻译的 ASF 代码或者术语。 例如：
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+如您所见，`RateLimited` 一词被包含在一个代码块中，表示一个 ASF 内部使用的状态代码，不应该被翻译。 同样地，您不应该翻译其他代码块，例如配置文件的属性名称（例如 `TradingPreferences`）、枚举成员（例如 `UpdateChannel` 中的 `Stable` 和 `Experimental`）等。
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+然而，这仅仅意味着这些单词本身不能被翻译，您仍然可以在它们旁边添加合适的翻译，例如写在括号中。
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+如上所述，我们在 `RateLimited` 旁边添加了“zbyt częstej aktywacji”（意为激活次数过多），以更友好的方式翻译这个状态代码，但同时保留了用户可能在程序其他地方看到的代码本身。 针对类似的情况，您也可以用同样的方式翻译/解释。
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+如果您认为代码块中有不合适的内容，或者一段普通文本应该被包含在代码块中，请在 Crowdin 上创建适当的**[议题](#议题)**告知我们。
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+感谢您帮助我们将 ASF 翻译到世界上的各种语言！

@@ -1,30 +1,30 @@
 # 兼容性
 
-ASF is a C# application that is running on .NET Core platform. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
+ASF 是一个用 C# 语言编写并运行在 .NET Core 平台上的应用程序。 这意味着 ASF 并非直接被编译为可供 CPU 执行的**[机器码](https://en.wikipedia.org/wiki/Machine_code)**，而是被编译为 **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**，一种需要相应的运行环境才能执行的语言。
 
-This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and OS X. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. Thanks to that, ASF can achieve superior performance and optimization, while still offering a perfect compatibility and reliability.
+这种方法能够带来巨大的方便。由于 CIL 是跨平台的，这使得 ASF 天然能够运行在许多可供使用的操作系统上，特别是 Windows、Linux 和 OS X 这三个系统。ASF 不仅不需要通过模拟运行，同时所有对于系统及其相关硬件的优化也对其有效。 基于此，ASF 在表现出卓越的性能以及优化的同时，仍然能提供完美的兼容性和可靠性。
 
-This also means that ASF has **no specific OS requirement**, because it requires working **runtime** on that OS and not OS itself. As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET Core for it](https://github.com/dotnet/core-setup#daily-builds)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
+这也意味着运行 ASF **没有特定的操作系统要求**，因为它需要的只是运行于操作系统上的**运行环境**而非操作系统本身。 只要运行环境能够正确地执行 ASF 的代码，底层系统是 Windows、Linux、OS X 还是 BSD，是运行在 Sony Playstation 4、Nintendo Wii 还是您的烤面包机上都无所谓。有供它运行的 **[.NET Core](https://github.com/dotnet/core-setup#daily-builds)** 就有能正常运行的 **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。
 
-However, regardless of where you run ASF, you must ensure that your target platform has **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed. Those are low-level libraries required for proper runtime functionality and absolutely core for ASF to work in the first place. Very likely you can have some of them (or even all) already installed.
+但是，无论您想要在哪个平台上运行 ASF，您必须确保该平台安装了 **[.NET Core 的依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。 这些都是确保运行环境功能正常的底层库，也是确保 ASF 能够第一时间工作的绝对核心。 通常情况下，部分库（甚至全部）很有可能已经安装在系统内。
 
 * * *
 
-## ASF packaging
+## ASF 打包
 
-ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
+ASF 有两种主要的打包方式——Generic 包以及 OS-specific 包（特定操作系统包）。 从功能上来讲，这两种包是完全一样的，都能够自动进行更新。 唯一的区别就是 **Generic** 包中不包含 **OS-specific** 包内所具有的能使 ASF 运行的环境。
 
 * * *
 
 ### Generic
 
-Generic package is platform-agnostic build that doesn't include any machine-specific code. This setup requires from you to have .NET Core runtime already installed on your OS **in appropriate version**. We all know how troublesome it is to keep dependencies up-to-date, therefore this package is here mainly for people that **already use** .NET Core and don't want to duplicate their runtime solely for ASF if they can make use of what they have installed already. Generic package also allows you to run ASF **anywhere where you can obtain working implementation of .NET Core runtime**, regardless if there exists OS-specific ASF build for it, or not.
+Generic 包是一个与平台无关的版本，所以它不包含特定于计算机的代码。 所以使用这个包需要您的操作系统中已经安装有**合适版本**的 .NET Core 运行时环境。 我们都知道保证依赖始终是最新的这件事是十分令人烦恼的，所以这个包主要面向那些**已经在使用** .NET Core，不想为了 ASF 对已有环境做单独复制的人。 Generic 包还允许您将 ASF 运行在**任何可以获得正常工作的 .NET Core 环境的机器上**，不需要担心是否存在相应的 OS-specific 包。
 
-It's not recommended to use generic flavour if you're casual or even advanced user that just wants to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, you can use it, otherwise it's much better to use OS-specific package explained below.
+对于一般用户甚至是高级用户，如果只是想要运行 ASF 而不想要深入了解 . NET core 的技术细节，不推荐使用 Generic 包。 也就是说，如果您明白以上所讲的内容，那您就可以使用它，不然下面所介绍的 OS-specific 包才是最合适的。
 
-#### .NET Framework package
+#### .NET 框架包
 
-In addition to generic package mentioned above, there is also `generic-netf` package which is built on top of .NET Framework (and not .NET Core). This package is a legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package can't as of today.
+除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 This package is a legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package can't as of today.
 
 In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. An example of such platform would be `linux-x86` that didn't receive working .NET Core runtime as of today.
 
@@ -32,7 +32,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 * * *
 
-### OS-specific
+### OS-specific（特定操作系统）
 
 OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
 
@@ -49,7 +49,7 @@ For a complete list of all supported platforms and OSes by .NET Core 2.1, visit 
 
 * * *
 
-## Runtime requirements
+## 运行时环境需求
 
 If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed and up-to-date. In other words, **you don't need to install .NET Core runtime or SDK**, as OS-specific builds require only native OS dependencies (prerequisites) and nothing else.
 
@@ -61,9 +61,9 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 * * *
 
-## Issues and solutions
+## 问题与解决方案
 
-### Debian Jessie upgrade
+### Debian Jessie 升级问题
 
 If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
 
@@ -82,9 +82,9 @@ The current workaround depends on the root issue. On clean setups (e.g. Debian),
 
 This issue is supposed to be fixed with next .NET Core 2.1.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
 
-Reference: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
+参考：**[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**。
 
-### .NET Core runtime picking wrong `libcurl.so` library
+### .NET Core 运行时环境选择了错误的 `libcurl.so` 库
 
 If you have both `libcurl.so.3` and `libcurl.so.4` on your system then .NET Core might decide to pick second one, which will lead to ASF crash the moment it'll try to initialize its http client.
 

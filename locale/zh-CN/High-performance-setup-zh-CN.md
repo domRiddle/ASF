@@ -1,43 +1,43 @@
 # 高性能方案
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
+这篇文档与**[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**完全相反，如果您愿意增加内存开销和一些潜在的成本，以增强 ASF 的性能（CPU 速度方面），请阅读以下内容。
 
 * * *
 
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+在一般情况的平衡调整中，ASF 已经尝试优先考虑性能部分，因此您没有很多优化 ASF 性能的余地，尽管仍然有一些选项可以做适当的调整。 但是，请记住，我们没有默认启用这些选项，这意味着它们并不能在大多数情况下保证平衡，因此您应该自己决定是否可以接受它们带来的内存开销。
 
 * * *
 
-## Runtime tuning (advanced)
+## 运行时环境调优（高级）
 
-Below tricks **involve serious memory increase** and should be used with caution.
+以下技巧**会造成严重的内存消耗**，应谨慎使用。
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` 允许您调整 ASF 运行时环境，尤其是允许您在服务器 GC 和工作站 GC 之间切换。
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection:
+> 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：
 > 
-> Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the <gcserver> element in the runtime configuration schema.
+> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 This is the default setting for the <gcserver> element in the runtime configuration schema.
 > 
-> Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+您可以在**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**阅读更多。
 
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
+ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之间的良好平衡，这对于运行少数机器人来说已经足够了，因为通常单个并发后台 GC 线程足以快速地处理所有由 ASF 分配的内存。
 
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
+但是，今天我们通常有很多 CPU 核心，ASF 也因此受益，在每个 CPU vCore 中都有一个专用的 GC 线程。 这可以极大地提高 ASF 执行繁重任务时的性能，例如解析徽章或库存页面，因为每个 CPU vCore 都可以提供帮助，而不是仅仅 2 个线程（主线程和 GC 线程）。 对于具有 3 个或更多 CPU vCore 的计算机，建议使用服务器 GC，如果您的计算机只有 1 个 CPU vCore，则会自动强制使用工作站 GC ，如果您只有2个，那么您可以考虑尝试两者（结果可能会有所不同）。
 
-You can enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. Keep in mind that you might need to do it more than once, as ASF will still use `false` by default after auto-update.
+您可以将 `ArchiSteamFarm.runtimeconfig.json` 的 `System.GC.Server` 属性从 `false` 切换到 `true` 来启用服务器 GC。 请记住，您可能需要多次执行此操作，因为 ASF 在自动更新后仍默认使用 `false`。
 
-Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You might find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[GC latency level](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory.
+仅仅启用服务器 GC 本身不会导致增加很大的内存开销，但它具有更大的代数，因此会更少将内存返回给操作系统。 您可能会发现自己处于一个尴尬的情况，服务器 GC 显著提高了性能，并且您希望继续使用它，但同时您无法承受使用它带来的巨大内存消耗。 幸运的是，将 **[GCLatencyLevel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 设置为 `0` 是一个两者兼顾的设置，服务器 GC 仍然启用，但会限制代数并且更关注内存消耗。
 
-However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's much better to not change `GCLatencyLevel` at all, achieving superior performance in result.
+但是，如果内存对您来说不是问题（因为 GC 仍会根据您的可用内存自行调整），那么最好不要更改 ` GCLatencyLevel`，从而达到最佳性能。
 
 * * *
 
-## Recommended optimization
+## 建议的优化
 
-- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
-- Enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. This will enable server GC which can be immediately seen as being active by memory increase compared to workstation GC.
-- If you can't afford that much memory increase, consider using `GCLatencyLevel` of `0` to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
+- 确保您的 `OptimizationMode` 属性设置为默认值 `MaxPerformance`。 这是最重要的设置，因为使用 `MinMemoryUsage` 值会对性能产生巨大影响。
+- 将 `ArchiSteamFarm.runtimeconfig.json` 的 `System.GC.Server` 属性从 `false` 切换到 `true` 来启用服务器 GC。 这将启用服务器 GC，与工作站 GC 相比，您可以通过瞬间增加的内存消耗确认启用了服务器 GC。
+- 如果您无法承受如此巨量的内存消耗，可以考虑将 `GCLatencyLevel` 设置为 `0` 实现二者之间的平衡。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
 
-If you've enabled server GC and kept `GCLatencyLevel` at default setting, then you have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum.
+如果您已启用服务器 GC 并保留 `GCLatencyLevel` 的默认设置，那么即使您启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。

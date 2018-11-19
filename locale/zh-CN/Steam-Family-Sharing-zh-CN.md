@@ -1,21 +1,21 @@
-# Steam家庭库共享
+# Steam 家庭库共享
 
-ASF从2.1.5.5+版本开始支持Steam家庭库共享 想要了解ASF如何在该组件生效，你应该首先阅读how Steam Family Sharing works, 该手册可在Steam store中查阅
+ASF 从 2.1.5.5+ 版本开始支持 Steam 家庭库共享。 想要理解 ASF 这一功能的原理，您应该先阅读 Steam 商店提供的 **[Steam 家庭共享](https://store.steampowered.com/promotion/familysharing)**介绍。
 
 * * *
 
 ## ASF
 
-Support for Steam Family Sharing feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it works out of the box as an extra built-in functionality.
+ASF 对 Steam 家庭共享功能的支持是透明的，这意味着它不会引入任何新的机器人/全局配置属性——这是一个额外的内置功能，开箱即用。
 
-ASF includes appropriate logic in order to be aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
+ASF 包括适当的逻辑，以便知道游戏库被家庭共享用户锁定，因此它不会因为启动游戏而将他们踢出游戏会话。 ASF 的行为与持有锁的主账户完全相同，因此，如果您的 Steam 客户端或您的一个家庭共享用户持有该锁，ASF将不会尝试挂卡，而是等待锁被释放。
 
-In addition to above, after logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
+此外，ASF 将会从您的**[家庭库共享设置](https://store.steampowered.com/account/managedevices)**中提取最多 5 名被允许使用您游戏库的用户的 `steamID`。 这些用户将会以 `FamilySharing` 权限执行**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，特别是允许他们对提供家庭库共享的机器人使用 `pause~` 命令，使他们可以暂停自动挂卡模块并且运行家庭共享的游戏。
 
-Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
+综合以上功能，您的朋友可以执行 `pause~</代码> 暂停您的挂卡过程、启动游戏、玩一段时间游戏，然后在他们退出游戏后，ASF 将会自动恢复挂卡过程。 当然，如果 ASF 目前没有处于挂卡状态，则不需要执行 <code>pause~` 命令，因为您的朋友可以立即启动游戏，并且上述逻辑确保他们不会被踢出会话。
 
 * * *
 
 ## 限制
 
-Steam network loves to mislead ASF by broadcasting false status updates, which might lead to ASF believing it's fine to resume process, and in result kick your friend too soon. In order to fight with that issue, it's recommended for you to have your friend on your Steam friendlist - this way ASF in addition to steam network events, can check Steam status of your friend, and guess from playing status if he's indeed done playing yet, or not. This is not mandatory, but because Steam sometimes talks trash, it's recommended, especially if you notice such issues.
+Steam 网络经常广播错误的状态更新误导 ASF，这可能导致 ASF 认为可以恢复挂卡过程，结果导致踢出您的朋友。 为了解决这个问题，建议您确保您的朋友在您的 Steam 好友列表中——这样 ASF 除了检查 Steam 网络事件外，还可以检查您朋友的 Steam 状态，从中猜测他是否确实退出了游戏。 这不是强制性的，但因为 Steam 有时会出现这样的问题，所以建议这样做，特别是您确实遇到这种问题的时候。

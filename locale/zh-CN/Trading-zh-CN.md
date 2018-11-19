@@ -1,50 +1,50 @@
 # 交易
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）以及发送交易都可以立即使用，不需要特殊配置，但显然需要有不受限制的 Steam 账户（已在商店中花费至少 5 美元的账户）。 交易模块无法在受限账户上生效。
 
-Notice: Every time "reject" word is used, it means either ignoring, or declining, depending on configured `BotBehaviour` (`RejectInvalidTrades`) property.
+注意：每当我们使用“驳回”一词时，可以指“忽略”或“拒绝”，具体的意思取决于您配置的 `BotBehaviour`（`RejectInvalidTrades`）属性。
 
 * * *
 
-## Logic
+## 逻辑
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF 将始终接受来自机器人 `Master`（或更高权限）账户的交易，无论交易物品是什么。 这样可以很方便地拾取由机器人实例挂到的卡片，也可以轻松管理机器人库存内存储的物品。
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `TradingPreferences` 中设置了 `DontAcceptBotTrades`。 简单来说，将 `TradingPreferences` 设置为 `None` 会使 ASF 自动接受来自机器人 `Master` 用户（上文所述）的交易，和来自同一 ASF 进程的其他机器人的赠送交易。 如果您想禁用来自其他机器人的赠送交易，就应该在 `TradingPreferences` 中设置 `DontAcceptBotTrades`。
 
-When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
+当您在 `TradingPreferences` 中设置 `AcceptDonations` 时，ASF 也会接受一切赠送交易（机器人账户不损失任何物品的交易）。 这一属性仅仅影响非机器人账户，因为机器人账户受 `DontAcceptBotTrades` 属性影响。 `AcceptDonations` 属性允许您轻松接受来自于其他人（以及其他 ASF 进程中的机器人）的赠送。
 
-It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, as there is no confirmation needed if we're not losing any items.
+值得注意的是，`AcceptDonations` 不需要 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为在不损失物品的情况下不需要进行交易确认。
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
+您还可以通过修改 `TradingPreferences` 属性进一步自定义 ASF 交易行为。 `TradingPreferences` 的一个主要功能是 `SteamTradeMatcher` 选项，使 ASF 使用内置逻辑接受能够帮助您收集合成徽章所需卡牌的交易，这一功能在结合 **[SteamTradeMatcher](https://www.steamtradematcher.com)** 公开列表时特别有用，但是也可以单独使用。 下面将进一步介绍此功能。
 
 * * *
 
 ## SteamTradeMatcher
 
-When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+当 `SteamTradeMatcher` 启用时，ASF 将会使用一套复杂的算法检查交易是否符合 STM 规则，以及交易对我们来说是否至少公平。 具体的逻辑是：
 
-- Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game and per-type basis.
-- Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
-- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
-- Accept the trade if we didn't reject it through any of the points above.
+- 如果我们损失 `MatchableTypes` 以外的物品，则驳回交易。
+- 对于每款游戏、每种物品类型，如果我们收到的物品少于发出的物品，则驳回交易。
+- 如果交易者想要特殊 Steam 夏季/冬季特卖卡牌，但是有交易暂挂，则驳回交易。
+- 如果交易暂挂时间达到 `MaxTradeHoldDuration` 全局配置属性的值，则驳回交易。
+- 如果我们没有设置 `MatchEverything`（接受所有匹配交易），而交易内容对我们不利，则驳回交易。
+- 如果交易不符合上述任何情况，则接受交易。
 
-It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+值得注意的是，ASF 还支持 Overpay（超额付款，或溢价）——只要满足上述条件，交易者在提供更多物品时，此逻辑也会正常工作。
 
-First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+前 4 种驳回条件应该是显而易见的。 最后一种条件则包含重复检查逻辑：检查我们当前的库存状态来决定交易的状态。
 
-- Trade is **good** if our progress towards set completion advances. A A (before) <-> A B (after)
-- Trade is **neutral** if our progress towards set completion stays in-tact. A B (before) <-> A C (after)
-- Trade is **bad** if our progress towards set completion declines. A C (before) <-> A A (after)
+- 如果交易倾向于增加您的卡牌组收集进度，则视为**有利**。 A A（交易前） <-> A B（交易后）
+- 如果交易不会影响您的卡牌组收集进度，则视为**平衡**。 A B（交易前） <-> A C（交易后）
+- 如果交易倾向于减少您的卡牌组收集进度，则视为**不利**。 A C（交易前） <-> A A（交易后）
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason to decline them. This is especially useful for your friends, since they can swap your excessive cards without using STM at all, as long as you're not losing any set progress.
+STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹配的用户只能向我们推荐对我们有利的交易。 然而，ASF 更加宽松，它也接受平衡交易，因为在这种交易中我们实际上并没有任何损失，所以没有理由拒绝它们。 这对朋友之间的交易特别有用，因为他们可以在不使用 STM 的情况下与您交换多余的卡片，只要这不会导致您损失卡牌收集进度。
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including **bad ones**. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that **ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card**. Unless you intentionally want to run a trade bot that is **never** supposed to finish any set, you don't want to enable this option.
+默认情况下，ASF 会驳回不利的交易——对于普通用户来说，这正是我们想要的。 然而，您可以在 `TradingPreferences` 中启用 `MatchEverything`，使 ASF 接受所有重复物品交易，即使是**不利的**。 只有您想要在您的帐户下运行 1:1 交易机器人时，此功能才有用，因为您了解 **ASF 将不再帮助您完成徽章收集进度，并且您可能会因为 N 张相同的卡牌失去徽章收集进度**。 除非您有意运行一个**永远**没打算收集完整徽章的交易机器人，否则您应该禁用此功能。
 
-Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `BotBehaviour` which is `None`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for trades with items outside of `MatchableTypes`, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not. The only exception from this rule is when talking about users you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
+无论您的 `TradingPreferences` 如何设置，ASF 驳回交易不意味着您不能自己接受它。 如果您保留了 `BotBehaviour` 的默认值 `None`，ASF 仅会忽略这些交易——使您可以自行决定是否接受交易。 同样的情况适用于 `MatchableTypes` 以外的物品——这个模块仅仅用于自动化 STM 交易，而不是代替您判断交易的优劣。 此规则的唯一例外是通过 `bladd` 命令添加进交易黑名单的用户——无论您的 `BotBehaviour` 如何设置，来自这些用户的交易都会被立即驳回。
 
-It's highly recommended to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it might generate backlog of confirmations if you're not accepting them in time.
+启用此选项时，强烈建议您使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为如果您还需要手动确认每次交易，这一功能也就失去了它的潜力。 即使没有确认交易的能力，`SteamTradeMatcher` 也可以正常工作，但是如果您没有及时手动确认，就可能留下积压的确认请求。
