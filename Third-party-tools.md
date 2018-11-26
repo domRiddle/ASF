@@ -9,7 +9,7 @@ Please note that below tools are not maintained by ASF team and therefore we giv
 ## Tools
 
 - **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, which allows to manage multiple ASF configs more easily.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
 
 ---
 
