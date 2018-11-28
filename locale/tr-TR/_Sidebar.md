@@ -4,7 +4,7 @@
 
 * * *
 
-## Basics
+## Temeller
 
 * **[Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**

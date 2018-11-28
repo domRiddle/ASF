@@ -1,6 +1,6 @@
 # 低内存方案
 
-这篇文档与**[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-CN)**完全相反，如果您愿意牺牲一些性能换取较小的内存用量，请阅读以下内容。
+这篇文档与&#8203;**[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-CN)**&#8203;完全相反，如果您愿意牺牲一些性能换取较小的内存用量，请阅读以下内容。
 
 * * *
 
@@ -12,7 +12,7 @@ ASF is extremely well optimized, and makes use of available resources as much as
 
 Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
 
-This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. ASF 实际的内存用量可以通过 `stats` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**查看。如果您机器人的数量很少，通常它只会占用大约 4 MB 内存，但如果启用了 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 和其他额外功能，ASF 将会占用多达 30 MB 内存。 Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
+This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. ASF 实际的内存用量可以通过 `stats` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;查看。如果您机器人的数量很少，通常它只会占用大约 4 MB 内存，但如果启用了 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 和其他额外功能，ASF 将会占用多达 30 MB 内存。 Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
 
 * * *
 
@@ -50,11 +50,11 @@ Below tricks **involve performance degradation** and should be used with caution
 
 > 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：
 > 
-> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 This is the default setting for the <gcserver> element in the runtime configuration schema.
+> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 这是运行时环境配置架构中元素的默认设置。 <gcserver> 
 > 
 > 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-您可以在**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**阅读更多。
+您可以在&#8203;**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
@@ -98,7 +98,7 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 Below tricks **involve serious performance degradation** and should be used with caution.
 
-- 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**调整 `MinMemoryUsage`。 Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. 通常这是**您应该最后尝试的方式**，如果您按照**[运行时环境调优](#运行时环境调优高级)**作出的调整仍然不能满足需求。
+- 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;调整 `MinMemoryUsage`。 Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. 通常这是**您应该最后尝试的方式**，如果您按照&#8203;**[运行时环境调优](#运行时环境调优高级)**&#8203;作出的调整仍然不能满足需求。
 
 * * *
 

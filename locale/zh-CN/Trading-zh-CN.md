@@ -1,6 +1,6 @@
 # 交易
 
-ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）以及发送交易都可以立即使用，不需要特殊配置，但显然需要有不受限制的 Steam 账户（已在商店中花费至少 5 美元的账户）。 交易模块无法在受限账户上生效。
+ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）以及发送交易都可以立即使用，不需要特殊配置，但显然需要有不受限制的 Steam 帐户（已在商店中花费至少 5 美元）。 交易模块无法在受限帐户上生效。
 
 注意：每当我们使用“驳回”一词时，可以指“忽略”或“拒绝”，具体的意思取决于您配置的 `BotBehaviour`（`RejectInvalidTrades`）属性。
 
@@ -8,13 +8,13 @@ ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）�
 
 ## 逻辑
 
-ASF 将始终接受来自机器人 `Master`（或更高权限）账户的交易，无论交易物品是什么。 这样可以很方便地拾取由机器人实例挂到的卡片，也可以轻松管理机器人库存内存储的物品。
+ASF 将始终接受来自机器人 `Master`（或更高权限）帐户的交易，无论交易物品是什么。 这样可以很方便地拾取由机器人实例挂到的卡片，也可以轻松管理机器人库存内存储的物品。
 
-ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
+ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
 
 ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `TradingPreferences` 中设置了 `DontAcceptBotTrades`。 简单来说，将 `TradingPreferences` 设置为 `None` 会使 ASF 自动接受来自机器人 `Master` 用户（上文所述）的交易，和来自同一 ASF 进程的其他机器人的赠送交易。 如果您想禁用来自其他机器人的赠送交易，就应该在 `TradingPreferences` 中设置 `DontAcceptBotTrades`。
 
-当您在 `TradingPreferences` 中设置 `AcceptDonations` 时，ASF 也会接受一切赠送交易（机器人账户不损失任何物品的交易）。 这一属性仅仅影响非机器人账户，因为机器人账户受 `DontAcceptBotTrades` 属性影响。 `AcceptDonations` 属性允许您轻松接受来自于其他人（以及其他 ASF 进程中的机器人）的赠送。
+当您在 `TradingPreferences` 中设置 `AcceptDonations` 时，ASF 也会接受一切赠送交易（机器人帐户不损失任何物品的交易）。 这一属性仅仅影响非机器人帐户，因为机器人帐户受 `DontAcceptBotTrades` 属性影响。 `AcceptDonations` 属性允许您轻松接受来自于其他人（以及其他 ASF 进程中的机器人）的赠送。
 
 值得注意的是，`AcceptDonations` 不需要 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为在不损失物品的情况下不需要进行交易确认。
 

@@ -30,7 +30,7 @@ ASF 的弃用流程分为两个阶段，使这种转换更容易，更少遇到�
 
 ## 总结
 
-您会有大约**一整月**的时间进行适当的迁移，即使您只是偶尔使用 ASF，这也应该足够了。 在此之后，ASF 不再保证旧设置会产生任何效果（第 2 阶段），从而有效地使某些功能在您不注意的情况下完全停止运行。 如果您已长达一个月以上没有使用 ASF，建议您**[从头开始](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)**，或者阅读所有您错过版本的更新日志，手动调整您已有的用法。
+您会有大约**一整月**的时间进行适当的迁移，即使您只是偶尔使用 ASF，这也应该足够了。 在此之后，ASF 不再保证旧设置会产生任何效果（第 2 阶段），从而有效地使某些功能在您不注意的情况下完全停止运行。 如果您已长达一个月以上没有使用 ASF，建议您&#8203;**[从头开始](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)**，或者阅读所有您错过版本的更新日志，手动调整您已有的用法。
 
 在大多数情况下，忽略弃用警告不会使 ASF 的基本功能失效，而是回退到默认行为（可能符合您的个人偏好，也可能不符合）。
 
@@ -38,7 +38,7 @@ ASF 的弃用流程分为两个阶段，使这种转换更容易，更少遇到�
 
 ## 示例
 
-我们将 V3.1.2.2 版本之前的 `--server` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**迁移到了 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**。
+我们将 V3.1.2.2 版本之前的 `--server` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;迁移到了 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**。
 
 ### 阶段 1
 

@@ -1,4 +1,4 @@
-“补充常见问题”涵盖了一些不太常见的问题以及它们的答案。 对于更常见的问题，请访问**[基本常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**。
+“补充常见问题”涵盖了一些不太常见的问题以及它们的答案。 对于更常见的问题，请访问&#8203;**[基本常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**。
 
 * * *
 
@@ -6,7 +6,7 @@
 
 ASF 是由 **[Archi](https://github.com/JustArchi)** 在 2015 年 10 月创作的。 您可能已经知道，我和您一样，是一名 **[Steam 用户](https://steamcommunity.com/profiles/76561198006963719)**。 正如您所见，除了玩游戏，我也很愿意将我的技能与意志付诸实践。 这里没有大公司参与，没有开发者团队，也没有一百万美元的预算——只有我自己维护这个项目。
 
-然而，ASF 是一个开源项目，您在这里看到的一切并非完全出自我手。 我们有一些**[其他](https://github.com/JustArchiNET?q=ASF-)** ASF 项目，几乎全部由其他开发者开发。 即使是 ASF 核心，也有许多**[贡献者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**参与帮助我完成。 最重要的是，有一些第三方服务支持了 ASF 的开发，特别是 **[GitHub](https://github.com)**、**[Discord](https://discordapp.com/open-source)**、**[AppVeyor](https://www.appveyor.com)**、**[Travis](https://travis-ci.com)**、**[ReSharper](https://www.jetbrains.com/resharper)** 与 **[Crowdin](https://crowdin.com)**。 当然也不能忘记所实现 ASF 所用的优秀的库和工具，特别是 **[SteamKit2](https://github.com/SteamRE/SteamKit)**，没有这个库，ASF 也就不复存在。 同样，如果没有 **[Patreons](https://www.patreon.com/JustArchi)** 上的支持者为我们捐款，ASF 也不会是现在这个样子。
+然而，ASF 是一个开源项目，您在这里看到的一切并非完全出自我手。 我们有一些&#8203;**[其他](https://github.com/JustArchiNET?q=ASF-)** ASF 项目，几乎全部由其他开发者开发。 即使是 ASF 核心，也有许多&#8203;**[贡献者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;参与帮助我完成。 最重要的是，有一些第三方服务支持了 ASF 的开发，特别是 **[GitHub](https://github.com)**、**[Discord](https://discordapp.com/open-source)**、**[AppVeyor](https://www.appveyor.com)**、**[Travis](https://travis-ci.com)**、**[ReSharper](https://www.jetbrains.com/resharper)** 与 **[Crowdin](https://crowdin.com)**。 当然也不能忘记所实现 ASF 所用的优秀的库和工具，特别是 **[SteamKit2](https://github.com/SteamRE/SteamKit)**，没有这个库，ASF 也就不复存在。 同样，如果没有 **[Patreons](https://www.patreon.com/JustArchi)** 上的支持者为我们捐款，ASF 也不会是现在这个样子。
 
 感谢所有帮助 ASF 开发的人！
 
@@ -22,6 +22,6 @@ ASF 是由 **[Archi](https://github.com/JustArchi)** 在 2015 年 10 月创作�
 
 ### 那么用户需要付出什么？
 
-您不需要付出代价，我**为自己**创作了 ASF，并将其分享给社区，希望对其他人有用。 1991 年发生过同样的事情，Linus Torvalds 将他的**[第一份 Linux 内核](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**分享给了全世界。 这里没有暗藏恶意软件、数据挖掘、恶意挖矿或者其他能够为我产生利益的活动，只有用户自愿的非强制性捐赠。 您可以像我一样使用 ASF，并且如果您喜欢它，您可以随时为我捐赠一杯咖啡（或者不捐赠）。
+您不需要付出代价，我**为自己**创作了 ASF，并将其分享给社区，希望对其他人有用。 1991 年发生过同样的事情，Linus Torvalds 将他的&#8203;**[第一份 Linux 内核](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**&#8203;分享给了全世界。 这里没有暗藏恶意软件、数据挖掘、恶意挖矿或者其他能够为我产生利益的活动，只有用户自愿的非强制性捐赠。 您可以像我一样使用 ASF，并且如果您喜欢它，您可以随时为我捐赠一杯咖啡（或者不捐赠）。
 
 除此之外，还有另外一层考虑——我是将 ASF 作为一个现代 C# 项目的完美示例，始终追求完美和最佳实践，无论是技术、项目管理还是代码本身。 这是我对于“把事情做好”的定义，所以假如您能够从我的项目中学到一些新东西，这对我来说是双赢的！ 耶！

@@ -1,6 +1,6 @@
 # 컴파일
 
-컴파일은 실행가능한 파일을 만드는 과정입니다. 만약 ASF에 자신이 만든 변경사항을 추가하고 싶거나 공식 **[릴리즈](https://github.com/JustArchiNET/ArchiSteamFarm/releases-ko-KR)**에서 제공하는 실행파일을 무슨 이유에서건 신뢰하지 않는 경우 하게 됩니다. 만약 당신이 개발자가 아니라 사용자라면 대부분 이미 컴파일된 바이너리를 사용하길 원할겁니다. 하지만 자신만의 바이너리를 사용하고 싶거나 뭔가 새로운 것을 배우고 싶다면 계속 읽으시기 바랍니다.
+컴파일은 실행가능한 파일을 만드는 과정입니다. 만약 ASF에 자신이 만든 변경사항을 추가하고 싶거나 공식 **[릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/releases-ko-KR)**에서 제공하는 실행파일을 무슨 이유에서건 신뢰하지 않는 경우 하게 됩니다. 만약 당신이 개발자가 아니라 사용자라면 대부분 이미 컴파일된 바이너리를 사용하길 원할겁니다. 하지만 자신만의 바이너리를 사용하고 싶거나 뭔가 새로운 것을 배우고 싶다면 계속 읽으시기 바랍니다.
 
 ASF는 필요로 하는 도구를 모두 가지고만 있다면 현재 지원되는 어떠한 플랫폼에서도 컴파일 될 수 있습니다.
 
@@ -80,18 +80,18 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://www.visualstudio.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다) 또한 **[ReSharper](https://www.jetbrains.com/resharper)**를 같이 사용하는 것을 권장하지만 이것은 무료 제품은 아닙니다.
 
-리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. It's not as rich as classic Visual Studio, but it's good enough.
+리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. 고전 Visual Studio만큼 풍족하진 않지만, 충분히 좋습니다.
 
-Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. We use Visual Studio + ReSharper for ASF development, with a small part of third-party `tools` that you can find in the repo.
-
-* * *
-
-## Tags
-
-`master` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our CIs - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** or **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
+물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. 우리는 ASF 개발에 Visual Studio와 ReSharper, 그리고 repo에 있는 서드 파티 `도구` 일부를 사용합니다.
 
 * * *
 
-## 공식 릴리즈
+## 태그
 
-공식 ASF 릴리즈는 윈도우에서 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는 최신 .NET Core SDK를 사용하여 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 로 컴파일됩니다. 테스트를 통과하면 모든 패키지는 GitHub에 배포됩니다. This also guarantees transparency, since AppVeyor always uses official public source for all builds, and you can compare checksums of AppVeyor artifacts with GitHub assets. ASF developers do not compile or publish builds manually, except for private development process, including debugging.
+`master` 분기는 한번에 성공적인 컴파일이나 흠없는 ASF 실행을 보장하는 상태가 아닙니다. 개발 분기는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에 게시되어 있습니다. ASF를 소스에서 컴파일하려면 목적에 맞는 적절한 **[태그](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** 를 사용해야 합니다. 이는 최소한 성공적인 컴파일을 보장하고, 안정 릴리스로 표시된 빌드는 거의 흠없는 실행도 가능합니다. 트리의 현재 "상태"를 체크하려면 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 나 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 등 CI를 사용하시기 바랍니다.
+
+* * *
+
+## 공식 릴리스
+
+공식 ASF 릴리스는 윈도우에서 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는 최신 .NET Core SDK를 사용하여 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 로 컴파일됩니다. 테스트를 통과하면 모든 패키지는 GitHub에 배포됩니다. AppVeyor는 모든 빌드에 항상 공식 소스를 사용하므로 투명성을 보장하고, AppVeyor와 Github 에셋의 체크섬을 비교해볼 수 있습니다. ASF 개발자는 개인 개발과정이나 디버깅을 제외하고는 수동으로 컴파일하거나 빌드를 게시하지 않습니다.

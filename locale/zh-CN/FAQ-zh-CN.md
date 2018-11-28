@@ -1,6 +1,6 @@
 # 常见问题
 
-“常见问题”涵盖了一些常见问题以及它们的答案。 对于不太常见的问题，请访问我们的**[补充常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-CN)**。
+“常见问题”涵盖了一些常见问题以及它们的答案。 对于不太常见的问题，请访问我们的&#8203;**[补充常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-CN)**。
 
 # 目录
 
@@ -16,7 +16,7 @@
 
 ### 那么它到底是如何工作的呢？
 
-在尝试了解 ASF 是什么之前，您应该首先了解什么是 Steam 集换式卡牌，以及如何获取它们，这在官方的**[常见问题](https://steamcommunity.com/tradingcards/faq)**中已有很好的解释。
+在尝试了解 ASF 是什么之前，您应该首先了解什么是 Steam 集换式卡牌，以及如何获取它们，这在官方的&#8203;**[常见问题](https://steamcommunity.com/tradingcards/faq)**&#8203;中已有很好的解释。
 
 简而言之，Steam 集换式卡牌是一种可收集的物品，您在拥有特定的游戏后即可自己获取它们，您可以用它们合成徽章、在 Steam 社区市场上出售或者做其他任何您想对它们做的事。
 
@@ -31,7 +31,7 @@ So as you can see, Steam cards are awarded to you for playing a game that you bo
 
 ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
 
-ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. 这个过程取决于**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，但通常由两部分组成，一部分是运行合适的游戏，另一部分是定期（以及有物品掉落时）检查该游戏是否已经掉落所有卡牌——如果已完成，ASF 将会继续到下一款游戏，重复这一过程，直到所有游戏都挂卡完成。
+ASF logs into your Steam account through built-in mini Steam Client using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. 这个过程取决于&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，但通常由两部分组成，一部分是运行合适的游戏，另一部分是定期（以及有物品掉落时）检查该游戏是否已经掉落所有卡牌——如果已完成，ASF 将会继续到下一款游戏，重复这一过程，直到所有游戏都挂卡完成。
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. 如果您希望了解 ASF 的细节，请访问 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)** 的其他页面。 I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
@@ -43,9 +43,9 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 * * *
 
-### 我必须输入我的账户凭据吗？
+### 我必须输入我的帐户凭据吗？
 
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF 还提供了其他几种方法来增强**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**，所以如果您是高级用户，可以阅读这部分 Wiki。 If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
+**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF 还提供了其他几种方法来增强&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**，所以如果您是高级用户，可以阅读这部分 Wiki。 If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input it as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve.
 
@@ -53,13 +53,13 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 ### 我需要花多少时间等待卡牌掉落？
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. 此外，对于您没有玩足够时长的游戏，您的帐号可能被限制无法获得卡牌掉落，如**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**章节所述。 Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. 这些情况都是正常的，并且已经在**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**章节中解释。
+**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. 此外，对于您没有玩足够时长的游戏，您的帐户可能被限制无法获得卡牌掉落，如&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;章节所述。 Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. 这些情况都是正常的，并且已经在&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;章节中解释。
 
 * * *
 
 ### 挂卡时间太长了，怎样加快速度？
 
-能够严重影响挂卡速度的唯一因素是为机器人实例选择的**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**。 Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. 如果您真的想要充分利用挂卡过程的每一秒钟，ASF 也允许您细致调整一些与挂卡有关的核心变量，例如 `FarmingDelay`——这些选项在**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**中都已作出解释。 However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+能够严重影响挂卡速度的唯一因素是为机器人实例选择的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**。 Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. 如果您真的想要充分利用挂卡过程的每一秒钟，ASF 也允许您细致调整一些与挂卡有关的核心变量，例如 `FarmingDelay`——这些选项在&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;中都已作出解释。 However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
 * * *
 
@@ -85,7 +85,7 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 ### 我可以选择挂哪些游戏吗？
 
-**是的**，有几种方式可以做到。 如果您想调整挂卡队列的默认顺序，可以调整 `FarmingOrders` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 如果您希望手动禁用一些游戏的自动挂卡，可以使用 `ib` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**管理挂卡黑名单。 如果挂所有游戏对您来说没问题，但是需要优先挂一部分，可以使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**管理挂卡优先级队列。 最后，如果只需要挂您指定的游戏，可以设定 `IdlePriorityQueueOnly` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，并且将指定的游戏加入挂卡优先级队列。
+**是的**，有几种方式可以做到。 如果您想调整挂卡队列的默认顺序，可以调整 `FarmingOrders` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 如果您希望手动禁用一些游戏的自动挂卡，可以使用 `ib` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**管理挂卡黑名单。 如果挂所有游戏对您来说没问题，但是需要优先挂一部分，可以使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理挂卡优先级队列。 最后，如果只需要挂您指定的游戏，可以设定 `IdlePriorityQueueOnly` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，并且将指定的游戏加入挂卡优先级队列。
 
 除了管理上述的自动挂卡模块之外，您也可以使用 ASF 手动模式，即 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，或者使用一些杂项设置，例如 `GamesPlayedWhileIdle` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 
 
@@ -129,7 +129,7 @@ In addition to that, IM is officially discontinued and might break completely in
 
 It depends what you consider "interesting" for you. If you plan to idle more accounts than one then the answer is already obvious since ASF allows you to idle all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
 
-首先，如果您的目标仅仅是挂卡，**[上述](#我现在正在使用-idle-master并且它很好用我有必要换成-asf-吗)**的内置挂卡核心功能通常已经可以满足需求。 But you already know that, so let's move onto some more interesting features:
+首先，如果您的目标仅仅是挂卡，**[上述](#我现在正在使用-idle-master并且它很好用我有必要换成-asf-吗)**&#8203;的内置挂卡核心功能通常已经可以满足需求。 But you already know that, so let's move onto some more interesting features:
 
 - **You can idle offline** (`OnlineStatus` of `Offline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game to your friends, making only ASF part invisible and not affecting your account at all.
 
@@ -143,7 +143,7 @@ It depends what you consider "interesting" for you. If you plan to idle more acc
 
 - **ASF can help you complete your sets** (`TradingPreferences` with `SteamTradeMatcher` feature). With a bit more advanced tinkering, you can convert your ASF into fully-featured user-bot that will automatically accept **[STM](https://www.steamtradematcher.com)** offers, helping you each day to match your sets without any user interaction. ASF even includes its very own ASF 2FA module allowing you to import your Steam mobile authenticator and let you fully automate the entire process with accepting confirmations as well. Or, maybe you want to accept manually and let ASF only prepare those trades for you? That's once again, fully up to you to decide.
 
-- **ASF 可以在后台帮您激活序列号**（**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**功能）。 Maybe you have a hundred of keys from various bundles that you're too lazy to redeem yourself, going through bunch of windows and agreeing to Steam terms and conditions over and over again. Why not copy-paste your list of keys into ASF and let it do its job? ASF will automatically redeem all of those keys in background, providing you with appropriate output to let you know how each redeem attempt turned out. Moreover, if you have hundreds of keys, you're guaranteed to get rate-limited by Steam sooner or later, and ASF also knows about that, it'll patiently wait for the rate-limit to go away, and resume where it left.
+- **ASF 可以在后台帮您激活序列号**（**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**&#8203;功能）。 Maybe you have a hundred of keys from various bundles that you're too lazy to redeem yourself, going through bunch of windows and agreeing to Steam terms and conditions over and over again. Why not copy-paste your list of keys into ASF and let it do its job? ASF will automatically redeem all of those keys in background, providing you with appropriate output to let you know how each redeem attempt turned out. Moreover, if you have hundreds of keys, you're guaranteed to get rate-limited by Steam sooner or later, and ASF also knows about that, it'll patiently wait for the rate-limit to go away, and resume where it left.
 
 虽然我们可以在这里列出所有 **[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)** 上所述的每个功能，但是没有必要这样做。 This is it, this is a list of features that you can enjoy as ASF user, where just one of those could easily be considered a major reason to never look back, and we actually listed **a lot** of them, with even more you can learn about on the rest of our wiki. Ah yes, and we didn't even go into detail with things like ASF's API allowing you to script your own commands, or glorious bots management, since we wanted to keep it simple.
 
@@ -169,7 +169,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### ASF 可以同时挂多个游戏吗？
 
-**是的**，基于选择的**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，ASF 知道自己应该在什么时候启用这一功能。 You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
+**是的**，基于选择的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，ASF 知道自己应该在什么时候启用这一功能。 You do not have direct choice on cards farming algorithm, but you can suggest ASF one, via setting config properties properly. You should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal.
 
 * * *
 
@@ -203,7 +203,7 @@ No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere
 
 * * *
 
-### ASF 会像**[这里](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**所提到的那样，导致我无法加入 VAC 安全服务器吗？
+### ASF 会像&#8203;**[这里](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所提到的那样，导致我无法加入 VAC 安全服务器吗？
 
 ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
 
@@ -235,7 +235,7 @@ The only real point that considers ASF is the following:
 
 We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. However...
 
-> Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).（参考译文：Valve 随时可以在以下情况停止您的账户或者中止订阅：(a) Valve 不再向此类订阅者提供订阅服务，或 (b) 您违反了本协议中的条款，包括任何订阅条款和使用规则。）
+> Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).（参考译文：Valve 随时可以在以下情况停止您的帐户或者中止订阅：(a) Valve 不再向此类订阅者提供订阅服务，或 (b) 您违反了本协议中的条款，包括任何订阅条款和使用规则。）
 
 Therefore, as with every Steam software, ASF is not authorized by Valve and I cannot guarantee that you won't be suspended if Valve suddenly decides that they're banning accounts using ASF now. This is exceptionally unlikely considering the fact that ASF is being used on more than half a million of Steam accounts, but still a possibility, regardless of actual probability.
 
@@ -259,19 +259,19 @@ You're using this software at your own risk. It's very unlikely that you can get
 
 One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in very short time.
 
-> Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） It looks like this account was used to manage a network of bot accounts.（译文：看起来您的账户被用于管理一个机器人账户网络。） Botting is a violation of the Steam Subscriber Agreement.（译文：使用机器人违反了 Steam 订户协议。）
+> Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） It looks like this account was used to manage a network of bot accounts.（译文：看起来您的帐户被用于管理一个机器人账户网络。） Botting is a violation of the Steam Subscriber Agreement.（译文：使用机器人违反了 Steam 订户协议。）
 
 Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Please keep in mind some bare common sense and minimum of fair use in regards to Steam service, and *most likely* you'll be fine.
 
 Another case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
 
-> Your account was blocked for violation of the agreement of the subscriber Steam.（译文：您的账户因为违反 Steam 订户协议而被封禁。） Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities.（译文：从交易和其他因素来看，这个帐户被用来非法收集 Steam 集换式卡牌，以及相关的商业以外的活动。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此账户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
+> Your account was blocked for violation of the agreement of the subscriber Steam.（译文：您的帐户因为违反 Steam 订户协议而被封禁。） Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities.（译文：从交易和其他因素来看，这个帐户被用来非法收集 Steam 集换式卡牌，以及相关的商业以外的活动。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
 This case is once again very hard to analyze, because of vague response from Steam support that barely offers any details. Based on my personal thoughts, this user probably exchanged Steam cards for some kind of money (level up bot?) or in some other way tried to cash out on Steam. In case you were unaware, this is also illegal according to Steam ToS.
 
 Last case involved user with 120+ bots being banned for breach of **[Steam online conduct](https://store.steampowered.com/online_conduct?l=english)**.
 
-> Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此账户和其他账户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此账户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
+> Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此帐户和其他账户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
 This case is a bit easier to analyze because of extra details provided by the user. Apparently the user was using **a very outdated ASF version** that included a bug causing ASF to send excessive number of requests to Steam servers. The bug itself did not exist at first but was activated due to Steam breaking change that was fixed in future version. **ASF is supported only in **[latest stable version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** released on GitHub**. Software is written by humans, and humans tend to make mistakes. If the mistake has a global scope, it's quickly being patched up and released to all users as a bugfix. Valve won't suddenly ban half a million of ASF users due to my mistake, for obvious reasons. However, if you intentionally resign from using up-to-date ASF, then by definition you're in a very small minority of users that are **exposed to incidents like these** due to **no support**, as there is nobody watching over your outdated version of ASF, nobody fixing it and nobody ensuring that you won't get outright banned by just launching it. **Please use up-to-date software**, not only ASF, but all other applications as well.
 
@@ -283,7 +283,7 @@ All of the incidents above have one thing in common - ASF is just a tool and it'
 
 ### ASF 会收集哪些隐私信息？
 
-您可以在**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**章节详细了解。 You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
+您可以在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节详细了解。 You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
 
 * * *
 
@@ -293,7 +293,7 @@ All of the incidents above have one thing in common - ASF is just a tool and it'
 
 ### 我正在用不受支持的操作系统，例如 32 位 Windows，我仍然可以用 ASF V3 吗？
 
-Yes, and that version is not unsupported in any way, just not officially built. 您可以在**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**章节了解 Generic 包。
+Yes, and that version is not unsupported in any way, just not officially built. 您可以在&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解 Generic 包。
 
 * * *
 
@@ -303,7 +303,7 @@ Yes, and we're very happy to hear that you're enjoying our project! You can find
 
 * * *
 
-### 我启用了 Steam 家庭监护 PIN 代码来保护我的账号，我需要将它填写在什么地方吗？
+### 我启用了 Steam 家庭监护 PIN 代码来保护我的帐户，我需要将它填写在什么地方吗？
 
 Yes, you must set it in `SteamParentalCode` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
 
@@ -329,31 +329,31 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### 有办法在外部与 ASF 通信吗？
 
-是的，可以通过 Steam 聊天或者 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**。 请阅读**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**章节了解详情。
+是的，可以通过 Steam 聊天或者 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**。 请阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;章节了解详情。
 
 * * *
 
 ### 我想要帮助翻译 ASF，需要做什么？
 
-感谢您愿意提供帮助！ 您可以在**[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**章节了解详情。
+感谢您愿意提供帮助！ 您可以在&#8203;**[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;章节了解详情。
 
 * * *
 
-### 我在 ASF 中只设置了一个账号，还能够通过 Steam 聊天发送命令吗？
+### 我在 ASF 中只设置了一个帐户，还能够通过 Steam 聊天发送命令吗？
 
-**是的**，**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**章节中详细介绍了这一点。 您可以通过 Steam 群组聊天发送命令。
+**是的**，**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节中详细介绍了这一点。 您可以通过 Steam 群组聊天发送命令。
 
 * * *
 
 ### ASF 已运行，但我没获得任何卡牌掉落！
 
-不同游戏的卡牌掉落速率有所区别，您可以阅读**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**详细了解。 It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `BotBehaviour` of `DismissInventoryNotifications` bot config property. 详见**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
+不同游戏的卡牌掉落速率有所区别，您可以阅读&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;详细了解。 It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine - you're probably referring to inventory notifications, which are automatically dismissed by ASF through `BotBehaviour` of `DismissInventoryNotifications` bot config property. 详见&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 
 * * *
 
-### 如何让 ASF 完全断开我的账号？
+### 如何让 ASF 完全断开我的帐户？
 
-在 Windows 上，您可以直接点击 [X] 关闭 ASF 进程。 如果您只想停止一个机器人，但是保持其他机器人运行，可以了解 `Enabled` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，或者 `stop` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 如果您只想停止自动挂卡，但是保持帐号运行，可以使用 `Paused` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)** 和 `pause` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。
+在 Windows 上，您可以直接点击 [X] 关闭 ASF 进程。 如果您只想停止一个机器人，但是保持其他机器人运行，可以了解 `Enabled` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，或者 `stop` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 如果您只想停止自动挂卡，但是保持帐户运行，可以使用 `Paused` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**&#8203;和 `pause` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。
 
 * * *
 
@@ -438,11 +438,11 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 ### ASF 无法启动，程序窗口在启动之后立刻就退出了！
 
-如果连 `log.txt` 都没有生成，很可能您忘了安装**[初始设置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#os-specific-设置)**中提到的 .NET Core 依赖项。 Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
+如果连 `log.txt` 都没有生成，很可能您忘了安装&#8203;**[初始设置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#os-specific-设置)**&#8203;中提到的 .NET Core 依赖项。 Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
 
 * * *
 
-### 在我玩游戏的时候，ASF 将我的 Steam客户端踢掉线！ / `This account is logged on another PC`（这个账号在另一台电脑登录）
+### 在我玩游戏的时候，ASF 将我的 Steam 客户端踢掉线！ / `This account is logged on another PC`（这个帐户在另一台电脑登录）
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
@@ -470,7 +470,7 @@ In a very unlikely situation of having incorrect servers being cached, for examp
 
 ### `无法获取徽章信息，将稍后再试 ！`
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**进一步了解 `SteamParentalCode`。
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
 
 Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
 
@@ -478,7 +478,7 @@ Other reasons might include temporary Steam problem, network issue or likewise. 
 
 ### ASF 发生 `Request failed despite of 5 tries` 错误！
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**进一步了解 `SteamParentalCode`。
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
 
 If parental PIN is not the reason, then this is a most common error, and you should get used to that - it simply means that ASF sent a request to Steam Network, and didn't get a valid response, in addition to that - in 4 retries. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
 

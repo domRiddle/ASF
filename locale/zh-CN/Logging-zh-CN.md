@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### 示例
 
-This example is based on our `ColoredConsole` basic example above. 在理解它之前，我强烈建议您先阅读**[上文](#示例)**，了解 NLog 日志的基础。
+This example is based on our `ColoredConsole` basic example above. 在理解它之前，我强烈建议您先阅读&#8203;**[上文](#示例)**，了解 NLog 日志的基础。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

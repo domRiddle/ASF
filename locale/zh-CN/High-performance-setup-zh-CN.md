@@ -1,6 +1,6 @@
 # 高性能方案
 
-这篇文档与**[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**完全相反，如果您愿意增加内存开销和一些潜在的成本，以增强 ASF 的性能（CPU 速度方面），请阅读以下内容。
+这篇文档与&#8203;**[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**&#8203;完全相反，如果您愿意增加内存开销和一些潜在的成本，以增强 ASF 的性能（CPU 速度方面），请阅读以下内容。
 
 * * *
 
@@ -16,11 +16,11 @@
 
 > 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：
 > 
-> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 This is the default setting for the <gcserver> element in the runtime configuration schema.
+> 工作站垃圾回收，用于所有客户端工作站和独立 PC。 这是运行时环境配置架构中元素的默认设置。 <gcserver> 
 > 
 > 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-您可以在**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**阅读更多。
+您可以在&#8203;**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
 
 ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之间的良好平衡，这对于运行少数机器人来说已经足够了，因为通常单个并发后台 GC 线程足以快速地处理所有由 ASF 分配的内存。
 

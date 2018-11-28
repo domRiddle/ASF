@@ -1,6 +1,6 @@
 # Perguntas frequentes (FAQ)
 
-A seção de perguntas frequentes cobre respostas a questões comuns que você pode ter. Para questões menos comuns, por favor visite a seção **[Perguntas Frequentes Adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
+A seção de perguntas frequentes cobre respostas a questões comuns que você pode ter. Para questões menos comuns, por favor visite a seção **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Tabela de conteúdos
 
@@ -432,7 +432,7 @@ A regra geral do ASF é que avisos **não** são erros, portanto eles **não** d
 
 Erros, por outro lado, indicam uma situação que não deveria acontecer, porém eles devem ser relatados se você se certificou de que não é você quem os está causando. Se é uma situação comum e que esperamos que aconteça, então ele será convertido em um aviso. Caso contrário, possivelmente é um erro que deve ser corrigido e não ignorado em silêncio, supondo que não seja resultado de problema técnico seu. Por exemplo, colocar conteúdo inválido no arquivo `ASF.json` acarretará um erro já que o ASF não vai conseguir processá-lo, mas como foi você quem o editou, você não deve nos reportar esse erro (a menos que você tenha confirmado que o ASF está errado e que a estrutura está absolutamente certa).
 
-Em suma - reporte erros, não reporte avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
+Em suma - informe erros, não informe avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
 
 * * *
 
@@ -522,13 +522,13 @@ Em todo caso, o ASF pode apenas **tentar** enviar uma solicitação adequada par
 
 * * *
 
-### Por que tenho que colocar o código 2FA/SteamGuard em cada login? / `Chave de sessão expirada removida`
+### Por que tenho que colocar o código 2FA/SteamGuard em cada início de sessão? / `Chave de sessão expirada removida`
 
-O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me nesse computador" marcada).
+O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me neste computador" marcada).
 
 Você pode remover o arquivo `BotName.db` (e `BotName.bin`, se ele existir) da conta afetada e tentar vincular ASF a sua conta novamente, mas isso provavelmente não vai adiantar. A solução real baseada no ASF é importar seu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** - desta forma o ASF pode gerar tokens automaticamente quando eles forem necessários, e você não precisa colocá-los manualmente. Geralmente esse problema se resolve magicamente sozinho depois de algum tempo, então você pode simplesmente esperar. É claro, você também pode pedir uma solução pro GabeN, pois eu não posso forçar a rede Steam a aceitar nossas chaves de registro.
 
-Além disso você também pode desativar as chaves de sessão definindo o parâmetro `UseLoginKeys` no arquivo de configuração como `false`, mas você só deve fazer isso se o ASF tiver uma forma automatizada de fazer o login inicial. No momento isso só é possível com `SteamPassword` e **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** válidos, já que assim não precisamos das chaves de sessão, já que temos as credenciais de login (senha e chave 2FA) disponíveis.
+Além disso você também pode desativar as chaves de sessão definindo o parâmetro `UseLoginKeys` no arquivo de configuração como `false`, mas você só deve fazer isso se o ASF tiver uma forma automatizada de iniciar a sessão inicial. No momento isso só é possível com `SteamPassword` e **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** válidos, já que assim não precisamos das chaves de sessão, já que temos as credenciais de início de sessão (senha e chave 2FA) disponíveis.
 
 * * *
 
@@ -536,7 +536,7 @@ Além disso você também pode desativar as chaves de sessão definindo o parâm
 
 Este erro pode ocorrer por muitos motivos, alguns deles podem ser:
 
-- Combinação de Usuário/Senha inválidos (obviamente)
+- Combinação de usuário/senha inválidos (obviamente)
 - A chave de sessão usada pelo ASF expirou
 - Muitas tentativas de conexão em um curto período de tempo (prevenção de força bruta)
 - Muitas tentativas falhas de conexão em um curto período de tempo (limite de tentativas)
@@ -557,7 +557,7 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 ### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
 
-Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando apesar de 5 tentativas. Reportar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando apesar de 5 tentativas. Informar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
 
 * * *
 
@@ -573,7 +573,7 @@ Se você tem certeza de que a data no seu computador está certa e mesmo assim o
 
 * * *
 
-### O ASF está sendo detectado como um malware pelo meu AntiVirus! O que está acontecendo?
+### O ASF está sendo detectado como um malware pelo meu antivírus! O que está acontecendo?
 
 **Certifique-se de que você baixou o ASF de uma fonte confiável**. A única fonte oficial e confiável a página de **[lançamentos ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** no GitHub (e essa também é a fonte para as atualizações automáticas do ASF) - **qualquer outra fonte não é confiável e pode conter malware adicionado por outras pessoas** - você não deve confiar em nenhuma outra fonte de dowload e garantir que sua cópia do ASF sempre venha de nós.
 

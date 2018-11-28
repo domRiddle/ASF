@@ -9,7 +9,7 @@
 * **[首页](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**
 * **[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**
 * **[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**
-* **[初始设置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)****（从这里开始）**
+* **[初始设置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)**&#8203;**（从这里开始）**
 
 ## 核心
 

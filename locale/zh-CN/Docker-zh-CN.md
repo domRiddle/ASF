@@ -1,20 +1,20 @@
 # Docker
 
-从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**中运行。 对于普通用户来说，在 Docker 容器中运行 ASF 并没有什么特别的好处。但对于服务器用户来说，这可能是运行 ASF 的最佳方式，因为这样可以确保 ASF 运行在与其他应用分离的沙盒中。 我们的 Docker 仓库可以在**[这里](https://hub.docker.com/r/justarchi/archisteamfarm)**找到。
+从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**&#8203;中运行。 对于普通用户来说，在 Docker 容器中运行 ASF 并没有什么特别的好处。但对于服务器用户来说，这可能是运行 ASF 的最佳方式，因为这样可以确保 ASF 运行在与其他应用分离的沙盒中。 我们的 Docker 仓库可以在&#8203;**[这里](https://hub.docker.com/r/justarchi/archisteamfarm)**&#8203;找到。
 
 * * *
 
 ## 分支
 
-ASF 有 4 种主要的**[分支](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**。
+ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**。
 
 ### `master`
 
-这个分支始终指向 GitHub 中 master 分支的最新提交构建的 ASF，其工作原理与**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**中描述的实验性 AppVeyor 构建相同。 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 该映像会在每次提交到 GitHub master 分支后更新，因此您会发现它的更新十分频繁（并且经常出错），就像 AppVeyor 构建一样。 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
+这个分支始终指向 GitHub 中 master 分支的最新提交构建的 ASF，其工作原理与&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**&#8203;中描述的实验性 AppVeyor 构建相同。 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 该映像会在每次提交到 GitHub master 分支后更新，因此您会发现它的更新十分频繁（并且经常出错），就像 AppVeyor 构建一样。 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
 
 ### `released`
 
-与上述分支类似，这个分支始终指向最新的 **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF 版本，包括预览版本。 与 `master` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
+与上述分支类似，这个分支始终指向最新的 **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF 版本，包括预览版本。 与 `master` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
 
 ### `latest`
 
@@ -36,7 +36,7 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ## 架构
 
-ASF docker image is currently available for 2 architectures - `x64` and `arm`. 您可以阅读**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**章节了解更多。
+ASF docker image is currently available for 2 architectures - `x64` and `arm`. 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
 Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
 
@@ -106,7 +106,7 @@ This has to be done only once after you created your container with `docker run`
 
 ## 命令行参数
 
-ASF 允许您通过设定 `ASF_ARGS` 环境变量，来向 Docker 容器内传递**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 This can be added on top of `docker run` with `-e` switch. 例如：
+ASF 允许您通过设定 `ASF_ARGS` 环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 This can be added on top of `docker run` with `-e` switch. 例如：
 
 ```shell
 docker pull justarchi/archisteamfarm
@@ -121,9 +121,9 @@ Unless you want to provide custom encryption key or other advanced options, usua
 
 ## IPC
 
-若要使用 IPC，首先您需要将 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**设置为 `true`。 In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
+若要使用 IPC，首先您需要将 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;设置为 `true`。 In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
 
-要做到这一点，您需要使用以下形式的 **[自定义 IPC 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#自定义配置)**：
+要做到这一点，您需要使用以下形式的&#8203;**[自定义 IPC 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#自定义配置)**：
 
 ```json
 {

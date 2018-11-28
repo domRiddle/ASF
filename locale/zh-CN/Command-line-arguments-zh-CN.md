@@ -28,7 +28,7 @@ Linux/macOS
 
 `ArchiSteamFarm.cmd` 或 `ArchiSteamFarm.sh` 的这样的助手脚本也可使用命令行参数。 除此之外，在使用助手脚本时，您也可以使用 `ASF_ARGS` 环境变量，如在 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-CN#命令行参数)** 一节中所述。
 
-若您参数包括空格，请记得要使用引号将其包括。 下面是两个错误示例：
+若您参数包括空格，请记得要使用引号将其括住。 下面是两个错误示例：
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # 错！
@@ -44,7 +44,7 @@ Linux/macOS
 
 ## 参数
 
-`--cryptkey <key>` 或 `--cryptkey=<key>`——将以值为 `<key>` 的自定义密钥启动 ASF。 此参数影响**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**且将导致 ASF 使用您所提供的自定义密钥 `<key>` 而非硬编码在程序中的默认密钥。 请记住使用此密钥加密的密码将需要在每次 ASF 运行时传递相同的密钥才能正确解密。
+`--cryptkey <key>` 或 `--cryptkey=<key>`——将以值为 `<key>` 的自定义密钥启动 ASF。 此参数影响&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;且将导致 ASF 使用您所提供的自定义密钥 `<key>` 而非硬编码在程序中的默认密钥。 请记住使用此密钥加密的密码将需要在每次 ASF 运行时传递相同的密钥才能正确解密。
 
 * * *
 

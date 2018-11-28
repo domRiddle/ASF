@@ -4,7 +4,7 @@
 
 ASF 目前支持 4 种类型的密码——`PlainText`、`AES`、`ProtectedDataForCurrentUser` 和 None（`null` / `""`）。
 
-如要使用加密的密码，您应该先像往常一样以 `PlainText` 形式的密码登录 Steam，然后通过 `password` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**生成加密的密码。 选择您喜欢的加密方式，然后将您获得的加密后密码填入 `SteamPassword` 机器人配置属性，并且不要忘记对应修改 `PasswordFormat` 为符合加密方式的选项。
+如要使用加密的密码，您应该先像往常一样以 `PlainText` 形式的密码登录 Steam，然后通过 `password` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;生成加密的密码。 选择您喜欢的加密方式，然后将您获得的加密后密码填入 `SteamPassword` 机器人配置属性，并且不要忘记对应修改 `PasswordFormat` 为符合加密方式的选项。
 
 * * *
 
@@ -16,9 +16,9 @@ ASF 目前支持 4 种类型的密码——`PlainText`、`AES`、`ProtectedDataF
 
 ### AES
 
-按照当今的标准，**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** 可以被视为安全，将 `PasswordFormat` 设置为 `1` 即可启用这种加密存储密码。 ASF 需要 `SteamPassword` 属性是一个由 AES 加密的字节数组转换成的 **[Base64 编码](https://en.wikipedia.org/wiki/Base64)**的字符序列，此数据需要其包含的**[初始化向量](https://en.wikipedia.org/wiki/Initialization_vector)**和 ASF 内置加密密钥来解密。
+按照当今的标准，**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** 可以被视为安全，将 `PasswordFormat` 设置为 `1` 即可启用这种加密存储密码。 ASF 需要 `SteamPassword` 属性是一个由 AES 加密的字节数组转换成的 **[Base64 编码](https://en.wikipedia.org/wiki/Base64)**&#8203;的字符序列，此数据需要其包含的&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;和 ASF 内置加密密钥来解密。
 
-此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。
+此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。
 
 * * *
 

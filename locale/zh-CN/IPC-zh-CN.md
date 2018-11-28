@@ -8,7 +8,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 # 用法
 
-您可以编辑 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**启用 IPC 接口。 ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+您可以编辑 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;启用 IPC 接口。 ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
     INFO|ASF|Start() Starting IPC server...
     INFO|ASF|Start() IPC server ready!
@@ -22,7 +22,7 @@ ASF's IPC interface exposes three different ways to access it, depending on your
 
 中层的使用方式是 **[Swagger 文档](#swagger-文档)**，它是 ASF API 的直接前端。 It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
 
-**[ASF-ui](#asf-ui)** 是最高层的使用方式，它基于 ASF API，为用户提供了一种简单的方式进行各种 ASF 的操作。 This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. 如果您愿意，可以使用您的自定义 WebUI，即指定 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**选择从指定位置的 `www` 目录启用 Web 服务。
+**[ASF-ui](#asf-ui)** 是最高层的使用方式，它基于 ASF API，为用户提供了一种简单的方式进行各种 ASF 的操作。 This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. 如果您愿意，可以使用您的自定义 WebUI，即指定 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**&#8203;选择从指定位置的 `www` 目录启用 Web 服务。
 
 * * *
 
@@ -92,7 +92,7 @@ Yes, this is what ASF API was designed for and you can use anything capable of s
 
 ### 我可以远程访问 ASF 的 IPC 吗，例如从另一台电脑访问？
 
-Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. 或者，如果您不打算运行反向代理，您可以将**[自定义配置](#自定义配置)**中的 URL 修改为合适的地址，例如 `http://*:1242`。
+Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. 或者，如果您不打算运行反向代理，您可以将&#8203;**[自定义配置](#自定义配置)**&#8203;中的 URL 修改为合适的地址，例如 `http://*:1242`。
 
 ### 我可以将 ASF 的 IPC 部署在 Apache 或者 Nginx 的反向代理后吗？
 
@@ -138,7 +138,7 @@ server {
 
 **Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
-另一种方法是为 ASF IPC 指定**[自定义配置](#自定义配置)**，直接为我们使用的 Kestrel HTTP 服务器启用 HTTPS 端点，并且提供合适的 SSL 证书。 This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+另一种方法是为 ASF IPC 指定&#8203;**[自定义配置](#自定义配置)**，直接为我们使用的 Kestrel HTTP 服务器启用 HTTPS 端点，并且提供合适的 SSL 证书。 This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 
 * * *
 

@@ -8,7 +8,7 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.cloudswift.me)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/Cloud-Swift/SKE)**了解更多。
+- **[Keys extractor](https://ske.cloudswift.me)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/Cloud-Swift/SKE)**&#8203;了解更多。
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**，使您能够方便地管理多份 ASF 配置文件。
 
 * * *
