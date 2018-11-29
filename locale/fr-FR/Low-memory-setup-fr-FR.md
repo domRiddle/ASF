@@ -48,11 +48,7 @@ Below tricks **involve performance degradation** and should be used with caution
 
 `ArchiSteamFarm.runtimeconfig.json` vous permet d’ajuster l’exécution d’ASF, ce qui vous permet notamment de basculer entre les serveurs GC et ceux du poste de travail.
 
-> Le garbage collector est à réglage automatique et peut fonctionner dans une grande variété de scénarios. Vous pouvez utiliser un paramètre de fichier de configuration pour définir le type de garbage collection en fonction des caractéristiques du poste de travail. Le CLR fournit les types de récupération de place suivants:
-> 
-> Collecte des ordures de poste de travail, qui concerne tous les postes de travail clients et les ordinateurs autonomes. C'est le réglage par défaut pour l' <gcserver> élément dans le schéma de configuration d'exécution.
-> 
-> La récupération de place du serveur, destinée aux applications serveur nécessitant un débit et une évolutivité élevés. La récupération de place du serveur peut être non simultanée ou en arrière-plan.
+> Le garbage collector est à réglage automatique et peut fonctionner dans une grande variété de scénarios. Vous pouvez utiliser un paramètre de fichier de configuration pour définir le type de garbage collection en fonction des caractéristiques du poste de travail. The CLR provides the following types of garbage collection: - Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the `<gcServer>` element in the runtime configuration schema. - La récupération de place du serveur, destinée aux applications serveur nécessitant un débit et une évolutivité élevés. La récupération de place du serveur peut être non simultanée ou en arrière-plan.
 
 Vous pouvez en lire plus à **[ les principes de base de la collecte des déchets ](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 

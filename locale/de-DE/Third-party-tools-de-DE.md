@@ -8,8 +8,8 @@ Bitte beachte, dass die folgenden Programme nicht vom ASF-Team gewartet werden u
 
 ## Programme
 
-- **[Keys extractor](https://ske.cloudswift.me)**, ermöglicht es dir Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau dir das **[GitHub Repository](https://github.com/Cloud-Swift/SKE)** an.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, der es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
+- **[Keys extractor](https://ske.pixv.io)**, ermöglicht es dir Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau dir das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, der es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
 
 * * *
 

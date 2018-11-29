@@ -55,7 +55,7 @@ Se você estiver usando um pacote para Sistema Operacional específico você nã
 
 No entanto, se você está tentando executar o pacote **genérico** do ASF, você deve garantir o que o seu tempo de execução .NET Core ofereça suporte a plataforma requerida pelo ASF.
 
-O ASF, como programa, visa o **.NET Core 2.1** (`netcoreapp2.1`) agora, mas ele deve visar plataformas novas no futuro. O `netcoreapp2.1` é suportado desde o SDK 2.1.300 (tempo de execução 2.1.0), embora recomendemos usar o **[SDK mais recente](https://www.microsoft.com/net/download)** disponível para a sua máquina.
+O ASF, como programa, visa o **.NET Core 2.1** (`netcoreapp2.1`) agora, mas ele deve visar plataformas novas no futuro. O `netcoreapp2.1` é suportado desde o SDK 2.1.300 (tempo de execução 2.1.0), porém o ASF é configurado para buscar o **tempo de execução mais recente na hora da compilação**, então você deve garantir que você tem a **[SDK mais recente](https://www.microsoft.com/net/download)** disponível para o seu computador. A variante genéria do ASF pode ser recusar a iniciar se o seu tempo de execução for mais antigo que o utilizado durante a compilação.
 
 Em caso de dúvida, verifique o que nossa **[integração contínua usa](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar e implantar as versões do ASF liberadas no GitHub. Você pode encontrar a saída `dotnet --info` no topo de cada compilação.
 
@@ -66,36 +66,3 @@ Em caso de dúvida, verifique o que nossa **[integração contínua usa](https:/
 ### Atualização Debian Jessie
 
 Se você atualizou do Debian 8 Jessie (ou mais antigo) para o Debian 9 Stretch, certifique-se de que você **não** tem o pacote `libssl1.0.0`, por exemplo com `apt-get purge libssl1.0.0`. Caso contrário, você pode se deparar com uma falha de segmentação. Este pacote é obsoleto e não existe por definição, também não é possível instalá-lo em instalações limpas do Debian 9, a única maneira de se deparar com esta questão é atualizando do Debian 8 ou mais antigo - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. Se você tem outros pacotes que dependem dessa versão desatualizada da libssl, então você deve atualizá-los ou se livrar deles - não só por causa deste problema, mas também porque eles são baseados em uma biblioteca obsoleta.
-
-### Certificados de máquina inválidos com ASF v 3.2 +
-
-No linux (apenas), você pode ter problemas específicos relacionados com certificados SSL fornecidos por sua máquina. Isso se mostrará como a exceção abaixo:
-
-```csharp
-System.Net.Http.HttpRequestException: A conecção SSL não pode ser estabelecida, veja a exceção interna. ---> Interop+Crypto+OpenSslCryptographicException: error:2006D002:BIO routines:BIO_new_file:system lib
-   em Interop.Crypto.CheckValidOpenSslHandle(SafeHandle handle)
-```
-
-Este problema provavelmente é causado por algum dos certificados que não pôde ser lido. Isto pode acontecer devido a permissões insuficientes (como teste, você pode verificar se o ASF funciona sob o usuário `root`) ou outras questões acerca de arquivos de certificado inválidos.
-
-A solução atual depende da questão do root. Em instalações limpas (p. ex. do Debian), isso nunca deve acontecer já que não deve haver nenhum certificado inválido/sensível na loja, então a questão considera apenas pessoas que provavelmente tem outros certificados para outros fins (por exemplo, VPN ou sites) que o ASF não tem acesso para ler. Você pode considerar dar permissões adequadas ao usuário ASF (tais como garantir que todos os certificados SSL em `/etc/pki` e `etc/ssl` tenham pelo menos permissão de leitura global `644`), rodar o ASF na `raiz`, ou mover certificados sensíveis para algum lugar onde o ASF não tenta lê-los durante a inicialização.
-
-Supõe-se que essa questão seja consertada com o próximo lançamento de manutenção do .NET Core 2.1.1, portanto, as soluções alternativas apresentadas acima não deverão mais serem necessárias num futuro próximo.
-
-Referência: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
-
-### Tempo de execução .NET Core pegando a biblioteca `libcurl.so` errada
-
-Se você tiver tanto a `libcurl.so.3` quanto a `libcurl.so.4` no seu sistema, então o .NET Core pode decidir escolher segunda, o que levará ao travamento do ASF no momento em que ele tentar inicializar o seu cliente http.
-
-```csharp
-OnUnhandledException() System.TypeInitializationException: O inicializador padrão para 'System.Net.Http.CurlHandler' emitiu uma exceção. ---> System.TypeInitializationException: O inicializador padrão para 'Http' emitiu uma exceção. ---> System.TypeInitializationException: O inicializador padrão para 'HttpInitializer' emitiu uma exceção. ---> System.DllNotFoundException: Não pode ler a DLL 'System.Net.Http.Native': O módulo específico ou uma de suas dependências não pode ser encontrado.
-```
-
-Se você se deparar com o problema acima, então você precisa informar manualmente ao tempo de execução .NET Core qual a biblioteca apropriada. Localize `libcurl.so.3` no seu sistema e adicione-o ao `LD_PRELOAD` antes de iniciar o ASF:
-
-```shell
-LD_PRELOAD=/usr/lib/libcurl.so.3 ./ArchiSteamFarm
-```
-
-Isso deve resolver o problema, supondo que sua `libcurl.so.3` esteja funcionando corretamente.

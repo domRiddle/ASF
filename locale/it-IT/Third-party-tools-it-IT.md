@@ -8,8 +8,8 @@ Si prega di notare che i seguenti strumenti non sono mantenuti dal team di ASF e
 
 ## Strumenti
 
-- **[Estrattore di chiavi](https://ske.cloudswift.me)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/Cloud-Swift/SKE)** per maggiori dettagli.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/asf_mass_config_editor)**, permette di gestire più facilmente multipli file di config di ASF.
+- **[Estrattore di chiavi](https://ske.pixv.io)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permette di gestire più facilmente multipli file di config di ASF.
 
 * * *
 

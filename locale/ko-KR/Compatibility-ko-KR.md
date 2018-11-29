@@ -32,7 +32,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 * * *
 
-### OS-specific
+### OS 특화
 
 OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
 
@@ -55,7 +55,7 @@ If you're using OS-specific package then you don't need to worry about runtime r
 
 However, if you're trying to run **generic** ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
 
-ASF as a program is targeting **.NET Core 2.1** (`netcoreapp2.1`) right now, but it might target newer platform in the future. `netcoreapp2.1` is supported since 2.1.300 SDK (2.1.0 runtime), although we recommend using **[latest SDK](https://www.microsoft.com/net/download)** available for your machine.
+ASF as a program is targeting **.NET Core 2.1** (`netcoreapp2.1`) right now, but it might target newer platform in the future. `netcoreapp2.1` is supported since 2.1.300 SDK (2.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
 
 If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
 
@@ -66,36 +66,3 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 ### Debian Jessie upgrade
 
 If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
-
-### Invalid machine certs with ASF V3.2+
-
-Under linux (only), you might get specific issue related to SSL certificates provided by your machine. This will show as an exception below:
-
-```csharp
-System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception. ---> Interop+Crypto+OpenSslCryptographicException: error:2006D002:BIO routines:BIO_new_file:system lib
-   at Interop.Crypto.CheckValidOpenSslHandle(SafeHandle handle)
-```
-
-This issue is most likely caused by some of the certificates not being possible to be read. This could be because of insufficient permissions (as a test you can check if ASF works under `root` user) or other issues populating invalid certificate files.
-
-The current workaround depends on the root issue. On clean setups (e.g. Debian), this should never happen as there should be no invalid/sensitive certificates in the store, so the issue considers only people that are most likely having other certs for other purposes (e.g. VPN or websites) that ASF has no access to read. You can consider either giving proper permissions to ASF user (such as ensuring that all SSL certificates in `/etc/pki` and `/etc/ssl` have at least `644` global read permission), running ASF under `root`, or moving sensitive certificates somewhere else so ASF does not attempt to read them during initialization.
-
-This issue is supposed to be fixed with next .NET Core 2.1.1 servicing release, therefore the workarounds presented above shouldn't be required anymore in near future.
-
-Reference: **[dotnet/corefx #29942](https://github.com/dotnet/corefx/issues/29942)**.
-
-### .NET Core runtime picking wrong `libcurl.so` library
-
-If you have both `libcurl.so.3` and `libcurl.so.4` on your system then .NET Core might decide to pick second one, which will lead to ASF crash the moment it'll try to initialize its http client.
-
-```csharp
-OnUnhandledException() System.TypeInitializationException: The type initializer for 'System.Net.Http.CurlHandler' threw an exception. ---> System.TypeInitializationException: The type initializer for 'Http' threw an exception. ---> System.TypeInitializationException: The type initializer for 'HttpInitializer' threw an exception. ---> System.DllNotFoundException: Unable to load DLL 'System.Net.Http.Native': The specified module or one of its dependencies could not be found.
-```
-
-If you stumble upon the issue above, then you might need to manually tell .NET Core runtime to pick up proper library in this case. Locate `libcurl.so.3` on your system and add it to `LD_PRELOAD` before starting ASF:
-
-```shell
-LD_PRELOAD=/usr/lib/libcurl.so.3 ./ArchiSteamFarm
-```
-
-This should hopefully solve the issue, assuming your `libcurl.so.3` is working properly.
