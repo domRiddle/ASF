@@ -1,6 +1,6 @@
 # 릴리스 주기
 
-ASF 는 A.B.C.D. 버전으로 된 일반적인 C# 버전관리를 사용합니다. 이는 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**의 현재 버전이 릴리스 된 후 하나씩 증가합니다. 현재까지의 모든 버전은 얼려진 상태로 GitHub에 있고 시간이 지나도 사라지지 않습니다. 따라서 자가 복제를 할 필요 없이 그중 어느 것으로라도 항상 롤백이 가능합니다.
+ASF 는 A.B.C.D. 버전으로 된 일반적인 C# 버전관리를 사용합니다. 이는 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 의 현재 버전이 릴리스 된 후 하나씩 증가합니다. 현재까지의 모든 버전은 얼려진 상태로 GitHub에 있고 시간이 지나도 사라지지 않습니다. 따라서 자가 복제를 할 필요 없이 그중 어느 것으로라도 항상 롤백이 가능합니다.
 
 일반적으로 ASF 버전관리는 매우 단순합니다. A, B, C, D의 자리에 0에서 9의 숫자를 사용합니다. 버전이 올라가면 D자리 숫자가 하나씩 증가합니다. D의 숫자가 10이 된다면 C를 하나 증가시키고 D는 0으로 만듭니다. 이를 반복합니다. 새 버전의 릴리스는 ASF 마일스톤으로 취급합니다. 이는 이전 버전과 비교하여 퇴보한 것이 없고, 테스트와 이용 준비가 된 기능의 집합이 구현된 버전을 뜻합니다. 가끔 매우 중요한 변경사항을 소개하기로 결정하고 C나 B, 심지어 A를 증가시킬 때도 있습니다. 이는 매우 드물고 보통 몇몇 주요 변경사항이 있는 경우입니다.
 
@@ -12,7 +12,7 @@ ASF의 릴리스는 두개의 범주로 나뉩니다. 안정 릴리스와 사전
 
 사전 릴리스는 **보통** 안정 릴리스처럼 잘 동작해야 하며, 유일한 차이점은 더 많은 사용자가 테스트 했는지 여부입니다. 이는 ASF가 단계적 프로젝트이기 때문입니다. 즉 **어느** 시점에서라도 빌드하고 사용할 수 있어야 한다는 것이며, 버전관리는 한 버전과 다른 버전의 변경사항의 마일스톤으로서 편의에 따라 정해집니다. 사전 릴리스를 사용하기로 결정했다면 당신은 조금 더 고급 사용자여야 합니다. 사전 릴리스는 보통 개발중인 작은 ASF 마일스톤이기 때문이고, 뭔가 잘 작동할 때에도 작동하거나 테스트되지 않은 것들이 있을 가능성이 있습니다. GitHub에서 ASF 개발사항을 추적하고 변경사항을 주의깊게 읽는 것은 사전 릴리스를 사용하려면 자신을 위해 반드시 해야할 최소한입니다. 게다가 우리가 환경설정 변경, 새로 작성한 코드, 코드 변화 등 뭔가 특정한 것을 적극적으로 테스트하는 때가 있습니다. 이 경우 항상 변경사항을 읽으십시오. 이러한 사전 릴리스는 다른 것 보다 훨씬 불안정할 수 있습니다.
 
-새로 도입되는 기능과 변경은 시간이 지난 후에도 위키 등에 문서화되지 않을 수도 있음을 양지하십시오. 작업중인 기능을 수정하기로 결정할 때마다 문서를 다시 작성하는 시간을 절약하기 위해 문서는 해당 기능의 최종 코드가 준비된 후에 작성됩니다. 사전 릴리스가 최종 형태가 아닌 개발중인 코드를 포함할 수 있다는 사실 때문에 문서화는 개발의 마지막 단계에서 이루어질 수 있습니다. 일반 변경사항도 동일하게 적용되어 사전 릴리스의 변경사항이 시간이 지난 후에도 없을 수 있습니다. 따라서 사전 릴리스를 사용하기로 결정했다면 ASF **[커밋](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master)**을 시시때때로 들여다볼 준비를 하십시오.
+새로 도입되는 기능과 변경은 시간이 지난 후에도 위키 등에 문서화되지 않을 수도 있음을 양지하십시오. 작업중인 기능을 수정하기로 결정할 때마다 문서를 다시 작성하는 시간을 절약하기 위해 문서는 해당 기능의 최종 코드가 준비된 후에 작성됩니다. 사전 릴리스가 최종 형태가 아닌 개발중인 코드를 포함할 수 있다는 사실 때문에 문서화는 개발의 마지막 단계에서 이루어질 수 있습니다. 일반 변경사항도 동일하게 적용되어 사전 릴리스의 변경사항이 시간이 지난 후에도 없을 수 있습니다. 따라서 사전 릴리스를 사용하기로 결정했다면 ASF **[커밋](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master)** 을 시시때때로 들여다볼 준비를 하십시오.
 
 물론, 문서가 없다는 것은 **오직** 사전 릴리스에만 해당합니다. 모든 안정 버전은 릴리스되는 때에 완전한 변경사항과 위키 문서를 가지고 있습니다.
 
@@ -21,9 +21,9 @@ ASF의 릴리스는 두개의 범주로 나뉩니다. 안정 릴리스와 사전
     안정 1.0 -> 사전 1.1 -> 사전 1.2 -> ... -> 사전 1.7 (RC)(안정 후보) -> 안정 1.7 (사전 1.7과 동일)
     
 
-하지만 일반적으로 ASF 릴리스는 준비가 되면 릴리스되므로 릴리스 일정은 예측가능하지 않습니다. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time (a few days) since pre-release became available. We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise. Pre-releases are happening on as-needed basis when we feel like there is enough of stuff that needs to be tested since the release of the last one. Depending on how busy ASF development is in given moment, this can be from a few to a dozen of pre-releases between each stable release.
+하지만 일반적으로 ASF 릴리스는 준비가 되면 릴리스되므로 릴리스 일정은 예측가능하지 않습니다. 보통 어떤 주요 기능이나 변화가 이루어진 다음의 사전 릴리스가 있고, 사전 릴리스 출시 후 며칠 정도의 일정 시간뒤에 버그가 발견되지 않으면 안정 릴리스가 있습니다. 처리해야 할 치명적인 이슈나 비슷한 것들이 있지 않는 한 대략 **한달에 한번의 안정 릴리스** 를 목표로 하고 있습니다. 사전 릴리스는 최신 릴리스 이후로 테스트해야 할 것이 충분하다고 생각하면 필요에 기반해 이루어집니다. ASF 개발자가 그 순간에 얼마나 바쁜가에 따라 각 안정 릴리스 사이에 두세개부터 열두개까지도 사전 릴리스가 있을 수 있습니다.
 
-The precise changelog that compares one version to another is always available on GitHub - through commits and code changes. In release we tend to document only changes we consider important between last stable and current release. Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another - please use GitHub for that.
+한 버전과 다른 버전을 비교하는 정확한 변경사항은 GitHub의 커밋과 코드 변경을 통해 항상 제공되고 있습니다. 릴리스할때, 마지막 안정 릴리스와 현재 릴리스간의 중요한 차이점만을 문서화하는 경향이 있습니다. 그런 간략한 변경사항은 절대 완전하지 않습니다. 따라서, 버전간에 일어난 모든 변경점을 보고 싶다면 GitHub를 이용하십시오.
 
 ASF project is powered by continuous integration process and tested by two independent services - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** which tests ASF on Windows, and **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** which tests ASF on Linux and OS X. Every build is supposed to be reproducible, therefore it should not be a problem to grab source (included in release) of given version and compile yourself receiving the same result as the one available through a binary.
 

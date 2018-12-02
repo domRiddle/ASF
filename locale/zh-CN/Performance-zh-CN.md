@@ -1,76 +1,76 @@
 # 性能
 
-The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
+ASF 的主要目标是尽可能高效地挂卡，这基于两种可操作的数据——小部分由用户提供的 ASF 无法猜测的数据，和大部分可以由 ASF 自动获取的数据。
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
-
-* * *
-
-Some time ago Valve changed the algorithm for card drops. From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+在自动挂卡模式下，ASF 不允许您选择要挂的游戏，也不允许您更改挂卡算法。 **ASF 比您更清楚为了尽快获取卡牌它应该做什么**。 您的目标是正确设置配置属性，因为 ASF 无法猜测这些内容，而其它事情应该交给 ASF 来做。
 
 * * *
 
-ASF currently includes two farming algorithms:
+此前，Valve 更改了卡牌掉落算法。 从那时起，我们可以将 Steam 帐户分为两类：卡牌掉落**受限**和**不受限**。 两类帐户之间的唯一区别是，卡牌掉落受限的帐户在玩给定游戏 `X` 小时之前，无法从中获得任何卡牌。 看起来从未退款的较早帐户**不会受限**，而曾经退款的新帐户**会受限**。 然而这只是一种理论，不应该将其当作规则。 这就是为何 ASF 需要**您**告诉它哪种情况符合您的帐户，因为 ASF **无法自动判断**。
 
-**Simple** algorithm works best for accounts that have unrestricted card drops. This is primary algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
+* * *
 
-**Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
+目前 ASF 有两种挂卡算法：
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
+**简单**（Simple）算法最适合不受限的帐户。 这是 ASF 主要采用的算法。 机器人检查需要挂卡的游戏，然后按顺序一个个地挂卡直到所有卡牌都掉落。 这是因为同时挂多个游戏时，卡牌掉落速率接近零，挂卡效率很低。
+
+**复杂**（Complex）算法是新算法，帮助卡牌掉落受限帐户最大化收益。 ASF 将会首先为所有游戏时间已超过 `HoursUntilCardDrops` 的游戏应用标准的**简单**算法，然后，如果没有游戏时间达到 `HoursUntilCardDrops` 的游戏剩余，它将会同时挂所有游戏时间不足 `HoursUntilCardDrops` 的游戏（最多同时挂 `32` 个），直到其中的所有游戏的游戏时间达到 `HoursUntilCardDrops`，此时 ASF 将会重复上述的过程（对游戏使用**简单**算法，同时运行游戏时间不足 `HoursUntilCardDrops` 的游戏等等）。 在这种情况下，我们会同时挂多个游戏，使它们的游戏时间先达到掉卡时长。 请注意，在挂游戏时间时，ASF **不会**挂卡牌，因此它也不会检查这段时间内是否有卡牌掉落（原因如上所述）。
+
+目前，ASF 完全根据 `HoursUntilCardDrops` 配置文件属性（由**您**设置）来选择挂卡算法。 如果 `HoursUntilCardDrops` 被设置为 `0`，就会采用**简单**算法，否则会采用**复杂**算法。
 
 * * *
 
 ### **哪种算法更适合您并没有一个明确的答案**。
 
-This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
+这也是为何您不需要选择挂卡算法，而是告诉 ASF 您的帐户是否卡牌掉落受限。 如果帐户掉卡不受限，**简单**算法的效果**更好**，因为我们不需要浪费时间将游戏时长挂到 `X` 小时——在同时挂多个游戏时，卡牌掉落率接近 0%。 另一方面，如果您的帐户有卡牌掉落限制，**复杂**算法更合适，因为在游戏时间未达到 `HoursUntilCardDrops` 的情况下，挂单个游戏是没有意义的——所以我们将首先挂**游戏时间**，**然后**再挂单个游戏。
 
-Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do tests, compare results, and based on data you get, decide which option should be better for you. If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
+不要按照其他人的说法盲目设置 `HoursUntilCardDrops`，您需要测试、比较结果并基于您获得的数据来决定这个选项的值。 鉴于您正在阅读此 Wiki 页面，您应该很关心 ASF 的效率，只要您为此付出一些努力，就可以确保您的帐户达到您需要的最高掉卡效率。 如果存在一种适合所有人的解决方案，ASF 就不需要您来选择，而是自动决定了。
 
 * * *
 
 ### 检查您的帐户是否被限制的最好方法是什么？
 
-Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
+确保您有可以挂卡的游戏，最好至少有 5 款，然后以 `HoursUntilCardDrops` 为 `0` 值运行 ASF。 如果您在挂卡期间没有玩游戏，结果会更准确（最好在夜间进行此测试）。 让 ASF 自动挂这 5 款游戏，之后查询日志获取结果。
 
-ASF clearly states when a card for given game was dropped. You're interested in fastest card drop achieved by ASF. For example, if your account is unrestricted then a first card drop should happen after around 30 minutes since you started farming. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
+ASF 清楚地说明指定游戏的卡牌在何时掉落。 您需要关注 ASF 最早掉落的卡牌。 例如，如果您的帐户不受限，则第一张卡牌应该在挂卡开始后大约 30 分钟时掉落。 如果您注意到**至少一款**游戏在起始 30 分钟内掉卡，就表明您的帐户**不受限**，并且应该将 `HoursUntilCardDrops` 设置为 `0`。
 
-On the other hand, if you notice that **every** game is taking at least `X` amount of hours before it drops its first card, then this is an indicator to you what you should set `HoursUntilCardDrops` to. Majority (if not all) of restricted users require at least `3` hours of playtime for cards to drop, and this is also the default value for `HoursUntilCardDrops` setting.
+但是，如果您注意到**每款**游戏都需要至少 `X` 小时才掉落第一张卡牌，就表明您应该将 `HoursUntilCardDrops` 设置为这个小时数。 大多数（不是全部）受限用户需要至少 `3` 小时游戏时间才会掉卡，并且这也是 `HoursUntilCardDrops` 的默认值。
 
-Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
+请记住，游戏有不同的掉卡速率，这也是为何您应该以**至少** 3 款，最好是 5 款以上游戏来测试，确保其结果不是巧合。 只要有一款游戏在一小时内掉卡，就可以确定您的帐户**不受限**，并且可以将 `HoursUntilCardDrops` 设置为 `0`，但要确定您的帐户**受限**，至少需要有几款游戏在达到一个固定时间后才掉卡。
 
-It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
+需要注意的是，在过去，`HoursUntilCardDrops` 只有 `0` 和 `2` 两种可能，所以 ASF 有一个 `CardDropsRestricted` 属性在这两个值之间切换。 但最近，我们注意到不仅大多数用户需要 `3` 小时而不是过去的 `2` 小时才掉卡，而且现在 `HoursUntilCardDrops` 是动态的，每个帐户可能有不同的值。
 
-In the end, of course, decision is up to you.
+当然，这一切最终都由您来决定。
 
-And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you feel like previously set value is no longer appropriate, you can always do a re-test and update it accordingly.
+并且更糟糕的是——我遇到过一些人从受限变为不受限状态以及相反的情况——可能是因为 Steam 的漏洞（没错，Steam 有很多漏洞）或者因为 Valve 有一些相关的调整逻辑。 所以，即使您确认您的帐户是受限的（或者不受限），不要确信它总会如此——如果您进行了退款，帐户就很可能从不受限变为受限。 如果您认为以前的设置不再合适，您可以随时重新测试并更新这个值。
 
 * * *
 
-By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of idling per `32` games, compared to wasting `3` hours of idling per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
+默认情况下，ASF 会假设 `HoursUntilCardDrops` 为 `3`，因为在它的值应该小于 `3` 的情况下，这样设置的副作用比相反情况要小。 这是因为在最坏的情况下，我们每挂 `32` 款游戏会浪费 `3` 小时，而如果将 `HoursUntilCardDrops` 默认设置为 `0`，则在最坏的情况下，每款游戏都会浪费 `3` 小时。 但是，您仍然应该调整这个变量来匹配您的帐户，以达到最大效率，因为这只是基于大多数用户情况的盲目猜测（我们尝试使默认情况下的副作用更小）。
 
-At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
+目前，上述两种算法已经足以针对所有可能的帐户情况提高挂卡效率，因此不需要添加更多算法。
 
-It's nice to note that ASF also includes `Manual` farming mode that can be activated by `play` command. 您可以阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节了解详情。
+值得注意的是，ASF 也支持通过 `play` 命令启用 `Manual`（手动）挂卡模式。 您可以阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节了解详情。
 
 * * *
 
 ## Steam 漏洞
 
-Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
+挂卡算法并不总是以它应该的方式工作，并且完全可能发生各种 Steam 故障，例如受限账户掉卡、关闭/切换游戏时掉卡、玩游戏时完全不掉卡等等。
 
-This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to idle cards faster.
+本节主要解释了为何 ASF 不支持**某些方法**，例如快速切换游戏加速掉卡。
 
-What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks that are supposed to guess when glitch is happening and how to fight with it / abuse it. Typically it's temporary until developers fix the logic flaw, although some misc glitches can go unnoticed for a very long period of time.
+什么是 **Steam 漏洞**——触发**未定义**行为的特定操作，这种操作**不可靠、无说明并且是一种逻辑缺陷**。 根据定义，它是**不可靠的**，这意味着它无法在干净的测试环境下可靠重现，因此，也无法写出可靠的代码来猜测漏洞会在何时出现，以及如何应对/滥用它。 通常漏洞是临时的，开发者会修复相应的逻辑缺陷，但有时一些杂项漏洞会长时间不被注意到。
 
-A good example of what is considered as a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
+一个很好的 **Steam 漏洞**的例子是一种不太罕见的情况，即在关闭游戏时掉卡，Idle Master 的跳过游戏功能可以在一定程度上滥用这一漏洞。
 
-- **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped when you trigger the glitch.
-- **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
-- **Undocumented** - it's clearly documented on Steam website how cards are being obtained, and **in every single place** it's clearly stated that it's obtained through **playing**, NOT closing games, getting achievements, games switching or launching 32 games concurrently.
-- **Considered as a logic flaw** - closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
-- **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it might no longer work for the second time.
+- **未定义行为**——您无法确定在触发这一漏洞时掉落 0 或 1 张卡牌。
+- **不可靠**——基于过去的经验和 Steam 网络的行为，在发送单个请求时不会产生相同的结果。
+- **未说明**——Steam 网站上明确说明了如何获得卡牌，**所有文档**都清楚地表明您需要通过**玩游戏**，而不是关闭游戏、获得成就、切换游戏或同时运行 32 款游戏来获得卡牌。
+- **属于逻辑缺陷**——关闭或者切换游戏应该与卡牌掉落无关，因为这个操作不会**增加游戏时间**。
+- **无法可靠重现**——这一方法并非对所有人都有效，即使您成功触发一次，也不能保证下一次仍然成功。
 
-Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. 持续向 Steam 网络发送大量启动/停止游戏的请求会被视为一种 **[DoS 攻击](https://en.wikipedia.org/wiki/Denial-of-service_attack)**&#8203;并且**直接违反 [Steam 在线行为准则](https://store.steampowered.com/online_conduct/)**。
+现在我们明白了什么是 Steam 漏洞，并且在关闭游戏时掉落卡牌**就是**其中之一，现在我们可以谈谈第二点——**根据定义，ASF 没有以任何方式滥用 Steam 网络，并且以最大努力遵守 Steam 订户协议、Steam 网络协议及其普遍接受的内容**。 持续向 Steam 网络发送大量启动/停止游戏的请求会被视为一种 **[DoS 攻击](https://en.wikipedia.org/wiki/Denial-of-service_attack)**&#8203;并且**直接违反 [Steam 在线行为准则](https://store.steampowered.com/online_conduct/)**。
 
 > 作为一名 Steam 用户，您同意遵守以下行为准则。
 > 
@@ -78,8 +78,8 @@ Now once we realized what Steam glitch is, and the fact that cards being dropped
 > 
 > 对 Steam 服务器展开攻击或以其他方式破坏 Steam。
 
-It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you agree with us and consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
+无论您是否能够用其他程序（例如 IM）触发 Steam 漏洞，无论您是否同意我们的观点，将这种行为视为 DoS 攻击——这是由 Valve 来决断的，但只要我们将其视为通过滥发 Steam 网络请求对不可靠行为进行滥用，那么您就可以确信 Valve 的看法会与我们相似。
 
-ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)** section.
+ASF **永远不会**利用针对 Steam 的攻击、滥用、入侵或其他任何我们认为**违反** Steam 订户协议、Steam 在线行为准则的行为，以及任何其他可信来源表明的 Steam 网络未预期的行为，如&#8203;**[贡献指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**&#8203;所述。
 
-如果您仍然愿意为了几分钱的卡牌冒险加快挂卡速度，ASF 永远不会支持自动执行这样的操作。但您仍然可以手动执行 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;进行您想要对 Steam 网络做的任何事情。 We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.
+如果您仍然愿意为了几分钱的卡牌冒险加快挂卡速度，ASF 永远不会支持自动执行这样的操作。但您仍然可以手动执行 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;进行您想要对 Steam 网络做的任何事情。 我们不建议利用 Steam 漏洞为自己获利——无论是通过 ASF 还是其他工具。 然而，这是您自己的帐户，您可以选择如何使用它——只是要注意，我们警告过您。

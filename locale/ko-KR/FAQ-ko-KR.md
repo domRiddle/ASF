@@ -573,7 +573,7 @@ If you made sure that the date on your machine is appropriate and the error does
 
 * * *
 
-### ASF is being detected as a malware by my AntiVirus! What's going on?
+### 내 백신 프로그램이 ASF를 악성프로그램으로 탐지했습니다! 이게 무슨 일인가요?
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 

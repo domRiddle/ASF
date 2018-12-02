@@ -12,7 +12,7 @@ Le processus d'importation peut être effectué de deux façons - par fichier, o
 
 ### Fichier
 
-ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Ce fichier dispose d'une structure fixe et attendue consistant en le nom du jeu avec la clé cd, séparée par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
+ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,11 +20,19 @@ ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.k
     Terraria    Ceciestignoré   Ceciestaussiignoré    ZXCVB-ASDFG-QWERT
     
 
-ASF importera ce fichier au lancement du bot ou plus tard durant l'exécution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
+Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+
+    ABCDE-EFGHJ-IJKLM
+    12345-67890-ZXCVB
+    POIUY-KJHGD-QWERT
+    ZXCVB-ASDFG-QWERT
+    
+
+Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
 
 ### IPC
 
-En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égalementle`GamesToRedeemInBackground` **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** pouvant être exécuté par n'importe quel outil IPC, y compris notre ASF-ui. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
+En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égalementle`GamesToRedeemInBackground` **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** pouvant être exécuté par n'importe quel outil IPC, y compris notre ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
 * * *
 

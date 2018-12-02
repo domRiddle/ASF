@@ -24,7 +24,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 #### .NET 框架包
 
-除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 该包是一种旧式包，它提供了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 ** [Mono](https://www.mono-project.com)** 运行，而来自 .NET Core 的 `Generic` 包则无法用于 Mono。
+除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 该包是一种旧式包，它提供了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET Core 的 `Generic` 包则无法用于 Mono。
 
 通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET Core 运行时环境，但能够运行 Mono 的平台。 此类平台的例子之一是没有获得 .NET Core 运行时环境的 `linux-x86` 平台。
 

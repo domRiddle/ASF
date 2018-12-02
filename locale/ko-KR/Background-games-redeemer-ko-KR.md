@@ -1,8 +1,8 @@
 # 백그라운드 게임 등록기
 
-백그라운드 게임 등록기는 ASF의 특별한 내장기능으로, 주어진 Steam 키(와 이름)의 집합을 불러오고 백그라운드에서 등록할 수 있게 합니다. 이 기능은 특히 등록할 키가 많아서 전체 키 등록완료 전에 `RateLimited` **[상태](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ko-KR#키를 등록할때 나오는 상태의 의미가 뭔가요?)**가 될 것이 확실한 경우 유용합니다.
+백그라운드 게임 등록기는 ASF의 특별한 내장기능으로, 주어진 Steam 키(와 이름)의 집합을 불러오고 백그라운드에서 등록할 수 있게 합니다. 이 기능은 특히 등록할 키가 많아서 전체 키 등록완료 전에 `RateLimited` **[상태](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ko-KR#키를-등록할때-나오는-상태의-의미가-뭔가요)** 가 될 것이 확실한 경우 유용합니다.
 
-백그라운드 게임 등록기는 한개의 봇 범위를 갖도록 만들어졌으며, `RedeemingPreferences`를 이용하지 않습니다. 이 기능은 필요하다면 `redeem` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**와 함께 혹은 대신해서 사용할 수 있습니다.
+백그라운드 게임 등록기는 한개의 봇 범위를 갖도록 만들어졌으며, `RedeemingPreferences`를 이용하지 않습니다. 이 기능은 필요하다면 `redeem` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** 와 함께 혹은 대신해서 사용할 수 있습니다.
 
 * * *
 
@@ -12,7 +12,7 @@
 
 ### 파일
 
-ASF는 `config` 디렉토리의 `BotName.keys`라는 파일을 인식합니다. 이때 `BotName`은 사용하는 봇의 이름입니다. 이 파일은 게임의 이름과 키가 탭 문자로 구분되고 줄바꿈으로 끝나는 고정된 구조를 가지고 있어야 합니다. 탭이 여러개 있다면 첫번째 항목은 게임의 이름으로, 마지막 항목은 키로 간주되며, 중간의 모든 것은 무시됩니다. 예를 들면 다음과 같습니다:
+ASF는 `config` 디렉토리의 `BotName.keys`라는 파일을 인식합니다. 이때 `BotName`은 사용하는 봇의 이름입니다. 이 파일은 게임의 이름과 키가 탭 문자로 서로 구분되고 줄바꿈으로 끝나는 고정된 구조를 가지고 있어야 합니다. 탭이 여러개 있다면 첫번째 항목은 게임의 이름으로, 마지막 항목은 키로 간주되며, 중간의 모든 것은 무시됩니다. 예를 들면 다음과 같습니다:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,11 +20,19 @@ ASF는 `config` 디렉토리의 `BotName.keys`라는 파일을 인식합니다. 
     Terraria    무시됩니다   이것도무시됩니다    ZXCVB-ASDFG-QWERT
     
 
-ASF는 봇 시작시에 또는 나중에 실행중에 이 파일을 불러옵니다. 파일의 구문분석과 잘못된 항목의 생략이 끝나면 정상적으로 감지된 게임이 백그라운드 대기열에 추가되며, `BotName.keys` 파일은 `config` 디렉토리에서 삭제됩니다.
+대신, 키만 있는 형식을 사용할 수도 있습니다. 각 항목은 줄바꿈으로 구분됩니다. 이 경우 ASF는 정확한 이름을 채워넣기 위해 가능하다면 Steam의 응답을 사용합니다. Steam에 등록되는 패키지는 활성화 되는 게임의 논리를 따를 필요가 없기 때문에 어떤 종류의 키 태그던지 키에 이름을 직접 붙여주는 것을 권장합니다. 개발자가 넣어주는 것에 따라 정확한 게임이름을 볼 수도 있고 Humble Indie Bundle 18 같은 지정된 패키지 이름, 또는 Half-Life 4같은 완전히 잘못되었거나 잠재적으로 악의적인 이름이 나타날 수도 있습니다.
+
+    ABCDE-EFGHJ-IJKLM
+    12345-67890-ZXCVB
+    POIUY-KJHGD-QWERT
+    ZXCVB-ASDFG-QWERT
+    
+
+사용하기로 한 형식과 상관없이 ASF는 봇 시작시나 이후의 실행동안 `키` 파일을 불러올 것입니다. 파일의 구문분석과 잘못된 항목의 생략이 끝나면 정상적으로 감지된 게임이 백그라운드 대기열에 추가되며, `BotName.keys` 파일은 `config` 디렉토리에서 삭제됩니다.
 
 ### IPC
 
-위에서 언급한 키 파일을 이용하는 방법과 함께, ASF는 ASF-ui를 포함한 어떠한 IPC 도구에서도 실행가능한 `GamesToRedeemInBackground` **[ASF API 끝점](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#asf-api)**을 제공합니다. IPC를 사용하면 탭 문자 대신 사용자 지정 구분기호를 사용하여 적절한 구문분석을 직접 할 수 있거나, 완전히 사용자화된 키 구조를 사용할 수 있는 등 더 강력합니다.
+위에서 언급한 키 파일을 이용하는 방법과 함께, ASF는 ASF-ui를 포함한 어떠한 IPC 도구에서도 실행가능한 `GamesToRedeemInBackground` **[ASF API 끝점](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#asf-api)** 을 제공합니다. IPC를 사용하면 탭 문자 대신 사용자 지정 구분기호를 사용하여 적절한 구문분석을 직접 할 수 있거나, 완전히 사용자화된 자신만의 키 구조를 사용할 수 있는 등 더 강력합니다.
 
 * * *
 

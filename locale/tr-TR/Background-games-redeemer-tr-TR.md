@@ -12,7 +12,7 @@ Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde ya
 
 ### Dosya
 
-ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. Bu dosya, bir cd-key ile oyunun adının beklenen ve sabit yapısını, bir sekme karakteri ile ayırır ve bir satırsonu ile bitirir. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
+ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,11 +20,19 @@ ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotNam
     Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
-ASF, bu dosyayı ya bot başlatıldığında ya da daha sonra yürütme sırasında alır. Dosyanızın başarılı bir şekilde ayrıştırılmasından ve geçersiz girişlerin atlanmasından sonra, düzgün bir şekilde algılanan tüm oyunlar arka plan sırasına eklenecek ve `BotName.keys` dosyasının kendisi `yapılandırma` dizininden kaldırılacaktır.
+Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+
+    ABCDE-EFGHJ-IJKLM
+    12345-67890-ZXCVB
+    POIUY-KJHGD-QWERT
+    ZXCVB-ASDFG-QWERT
+    
+
+Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Dosyanızın başarılı bir şekilde ayrıştırılmasından ve geçersiz girişlerin atlanmasından sonra, düzgün bir şekilde algılanan tüm oyunlar arka plan sırasına eklenecek ve `BotName.keys` dosyasının kendisi `yapılandırma` dizininden kaldırılacaktır.
 
 ### IPC
 
-ASF, yukarıda bahsi geçen anahtarların kullanılmasına ek olarak, herhangi bir IPC aracı tarafından yürütülebilir, `GamesToRedeemInBackground` **[ASF API uç noktasını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** ASF-ui'da dahil etmek üzere. IPC'yi kullanmak daha güçlü olabilir, çünkü bir sekme karakterine zorla bağlı kalmak yerine özel bir sınırlayıcı kullanmak, hatta tamamen özelleştirilmiş anahtar yapısı kullanmak gibi kendiniz de ayrıştırma yapabilirsiniz.
+ASF, yukarıda bahsi geçen anahtarların kullanılmasına ek olarak, herhangi bir IPC aracı tarafından yürütülebilir, `GamesToRedeemInBackground` **[ASF API uç noktasını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** ASF-ui'da dahil etmek üzere. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
 * * *
 
@@ -36,7 +44,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 * * *
 
-## Example
+## Örnek
 
 Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

@@ -24,7 +24,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 ## ASF 设置（简单）
 
-Below tricks **do not affect performance negatively** and can be safely applied to all setups.
+以下技巧**不会对性能造成负面影响**，可以在所有情况下安全选用。
 
 - Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
 - Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
@@ -44,7 +44,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ## 运行时环境调优（高级）
 
-Below tricks **involve performance degradation** and should be used with caution.
+以下技巧**会造成性能下降**，应谨慎使用。
 
 `ArchiSteamFarm.runtimeconfig.json` 允许您调整 ASF 运行时环境，尤其是允许您在服务器 GC 和工作站 GC 之间切换。
 
@@ -92,9 +92,9 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 ## ASF 调优（中级）
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+以下技巧**会造成严重的性能下降**，应谨慎使用。
 
-- 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;调整 `MinMemoryUsage`。 Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. 通常这是**您应该最后尝试的方式**，如果您按照&#8203;**[运行时环境调优](#运行时环境调优高级)**&#8203;作出的调整仍然不能满足需求。
+- 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;调整 `MinMemoryUsage`。 请仔细阅读这个选项的作用，因为它会严重损失性能并且几乎不会减少内存的消耗。 通常，只有在您按照&#8203;**[运行时环境调优](#运行时环境调优高级)**&#8203;作出的调整仍然不能满足需求的情况下，这才是**您应该最后尝试的方式**。
 
 * * *
 

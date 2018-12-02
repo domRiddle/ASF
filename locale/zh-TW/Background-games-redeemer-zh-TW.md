@@ -12,7 +12,7 @@
 
 ### 檔案
 
-在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 該檔案必須具有固定的格式，由遊戲名稱和序號組成，由 Tab 鍵分隔並以換行作為結束。 若有多個 Tab 已被使用，則第一項應考慮遊戲的名稱，最後一項是序號，中間的所有內容都被忽略。 範例：
+在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. 若有多個 Tab 已被使用，則第一項應考慮遊戲的名稱，最後一項是序號，中間的所有內容都被忽略。 範例：
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,11 +20,19 @@
     Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
-ASF 將在啟動時或稍後匯入指定的文件。 成功讀取檔案並跳過錯誤的項目後，`BotName.keys` 將自動從 `config` 刪除。
+Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+
+    ABCDE-EFGHJ-IJKLM
+    12345-67890-ZXCVB
+    POIUY-KJHGD-QWERT
+    ZXCVB-ASDFG-QWERT
+    
+
+Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. 成功讀取檔案並跳過錯誤的項目後，`BotName.keys` 將自動從 `config` 刪除。
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even entirely customized keys structure.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
 * * *
 

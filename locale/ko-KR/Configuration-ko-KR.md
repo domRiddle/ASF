@@ -637,38 +637,38 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 ### `SteamUserPermissions`
 
-`ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
+`ImmutableDictionary<ulong, byte>` 타입으로 기본값은 비어있습니다. 이 속성값은 64비트 Steam ID로 인식되는 Steam 사용자와 ASF 인스턴스에서의 권한을 특정하는 `byte` 숫자로 매칭되는 사전 속성값입니다. ASF에서 현재 가능한 봇 권한은 다음과 같습니다.
 
-| 값 | 이름            | 설명                                                                                                                                                                                                 |
-| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
-| 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2 | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3 | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| 값 | 이름                   | 설명                                                                                      |
+| - | -------------------- | --------------------------------------------------------------------------------------- |
+| 0 | 없음(None)             | 권한 없음. 이 사전에 없는 Steam ID에 부여되는 참조용 값입니다. 이 권한으로 특정 사용자를 지정할 필요는 없습니다.                   |
+| 1 | 가족 공유(FamilySharing) | 가족 공유 사용자에 대한 최소한의 접근만 제공합니다. 이 또한 참조용 값입니다. ASF는 라이브러리를 허용한 Steam ID를 자동으로 발견할 수 있습니다. |
+| 2 | 운영자(Operator)        | 주로 라이선스 추가와 키 등록과 같은 봇 인스턴스에 대한 기본적인 권한을 제공합니다.                                         |
+| 3 | 주인(Master)           | 봇 인스턴스에 대한 전체 권한을 제공합니다.                                                                |
 
-In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
+간단하게 말하면 주어진 사용자에 대해 권한을 부여하는 속성값입니다. 권한은 ASF **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 에 접근할 때 중요하지만, 거래를 수락하는 것 같은 많은 ASF 기능을 활성화하는데도 중요합니다. 예를 들어 자신의 계정을 `주인(Master)` 으로 설정하고, `운영자(Operator)` 접근권한을 친구중 두세명에게 주어서 ASF를 멈추거나 하지는 **못하게** 하면서 키를 쉽게 추가하도록 할 수 있습니다. 사용자에게 권한을 쉽게 줄수 있으므로 당신의 봇을 특정행동을 하도록 허용할 수 있습니다.
 
-We recommend to set exactly one user as `Master`, and any amount you wish as `Operator`s and below. While it's technically possible to set multiple `Master`s and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme - multiple masters scheme is discouraged setup that is not supported.
+정확히 한 사용자만을 `주인(Master)`으로, 그리고 필요한 만큼을 `운영자(Operator)` 및 그 이하로 설정하기를 권장합니다. 기술적으로 여러명의 `주인(Master)` 을 설정해도 ASF는 봇에게 들어오는 모든 거래를 수락하는 등 정상적으로 동작합니다. `loot` 요청이나 `SendOnFarmingFinished`, `SendTradePeriod` 속성값처럼 단일 대상이 필요한 모든 행동의 경우 ASF는 Steam ID 숫자가 가장 작은 사용자를 그 대상으로 합니다. 이 제한을 완벽하게 이해한다면, 특히 `loot` 요청이 실제 명령을 실행한 `주인(Master)`과 상관없이 항상 `주인(Master)` 권한을 가진 사용자 중 Steam ID 숫자가 가장 작은 사용자에게 아이템을 보낼것이라는 사실을 이해한다면, 여러명의 `주인(Master)` 권한을 부여해도 됩니다. 하지만 여전히 주인은 한명으로만 설정하는 것을 권장합니다. 주인이 여러명인 경우는 지원하지 않는 설치방법입니다.
 
-It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process.
+`소유자(Owner)` 권한이 또 하나 있습니다. 일반 환경설정의 `SteamOwnerID` 속성값에 선언되어 있습니다. `SteamUserPermissions` 속성값은 ASF 프로세스가 아니라 봇 인스턴스와 관련된 권한만 정의하므로 `소유자(Owner)` 권한을 여기에서 할당할 수 없습니다.
 
 * * *
 
 ### `TradingPreferences`
 
-`byte flags` 타입으로 기본값은 `0`입니다. This property defines ASF behaviour when in trading, and is defined as below:
+`byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 거래에서 ASF 봇의 행동을 아래와 같이 정의합니다.
 
-| 값 | 이름                  | 설명                                                                                                                                                                              |
-| - | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
-| 1 | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
-| 2 | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4 | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
-| 8 | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                             |
+| 값 | 이름                           | 설명                                                                                                                                                               |
+| - | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 없음(None)                     | 거래 선호값 없음 - `주인(Master)`의 거래만 수락합니다.                                                                                                                             |
+| 1 | 기부 수락(AcceptDonations)       | 잃는 것이 없다면 거래를 수락합니다.                                                                                                                                             |
+| 2 | SteamTradeMatcher            | **[STM](https://www.steamtradematcher.com)** 과 같은 중복 매칭 거래를 수락합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR)** 를 참고하십시오. |
+| 4 | 전부 매칭(MatchEverything)       | `SteamTradeMatcher` 가 설정되어 있어야 합니다. 좋음, 중립, 나쁨 거래를 수락합니다.                                                                                                        |
+| 8 | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                 |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
-For further explanation of ASF trading logic, and description of every available flag, please visit **[Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
+ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세한 내용은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR)** 항목에서 확인할 수 있습니다.
 
 * * *
 
