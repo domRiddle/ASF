@@ -238,7 +238,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Value | Név       | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None      | No protocol                                                                                      |
+| 0     | Egyik sem | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -373,7 +373,7 @@ This option is recommended only for alt accounts, as it's very likely that you d
 
 ### `AutoSteamSaleEvent`
 
-`bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours, and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours (starting in one hour since program start), and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
@@ -385,7 +385,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Value | Név                           | Description                                                           |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
+| 0     | Egyik sem                     | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -564,7 +564,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Value | Név              | Description                                                                    |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | None             | No redeeming preferences, typical                                              |
+| 0     | Egyik sem        | No redeeming preferences, typical                                              |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -641,7 +641,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Value | Név           | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 0     | Egyik sem     | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -660,7 +660,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Value | Név                 | Description                                                                                                                                                                     |
 | ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                           |
+| 0     | Egyik sem           | No trading preferences - accepts only `Master` trades                                                                                                                           |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
 | 2     | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
@@ -803,12 +803,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Név  |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| Value | Név       |
+| ----- | --------- |
+| 0     | Egyik sem |
+| 1     | A         |
+| 2     | B         |
+| 4     | C         |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

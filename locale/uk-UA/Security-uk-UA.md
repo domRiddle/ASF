@@ -30,7 +30,7 @@ Currently the most secure way of storing the password that ASF offers, and much 
 
 * * *
 
-### None
+### Не обрано
 
 The only way that guarantees 100% security and ensures that nobody can steal your Steam password. In order to use this option simply set your `SteamPassword` to empty string (`""`) or `null` value. ASF will ask you for your Steam password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords, it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
 

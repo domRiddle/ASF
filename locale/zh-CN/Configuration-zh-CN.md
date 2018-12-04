@@ -373,7 +373,7 @@ This option is recommended only for alt accounts, as it's very likely that you d
 
 ### `AutoSteamSaleEvent`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours, and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+这是一个默认值为 `false` 的 `bool` 类型属性。 During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours (starting in one hour since program start), and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
@@ -676,15 +676,15 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| 值 | 名称                | 描述                                                            |
-| - | ----------------- | ------------------------------------------------------------- |
-| 0 | Unknown           | Every type that doesn't fit in any of the below               |
-| 1 | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4 | ProfileBackground | Profile background to use on your Steam profile               |
-| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 值 | 名称                | 描述                        |
+| - | ----------------- | ------------------------- |
+| 0 | Unknown           | 不符合以下情况的任何类型              |
+| 1 | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
+| 2 | Emoticon          | Steam 聊天中使用的表情            |
+| 3 | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
+| 4 | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
+| 5 | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6 | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 

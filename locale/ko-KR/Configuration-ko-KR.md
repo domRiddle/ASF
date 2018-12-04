@@ -102,7 +102,7 @@ If that's the case, this property if specially for you and you can set it to `fa
 
 ### `Blacklist`
 
-`ImmutableHashSet<uint>` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
+`ImmutableHashSet<uint>` 타입으로 기본값은 비어있습니다. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
 
 ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -130,13 +130,13 @@ If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` 
 
 ### `CurrentCulture`
 
-`string` type with default value of `null`. By default ASF attempts to use your operating system language, and will prefer to use translated strings in that language if available. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. If for some reason you don't want to use your OS native language, you can use this config property to pick any valid language you'd want to use instead. For a list of all available cultures, please visit **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** and look for `Language tag`. It's nice to note that ASF accepts both specific cultures, such as `en-GB`, but also neutral ones, such as `en`. Specifying current culture might also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you might need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. Typically you want to make use of this config property if you prefer ASF in English instead of your native language.
+문자열(`string`) 타입으로 기본값은 `null`입니다. By default ASF attempts to use your operating system language, and will prefer to use translated strings in that language if available. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. If for some reason you don't want to use your OS native language, you can use this config property to pick any valid language you'd want to use instead. For a list of all available cultures, please visit **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** and look for `Language tag`. It's nice to note that ASF accepts both specific cultures, such as `en-GB`, but also neutral ones, such as `en`. Specifying current culture might also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you might need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. Typically you want to make use of this config property if you prefer ASF in English instead of your native language.
 
 * * *
 
 ### `Debug`
 
-`bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
 **WARNING:** enabling this mode includes logging of **potentially sensitive** information such as logins and passwords that you're using for logging in to Steam (due to network logging). That data is written to both `debug` directory, as well as standard `log.txt` (that is now intentionally much more verbose to log this info). You should not post debug content generated by ASF in any public location, ASF developer should always remind you of sending it to his e-mail, or other secure location. We're not storing, neither making use of those sensitive details, they're written as part of debug routines since their presence might be relevant to the issue that is affecting you. We'd prefer if you didn't alter ASF logging in any way, but if you're worried, you're free to redact those sensitive details appropriately.
 
@@ -152,13 +152,13 @@ If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` 
 
 ### `GiftsLimiterDelay`
 
-`byte` type with default value of `1`. ASF will ensure that there will be at least `GiftsLimiterDelay` seconds in between of two consecutive gift/key/license handling (redeeming) requests to avoid triggering rate-limit. In addition to that it'll also be used as global limiter for game list requests, such as the one issued by `owns` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` 타입으로 기본값은 `1`입니다. ASF will ensure that there will be at least `GiftsLimiterDelay` seconds in between of two consecutive gift/key/license handling (redeeming) requests to avoid triggering rate-limit. In addition to that it'll also be used as global limiter for game list requests, such as the one issued by `owns` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `Headless`
 
-`bool` type with default value of `false`. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server or in other non-interactive environment, therefore it will not attempt to read crucial account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate. This is equal to making ASF console read-only. `Headless` mode is useful mainly for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. This is useful for servers, as ASF can abort trying to log onto the account when asked for credentials, instead of waiting (infinitely) for user to provide those. Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. If you're not sure how to set this property, leave it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server or in other non-interactive environment, therefore it will not attempt to read crucial account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate. This is equal to making ASF console read-only. `Headless` mode is useful mainly for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. This is useful for servers, as ASF can abort trying to log onto the account when asked for credentials, instead of waiting (infinitely) for user to provide those. Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. If you're not sure how to set this property, leave it with default value of `false`.
 
 If you're running ASF on the server, you might want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
 
@@ -178,13 +178,13 @@ If you're running ASF on the server, you might want to use this option together 
 
 ### `IPC`
 
-`bool` type with default value of `false`. This property defines if ASF's **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting a local HTTP server. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 ASF 프로세스와 함께 시작되는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 서버를 정의합니다. IPC는 로컬 HTTP 서버를 기동하여 프로세스간 통신(Inter-Process Communication)을 할수 있게 합니다. ASF의 IPC 서버를 사용하지 않을 것이라면 이 옵션을 활성화할 이유가 없습니다.
 
 * * *
 
 ### `IPCPassword`
 
-`string` type with default value of `null`. This property defines mandatory password for every call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
+문자열(`string`) 타입으로 기본값은 `null`입니다. 이 속성값은 IPC를 통해 이루어지는 모든 호출에 대한 필수 암호를 정의하고, 추가 보안수단으로 제공합니다. 빈 값이 아닌것으로 설정되면 모든 IPC 요청은 여기에 명시된 암호로 설정된 추가적인 `password` 속성값을 요구할 것입니다. 기본값인 `null`은 암호요구를 건너뛰어서 ASF가 모든 쿼리를 수행하도록 합니다. 그리고, 이 옵션을 활성화하면 내장된 IPC 대-무작위공격 메커니즘을 활성화합니다. 이는 매우 짦은 시간동안 너무 많은 승인되지 않은 요청이 있는 경우 특정 `IP 주소`를 일시적으로 차단합니다. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
@@ -210,7 +210,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you might want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` 타입으로 기본값은 `0`입니다. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you might want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -228,38 +228,38 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `SteamOwnerID`
 
-`ulong` type with default value of `0`. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you might want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** works with `SteamOwnerID`, so if you want to use it you must provide a valid value here.
+`ulong` 타입으로 기본값은 `0`입니다. 이 속성값은 ASF 프로세스 소유자의 64비트 형태로 된 Steam ID를 정의합니다. 봇 인스턴스(일반 환경설정이 아닙니다)의 `주인(Master)` 권한과 매유 유사합니다. 이 속성값은 당신 자신의 메인 Steam 계정의 ID로 설정합니다. `주인(Master)` 권한은 봇 인스턴스에 대한 전체 제어를 갖지만, `exit`, `restart` 또는 `update` 같은 일반 환경의 명령어는 `SteamOwnerID` 전용입니다. 이것은 친구들을 위해 봇을 실행하길 원하지만 `exit` 같은 명령으로 종료하는 등 ASF 프로세스의 제어권한을 주지 않으려는 경우 편리합니다. 기본값인 `0`은 ASF 프로세스의 소유자가 없다는 것으로, 일반 ASF 명령을 누구도 실행할 수 없다는 뜻입니다. **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 는 `SteamOwnerID`와 함께 동작함을 명심하고, IPC를 사용하려면 여기에 유효한 값을 입력하십시오.
 
 * * *
 
 ### `SteamProtocols`
 
-`byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+`byte flags` 타입으로 기본값은 `7`입니다. 이 속성값은 ASF가 Steam 서버에 접속할때 사용할 Steam 프로토콜을 정의합니다. 정의는 아래와 같습니다.
 
 | 값 | 이름        | 설명                                                                                               |
 | - | --------- | ------------------------------------------------------------------------------------------------ |
-| 0 | None      | No protocol                                                                                      |
+| 0 | 없음(None)  | 프로토콜 없음                                                                                          |
 | 1 | TCP       | **[Transmission Control Protocol](https://ko.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2 | UDP       | **[User Datagram Protocol](https://ko.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4 | WebSocket | **[WebSocket](https://ko.wikipedia.org/wiki/WebSocket)**                                         |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
 
-By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+기본적으로 ASF는 다운타임이나 유사한 Steam 이슈를 극복하기 위한 수단으로 가능한 모든 Steam 프로토콜을 사용해야합니다. 일반적으로 ASF가 가능한 전체 프로토콜 대신 하나나 두개의 특정 프로토콜만 사용하도록 제한하려는 경우 이 속성값을 변경합니다. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `UpdateChannel`
 
-`byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `실험(Experimental)` 채널은 `안정(Stable)` 릴리스에, 새로운 기능을 테스트하고 버그수정이나 계획된 개선사항에 대한 피드백을 주기 위한 고급 사용자와 개발자용인 **사전 릴리스(pre-releases)** 를 포함합니다. **실험(Experimental) 버전은 종종 수정되지 않은 버그나 작업중인 기능이 포함되어 있습니다.**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
 
-**Unless you know what you're doing**, we **strongly** recommend to keep it at default.
+**지금 하고 있는 것이 뭔지 알고 있지 않다면**, 기본값 그대로 두는 것을 **강력하게** 권장합니다.
 
 * * *
 
 ### `UpdatePeriod`
 
-`byte` type with default value of `24`. This property defines how often ASF should check for auto-updates. Updates are crucial not only to receive new features and critical security patches, but also to receive bugfixes, performance enhancements, stability improvements and more. When a value greater than `0` is set, ASF will automatically download, replace, and restart itself (if `AutoRestart` permits) when new update is available. In order to achieve this, ASF will check every `UpdatePeriod` hours if new update is available on our GitHub repo. A value of `0` disables auto-updates, but still allows you to execute `update` command manually. You might also be interested in setting appropriate `UpdateChannel` that `UpdatePeriod` should follow.
+`byte` 타입으로 기본값은 `24`입니다. 이 속성값은 자동 업데이트를 위해 ASF가 얼마나 자주 확인할지를 정의합니다. 업데이트는 새로운 기능과 심각한 보안 패치를 받기위해서 뿐 아니라 버그수정, 성능개선, 안정성 향상 등을 위해서도 중요합니다. `0`보다 큰 값이 설정되면 ASF는 새로운 업데이트가 나오면 자동으로 다운로드받아 교체하고 재시작(`AutoRestart`가 허용된 경우)합니다. 이렇게 하기 위해서 ASF는 매 `UpdatePeriod` 시간마다 새 업데이트가 GitHub repo에 있는지 확인합니다. `0` 값은 자동 업데이트를 비활성화 합니다. 하지만 수동으로 `update` 명령을 실행할 수는 있습니다. `UpdatePeriod`가 따라가야 하는 적절한 `UpdateChannel`을 설정하는 것에 흥미가 있을지도 모릅니다.
 
 Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory - this means that any extra files unrelated to ASF in its directory might be lost during update. Default value of `24` is a good balance between unnecessary checks, and ASF that is fresh enough.
 
@@ -281,7 +281,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ### `WebProxy`
 
-`string` type with default value of `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF's `HttpClient`, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kinds of firewalls, especially the great firewall in China.
+문자열(`string`) 타입으로 기본값은 `null`입니다. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF's `HttpClient`, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kinds of firewalls, especially the great firewall in China.
 
 This property is defined as uri string:
 
@@ -297,7 +297,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ### `WebProxyPassword`
 
-`string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+문자열(`string`) 타입으로 기본값은 `null`입니다. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
@@ -305,7 +305,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ### `WebProxyUsername`
 
-`string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+문자열(`string`) 타입으로 기본값은 `null`입니다. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
@@ -317,11 +317,11 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ## 봇 환경설정
 
-As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
+당신이 이미 알다시피, 모든 봇은 자신만의 설정을 가지고 있어야 합니다. 아래는 기본이 되는 JSON구조의 예시입니다. `1.json`, `main.json`, `primary.json` 또는 `AnythingElse.json` 등 봇의 이름을 짓는 것부터 시작해서 환경설정으로 넘어갑니다.
 
-**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
+**주의:** 봇은 `ASF`로 명명할 수 없습니다. ASF는 일반 환경설정을 위한 예약키워드입니다. 또한 점(.)으로 시작하는 모든 환경설정 파일을 무시합니다.
 
-The bot config has following structure:
+봇 환경설정은 아래와 같은 구조를 갖습니다.
 
 ```json
 {
@@ -357,7 +357,7 @@ The bot config has following structure:
 }
 ```
 
-**Tip:** In order for bot to work properly, you should edit at least `Enabled`, `SteamLogin` and `SteamPassword` properties. I also suggest to take a look at some fine-tuning such as `HoursUntilCardDrops`, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
+**팁:** 봇이 잘 작동하려면 적어도 `Enabled`, `SteamLogin`, `SteamPassword` 속성값을 수정해야 합니다. 몇몇 `HoursUntilCardDrops` 같은 좋은 수정사항도 확인하기를 권장하지만 모두 선택사항입니다. ASF 환경설정은 원하는대로 ASF와 봇을 조절할 수 있을만큼 고급입니다. 만약 그런 고급 설정이 "필요하지 않다면" 각 환경설정 속성값을 일일이 들여다볼 필요는 없습니다. ASF가 간단하고 복잡하고는 당신의 선택입니다.
 
 * * *
 
@@ -365,17 +365,17 @@ The bot config has following structure:
 
 ### `AcceptGifts`
 
-`bool` type with default value of `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
+`bool` 타입으로 기본값은 `false`입니다. 활성화 되어있으면 ASF는 자동으로 봇으로 보내지는 모든 Steam 선물(월렛 기프트카드 포함)을 수락하고 등록합니다. `SteamUserPermissions`에서 정의된 사용자 이외의 사용자가 보낸 선물도 포함됩니다. 이메일 주소로 보낸 선물은 클라이언트로 직접 전달되지 않음을 명심하십시오. ASF는 당신의 도움 없이는 그것을 받을 수 없습니다.
 
-This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+이 옵션은 부계정에 권장합니다. 주 계정에 모든 선물을 자동으로 등록하지는 않기 때문입니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 
 ### `AutoSteamSaleEvent`
 
-`bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as voting in the Steam awards. When this option is enabled, ASF will automatically check Steam discovery queue and Steam awards each 6 hours, and clear them if needed. This option is not recommended if you want to do those actions yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. Steam의 여름/겨울 세일 이벤트 기간동안 Steam은 매일 맞춤 대기열을 확인하거나 Steam 어워드에 투표하면 추가로 카드를 제공합니다. 이 옵션이 활성화되어 있으면 ASF는 자동으로 프로그램이 시작한지 한시간안에 시작하여 6시간마다 Steam 맞춤 대기열과 Steam 어워드를 확인하고, 필요하다면 클리어합니다. 그 행동을 직접하기 원한다면 이 옵션은 권장하지 않습니다. 일반적으로 봇 계정에만 맞는 이야기입니다. 또한, 처음으로 이 카드를 받기 원한다면 계정이 적어도 `8` 레벨 이상인지 확인해야 합니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
-Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
+Valve의 이슈, 변화, 문제에 따라 **이 기능이 정상작동할지 보증하지 않습니다**. 따라서 이 옵션이**전혀 작동하지 않을** 수도 있습니다. 이 옵션과 관련한 **어떠한** 버그 제보, 지원 요청도 받지 않습니다. 보증을 전혀 하지 않고 제공되는 기능이므로, 위험을 감수하고 사용하시기 바랍니다.
 
 * * *
 
@@ -392,7 +392,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 | 8  | 보관함 알림 해제(DismissInventoryNotifications)    | ASF가 모든 보관함 알림을 자동으로 해제합니다.         |
 | 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다. |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to its activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use selected options for main accounts as well.
 
@@ -471,7 +471,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `IdlePriorityQueueOnly`
 
-`bool` type with default value of `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 
@@ -554,7 +554,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 ### `Paused`
 
-`bool` type with default value of `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 
@@ -564,12 +564,12 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 | 값 | 이름               | 설명                                                                             |
 | - | ---------------- | ------------------------------------------------------------------------------ |
-| 0 | None             | No redeeming preferences, typical                                              |
+| 0 | 없음(None)         | No redeeming preferences, typical                                              |
 | 1 | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2 | Distributing     | Distribute all keys among itself and other bots                                |
 | 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -587,37 +587,37 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` type with default value of `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `false`.
 
 * * *
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `0`.
+`byte` 타입으로 기본값은 `0`입니다. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here. It's strongly recommended to use this feature together with **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** being set, as there is no point in sending automatic trades if you need to manually confirm them. If you're not sure how to set this property, leave it with default value of `0`.
 
 * * *
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` type with default value of `false`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well. If you're not sure how to set this property, leave it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well. If you're not sure how to set this property, leave it with default value of `false`.
 
 * * *
 
 ### `SteamLogin`
 
-`string` type with default value of `null`. This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` 타입으로 기본값은 `null`입니다. This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
 ### `SteamMasterClanID`
 
-`ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
+`ulong` 타입으로 기본값은 `0`입니다. This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
 
 * * *
 
 ### `SteamParentalCode`
 
-`string` type with default value of `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+문자열(`string`) 타입으로 기본값은 `null`입니다. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
@@ -629,7 +629,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SteamTradeToken`
 
-`string` type with default value of `null`. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
+문자열(`string`) 타입으로 기본값은 `null`입니다. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
 
 In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only token itself.
 
@@ -727,23 +727,23 @@ ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하�
 
 `log.txt` 파일은 마지막 ASF 실행으로 생성된 로그를 담고 있습니다. 이 파일은 어떠한 민감한 정보도 포함하고 있지 않으며, 이슈나 충돌, 혹은 지난번 ASF 실행에서 무슨일이 있었는지 정보로써도 굉장히 가치가 있습니다. 이슈나 버그가 발생하면 우리는 이 파일을 자주 요청하게 될 것입니다. ASF는 이 파일을 자동으로 관리하지만, 고급 사용자라면 ASF **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)** 모듈을 더 깊이 조절할 수 있습니다.
 
-`config` directory is the place that holds configuration for ASF, including all of its bots.
+`config` 디렉토리는 ASF와 모든 봇의 환경설정을 담고있는 곳입니다.
 
-`ASF.json` is a global ASF configuration file. This config is used for specifying how ASF behaves as a process, which affects all of the bots and program itself. You can find global properties there, such as ASF process owner, auto-updates or debugging.
+`ASF.json`은 ASF의 일반 환경설정 파일입니다. 이 환경설정은 모든 봇과 프로그램 자체에 영향을 주는 ASF 프로세스 행동을 특정하는데 사용됩니다. ASF 프로세스 소유자, 자동업데이트, 디버깅 등 일반 속성값이 있습니다.
 
-`BotName.json` is a config of given bot instance. This config is used for specifying how given bot instance behaves, therefore those settings are specific to that bot only and not shared across other ones. This allows you to configure bots with various different settings and not necessarily all of them working in exactly the same way.
+`봇이름.json`은 봇 인스턴스의 환경설정입니다. 이 환경설정은 봇 인스턴스가 어떻게 행동할지를 특정하는데 사용됩니다. 따라서 설정은 그 봇에만 특정되고 다른 봇에 공유되지 않습니다. 이렇게 해서 여러 봇을 다양하고 다르게 설정할 수 있으며 정확하게 동일하게 동작하도록 할 필요가 없습니다.
 
-Apart from config files, ASF also uses `config` directory for storing databases.
+환경설정 파일과 별도로 ASF는 `config` 디렉토리를 데이터베이스를 저장하는데도 사용합니다.
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **이 파일을 수정해서는 안됩니다**.
+`ASF.db`는 일반 ASF 데이터베이스 파일입니다. 일반 영구 저장소 역할을 하며 Steam 서버의 IP 등 ASF 프로세스와 관련된 다양한 정보를 저장하는데 사용됩니다. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **이 파일을 수정해서는 안됩니다**.
+`봇이름.db`는 봇 인스턴스의 데이터베이스입니다. 이 파일은 봇 인스턴스와 관련된 로그인 키나 ASF 2단계 인증과 같은 영구 저장소의 중요한 데이터를 저장하는데 사용됩니다. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **이 파일을 수정해서는 안됩니다**.
+`봇이름.bin`은 Steam 센트리 해시 정보를 담고 있는 특별한 파일입니다. 센트리 해시는 Steam의 `ssfn`파일과 매우 유사하게 `SteamGuard` 메커니즘을 사용하여 인증하는데 사용됩니다. **이 파일을 수정해서는 안됩니다**.
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
+`봇이름.keys`는 **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 에서 불러올 키를 저장하는 특별한 파일입니다. 이 파일은 필수사항도 아니고 생성되지도 않지만 ASF가 인식은 합니다. 이 파일은 키를 성공적으로 불러온 다음 자동으로 삭제됩니다.
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+`봇이름.maFile`은 **[ASF 2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 불러오는데 사용하는 특별한 파일입니다. 이 파일은 필수사항도 아니고 생성되지도 안지만 `봇이름`이 ASF 2단계 인증을 사용하지 않는경우 ASF가 인식합니다. 이 파일은 ASF 2단계 인증을 성공적으로 불러온 다음 자동으로 삭제됩니다.
 
 **[위로 돌아가기](#환경설정)**
 
@@ -753,9 +753,9 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 모든 환경설정 속성값은 타입이 있습니다. 속성값의 타입은 유효한 값을 정의합니다. 주어진 타입에 유효한 값만 사용할 수 있습니다. 유효하지 않은 값을 사용하면 ASF는 환경설정을 수행할 수 없습니다.
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
+**환경설정을 생성하기 위해 ConfigGenerator를 사용하는 것을 강력하게 권장합니다**. 타입 유효성 검증 등의 로우 레벨 대부분을 다루므로 적절한 값을 넣기만 하면 되고, 아래에 명시된 변수 타입을 이해할 필요가 없습니다. 이 항목은 주로 수동으로 환경설정을 생성하거나 변경하는 사람을 위한 것으로, 이 사람들은 사용할 수 있는 값이 어떤 것인지 압니다.
 
-Types used by ASF are native C# types, which are specified below:
+ASF가 사용하는 타입은 네이티브 C# 타입으로, 아래에 설명되어 있습니다.
 
 * * *
 
@@ -781,38 +781,38 @@ Types used by ASF are native C# types, which are specified below:
 
 * * *
 
-`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Both empty sequence as well as `null` value is treated the same by ASF, so it's up to your preference which one you want to use.
+`string` - `""`의 빈 문자열과 `null` 값을 포함하는 어떠한 일련의 문자를 받는 문자열 타입입니다. 빈 문자열과 `null` 값은 ASF에서 동일하게 취급됩니다. 어느 것을 사용할지는 당신의 선택입니다.
 
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
-
-* * *
-
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`.
-
-Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+예: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`.
+`ImmutableHashSet<valueType>` - 주어진 `valueType`의 유일한 값의 불변 집합입니다. JSON에서는 주어진 `valueType`을 요소로 하는 배열의 형태로 정의됩니다.
 
-Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+`ImmutableHashSet<uint>`의 예: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
+`ImmutableDictionary<keyType, valueType>` - `keyType`에 특정된 키와 `valueType`에 특정된 값을 매핑하는 불변 사전입니다. JSON에서는 키-값 쌍으로 된 오브젝트로 정의됩니다. 이 경우 `keyType`는 심지어 `ulong`같은 타입이더라도 항상 따옴표로 표시함을 명심하십시오.
 
-For example, given following values:
+`ImmutableDictionary<ulong, byte>`의 예: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
-| 값 | 이름   |
-| - | ---- |
-| 0 | None |
-| 1 | A    |
-| 2 | B    |
-| 4 | C    |
+* * *
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+`flags` - 플래그는 여러 다른 속성값을 비트 연산을 통해 하나의 최종값으로 조합합니다. 이렇게 해서 동시에 허용된 여러 다른 값을 가능한 어느 조합이라도 선택할 수 있습니다. 최종값은 모든 활성화된 옵션 값의 합계로 만들어집니다.
 
-So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and 8 possible values overall (`None -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`).
+예를 들어, 다음과 같은 값이 있습니다.
+
+| 값 | 이름       |
+| - | -------- |
+| 0 | 없음(None) |
+| 1 | A        |
+| 2 | B        |
+| 4 | C        |
+
+`B + C`의 값은 `6`이 되고, `A + C`는 `5`, `C` 는 `4`가 됩니다. 이렇게 해서 활성화된 값의 가능한 어느 조합이라도 생성할 수 있습니다. 전부를 활성화하고 싶다면 `None + A + B + C`를 해서 `7`의 값을 얻습니다. `0`값을 갖는 플래그는 다른 모든 가능한 조합에서 활성화되므로, `None` 처럼 특별히 어떤것도 활성화되지 않는 플래그로 사용됩니다.
+
+보다시피, 위의 예시에서 스위치를 켜고 끌 수 있는 3개의 가능한 플래그(`A`, `B`, `C`)와 전체적으로는 8개의 가능한 값(`없음(None) -> 0`, `A -> 1`, `B -> 2`, `A+B -> 3`, `C -> 4`, `A+C -> 5`, `B+C -> 6`, `A+B+C -> 7`)이 있습니다.
 
 **[위로 돌아가기](#환경설정)**
 
@@ -820,7 +820,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 ## 호환성 매핑
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
+웹기반 ConfigGenerator를 사용할 때 JSON의 `ulong` 항목을 정확하게 표현할 수 없는 자바 스크립트의 한계로, `ulong` 항목은 환경설정에 `s_` 접두사가 붙는 문자열로 처리됩니다. 예를 들어 `"SteamOwnerID": 76561198006963719`는 ConfigGenerator에서 `"s_SteamOwnerID": "76561198006963719"`로 표기됩니다. ASF는 이 문자열 매핑을 자동으로 처리할 수 있는 적절한 논리구조를 가지고 있으며, 환경설정의 `s_` 항목은 실제로 유효하고 정확하게 생성된 것입니다. 만약 환경설정을 스스로 생성한다면, 가능하면 원래의 `ulong` 항목을 사용하기를 권장하지만 그럴수 없다면 이름에 `s_` 접두사를 붙여서 문자열로 인코딩하는 방식을 사용할 수도 있습니다. 이 자바 스크립트 한계가 해결되기를 바랍니다.
 
 **[위로 돌아가기](#환경설정)**
 
@@ -828,7 +828,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ## 환경설정 호환성
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself.
+ASF가 오래된 환경설정과도 호환성을 유지하도록 하는 것은 최우선사항입니다. 아시다시피, 환경설정 속성값이 없다면 **기본값** 으로 정의된 것과 동일하게 처리됩니다. 따라서 새 환경설정 속성값이 ASF 새버전에 도입되면, 당신의 모든 환경설정은 새 버전과 **호환됩니다**. ASF는 새로운 환경설정 속성값을 **기본값**으로 정의된 것으로 처리합니다. 언제나 필요에 따라 환경설정 속성값을 추가하고, 제거하고, 변경할 수 있습니다. 정의된 환경설정 속성값을 변경하기를 원하는 것으로만 제한하는 것을 권장합니다. 이렇게 해서 자동으로 다른 모든 속성값을 기본값으로 상속받을 수 있고, 환경설정을 깨끗하게 유지하고 당신이 스스로 명시적으로 설정하고 싶지 않은 속성값을 우리가 기본값으로 변경하길 원하는 경우에 호환성을 증가시킬 수 있습니다.
 
 **[위로 돌아가기](#환경설정)**
 

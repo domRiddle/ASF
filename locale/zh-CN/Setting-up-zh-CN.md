@@ -8,7 +8,7 @@ This however doesn't mean that you can't use it on your PC or using it is in som
 
 * * *
 
-## OS-specific 设置
+## 操作系统包设置
 
 通常，我们只需要花费几分钟进行下列操作：
 
@@ -238,7 +238,7 @@ You've successfully set up ASF to use your Steam accounts and you've already cus
 
 ## Generic 包设置
 
-这些设置是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 如果您可以使用 **[OS-specific 设置](#os-specific-设置)**，就不建议您使用 Generic 包。
+这些设置是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 如果您可以使用 **[操作系统包设置](#操作系统包设置)**，就不建议您使用 Generic 包。
 
 You want to use generic variant mainly in three situations (but of course you can use it regardless):
 
