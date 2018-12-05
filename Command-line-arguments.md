@@ -67,7 +67,8 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 │     │     ├── ArchiSteamFarm.dll
 │     │     └── ...
 │     └── TargetDirectory
-│           └── config
+│           ├── config
+│           └── www (optional)
 └── ...
 ```
 
