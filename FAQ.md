@@ -181,7 +181,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### Can ASF automatically idle each game for X hours before cards are added?
 
-**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen.
+**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen. If your game receives card drops in usual way, ASF will idle them as soon as possible.
 
 ---
 
