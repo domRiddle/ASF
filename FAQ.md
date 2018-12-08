@@ -25,7 +25,7 @@ Core points are stated once again here, because people in general don't want to 
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
 - **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent 5$ in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **No, you can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
 
@@ -516,7 +516,7 @@ You're most likely using Windows and your console has QuickEdit mode enabled. Re
 
 ### ASF can't accept or send trades!
 
-Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending 5$ in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
+Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending $5 in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
 Next, if you do not use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider either adding or importing your authenticator into ASF 2FA.
 
