@@ -346,7 +346,7 @@ Thank you for your interest! You can find all details in our **[localization](ht
 
 ### I have only one (main) account added to ASF, can I still issue commands through steam chat?
 
-**Yes**, it's explained in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** section. You can do so through Steam group chat.
+**Yes**, it's explained in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** section. You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** might be easier for you.
 
 ---
 
