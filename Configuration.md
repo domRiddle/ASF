@@ -783,6 +783,12 @@ Example: `"ConnectionTimeout": 60`
 
 ---
 
+`ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
+
+Example: `"WebLimiterDelay": 300`
+
+---
+
 `uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
 
 ---
