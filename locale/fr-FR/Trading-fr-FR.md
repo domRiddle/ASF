@@ -2,13 +2,11 @@
 
 ASF inclut la prise en charge des échanges non interactifs (hors ligne) de Steam. La réception (acceptation / refus) ainsi que l’envoi de transactions sont disponibles immédiatement et ne nécessitent pas de configuration particulière, mais nécessitent évidemment un compte Steam sans restriction (Dépensé 5 $ dans le magasin). Le système d'échange n'est pas disponible pour les comptes restreints.
 
-Remarque: chaque fois que le mot "rejeter" est utilisé, cela signifie soit ignorer, soit refuser, en fonction de la configuration utilisée` BotBehaviour </ 0> (<code> RejectInvalidTrades </ 0>).</p>
+* * *
 
-<hr />
+## Logique
 
-<h2>Logique</h2>
-
-<p>ASF acceptera toujours tous les échanges, quels que soient les éléments, envoyés par les utilisateurs ayant un accès <code> Master</ 0> (ou supérieur) au bot. Cela permet non seulement de loot facilement les cartes Steam acquises par le bot, mais également de gérer facilement les objets Steam stockés dans l'inventaire.</p>
+ASF acceptera toujours tous les échanges, quels que soient les éléments, envoyés par les utilisateurs ayant un accès ` Master</ 0> (ou supérieur) au bot. Cela permet non seulement de loot facilement les cartes Steam acquises par le bot, mais également de gérer facilement les objets Steam stockés dans l'inventaire.</p>
 
 <p>ASF rejettera l'offre d'échange, quel que soit le contenu, de tout utilisateur (non master) inscrit sur la liste noire à partir du système d'échange. La liste noire est stockée dans la base de données standard <code> BotName.db </ 0> et peut être gérée via les <1 > commandes</ 1> : <code> bl </ 0>, <code> bladd </ 0> et <code> blrm </ 0> . Cela devrait servir comme une alternative au blocage utilisateur standard offert par Steam - à utiliser avec prudence.</p>
 
@@ -23,16 +21,16 @@ Remarque: chaque fois que le mot "rejeter" est utilisé, cela signifie soit igno
 
 <hr />
 
-<h2>SteamTradeMatcher</h2>
+<h2><code>SteamTradeMatcher`</h2> 
 
-<p>Lorsque <code> SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez complexe pour vérifier si le commerce respecte les règles du STM et est au moins neutre envers nous. La logique actuelle est la suivante:</p>
+Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez complexe pour vérifier si le commerce respecte les règles du STM et est au moins neutre envers nous. La logique actuelle est la suivante:</p>
 
 <ul>
 <li>Rejetez la transaction si nous perdons autre chose que les types d’articles spécifiés dans notre <code>MatchableTypes`. </li> 
 
 - Rejetez la transaction si nous ne recevons pas au moins le même nombre d’objets par jeu et par type.
 - Rejetez la transaction si l'utilisateur demande des cartes spéciales Soldes été / hiver de Steam et si cette transaction est suspendue.
-- Rejetez la transaction si la durée de la suspension dépasse  la propriété de configuration globale <0>MaxTradeHoldDuration </ 0>.</li>
+- Rejetez la transaction si la durée de la suspension dépasse ` la propriété de configuration globale <0>MaxTradeHoldDuration </ 0>.</li>
 <li>Rejetez la transaction si nous n'avons pas <code> MatchEverything </ 0>, et c'est pire que neutre pour nous.</li>
 <li>Acceptez le commerce si nous ne le rejetons pas par l’un des points ci-dessus.</li>
 </ul>
@@ -51,6 +49,26 @@ Remarque: chaque fois que le mot "rejeter" est utilisé, cela signifie soit igno
 
 <p>Par défaut, ASF rejettera les mauvaises transactions - c’est généralement ce que vous recherchez en tant qu’utilisateur. Cependant, vous pouvez éventuellement activer <code> MatchEverything </ 0> dans vos <code> TradingPreferences </ 0> afin de permettre à ASF d'accepter tous les échanges doubles, y compris <strong> les mauvais </ 1>. Cela n’est utile que si vous souhaitez exécuter un bot commercial 1: 1 sous votre compte, car vous comprenez que <strong> ASF ne vous aidera plus à progresser vers la réalisation de vos badges et cela rend susceptible la possibilité de perdre toute votre set fini pour un certains nombres de doubles de la même carte </ 0>. À moins que vous ne vouliez délibérément exécuter un bot commercial qui est <strong> jamais </ 0> censé terminer un ensemble, vous ne souhaitez pas activer cette option.</p>
 
-<p>Quels que soient les <code> TradingPreferences que vous avez choisies </ 0>, une transaction rejetée par ASF ne signifie pas que vous ne pouvez l’accepter vous-même. Si vous avez conservé la valeur par défaut de <code> BotBehaviour </ 0>, qui est <code> None </ 0>, ASF ignorera simplement ces transactions, vous permettant ainsi de décider vous-même si elles vous intéressent ou non. Il en va de même pour les transactions avec des éléments en dehors de <code> MatchableTypes </ 0>, ainsi que pour tout le reste - le module est censé vous aider à automatiser les transactions STM, sans décider de ce qui est une bonne transaction ou non. La seule exception à cette règle concerne les utilisateurs que vous avez inscrits sur la liste noire du module d'échange à l'aide de la commande <code> bladd </ 0>. Les transactions de ces utilisateurs sont immédiatement rejetées, quels que soient les paramètres <code> BotBehaviour </ 0>.</p>
+<p>Quels que soient les <code> TradingPreferences que vous avez choisies </ 0>, une transaction rejetée par ASF ne signifie pas que vous ne pouvez l’accepter vous-même. If you kept default value of <code>BotBehaviour`, which doesn't include `RejectInvalidTrades`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Il en va de même pour les transactions avec des éléments en dehors de ` MatchableTypes </ 0>, ainsi que pour tout le reste - le module est censé vous aider à automatiser les transactions STM, sans décider de ce qui est une bonne transaction ou non. La seule exception à cette règle concerne les utilisateurs que vous avez inscrits sur la liste noire du module d'échange à l'aide de la commande <code> bladd </ 0>. Les transactions de ces utilisateurs sont immédiatement rejetées, quels que soient les paramètres <code> BotBehaviour </ 0>.</p>
 
 <p>Il est vivement recommandé d'utiliser <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication"> ASF 2FA </ 0> lorsque vous activez cette option, car cette fonction perd tout son potentiel si vous décidez de confirmer manuellement chaque transaction. <code> SteamTradeMatcher </ 0> fonctionnera correctement même si vous ne pouvez pas confirmer les transactions, mais cela pourrait générer un retard de confirmations si vous ne les acceptez pas à temps.</p>
+
+<hr />
+
+<h3><code>MatchActively`</h3> 
+    `MatchActively` setting is extended version of `SteamTradeMatcher` which in addition to passive matching offered by that option, also includes active matching in which the bot will send trades to other people.
+    
+    In order to make use of that option, you have a set of requirements to meet. Firstly, you need to enable `SteamTradeMatcher` (as this feature is extension of that), and avoid `MatchEverything` setting (as trading bots never match actively). Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, without a requirement of 100 items. This means that, at the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active, **[public inventory](https://steamcommunity.com/my/edit/settings)** and at least one valid type in `MatchableTypes`, such as trading cards.
+    
+    If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** in order to actively match `Any` (`MatchEverything`) bots currently available.
+    
+    - Each matching is composed of "rounds", with up to `10` being maximum at once.
+    - In each round ASF will fetch our inventory and inventory of selected bots that are listed in order to find `MatchableTypes` items that can be matched. If match is found, ASF will send and confirm trade offer automatically.
+    - Each set (composition of item type and appID it's from) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades.
+    - ASF will send no more than `255` items in a single trade, and no more than `5` trades to a single user in a single round. This is imposed by Steam limits, as well as our own load-balancing.
+    - Matching round ends the moment we try to match a total of `40` bots, or when we hit no items to match with consecutive `20` different bots.
+    - If last round resulted in at least a single trade being sent, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching ends and repeats itself in `8` hours.
+    
+    This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat each `8` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered as a command. The target users of this module are primary accounts and "stash" alt accounts, although it can be used on any bot that is not set to `MatchEverything`.
+    
+    ASF will do its best to minimize the amount of requests and pressure generated by using this option, while at the same time maximizing efficiency of matching to the upper limit. Exact algorithm of choosing bots to match is ASF's implementation detail, but right now ASF will tend to favor bots with better diversity of games that their items are from.

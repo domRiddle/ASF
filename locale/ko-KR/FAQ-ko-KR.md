@@ -63,7 +63,7 @@ The only thing which heavily affects speed of farming is selected **[cards farmi
 
 * * *
 
-### But ASF said that farming will take about X time!
+### 하지만 ASF는 X 시간이 걸릴거라고 했는데요.
 
 ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
 
@@ -253,7 +253,7 @@ You're using this software at your own risk. It's very unlikely that you can get
 
 * * *
 
-### Did somebody get banned for it?
+### 차단당한 사람이 있나요?
 
 **Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
 

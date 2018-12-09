@@ -658,13 +658,14 @@ Recomendamos que defina exatamente um usuário como `Master` e qualquer quantida
 
 Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamento do ASF quando estiver trocando, e é definida abaixo:
 
-| Valor | Nome                | Descrição                                                                                                                                                                                                          |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0     | None                | Sem preferências de troca - aceita somente trocas do `Master`                                                                                                                                                      |
-| 1     | AcceptDonations     | Aceita trocas em que não estamos perdendo nada                                                                                                                                                                     |
-| 2     | SteamTradeMatcher   | Aceita cartas duplicadas de forma semelhante ao **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)** para mais informações |
-| 4     | MatchEverything     | Requer que `SteamTradeMatcher` seja definido, e em combinação com ele - também aceita trocas ruins além de boas e neutras                                                                                          |
-| 8     | DontAcceptBotTrades | Não aceita automaticamente as trocas `loot` de outras contas bot                                                                                                                                                   |
+| Valor | Nome                | Descrição                                                                                                                                                                                                                     |
+| ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                | Sem preferências de troca - aceita somente trocas do `Master`                                                                                                                                                                 |
+| 1     | AcceptDonations     | Aceita trocas em que não estamos perdendo nada                                                                                                                                                                                |
+| 2     | SteamTradeMatcher   | Participa passivamente de trocas do tipo **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR#steamtradematcher)** para mais informações |
+| 4     | MatchEverything     | Requer que `SteamTradeMatcher` seja definido, e em combinação com ele - também aceita trocas ruins além de boas e neutras                                                                                                     |
+| 8     | DontAcceptBotTrades | Não aceita automaticamente as trocas `loot` de outras contas bot                                                                                                                                                              |
+| 16    | MatchActively       | Participa ativamente de trocas do tipo **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** para mais informações             |
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser saber mais. Não habilitar nem um flag resultará na opção `None`.
 

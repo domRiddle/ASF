@@ -658,13 +658,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Ім'я                | Description                                                                                                                                                                     |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Не обрано           | No trading preferences - accepts only `Master` trades                                                                                                                           |
-| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                               |
-| 2     | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** for more info |
-| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                               |
-| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                             |
+| Value | Ім'я                | Description                                                                                                                                                                                          |
+| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Не обрано           | No trading preferences - accepts only `Master` trades                                                                                                                                                |
+| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
+| 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
+| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
+| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
+| 16    | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 

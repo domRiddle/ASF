@@ -438,7 +438,7 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 ### ASF 无法启动，程序窗口在启动之后立刻就退出了！
 
-如果连 `log.txt` 都没有生成，很可能您忘了安装&#8203;**[初始设置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#操作系统包设置)**&#8203;中提到的 .NET Core 依赖项。 Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
+如果连 `log.txt` 都没有生成，很可能您忘了安装&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET Core 依赖项。 Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and hit enter. This way you'll get precise message why ASF is not starting properly.
 
 * * *
 

@@ -55,7 +55,7 @@ ASF на данный момент доступно для следующих в
 
 Однако, если вы пытаетесь запустить **универсальный (generic)** пакет ASF - вам следует убедиться, что среда .NET Core поддерживает необходимую ASF платформу.
 
-ASF в данный момент основано на **.NET Core 2.1** (`netcoreapp2.1`), но в будущем может потребоваться более новая платформа. `netcoreapp2.1` is supported since 2.1.300 SDK (2.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
+ASF в данный момент основано на **.NET Core 2.1** (`netcoreapp2.1`), но в будущем может потребоваться более новая платформа. `netcoreapp2.1` поддерживается с версии 2.1.300 SDK (среда выполнения 2.1.0), но ASF разработан для использования **самой последней среды выполнения на момент компиляции**, поэтому стоит убедиться, что на вашей машине установлена **[самая последняя версия SDK](https://www.microsoft.com/net/download)**. Стандартная версия ASF может отказаться от выполнения, если ваша среда выполнения старее, чем минимальная (целевая) версия на момент компиляции.
 
 Если сомневаетесь - проверьте что использует наша **[система непрерывной интеграции](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** для компиляции и развертывания сборок ASF на GitHub. Вы найдёте вывод команды `dotnet --info` наверху каждой сборки.
 

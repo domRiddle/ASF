@@ -28,7 +28,7 @@ Alternatively, you're also able to use keys only format (still with a newline be
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. После успешного считывания вашего файла и пропуска неправильных записей, все правильно распознанные игры будут добавлены в очередь и `BotName.keys` будет удалён из директории `config`.
+Независимо от того, какого формата вы решили придерживаться, ASF будет импортировать ваш файл `keys`, либо при запуске, либо позже, во время выполнения. После успешного считывания вашего файла и пропуска неправильных записей, все правильно распознанные игры будут добавлены в очередь и `BotName.keys` будет удалён из директории `config`.
 
 ### IPC
 

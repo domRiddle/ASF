@@ -164,17 +164,17 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### 事件属性
 
-| 名称          | 描述                                                                                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| 名称          | 描述                                                                                                                                                                                                         |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Echo        | `bool` 类型。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
+| Message     | `string` 类型。 This is the actual sent/received message.                                                                                                                                                     |
+| ChatGroupID | `ulong` 类型。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
+| ChatID      | `ulong` 类型。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
+| SteamID     | `ulong` 类型。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
 ### 示例
 
-This example is based on our `ColoredConsole` basic example above. 在理解它之前，我强烈建议您先阅读&#8203;**[上文](#示例)**，了解 NLog 日志的基础。
+这个示例基于上述的 `ColoredConsole` 基本示例。 在理解它之前，我强烈建议您先阅读&#8203;**[上文](#示例)**，了解 NLog 日志的基础。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -197,7 +197,7 @@ This example is based on our `ColoredConsole` basic example above. 在理解它�
 
 We've started from our basic `ColoredConsole` example and extended it further. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly, we've enabled our chat logging rule only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
 
-The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
+上述示例将会在与 **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)** 聊天时生成 `0-0-76561198069026042.txt` 文件：
 
     2018-07-26 01:38:38 how are you doing? -> 76561198069026042
     2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
@@ -244,13 +244,13 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### 一般选项
 
-*name* - Name of the target.
+*name*——目标的名称。
 
 * * *
 
 ##### 布局选项
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
+*layout*——要呈现的文本。 要求为 [Layout](https://github.com/NLog/NLog/wiki/Layouts)。 默认值：`${level:uppercase=true}|${logger}|${message}`
 
 * * *
 
@@ -314,7 +314,7 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+详见&#8203;[配置文件](https://github.com/NLog/NLog/wiki/Configuration-file)。
 
 * * *
 
@@ -322,13 +322,13 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### 一般选项
 
-*name* - Name of the target.
+*name*——目标的名称。
 
 * * *
 
 ##### 布局选项
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+*layout*——要呈现的文本。 要求为 [Layout](https://github.com/NLog/NLog/wiki/Layouts)。 默认值：`${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 

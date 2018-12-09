@@ -485,15 +485,15 @@ Since this property is an array, it allows you to use several different settings
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| 值 | 名称                | 描述                                                            |
-| - | ----------------- | ------------------------------------------------------------- |
-| 0 | Unknown           | Every type that doesn't fit in any of the below               |
-| 1 | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4 | ProfileBackground | Profile background to use on your Steam profile               |
-| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 值 | 名称                | 描述                        |
+| - | ----------------- | ------------------------- |
+| 0 | Unknown           | 不符合以下情况的任何类型              |
+| 1 | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
+| 2 | Emoticon          | Steam 聊天中使用的表情            |
+| 3 | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
+| 4 | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
+| 5 | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6 | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -505,15 +505,15 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| 值 | 名称                | 描述                                                            |
-| - | ----------------- | ------------------------------------------------------------- |
-| 0 | Unknown           | Every type that doesn't fit in any of the below               |
-| 1 | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2 | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3 | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4 | ProfileBackground | Profile background to use on your Steam profile               |
-| 5 | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6 | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 值 | 名称                | 描述                        |
+| - | ----------------- | ------------------------- |
+| 0 | Unknown           | 不符合以下情况的任何类型              |
+| 1 | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
+| 2 | Emoticon          | Steam 聊天中使用的表情            |
+| 3 | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
+| 4 | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
+| 5 | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6 | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
@@ -658,13 +658,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| 值 | 名称                  | 描述                                                                                                                                                                           |
-| - | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None                | No trading preferences - accepts only `Master` trades                                                                                                                        |
-| 1 | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                            |
-| 2 | SteamTradeMatcher   | Accepts dupes-matching **[STM](https://www.steamtradematcher.com)**-like trades. 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**&#8203;获得更多信息 |
-| 4 | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                            |
-| 8 | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                          |
+| 值  | 名称                  | 描述                                                                                                                                                                                                |
+| -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | None                | No trading preferences - accepts only `Master` trades                                                                                                                                             |
+| 1  | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                 |
+| 2  | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)**&#8203;获得更多信息 |
+| 4  | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                 |
+| 8  | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                               |
+| 16 | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**&#8203;获得更多信息      |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 Not enabling any of flags results in `None` option.
 

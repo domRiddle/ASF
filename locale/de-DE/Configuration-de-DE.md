@@ -658,13 +658,14 @@ Es ist schön zu beachten, dass es noch eine weitere zusätzliche `Owner` Berech
 
 `byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
-| Wert | Name                | Beschreibung                                                                                                                                                                                                                |
-| ---- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None                | Keine Handelspräferenzen - akzeptiert nur `Master` Handelsangebote                                                                                                                                                          |
-| 1    | AcceptDonations     | Akzeptiert Handelsangebote, bei denen wir nichts verlieren                                                                                                                                                                  |
-| 2    | SteamTradeMatcher   | Akzeptiert Duplikat-Matching **[STM](https://www.steamtradematcher.com)**-ähnliche Handelsangebote. Weitere Informationen findest du unter **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** |
-| 4    | MatchEverything     | Erfordert das Setzen von `SteamTradeMatcher` und akzeptiert dabei neben guten und neutralen auch schlechte Handelsangebote                                                                                                  |
-| 8    | DontAcceptBotTrades | Akzeptiert keine automatischen `loot` Handelsangebote von anderen Bot-Instanzen                                                                                                                                             |
+| Wert | Name                | Beschreibung                                                                                                                                                                                         |
+| ---- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | None                | Keine Handelspräferenzen - akzeptiert nur `Master` Handelsangebote                                                                                                                                   |
+| 1    | AcceptDonations     | Akzeptiert Handelsangebote, bei denen wir nichts verlieren                                                                                                                                           |
+| 2    | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
+| 4    | MatchEverything     | Erfordert das Setzen von `SteamTradeMatcher` und akzeptiert dabei neben guten und neutralen auch schlechte Handelsangebote                                                                           |
+| 8    | DontAcceptBotTrades | Akzeptiert keine automatischen `loot` Handelsangebote von anderen Bot-Instanzen                                                                                                                      |
+| 16   | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
