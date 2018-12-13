@@ -40,7 +40,7 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 리눅스 배포판에 따라 패키지 이름이 다릅니다. 아래에 공통적인 것들을 나열했습니다. 데비안에서는 `apt`, CentOS에서는 `yum` 등 OS에서 사용하는 자체 패키지 관리자를 통해 전부를 설치할 수 있습니다.
 
 - libcurl3 (libcurl)
-- libicu60 (libicu, 사용하는 배포판의 최신버전, 예를들어 데비안9에서는 `libicu57`)
+- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, 배포판의 최신 1.0.X 버전)

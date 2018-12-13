@@ -10,32 +10,6 @@ ASF kann auf allen momentan unterstützten Plattformen kompiliert werden so lang
 
 Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nicht nur Runtime) um ASF zu kompilieren. Eine Installationsanleitung findest du auf der **[.NET Core Installationsseite](https://www.microsoft.com/net/download)**. Du musst die passende .NET Core SDK-Version für dein Betriebssystem installieren. Nach erfolgreicher Installation sollte der Befehl `dotnet` funktionieren und betriebsbereit sein. Du kannst mit `dotnet --info` überprüfen ob es funktioniert. Achte auch darauf, dass dein .NET Core SDK mit den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** übereinstimmt.
 
-Beispiel von `dotnet --info` unter Windows:
-
-    .NET Core SDK (reflecting any global.json):
-     Version:   2.1.300
-     Commit:    adab45bf0c
-    
-    Runtime Environment:
-     OS Name:     Windows
-     OS Version:  10.0.17134
-     OS Platform: Windows
-     RID:         win10-x64
-     Base Path:   C:\Program Files\dotnet\sdk\2.1.300\
-    
-    Host (useful for support):
-      Version: 2.1.0
-      Commit:  caa7b7e2ba
-    
-    .NET Core SDKs installed:
-      2.1.300 [C:\Program Files\dotnet\sdk]
-    
-    .NET Core runtimes installed:
-      Microsoft.AspNetCore.All 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
-      Microsoft.AspNetCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-      Microsoft.NETCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-    
-
 * * *
 
 ## Kompilierung
@@ -43,7 +17,7 @@ Beispiel von `dotnet --info` unter Windows:
 Wenn dein .NET Core SDK funktioniert und in der entsprechenden Version installiert ist, wechsle einfach in das ASF-Verzeichnis und führe folgendes aus:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
 Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, das dasselbe in etwas komplexerer Weise tut.
@@ -55,14 +29,14 @@ Wenn die Kompilierung erfolgreich beendet wurde, findest du dein ASF in der `sou
 Du kannst auch das betriebssystemspezifische .NET Core Paket generieren, wenn du einen bestimmten Grund dazu hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime laufen lassen kannst, die du für die Kompilierung verwendet hast, aber nur für den Fall, dass du es möchtest:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
 Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen, die du anpeilen möchtest, wie beispielsweise `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
 
 ### .NET Framework
 
-Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp2.1` auf `net472` ändern. Denke daran, dass du zusätzlich zum .NET Core SDK ein entsprechendes **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** Developer Pack zum Kompilieren der `netf` Variante benötigst.
+Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp2.2` auf `net472` ändern. Denke daran, dass du zusätzlich zum .NET Core SDK ein entsprechendes **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** Developer Pack zum Kompilieren der `netf` Variante benötigst.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"

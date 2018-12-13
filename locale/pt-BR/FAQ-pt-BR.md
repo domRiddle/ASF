@@ -22,16 +22,16 @@ Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos 
 
 Os pontos principais são apresentados aqui novamente, porque as pessoas em geral não querem concordar com eles:
 
-- **Sim, você precisa possuir o jogo para ser elegível a ganhar cartas dele. Compartilhamento de biblioteca não funciona.**
-- **Não, você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você conseguir todas as cartas de um jogo, ele não será mais apto a coleta.**
+- **Sim, você precisa possuir o jogo para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
+- **Não, você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você conseguir todas as cartas de um jogo, ele não será mais apto a coleta. Não importa que você ainda tenha o jogo, você já coletou as cartas dele.**
 - **Não, não é possível coletar cartas de jogos gratuitos sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2.**
-- **Não, não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram 5 dólares na loja Steam), independentemente dos jogos que possuir. Isso foi possível no passado, mas não é mais o caso.**
+- **Não, não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram $5 na loja Steam), não importando os jogos possuídos. Isso foi possível no passado, mas não é mais o caso.**
 
 Então como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Em outras palavras, se você jogar um jogo por tempo suficiente, todas as cartas daquele jogo aparecerão no seu inventário, possibilitando que você complete uma insígnia, venda, ou faça o que quiser.
 
 O ASF como um programa é bastante complexo para entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação muito simples abaixo.
 
-O ASF se conecta a sua conta Steam através deum mini cliente Steam embutido usando as credenciais fornecidas. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
+O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido usando suas credenciais fornecidas. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
 
 Tenha em mente que a explicação acima é simplificada e não descreve as dezenas de recursos e funções extras que o ASF oferece. Visite o resto da **[nossa wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** se você quiser conhecer cada detalhe do ASF. Eu tentei fazê-la simples o bastante para que todos a entendam, sem entrar em detalhes técnicos - usuários avançados são encorajados a cavar mais fundo.
 
@@ -45,7 +45,7 @@ Então resumindo - o ASF é um programa que ajuda a pegar as cartas que você é
 
 ### Tenho que colocar minhas credenciais de conta?
 
-**Sim**. O ASF exige suas credenciais de conta da mesma forma que o cliente oficial da Steam, já que ele está usando o mesmo método para interagir com a rede Steam. No entanto, isso não significa que você tenha que colocar suas credenciais de conta nos arquivos de configuração do ASF, você pode usar o ASF com `SteamLogin` e/ou `SteamPassword` `null`/vazio, e colocar esses dados cada vez que abrir o ASF, quando for preciso (assim como várias outras credenciais de login, veja a seção configuração). Desta forma, seus dados não são salvos em lugar nenhum, mas é claro, assim o ASF não poderá auto-reiniciar sem a sua ajuda. O ASF também oferece várias outras formas de aumentar a sua **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, então sinta-se a a vontade para ler essa parte da wiki se você for um usuário avançado. Se você não é, e não quer colocar suas credenciais de conta nas configurações do ASF, então simplesmente não faça isso, e coloque-as quando o ASF as pedir.
+**Sim**. O ASF exige suas credenciais de conta da mesma forma que o cliente oficial da Steam, já que ele está usando o mesmo método para interagir com a rede Steam. No entanto, isso não significa que você tenha que colocar suas credenciais de conta nos arquivos de configuração do ASF, você pode usar o ASF com `SteamLogin` e/ou `SteamPassword` `null`/vazio, e colocar esses dados cada vez que abrir o ASF, quando for preciso (assim como várias outras credenciais de login, veja a seção configuração). Desta forma, seus dados não são salvos em lugar nenhum, mas é claro, assim o ASF não poderá auto-reiniciar sem a sua ajuda. O ASF também oferece várias outras formas de aumentar a sua **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, então sinta-se a a vontade para ler essa parte da wiki se você for um usuário avançado. Se você não for, e não quiser colocar suas credenciais nas configurações do ASF, então simplesmente não o faça, apenas insira-as quando o ASF as pedir.
 
 Tenha em mente que o ASF é uma ferramenta para seu uso pessoal e as suas credenciais nunca deixarão seu computador. Você também não estará compartilhando elas com ninguém, o que cumpre os termos de serviço da Steam - uma coisa muito importante da qual as pessoas esquecem. Você não vai mandar seus dados para nossos servidores ou o servidor de algum terceiro, somente diretamente para os servidores da Steam operados pela Valve.
 
@@ -169,7 +169,7 @@ No entanto, **há** uma diferença, que pode ser notada, pois dependendo de como
 
 ### O ASF consegue rodar vários jogos ao mesmo tempo?
 
-**Sim**, embora o ASF saiba quando é útil usar esse recurso, baseado no **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** selecionado. Você não tem escolha direta sobre o algorítimo, mas você pode sugerir um ao ASF configurando a propriedade corretamente. Você deve se focar na configuração do ASF e deixar os algorítimos decidirem qual a forma melhor otimizada para atingir o objetivo.
+**Sim**, embora o ASF saiba quando é útil usar esse recurso, baseado no **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** selecionado. A taxa de coleta de cartas quando se roda diversos jogos ao mesmo tempo tende a zero, portanto o ASF só roda vários jogos ao mesmo tempo para aumentar o número de horas nesses jogos e alcançar o valor de `HoursUntilCardDrops` mais rapidamente, fazendo isso para até `32` jogos ao mesmo tempo. É por esse motivo também que você deve se concentrar na confituração do ASF, e deixar os algorítimos decidirem qual a melhor forma de se alcançar o objetivo, o que você pensa ser melhor pode, na realidade, não ser. Rodar vários jogos ao mesmo tempo não vai te trazer nenhuma carta.
 
 * * *
 
@@ -181,7 +181,7 @@ No entanto, **há** uma diferença, que pode ser notada, pois dependendo de como
 
 ### O ASF pode rodar cada jogo por X horas antes de cartas serem adicionadas?
 
-**Não**, a mudança no sistema de cartas do Steam foi feito para lutar contra falsas estatísticas e jogadores fantasmas. O ASF não contrubui pra isso mais que o necessário, adicionar tal recurso não está planejado e não vai acontecer.
+**Não**, a mudança no sistema de cartas do Steam foi feito para lutar contra falsas estatísticas e jogadores fantasmas. O ASF não contrubui pra isso mais que o necessário, adicionar tal recurso não está planejado e não vai acontecer. Se o seu jogo libera cartas da maneira padrão, o ASF vai executá-lo o quanto antes possível.
 
 * * *
 
@@ -341,13 +341,13 @@ Obrigado pelo seu interesse! Você pode encontrar todos os detalhes na seção *
 
 ### Tenho apenas uma conta (principal) adicionada ao ASF, eu posso emitir comandos através do chat Steam?
 
-**Sim**, e isso é explicado na seção **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR#notas)comandos**. Você pode fazer isso através do chat em grupo do Steam.
+**Sim**, e isso é explicado na seção **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR#notas)comandos**. Você pode enviá-los através do chat em grupo do Steam, embora usar o **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** seja a maneira mais fácil.
 
 * * *
 
 ### O ASF parece estar funcionando, mas eu não estou conseguindo cartas!
 
-A taxa de coleta de cartas difere de um jogo para outro, como você pode ler em **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Demora um pouco, geralmente **várias horas por jogo**, e você não deve esperar que as cartas apareçam em seu inventário apenas alguns minutos após inciar o programa. Se você ver que o ASF checa ativamente o estado das cartas e troca de jogo após o atual ser totalmente explorado, então tudo está correto; você provavelmente deve estar se referindo as notificações do seu inventário que são dispensadas automaticamente pelo ASF através de `DismissInventoryNotifications` do parâmetro de configuração do bot `BotBehaviour`. Visite a seção **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para mais informações.
+A taxa de coleta de cartas difere de um jogo para outro, como você pode ler em **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Demora um pouco, geralmente **várias horas por jogo**, e você não deve esperar que as cartas apareçam em seu inventário apenas alguns minutos após inciar o programa. Se você notar que o ASF analisa o estado das cartas ativamente e troca de jogo quando o atual estiver totalmente coletado, então tudo está funcionando bem. É possível que você tenha habilitado alguma opção tal como `DismissInventoryNotifications` em `BotBehaviour` que dispensa automaticamente as nitificações de inventário. Visite a seção **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para mais informações.
 
 * * *
 
@@ -359,13 +359,19 @@ Simplesmente feche o processo ASF, por exemplo, clicando em [X] no Window. Se ao
 
 ### Quantos bots posso rodar com o ASF?
 
-O ASF em si não tem qualquer limite máximo de contas bot, no entanto você será limitado pela rede Steam. Atualmente você pode rodar cerca de 100 a 110 bots por IP e por instância do ASF. É possível executar mais bots com mais IPs e mais instâncias do ASF. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar o número deles por sua conta (por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo). Também note que o limite acima em geral depende de muitos fatores internos - ele é uma aproximação e não um limite estrito - você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
+O ASF em si não tem qualquer limite máximo de contas bot, no entanto você será limitado pela rede Steam e pelo Steam web. Atualmente você pode rodar até **100 bots** por IP e por instância do ASF. É possível executar mais bots com mais IPs e mais instâncias do ASF. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
+
+A equipe do ASF sugere a execução de até **10 bots** ao mesmo tempo, qualquer coisa acima disso é por seu próprio risco.
 
 * * *
 
 ### Então eu posso rodar mais instâncias do ASF?
 
-Você pode executar quantas instâncias do ASF você quiser em um computador, assumindo que cada instância tenha sua própria pasta e suas próprias configurações, e que uma conta usada em uma instância não seja usada em outra. No entanto, pergunte-se por que você quer fazer isso. O ASF é otimizado para lidar com uma dúzia, ou até mesmo uma centena de contas ao mesmo tempo, e iniciar essas dúzias de bots em suas próprias instâncias do ASF afeta o desempenho, toma mais recursos do SO e cria uma falta de sincronização entre os bots; assim, por exemplo você é mais susceptível de atingir os limites `InvalidPassword/RateLimitExceeded` descritos abaixo, uma vez que os os registo de pedidos não estão sendo sincronizados entre instâncias ASF. Portanto, eu **sugiro fortemente** sempre executar o máximo de uma instância ASF por IP/interface. Se você tiver mais IPs/interfaces, você pode livremente executar mais instâncias do ASF, cada instância usando seu próprio IP/interface. Caso contrário, executar mais instâncias do ASF é totalmente inútil, e não faz nada além de diminuir a performance e tomar mais recursos do SO (como memória), e também causa falta de sincronização e aumenta a chance de causar problemas. Você não ganha nada em executar mais que 1 instância por IP/interface.
+Você pode executar quantas instâncias do ASF você quiser em um computador, assumindo que cada instância tenha sua própria pasta e suas próprias configurações, e que uma conta usada em uma instância não seja usada em outra. No entanto, pergunte-se por que você quer fazer isso. O ASF é otimizado para lidar com uma dúzia, ou até mesmo uma centena de contas ao mesmo tempo, e iniciar essas dúzias de bots em suas próprias instâncias do ASF afeta o desempenho, toma mais recursos do SO e cria uma falta de sincronização entre os bots; assim, por exemplo você é mais susceptível de atingir os limites `InvalidPassword/RateLimitExceeded` descritos abaixo, uma vez que os os registo de pedidos não estão sendo sincronizados entre instâncias ASF.
+
+Portanto, eu **sugiro fortemente** sempre executar o máximo de uma instância ASF por IP/interface. Se você tiver mais IPs/interfaces, você pode livremente executar mais instâncias do ASF, cada instância usando seu próprio IP/interface. Caso contrário, executar mais instâncias do ASF é totalmente inútil, e não faz nada além de diminuir a performance e tomar mais recursos do SO (como memória), e também causa falta de sincronização e aumenta a chance de causar problemas.
+
+Você não ganha nada em executar mais que 1 instância por IP/interface. O Steam não vai permitir magicamente permitir que você execute mais bots só porque você abriu outra instância do ASF.
 
 * * *
 
@@ -432,7 +438,7 @@ A regra geral do ASF é que avisos **não** são erros, portanto eles **não** d
 
 Erros, por outro lado, indicam uma situação que não deveria acontecer, porém eles devem ser relatados se você se certificou de que não é você quem os está causando. Se é uma situação comum e que esperamos que aconteça, então ele será convertido em um aviso. Caso contrário, possivelmente é um erro que deve ser corrigido e não ignorado em silêncio, supondo que não seja resultado de problema técnico seu. Por exemplo, colocar conteúdo inválido no arquivo `ASF.json` acarretará um erro já que o ASF não vai conseguir processá-lo, mas como foi você quem o editou, você não deve nos reportar esse erro (a menos que você tenha confirmado que o ASF está errado e que a estrutura está absolutamente certa).
 
-Em suma - informe erros, não informe avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
+Em suma - reporte erros, não reporte avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
 
 * * *
 
@@ -462,9 +468,9 @@ O ASF pode apenas **tentar** se conectar aos servidores Steam e pode falhar por 
 
 O ASF fará o seu melhor para se conectar, que inclui não só pedir uma lista atualizada de servidores, mas também tentar outro IP quando o último falhar, então se realmente for um problema temporário com um servidor ou rota específica, o ASF vai se conectar mais cedo ou mais tarde. No entanto, se você está atrás de um firewall ou impossibilitado de alguma forma de alcançar os servidores Steam, então obviamente você precisa consertar o problema por sua conta, com a potencial ajuda do modo modo de depuração - `Debug`.
 
-Também é possível que seu computador não seja capaz de estabelecer conexão com servidores Steam usando o protocolo padrão do ASF. Você pode alterar protocolos que ASF tem permissão de usar modificando o parâmetro `SteamProtocols` na configuração global. Por exemplo, se você está tendo problemas em alcançar os servidores Steam com o protocolo `TCP`, você pode tentar o `UDP` ou `WebSocket`.
+Também é possível que seu computador não seja capaz de estabelecer conexão com servidores Steam usando o protocolo padrão do ASF. Você pode alterar protocolos que ASF tem permissão de usar modificando o parâmetro `SteamProtocols` na configuração global. Por exemplo, se você está tendo problemas em alcançar os servidores Steam com o protocolo `UDP` (por exemplo, devido a firewalls), talvez você tenha mais sorte com `TCP` ou `WebSocket`.
 
-No caso improvável de você ter armazenado em cache os endereços incorretos dos servidores, por exemplo, por ter movido a pasta `config` do ASF de um computador para outro que esteja localizado em outro país, deletar o arquivo `ASF.db` a fim de atualizar a lista de servidores na próxima execução do programa pode ajudar. Na maioria das vezes isso não é necessário e não deve ser feito, já que essa lista é atualizada automaticamente na primeira inicialização, bem como quando a conexão é estabelecida.
+No caso improvável de você ter armazenado em cache os endereços incorretos dos servidores, por exemplo, por ter movido a pasta `config` do ASF de um computador para outro que esteja localizado em outro país, deletar o arquivo `ASF.db` a fim de atualizar a lista de servidores na próxima execução do programa pode ajudar. Na maioria das vezes isso não é necessário e não precisa ser feito, já que essa lista é atualizada automaticamente quando o programa é executado, assim como quando a conexão é estabelecida; mencionamos isso aqui apenas para mostrar uma forma de se eliminar qualquer coisa relacionada à lista de servidores Steam armazenada pelo ASF.
 
 * * *
 
@@ -476,23 +482,27 @@ Outras razões podem incluir um problema temporário do Steam, um problema de re
 
 * * *
 
-### O ASF está falhando com o erro: `Falha na solicitação mesmo após 5 tentativas`!
+### O ASF está falhando com o erro: `Falha na solicitação após 5 tentativas`!
 
 Normalmente isso significa que você está usando o PIN do modo familia para acessar sua conta e esqueceu de colocá-lo na configuração do ASF. Voce deve colocar um PIN válido no parâmetro de configuração do bot `SteamParentalCode`, caso contrário o ASF não conseguirá acessar a maioria do conteúdo web, por isso não conseguirá trabalhar corretamente. Vá até **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para saber mais sobre o `SteamParentalCode`.
 
-Se PIN do modo família não é a razão, então este é um erro mais comum e você deve se acostumar com isso; significa simplesmente que o ASF enviou uma solicitação para a rede Steam e não recebeu uma resposta válida, mesmo após 4 tentativas. Normalmente, isso significa que a Steam caiu, está tendo algumas dificuldades ou está em manutenção; o ASF está ciente de tais problemas e você não deve se preocupar com eles, a menos que aconteçam constantemente e por mais que algumas horas, e que outros usuários não estejam tendo esses problemas.
+Se PIN do modo família não for o motivo, então este é um erro mais comum e você deve se acostumar com isso, significa simplesmente que o ASF enviou uma solicitação para a rede Steam e não recebeu uma resposta válida 5 vezes seguidas. Normalmente, isso significa que a Steam caiu, está tendo algumas dificuldades ou está em manutenção; o ASF está ciente de tais problemas e você não deve se preocupar com eles, a menos que aconteçam constantemente e por mais que algumas horas, e que outros usuários não estejam tendo esses problemas.
 
 Como verificar se o Steam caiu? **[Steam Status](https://steamstat.us)** é uma excelente fonte para verificar se o Steam **deveria estar online**, se você notar erros, especialmente relacionados com a Comunidade ou o API Web, então o Steam está tendo problemas, então você pode deixar o ASF fazer seu trabalho sozinho depois de um tempo, ou esperar.
 
-No entanto esse nem sempre é o caso, pois em alguns casos os problemas com o Steam podem não ser detectados pelo Steam Status, um exemplo disso foi quando a Valve quebrou o suporte HTTPS para a Comunidade Steam em 7 de junho de 2016 - acessar**[Comunidade Steam](https://steamcommunity.com)** com o https retornava um erro. Portanto, não confie cegamente no Steam Status também, é melhor você mesmo verificar se tudo funciona como deveria.
+No entanto esse nem sempre é o caso, pois em algumas situações os problemas com o Steam podem não ser detectados pelo Steam Status, um exemplo disso foi quando a Valve quebrou o suporte HTTPS para a Comunidade Steam em 7 de junho de 2016, nesta data acessar a **[Comunidade Steam](https://steamcommunity.com)** com o https retornava um erro. Portanto, não confie cegamente no Steam Status também, é melhor você mesmo verificar se tudo funciona como deveria.
 
-Por último, se nada ajudar, você sempre pode habilitar o modo `Debug` e ver no registro do ASF porque exatamente as solicitações estão falhando. Por exemplo, o problema de HTTPS mencionado acima causava:
+Além disso, a rede Steam inclui várias medidas para limitar o envio de requisições que vão banir temporariamente seu IP caso você faça muitas solicitações de uma vez. O ASF está a par disso e oferece vários limitadores diferentes nas configurações, os quais você deve usar. As configurações padrão se baseiam em uma quantidade **sensata** de bots, se você estiver usando tantos bots que até mesmo o Steam está te desconectando você deve ajustá-los até que que ele pare ou fazer o que dissemos. Presumimos que a segunda opção não lhe serve, então vá até o tópico de configuração e preste atenção especialmente em `WebLimiterDelay` que é um limitador geral aplicado a todas as solicitações de rede.
 
-    <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>
-    An error occurred while processing your request.<p>
+Não há nenhuma "regra de ouro" que funcione para todo mundo, porque os bloqueios são fortemente influenciados por fatores de terceiros, é por isso que você tem que experimentar por conta e encontrar um valor que funcione para você. Você também pode ignorar o que eu disse e usar algo como `10000` e é certo que tudo funcionará, mas depois não reclame que seu ASF leva 10 segundos para reagir a tudo e que a análise da página de insígnias demora 5 minutos. Além disso, é inteiramente possível que nenhum limitador traga resultado se você tem uma quantidade tão grande de bots que você esteja atingindo o **[limite máximo](#quantos-bots-posso-rodar-com-o-asf)** que foi mencionado acima. Sim, é inteiramente possível que você consiga se conectar sem problemas na rede Steam, mas o Steam web vai se recusar a te ouvir se você tiver 100 sessões rodando ao mesmo tempo. O ASF necessita que tanto a rede Steam quanto o Steam web sejam cooperativos, basta que um caia para que você não consiga mais recuperar de um problema.
+
+Se nada ajudar e você não tiver idéia do que possa estar errado, você pode habilitar o modo `Debug` e ver no registro do ASF porque exatamente as solicitações estão falhando. Por exemplo:
+
+    InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
+    InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
     
 
-O que é claramente um problema do Steam e nada a ser corrigido no ASF. Você sempre pode tentar visitar o link mencionado pelo ASF e verificar se ele funciona; se não funcionar, então você sabe por que o ASF também não pode acessá-lo. Se funcionar e o erro não desaparecer depois de um dia ou dois, valeria a pena investigar e reportar.
+Vê esse código `Forbidden` (`Proibido`)? Isso significa que você foi banido temporariamente por excesso de solicitações, porque você ainda não configurou o `WebLimiterDelay` corretamente (assumindo que você obteve o mesmo código de erro para todas as outras solicitações). Pode haver também outros motivos listados aqui, tais como `InternalServerError` e `ServiceUnavailable` e limites de tempo excedidos que indicam manutenção/problemas no Steam. Você sempre pode tentar visitar o link mencionado pelo ASF e verificar se ele funciona; se não funcionar, então você sabe por que o ASF também não pode acessá-lo. Se funcionar e o mesmo erro não desaparecer depois de um dia ou dois, valeria a pena investigar e reportar.
 
 Antes de fazer isso você deve **certificar-se de que vale a pena relatar o erro**. Se ele estiver mencionado nesse FAQ, uma questão relacionada a troca por exemplo, então não. Se for problema temporário que aconteceu uma ou duas vezes, principalmente quando sua rede estava instável ou o Steam offline - então, não. No entanto, se você teve esse problema várias vezes seguidas no espaço de 2 dias, reiniciou tanto ASF quanto seu computador e certificou-se que não há nenhuma resposta pra ele no FAQ, então vale a pena pedir suporte.
 
@@ -504,15 +514,15 @@ Você provavelmente está usando o Windows e seu console está com modo de ediç
 
 * * *
 
-### O ASF não pode aceita ou envia trocas!
+### O ASF não consegue aceitar ou enviar trocas!
 
-O óbvio primeiro: novas contas são limitadas. Até que você desbloqueie a conta colocando pelo menos $5 na sua carteira Steam ou gastando esse valor na loja, o ASF não pode aceitar nem enviar trocas usando essa conta. Neste caso, o ASF indicará que esse inventário parece vazio, porque todas as cartas nele não são trocáveis. Também não será possível receber qualquer troca, já que para isso o ASF precisa ser capaz de obter uma chave de API e esse recurso é desabilitado em contas limitadas. Resumindo, trocas estão fora de questão para contas limitadas, sem exceções.
+O óbvio primeiro: novas contas são limitadas. Até que você desbloqueie a conta colocando pelo menos $5 (dólares) na sua carteira Steam ou gastando esse valor na loja, o ASF não pode aceitar nem enviar trocas usando essa conta. Neste caso, o ASF indicará que esse inventário parece vazio, porque todas as cartas nele não são trocáveis. Também não será possível receber qualquer troca, já que para isso o ASF precisa ser capaz de obter uma chave de API e esse recurso é desabilitado em contas limitadas. Resumindo, trocas estão fora de questão para contas limitadas, sem exceções.
 
-Depois, se você não usa o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**, é possível que o ASF tenha aceitado/enviado a troca, mas você precisa confirmar ela através de seu e-mail. Do mesmo jeito, se você usa o 2FA padrão, você precisa confirmar a troca pelo autenticador. As confirmações são **obrigatórias**, então se você não quer aceitá-las manualmente, considere adicionar ou importar seu autenticador para o ASF 2FA.
+Depois, se você não usa o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**, é possível que o ASF tenha aceitado/enviado a troca, mas você precisa confirmar ela através de seu e-mail. Do mesmo jeito, se você usa o 2FA padrão, você precisa confirmar a troca pelo autenticador. As confirmações são **obrigatórias**, então se você não quer aceitá-las manualmente, considere importar seu autenticador para o ASF 2FA.
 
 Observe também que você só pode trocar com seus amigos e pessoas que tenham seu link de troca. Se você está tentando fazer troca de um bot para a conta master, tal como `loot`, então você precisa ter seu bot na sua lista de amigos, ou seu `SteamTradeToken` declarado na configuração do bot. Certifique-se de que o token é válido, caso contrário, você não será capaz de enviar uma troca.
 
-Por último, lembre-se que novos dispositivos tem um bloqueio de trocas de 7 dias, então se você acabou de adicionar sua conta ao ASF, espere pelo menos esses 7 dias - tudo deve funcionar corretamente após esse período. Essa limitação inclui **tanto** aceitar **quanto** enviar trocas. Nem sempre ele funciona e há pessoas que conseguem enviar e aceitar trocas instantaneamente. No entanto a maioria das pessoas são afetadas e o bloqueio **vai** acontecer, mesmo que você consiga enviar e aceitar trocas através de seu cliente Steam no mesmo computador. Tenha paciencia, não há nada que você possa fazer para acelerar isso.
+Por último, lembre-se que novos dispositivos tem um bloqueio de trocas de 7 dias, então se você acabou de adicionar sua conta ao ASF, espere pelo menos esses 7 dias - tudo deve funcionar corretamente após esse período. Essa limitação inclui **tanto** aceitar **quanto** enviar trocas. Nem sempre ele funciona e há pessoas que conseguem enviar e aceitar trocas instantaneamente. No entanto a maioria das pessoas são afetadas e o bloqueio **vai** acontecer, mesmo que você consiga enviar e aceitar trocas através de seu cliente Steam no mesmo computador. Tenha paciencia, não há nada que você possa fazer para acelerar isso. Da mesma forma, você pode ser bloqueado por remover/mudar várias configurações do Steam relacionados à segurança, tal como o 2FA, senha, e-mail e afins. Em geral, verifique se você pode enviar uma troca dessa conta manualmente, caso positivo é provavelmente o bloqueio clássico de 7 dias por conta de um novo dispositivo.
 
 E finalmente, tenha em mente que uma conta pode ter apenas 5 trocas pendentes para outra, então o ASF vai falhar ao enviar trocas se você tem 5 (ou mais) pendentes naquele bot para serem aceitas. Raramente isso é um problema, mas vale mencionar especialmente se você configurou o ASF para enviar trocas automaticamente sem usar o ASF 2FA e esqueceu de confirmá-las.
 
@@ -524,11 +534,11 @@ Em todo caso, o ASF pode apenas **tentar** enviar uma solicitação adequada par
 
 ### Por que tenho que colocar o código 2FA/SteamGuard em cada início de sessão? / `Chave de sessão expirada removida`
 
-O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me neste computador" marcada).
+O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me nesse computador" marcada).
 
 Você pode remover o arquivo `BotName.db` (e `BotName.bin`, se ele existir) da conta afetada e tentar vincular ASF a sua conta novamente, mas isso provavelmente não vai adiantar. A solução real baseada no ASF é importar seu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** - desta forma o ASF pode gerar tokens automaticamente quando eles forem necessários, e você não precisa colocá-los manualmente. Geralmente esse problema se resolve magicamente sozinho depois de algum tempo, então você pode simplesmente esperar. É claro, você também pode pedir uma solução pro GabeN, pois eu não posso forçar a rede Steam a aceitar nossas chaves de registro.
 
-Além disso você também pode desativar as chaves de sessão definindo o parâmetro `UseLoginKeys` no arquivo de configuração como `false`, mas você só deve fazer isso se o ASF tiver uma forma automatizada de iniciar a sessão inicial. No momento isso só é possível com `SteamPassword` e **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** válidos, já que assim não precisamos das chaves de sessão, já que temos as credenciais de início de sessão (senha e chave 2FA) disponíveis.
+Além disso você também pode desativar as chaves de sessão definindo o parâmetro `UseLoginKeys` no arquivo de configuração como `false`, mas isso não vai resolver o problema, vai apenas pular a falha inicial acerca das chaves de login. ASF já está ciente do problema explicado aqui e vai tentar o possível para não usar as credenciais de login se ele conseguir garantir ele mesmo as credenciais de login, então não há necessidade de configurar `UseLoginKeys` manualmente se você puder indicar todos os detalhes de login além de usar o ASF 2FA.
 
 * * *
 
@@ -557,7 +567,7 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 ### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
 
-Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando apesar de 5 tentativas. Informar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Reportar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
 
 * * *
 

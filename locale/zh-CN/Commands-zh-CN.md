@@ -8,15 +8,15 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 - 通过 Steam 群组聊天
 - 通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+请注意，与 ASF 交互需要您拥有执行相关命令的权限。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 配置文件属性了解更多。
 
-下面的所有命令都受 `CommandPrefix` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#commandprefix)**&#8203;影响，该属性的默认值为 `!`。 This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+下面的所有命令都受 `CommandPrefix` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#commandprefix)**&#8203;影响，该属性的默认值为 `!`。 这意味着，当您要执行 `status` 命令时，实际应该发送 `!status`（或者使用您自定义的 `CommandPrefix`）。
 
 * * *
 
 ### Steam 私人聊天
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
+与 ASF 交互的最简单方式——只需要向正在运行于 ASF 的机器人发送命令。 显然，如果您只在 ASF 中运行您自己的帐户，就无法使用这个方法。
 
 ![Screenshot](https://i.imgur.com/PPxx7qV.png)
 
@@ -24,7 +24,7 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 ### Steam 群组聊天
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
+与上述方法非常相似，但这次需要向指定 Steam 群组的聊天室发送消息。 请注意，此选项需要您正确设置 `SteamMasterClanID` 属性，使机器人同样监听（并加入）指定的群组聊天。 因为这种方法不需要额外的帐户，所以可以用来“与自己交谈”。 如果您有多个机器人，可能就不希望使用此方法。
 
 * * *
 
@@ -38,79 +38,79 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 ## 命令
 
-| 命令                                                                         | 权限              | 描述                                                                                                                                                                                                    |
-| -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                                         | `Master`        | 为指定机器人实例生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。                                                                         |
-| `2fano <Bots>`                                                       | `Master`        | 为指定机器人实例拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。                                                                   |
-| `2faok <Bots>`                                                       | `Master`        | 为指定机器人实例接受所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。                                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人实例激活给定的 `appID`（Steam Network）或 `subID`（Steam 商店），仅免费游戏有效。                                                                                                                                      |
-| `balance <Bots>`                                                     | `Master`        | 显示指定机器人实例的 Steam 钱包余额。                                                                                                                                                                                |
-| `bl <Bots>`                                                          | `Master`        | 列出指定机器人实例的交易黑名单用户。                                                                                                                                                                                    |
-| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 将给定的 `steamID` 加入指定机器人实例的交易黑名单。                                                                                                                                                                       |
-| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 将给定的 `steamID` 从指定机器人实例的交易黑名单中移除。                                                                                                                                                                     |
-| `exit`                                                                     | `Owner`         | 完全停止 ASF 进程。                                                                                                                                                                                          |
-| `farm <Bots>`                                                        | `Master`        | 重新启动指定机器人实例的挂卡模块。                                                                                                                                                                                     |
-| `help`                                                                     | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                                                                                       |
-| `input <Bots> <Type> <Value>`                            | `Master`        | 为指定机器人实例填写给定的输入值，仅在 `Headless` 模式中可用——详见&#8203;**[下文的解释](#input-命令)**。                                                                                                                                |
-| `ib <Bots>`                                                          | `Master`        | 列出指定机器人实例的自动挂卡黑名单。                                                                                                                                                                                    |
-| `ibadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appID` 加入指定机器人实例的自动挂卡黑名单。                                                                                                                                                                       |
-| `ibrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appID` 从指定机器人实例的自动挂卡黑名单中移除。                                                                                                                                                                     |
-| `iq <Bots>`                                                          | `Master`        | 列出指定机器人实例的优先挂卡队列。                                                                                                                                                                                     |
-| `iqadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appID` 加入指定机器人实例的优先挂卡队列。                                                                                                                                                                        |
-| `iqrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appID` 从指定机器人实例的优先挂卡队列中移除。                                                                                                                                                                      |
-| `level <Bots>`                                                       | `Master`        | 显示指定机器人实例的 Steam 帐户等级。                                                                                                                                                                                |
-| `loot <Bots>`                                                        | `Master`        | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                               |
-| `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).   |
-| `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                       |
-| `nickname <Bots> <Nickname>`                                   | `Master`        | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                    |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.                                         |
-| `password <Bots>`                                                    | `Master`        | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                      |
-| `pause <Bots>`                                                       | `Operator`      | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.      |
-| `pause~ <Bots>`                                                      | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it. |
-| `pause& <Bots> <Seconds>`                                  | `Operator`      | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                   |
-| `play <Bots> <AppIDs,GameName>`                                | `Master`        | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.                                 |
-| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人实例的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见**[下文](#privacy-设置)**。                                                                                                  |
-| `redeem <Bots> <Keys>`                                         | `Operator`      | 为指定机器人实例激活给定的游戏序列号 `CD-Keys`。                                                                                                                                                                         |
-| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人实例激活给定的游戏序列号 `CD-Keys`，模式详见下文的**[解释](#redeem-模式)**。                                                                                                                                 |
-| `rejoinchat <Bots>`                                                  | `Operator`      | 强制指定机器人实例重新加入 `SteamMasterClanID` 设置的群组聊天。                                                                                                                                                            |
-| `restart`                                                                  | `Owner`         | 重新启动 ASF 进程。                                                                                                                                                                                          |
-| `resume <Bots>`                                                      | `FamilySharing` | 恢复指定机器人实例的自动挂卡进程。 参见 `pause` 和 `play`。                                                                                                                                                                |
-| `start <Bots>`                                                       | `Master`        | 启动指定机器人实例。                                                                                                                                                                                            |
-| `stats`                                                                    | `Owner`         | 显示进程统计信息，例如托管内存用量。                                                                                                                                                                                    |
-| `status <Bots>`                                                      | `FamilySharing` | 显示指定机器人实例的状态。                                                                                                                                                                                         |
-| `stop <Bots>`                                                        | `Master`        | 停止指定机器人实例。                                                                                                                                                                                            |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot.                                                                                                           |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.                                                                               |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
-| `unpack <Bots>`                                                      | `Master`        | 拆开指定机器人实例库存中的所有补充包。                                                                                                                                                                                   |
-| `update`                                                                   | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                                                                                      |
-| `version`                                                                  | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                                                                                          |
+| 命令                                                                         | 权限              | 描述                                                                                                                                |
+| -------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `2fa <Bots>`                                                         | `Master`        | 为指定机器人生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。       |
+| `2fano <Bots>`                                                       | `Master`        | 为指定机器人拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
+| `2faok <Bots>`                                                       | `Master`        | 为指定机器人接受所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
+| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人激活给定的 `appIDs`（Steam Network）或 `subIDs`（Steam 商店），仅免费游戏有效。                                                                  |
+| `balance <Bots>`                                                     | `Master`        | 显示指定机器人的 Steam 钱包余额。                                                                                                              |
+| `bl <Bots>`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                  |
+| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 将给定的 `steamIDs` 加入指定机器人的交易黑名单。                                                                                                    |
+| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 将给定的 `steamIDs` 从指定机器人的交易黑名单中移除。                                                                                                  |
+| `exit`                                                                     | `Owner`         | 完全停止 ASF 进程。                                                                                                                      |
+| `farm <Bots>`                                                        | `Master`        | 重新启动指定机器人的挂卡模块。                                                                                                                   |
+| `help`                                                                     | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                   |
+| `input <Bots> <Type> <Value>`                            | `Master`        | 为指定机器人填写给定的输入值，仅在 `Headless` 模式中可用——详见&#8203;**[下文的解释](#input-命令)**。                                                              |
+| `ib <Bots>`                                                          | `Master`        | 列出指定机器人的自动挂卡黑名单。                                                                                                                  |
+| `ibadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appIDs` 加入指定机器人的自动挂卡黑名单。                                                                                                    |
+| `ibrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appIDs` 从指定机器人的自动挂卡黑名单中移除。                                                                                                  |
+| `iq <Bots>`                                                          | `Master`        | 列出指定机器人的优先挂卡队列。                                                                                                                   |
+| `iqadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appIDs` 加入指定机器人的优先挂卡队列。                                                                                                     |
+| `iqrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appIDs` 从指定机器人的优先挂卡队列中移除。                                                                                                   |
+| `level <Bots>`                                                       | `Master`        | 显示指定机器人的 Steam 帐户等级。                                                                                                              |
+| `loot <Bots>`                                                        | `Master`        | 将指定机器人的所有 `LootableTypes` 社区物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                |
+| `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。             |
+| `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
+| `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `nickname`。                                                                                                          |
+| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `appIDs` 和/或 `gameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
+| `password <Bots>`                                                    | `Master`        | 显示指定机器人的加密后密码（配合 `PasswordFormat` 使用）。                                                                                            |
+| `pause <Bots>`                                                       | `Operator`      | 永久暂停指定机器人的自动挂卡模块。 ASF 在本次会话中将不会再尝试对此帐户进行挂卡，除非您手动 `resume` 或者重启 ASF。                                                               |
+| `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
+| `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
+| `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切换到手动挂卡——使指定机器人运行给定的 `AppIDs`，并且可选自定义 `GameName` 为游戏名称。 使用 `resume` 以返回自动挂卡模式。                                                    |
+| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见**[下文](#privacy-设置)**。                                |
+| `redeem <Bots> <Keys>`                                         | `Operator`      | 为指定机器人激活给定的游戏序列号 `CD-Keys`。                                                                                                       |
+| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人激活给定的游戏序列号 `CD-Keys`，模式详见下文的**[解释](#redeem-模式)**。                                                               |
+| `rejoinchat <Bots>`                                                  | `Operator`      | 强制指定机器人重新加入 `SteamMasterClanID` 设置的群组聊天。                                                                                          |
+| `restart`                                                                  | `Owner`         | 重新启动 ASF 进程。                                                                                                                      |
+| `resume <Bots>`                                                      | `FamilySharing` | 恢复指定机器人的自动挂卡进程。 参见 `pause` 和 `play`。                                                                                              |
+| `start <Bots>`                                                       | `Master`        | 启动指定机器人。                                                                                                                          |
+| `stats`                                                                    | `Owner`         | 显示进程统计信息，例如托管内存用量。                                                                                                                |
+| `status <Bots>`                                                      | `FamilySharing` | 显示指定机器人的状态。                                                                                                                       |
+| `stop <Bots>`                                                        | `Master`        | 停止指定机器人。                                                                                                                          |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品发送到目标机器人。                                                                                       |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品发送到目标机器人。                                                                    |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品发送到目标机器人。                                                                                |
+| `unpack <Bots>`                                                      | `Master`        | 拆开指定机器人库存中的所有补充包。                                                                                                                 |
+| `update`                                                                   | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                  |
+| `version`                                                                  | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                      |
 
 * * *
 
 ### 备注
 
-All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+所有的命令都不区分大小写，但它们的参数（例如机器人名称）通常是区分大小写的。
 
-`<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
+`<Bots>` 参数对所有命令都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令。
 
-**Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
+命令的**权限**定义了需要执行此命令所需的**最低**权限，即 `SteamUserPermissions` 中定义的 `EPermission`，例外情况是 `Owner` 指全局配置文件中定义的 `SteamOwnerID` 用户（拥有最高权限）。
 
-Plural arguments, such as `<Bots>`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `status <Bots>` can be used as `status MyBot,MyOtherBot,Primary`. This will cause given command to be executed on **all target bots** in the same way as you'd send `status` to each bot in a separate chat window. Please note that there is no space after `,`.
+复数参数，例如 `<Bots>`、`<Keys>` 或 `<AppIDs>`，意味着该参数支持接受多个由逗号分隔的值。 例如，`status <Bots>` 命令支持 `status MyBot,MyOtherBot,Primary` 形式的用法。 这样，该命令会在**所有目标机器人**上执行，效果与分别向所有机器人发送 `status` 命令是相同的。 需要注意的是逗号 `,` 后面不能有空格。
 
-ASF uses all whitespace characters as possible delimiters for a command, such as space and newline characters. This means that you don't have to use space for delimiting your arguments, you can as well use any other whitespace character (such as tab or new line).
+ASF 使用所有空白字符作为命令的分隔符，例如空格和换行符。 这意味着您不仅可以使用空格来分隔参数，还可以使用任何其他空白字符（如制表符和换行符）。
 
-ASF will "join" extra out-of-range arguments to plural type of the last in-range argument. This means that `redeem bot key1 key2 key3` for `redeem <Bots> <Keys>` will work exactly the same as `redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter. Keep in mind that this trick can be used only for command variant that uses the most amount of arguments (so specifying `<Bots>` is mandatory in this case).
+ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规定的最后一个复数参数上。 这意味着，对于 `redeem <Bots> <Keys>` 命令，`redeem bot key1 key2 key3` 与 `redeem bot key1,key2,key3` 的作用是相同的。 再加上您可以使用换行符作为命令分隔符，这样您就可以先写 `redeem bot`，然后在其后粘贴一个游戏序列号列表，其中每一项可以由任意空白字符（例如换行符）或者 ASF 标准的逗号 `,` 分隔。 请注意，要使用这一技巧，您必须采用参数最多的命令形式（所以在这种情况下，您必须指定 `<Bots>` 参数）。
 
-As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
+如上所述，空白字符被用于分隔命令参数，所以参数内部无法再使用空白字符。 但同样如上所述，ASF 可以连接超出范围的参数，这意味着您可以在命令的最后一个参数中使用空白字符。 例如，`nickname bob Great Bob` 命令能够正确地将机器人 `bob` 的昵称更改为“Great Bob”。 类似地，您也可以使用 `owns` 命令检查含有空格的名称。
 
-Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+请注意，向群组聊天发送命令类似于一个中继器——如果您向一个含有 3 个机器人的群组聊天室发送 `redeem X` 命令，其效果等价于分别在私聊中向每个机器人发送 `redeem X`。 在大多数情况下，**这不是您想要的效果**，您应该像之前**与单个机器人私聊时**一样，使用指定机器人名称的命令形式。 ASF 支持群组聊天，是因为在很多情况下它是一种有用的通信方式，但如果您的群组中有多个 ASF 机器人，就最好不要在这里执行命令，除非您完全理解 ASF 的相关行为，并且您确实想要让所有的机器人执行相同的命令。
 
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+*但即使是在这种情况下，您也应该用私人聊天代替，并在命令中指定机器人 `<Bots>`。*
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+一些命令有较短的别名可用，用来减少键入的次数：
 
 | 命令           | 别名   |
 | ------------ | ---- |
@@ -121,27 +121,27 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
+通过 Steam 聊天执行命令不需要任何额外的帐户——您可以创建一个群组，将 `SteamMasterClanID` 属性设置为这个新群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。 另外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**，但聊天室的方法更简单，并且如果您有多个帐户，这种方法就更简单了。
 
 * * *
 
 ### `<Bots>` 参数
 
-`<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
+`<Bots>` 是复数参数的一个特殊变体，它除了接受多个值以外，还有额外的功能。
 
-First and foremost, there is a special `ASF` keyword which acts as "all bots in the process", so `status ASF` command is equal to `status all,your,bots,listed,here`. This can also be used to easily identify the bots that you have access to, as `ASF` keyword, despite of targeting all bots, will result in response only from those bots that you can actually send the command to.
+首先，您可以使用特殊的关键字 `ASF` 来表示“所有机器人”，所以 `status ASF` 命令与列出所有机器人的命令 `status all,your,bots,listed,here` 是相同的。 这也可以方便地识别您可以访问哪些机器人，因为尽管 `ASF` 关键字的目标是所有机器人，但只有您能够实际发送命令的机器人才会作出响应。
 
-`<Bots>` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `<Bots>` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
+`<Bots>` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`<Bots>` 的一般语法为 `firstBot..lastBot`。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `firstBot` 和 `lastBot` 必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
 
-In addition to range syntax above, `<Bots>` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
+除了上述的范围语法，`<Bots>` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
 
 * * *
 
 ## `privacy` 设置
 
-`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+`<Settings>` 参数接受**最多 7 个**不同的选项，像平常一样使用 ASF 标准的逗号分隔。 这些选项分别是：
 
-| 参数 | 名称                   | 属于         |
+| 参数 | 名称                   | 从属于        |
 | -- | -------------------- | ---------- |
 | 1  | Profile（个人资料）        |            |
 | 2  | OwnedGames（游戏详情）     | Profile    |
@@ -151,9 +151,9 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 | 6  | InventoryGifts（库存礼物） | Inventory  |
 | 7  | Comments（留言）         | Profile    |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+关于上述选项的说明，请访问 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**。
 
-While valid values for all of them are:
+每个选项的有效值可以是：
 
 | 值 | 名称                  |
 | - | ------------------- |
@@ -161,55 +161,55 @@ While valid values for all of them are:
 | 2 | `FriendsOnly（仅限好友）` |
 | 3 | `Public（公开）`        |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+您可以使用它们的名称（不区分大小写）或者数字值。 被省略的参数将会被设置为默认值 `Private`。 上述参数的从属关系是非常重要的，因为子选项无法拥有比父选项更高的权限。 例如，如果您将个人资料设置为 `Private`，就**无法**再将游戏详情设置为 `Public`。
 
 ### 范例
 
-If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+如果您希望将机器人 `Main` 的**所有**隐私设置都设置为 `Private`，可以使用以下任一命令：
 
     privacy Main 1
     privacy Main Private
     
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+这是因为 ASF 会默认所有选项为 `Private`，所以您不需要全部写出它们。 另一方面，如果您希望设置所有选项为 `Public`，可以使用以下任一命令：
 
     privacy Main 3,3,3,3,3,3,3
     privacy Main Public,Public,Public,Public,Public,Public,Public
     
 
-This way you can also set independent options however you like:
+也可以为每个选项设置不同的值：
 
     privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+该命令将会设置个人资料为公开、游戏详情为仅限好友、游戏时间为私密、好友列表为公开、库存为公开、库存礼物为私密、留言为公开。 如果您改用数字值，效果是一样的。
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+请记住子选项的权限无法比父选项更高。 您可以参考上述选项的从属关系。
 
 * * *
 
 ## `redeem^` 模式
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. 此命令会临时覆盖 `RedeemingPreferences` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。
+`redeem^` 命令使您能够单独调整某个激活场景下采取的激活模式。 此命令会临时覆盖 `RedeemingPreferences` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+`<Modes>` 接受由逗号分隔的多个模式代码。 可用的模式代码有：
 
-| 值    | 名称                    | 描述                                                                    |
-| ---- | --------------------- | --------------------------------------------------------------------- |
-| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| 值    | 名称                    | 描述                             |
+| ---- | --------------------- | ------------------------------ |
+| FD   | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置     |
+| FF   | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置       |
+| FKMG | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置 |
+| SD   | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置     |
+| SF   | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置       |
+| SI   | SkipInitial           | 跳过首个机器人的激活过程                   |
+| SKMG | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置 |
+| V    | Validate              | 检查序列号的格式，自动跳过其中无效的             |
 
-For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
+例如，我么打算为尚未拥有游戏的机器人激活 3 个序列号，但不包括 `primary` 机器人。 为此我们需要执行命令：
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
+需要注意的是，只有您**在命令中指定的**模式才会替换 `RedeemingPreferences` 中的选项。 例如，如果您在 `RedeemingPreferences` 中启用了 `Distributing`，那么无论您是否指定 `FD` 模式，Distributing 都会生效，因为您已经在 `RedeemingPreferences` 中启用了它。 这也是为何我们针对同一种模式有启用和禁用两种选项，您可以用强制启用代码来覆盖已禁用的模式，反之亦然。
 
 * * *
 
@@ -217,31 +217,31 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 Input 命令仅可用于 `Headless` 模式，用来在 ASF 无法接受用户输入的情况下，通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 或者 Steam 聊天输入一些数据。
 
-General syntax is `input <Bots> <Type> <Value>`.
+基本的语法是 `input <Bots> <Type> <Value>`。
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+`<Type>` 不区分大小写，定义 ASF 接受的输入类型。 目前 ASF 支持以下类型：
 
-| 类型                      | 描述                                                                         |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| 类型                      | 描述                                         |
+| ----------------------- | ------------------------------------------ |
+| DeviceID                | 2FA 设备 ID，在 `.maFile` 缺少这个值时使用。            |
+| Login                   | `SteamLogin` 机器人配置属性，在配置文件缺少这个值时使用。        |
+| Password                | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |
+| SteamGuard              | 通过电子邮件发送的验证码，在您未启用 2FA 时使用。                |
+| SteamParentalCode       | `SteamParentalCode` 机器人配置属性，在配置文件缺少这个值时使用。 |
+| TwoFactorAuthentication | 手机生成的 2FA 令牌，在您启用 2FA 但未启用 ASF 2FA 时使用。    |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` 是要为指定类型设置的值。 目前所有的值都是字符串。
 
 ### 示例
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+假设我们有一个机器人，未启用 2FA，仅由 Steam 电子邮件令牌保护。 我们希望在 `Headless` 模式下启动这个机器人。
 
-In order to do that, we need to execute following commands:
+为此，我们需要执行以下命令：
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
+`start MySteamGuardBot` -> 机器人会尝试登录，但因为缺少验证码而登录失败，然后因为 ASF 处于 `Headless` 模式，机器人会停止运行。 我们做这一步的目的是让 Steam 网络向我们发送验证码电子邮件——否则我们就可以跳过这一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> 我们将 `MySteamGuardBot` 机器人的 `SteamGuard` 输入设置为 `ABCDE`。 当然，这里的 `ABCDE` 需要换成我们在电子邮件中找到的验证码。
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> 我们重新启动已停止的机器人，这一次会自动使用我们在上一步中设置的验证码，登录将会成功，并且之前的验证码输入会被清除。
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+如果您的机器人启用了 2FA，但是没有导入 ASF 2FA，您可以用相同的方式操作这种机器人，只需要在运行时设置其他所需的属性即可。

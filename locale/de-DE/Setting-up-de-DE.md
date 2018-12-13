@@ -40,7 +40,7 @@ Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nich
 Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Du kannst alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
 
 - libcurl3 (libcurl)
-- libicu60 (libicu, neueste Version für deine Distribution, als Beispiel `libicu57` für Debian 9)
+- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, neueste 1.0.X Version für deine Distribution)

@@ -79,7 +79,7 @@ A configuração global esta localizada no arquivo `ASF.json` e tem a seguinte e
     "SteamProtocols": 7,
     "UpdateChannel": 1,
     "UpdatePeriod": 24,
-    "WebLimiterDelay": 200,
+    "WebLimiterDelay": 300,
     "WebProxy": null,
     "WebProxyPassword": null,
     "WebProxyUsername": null
@@ -269,11 +269,11 @@ A menos que você tenha um motivo muito **forte** para desabilitar esse recurso,
 
 ### `WebLimiterDelay`
 
-Tipo `ushort` com o valor padrão `200`. Esta propriedade define, em milissegundos, a quantidade mínima de atraso entre o envio de dois pedidos consecutivos para o mesmo serviço web do Steam. Tal atraso é necessário pois o serviço **[AkamaiGhost](https://www.akamai.com)**, que a Steam usa internamente, inclui um limitador com base no número global de solicitações enviadas em dado período de tempo. Em circunstâncias normais o bloqueio da akamai é um pouco difícil de atingir, mas sob cargas de trabalho muito pesadas com uma enorme fila de pedidos em andamento, é possível acioná-lo, se continuarmos enviando muitas solicitações por um período muito curto de tempo.
+Tipo `ushort` com o valor padrão `300`. Esta propriedade define, em milissegundos, a quantidade mínima de atraso entre o envio de dois pedidos consecutivos para o mesmo serviço web do Steam. Tal atraso é necessário pois o serviço **[AkamaiGhost](https://www.akamai.com)**, que a Steam usa internamente, inclui um limitador com base no número global de solicitações enviadas em dado período de tempo. Em circunstâncias normais o bloqueio da akamai é um pouco difícil de atingir, mas sob cargas de trabalho muito pesadas com uma enorme fila de pedidos em andamento, é possível acioná-lo, se continuarmos enviando muitas solicitações por um período muito curto de tempo.
 
-O valor padrão foi definido com base no pressuposto de que o ASF é a única ferramenta acessando os serviços web da Steam, em particular `steamcommunity.com`, `api.steampowered.com` e `store.steampowered.com`. Se você estiver usando outras ferramentas que estejam enviando solicitações para os mesmos serviços web então certifique-se de que sua ferramenta inclui funcionalidade semelhante a `WebLimiterDelay` e defina ambos com o dobro do valor padrão, que seria `400`. Isso garante que, sob nenhuma circunstância, você vai exceder o envio de mais de 1 pedido por cada 200 ms.
+O valor padrão foi definido com base no pressuposto de que o ASF é a única ferramenta acessando os serviços web da Steam, em particular `steamcommunity.com`, `api.steampowered.com` e `store.steampowered.com`. Se você estiver usando outras ferramentas que também enviem solicitações para os mesmos serviços web então certifique-se de que sua ferramenta inclui alguma funcionalidade semelhante ao `WebLimiterDelay` e defina ambos com o dobro do valor padrão, ou seja `600`. Isso garante que, sob nenhuma circunstância, você vai exceder o envio de mais de 1 pedido a cada `300` ms.
 
-Em geral, reduzir o `WebLimiterDelay` para um valor abaixo do padrão é **fortemente desencorajado**, pois pode levar a vários bloqueios relacionados ao IP, alguns passíveis de serem permanentes. O valor padrão é bom o suficiente para rodar uma instância única do ASF no servidor, bem como usar o ASF em um cenário normal juntamente com o cliente Steam original. Ele deve ser o correto para a maioria dos usos e você só deve aumentá-lo (nunca diminuir), se - além de usar o ASF, você também estiver usando outra ferramenta que pode enviar um número excessivo de pedidos para os mesmos serviços web que o ASF esteja usando. Em resumo, o número global de todas as solicitações enviadas a partir de um único IP para um único domínio da Steam nunca deve exceder mais de 1 pedido por 200 ms.
+Em geral, reduzir o `WebLimiterDelay` para um valor abaixo do padrão é **fortemente desencorajado**, pois pode levar a vários bloqueios relacionados ao IP, alguns passíveis de serem permanentes. O valor padrão é bom o suficiente para rodar uma instância única do ASF no servidor, bem como usar o ASF em um cenário normal juntamente com o cliente Steam original. Ele deve ser o correto para a maioria dos usos e você só deve aumentá-lo (nunca diminuir), se - além de usar o ASF, você também estiver usando outra ferramenta que pode enviar um número excessivo de pedidos para os mesmos serviços web que o ASF esteja usando. Em suma, o número global de todas as solicitações enviadas a partir de um único IP para um único domínio da Steam nunca deve exceder mais de 1 pedido a cada `300` ms.
 
 A menos que você tenha uma razão para editar essa propriedade, você deve mantê-la padrão.
 

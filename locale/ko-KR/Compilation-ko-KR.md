@@ -10,32 +10,6 @@ ASF는 필요로 하는 도구를 모두 가지고만 있다면 현재 지원되
 
 ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체 .NET Core SDK가 필요합니다. **[.NET Core 설치 페이지(영문)](https://www.microsoft.com/net/download)**에서 설치 방법을 찾을 수 있습니다. 당신의 OS에 맞는 .NET Core SDK 버전을 설치해야 합니다. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. 또한 .NET Core SDK가 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는지 확인하시기 바랍니다.
 
-윈도우의 `dotnet --info` 예시입니다:
-
-    .NET Core SDK (reflecting any global.json):
-     Version:   2.1.300
-     Commit:    adab45bf0c
-    
-    Runtime Environment:
-     OS Name:     Windows
-     OS Version:  10.0.17134
-     OS Platform: Windows
-     RID:         win10-x64
-     Base Path:   C:\Program Files\dotnet\sdk\2.1.300\
-    
-    Host (useful for support):
-      Version: 2.1.0
-      Commit:  caa7b7e2ba
-    
-    .NET Core SDKs installed:
-      2.1.300 [C:\Program Files\dotnet\sdk]
-    
-    .NET Core runtimes installed:
-      Microsoft.AspNetCore.All 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
-      Microsoft.AspNetCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-      Microsoft.NETCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-    
-
 * * *
 
 ## 컴파일
@@ -43,7 +17,7 @@ ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체
 적절한 .NET Core SDK 버전이 실행되고 있다고 가정하고, ASF 디렉토리로 이동해서 다음을 실행합니다:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
 리눅스나 OS X를 사용한다면, 대신 `cc.sh` 스크립트를 사용할 수도 있습니다. 이는 좀 더 복잡한 방식이지만 동일하게 동작합니다.
@@ -55,14 +29,14 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "
 특정한 필요가 있다면 OS 특화 .NET Core 패키지를 생성할 수도 있습니다. 일반적으로 처음에 컴파일에 사용한 기 설치된 .NET Core 런타임으로 실행 가능한 `일반` 맛을 방금 컴파일 했기 때문에 그럴일은 없습니다만, 만일 필요하다면 다음과 같이 입력하십시오.
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
 물론 대상으로 하는 OS 아키텍쳐에 따라 `linux-x64`를 `win-x64` 등으로 변경하십시오. 이 빌드도 업데이트가 비활성화됩니다.
 
 ### .NET Framework
 
-드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.1`에서 `net472`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오.
+드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net472`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"

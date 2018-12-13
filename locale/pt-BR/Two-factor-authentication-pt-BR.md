@@ -22,6 +22,7 @@ Para habilitar o 2FA ASF, você precisa ter:
 - ou um autenticador steam ativo no seu iOS
 - ou um autenticador steam ativo no **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - ou um autenticador steam ativo no **[WinAuth](https://winauth.github.io/winauth)**
+- ou qualquer outra implementação funcional do autenticador Steam com acesso ao segredo compartilhado/segredo de identificação e o ID do dispositivo
 
 * * *
 

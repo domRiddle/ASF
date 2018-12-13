@@ -22,6 +22,7 @@ Um ASF 2FA zu aktivieren benötigst du:
 - oder funktionierenden Steam-Authentifikator in deinem iOS-Gerät
 - oder funktionierenden Steam-Authentifikator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - oder funktionierenden Steam-Authentifikator in **[WinAuth](https://winauth.github.io/winauth)**
+- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
 
 * * *
 
@@ -167,7 +168,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Erweitert
+## Erweiterte Einstellungen
 
 Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 

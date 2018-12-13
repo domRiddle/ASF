@@ -22,6 +22,7 @@ ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 - 혹은 정상동작하는 iOS용 Steam 이증기
 - 혹은 정상동작하는 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**의 Steam 인증기
 - 혹은 정상동작하는 **[WinAuth](https://winauth.github.io/winauth)**용 Steam 인증기
+- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
 
 * * *
 

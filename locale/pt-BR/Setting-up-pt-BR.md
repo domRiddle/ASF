@@ -40,7 +40,7 @@ Você não precisa fazer mais nada para as versões para SOs específicos, espec
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
 - libcurl3 (libcurl)
-- libicu60 (libicu, versão atualizada para a sua distribuição, poe exemplo `libicu57` para o Debian 9)
+- libicu, (versão atualizada para a sua distribuição, poe exemplo `libicu57` para o Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, versão 1.0.X atualizada para a sua distribuição)

@@ -1,14 +1,14 @@
 # 日志
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog.config` 的配置文件放到应用目录中来实现。 您可以阅读完整的 **[NLog 文档](https://github.com/NLog/NLog/wiki/Configuration-file)**，但我们也会在这里提供一些实用的示例。
 
 * * *
 
 ## 默认日志
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+使用自定义 NLog 配置将会自动禁用 ASF 默认配置，其中包括 `ColoredConsole`（彩色控制台）和 `File`（文件）。 换句话说，您的配置文件将会**完全**覆盖默认的 ASF 日志，这意味着如果您想要保留 `ColoredConsole` 目标，就必须自己重新定义一个。 您不仅能够添加**额外**的日志目标，还可以禁用或修改**默认的**目标。
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+如果您想要使用默认的 ASF 日志模块，不做任何修改，就什么也不需要做——也不需要在自定义的 `NLog.config` 中进行定义。 如果不希望修改 ASF 默认的日志模块，就不要使用自定义 `NLog.config`。 但作为参考，ASF 默认的日志设置等价于：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -33,25 +33,25 @@ If you want to use default ASF logging without any modifications, you don't need
 
 ## ASF 集成
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF 使用了一些不错的代码技巧增强了 NLog 的集成，使您能够轻松捕获特定的信息。
 
-NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
+NLog 特定的 `${logger}` 变量始终用于标明消息的来源——可以是某个机器人的 `BotName`，或者是 `ASF` 表明消息直接来自于 ASF 进程。 这样，根据 Logger（日志记录器）的名字，您可以仅捕获特定机器人或者 ASF 进程的消息，而不是捕获全部。
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+ASF 会尝试以 NLog 提供的适当的日志级别标记消息，这样您可以只捕获特定日志级别的消息，而不是全部。 当然，特定消息的日志级别无法被自定义，因为这是 ASF 硬编码的决策，指示了给定消息的严重程度，但您可以定义 ASF 的沉默程度，使其符合您的需求。
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的聊天消息。 默认的 ASF 最低日志级别是 `Debug`，也就是隐藏了这些额外的信息，因为对于大多数用户来说没有必要显示，并且这些杂项消息可能会掩盖掉重要的消息。 但您可以重新启用 `Trace` 日志级别来利用这些消息，特别是您需要仅仅记录某个特定机器人及其相关事件的时候。
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+一般情况下，ASF 会尽力为您提供方便，只记录您需要的消息，而不是让您通过 `grep` 等第三方工具来手动筛选。 只需要按照下文的说明正确配置 NLog，您就应该能够使用自定义目标（如整个数据库）指定非常复杂的日志规则。
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+关于版本——ASF 始终尝试在发布时提供当时 **[NuGet](https://www.nuget.org/packages/NLog)** 上最新版本的 NLog。 通常这个版本比最新稳定版还新，因此您应该能够使用所有 NLog 文档中的特性，即使是仍在开发中或者尚未完成的特性——只需要确保您的 ASF 是最新版。
 
-As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
+作为 ASF 集成的一部分，ASF 也支持附加的 ASF NLog 日志目标，下文将对此进行说明。
 
 * * *
 
 ## 示例
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+让我们从简单的情况开始。 我们将仅使用 **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** 目标。 我们的初始 `NLog.config` 看起来像这样：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -66,11 +66,11 @@ Let's start from something easy. We will use **[ColoredConsole](https://github.c
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. That's it.
+上述配置的解释相当简单——我们定义了一个**日志目标** `ColoredConsole`，然后将 `Debug` 及更高级别的**所有 Logger**（`*`）重定向到之前定义的 `ColoredConsole` 目标。 这就是全部。
 
-If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, regardless of hardcoded ASF NLog configuration.
+如果您以上述 `NLog.config` 启动 ASF，仅有 `ColoredConsole` 目标会启用，并且 ASF 将不会把日志写入文件（`File`），ASF 硬编码的 NLog 配置已经被忽略。
 
-Now let's say that we don't like default format of `${longdate}|${level:uppercase=true}|${logger}|${message}` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+假设我们不喜欢默认的日志格式 `${longdate}|${level:uppercase=true}|${logger}|${message}`，我们只打算保留消息内容。 可以修改目标的&#8203;**[布局](https://github.com/nlog/nlog/wiki/Layouts)**&#8203;做到这一点。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -85,9 +85,9 @@ Now let's say that we don't like default format of `${longdate}|${level:uppercas
 </nlog>
 ```
 
-If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of `Function() Message`.
+如果您现在启动 ASF，就会注意到日期、日志级别和 Logger 名称都已经消失了——只剩下 `Function() Message` 格式的消息内容。
 
-We can also modify the config to log to more than one target. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+我们还可以修改配置文件，使日志记录到多个目标。 现在我们将日志同时记录到 `ColoredConsole` 和 **[File](https://github.com/nlog/nlog/wiki/File-target)**。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -104,9 +104,9 @@ We can also modify the config to log to more than one target. Let's log to `Colo
 </nlog>
 ```
 
-And done, we'll now log everything to `ColoredConsole` and `File`. Did you notice that you can also specify custom `fileName` and extra options?
+现在，我们已经将一切都记录到 `ColoredConsole` 和 `File` 目标了。 您注意到您还可以指定自定义文件名 `fileName` 和其他额外选项了吗？
 
-Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. We can achieve that by modifying our `rules`:
+最后，ASF 使用各种日志级别使您能够轻松理解发生的事情。 我们可以使用此信息修改日志的严重性。 例如，我们希望将所有消息（`Trace`）记录到文件 `File`，但 `ColoredConsole` 只显示 `Warning` 及更高的&#8203;**[日志级别](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)**。 我们可以修改 `rules` 来做到这一点：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -123,9 +123,9 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 </nlog>
 ```
 
-That's it, now our `ColoredConsole` will show only warnings and above, while still logging everything to `File`. You can further tweak it to log e.g. only `Info` and below, and so on.
+现在 `ColoredConsole` 将只会显示警告和更严重的消息，但仍然将所有日志发送到 `File`。 您还可以对其进行进一步调整，例如只记录 `Info` 及更低级别等等。
 
-Lastly, let's do something a bit more advanced and log all messages to file, but only from bot named `LogBot`.
+最后，我们可以做一些更高级的操作，将所有来自机器人 `LogBot` 的消息记录到文件。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -142,35 +142,35 @@ Lastly, let's do something a bit more advanced and log all messages to file, but
 </nlog>
 ```
 
-You can see how we used ASF integration above and easily distinguished source of the message based on `${logger}` property.
+您可以在上面看到我们是如何利用 ASF 集成，根据 `${logger}` 属性轻松辨明消息来源的。
 
 * * *
 
 ## 高级用法
 
-The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
+上面的示例非常简单，仅仅向您展示了定义与 ASF 集成的自定义日志记录规则是多么容易。 您可以使用 NLog 来处理各种不同的事情，包括记录到复杂目标（例如将日志保存到数据库 `Database` 中）、日志轮替（例如移除过期的 `File` 日志）、使用自定义 `Layout` 布局、声明您自己的 `<when>` 日志过滤器等等。 我建议您通读 **[NLog 文档](https://github.com/nlog/nlog/wiki/Configuration-file)**&#8203;全文，了解每一个可用的选项，使您能以所需的方式调整 ASF 日志模块。 这是一个非常强大的工具，自定义 ASF 日志从未如此简单。
 
 * * *
 
 ## 限制
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
+ASF 会在需要用户输入时暂时禁用包括 `ColoredConsole` 或 `Console` 目标的**所有**规则。 因此，如果您希望在 ASF 等待用户输入时能够继续记录到其他目标，就应该为这些目标编写独立的规则，如上例所示，而不是将很多目标都写在同一个规则的 `writeTo` 中（除非这就是您需要的行为）。 临时禁用控制台目标是为了在等待用户输入时保持控制台的清洁。
 
 * * *
 
 ## 聊天日志
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
+ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中记录了所有收到/发出的消息，还在&#8203;**[事件属性](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**&#8203;中暴露了与它们相关的额外信息。 因为我们无论如何都需要将聊天消息作为命令来处理，因此记录这些事件并不会增加任何成本，但您可以因此添加额外的逻辑（例如将 ASF 作为您的个人 Steam 聊天记录存档）。
 
 ### 事件属性
 
-| 名称          | 描述                                                                                                                                                                                                         |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Echo        | `bool` 类型。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string` 类型。 This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong` 类型。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong` 类型。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong` 类型。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| 名称          | 描述                                                                        |
+| ----------- | ------------------------------------------------------------------------- |
+| Echo        | `bool` 类型。 当消息是由我们发给接受者时为 `true`，否则为 `false`。                             |
+| Message     | `string` 类型。 发送/接收的实际消息内容。                                                |
+| ChatGroupID | `ulong` 类型。 发送/接收消息的群组 ID。 如果该消息并非通过群组聊天发送则为 `0`。                         |
+| ChatID      | `ulong` 类型。 发送/接收消息的频道 `ChatGroupID`。 如果该消息并非通过群组聊天发送则为 `0`。              |
+| SteamID     | `ulong` 类型。 发送/接收消息的 Steam 用户 ID。 当没有特定用户参与该消息的传输时（例如我们向群组聊天发消息），可以为 `0`。 |
 
 ### 示例
 
@@ -195,7 +195,7 @@ ASF includes extended support for chat logging by not only recording all receive
 </nlog>
 ```
 
-We've started from our basic `ColoredConsole` example and extended it further. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly, we've enabled our chat logging rule only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+我们以基本的 `ColoredConsole` 为例，并将在之后对其进行扩展。 首先，我们为每个群组频道和 Steam 用户准备了一个永久的聊天记录文件——这要得益于 ASF 向我们暴露的额外属性。 我们还决定采用一种自定义布局，只写入当前日期、消息内容、发送/接收信息和 Steam 用户本身。 最后，我们启用的聊天记录规则仅仅适用于 `Trace` 日志等级、`MainAccount` 机器人帐户、与聊天记录相关的函数（用于接收消息的 `OnIncoming*` 和用于发送消息的 `SendMessage*`）。
 
 上述示例将会在与 **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)** 聊天时生成 `0-0-76561198069026042.txt` 文件：
 
@@ -203,23 +203,23 @@ We've started from our basic `ColoredConsole` example and extended it further. F
     2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
     
 
-Of course this is just a working example with a few nice layout tricks showed in practical manner. You can further expand this idea to your own needs, such as extra filtering, custom order, personal layout, recording only received messages and so on.
+当然，这只是一个能用的示例，以实践的方式展示了一些不错的布局技巧。 您可以根据自己的需要对其进一步扩展，例如额外过滤器、自定义顺序、自定义布局、仅记录接收的消息等等。
 
 * * *
 
 ## ASF 目标
 
-In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
+除了标准的 NLog 目标（例如上述的 `ColoredConsole` 和 `File`），您还可以使用自定义 ASF 日志目标。
 
-For maximum completeness, definition of ASF targets will follow NLog documentation convention.
+为了最大程度的完整性，ASF 目标的定义将遵循 NLog 文档约定。
 
 * * *
 
 ### SteamTarget
 
-As you can guess, this target uses Steam chat messages for logging ASF messages. You can configure it to use either a group chat, or private chat. In addition to specifying a Steam target for your messages, you can also specify `botName` of the bot that is supposed to send those.
+您可以猜到，此目标以 Steam 聊天消息来记录 ASF 日志。 您可以将其配置为使用群组或私人聊天。 除了为消息指定 Steam 目标以外，您也可以指定发送这些消息的机器人名称 `botName`。
 
-Supported in all environments used by ASF.
+支持所有 ASF 使用的环境。
 
 * * *
 
@@ -236,7 +236,7 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+详见&#8203;[配置文件](https://github.com/NLog/NLog/wiki/Configuration-file)。
 
 * * *
 
@@ -256,11 +256,11 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### SteamTarget 选项
 
-*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
+*chatGroupID*——以 64 位无符号长整型数字声明的群组聊天 ID。 可选。 默认为 `0`，这将禁用群组聊天功能，而是发送到私人聊天。 启用后（设置为非零值），下面的 `steamID` 将会表现为 `chatID`，并且机器人将会向指定的 `chatGroupID` 发送消息。
 
-*steamID* - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to 0 which disables logging target entirely.
+*steamID*——以 64 位无符号长整型数字声明的 SteamID，指定目标 Steam 用户（类似 `SteamOwnerID`），或者目标 `chatID`（如果设置了 `chatGroupID`）。 必填。 默认为 0，这将完全禁用该日志目标。
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
+*botName*——目标机器人的名称（供 ASF 识别，区分大小写），该机器人将会向之前声明的 `steamID` 发送消息。 可选。 默认为 `null`，这将会使 ASF 自动选择当前已连接的**任意**机器人。 建议为此选项设置合适的值，因为 `SteamTarget` 没有考虑很多 Steam 帐户限制，例如实际上目标的 `steamID` 必须在您的好友列表中。
 
 * * *
 
@@ -281,7 +281,7 @@ In order to write all messages of `Debug` level and above, from bot named `MyBot
 </nlog>
 ```
 
-**Notice:** Our `SteamTarget` is custom target, so you should make sure that you're declaring it as `type="Steam"`, NOT `xsi:type="Steam"`, as xsi is reserved for official targets supported by NLog.
+**注意：**我们的 `SteamTarget` 是自定义目标，所以您应该使用 `type="Steam"` 而不是 `xsi:type="Steam"` 来声明，因为 xsi 是留给 NLog 官方支持的目标使用的。
 
 When you launch ASF with `NLog.config` similar to above, `MyBot` will start messaging `76561198006963719` Steam user with all usual ASF log messages. Keep in mind that `MyBot` must be connected in order to send messages, so all initial ASF messages that happened before our bot could connect to Steam network, won't be forwarded.
 
@@ -299,7 +299,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 这个目标在 ASF 内部用于为 **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)** 的 `/Api/NLog` 端点提供固定大小的日志历史。ASF-ui 和其他工具可能会在之后用到它。 In general you should define this target only if you're already using custom NLog config for other customizations and you also want the log to be exposed in ASF API, e.g. for ASF-ui. It can also be declared when you'd want to modify default layout or `maxCount` of saved messages.
 
-Supported in all environments used by ASF.
+支持所有 ASF 使用的环境。
 
 * * *
 
@@ -334,7 +334,7 @@ Supported in all environments used by ASF.
 
 ##### HistoryTarget 选项
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount* - Maximum amount of stored logs for on-demand history. 可选。 Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 

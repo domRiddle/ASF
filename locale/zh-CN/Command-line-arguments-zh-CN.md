@@ -66,7 +66,8 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 相对路径也�
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
     │     └── TargetDirectory
-    │           └── config
+    │           ├── config
+    │           └── www（可选）
     └── ...
     
 

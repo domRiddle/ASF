@@ -10,32 +10,6 @@
 
 无论使用什么平台，您都需要完整的 .NET Core SDK（不仅仅是运行时环境）才能编译 ASF。 您可以在 **[.NET Core 安装页面](https://www.microsoft.com/net/download)**&#8203;找到安装指南。 您需要安装适合您操作系统的 .NET Core SDK 版本。 安装成功后，`dotnet` 命令应该已经可以使用并且正常运行。 您可以执行 `dotnet --info` 命令进行验证。 同样需要确认您的 .NET Core SDK 匹配 ASF 的&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 
-Windows 上的 `dotnet --info` 输出示例：
-
-    .NET Core SDK (reflecting any global.json):
-     Version:   2.1.300
-     Commit:    adab45bf0c
-    
-    Runtime Environment:
-     OS Name:     Windows
-     OS Version:  10.0.17134
-     OS Platform: Windows
-     RID:         win10-x64
-     Base Path:   C:\Program Files\dotnet\sdk\2.1.300\
-    
-    Host (useful for support):
-      Version: 2.1.0
-      Commit:  caa7b7e2ba
-    
-    .NET Core SDKs installed:
-      2.1.300 [C:\Program Files\dotnet\sdk]
-    
-    .NET Core runtimes installed:
-      Microsoft.AspNetCore.All 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.All]
-      Microsoft.AspNetCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
-      Microsoft.NETCore.App 2.1.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
-    
-
 * * *
 
 ## 编译
@@ -43,7 +17,7 @@ Windows 上的 `dotnet --info` 输出示例：
 假设您已安装适当版本的 .NET Core SDK，现在只需要前往 ASF 目录并执行：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
 如果您在使用 Linux/OS X，您也可以使用 `cc.sh` 脚本，以稍复杂的方式实现同样的效果。
@@ -55,14 +29,14 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/generic" "
 如果您需要，也可以生成特定操作系统的 .NET Core 包。 一般情况下，您不需要这样做，因为您刚刚编译了 `generic` 包，您可以使用已安装的用于编译的 .NET Core 运行时环境运行此包，但如果您确实需要操作系统包：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.1" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
 当然，您需要将 `linux-x64` 替换成您需要的目标操作系统架构，例如 `win-x64`。 这一构建也将禁用自动更新。
 
 ### .NET 框架
 
-在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.1` 更改为 `net472`。 请注意，您需要合适的 **[.NET 框架](https://www.microsoft.com/net/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包。
+在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.2` 更改为 `net472`。 请注意，您需要合适的 **[.NET 框架](https://www.microsoft.com/net/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包。
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"

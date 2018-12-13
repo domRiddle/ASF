@@ -66,7 +66,8 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Относите�
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
     │     └── TargetDirectory
-    │           └── config
+    │           ├── config
+    │           └── www (optional)
     └── ...
     
 

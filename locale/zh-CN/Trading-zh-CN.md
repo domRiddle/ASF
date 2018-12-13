@@ -41,7 +41,7 @@ ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `Trad
 
 STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹配的用户只能向我们推荐对我们有利的交易。 然而，ASF 更加宽松，它也接受平衡交易，因为在这种交易中我们实际上并没有任何损失，所以没有理由拒绝它们。 这对朋友之间的交易特别有用，因为他们可以在不使用 STM 的情况下与您交换多余的卡片，只要这不会导致您损失卡牌收集进度。
 
-默认情况下，ASF 会驳回不利的交易——对于普通用户来说，这正是我们想要的。 然而，您可以在 `TradingPreferences` 中启用 `MatchEverything`，使 ASF 接受所有重复物品交易，即使是**不利的**。 只有您想要在您的帐户下运行 1:1 交易机器人时，此功能才有用，因为您了解 **ASF 将不再帮助您完成徽章进度，并且您可能会因为 N 张相同的卡牌失去进度**。 除非您有意运行一个**永远**没打算集齐卡牌的交易机器人，否则您应该禁用此功能。
+默认情况下，ASF 会驳回不利的交易——对于普通用户来说，这正是我们想要的。 然而，您可以在 `TradingPreferences` 中启用 `MatchEverything`，使 ASF 接受所有重复物品交易，即使是**不利的**。 只有您想要在您的帐户下运行 1:1 交易机器人时，此功能才有用，因为您了解 **ASF 将不再帮助您完成徽章进度，并且您可能会因为 N 张相同的卡牌失去进度**。 除非您有意运行一个**永远**不打算集齐卡牌的交易机器人，否则您应该禁用此功能。
 
 无论您的 `TradingPreferences` 如何设置，ASF 驳回交易不意味着您不能自己接受它。 如果您保留了 `BotBehaviour` 的默认值，不含 `RejectInvalidTrades`，ASF 仅会忽略这些交易——使您可以自行决定是否接受交易。 同样的情况适用于 `MatchableTypes` 以外的物品——这个模块仅仅用于自动化 STM 交易，而不是代替您判断交易的优劣。 此规则的唯一例外是通过 `bladd` 命令添加进交易黑名单的用户——无论您的 `BotBehaviour` 如何设置，来自这些用户的交易都会被立即驳回。
 
@@ -51,9 +51,9 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 
 ### `MatchActively`
 
-`MatchActively` 是 `SteamTradeMatcher` 的扩展版本，除了被动匹配以外，机器人还可以主动向其他人发送交易报价。
+`MatchActively`（主动匹配）是 `SteamTradeMatcher` 的扩展版本，除了被动匹配以外，机器人还可以主动向其他人发送交易报价。
 
-为了使用该选项，您需要满足一系列需求。 首先，您需要启用 `SteamTradeMatcher`（因为此功能是它的扩展版），并且避免 `MatchEverything` 设置（因为交易机器人不会主动发起交易）。 之后，您需要有加入我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**&#8203;的资格，但不需要有 100 件物品。 这意味着，您至少应该启用 `Statistics`、帐户&#8203;**[不受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;并且在 `MatchableTypes` 中至少有一种有效的类型，例如集换式卡牌。
+为了使用该选项，您需要满足一系列需求。 首先，您需要启用 `SteamTradeMatcher`（因为此功能是它的扩展版），并且禁用 `MatchEverything` 属性（因为交易机器人不会主动发起交易）。 之后，您需要有加入我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**&#8203;的资格，但不需要有 100 件物品。 这意味着，您至少应该启用 `Statistics`、帐户&#8203;**[不受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;并且在 `MatchableTypes` 中至少有一种有效的类型，例如集换式卡牌。
 
 如果您满足上述所有要求，ASF 将会定期与我们的&#8203;**[公共 ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)**&#8203;通信，以主动匹配当前在线的 `Any` 标记的（`MatchEverything`）机器人。
 

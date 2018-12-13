@@ -66,7 +66,8 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 상대경로도 �
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
     │     └── TargetDirectory
-    │           └── config
+    │           ├── config
+    │           └── www (optional)
     └── ...
     
 

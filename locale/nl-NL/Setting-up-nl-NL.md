@@ -40,7 +40,7 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
 - libcurl3 (libcurl)
-- libicu60 (libicu, latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)

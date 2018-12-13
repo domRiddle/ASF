@@ -22,6 +22,7 @@ Az ASF 2FA aktiválásához szükséged lesz:
 - vagy működő Steam-hitelesítő az iOS készülékeden
 - vagy működő **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)** a számítógépeden
 - vagy működő Steam-hitelesítő a **[WinAuth](https://winauth.github.io/winauth)** programban.
+- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
 
 * * *
 

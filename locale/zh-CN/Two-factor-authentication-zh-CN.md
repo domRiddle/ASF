@@ -22,6 +22,7 @@
 - 或 iOS 设备上可用的 Steam 身份认证器
 - 或 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份认证器
+- 或任何其他能够获取到 shared secret、identity secret 和 device id 的可用 Steam 验证器实现。
 
 * * *
 
