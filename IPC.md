@@ -108,7 +108,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-	location /Api/NLog {
+	location ~* /Api/NLog {
 		proxy_pass http://127.0.0.1:1242;
 #		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
