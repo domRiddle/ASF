@@ -1,98 +1,98 @@
 # 명령어
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF는 프로세스와 봇 인스턴스의 행동을 제어하는데 사용되는 다양한 명령어를 지원합니다.
 
-Below commands can be sent to the bot through three different ways:
+아래의 명령어들은 세 가지 방법으로 봇에게 보내질 수 있습니다.
 
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- 스팀 개인 채팅
+- 스팀 그룹 채팅
+- **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC- ko-KR)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+ASF와의 상호 작용은 당신으로부터 ASF의 권한에 따라서 명령을 내릴 자격을 요구한다는 점을 명심하시기 바랍니다. 자세한 내용은 `SteamUserPermissions`과 `SteamOwnerID` 설정 속성들을 확인하시기 바랍니다.
 
-All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
-
-* * *
-
-### Steam private chat
-
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
-
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+아래의 모든 명령어들은 기본값으로 `!`으로 지정된 `CommandPrefix` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#commandprefix)** 의 영향을 받습니다. 이것은 예를 들어 `status` 명령어를 실행하는 경우에, 실제로 `!status` (또는 선택에 따라서 대신 지정된 `CommandPrefix`)를 입력해야 한다는 것을 의미합니다.
 
 * * *
 
-### Steam group chat
+### 스팀 개인 채팅
 
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
+명백히 ASF와 상호 작용하는 가장 쉬운 방법은 ASF 프로세스에서 현재 실행중인 ASF 봇에게 손쉽게 명령어를 실행하는 것입니다. 당연하게도, 만약 자기 자신의 단일 봇 계정을 가진 ASF가 실행중이라면 그것을 시행할 수 없습니다.
+
+![스크린샷](https://i.imgur.com/PPxx7qV.png)
+
+* * *
+
+### 스팀 그룹 채팅
+
+위와 매우 비슷하지만 이번에는 해당 Steam 그룹의 그룹 채팅에서 명령어를 실행하는 것입니다. 이 옵션은 `SteamMasterClanID` 속성이 적절하게 설정되어야 한다는 점을 명심하시기 바랍니다. 이 경우에 봇은 그룹 채팅에서도 명령어들을 기다릴 것입니다. (그리고 필요한 경우에 그룹 채팅에 합류합니다.) 이것은 또한 전용 봇 계정을 필요로 하지 않기 때문에, "자기 자신에게 말하기"로 사용될 수 있습니다. 아마도 대부분은 하나보다 많은 봇들에 대해서 이 방법을 사용하지 않을 것입니다.
 
 * * *
 
 ### IPC
 
-The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+사용자 상호 작용(ASF-ui) 및 서드-파티 도구 또는 스크립팅(ASF API) 에 대해서 가장 적합한 명령어들을 실행하는 가장 진보적이고 유연한 방법은 ASF가 `IPC` 모드로 실행하는 것을 요구하고 클라이언트는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스를 통해서 명령을 실행합니다.
 
-![Screenshot](https://i.imgur.com/pzKE4EJ.png)
+![스크린샷](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 
 ## 명령어
 
-| 명령어                                                                        | 접근권한                   | 설명                                                                                                                                                                                                    |
-| -------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                                         | `주인(Master)`           | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
-| `2fano <Bots>`                                                       | `주인(Master)`           | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
-| `2faok <Bots>`                                                       | `주인(Master)`           | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `운영자(Operator)`        | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
-| `balance <Bots>`                                                     | `주인(Master)`           | Shows wallet balance of given bot instances.                                                                                                                                                          |
-| `bl <Bots>`                                                          | `주인(Master)`           | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
-| `bladd <Bots> <SteamIDs64>`                                    | `주인(Master)`           | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
-| `blrm <Bots> <SteamIDs64>`                                     | `주인(Master)`           | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `종료`                                                                       | `Owner`                | Stops whole ASF process.                                                                                                                                                                              |
-| `farm <Bots>`                                                        | `주인(Master)`           | Restarts cards farming module for given bot instances.                                                                                                                                                |
-| `help`                                                                     | `가족 공유(FamilySharing)` | Shows help (link to this page).                                                                                                                                                                       |
-| `input <Bots> <Type> <Value>`                            | `주인(Master)`           | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
-| `ib <Bots>`                                                          | `주인(Master)`           | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
-| `ibadd <Bots> <AppIDs>`                                        | `주인(Master)`           | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |
-| `ibrm <Bots> <AppIDs>`                                         | `주인(Master)`           | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                            |
-| `iq <Bots>`                                                          | `주인(Master)`           | Lists priority idling queue of given bot instances.                                                                                                                                                   |
-| `iqadd <Bots> <AppIDs>`                                        | `주인(Master)`           | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                  |
-| `iqrm <Bots> <AppIDs>`                                         | `주인(Master)`           | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                             |
-| `level <Bots>`                                                       | `주인(Master)`           | Shows Steam account level of given bot instances.                                                                                                                                                     |
-| `loot <Bots>`                                                        | `주인(Master)`           | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                               |
-| `loot@ <Bots> <RealAppIDs>`                                    | `주인(Master)`           | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).   |
-| `loot^ <Bots> <AppID> <ContextID>`                       | `주인(Master)`           | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                       |
-| `nickname <Bots> <Nickname>`                                   | `주인(Master)`           | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                    |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `운영자(Operator)`        | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.                                         |
-| `password <Bots>`                                                    | `주인(Master)`           | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                      |
-| `pause <Bots>`                                                       | `운영자(Operator)`        | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.      |
-| `pause~ <Bots>`                                                      | `가족 공유(FamilySharing)` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it. |
-| `pause& <Bots> <Seconds>`                                  | `운영자(Operator)`        | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                   |
-| `play <Bots> <AppIDs,GameName>`                                | `주인(Master)`           | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.                                 |
-| `privacy <Bots> <Settings>`                                    | `주인(Master)`           | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                 |
-| `redeem <Bots> <Keys>`                                         | `운영자(Operator)`        | Redeems given `cd-keys` on given bot instances.                                                                                                                                                       |
-| `redeem^ <Bots> <Modes> <Keys>`                          | `운영자(Operator)`        | Redeems given `cd-keys` on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                             |
-| `rejoinchat <Bots>`                                                  | `운영자(Operator)`        | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `restart`                                                                  | `소유자(Owner)`           | Restarts ASF process.                                                                                                                                                                                 |
-| `resume <Bots>`                                                      | `가족 공유(FamilySharing)` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
-| `start <Bots>`                                                       | `주인(Master)`           | Starts given bot instances.                                                                                                                                                                           |
-| `stats`                                                                    | `소유자(Owner)`           | Prints process statistics, such as managed memory usage.                                                                                                                                              |
-| `status <Bots>`                                                      | `가족 공유(FamilySharing)` | Prints status of given bot instances.                                                                                                                                                                 |
-| `stop <Bots>`                                                        | `주인(Master)`           | Stops given bot instances.                                                                                                                                                                            |
-| `transfer <Bots> <TargetBot>`                                  | `주인(Master)`           | Sends all `TransferableTypes` Steam community items from given bot instances to target bot.                                                                                                           |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `주인(Master)`           | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.                                                                               |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `주인(Master)`           | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
-| `unpack <Bots>`                                                      | `주인(Master)`           | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
-| `update`                                                                   | `소유자(Owner)`           | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
-| `version`                                                                  | `가족 공유(FamilySharing)` | Prints version of ASF.                                                                                                                                                                                |
+| 명령어                                                                        | 접근권한                   | 설명                                                                                                                                                                                    |
+| -------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `2fa <Bots>`                                                         | `주인(Master)`           | 해당 봇 인스턴스에 대한 임시 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 토큰을 생성합니다.                                                         |
+| `2fano <Bots>`                                                       | `주인(Master)`           | 해당 봇 인스턴스에 대해 대기중인 모든 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 확인을 거부합니다.                                                    |
+| `2faok <Bots>`                                                       | `주인(Master)`           | 해당 봇 인스턴스에 대해 대기중인 모든 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 확인을 승인합니다.                                                    |
+| `addlicense <Bots> <GameIDs>`                                  | `운영자(Operator)`        | 해당 봇 인스턴스들에서 주어진 `appIDs` (스팀 네트워크) 또는 `subIDs` (스팀 상점) 를 활성화 합니다 (무료 게임만).                                                                                                           |
+| `balance <Bots>`                                                     | `주인(Master)`           | 해당 봇 인스턴스의 지갑 잔고를 보여줍니다.                                                                                                                                                              |
+| `bl <Bots>`                                                          | `주인(Master)`           | 해당 봇 인스턴스들의 거래 모듈에서 블랙리스트에 등록된 유저 목록을 보여줍니다.                                                                                                                                          |
+| `bladd <Bots> <SteamIDs64>`                                    | `주인(Master)`           | 해당 봇 인스턴스들의 거래 모듈에서 해당 `steamIDs`를 블랙리스트에 등록합니다.                                                                                                                                      |
+| `blrm <Bots> <SteamIDs64>`                                     | `주인(Master)`           | 헤당 봇 인스턴스들의 거래 모듈에서 주어진 `steamIDs`를 블랙리스트에서 제거합니다.                                                                                                                                    |
+| `exit`                                                                     | `소유자`                  | 모든 ASF 프로세스를 중지합니다.                                                                                                                                                                   |
+| `farm <Bots>`                                                        | `마스터`                  | 해당 봇 인스턴스들의 카드 농사 모듈을 재시작합니다.                                                                                                                                                         |
+| `help`                                                                     | `가족 공유`                | 도움말을 보여줍니다 (이 페이지로 연결).                                                                                                                                                               |
+| `input <Bots> <Type> <Value>`                            | `마스터`                  | 해당 봇 인스턴스들의 지정된 입력 형식을 주어진 값으로 설정하며, `Headless` 모드에서만 동작합니다 - 추가 설명은 **[아래](#input-command)**.                                                                                        |
+| `ib <Bots>`                                                          | `마스터`                  | 봇 인스턴스들의 자동 농사에서 블랙리스트에 등록된 게임 목록을 보여줍니다.                                                                                                                                             |
+| `ibadd <Bots> <AppIDs>`                                        | `마스터`                  | 봇 인스턴스들의 자동 농사에서 `appIDs` 를 게임 블랙리스트에 등록합니다.                                                                                                                                          |
+| `ibrm <Bots> <AppIDs>`                                         | `마스터`                  | 봇 인스턴스들의 자동 농사에서 `appIDs` 를 게임 블랙리스트에서 제거합니다.                                                                                                                                         |
+| `iq <Bots>`                                                          | `마스터`                  | 봇 인스턴스들의 우선 농사 대기열을 보여줍니다.                                                                                                                                                            |
+| `iqadd <Bots> <AppIDs>`                                        | `마스터`                  | 봇 인스턴스들의 우선 농사 대기열에 `appIDs`를 등록합니다.                                                                                                                                                  |
+| `iqrm <Bots> <AppIDs>`                                         | `마스터`                  | 봇 인스턴스들의 우선 농사 대기열에서 `appIDs`를 제거합니다.                                                                                                                                                 |
+| `level <Bots>`                                                       | `마스터`                  | 봇 인스턴스들의 스팀 계정 레벨을 보여줍니다.                                                                                                                                                             |
+| `loot <Bots>`                                                        | `마스터`                  | 해당 봇 인스턴스들의 모든 `LootableTypes`의 스팀 커뮤니티 아이템들을 `SteamUserPermissions`에서 사용자 설정한 `Master` (하나보다 많은 경우에는 가장 낮은 steamID) 에게 모두 전달합니다.                                                     |
+| `loot@ <Bots> <RealAppIDs>`                                    | `마스터`                  | 해당 봇 인스턴스들의 주어진 `RealAppIDs`와 일치하는 모든 `LootableTypes`의 스팀 커뮤니티 아이템들을 `SteamUserPermissions`에서 사용자 설정한 `Master` (하나보다 많은 경우에는 가장 낮은 steamID) 에게 모두 전달합니다.                              |
+| `loot^ <Bots> <AppID> <ContextID>`                       | `마스터`                  | 해당 봇 인스턴스들의 지정된 `ContextID` 에 있는 주어진 `AppID`의 스팀 아이템들을 `SteamUserPermissions`에서 사용자 설정한 `Master` (하나보다 많은 경우에는 가장 낮은 steamID) 에게 모두 전달합니다.                                            |
+| `nickname <Bots> <Nickname>`                                   | `마스터`                  | 해당 봇 인스턴스들의 스팀 닉네임을 주어진 `nickname`으로 변경합니다.                                                                                                                                           |
+| `owns <Bots> <AppIDsOrGameNames>`                              | `운영자`                  | 해당 봇 인스턴스들이 주어진 `appIDs` 그리고/또는 `gameNames` (게임 이름의 일부가 될 수 있음) 를 이미 가지고 있는지 확인합니다. 모든 가능한 게임들을 보기 위해서 `*`를 사용할 수도 있습니다.                                                              |
+| `password <Bots>`                                                    | `마스터`                  | 해당 봇 인스턴스들의 암호화된 비밀번호를 출력합니다 (`PasswordFormat`과 함께 쓰고 있음).                                                                                                                            |
+| `pause <Bots>`                                                       | `운영자`                  | 해당 봇 인스턴스들의 자동 카드 농사 모듈을 영구적으로 정지합니다. 수동으로 `resume` 하거나 프로세스를 재시작하기 전까지 ASF는 이 세션에서 해당 계정의 농사를 시도하지 않을 것입니다.                                                                          |
+| `pause~ <Bots>`                                                      | `가족 공유`                | 해당 봇 인스턴스들의 자동 카드 농사 모듈을 일시 정지합니다. 농사는 다음 실행 이벤트 또는 봇 연결 해제시에 자동으로 재개됩니다. 일시 정지를 해제하기 위해서 `resume` 할 수 있습니다.                                                                          |
+| `pause& <Bots> <Seconds>`                                  | `운영자`                  | 당 봇 인스턴스들의 자동 카드 농사 모듈을 주어진 `seconds`의 기간 동안 일시 정지합니다. 지연 시간이 지나고, 카드 농사 모듈이 자동으로 재개됩니다.                                                                                              |
+| `play <Bots> <AppIDs,GameName>`                                | `마스터`                  | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. 자동 농사로 돌아가기 위해서 `resume`을 사용합니다.                                 |
+| `privacy <Bots> <Settings>`                                    | `마스터`                  | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**. |
+| `redeem <Bots> <Keys>`                                         | `운영자`                  | 해당 봇 인스턴스들에서 주어진 `cd-keys`를 등록합니다.                                                                                                                                                    |
+| `redeem^ <Bots> <Modes> <Keys>`                          | `운영자`                  | **[아래](#redeem-modes)**에 설명된 주어진 `modes`를 사용하여, 해당 봇 인스턴스들에서 주어진 `cd-keys`를 등록합니다.                                                                                                    |
+| `rejoinchat <Bots>`                                                  | `운영자`                  | 강제로 해당 봇 인스턴스들이 `SteamMasterClanID`의 그룹 채팅으로 재접속하도록 합니다.                                                                                                                              |
+| `restart`                                                                  | `소유자`                  | ASF 프로세스를 재시작합니다.                                                                                                                                                                     |
+| `resume <Bots>`                                                      | `가족 공유`                | 해당 봇 인스턴스들의 자동 농사를 재개합니다. 또한 `pause`, `play`을 보세요.                                                                                                                                    |
+| `start <Bots>`                                                       | `마스터`                  | 해당 봇 인스턴스들을 시작합니다.                                                                                                                                                                    |
+| `stats`                                                                    | `소유자`                  | 관리되는 메모리 사용량과 같은 프로세스 통계를 출력합니다.                                                                                                                                                      |
+| `status <Bots>`                                                      | `가족 공유`                | 해당 봇 인스턴스들의 상태를 출력합니다.                                                                                                                                                                |
+| `stop <Bots>`                                                        | `주인(Master)`           | 해당 봇 인스턴스들을 중지합니다.                                                                                                                                                                    |
+| `transfer <Bots> <TargetBot>`                                  | `주인(Master)`           | 해당 봇 인스턴스들의 모든 `TransferableTypes` 스팀 커뮤니티 아이템들을 타겟 봇으로 전달합니다.                                                                                                                        |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `주인(Master)`           | 해당 봇 인스턴스들의 주어진 `RealAppIDs`와 일치하는 모든 `TransferableTypes`의 스팀 커뮤니티 아이템들을 타겟 봇으로 전달합니다.                                                                                                |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `주인(Master)`           | 해당 봇 인스턴스들의 지정된 `ContextID` 에 있는 주어진 `AppID`의 스팀 아이템들을 타겟 봇으로 전달합니다.                                                                                                                  |
+| `unpack <Bots>`                                                      | `주인(Master)`           | 해당 봇 인스턴스들의 보관함에 있는 모든 부스터팩을 뜯습니다.                                                                                                                                                    |
+| `update`                                                                   | `소유자(Owner)`           | ASF의 업데이트를 위해서 GitHub를 확인합니다 (이것은 매 `UpdatePeriod` 마다 자동으로 실행됨).                                                                                                                      |
+| `version`                                                                  | `가족 공유(FamilySharing)` | ASF의 버전을 출력합니다.                                                                                                                                                                       |
 
 * * *
 
-### Notes
+### 주의
 
-All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
+모든 명령어들은 대소문자 구별이 없지만, 그것들의 요소들(예를 들어 봇 이름들) 은 일반적으로 대소분자를 구별합니다.
 
-`<Bots>` argument is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`.
+`<Bots>` 요소는 모든 명령어들에서 선택적입니다. 지정된 경우, 명령어는 주어진 봇들에게서 실행됩니다. 지정되지 않은 경우, 명령어는 명령어를 받는 현재 봇에서 실행됩니다. 다시 말해서, 봇 `B`에게 전송된 `status A`는 봇 `A`에게 `status`를 보내는 것과 동일합니다.
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
@@ -110,14 +110,14 @@ Please note that sending a command to the group chat acts like a relay - if you'
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+일부 명령어들은 또한 입력을 줄이기 위해서 그것들의 별칭과 함께 사용 가능합니다:
 
-| 명령어          | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| 명령어          | 별칭   |
+| ------------ | ---- |
+| `owns ASF`   | `oa` |
+| `status ASF` | `sa` |
+| `redeem`     | `r`  |
+| `redeem^`    | `r^` |
 
 * * *
 
@@ -137,7 +137,7 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `privacy` 설정
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 

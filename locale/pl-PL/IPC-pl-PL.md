@@ -6,7 +6,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 * * *
 
-# Usage
+# Stosowanie
 
 You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
@@ -88,11 +88,11 @@ However, if you decide to change default `localhost` bind addresses to something
 
 ### Can I access ASF API through my own tools or userscripts?
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins (`*`) as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
 ### Can I access ASF's IPC remotely, e.g. from another machine?
 
-Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that, e.g. `http://*:1242`.
+Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
@@ -107,7 +107,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-    location /Api/NLog {
+    location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 #       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -182,7 +182,7 @@ The configuration file is based on following JSON structure:
 
 There are 2 properties worth explanation/editing, those are `Endpoints` and `PathBase`.
 
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `IPv4-http`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
 
 `Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which might pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) at a minimum in this case.
 
@@ -191,6 +191,8 @@ There are 2 properties worth explanation/editing, those are `Endpoints` and `Pat
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
 ### Example config
+
+The following config will allow remote access from all sources, therefore you should ensure that you read and understood our notice about that, available above.
 
 ```json
 {

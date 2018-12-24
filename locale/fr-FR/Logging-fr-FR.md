@@ -200,7 +200,7 @@ Nous avons commencé notre exemple de base `ColoredConsole` et l'avons étendu. 
 L'exemple ci-dessus générera un fichier `0-0-76561198069026042.txt` lors d'une conversation avec **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
     2018-07-26 01:38:38 2018-07-26 01:38:38 comment allez-vous? -> 76561198069026042
-    2018-07-26 01:38:38 /me Je vais bien, et vous? <- 76561198069026042
+    2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
     
     
 
@@ -298,7 +298,7 @@ Bien entendu, `SteamTarget` contient toutes les fonctions habituelles d’un gé
 
 ### HistoryTarget
 
-ASF utilise cette cible en interne pour fournir un historique de journalisation de taille fixe dans le point de terminaison `/Api/NLog` de **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, qui peut ensuite être utilisé par ASF-ui et d'autres outils. En général, vous ne devez définir cette cible que si vous utilisez déjà la configuration personnalisée NLog pour d’autres personnalisations et si vous souhaitez également que le journal soit exposé dans l’API ASF, par exemple. pour ASF-ui. Il peut également être déclaré lorsque vous souhaitez modifier la présentation par défaut ou `maxCount` des messages enregistrés.
+ASF utilise cette cible en interne pour fournir un historique de journalisation de taille fixe dans le point de terminaison `/Api/NLog` de **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)**, qui peut ensuite être utilisé par ASF-ui et d'autres outils. En général, vous ne devez définir cette cible que si vous utilisez déjà la configuration personnalisée NLog pour d’autres personnalisations et si vous souhaitez également que le journal soit exposé dans l’API ASF, par exemple. pour ASF-ui. Il peut également être déclaré lorsque vous souhaitez modifier la présentation par défaut ou `maxCount` des messages enregistrés.
 
 Pris en charge dans tous les environnements utilisés par ASF.
 

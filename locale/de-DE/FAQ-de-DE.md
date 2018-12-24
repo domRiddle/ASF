@@ -565,9 +565,11 @@ Abschließend kann sich ASF, wie bei jeder Steam-Anfrage, nur **versuchen** mit 
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+### `System.IO.IOException: Input/output error`
 
-Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die ASF-Anfrage geantwortet hat. Normalerweise wird dies durch Steam-Netzwerkproblemen verursacht und hat keine Auswirkung auf ASF. In other cases it's the same as request failing after 5 tries. Die Meldung dieses Problems macht meistens keinen Sinn, da wir Steam nicht zwingen können, auf unsere Anfragen zu reagieren.
+If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
+
+If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately.
 
 * * *
 
@@ -580,6 +582,12 @@ In fast allen Fällen wird dieser Fehler durch ein **falsches Datum/Uhrzeit auf 
 Eine offensichtliche Lösung ist das Datum auf deiner Maschine entsprechend einzustellen. Es wird dringend empfohlen, eine automatische Datumssynchronisation zu verwenden, wie z.B. die unter Windows verfügbare native Synchronisation oder `ntpd` unter Linux.
 
 Wenn du sichergestellt hast, dass das Datum auf deiner Maschine korrekt ist und der Fehler nicht verschwinden will, dann, angenommen, es ist kein temporäres Problem das bald verschwindet, könnten SSL-Zertifikate, denen dein System vertraut, veraltet oder ungültig sein. In diesem Fall solltest du sicherstellen, dass deine Maschine sichere Verbindungen herstellen kann, z.B. indem du über einen beliebigen Browser oder mit einem CLI-Tool wie `curl` überprüfst, ob du auf `https://github.com` zugreifen kannst. Wenn du bestätigt hast, dass dies ordnungsgemäß funktioniert, kannst du das Problem gerne in unserer Steam-Gruppe melden.
+
+* * *
+
+### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+
+Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die ASF-Anfrage geantwortet hat. Normalerweise wird dies durch Steam-Netzwerkproblemen verursacht und hat keine Auswirkung auf ASF. In other cases it's the same as request failing after 5 tries. Die Meldung dieses Problems macht meistens keinen Sinn, da wir Steam nicht zwingen können, auf unsere Anfragen zu reagieren.
 
 * * *
 

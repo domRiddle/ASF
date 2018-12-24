@@ -1,8 +1,8 @@
 # 현지화
 
-ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 있도록 하는 Crowdin 서비스를 이용하고 있습니다. Crowdin이 어떻게 동작하는지 더 자세한 설명을 원하시면, **[Crowdin 소개](https://support.crowdin.com/crowdin-intro)**를 확인하시기 바랍니다.
+ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 있도록 하는 Crowdin 서비스를 이용하고 있습니다. Crowdin이 어떻게 동작하는지 더 자세한 설명을 원하시면, **[Crowdin 소개](https://support.crowdin.com/crowdin-intro)** 를 확인하시기 바랍니다.
 
-현재 상황이 궁금하다면 **[ASF Crowdin 활동](https://crowdin.com/project/archisteamfarm/activity_stream)**에서 확인할 수 있습니다.
+현재 상황이 궁금하다면 **[ASF Crowdin 활동](https://crowdin.com/project/archisteamfarm/activity_stream)** 에서 확인할 수 있습니다.
 
 * * *
 
@@ -14,7 +14,7 @@ ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 �
 
 ## 회원 가입
 
-번역, 번역의 리뷰나 승인하는데 있어 ASF를 돕고 싶으시면 **[Crowdin 프로젝트 페이지](https://crowdin.com/project/archisteamfarm)**에서 회원으로 가입하시기 바랍니다. 회원등록은 쉽고 무료입니다. 로그인 후 할당받고 싶은 언어를 선택하고, ASF의 문자열로 와서 다른 커뮤니티 회원들이 ASF를 모든 유명한 언어로 번역하는 것을 도와주세요!
+번역, 번역의 리뷰나 승인하는데 있어 ASF를 돕고 싶으시면 **[Crowdin 프로젝트 페이지](https://crowdin.com/project/archisteamfarm)** 에서 회원으로 가입하시기 바랍니다. 회원등록은 쉽고 무료입니다. 로그인 후 할당받고 싶은 언어를 선택하고, ASF의 문자열로 와서 다른 커뮤니티 회원들이 ASF를 모든 유명한 언어로 번역하는 것을 도와주세요!
 
 * * *
 
@@ -125,7 +125,7 @@ Crowdin 플랫폼에서는 원본 텍스트를 지역화된 새로운 위치를 
 
 ASF는 오른쪽에 있는 사이드바 뿐만아니라 거의 모든 페이지에 대한 링크를 포함하고 있어 쉽게 이동할 수 있습니다. 놀라운 사실은 단지 이 모든 것을 변경만 할 수 있는 것이 아니라, 당신의 언어로 현지화된 정확한 페이지를 가리킬 수 있도록 링크도 "수정"할 수 있다는 것입니다. 실제 하는데는 조금 조심스러워야 하지만 가능한 일입니다.
 
-예를 들어, ASF **[홈 페이지](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ko-KR)**에는 다음과 같은 문구가 있습니다:
+예를 들어, ASF **[홈 페이지](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ko-KR)** 에는 다음과 같은 문구가 있습니다:
 
 > 처음 오셨다면 **[설치하기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ko-KR)** 가이드부터 시작하는 것을 추천합니다.
 
@@ -242,7 +242,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 위에서 볼수 있듯이, 상태를 친절한 방법으로 번역하기 위해서 "너무 많은 등록"이라는 뜻의 "zbyt częstej aktywacji"를 `RateLimited` 옆에 추가했습니다. 동시에 프로그램을 사용하면서 사용자가 볼 수 있는 원본 ASF의 의미를 유지했습니다. 같은 방식으로 다른 비슷한 여러 단어와 문장을 번역하거나 설명할 수 있습니다.
 
-만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다.
+만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)** 를 생성해서 Crowdin으로 문의해주시기 바랍니다.
 
 * * *
 

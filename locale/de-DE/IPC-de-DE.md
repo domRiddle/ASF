@@ -88,11 +88,11 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 ### Kann ich mit eigenen Programmen oder Benutzerskripten auf die ASF-API zugreifen?
 
-Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der Logik **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)**, und wir erlauben Zugriff von allen Ursprüngen (`*`), solange `IPCPassword` gesetzt ist, als zusätzliche Sicherheitsmaßnahme. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
+Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
 ### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einer anderen Maschine aus?
 
-Ja, wir empfehlen dafür einen Reverse-Proxy zu verwenden (siehe unten). Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf der gleichen Maschine auf die IPC-Schnittstelle von ASF zugreift. Andernfalls, wenn du nicht mit einem Reverse-Proxy arbeiten möchtest, kannst du die **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** mit entsprechender URL verwenden, z.B. `http://*:1242`.
+Ja, wir empfehlen dafür einen Reverse-Proxy zu verwenden (siehe unten). Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf der gleichen Maschine auf die IPC-Schnittstelle von ASF zugreift. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
 ### Kann ich die IPC-Schnittstelle von ASF hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
 
@@ -107,7 +107,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-    location /Api/NLog {
+    location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 #       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -182,7 +182,7 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich `Endpoints` und `PathBase`.
 
-`Endpoints` - Dies ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie `IPv4-http`) und `Url` Eigenschaft, die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
 
 `Host` akzeptiert eine Vielzahl von Werten, einschließlich dem Wert `*`, der den http-Server von ASF an alle verfügbaren Schnittstellen bindet. Achte sehr genau darauf wenn du `Host` Werte verwendest, da sie den Fernzugriff erlauben. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Maschinen aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. Wir empfehlen dringend in diesem Fall mindestens `IPCPassword` (und vorzugsweise auch deine eigene Firewall) zu verwenden.
 
@@ -191,6 +191,8 @@ Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich
 Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es am besten ihn bei der Standardeinstellung zu belassen.
 
 ### Beispielhafte Konfiguration
+
+The following config will allow remote access from all sources, therefore you should ensure that you read and understood our notice about that, available above.
 
 ```json
 {

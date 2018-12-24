@@ -14,21 +14,21 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ### `released`
 
-与上述分支类似，这个分支始终指向最新的 **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF 版本，包括预览版本。 与 `master` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
+与上述分支类似，这个分支始终指向最新&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的 ASF 版本，包括预览版本。 与 `master` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
 
 ### `latest`
 
-与前两个分支相比，此分支包括 ASF 的自动更新功能，通常会指向一个稳定版本，但不一定是最新版本。 此分支的目标是提供一个能够自动更新的正常使用的默认 Docker 容器。 因此，此镜像不需要频繁更新，因为其中的 ASF 会在需要时自动更新。 当然，`UpdatePeriod` 可以被安全禁用（设置为 `0`），但在这种情况下，您可能更应该选择冻结版本的 `A.B.C.D` 分支。 同样，您可以修改默认的 `UpdateChannel`，使其像 `released` 分支一样更新。
+与前两个分支相比，此分支包括 ASF 的自动更新功能，通常会指向一个稳定版本，但不一定是最新版本。 此分支的目标是提供一个能够自动更新的正常使用的默认 Docker 容器。 因此，此映像不需要频繁更新，因为其中的 ASF 会在需要时自动更新。 当然，`UpdatePeriod` 可以被安全禁用（设置为 `0`），但在这种情况下，您可能更应该选择冻结版本的 `A.B.C.D` 分支。 同样，您可以修改默认的 `UpdateChannel`，使其像 `released` 分支一样更新。
 
 ### `A.B.C.D`
 
-与上面的分支相比，这个分支是完全冻结的，这意味着镜像一旦发布就不会再更新。 这类似于我们的 GitHub 发布版本，一经发布就不会更改，这保证了环境的长期稳定。 通常，如果您希望使用特定的 ASF 版本，并且不希望使用 `latest` 分支提供的自动更新功能，就应该使用这种分支。
+与上面的分支相比，这个分支是完全冻结的，这意味着映像一旦发布就不会再更新。 这类似于我们的 GitHub 发布版本，一经发布就不会更改，这保证了环境的长期稳定。 通常，如果您希望使用特定的（早于 `latest` 的）ASF 版本，并且不希望启用任何自动更新功能（例如 `latest` 所提供的），就应该使用这种分支。
 
 * * *
 
 ## 哪个分支最适合我？
 
-这取决于您的目标。 对于大多数用户来说，`latest` 分支是最好的，因为它的行为与在桌面上运行 ASF 是相同的，区别仅仅在于它以服务形式运行在 Docker 容器内。 经常重建镜像以及喜欢抢先尝试 ASF 最新功能的人可能会更喜欢 `released` 分支。 如果您希望使用某个特定版本的 ASF，可以选择 `A.B.C.D` 分支，如果没有您主动操作，这个分支就不会有任何变化，您可以将其视为一个固定的里程碑，随时可以返回到与之前完全相同的状态。
+这取决于您的目标。 对于大多数用户来说，`latest` 分支是最好的，因为它的行为与在桌面上运行 ASF 是相同的，区别仅仅在于它以服务形式运行在 Docker 容器内。 经常重建映像以及喜欢抢先尝试 ASF 最新功能的人可能会更喜欢 `released` 分支。 如果您希望使用某个特定版本的 ASF，可以选择 `A.B.C.D` 分支，如果没有您主动操作，这个分支就不会有任何变化，您可以将其视为一个固定的里程碑，随时可以返回到与之前完全相同的状态。
 
 我们通常不建议使用 `master` 构建，就像 AppVeyor 构建一样——这个构建仅仅是用来标记 ASF 项目当前状态的。 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
 
@@ -36,7 +36,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ## 架构
 
-ASF Docker 镜像目前支持两种架构——`x64` 和 `arm`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
+ASF Docker 映像目前支持两种架构——`x64` 和 `arm`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
 由于 Docker 多架构分支仍然未完成，非 `x64` 架构的构建需要在分支名称后面加上架构名称 `-{ARCH}`。 也就是说，如果您需要使用 `arm` 架构的 `latest` 分支，则实际的分支名应为 `latest-arm`。
 
@@ -55,7 +55,7 @@ docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
 
-`docker pull` 命令确保您使用的 `justarchi/archisteamfarm` 镜像是最新的，防止您本地有旧版镜像的副本。 `docker run` 会为您创建一个新的 ASF Docker 容器，并在前台运行它（`-it` 参数）。
+`docker pull` 命令确保您使用的 `justarchi/archisteamfarm` 映像是最新的，防止您本地有旧版映像的副本。 `docker run` 会为您创建一个新的 ASF Docker 容器，并在前台运行它（`-it` 参数）。
 
 如果一切正常，在拉取所有层并启动容器后，您应该注意到 ASF 已正确启动并通知我们目前没有任何机器人，这是正常的——我们已经验证了 Docker 中的 ASF 运行正常。 按下 `CTRL+P` 和 `CTRL+Q` 以退出前台 Docker 容器，然后执行 `docker stop asf` 命令停止该容器，再执行 `docker rm asf` 删除该容器。
 
@@ -177,7 +177,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 ## 高级技巧
 
-在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm`、`docker pull` 和 `docker run` 这一套命令来更新 ASF。 这是因为每次要使用镜像内包含的版本时，您必须从新的 ASF Docker 镜像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建镜像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建镜像）。
+在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm`、`docker pull` 和 `docker run` 这一套命令来更新 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建映像）。
 
 正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣，
 

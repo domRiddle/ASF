@@ -16,14 +16,14 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- 以下规则会在 ASF IPC 启动后激活 -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- 以下规则会在 ASF IPC 启动后激活 -->
     <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
@@ -200,7 +200,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 上述示例将会在与 **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)** 聊天时生成 `0-0-76561198069026042.txt` 文件：
 
     2018-07-26 01:38:38 how are you doing? -> 76561198069026042
-    2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
+    2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
     
 
 当然，这只是一个能用的示例，以实践的方式展示了一些不错的布局技巧。 您可以根据自己的需要对其进一步扩展，例如额外过滤器、自定义顺序、自定义布局、仅记录接收的消息等等。
@@ -266,7 +266,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 
 #### SteamTarget 示例
 
-In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
+假设需要机器人 `MyBot` 将所有 `Debug` 及更高级别的消息发送到 SteamID 为 `76561198006963719` 的用户，您的 `NLog.config` 应该类似于：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -281,11 +281,11 @@ In order to write all messages of `Debug` level and above, from bot named `MyBot
 </nlog>
 ```
 
-**注意：**我们的 `SteamTarget` 是自定义目标，所以您应该使用 `type="Steam"` 而不是 `xsi:type="Steam"` 来声明，因为 xsi 是留给 NLog 官方支持的目标使用的。
+**注意：**&#8203;我们的 `SteamTarget` 是自定义目标，所以您应该使用 `type="Steam"` 而不是 `xsi:type="Steam"` 来声明，因为 xsi 是留给 NLog 官方支持的目标使用的。
 
-When you launch ASF with `NLog.config` similar to above, `MyBot` will start messaging `76561198006963719` Steam user with all usual ASF log messages. Keep in mind that `MyBot` must be connected in order to send messages, so all initial ASF messages that happened before our bot could connect to Steam network, won't be forwarded.
+当您以类似上述 `NLog.config` 启动 ASF 时，`MyBot` 将会开始向 Steam 用户 `76561198006963719` 发送所有平常的 ASF 日志。 请注意，`MyBot` 必须已连接才能发送消息，所以在机器人连接到 Steam 之前的 ASF 初始化消息将无法被转发。
 
-Of course, `SteamTarget` has all typical functions that you could expect from generic `TargetWithLayout`, so you can use it in conjunction with e.g. custom layouts, names or advanced logging rules. The example above is only the most basic one.
+当然，`SteamTarget` 支持所有通用 `TargetWithLayout` 支持的一般功能，所以您可以为它指定自定义布局和名称，或者配合高级日志规则使用。 上面的例子仅仅是基础。
 
 * * *
 
@@ -297,7 +297,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ### HistoryTarget
 
-这个目标在 ASF 内部用于为 **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)** 的 `/Api/NLog` 端点提供固定大小的日志历史。ASF-ui 和其他工具可能会在之后用到它。 In general you should define this target only if you're already using custom NLog config for other customizations and you also want the log to be exposed in ASF API, e.g. for ASF-ui. It can also be declared when you'd want to modify default layout or `maxCount` of saved messages.
+这个目标在 ASF 内部用于为 **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-api)** 的 `/Api/NLog` 端点提供固定大小的日志历史。ASF-ui 和其他工具可能会在之后用到它。 通常，只有在您已经使用自定义 NLog 配置定义了其他日志规则，并且希望将日志暴露给 ASF API（如 ASF-ui）的情况下才需要定义此目标。 或者当您希望修改默认的布局或者历史消息数 `maxCount` 时也可以声明此目标。
 
 支持所有 ASF 使用的环境。
 
@@ -334,12 +334,12 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ##### HistoryTarget 选项
 
-*maxCount* - Maximum amount of stored logs for on-demand history. 可选。 Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount*——日志历史记录的最大存储量。 可选。 默认为 `20`，这是一个合适的初始历史记录条数，同时也考虑到了存储日志所需的内存用量。 必须大于 `0`。
 
 * * *
 
 ## 警告
 
-Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
+当您决定在 `SteamTarget` 中向与 ASF 进程有关的 `steamID` 发送 `Debug` 及更低级别的日志时，应该格外小心。 这可能会导致潜在的 `StackOverflowException` 异常，因为您将会创建一个使 ASF 无限接收给定消息的死循环，然后通过 Steam 将其发送出去，导致产生了另一条需要被记录的消息。 目前，只有在您记录 `Trace` 级别的日志（ASF 会在此记录自己的聊天消息），或者在 `Debug` 模式下运行 ASF 时记录 `Debug` 级别的日志（ASF 会在此时记录所有 Steam 数据包）时才会发生这种情况。
 
-In short, if your `steamID` is taking part in the same ASF process, then the `minlevel` logging level of your `SteamTarget` should be `Info` (or `Debug` if you're also not running ASF in `Debug` mode) and above. Alternatively you can define your own `<when>` logging filters in order to avoid infinite logging loop, if modifying level is not appropriate for your case. This caveat also applies to group chats.
+简而言之，如果您的 `steamID` 属于同一个 ASF 进程，则 `SteamTarget` 的 `minlevel` 应为 `Info`（如果 ASF 没有运行于 `Debug` 模式，则是 `Debug`）或更高。 或者，如果修改日志级别不符合您的需求，您也可以定义自己的 `<when>` 日志筛选器，以避免日志死循环。 这个警告也适用于群组聊天。

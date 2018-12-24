@@ -18,7 +18,7 @@ a) 每个被 ASF 使用的帐户都会加入我们的 **[Steam 群组](https://s
 * 使**您**可以使用我们的技术支持，即提出问题、解决问题、报告问题或建议改进。
 * 让我们了解使用 ASF 的实际 Steam 用户数量。
 
-b) 如果您的帐户&#8203;**[没有受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-2fa)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;内有至少 100 件 `MatchableTypes` 物品并且 `TradingPreferences` 中设置了 `SteamTradeMatcher` 选项，那么 ASF 将会定期与我们的&#8203;**[服务器](https://asf.justarchi.net)**&#8203;通信。 实际数据由唯一的 ASF ID（由 ASF 生成）和以下与帐户相关的信息组成：
+b) 如果您的帐户&#8203;**[没有受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;内有至少 100 件 `MatchableTypes` 物品并且 `TradingPreferences` 中设置了 `SteamTradeMatcher` 选项，那么 ASF 将会定期与我们的&#8203;**[服务器](https://asf.justarchi.net)**&#8203;通信。 实际数据由唯一的 ASF ID（由 ASF 生成）和以下与帐户相关的信息组成：
 
 * 您的 Steam ID（64 位形式，用于生成链接）
 * 您的昵称（用于显示目的）
@@ -43,7 +43,7 @@ ASF **不会**在事先没有通知条款变更及其切实原因的情况下收
 
 我们的公共 ASF STM 列表位于&#8203;**[这里](https://asf.justarchi.net/STM)**，其作用很简单，即让所有用户都能够快速找到合适的交易重复物品的 ASF 机器人。
 
-感谢我们的列表，每个对此感兴趣的 ASF 或非 ASF 用户都可以轻松地找到当前在线的机器人，并向他们发送 STM 交易报价，这有助于所有用户，**包括您**，能够换掉重复的卡片，尽快集齐卡牌。 我们一直希望创建一个这样的列表，因为**所有人**都赞赏 ASF 提供的对交易报价的即时响应，这样的列表可以大大提高匹配的效率，并随时提供在线机器人的信息——在此之前，很难实现这样的公开列表，但有了 ASF，一切都变得容易起来。
+感谢我们的列表，每个对此感兴趣的 ASF 或非 ASF 用户都可以轻松地找到当前在线的机器人，并向他们发送 STM 交易报价，这有助于所有用户，**包括您**，能够换掉重复的卡牌，尽快集齐卡牌套组。 我们一直希望创建一个这样的列表，因为**所有人**都赞赏 ASF 提供的对交易报价的即时响应，这样的列表可以大大提高匹配的效率，并随时提供在线机器人的信息——在此之前，很难实现这样的公开列表，但有了 ASF，一切都变得容易起来。
 
 ### 运作方式
 

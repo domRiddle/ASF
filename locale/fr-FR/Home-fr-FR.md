@@ -4,7 +4,7 @@ Bienvenue sur le Wiki ASF ! Le Wiki est une aide en ligne qui couvre de nombreux
 
 Vous pouvez changer la langue du wiki en ajoutant une chaîne -locale</ 0> à une page visitée. Par exemple, au lieu de visiter <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home">Home</ 0>, vous pouvez visiter <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU">Home-ru-RU </ 1> contenant la page d'accueil traduite en russe (si disponible).
  
-</p>
+ Languages that are localized by our community in 90% or more will also be available on our wiki sidebar (on the right) for easy access.</p>
 
 <p>Toutes les pages wiki s'appliquent toujours à la <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/releases"> dernière version ASF </ 0> uniquement, sauf indication contraire (comme "V2"). Si vous souhaitez voir une page wiki à un moment précis (par exemple, pour une version ASF un peu plus ancienne), utilisez les <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history">révisions</ 0> disponibles en haut de chaque page et choisissez une date qui correspond à la date de votre version ASF. Nous conservons toutes les pages disponibles pour la version actuelle ainsi que pour les versions majeures précédentes d'ASF.</p>
 

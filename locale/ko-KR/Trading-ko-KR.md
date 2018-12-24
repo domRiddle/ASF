@@ -1,22 +1,22 @@
 # 거래
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF는 Steam 비-대화형(오프라인) 거래를 지원합니다. 거래를 받는것(수락/거절)과 보내는 것이 즉시 가능하고, 특별한 설정이 필요하지 않지만 분명히 제한되지 않은 Steam 계정이 필요합니다.(상점에서 $5를 이미 사용한 계정) 거래 모듈은 제한된 계정에서는 사용할 수 없습니다.
 
 * * *
 
-## Logic
+## 논리구조
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF는 `주인(Master)` 혹은 그 이상의 봇 접근권한을 가진 사용자가 보낸 모든 거래를 항목에 상관없이 수락합니다. 이렇게 해서 봇 인스턴스에서 농사지은 Steam 카드를 쉽게 가져올 수 있고 봇이 보관함에 가지고 있는 Steam 항목을 쉽게 관리할 수 있습니다.
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF는 거래 모듈의 블랙리스트에 오른 주인이 아닌 모든 사용자로부터의 거래 제안을 내용과 상관없이 거절합니다. 블랙리스트는 표준 `봇이름.db` 데이터베이스에 저장되며 `bl`, `bladd`, `blrm` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)**로 관리할 수 있습니다. 이는 Steam이 제공하는 표준 사용자 차단의 대안으로써 작동하므로 사용에 주의하시기 바랍니다.
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+ASF는 `TradingPreferences`에 `봇거래수락안함(DontAcceptBotTrades)`이 명시되어있지 않는 한 봇 간의 모든 `loot` 같은 거래를 수락합니다. 즉, `TradingPreferences`의 기본값인 `없음(None)`은 위에서 설명한대로 봇의 `주인(Master)` 권한을 가진 사용자로부터의 거래를 자동으로 수락하도록 합니다. 또한 ASF 프로세스로 일어나는 다른 봇의 기부 거래도 자동으로 수락합니다. 다른 봇으로부터의 기부 거래를 비활성화 하려면 `TradingPreferences`의 `봇거래수락안함(DontAcceptBotTrades)`을 사용하십시오.
 
-When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
+`TradingPreferences`에 `기부수락(AcceptDonations)`을 활성화하면 봇 계정이 어떤 항목도 잃지 않는 기부 거래를 수락할 것입니다. 이 속성값은 봇이 아닌 계정에만 영향을 주고, 봇 계정은 `봇거래수락안함(DontAcceptBotTrades)`의 영향을 받습니다. `기부수락(AcceptDonations)`은 다른 사람이나 ASF 프로세스에 참여하지 않은 봇으로부터의 기부를 쉽게 수락하게 해줍니다.
 
-It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, as there is no confirmation needed if we're not losing any items.
+어떤 항목도 잃지 않는 경우 확인사항이 없으므로 `기부수락(AcceptDonations)`은 **[ASF 2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 필요로 하지 않음을 알아두십시오.
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
+`TradingPreferences`를 적절하게 수정하여 ASF의 거래 기능을 더 자세하게 지정할 수 있습니다. `TradingPreferences`의 주요 기능 중 하나는 `SteamTradeMatcher` 옵션으로, **[SteamTradeMatcher](https://www.steamtradematcher.com)** 의 공개 리스트와 협업할때 특히 유용한데, 배지를 완성할 수 있도록 거래를 받아들이는 ASF의 내장 논리구조를 사용하도록 합니다. 물론 SteamTradeMatcher 없이도 가능합니다. 아래에서 더 자세하게 설명하겠습니다.
 
 * * *
 
@@ -67,3 +67,5 @@ If you meet all of the requirements above, ASF will periodically communicate wit
 This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat each `8` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered as a command. The target users of this module are primary accounts and "stash" alt accounts, although it can be used on any bot that is not set to `MatchEverything`.
 
 ASF will do its best to minimize the amount of requests and pressure generated by using this option, while at the same time maximizing efficiency of matching to the upper limit. Exact algorithm of choosing bots to match is ASF's implementation detail, but right now ASF will tend to favor bots with better diversity of games that their items are from.
+
+`MatchActively` takes into accounts bots that you blacklisted from trading through `bladd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.

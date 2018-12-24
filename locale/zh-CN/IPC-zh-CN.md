@@ -88,11 +88,11 @@ ASF 默认只会监听 `localhost` 地址，这意味着从本机以外的设备
 
 ### 我可以在我的工具或者用户脚本中访问 ASF API 吗？
 
-是的，这就是 ASF API 被设计的目的，您可以通过任何能发送 HTTP 请求的工具来使用它。 本地用户脚本遵循 **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** 逻辑，并且只要启用 `IPCPassword` 作为额外安全措施，我们就允许来自任意来源（`*`）的请求。 这允许您执行各种经过验证的 ASF API 请求，而不允许潜在的恶意脚本自动执行此操作（因为它们不知道您设置的 `IPCPassword`）。
+是的，这就是 ASF API 被设计的目的，您可以通过任何能发送 HTTP 请求的工具来使用它。 本地用户脚本遵循 **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** 逻辑，并且只要启用 `IPCPassword` 作为额外安全措施，我们就允许其中来自任意来源（`*`）的请求。 这允许您执行各种经过验证的 ASF API 请求，而不允许潜在的恶意脚本自动执行此操作（因为它们不知道您设置的 `IPCPassword`）。
 
 ### 我可以远程访问 ASF 的 IPC 吗，例如从另一台电脑访问？
 
-是的，我们建议您为此设置反向代理（见下文）。 通过反向代理，您访问的是 Web 服务器，然后借此作为跳板访问服务器上的 ASF IPC。 或者，如果您不打算运行反向代理，您可以将&#8203;**[自定义配置](#自定义配置)**&#8203;中的 URL 修改为合适的地址，例如 `http://*:1242`。
+是的，我们建议您为此设置反向代理（见下文）。 通过反向代理，您访问的是 Web 服务器，然后借此作为跳板访问服务器上的 ASF IPC。 或者，如果您不打算运行反向代理，您可以将&#8203;**[自定义配置](#自定义配置)**&#8203;中的 URL 修改为合适的地址。 例如，如果您的设备处于一个私有 VPN 网络中，地址为 `10.8.0.1`，您就可以在 IPC 配置中设置监听地址为 `http://10.8.0.1:1242`，这将会且仅会在您的这个私有 VPN 网络中启用 IPC。
 
 ### 我可以将 ASF 的 IPC 部署在 Apache 或者 Nginx 的反向代理后吗？
 
@@ -107,7 +107,7 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-    location /Api/NLog {
+    location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 #       proxy_set_header Host 127.0.0.1; # 只有在您需要覆盖默认 Host 时启用
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -182,7 +182,7 @@ server {
 
 有 2 个属性值得一提，即 `Endpoints` 和 `PathBase`。
 
-`Endpoints`——这是端点的集合，每个端点都有自己的唯一名称（例如 `IPv4-http`） 和 `Url` 属性指定监听地址，其格式为 `Protocol://Host:Port`。 默认情况下，ASF 会监听 IPv4 和 IPv6 的 HTTP 地址，但如果您需要，也可以参考我们的示例设置 HTTPS。 您应该只声​​明您需要的端点，我们在上面包含了 4 个示例端点，以便您可以更轻松地编辑它们。
+`Endpoints`——这是端点的集合，每个端点都有自己的唯一名称（例如 `example-http4`） 和 `Url` 属性指定监听地址，其格式为 `Protocol://Host:Port`。 默认情况下，ASF 会监听 IPv4 和 IPv6 的 HTTP 地址，但如果您需要，也可以参考我们的示例设置 HTTPS。 您应该只声​​明您需要的端点，我们在上面包含了 4 个示例端点，以便您可以更轻松地编辑它们。
 
 `Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您至少设置 `IPCPassword`（并且启用防火墙）。
 
@@ -191,6 +191,8 @@ server {
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 
 ### 示例配置
+
+以下配置运行任何来源的远程访问，因此您应该确认您已阅读并理解上文的警告。
 
 ```json
 {

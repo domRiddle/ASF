@@ -59,9 +59,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `iqadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appIDs` 加入指定机器人的优先挂卡队列。                                                                                                     |
 | `iqrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appIDs` 从指定机器人的优先挂卡队列中移除。                                                                                                   |
 | `level <Bots>`                                                       | `Master`        | 显示指定机器人的 Steam 帐户等级。                                                                                                              |
-| `loot <Bots>`                                                        | `Master`        | 将指定机器人的所有 `LootableTypes` 社区物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                |
-| `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。             |
-| `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品发送到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
+| `loot <Bots>`                                                        | `Master`        | 将指定机器人的所有 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                |
+| `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。             |
+| `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `nickname`。                                                                                                          |
 | `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `appIDs` 和/或 `gameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
 | `password <Bots>`                                                    | `Master`        | 显示指定机器人的加密后密码（配合 `PasswordFormat` 使用）。                                                                                            |
@@ -69,9 +69,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
 | `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切换到手动挂卡——使指定机器人运行给定的 `AppIDs`，并且可选自定义 `GameName` 为游戏名称。 使用 `resume` 以返回自动挂卡模式。                                                    |
-| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见**[下文](#privacy-设置)**。                                |
+| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                         |
 | `redeem <Bots> <Keys>`                                         | `Operator`      | 为指定机器人激活给定的游戏序列号 `CD-Keys`。                                                                                                       |
-| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人激活给定的游戏序列号 `CD-Keys`，模式详见下文的**[解释](#redeem-模式)**。                                                               |
+| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人激活给定的游戏序列号 `CD-Keys`，模式详见下文的&#8203;**[解释](#redeem-模式)**。                                                        |
 | `rejoinchat <Bots>`                                                  | `Operator`      | 强制指定机器人重新加入 `SteamMasterClanID` 设置的群组聊天。                                                                                          |
 | `restart`                                                                  | `Owner`         | 重新启动 ASF 进程。                                                                                                                      |
 | `resume <Bots>`                                                      | `FamilySharing` | 恢复指定机器人的自动挂卡进程。 参见 `pause` 和 `play`。                                                                                              |
@@ -79,9 +79,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `stats`                                                                    | `Owner`         | 显示进程统计信息，例如托管内存用量。                                                                                                                |
 | `status <Bots>`                                                      | `FamilySharing` | 显示指定机器人的状态。                                                                                                                       |
 | `stop <Bots>`                                                        | `Master`        | 停止指定机器人。                                                                                                                          |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品发送到目标机器人。                                                                                       |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品发送到目标机器人。                                                                    |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品发送到目标机器人。                                                                                |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品转移到目标机器人。                                                                                       |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品转移到目标机器人。                                                                    |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品转移到目标机器人。                                                                                |
 | `unpack <Bots>`                                                      | `Master`        | 拆开指定机器人库存中的所有补充包。                                                                                                                 |
 | `update`                                                                   | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                  |
 | `version`                                                                  | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                      |
@@ -121,7 +121,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 * * *
 
-通过 Steam 聊天执行命令不需要任何额外的帐户——您可以创建一个群组，将 `SteamMasterClanID` 属性设置为这个新群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。 另外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**，但聊天室的方法更简单，并且如果您有多个帐户，这种方法就更简单了。
+通过 Steam 聊天执行命令不需要任何额外的帐户——您可以创建一个群组，将 `SteamMasterClanID` 属性设置为这个新群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。 另外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**，但聊天室的方法更简单，并且如果您有多个帐户，这种方法就更简单了。
 
 * * *
 

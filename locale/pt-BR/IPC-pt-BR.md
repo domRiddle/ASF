@@ -88,11 +88,11 @@ No entanto, se você decidir mudar os endereços padrão do `localhost`, então 
 
 ### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
 
-Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica </strong> **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing), e permitimos o acesso de todas as origens (`*`) contanto que `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).</p> 
+Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
 
 ### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
-Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada, por exemplo: `http://*:1242`.
+Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 
@@ -107,16 +107,16 @@ server {
         ssl_certificate /path/to/your/certificate.crt;
         ssl_certificate_key /path/to/your/certificate.key;
 
-    location /Api/NLog {
+    location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir os hosts 
+#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir o host padrão
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # Adicionamos essas 3 opções extras para o proxy dos websockets, veja https://nginx.org/en/docs/http/websocket.html
+        # Adicionamos essas 3 opções extras para websockets proxying, veja https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -124,7 +124,7 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir os hosts
+#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir o host padrão
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -182,7 +182,7 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 Há duas propriedades que merecem explicação/edição, são `Endpoints` e `PathBase`.
 
-`Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `IPv4-http`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
 `Host` aceita uma variedade de valores, incluindo `*` que liga o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar ao menos `IPCPassword` (e de preferência seu firewall também) nesse caso.
 
@@ -191,6 +191,8 @@ Há duas propriedades que merecem explicação/edição, são `Endpoints` e `Pat
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
 
 ### Exemplo de configuração
+
+The following config will allow remote access from all sources, therefore you should ensure that you read and understood our notice about that, available above.
 
 ```json
 {

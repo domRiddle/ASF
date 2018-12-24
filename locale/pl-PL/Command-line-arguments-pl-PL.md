@@ -4,11 +4,11 @@ ASF includes support for several command-line arguments that can affect the prog
 
 * * *
 
-## Usage
+## Stosowanie
 
 Usage depends on your OS and ASF flavour.
 
-Generic:
+Natywny:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -42,7 +42,7 @@ However, those two are completely fine:
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Argumenty
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
 

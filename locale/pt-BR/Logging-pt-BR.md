@@ -200,7 +200,7 @@ Nós começamos com o nosso exemplo básico de `ColoredConsole` e o estendemos. 
 O exemplo acima irá gerar o arquivo `0-0-76561198069026042.txt` quando conversarmos com o **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
     2018-07-26 01:38:38 how are you doing? -> 76561198069026042
-    2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
+    2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
     
 
 Claro que isto é apenas um exemplo de trabalho com alguns truques agradáveis de layout mostrado de uma maneira prática. Você pode ampliar ainda mais esta ideia para suas próprias necessidades, tais como filtragem extra, ordem personalizada, layout pessoal, gravação apenas de mensagens recebidas e assim por diante.
@@ -297,7 +297,7 @@ Claro, `SteamTarget` tem todas as funções típicas que você poderia esperar d
 
 ### HistoryTarget
 
-Este alvo é usado internamente pelo ASF para fornecer um histórico de registro de tamanho fixo no endpoint `/Api/NLog` do **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** que depois pode ser usado pela ASF-ui e outras ferramentas. Em geral você deve definir esse alvo somente se você já estiver usando uma configuração personalizada do NLog para outras personalizações e também quer que ele seja exposto na API do ASF, como a ASF-ui, por exemplo. Ele também pode ser declarado quando você quiser modificar o layout padrão ou a `maxCount` (contagem máxima) de mensagens salvas.
+This target is used internally by ASF for providing fixed-size logging history in `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** that can be afterwards consumed by ASF-ui and other tools. Em geral você deve definir esse alvo somente se você já estiver usando uma configuração personalizada do NLog para outras personalizações e também quer que ele seja exposto na API do ASF, como a ASF-ui, por exemplo. Ele também pode ser declarado quando você quiser modificar o layout padrão ou a `maxCount` (contagem máxima) de mensagens salvas.
 
 Suportado em todos os ambientes utilizados pelo ASF.
 

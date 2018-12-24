@@ -1,65 +1,65 @@
 # 도커
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it might be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. ASF를 도커 컨테이너로 실행하는 것은 일반적인 사용자에게는 보통 장점이 없습니다. 하지만 ASF가 다른 모든 앱으로부터 분리된 샌드박스 환경에서 실행을 보장해주는, 서버에서 ASF 사용시에는 훌륭한 방법일 수 있습니다. 도커 repo는 **[여기에](https://hub.docker.com/r/justarchi/archisteamfarm)** 있습니다.
 
 * * *
 
 ## 태그
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** 상태를 갖습니다.
 
 ### `master`
 
-This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the master GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
+이 태그는 항상 master 분기의 최신 커밋으로 빌드된 ASF를 가리킵니다. 이는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에서 묘사된 실험적 AppVeyor 빌드와 동일하게 동작합니다. 일반적으로 이 태그는 피해야 합니다. 이는 개발목적을 위해 개발자와 고급사용자용의 최고 수준으로 버그가 많은 소프트웨어입니다. GitHub master 분기의 모든 커밋마다 업데이트되며, AppVeyor 빌드처럼 업데이트가 매우 잦고 일부 깨진것이 있을 것입니다. 릴리스 주기에서 이야기한 것 처럼 이는 ASF 프로젝트의 현재 상태를 나타내기 위해 있는것이지, 안정적이거나 테스트완료되었음을 보장하는 것이 아닙니다. 이 태그는 제작 환경에서 사용해서는 안됩니다.
 
 ### `released`
 
-Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+위와 매우 유사하지만, 이 태그는 사전 릴리스를 포함한 최신 **[릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 버전을 항상 가리킵니다. `master` 태그와 비교하면, GitHub 태그가 제출될때마다 업데이트 됩니다. 안정적이면서도 새로운, 최첨단에 있기를 좋아하는 고급 사용자를 위한 것입니다. `latest`를 사용하고 싶지 않은 경우 추천합니다. 이 태그의 사용은 **[사전 릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 의 사용과 동일합니다.
 
 ### `latest`
 
-This tag in comparison with previous two, as the first one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+이 태그는 이전의 두 태그와 비교하면, 전자는 ASF 자동 업데이트 기능을 포함하지만 일반적으로 안정 버전을 가리깁니다. 하지만 이것이 최신버전일 필요는 없습니다. 이 태그의 목적은 스스로 업데이트하는 실행가능한 정상적인 기본 ASF 도커 컨테이너를 제공하는 것입니다. 이 때문에 가능한만큼 자주 업데이트 될 필요가 없습니다. 포함된 ASF 버전은 필요하다면 스스로 업데이트될 수 있습니다. 물론 `UpdatePeriod`는 안전하게 꺼도 됩니다(`0`으로 설정). 이 경우 `A.B.C.D` 릴리스를 사용해야 할 것입니다. 마찬가지로, 그대신 자동으로 업데이트 되는 `released` 태그를 만들기 위해 기본 `UpdateChannel`을 변경할 수도 있습니다.
 
 ### `A.B.C.D`
 
-In comparison with above tags, this tag is completely frozen, which means that the image won't be updated once published. This works similar to our GitHub releases that are never touched after the initial release, which guarantees you stable and frozen environment. Typically you should use this tag when you want to use some specific ASF release and you don't want to use auto-updates that are offered in `latest` tag.
+위의 태그와 비교하자면, 이 태그는 완전히 동결되었습니다. 즉, 한번 릴리스되면 업데이트 되지 않습니다. 최초 릴리스 후 한번도 건드리지 않은 GitHub 릴리스와 유사하게 동작하고, 안정적이고 동결된 환경을 보장합니다. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
 
 * * *
 
-## Which tag is the best for me?
+## 어떤 태그가 최선입니까?
 
-That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
+찾고 있는 것에 따라 다릅니다. 대부분의 사용자에게 `latest` 태그가 최선입니다. 이는 서비스로 되어있는 특별한 도커 컨테이너에 담겨있을 뿐 데스크탑 ASF가 제공하는 것을 정확하게 동일하게 제공합니다. 해당 릴리스에 ASF 버전이 묶여있는 대신 이미지를 꽤 자주 다시 빌드하는 사람은 `released` 태그를 사용하십시오. 당신의 명확한 의도 없이 어떤것도 바뀌지 않는 특정한 동결 버전을 사용하길 원한다면 `A.B.C.D` 릴리스가 당신이 항상 돌아갈 수 있는 고정된 ASF 마일스톤이 될 것입니다.
 
-We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
+자동화된 AppVeyor 빌드처럼 `master` 빌드의 사용은 추천하지 않습니다. 이 빌드는 ASF 프로젝트의 현재 상태를 나타내기 위한 것입니다. 그 상태는 어떤것도 정상작동을 보장하지 않지만, ASF 개발에 관심이 있다면 시도해보는 것도 좋습니다.
 
 * * *
 
-## Architectures
+## 아키텍쳐
 
-ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
+ASF 도커 이미지는 현재 `x64`와 `arm` 두개의 아키텍처에서 가능합니다. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
 
-Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
+다중 아키텍처 태그는 아직 작업중이므로, 기본 `x64`가 아닌 다른 아키텍처용 빌드는 태그 이름에 `-{ARCH}`를 붙이면 됩니다. 즉, `arm` 아키텍처에서 `latest` 태그를 사용하고 싶다면 `latest-arm`를 사용하면 됩니다.
 
 * * *
 
 ## 사용법
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
+완전한 참조는 **[도커 공식 문서](https://docs.docker.com/engine/reference/commandline/docker)**를 참고하시고, 이 가이드에서는 간단한 사용법만 다룹니다. 더 깊이 공부하는 것도 좋습니다.
 
-### Hello ASF!
+### 안녕하세요 ASF!
 
-Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
+먼저 도커가 정상적으로 작동하는지 확인해야합니다. 이것이 ASF의 "Hello World!" 입니다.
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it --name asf justarchi/archisteamfarm
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`).
+캐시에 오래된 사본이 있을수 있으므로 `docker pull` 명령으로 최신의 `justarchi/archisteamfarm` 이미지를 사용하고 있음을 확인합니다. `docker run` 으로 당신의 새로운 ASF 도커 컨테이너를 생성하고 전경에서 실행되도록 합니다(`-it`).
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
+모든것이 성공적으로 끝나면, 모든 레이어를 당기고 컨테이너를 시작한 뒤 ASF가 정상적으로 시작해서 정의된 봇이 없다고 알리고 있음을 알게 됩니다. ASF가 도커에서 정상적으로 작동하고 있습니다. `CTRL+P`와 `CTRL+Q`를 순서대로 눌러서 전경 도커 컨테이너에서 빠져나옵니다. 그리고 `docker stop asf`를 입력해 ASF를 중지하고, `docker rm asf`로 ASF를 삭제합니다.
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+명령어를 자세히 봤다면 태그를 선언하지 않았음을 알게 되었을 겁니다. 태그는 자동으로 기본값인 `latest` 가 됩니다. `latest` 말고 `latest-arm` 같은 다른 태그를 사용하고 싶다면 명시적으로 선언해야 합니다.
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
@@ -68,62 +68,62 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 * * *
 
-## Using a volume
+## 볼륨 사용
 
-If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
+ASF를 도커 컨테이너에서 사용하고 있다면 프로그램 자체를 환경설정할 필요가 있습니다. 다양한 방법으로 할 수 있지만, 추천하는 것은 로컬 기기에 ASF `config` 디렉토리를 만들어서 ASF 도커 컨테이너에 공유 볼륨으로 마운트 하는 것입니다.
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
+예를 들어, 당신의 ASF 환경설정 폴더가 `/home/archi/ASF/config` 디렉토리에 있다고 가정합니다. 이 디렉토리는 핵심 `ASF.json`과 실행하려는 봇이 담겨 있습니다. 이제 할일은 단순히 이 디렉토리를 도커 컨테이너에 공유볼륨으로 붙이는 것입니다. ASF는 여기에 환경설정 디렉토리(`/app/config`)가 있다고 생각합니다.
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF.
+그러면 끝입니다. 이제 ASF 도커 컨테이너는 로컬 기기에 있는 공유 디렉토리를 읽기-쓰기 모드로 사용하고, 이는 ASF를 설정하는데 필요한 전부입니다.
 
-Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
+물론, 이는 우리가 원하는 바를 달성하기 위한 하나의 방법일뿐이고, 자신만의 `Dockerfile`을 만들어서 환경설정 파일을 ASF 도커 컨테이너 안의 `/app/config` 디렉토리로 복사하는 등 당신이 하려는 것을 막을수 있는 것은 없습니다. 이 가이드에서는 기본적인 것만을 다룹니다.
 
-### Volume permissions
+### 볼륨 권한
 
-ASF is by default run with default `root` user inside a container. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which might not be desired situation when using a shared volume.
+ASF는 기본적으로 컨테이너 내부에서 기본값인 `root` 사용자로 실행됩니다. 우리는 이미 도커 컨테이너 안에 있으므로 보안측면에서 문제가 되지는 않습니다. 하지만 새로 생성된 공유 볼륨은 보통 `root`의 소유가 되고 이는 공유 볼륨을 사용할 때 원하는 상황은 아닙니다.
 
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
+도커는 `docker run` 명령어에 `--user` **[플래그](https://docs.docker.com/engine/reference/run/#user)** 를 전달하여 ASF를 실행할 기본 사용자를 정의할 수 있습니다. 예를 들어 `id` 명령어를 통해 `uid`와 `gid`를 확인하고 이를 명령어의 일부로 줄 수 있습니다. 예를 들어, 해당 사용자의 `uid`와 `gid`가 1000 인 경우,
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
+기본적으로 ASF가 사용하는 `/app` 디렉토리는 여전히 `root`의 소유임을 명심하십시오. ASF를 다른 사용자로 실행하면 ASF 프로세스는 파일에 쓰기 권한을 갖지 못합니다. 쓰기 권한은 작업에 필수적인 것은 아니지만 자동 업데이트 기능 등에서는 치명적입니다. 이를 수정하기 위해서는 모든 ASF 파일을 기본 `root`에서 새 사용자로 소유권을 변경하는 것만으로 충분합니다.
 
 ```shell
 docker exec -u root asf chown -hR 1000:1000 /app
 ```
 
-This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1000:1000` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
+ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨테이너를 `docker run`으로 생성한 후 한번만 하면 됩니다. 위의 `1000:1000` 인자를 ASF가 실행될 실제 `uid`와 `gid`로 변경하는 것을 잊지 마십시오.
 
 * * *
 
 ## 명령줄 인자
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. 예를 들면 다음과 같습니다:
+ASF는 `ASF_ARGS` 환경변수를 사용해서 **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)** 를 도커 컨테이너로 넘겨줄 수 있습니다. 이는 `docker run`의 앞쪽에 `-e` 스위치를 추가하면 됩니다. 예를 들면 다음과 같습니다:
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
 ```
 
-This will properly pass your `--cryptkey` argument to ASF process being run inside docker container. Of course, if you're advanced user then you can also modify `ENTRYPOINT` and pass your custom arguments yourself.
+이렇게 하면 `--cryptkey` 인자를 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. 물론, 당신이 고급 사용자라면 `ENTRYPOINT`를 수정해서 사용자지정 인자를 직접 전달할 수도 있습니다.
 
-Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special `ASF_ARGS` as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`.
+사용자지정 암호화 키나 다른 고급 옵션을 주고싶은 것이 아니라면 보통은 어떤 특별한 `ASF_ARGS`를 포함하지 않습니다. 도커 컨테이너는 이미 기본값으로 `--no-restart` `--process-required` `--system-required`로 실행하도록 설정되어있습니다.
 
 * * *
 
 ## IPC
 
-For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
+IPC를 사용하려면, 먼저 `IPC` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#global-config)** 을 `true`로 변경해야 합니다. 그 외에도, `localhost`로 되어있는 기본 리스닝 주소도 **수정해야 합니다**. 도커는 외부 트래픽을 루프백 인터페이스로 라우팅할 수 없습니다. 모든 인터페이스를 리슨하는 설정값의 예시입니다. `http://*:1242`. 물론 로컬 LAN이나 VPN 네트워크 같은 더 제한적인 바인딩을 사용할 수도 있지만, 외부에서 라우팅 가능해야 합니다. `localhost`는 게스트 기기안에서만 라우팅하므로 이것이 불가능합니다.
 
-For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
+위와 같이 하려면, 아래와 같은 **[사용자 설정 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#custom-configuration)**를 사용해야 합니다.
 
 ```json
 {
@@ -137,29 +137,29 @@ For doing the above you should use **[custom IPC config](https://github.com/Just
 }
 ```
 
-Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
+IPC를 루프백이 아닌 인터페이스에 설정하고 나면, `-P` 나 `-p` 스위치를 사용해서 도커에게 ASF의 `1242/tcp` 포트를 알려주어야 합니다.
 
-For example, this command would expose ASF IPC interface to host machine (only):
+예를 들어, 이 명령어는 ASF의 IPC 인터페이스를 호스트 기기에 열 것입니다.
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+모든 것을 정확하게 설정했다면 위의 `docker run` 명령어는 호스트 기기의 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스가 게스트 기기로 리다이렉트된 표준 `localhost:1242` 라우트에서동작하도록 할 것입니다. 이 라우트를 더 많이 노출하지 않음을 알아 두십시오. 연결은 오직 도커 호스트안에서만 이루어지고 안전하게 유지됩니다.
 
 * * *
 
-### Complete example
+### 완전한 예제
 
-Combining whole knowledge above, an example of a complete setup would look like this:
+위의 지식을 모두 합치면 완전한 설치 예시는 다음과 같습니다.
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-This assumes that you have all ASF config files in `/home/archi/asf`, if not, you should modify the path to the one that matches. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+이는 모든 ASF 환경설정 파일이 `/home/archi/asf`에 있다고 가정한 것이고, 그렇지 않다면 경로를 맞는 것으로 수정해야 합니다. 다음과 같은 `IPC.config` 를 환경설정 디렉토리에 넣기로 결정했다면 추가로 IPC 사용도 가능합니다.
 
 ```json
 {
@@ -175,10 +175,10 @@ This assumes that you have all ASF config files in `/home/archi/asf`, if not, yo
 
 * * *
 
-## Pro tips
+## 프로 팁
 
-When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it might still be a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
+ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. `latest` 태그를 사용하고 있지 않다면 ASF를 업데이트 하는 경우 `docker stop`, `docker rm`, `docker pull`, `docker run` 을 다시 한번 실행해야 함을 명심하십시오. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. `latest` 태그에서는 ASF가 스스로 자동 업데이트할 수 있으며, 최신 ASF를 사용하는데 이미지를 다시 빌드할 필요가 없습니다. 물론 새로운 .NET Core 런타임과 그 밑의 OS를 사용하기 위해 때때로 다시 빌드하는 것도 좋은 생각입니다.
 
-As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
+위에서 암시하였듯이, `latest` 가 아닌 ASF 태그는 스스로 자동 업데이트하지 않습니다. 즉, **당신이** 최신의 `justarchi/archisteamfarm` 저장소를 사용할 주체입니다. 보통 앱이 실행중에는 코드를 건드려서는 안되기 때문에 많은 장점을 갖지만, 도커 컨테이너에 있는 ASF는 걱정할 필요가 없다는 편리함도 있습니다. 좋은 사례와 정확한 도커 사용례를 잘 살핀다면 우리가 추천하는 것은 `latest` 태그가 아닌 `released` 태그입니다. 하지만 그게 귀찮고 ASF가 동작도 잘하고 자동 업데이트도 하길 원하면 `latest` 태그가 그 답입니다.
 
-You should typically run ASF in docker container with `Headless: true` global setting. This will clearly tell ASF that you're not here to provide missing details and it should not ask for those. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. This way ASF won't have to wait infinitely for user input that will not happen (and waste resources while doing so).
+보통 ASF 도커 컨테이너는 `Headless: true` 일반 설정상태로 실행해야 합니다. 이는 ASF에게 세부적인 내용이 빠져있어도 당신이 줄 수 없으며 묻지 말 것을 알립니다. 물론 초기 설치단계에서는 이 옵션을 `false`로 해서 쉽게 설정할 수 있지만, 장기적으로는 ASF 콘솔에 매여있지 않으므로 ASF에게 이를 알리고 필요가 있으면 `input` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 사용하는 것이 맞습니다. 이렇게 해서 ASF는 일어나지 않을 사용자 입력을 무한히 기다리지 않을 수 있고 이에 소요되는 자원낭비를 막을 수 있습니다.

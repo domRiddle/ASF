@@ -12,7 +12,7 @@
 
 ### Файл
 
-ASF увидит в папке `config` файл с названием `BotName.keys`, где `BotName` - имя бота. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Если используется несколько символов табуляции, тогда первая запись считается за название игры, последняя - за ключ, и всё между ними игнорируется. Например:
+ASF увидит в папке `config` файл с названием `BotName.keys`, где `BotName` - имя бота. Ожидается что этот файл будет иметь фиксированную структуру имени игры и ключа, отделенной при помощи символа табуляции и оконченной с новой строки, чтобы показать следующую запись. Если используется несколько символов табуляции, тогда первая запись считается за название игры, последняя - за ключ, и всё между ними игнорируется. Например:
 
     POSTAL 2	ABCDE-EFGHJ-IJKLM
     Domino Craft VR	12345-67890-ZXCVB
@@ -20,7 +20,7 @@ ASF увидит в папке `config` файл с названием `BotName.
     Terraria	ЭтоИгнорируется	ИЭтоТоже	ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Альтернативно, вы так же можете использовать использовать формат только ключей (все еще с новой строки между каждой записью). В этом случае ASF будет использовать ответ Steam (если возможно) чтобы заполнить правильное имя. Для любого вида меток ключей, мы рекомендуем чтобы вы сами называли свои ключи, так как пакеты активируемые в Steam могут не следовать логике игр, которые они активируют, так в зависимости от того что разрабочик туда ввел, вы можете видеть правильные названия игр, специальные имена пакетов (например: Humble Indie Bundle 18) или напрямую неправильные и так же потенциально вредоносные (например: Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -32,7 +32,7 @@ Alternatively, you're also able to use keys only format (still with a newline be
 
 ### IPC
 
-В дополнение к использованию файла с ключами, описанному выше, ASF также предоставляет **[конечную точку ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** `GamesToRedeemInBackground`, которубю можно использовать из любой утилиты, использующей IPC, включая наш ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+В дополнение к использованию файла с ключами, описанному выше, ASF также предоставляет **[конечную точку ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** `GamesToRedeemInBackground`, которубю можно использовать из любой утилиты, использующей IPC, включая наш ASF-ui. Способ с IPC может быть более функциональным, так как Вы можете настроить считывание под себя, например, использовать свой разграничитель вместо символа табуляции, или даже ввести полностью свою структуру ключей.
 
 * * *
 

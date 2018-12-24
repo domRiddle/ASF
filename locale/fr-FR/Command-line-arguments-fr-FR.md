@@ -28,13 +28,13 @@ Linux/OS X
 
 Les arguments de ligne de commande sont également pris en charge dans les scripts d'assistance génériques tels que ` ArchiSteamFarm.cmd </ 0> ou <code> ArchiSteamFarm.sh </ 0>. De plus, lorsque vous utilisez des scripts d'assistance, vous pouvez également utiliser la propriété d'environnement <code> ASF_ARGS </ 0>, comme indiqué dans notre section <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments">docker</ 1>.</p>
 
-<p>Si votre argument comprend des espaces, n'oubliez pas de le citer. Ces deux sont faux</p>
+<p>Si votre argument comprend des espaces, n'oubliez pas de le citer. Ces deux exemples sont faux:</p>
 
 <pre><code class="shell">./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 `</pre> 
 
-Cependant, ces deux la sont complètement bien:
+Cependant, ces deux la sont complètement valides:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
@@ -56,17 +56,17 @@ Cependant, ces deux la sont complètement bien:
 Exemple :
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Chemin 'absolu'
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Chemin alternatif, fonctionne aussi
 ```
 
     ├── /opt
     │     ├── ASF
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
-    │     └── TargetDirectory
+    │     └── DossierCible
     │           ├── config
-    │           └── www (optional)
+    │           └── www (optionnel)
     └── ...
     
 

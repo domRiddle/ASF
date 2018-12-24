@@ -200,7 +200,7 @@ Wir haben mit unserem einfachen Beispiel `ColoredConsole` begonnen und es weiter
 Das obige Beispiel erzeugt `0-0-76561198069026042.txt` Datei, wenn man mit **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)** spricht:
 
     2018-07-26 01:38:38 how are you doing? -> 76561198069026042
-    2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
+    2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
     
 
 Natürlich ist dies nur ein funktionierendes Beispiel mit ein paar schönen Layout-Tricks, die in praktischer Hinsicht gezeigt werden. Du kannst diese Idee weiter auf deine eigenen Bedürfnisse ausdehnen, wie z.B. zusätzliche Filterung, benutzerdefinierte Reihenfolge, persönliches Layout, Aufnahme nur empfangener Nachrichten und so weiter.
@@ -297,7 +297,7 @@ Natürlich verfügt `SteamTarget` über alle typischen Funktionen, die du von ge
 
 ### HistoryTarget
 
-Dieses Target wird intern von ASF verwendet, um eine Protokollhistorie mit fester Größe in `/Api/NLog` Endpunkt von **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** bereitzustellen, die anschließend von ASF-ui und anderen Programmen verwendet werden kann. Im Allgemeinen solltest du dieses Target nur dann definieren, wenn du bereits eine benutzerdefinierte NLog-Konfiguration für andere Anpassungen verwendest und das Protokoll auch in der ASF-API angezeigt werden soll, z.B. für ASF-ui. Es kann auch angegeben werden, wenn du das Standardlayout oder `maxCount` der gespeicherten Nachrichten ändern möchtest.
+Dieses Target wird intern von ASF verwendet, um eine Protokollhistorie mit fester Größe in `/Api/NLog` Endpunkt von **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** bereitzustellen, die anschließend von ASF-ui und anderen Programmen verwendet werden kann. Im Allgemeinen solltest du dieses Target nur dann definieren, wenn du bereits eine benutzerdefinierte NLog-Konfiguration für andere Anpassungen verwendest und das Protokoll auch in der ASF-API angezeigt werden soll, z.B. für ASF-ui. Es kann auch angegeben werden, wenn du das Standardlayout oder `maxCount` der gespeicherten Nachrichten ändern möchtest.
 
 Wird in allen von ASF verwendeten Umgebungen unterstützt.
 

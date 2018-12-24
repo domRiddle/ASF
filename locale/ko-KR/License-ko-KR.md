@@ -1,6 +1,6 @@
 # 라이센스
 
-달리 명시하지 않는 한 ASF는 **[아파치 라이센스 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** 하에 라이센스되어 있습니다. 할수 있는 것과 할수 없는 것에 대한 간략한 개요는 **[tl; dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**을 참고하십시오.
+달리 명시하지 않는 한 ASF는 **[아파치 라이센스 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** 하에 라이센스되어 있습니다. 할 수 있는 것과 할 수 없는 것에 대한 간략한 개요는 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**을 참고하십시오.
 
 ASF 라이센스는 매우 관대하고 표준 GPL 라이센스보다 더 많은것이 허용됩니다. 코드를 오픈소스로 하는 요구사항없이 ASF를 상업 프로젝트에 포함할 수도 있습니다. 즉, tl;dr Legal에 명시된 대로,
 

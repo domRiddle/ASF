@@ -151,7 +151,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 如果您之前已经填好了 `SteamLogin` 和 `SteamPassword`，ASF 就只会向您询问 Steam 令牌代码（电子邮件、手机验证器或者无令牌，取决于您的 Steam 设置）。 如果没有填写，ASF 就会向您询问 Steam 用户名和密码。
 
-如果担心如 ASF 所述的接下来会发生的事情，现在您可以审查我们的&#8203;**[隐私政策](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**。
+如果担心如 ASF 所述的接下来会发生的事情，现在您可以审查我们的&#8203;**[隐私政策](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**。
 
 假设填写的信息全部正确无误，您将会成功登录，ASF 将会以默认设置开始挂卡：
 
@@ -232,7 +232,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，现在
 
 ### 总结
 
-您已经成功设置好了 ASF，让它管理您的 Steam 帐户，并且您也根据个人喜好对其进行了一定程度的定制。 如果您遵循了我们的整个指南，您甚至还可以通过 ASF-ui 接口发送一条简单的命令。 现在您可以阅读完整的&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节了解所有 ASF 的高级选项，以及 ASF 有哪些功能。 如果您遇到了问题，或者有任何疑问，可以阅读&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**，其中涵盖了所有您可能想问的，或至少是其中最主要的问题。 如果您希望了解 ASF 的一切以及 ASF 如何为您提供帮助，请继续阅读我们的 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**。 祝您愉快！
+您已经成功设置好了 ASF，让它管理您的 Steam 帐户，并且您也根据个人喜好对其进行了一定程度的定制。 如果您遵循了我们的整个指南，您甚至还可以通过 ASF-ui 接口发送一条简单的命令。 现在您可以阅读完整的&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节了解所有 ASF 的高级选项，以及 ASF 有哪些功能。 如果您遇到了问题，或者有任何疑问，可以阅读&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**，其中涵盖了所有您可能想问的，或至少是其中最主要的问题。 如果您希望了解 ASF 的一切以及 ASF 如何为您提供帮助，请继续阅读我们的 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**。 祝您愉快！
 
 * * *
 

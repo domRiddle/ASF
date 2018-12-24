@@ -22,7 +22,7 @@ Dieses Tag zeigt im Vergleich zu den beiden vorherigen, da das erste die ASF-Fun
 
 ### `A.B.C.D`
 
-Im Vergleich zu den oben genannten Tags ist dieser Tag vollständig eingefroren, was bedeutet, dass das Image nach der Veröffentlichung nicht mehr aktualisiert wird. Dies funktioniert ähnlich wie bei unseren GitHub-Versionen, die nach der ersten Version nie wieder berührt werden, was dir eine stabile und gefrorene Umgebung garantiert. Normalerweise solltest du dieses Tag verwenden, wenn du eine bestimmte ASF-Version verwenden möchtest und du möchtest keine automatischen Aktualisierungen verwenden, die im Tag `latest` angeboten werden.
+Im Vergleich zu den oben genannten Tags ist dieser Tag vollständig eingefroren, was bedeutet, dass das Image nach der Veröffentlichung nicht mehr aktualisiert wird. Dies funktioniert ähnlich wie bei unseren GitHub-Versionen, die nach der ersten Version nie wieder berührt werden, was dir eine stabile und gefrorene Umgebung garantiert. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
 
 * * *
 

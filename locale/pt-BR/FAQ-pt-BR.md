@@ -565,9 +565,11 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
+### `System.IO.IOException: Input/output error`
 
-Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Reportar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
+
+If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately.
 
 * * *
 
@@ -583,7 +585,13 @@ Se você tem certeza de que a data no seu computador está certa e mesmo assim o
 
 * * *
 
-### O ASF está sendo detectado como um malware pelo meu antivírus! O que está acontecendo?
+### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
+
+Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Reportar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+
+* * *
+
+### O ASF está sendo detectado como um malware pelo meu AntiVirus! O que está acontecendo?
 
 **Certifique-se de que você baixou o ASF de uma fonte confiável**. A única fonte oficial e confiável a página de **[lançamentos ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** no GitHub (e essa também é a fonte para as atualizações automáticas do ASF) - **qualquer outra fonte não é confiável e pode conter malware adicionado por outras pessoas** - você não deve confiar em nenhuma outra fonte de dowload e garantir que sua cópia do ASF sempre venha de nós.
 
