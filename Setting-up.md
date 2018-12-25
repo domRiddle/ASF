@@ -39,7 +39,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
