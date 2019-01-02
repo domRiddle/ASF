@@ -43,7 +43,7 @@
 - libicu（您使用的发行版上的最新版，例如 Debian 9 上的 `libicu57`）
 - libkrb5-3（krb5-libs）
 - liblttng-ust0（lttng-ust）
-- libssl1.0.2（libssl，openssl-libs，您使用的发行版上的最新 1.0.X 版本）
+- libssl1.0.2（libssl、openssl-libs、compat-openssl10、您使用的发行版上的最新 1.0.X 版本）
 - zlib1g（zlib）
 
 至少有一部分包应该已经在您的系统中了（例如 zlib1g 应该是大多数现代 Linux 发行版的基础组件）。

@@ -261,7 +261,7 @@ Um dos casos foi de um cara com mais de 1000 bots que teve um bloqueio de trocas
 
 > Olá, XXX, Obrigado por contatar o suporte Steam. Parece que esta conta foi usada para gerenciar uma rede de contas bot. O uso de bots viola o Acordo de Assinatura do Steam.
 
-Por favor, use o bom senso e não assuma que você pode fazer essas coisas malucas só porque o ASF permite que você faça isso. Usar o `loot ASF` em mais de mil de bots pode ser facilmente considerado um ataque **[DDoS](https://pt.wikipedia.org/wiki/Ataque_de_nega%C3%A7%C3%A3o_de_servi%C3%A7o#Ataque_distribu%C3%ADdo)** e eu pessoalmente não estou chocado que alguém foi banido para uma coisa dessas. Por favor, use sempre o bom senso e um mínimo de uso justo em relação ao serviço do Steam, e *provavelmente* você estará seguro.
+Por favor, use o bom senso e não assuma que você pode fazer essas coisas malucas só porque o ASF permite que você faça isso. Usar o `loot ASF` em mais de mil de bots pode ser facilmente considerado um ataque **[DDoS](https://pt.wikipedia.org/wiki/Ataque_de_nega%C3%A7%C3%A3o_de_servi%C3%A7o#Ataque_distribu%C3%ADdo)** e eu pessoalmente não estou chocado que alguém foi banido para uma coisa dessas. Use sempre o bom senso e um mínimo de uso justo em relação ao serviço do Steam, e *provavelmente* você estará seguro.
 
 Outro caso foi de um cara com mais de 170 bots ser banido durante a Promoção de Inverno 2017 do Steam.
 
@@ -359,9 +359,9 @@ Simplesmente feche o processo ASF, por exemplo, clicando em [X] no Window. Se ao
 
 ### Quantos bots posso rodar com o ASF?
 
-O ASF em si não tem qualquer limite máximo de contas bot, no entanto você será limitado pela rede Steam e pelo Steam web. Atualmente você pode rodar até **100 bots** por IP e por instância do ASF. É possível executar mais bots com mais IPs e mais instâncias do ASF. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
+Como programa, o ASF não tem nenhum limite máximo de contas bot, então você pode rodar o quanto quiser, enquanto você tiver memória disponível em seu computador, no entanto, você ainda estará limitado pela rede e pelos outros serviços do Steam. Atualmente você pode rodar até **100 bots** por IP e por instância do ASF. É possível rodar mais bots com mais IPs e mais instâncias do ASF, contornando as limitações de IP. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
 
-A equipe do ASF sugere a execução de até **10 bots** ao mesmo tempo, qualquer coisa acima disso é por seu próprio risco.
+A equipe do ASF sugere rodar (e **possuir**) **no máximo 10 bots**, não há suporte para qualquer quantidade acima disso e caso você insista é por sua conta e risco e contra nossas sugestões. Essa recomendação é feita tanto com base em diretrizes internas da Valve quanto nossas sugestões. Se você vai concordar ou não com elas é escolha sua, o ASF, como ferramenta, não vai te proibir de fazer isso, mesmo se você terminar com suas contas no Steam suspensas por conta disso.
 
 * * *
 
@@ -567,9 +567,9 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 ### `System.IO.IOException: Input/output error`
 
-If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
+Se esse erro ocorreu durante uma entrada no ASF (por exemplo, `Console.ReadLine()` é mostrado no stacktrace) então ele foi causado por seu ambiente que não permitiu que o ASF lesse uma entrada no seu console. Isso pode ocorrer por muitos motivos, mas o mais comum é você rodar o ASF no ambiente errado (por exemplo, no segundo plano `&` em vez da `screen` no Linux). Se o ASF não puder acessar sua entrada padrão, então você verá este erro no registro e a incapacidade do ASF de usar seus dados durante o tempo de execução.
 
-If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately.
+Se você **espera** que isso aconteça é porque você **pretende** executar o ASF em um ambiente sem entradas, então você deve explicitamente dizer isso ao ASF, definindo o modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless)** de forma apropriada.
 
 * * *
 

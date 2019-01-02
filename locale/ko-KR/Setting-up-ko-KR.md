@@ -43,7 +43,7 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 - libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, 배포판의 최신 1.0.X 버전)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
 이 중 적어도 몇개는 이미 설치되어 있을 것입니다. (오늘날 거의 모든 리눅스 배포판의 필수요소인 zlib1g 같은 것들)

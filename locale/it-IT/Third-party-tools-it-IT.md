@@ -15,10 +15,10 @@ Si prega di notare che i seguenti strumenti non sono mantenuti dal team di ASF e
 
 ## Packaging
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, permette d'installare facilmente ASF su Arch Linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[OBSOLETO][Cookbook](https://supermarket.chef.io/cookbooks/asf)**, permettendovi di installare facilmente ASF V2 su vari sistemi. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
-- **[OBSOLETO][Brew formula](http://brewformulas.org/ArchiSteamFarm)**, permettendovi di installare facilmente ASF V2 con homebrew. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Forse potresti aiutarci?
+- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, permette di installare facilmente ASF su Arch Linux.
+- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permette di installare facilmente ASF su Arch Linux.
+- **[OUTDATED] [cookbook](https://supermarket.chef.io/cookbooks/asf)**, permette di installare facilmente ASF V2 sui vari sistemi. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Magari potresti aiutarci?
+- **[OBSOLETO][Brew formula](http://brewformulas.org/ArchiSteamFarm)**, permettendovi di installare facilmente ASF V2 con homebrew. Non è stato ancora aggiornato per l'ultima versione di ASF, perciò il suo utilizzo è sconsigliato. Magari potresti aiutarci?
 
 * * *
 
@@ -30,6 +30,6 @@ Si prega di notare che i seguenti strumenti non sono mantenuti dal team di ASF e
 
 * * *
 
-## Want to find more?
+## Vuoi saperne di più?
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.
+Consigliamo il tag **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** su GitHub per tutti i progetti che si integrano ASF.

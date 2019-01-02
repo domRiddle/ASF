@@ -1,24 +1,24 @@
-# Setting up
+# Kurulum
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+Buraya ilk kez geldiyseniz, hoş geldiniz! Projemizle ilgilenen başka bir yolcuyu görmekten çok mutluyuz, bununla birlikte büyük bir güçle büyük sorumluluk alındığını aklınızda bulundurun - ASF Steam ile ilgili birçok farklı şey yapabilir, ancak siz sadece **nasıl kullanılacağını öğrenecek kadar dikkatli olun **. Burada yer alan dik bir öğrenme eğrisi var ve sizden bu konuda wiki okumanızı bekliyoruz; bu, her şeyin nasıl işlediğini ayrıntılı olarak açıklar.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Eğer hala buradaysanız, yukarıdaki yazımıza katlandığınız anlamına gelir, bu güzeldir. Eğer onu atlatmazsan, o zaman yakında **[kötü bir zaman](https://www.youtube.com/watch?v=WJgt6m6njVw)** geçireceksin... Her neyse, ASF bir konsol uygulamasıdır, yani programın kendisinde genel olarak alıştığınız dost bir GUI, Grafiksel Kullanıcı Arayüzü, yoktur. ASF'nin esas olarak sunucularda çalıştırılması gerekiyordu, bu yüzden bir masaüstü uygulaması değil, bir hizmet (daemon) görevi görüyordu.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
+Ancak bu, PC'nizde kullanamayacağınız veya kullanmanın normalden daha karmaşık olduğu anlamına gelmez, öyle bir şey değil. ASF, kurulum gerektirmeyen ve tıklandığı anda çalışan, ancak kullanışlı hale gelmeden önce yapılandırma gerektiren bağımsız bir programdır. Yapılandırma, ASF'ı başlattıktan sonra yapılması gerekenleri söylüyor. Yapılandırma olmadan başlatırsanız, ASF hiçbir şey yapmaz, durum bu.
 
 * * *
 
-## OS-specific setup
+## İşletim sistemine özgü kurulum
 
-In general, here is what we'll do in the next few minutes:
+Genel olarak, işte önümüzdeki birkaç dakika içinde yapacağımız şey:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
+- **[.NET Core ön koşullarını](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** yükleyin.
+- İşletim Sistemi'ne uygun değişkene göre **[en son ASF sürümünü](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** indirin.
+- Arşivi yeni yerine çıkartın (ve eğer Linux / OS X kullanıyorsanız, `chmod + x ArchiSteamFarm`).
+- **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- ASF'yi başlatın ve büyüyü görün.
 
-Sounds simple enough, right? So let's get through it.
+Yeterince basit görünüyor, değil mi? Öyleyse hadi başlayalım.
 
 * * *
 
@@ -43,7 +43,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - libicu (latest version for your distribution, for example `libicu57` for Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
@@ -252,11 +252,11 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- **[.NET Core ön koşullarını](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** yükleyin.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

@@ -24,9 +24,9 @@ Suena bastante simple, ¿cierto? Así que hagámoslo.
 
 ### Prerrequisitos de .NET Core
 
-El primer paso es asegurarte de que tu SO puede siquiera ejecutar ASF correctamente. ASF está escrito en C#, basado en .NET Core y puede requerir librerías nativas que todavía no están disponibles en tu plataforma. Dependiendo de si usas Windows, Linux o OS X, tendrás diferentes requerimientos, aunque todos ellos están enlistados en el documento **[Prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** que debes seguir. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+El primer paso es asegurarte de que tu SO puede siquiera ejecutar ASF correctamente. ASF está escrito en C#, basado en .NET Core y puede requerir librerías nativas que todavía no están disponibles en tu plataforma. Dependiendo de si usas Windows, Linux o OS X, tendrás diferentes requerimientos, aunque todos ellos están enlistados en el documento **[Prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** que debes seguir. Este es nuestro material de referencia que debe ser usado, pero por simplicidad también hemos detallado debajo todos los paquetes requeridos, para que no tengas que leer el documento completo.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+Es perfectamente normal que algunas (o incluso todas) las dependencias ya existan en tu sistema por haber sido instaladas por software de terceros que utilices. Aún así, debes asegurarte que verdaderamente ese es el caso ejecutando el instalador adecuado para tu sistema operativo - sin esas dependencias ASF no se ejecutará.
 
 Ten en cuenta que no necesitas hacer nada más para la compilación de SO específico, especialmente instalar .NET Core SDK o incluso el tiempo de ejecución, ya que el paquete de SO específico ya incluye todo eso. Solamente necesitas los prerrequisitos de .NET Core (dependencias) para correr el tiempo de ejecución de .NET Core incluido en ASF.
 
@@ -37,13 +37,13 @@ Ten en cuenta que no necesitas hacer nada más para la compilación de SO espec�
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Los nombres de los paquetes depende de la distribución de Linux que estés usando, hemos listado las más comunes. Puedes obtener todas con el administrador de paquetes nativos para tu sistema operativo (tal como `apt` para Debian o `yum` para CentOS).
 
 - libcurl3 (libcurl)
-- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu (última versión para tu distribución, por ejemplo `libicu57` para Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, última versión 1.0.X para tu distribución)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, última versión 1.0.X para tu distribución)
 - zlib1g (zlib)
 
 Al menos algunas de esas ya deberían estar disponibles nativamente en tu sistema (tal como zlib1g que es requerida en casi cualquier distro de Linux hoy en día).
@@ -58,7 +58,7 @@ Al menos algunas de esas ya deberían estar disponibles nativamente en tu sistem
 
 Ya que tengamos todas las dependencias requeridas, el siguiente paso es descargar la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF está disponible en diversas variantes, pero te interesa el paquete que concuerde con tu sistema operativo y arquitectura. Por ejemplo, si usas `Win`dows de `64`-bits, entonces necesitas el paquete `ASF-win-x64`. Para más información acerca de las variantes disponibles, visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**. ASF también es capaz de ejecutarse en sistemas operativos para los que no construimos un paquete de SO específico, tal como **Windows de 32-bits**, dirígite a **[configuración genérica](#generic-setup)** para eso.
 
-![Assets](https://i.imgur.com/Ym2xPE5.png)
+![Recursos](https://i.imgur.com/Ym2xPE5.png)
 
 Una vez que tengas tu paquete y extraigas el archivo zip (recomendamos usar **[7-zip](https://www.7-zip.org)**), tendrás un gran desorden de carpetas y archivos. No te preocupes, lo limpiaremos en un segundo.
 
@@ -88,7 +88,7 @@ Abre la carpeta de ASF y busca el archivo ejecutable, este será `ArchiSteamFarm
 
 Después de una pequeña limpieza, tendrás una estructura conveniente similar a la de abajo:
 
-![Structure](https://i.imgur.com/k85csaZ.png)
+![Estructura](https://i.imgur.com/k85csaZ.png)
 
 Esto te permitirá acceder fácilmente al binario de ASF y a los archivos de configuración sin mucho problema. En mi caso decidí usar la estructura mencionada arriba, así que mis archivos de ASF están directamente en el directorio "Core". Puedes adaptar esta estructura a tu gusto, tal como tener ASF más los accesos directos de configuración en el escritorio y el directorio de ASF, por ejemplo, en `C:\ASF`; es tu decisión.
 
@@ -108,11 +108,11 @@ Dirígete a la página de nuestro **[generador de configuración web](https://ju
 
 Después de abrir la página, cambia a la pestaña "Bot". Ahora deberías ver una página similar a la siguiente:
 
-![Bot tab](https://i.imgur.com/aF3k8Rg.png)
+![Pestaña de bot](https://i.imgur.com/aF3k8Rg.png)
 
 Si por cualquier motivo la versión de ASF que hayas descargado es más antigua que la que el generador de configuración usa por defecto, simplemente elige tu versión de ASF del menú desplegable. Esto puede ocurrir ya que el generador de configuración puede ser usado para generar configuraciones para versiones más nuevas de ASF (prelanzamiento) que aún no han sido marcadas como estables. Has descargado la última versión estable de ASF que se ha verificado que funciona confiablemente.
 
-Empieza por poner un nombre para tu bot en el campo resaltado en rojo. Este puede ser cualquier nombre que desees utilizar, tal como tu "nickname", nombre de la cuenta, un número, o cualquier otra cosa. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. Además de eso el nombre de tu bot no puede empezar con un punto (ASF intencionalmente ignora esos archivos). También recomendamos que evites usar espacios, puedes usar `_` como separador de palabras si es necesario.
+Empieza por poner un nombre para tu bot en el campo resaltado en rojo. Este puede ser cualquier nombre que desees utilizar, tal como tu "nickname", nombre de la cuenta, un número, o cualquier otra cosa. Solo hay una palabra que no se puede utilizar, `ASF`, ya que esa palabra está reservada para el archivo de configuración global. Además de eso el nombre de tu bot no puede empezar con un punto (ASF intencionalmente ignora esos archivos). También recomendamos que evites usar espacios, puedes usar `_` como separador de palabras si es necesario.
 
 Después de decidir tu nombre, cambia el interruptor de `Enabled` para que esté activo, esto determina si tu bot es iniciado automáticamente por ASF tras la ejecución (del programa).
 
@@ -125,82 +125,82 @@ Haciendo lo primero permitirá que ASF use automáticamente las credenciales de 
 
 ASF requiere tus credenciales de inicio de sesión porque incluye su propia implementación del cliente de Steam y necesita los mismos detalles para iniciar sesión como el que usas. Tus credenciales de inicio de sesión no se guardan en ninguna parte, excepto en tu PC, solo en el directorio `config` de ASF, nuestro generador de configuración web es un cliente, lo que significa que el código es ejecutado localmente en tu explorador para generar configuraciones válidas de ASF, sin detalles, ingresa siempre dejando tu PC en primer lugar, por lo que no hay necesidad de preocuparse por ninguna posible fuga de datos confidenciales. Aún, si por cualquier razón no quieres ingresar tus credenciales ahí, entendemos eso, y puedes ingresarlas manualmente luego en los archivos generados, u omitirlas completamente e ingresarlas solo en la línea de comandos ASF. Puedes encontrar más acerca de seguridad en la sección **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 
-También puedes decidir dejar un campo vacío, como `ContraseñaSteam`, entonces ASF sera capaz de usar tu inicio de sesión automaticamente, pero todavía le pedirá la contraseña (simiar al cliente Steam). If you're using Steam parental to unlock the account, you'll need to put it into `SteamParentalCode` field.
+También puedes decidir dejar un campo vacío, como `ContraseñaSteam`, entonces ASF sera capaz de usar tu inicio de sesión automaticamente, pero todavía le pedirá la contraseña (simiar al cliente Steam). Si usas el control parental de steam para desbloquear la cuenta, necesitarás ponerlo en el campo `SteamParentalCode`.
 
 Después de la decisión y detalles opcionales, ahora su página web se verá similar a la siguiente:
 
-![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
+![Pestaña de bot 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+Ahora puedes presionar el botón "Descargar" y nuestro generador de configuración web creará un nuevo archivo `json` basado en el nombre que hayas elegido. Guarda ese archivo en el directorio `config` de ASF. Puedes usar el atajo a `config` previamente creado, o buscar manualmente el directorio `config`, directamente en la estructura de archivos de ASF.
 
-Your `config` directory will now look like this:
+Tu directorio `config` ahora se verá así:
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![Estructura 2](https://i.imgur.com/2s7ZUUu.png)
 
-Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+¡Felicidades! Acabas de terminar la configuración más básica de un bot en ASF. Explicaremos más en breve, por ahora esto es todo lo que necesitas.
 
 * * *
 
-### Running ASF
+### Ejecutando ASF
 
-You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
+Ahora estás listo para ejecutar el programa por primera vez. Simplemente haz doble clic en el acceso directo de ASF, o en el ejecutable `ArchiSteamFarm(.exe)` que se encuentra en el directorio de ASF.
 
-After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
+Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el primer paso, ASF debería ejecutarse correctamente, detectar tu primer bot (si no olvidaste poner el archivo generado en el directorio `config`), e intentar iniciar sesión:
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
+Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de Steam Guard (e-mail, 2FA o ninguno, dependiendo de tu configuración en Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
 
-Now is a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about what will happen next, as stated by ASF itself.
+Ahora es buen momento para revisar nuestra sección **[política de privacidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** si te preocupa qué pasará a continuación, como se expresa por el mismo ASF.
 
-After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start idling using default settings that you didn't change as of now:
+Después del inicio de sesión, asumiendo que tus datos son correctos, iniciarás sesión con éxito, y ASF comenzará a "idlear" usando la configuración predeterminada:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)**.
+Esto prueba que ASF está haciendo su trabajo con éxito en tu cuenta, ahora puedes minimizar el programa y hacer algo más. Después del suficiente tiempo (dependiendo de **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**) verás que lentamente recibes cromos de Steam. Por supuesto, para que eso suceda debes tener juegos válidos para "idlear", mostrado como "puedes obtener X cromos más jugando este juego" en tu **[página de insignias](https://steamcommunity.com/my/badges)** - si no hay juegos para "idlear", entonces ASF indicará que no hay nada que hacer, como se expresa en nuestras **[Preguntas Frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)**.
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
-
-* * *
-
-### Extended configuration
-
-#### Idling several accounts at once
-
-ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
-
-- Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
-- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalCode` (if using Steam parental settings)
-
-In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
+Esto concluye nuestra guía de configuración básica. Ahora puedes decidir si quieres seguir configurando ASF, o dejarlo hacer su trabajo con la configuración predeterminada. Abarcaremos algunos detalles básicos más, y luego dejaremos toda la wiki para que descubras.
 
 * * *
 
-#### Changing settings
+### Configuración extendida
 
-You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
+#### "Idlear" varias cuentas a la vez
 
-So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
+ASF soporta "idlear" más de una cuenta a la vez, la cual es su función primaria. Puedes añadir más cuentas a ASF generando más archivos de configuración de bots, exactamente del mismo modo que generaste el primero hace algunos minutos. Solo debes de asegurarte de dos cosas:
+
+- Nombre de bot único, si ya nombraste tu primer bot como "CuentaPrincipal", no puedes tener otro con el mismo nombre.
+- Detalles de inicio de sesión válidos, tales como `SteamLogin`, `SteamPassword` y `SteamParentalCode` (si usas la configuración parental de Steam)
+
+En otras palabras, simplemente ve a configuración de nuevo y haz exactamente los mismo, solo que para tu segunda o tercera cuenta. Recuerda usar nombres únicos para todos tus bots.
+
+* * *
+
+#### Cambiar la configuración
+
+Puedes cambiar ajustes existentes de la misma forma - generando un nuevo archivo de configuración. Si aún no has cerrado nuestro generador de configuración web, haz clic en "toggle advanced settings" y ve lo que hay ahí para descubrir. Para este tutorial cambiaremos el ajuste `CustomGamePlayedWhileFarming`, que te permite establecer que se muestre un nombre personalizado cuando ASF está "idleando", en lugar de mostrar el nombre real del juego.
+
+Empecemos, si ejecutas ASF y empieza a "idlear", en ajustes predeterminados verás que tu cuenta de Steam está jugando:
 
 ![Steam](https://i.imgur.com/sCdSMZj.png)
 
-Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
+Cambiemos eso. Cambia a configuración avanzada en el generador de configuración web y busca `CustomGamePlayedWhileFarming`. Una vez que hagas eso, pon el texto personalizado que quieras que se muestre, tal como "idleando cromos":
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Pestaña de bot 4](https://i.imgur.com/gHqdEqb.png)
 
-Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
+Ahora descarga el nuevo archivo de configuración exactamente de la misma manera, luego **sobrescribe** tu archivo de configuración previo con el nuevo. También puedes eliminar tu viejo archivo de configuración y poner el nuevo en su lugar.
 
-Once you do that and start ASF again, you'll notice that ASF now displays your custom text in previous place:
+Una vez que hagas eso y ejecutes ASF de nuevo, notarás que ASF ahora muestra tu texto personalizado:
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, then downloading generated config and replacing core `ASF.json` file.
+Esto confirma que editaste con éxito tu configuración. Del mismo modo puedes cambiar las propiedades globales de ASF, cambiando de la pestaña del bot a la de "ASF", y luego descargando el archivo de configuración generado y reemplazando el archivo `ASF.json`.
 
 * * *
 
-#### Using ASF-ui
+#### Usando la interfaz de ASF
 
-ASF is a console app and doesn't include a graphical user interface. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
+ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
 
 In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
 

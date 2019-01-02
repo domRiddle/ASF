@@ -257,11 +257,11 @@ Du benutzt diese Software auf eigene Gefahr. Es ist sehr unwahrscheinlich, dass 
 
 **Ja**, wir hatten bereits ein paar Vorfälle, die zu einer Art Steam-Sperre führten. Ob ASF selbst die Ursache war oder nicht, ist eine ganz andere Geschichte, die wir wahrscheinlich nie erfahren werden.
 
-Ein Fall war von einem Typen mit über 1000+ Bots, der vom Handel ausgeschlossen wurde (zusammen mit allen Bots), höchstwahrscheinlich aufgrund der übermäßigen Verwendung von `loot ASF`, das auf allen Bots gleichzeitig ausgeführt wurde, oder einer anderen verdächtigen einseitigen Menge von Handelsangeboten in sehr kurzer Zeit.
+One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in a very short time.
 
 > Hello XXX, Thank you for contacting Steam Support. It looks like this account was used to manage a network of bot accounts. Botting is a violation of the Steam Subscriber Agreement.
 
-Bitte, benutze etwas gesunden Menschenverstand und gehe nicht davon aus, dass du solche verrückten Dinge nur tun kannst, weil ASF dir das erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Bitte bedenke und benutze etwas gesunden Menschenverstand und ein Minimum an fairem Gebrauch in Bezug auf den Steam Service, und * höchstwahrscheinlich* wird es dir gut gehen.
+Bitte, benutze etwas gesunden Menschenverstand und gehe nicht davon aus, dass du solche verrückten Dinge nur tun kannst, weil ASF dir das erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and *most likely* you'll be fine.
 
 Ein weiterer Fall war ein Typ mit 170+ Bots, der während dem Steam Winter Sale gesperrt wurde.
 
@@ -359,9 +359,9 @@ Beende einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn
 
 ### Wie viele Bots kann ich mit ASF verwenden?
 
-ASF as a program doesn't have any upper limit of bot instances, however you're still being limited by Steam network and Steam web. Currently you can run up to **100 bots** with single IP and single ASF instance. It's possible to run more bots with more IPs and more ASF instances. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
+ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to **100 bots** with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
 
-ASF team suggests running up to **10 bots** at once, anything above is at your own risk.
+ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with them or not is your call, ASF as a tool will not go against your own will, even if you end up with your Steam accounts being suspended for doing so.
 
 * * *
 

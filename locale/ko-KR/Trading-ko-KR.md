@@ -22,26 +22,26 @@ ASF는 `TradingPreferences`에 `봇거래수락안함(DontAcceptBotTrades)`이 �
 
 ## `SteamTradeMatcher`
 
-When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+`SteamTradeMatcher`가 활성화 되면, ASF는 거래가 STM의 규칙을 통과하고 우리에게 적어도 중립인지를 확인하는 꽤 복잡한 알고리즘을 사용합니다. 실제 논리구조는 다음과 같습니다.
 
-- Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game and per-type basis.
-- Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
-- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
-- Accept the trade if we didn't reject it through any of the points above.
+- `MatchableTypes`에 특정된 항목타입이 아닌 것을 잃게 되면 거래를 거절합니다.
+- 게임별, 타입별로 적어도 같은 갯수의 항목을 받게되지 않는다면 거래를 거절합니다.
+- 사용자가 특별한 Steam 여름/겨울 세일 카드를 요청하고, 거래 지연의 영향을 받는다면 거래를 거절합니다.
+- 거래 지연 기간이 일반 환경설정의 `MaxTradeHoldDuration` 속성값을 초과하는 경우 거래를 거절합니다.
+- `MatchEverything` 설정이 아니라면 거래를 거절합니다. 이는 우리에게 중립보다 더 나쁩니다.
+- 위의 내용으로 거절되지 않았다면 거래를 수락합니다.
 
-It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+ASF가 과지급을 지원함을 알아두십시오. 이 논리구조는 위의 모든 조건을 만족하면서 사용자가 뭔가를 추가로 거래에 추가할때 정확하게 동작합니다.
 
-First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+처음 4개의 거절 조건은 모두에게 명백해야 합니다. 마지막 거절 조건은 우리 보관함의 현재 상태를 확인하고 거래 상태를 결정하는 실제 중복 논리구조를 포함합니다.
 
-- Trade is **good** if our progress towards set completion advances. A A (before) <-> A B (after)
-- Trade is **neutral** if our progress towards set completion stays in-tact. A B (before) <-> A C (after)
-- Trade is **bad** if our progress towards set completion declines. A C (before) <-> A A (after)
+- 세트 완성 진행도가 증가했다면 이 거래는 **좋음** 입니다. A A (거래 전) <-> A B (거래 후)
+- 세트 완성 진행도가 현상태 그대로라면 이 거래는 **중립** 입니다. A B (거래 전) <-> A C (거래 후)
+- 세트 완성 진행도가 감소했다면 이 거래는 **나쁨** 입니다. A C (거래 전) <-> A A (거래 후)
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason to decline them. This is especially useful for your friends, since they can swap your excessive cards without using STM at all, as long as you're not losing any set progress.
+STM은 좋음 거래만 수행합니다. 즉, 중복 매칭을 위해 STM을 사용하는 사용자는 우리에게는 항상 좋음 거래만 제안할 것입니다. 하지만 ASF는 자유민주주의라서 중립 거래도 수락합니다. 중립 거래는 실제로 우리가 잃는것이 없기 때문에, 거절할 이유가 없습니다. 이는 당신의 친구들에게 특히 유용합니다. 그들은 STM을 전혀 사용하지 않고도 당신의 과도한 카드를 교환할 수 있습니다. 당신의 세트 완성 진행도도 떨어지지 않습니다.
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including **bad ones**. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that **ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card**. Unless you intentionally want to run a trade bot that is **never** supposed to finish any set, you don't want to enable this option.
+기본적으로 ASF는 나쁨 거래를 거절합니다. 이는 사용자라면 거의 항상 원하는 것입니다. 하지만, ASF가 **나쁨 거래**를 포함한 모든 중복 거래를 받아들일 수 있도록 `TradingPreferences`의 `MatchEverything`를 활성화할 수도 있습니다. 이는 당신의 계정에서 1:1 거래 봇을 실행하고 싶은 경우 유용합니다. 물론 **ASF는 더이상 당신의 배지완성 진행도를 도와주지 않을것이고, 완성된 세트를 중복 카드 N장으로 바꿔버리기 쉽게 함을** 알고 계십시오. 어떤 세트도 **절대** 완성하지 못하는 거래 봇을 일부러 실행하려는 것이 아니라면, 이 옵션을 활성화하지 마십시오.
 
 Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `BotBehaviour`, which doesn't include `RejectInvalidTrades`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for trades with items outside of `MatchableTypes`, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not. The only exception from this rule is when talking about users you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
 
@@ -68,4 +68,4 @@ This module is supposed to be transparent. Matching will start in approximately 
 
 ASF will do its best to minimize the amount of requests and pressure generated by using this option, while at the same time maximizing efficiency of matching to the upper limit. Exact algorithm of choosing bots to match is ASF's implementation detail, but right now ASF will tend to favor bots with better diversity of games that their items are from.
 
-`MatchActively` takes into accounts bots that you blacklisted from trading through `bladd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.
+`MatchActively` takes into account bots that you blacklisted from trading through `bladd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.

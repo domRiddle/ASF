@@ -40,7 +40,7 @@
 Имена пакетов зависят от того, каким дистрибутивом Linux вы пользуетесь, мы перечисляем наиболее распространённые. Вам можете получить их все с помощью встроенного менеджера пакетов для вашей ОС (таким как `apt` для Debian или `yum` для CentOS).
 
 - libcurl3 (libcurl)
-- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu (последняя версия для вашего дистрибутива, например `libicu57` для Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
 - libssl1.0.2 (libssl, openssl-libs, последняя версия 1.0.X для вашего дистрибутива)

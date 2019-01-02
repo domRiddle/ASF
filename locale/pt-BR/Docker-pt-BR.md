@@ -22,7 +22,7 @@ Em comparação com os dois marcadores anteriores, como o primeiro inclui o recu
 
 ### `A.B.C.D`
 
-Em comparação com os marcadores acima, esse marcador é completamente congelado, o que significa que a imagem não será atualizada uma vez que foi lançada. Ele funciona de forma semelhante as nossas versões do GitHub que nunca mais foram tocadas após o lançamento, o que te garante um ambiente estável e congelado. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
+Em comparação com os marcadores acima, esse marcador é completamente congelado, o que significa que a imagem não será atualizada uma vez que foi lançada. Ele funciona de forma semelhante as nossas versões do GitHub que nunca mais foram tocadas após o lançamento, o que te garante um ambiente estável e congelado. Normalmente você deverá usar esse marcador quando você quer usar uma versão específica do ASF (mais antiga que a `latest`) e você não quer usar nenhum tipo de atualização automática (por exemplo, as oferecidas no marcador `latest`).
 
 * * *
 

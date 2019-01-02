@@ -88,11 +88,11 @@ No entanto, se você decidir mudar os endereços padrão do `localhost`, então 
 
 ### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
 
-Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
+Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)**, e permitimos o acesso a eles de todas as origens (`*`), contanto que uma `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
 
 ### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
-Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. Por exemplo, se seu computador estiver em um VPN privado com o endereço `10.8.0.1`, então você pode configurar `http://10.8.0.1:1242` como URL de escuta na configuração do IPC, o que habilitaria o acesso IPC de dentro da sua VPN privada, mas não de outro lugar.
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 
@@ -182,7 +182,7 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 Há duas propriedades que merecem explicação/edição, são `Endpoints` e `PathBase`.
 
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
+`Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `exemplo-http4`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
 `Host` aceita uma variedade de valores, incluindo `*` que liga o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar ao menos `IPCPassword` (e de preferência seu firewall também) nesse caso.
 
@@ -192,7 +192,7 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 ### Exemplo de configuração
 
-The following config will allow remote access from all sources, therefore you should ensure that you read and understood our notice about that, available above.
+A configuração à seguir permite acesso remoto de todas as fontes, portanto você deve se certificar que leu e entendeu nosso aviso prévio sobre isso, disponível acima.
 
 ```json
 {

@@ -22,7 +22,7 @@
 - или работающий аутентификатор Steam на устройстве с iOS
 - или работающий аутентификатор Steam в программе **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - или работающий аутентификатор Steam в программе **[WinAuth](https://winauth.github.io/winauth)**
-- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
+- или любая другая работоспособная реализация аутентификаторв Steam с доступу к shared/identity secret и device ID
 
 * * *
 

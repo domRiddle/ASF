@@ -1,6 +1,6 @@
 # 后台游戏激活器
 
-后台游戏激活器是一个特殊的 ASF 内置功能，它可以帮助您导入一组 Steam 游戏序列号（连同游戏的名字），然后在后台帮您激活它们。 如果您有大量的序列号需要激活，在所有序列号完成激活前肯定会触发 `RateLimited` **[状态](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#激活游戏序列号时的状态是什么意思)**，此时后台激活功能将十分有用。
+ASF 内置了一个特别的功能——后台游戏激活器，此功能可以在后台运作，帮助您批量激活 Steam 游戏序列号（可以加上游戏名字作为标记）。 如果您有大量的序列号需要激活，在完成批量激活前肯定会触发 `RateLimited` **[状态](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#激活游戏序列号时的状态是什么意思)**，此时后台激活功能将十分有用。
 
 后台游戏激活器仅对单个机器人有效，也就是说它不会采用 `RedeemingPreferences` 的设置。 如有需要，这个功能可以和 `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;一起使用（或者代替它）。
 
