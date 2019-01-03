@@ -376,7 +376,7 @@ You can run as many ASF instances on one machine as you like, assuming every ins
 
 Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using its own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues.
 
-You won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots because you've launched another ASF instance.
+You won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
 
 ---
 
