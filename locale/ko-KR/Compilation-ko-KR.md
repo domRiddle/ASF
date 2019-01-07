@@ -8,7 +8,7 @@ ASF는 필요로 하는 도구를 모두 가지고만 있다면 현재 지원되
 
 ## .NET Core SDK
 
-ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체 .NET Core SDK가 필요합니다. **[.NET Core 설치 페이지(영문)](https://www.microsoft.com/net/download)**에서 설치 방법을 찾을 수 있습니다. 당신의 OS에 맞는 .NET Core SDK 버전을 설치해야 합니다. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. 또한 .NET Core SDK가 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는지 확인하시기 바랍니다.
+ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체 .NET Core SDK가 필요합니다. **[.NET Core 설치 페이지(영문)](https://dotnet.microsoft.com/download)**에서 설치 방법을 찾을 수 있습니다. 당신의 OS에 맞는 .NET Core SDK 버전을 설치해야 합니다. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. 또한 .NET Core SDK가 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는지 확인하시기 바랍니다.
 
 * * *
 
@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET Framework
 
-드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net472`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오.
+드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net472`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
@@ -52,7 +52,7 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## 개발
 
-ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://www.visualstudio.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다) 또한 **[ReSharper](https://www.jetbrains.com/resharper)**를 같이 사용하는 것을 권장하지만 이것은 무료 제품은 아닙니다.
+ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://visualstudio.microsoft.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다) We also suggest to use it together with **[ReSharper](https://www.jetbrains.com/resharper)** (optionally), although it's not a free product.
 
 리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. 고전 Visual Studio만큼 풍족하진 않지만, 충분히 좋습니다.
 
@@ -68,4 +68,4 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 ## 공식 릴리스
 
-공식 ASF 릴리스는 윈도우에서 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는 최신 .NET Core SDK를 사용하여 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 로 컴파일됩니다. 테스트를 통과하면 모든 패키지는 GitHub에 배포됩니다. AppVeyor는 모든 빌드에 항상 공식 소스를 사용하므로 투명성을 보장하고, AppVeyor와 Github 에셋의 체크섬을 비교해볼 수 있습니다. ASF 개발자는 개인 개발과정이나 디버깅을 제외하고는 수동으로 컴파일하거나 빌드를 게시하지 않습니다.
+공식 ASF 릴리스는 윈도우에서 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)**과 일치하는 최신 .NET Core SDK를 사용하여 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 로 컴파일됩니다. 테스트를 통과하면 모든 패키지는 GitHub에 배포됩니다. AppVeyor는 모든 빌드에 항상 공식 소스를 사용하므로 투명성을 보장하고, AppVeyor와 Github 에셋의 체크섬을 비교해볼 수 있습니다. ASF developers do not compile or publish builds themselves, except for private development process and debugging.

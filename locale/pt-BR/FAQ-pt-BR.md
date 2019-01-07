@@ -361,7 +361,7 @@ Simplesmente feche o processo ASF, por exemplo, clicando em [X] no Window. Se ao
 
 Como programa, o ASF não tem nenhum limite máximo de contas bot, então você pode rodar o quanto quiser, enquanto você tiver memória disponível em seu computador, no entanto, você ainda estará limitado pela rede e pelos outros serviços do Steam. Atualmente você pode rodar até **100 bots** por IP e por instância do ASF. É possível rodar mais bots com mais IPs e mais instâncias do ASF, contornando as limitações de IP. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
 
-A equipe do ASF sugere rodar (e **possuir**) **no máximo 10 bots**, não há suporte para qualquer quantidade acima disso e caso você insista é por sua conta e risco e contra nossas sugestões. Essa recomendação é feita tanto com base em diretrizes internas da Valve quanto nossas sugestões. Se você vai concordar ou não com elas é escolha sua, o ASF, como ferramenta, não vai te proibir de fazer isso, mesmo se você terminar com suas contas no Steam suspensas por conta disso.
+A equipe do ASF sugere rodar (e **possuir**) **no máximo 10 bots**, não há suporte para qualquer quantidade acima disso e caso você insista é por sua conta e risco e contra nossas sugestões. Essa recomendação é feita tanto com base em diretrizes internas da Valve quanto nossas sugestões. Se você vai concordar com essa regra ou não é escolha sua, o ASF, como ferramenta, não vai te proibir de fazer isso, mesmo se isso resultar na suspensão de suas contas no Steam. O ASF vai exibir um aviso se você passar da quantidade recomendada, porém vai permitir que você rode quantos bots quiser, por sua própria conta e risco e ciente da falta de suporte.
 
 * * *
 
@@ -371,7 +371,7 @@ Você pode executar quantas instâncias do ASF você quiser em um computador, as
 
 Portanto, eu **sugiro fortemente** sempre executar o máximo de uma instância ASF por IP/interface. Se você tiver mais IPs/interfaces, você pode livremente executar mais instâncias do ASF, cada instância usando seu próprio IP/interface. Caso contrário, executar mais instâncias do ASF é totalmente inútil, e não faz nada além de diminuir a performance e tomar mais recursos do SO (como memória), e também causa falta de sincronização e aumenta a chance de causar problemas.
 
-Você não ganha nada em executar mais que 1 instância por IP/interface. O Steam não vai permitir magicamente permitir que você execute mais bots só porque você abriu outra instância do ASF.
+Você não ganha nada em executar mais que 1 instância por IP/interface. O Steam não vai permitir magicamente que você rode mais bots apenas porque você os iniciou em outra instância do ASF, e pra começar, o ASF não te limita quanto a isso.
 
 * * *
 

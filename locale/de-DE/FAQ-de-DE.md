@@ -361,7 +361,7 @@ Beende einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn
 
 ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to **100 bots** with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
 
-ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with them or not is your call, ASF as a tool will not go against your own will, even if you end up with your Steam accounts being suspended for doing so.
+ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with this rule or not is your choice, ASF as a tool will not go against your own will, even if it'll result in your Steam accounts being suspended for doing so. Therefore, ASF will display you a warning if you'll go above what we recommend, but still allow you to run anything you want at your own risk and lack of our support.
 
 * * *
 
@@ -371,7 +371,7 @@ Du kannst so viele ASF-Instanzen auf einem Computer ausführen, wie du willst, v
 
 Deshalb ist es mein **Ratschlag**, immer maximal eine ASF-Instanz pro IP/Schnittstelle auszuführen. Wenn du mehr IPs/Interfaces hast, kannst du auf jeden Fall mehr ASF-Instanzen betreiben, wobei jede Instanz ihre eigene IP/Schnittstelle verwendet. Wenn du es nicht tust, ist es völlig sinnlos, mehr ASF-Instanzen zu starten, was nicht nur die Leistung beeinträchtigt und mehr Betriebssystem-Ressourcen (z.B. Speicher) beansprucht, sondern auch zu mangelnder Synchronisation und erhöhter Wahrscheinlichkeit führt, dass Probleme auftreten.
 
-Du wirst keine Vorteile haben, wenn du mehr als eine Instanz pro IP/Schnittstelle startest. Steam will not magically allow you to run more bots because you've launched another ASF instance.
+Du wirst keine Vorteile haben, wenn du mehr als eine Instanz pro IP/Schnittstelle startest. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
 
 * * *
 

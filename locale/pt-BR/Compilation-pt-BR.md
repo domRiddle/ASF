@@ -8,7 +8,7 @@ O ASF pode ser compilado em qualquer plataforma suportada atualmente, desde que 
 
 ## .NET Core SDK
 
-Independente da plataforma, você precisa do SDK completo do .NET Core (e não apenas o tempo de execução) em para compilar o ASF. Instruções de instalação podem ser encontradas na **[página de instalação do .NET Core](https://www.microsoft.com/net/download)**. Você precisa instalar a versão apropriada do SDK do .NET Core para seu sistema operacional. Após a instalação bem sucedida, o comando `dotnet` deverá estar funcional e operante. Você pode verificar se ele funciona com `dotnet --info`. Certifique-se também de que o seu SDK do .NET Core corresponde aos **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF.
+Independente da plataforma, você precisa do SDK completo do .NET Core (e não apenas o tempo de execução) em para compilar o ASF. Instruções de instalação podem ser encontradas na **[página de instalação do .NET Core](https://dotnet.microsoft.com/download)**. Você precisa instalar a versão apropriada do SDK do .NET Core para seu sistema operacional. Após a instalação bem sucedida, o comando `dotnet` deverá estar funcional e operante. Você pode verificar se ele funciona com `dotnet --info`. Certifique-se também de que o seu SDK do .NET Core corresponde aos **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF.
 
 * * *
 
@@ -36,7 +36,7 @@ Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal com
 
 ### .NET framework
 
-Em casos muito raros, quando você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `netcoreapp2.2` para `net472`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://www.microsoft.com/net/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET Core.
+Em casos muito raros, quando você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `netcoreapp2.2` para `net472`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET Core.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
@@ -52,7 +52,7 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## Desenvolvimento
 
-Se você gostaria de editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Ainda assim, para Windows, recomendamos **[o Visual Studio mais recente](https://www.visualstudio.com/downloads)** (a versão gratuita community é mais que o suficiente). Também sugerimos usá-lo juntamente com **[ReSharper](https://www.jetbrains.com/resharper)**, embora este não seja um produto gratuito.
+Se você gostaria de editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Ainda assim, para Windows, recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão gratuita community é mais que o suficiente). Também sugerimos usá-lo juntamente com o **[ReSharper](https://www.jetbrains.com/resharper)** (opcionalmente), embora este não seja um produto gratuito.
 
 Se, em vez disso, você quiser trabalhar com o código ASF no Linux/Mac OS X, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
 
@@ -68,4 +68,4 @@ Não é garantido que a ramificação `master` esteja em um estado que propicie 
 
 ## Versões oficiais
 
-Os lançamentos oficiais do ASF são compilados pelo **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** no Windows, com o SDK .NET Core mais recente que corresponde com os **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF. Depois de passar nos testes, todos os pacotes são implantados no GitHub. Isto também garante transparência, uma vez que o AppVeyor sempre usa uma fonte pública oficial para todas as compilações, e você pode comparar as somas de verificação dos artefatos do AppVeyor com os ativos no GitHub. Os desenvolvedores do ASF não compilam ou publicam as compilações manualmente, exceto para o processo de desenvolvimento privado, incluindo depuração.
+Os lançamentos oficiais do ASF são compilados pelo **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** no Windows, com o SDK .NET Core mais recente que corresponde com os **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF. Depois de passar nos testes, todos os pacotes são implantados no GitHub. Isto também garante transparência, uma vez que o AppVeyor sempre usa uma fonte pública oficial para todas as compilações, e você pode comparar as somas de verificação dos artefatos do AppVeyor com os ativos no GitHub. Os desenvolvedores do ASF não compilam ou publicam as compilações por conta própria, exceto para o processo de desenvolvimento privado e depuração.

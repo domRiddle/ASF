@@ -43,7 +43,7 @@ Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen
 - libicu (neueste Version für deine Distribution, als Beispiel `libicu57` für Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, neueste 1.0.X Version für deine Distribution)
 - zlib1g (zlib)
 
 Zumindest einige von diesen sollten bereits nativ auf deinem System verfügbar sein (wie zum Beispiel zlib1g, welches heute in fast jeder Linux Distribution verwendet wird).
