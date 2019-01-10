@@ -50,7 +50,7 @@ If you did everything properly, your `csproj` will be similar to below:
 
 From the code side, your plugin class must inherit from `IPlugin` interface (either explicitly, or implicitly by inheriting from more specialized interface, such as `IASF`) and `[Export(typeof(IPlugin))]` in order to be recognized by ASF during runtime. The most bare example that achieves that would be the following:
 
-```c#
+```csharp
 using System;
 using System.Composition;
 using ArchiSteamFarm.Plugins;
