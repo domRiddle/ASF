@@ -1,9 +1,23 @@
 # This section is being worked on
 ## Translators are recommended to skip it until it's ready
 
-# For users
+# Plugins
+
+Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
+
+---
+
+## For users
+
+ASF loads plugins from `plugins` directory located in your ASF folder. This folder doesn't exist by default, so you may need to create it if you intend to use custom plugins. Afterwards, you should copy all `dll` libraries that are offered as a release of given plugin and restart ASF. If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions or issues related to the plugins that you've decided to use.
+
+---
 
 # For developers
+
+Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+
+---
 
 ## Getting started
 
