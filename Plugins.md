@@ -60,7 +60,7 @@ dotnet publish YourNamespace.CatPlugin -c "Release" -o "out"
 
 Afterwards, create `plugins` directory in your ASF folder (if needed) and put `YourNamespace.CatPlugin.dll` inside, together with all its optional libraries that you decided to use. Libraries that are natively available in ASF, such as `SteamKit2` or `Newtonsoft.Json` do not need to be included, as they're bundled with ASF already. ASF will properly recognize your plugin, load it and use during runtime.
 
-This is only the most basic scenario to get you started, we have **[ArchiSteamFarm.CustomPlugins.Example](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.Example)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
+This is only the most basic scenario to get you started, we have **[ArchiSteamFarm.CustomPlugins.ExamplePlugin](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
 
 ---
 
