@@ -5,6 +5,8 @@
 
 # For developers
 
+## Getting started
+
 Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. It must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project. This will allow you to access and discover ASF structures, methods and properties, especially core `IPlugin` interface which you'll need in the next step. The project must also reference `System.Composition.AttributedModel` at the minimum, which allows you to `[Export]` your `IPlugin` for ASF to use. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
 
 If you did everything properly, your `csproj` will be similar to below:
@@ -50,6 +52,28 @@ namespace YourNamespace.CatPlugin {
 }
 ```
 
-Afterwards you can build your project as usual, create `plugins` directory in your ASF and put `YourNamespace.CatPlugin.dll` inside. ASF will properly recognize your plugin, load it and use.
+In order to make use your plugin, you must first compile it. You can do that either from your IDE, or command-line:
 
-This is only the most basic scenario to get you started, we have **[ArchiSteamFarm.CustomPlugins.Example](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.Example)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation.
+```shell
+dotnet publish YourNamespace.CatPlugin -c Release -o out
+```
+
+Afterwards, create `plugins` directory in your ASF folder (if needed) and put `YourNamespace.CatPlugin.dll` inside, together with all its optional libraries that you decided to use. Libraries that are natively available in ASF, such as `SteamKit2` or `Newtonsoft.Json` do not need to be included, as they're bundled with ASF already. ASF will properly recognize your plugin, load it and use during runtime.
+
+This is only the most basic scenario to get you started, we have **[ArchiSteamFarm.CustomPlugins.Example](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.Example)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
+
+---
+
+## API availability
+
+ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the crap we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you.
+
+We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. We most likely won't have anything against, as long as your use case makes sense. It's simply impossible for us to open everything that somebody would like to make use of, so we've opened what makes the most sense for us, and waiting for your requests in case you'd like to have access to something that isn't `public` yet.
+
+---
+
+## API compatibility
+
+It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further.
+
+We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. This is especially important in regards to internal ASF structures that are exposed to you as part of ASF infrastructure, explained above (e.g. `ArchiWebHandler`) which might be improved (and therefore rewritten) as part of ASF enhancements in one of the future versions. We'll do our best to inform you appropriately in the changelogs, and include appropriate warnings during runtime about obsolete features. We do not intend to rewrite everything for the sake of rewriting it, so you can be fairly safe that the next ASF version won't just simply destroy your plugin due to having higher version number, but keeping an eye on changelogs and occasional verification if everything works fine is a very good idea.
