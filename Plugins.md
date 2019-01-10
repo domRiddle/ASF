@@ -68,7 +68,7 @@ namespace YourNamespace.CatPlugin {
 }
 ```
 
-In order to make use your plugin, you must first compile it. You can do that either from your IDE, or command-line:
+In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or command-line:
 
 ```shell
 dotnet publish YourNamespace.CatPlugin -c "Release" -o "out"
