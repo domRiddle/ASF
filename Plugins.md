@@ -40,12 +40,12 @@ using ArchiSteamFarm.Plugins;
 namespace YourNamespace.CatPlugin {
 	[Export(typeof(IPlugin))]
 	public sealed class CatPlugin : IPlugin {
+		public string Name => nameof(CatPlugin);
+		public Version Version => typeof(CatPlugin).Assembly.GetName().Version;
+
 		public void OnLoaded() {
 			ASF.ArchiLogger.LogGenericInfo("Meow");
 		}
-
-		public string Name => nameof(CatPlugin);
-		public Version Version => typeof(CatPlugin).Assembly.GetName().Version;
 	}
 }
 ```
