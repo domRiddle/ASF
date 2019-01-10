@@ -1,6 +1,3 @@
-# This section is being worked on
-## Translators are recommended to skip it until it's ready
-
 # Plugins
 
 Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
