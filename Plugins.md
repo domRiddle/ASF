@@ -71,7 +71,7 @@ namespace YourNamespace.CatPlugin {
 In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
 
 ```shell
-# If your project is standalone
+# If your project is standalone (no need to define its name since it's the only one)
 dotnet publish -c "Release" -o "out"
 
 # If your project is part of ASF source tree (to avoid compiling unnecessary parts)
