@@ -71,7 +71,11 @@ namespace YourNamespace.CatPlugin {
 In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
 
 ```shell
+# If your project is standalone
 dotnet publish -c "Release" -o "out"
+
+# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
+dotnet publish YourNamespace.CatPlugin -c "Release" -o "out"
 ```
 
 Afterwards, create `plugins` directory in your ASF folder (if needed) and put `YourNamespace.CatPlugin.dll` inside, together with all its optional libraries that you decided to use. Libraries that are natively available in ASF, such as `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json` do not need to be included, as they're bundled with ASF already. ASF will properly recognize your plugin, load it (together with all its dependencies in the same folder) and use during runtime.
