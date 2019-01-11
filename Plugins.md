@@ -6,7 +6,7 @@ Starting with ASF V4, the program includes support for custom plugins that can b
 
 ## For users
 
-ASF loads plugins from `plugins` directory located in your ASF folder. This folder doesn't exist by default, so you may need to create it if you intend to use custom plugins. Afterwards, you should copy all `dll` libraries of the plugin that you intend to use inside, then restart ASF. If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
+ASF loads plugins from `plugins` directory located in your ASF folder. This folder doesn't exist by default, so you may need to create it yourself if you intend to use custom plugins. Afterwards, in `plugins` folder it's recommended to create a folder for the plugin you want to put, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, put all the files of the plugin you've downloaded inside the last folder you've created and start ASF. If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
 
 **Please note that ASF plugins might be malicious**. You should always ensure that you're using plugins made by developers that you can trust.
 
@@ -33,7 +33,7 @@ If you did everything properly, your `csproj` will be similar to below:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="1.3.0-preview.18571.3" />
+    <PackageReference Include="System.Composition.AttributedModel" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,11 +55,11 @@ using System.Composition;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace YourNamespace.CatPlugin {
+namespace YourNamespace.YourPluginName {
 	[Export(typeof(IPlugin))]
-	public sealed class CatPlugin : IPlugin {
-		public string Name => nameof(CatPlugin);
-		public Version Version => typeof(CatPlugin).Assembly.GetName().Version;
+	public sealed class YourPluginName : IPlugin {
+		public string Name => nameof(YourPluginName);
+		public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
 
 		public void OnLoaded() {
 			ASF.ArchiLogger.LogGenericInfo("Meow");
@@ -75,10 +75,10 @@ In order to make use of your plugin, you must firstly compile it. You can do tha
 dotnet publish -c "Release" -o "out"
 
 # If your project is part of ASF source tree (to avoid compiling unnecessary parts)
-dotnet publish YourNamespace.CatPlugin -c "Release" -o "out"
+dotnet publish YourNamespace.YourPluginName -c "Release" -o "out"
 ```
 
-Afterwards, create `plugins` directory in your ASF folder (if needed) and put `YourNamespace.CatPlugin.dll` inside, together with all its optional libraries that you decided to use. Libraries that are natively available in ASF, such as `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json` do not need to be included, as they're bundled with ASF already. ASF will properly recognize your plugin, load it (together with all its dependencies in the same folder) and use during runtime.
+Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its dependencies. This way user simply will need to unpack your zip archive into his `plugins` directory and do nothing else.
 
 This is only the most basic scenario to get you started, we have **[ArchiSteamFarm.CustomPlugins.ExamplePlugin](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
 
@@ -99,3 +99,15 @@ In fact, internal ASF's API is the only real limitation in terms of what your pl
 It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. This should be logical for you, but it's important to highlight that fact.
 
 We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. This is especially important in regards to internal ASF structures that are exposed to you as part of ASF infrastructure, explained above (e.g. `ArchiWebHandler`) which might be improved (and therefore rewritten) as part of ASF enhancements in one of the future versions. We'll do our best to inform you appropriately in the changelogs, and include appropriate warnings during runtime about obsolete features. We do not intend to rewrite everything for the sake of rewriting it, so you can be fairly sure that the next minor ASF version won't just simply destroy your plugin entirely only because it has a higher version number, but keeping an eye on changelogs and occasional verification if everything works fine is a very good idea.
+
+---
+
+### Plugin dependencies
+
+Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it might include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
+
+The output of your build will include your code `YourNamespace.YourPluginName.dll` library, and all the dependencies that you've referenced, at the minimum `ArchiSteamFarm.dll` and `System.Composition.AttributedModel.dll`.
+
+Since you're developing a plugin to already-working program, you **shouldn't** include all the dependencies that were generated for you during build. This is because ASF already includes majority of those, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`.
+
+It's recommended to include only those libraries that ASF doesn't include, or includes in the wrong version. Examples of those would be obviously `YourNamespace.YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to use it. Stripping your build off dependencies shared with ASF is not the absolute requirement for your plugin to work, but doing so dramatically cuts the memory/size of your plugin and increases performance, due to the fact that ASF won't need to load all of your dependencies, it'll instead use its own where applicable, and load only those that can't be satisfied.
