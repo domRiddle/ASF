@@ -8,6 +8,8 @@ Starting with ASF V4, the program includes support for custom plugins that can b
 
 ASF loads plugins from `plugins` directory located in your ASF folder. This folder doesn't exist by default, so you may need to create it if you intend to use custom plugins. Afterwards, you should copy all `dll` libraries of the plugin that you intend to use inside, then restart ASF. If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
 
+**Please note that ASF plugins might be malicious**. You should always ensure that you're using plugins made by developers that you can trust.
+
 ---
 
 ## For developers
