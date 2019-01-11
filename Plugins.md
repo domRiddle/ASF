@@ -41,7 +41,7 @@ If you did everything properly, your `csproj` will be similar to below:
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- In case you decided to build as part of ASF's source tree, use this instead of <Reference> above -->
+    <!-- When building as part of ASF's source tree, use this instead of <Reference> above -->
     <!-- <ProjectReference Include="..\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
