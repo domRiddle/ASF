@@ -33,7 +33,7 @@ If you did everything properly, your `csproj` will be similar to below:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="1.2.0" />
+    <PackageReference Include="System.Composition.AttributedModel" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
