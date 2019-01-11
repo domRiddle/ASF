@@ -52,6 +52,7 @@ From the code side, your plugin class must inherit from `IPlugin` interface (eit
 ```csharp
 using System;
 using System.Composition;
+using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
 namespace YourNamespace.CatPlugin {
