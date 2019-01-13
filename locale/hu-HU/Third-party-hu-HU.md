@@ -1,12 +1,18 @@
-# Third-party tools
+# Harmadik fél
 
-Tools included here were written exclusively (or mainly) for usage together with ASF. They range from simple web applications through internal libraries for further integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
-Please note that below tools are not maintained by ASF team and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the tool you're about to use is legit enough for you.
+Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
 
 * * *
 
-## Tools
+## ASF Bővítmények
+
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
+
+* * *
+
+## Eszközök
 
 - **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
@@ -17,8 +23,6 @@ Please note that below tools are not maintained by ASF team and therefore we giv
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[OUTDATED] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, allowing you to easily install ASF V2 on various systems. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
-- **[OUTDATED] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, allowing you to easily install ASF V2 with homebrew. It wasn't updated for latest ASF version yet, therefore its usage is discouraged. Perhaps you could help?
 
 * * *
 

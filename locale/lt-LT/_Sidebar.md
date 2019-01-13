@@ -36,8 +36,9 @@
 * **[Lokalizacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Žurnalas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Mažos atminties sąranka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Saugumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Trečiųjų šalių įrankiai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dviejų lygių autentifikavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Kūrėjai

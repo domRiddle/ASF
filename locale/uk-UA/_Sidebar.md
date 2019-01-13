@@ -36,8 +36,9 @@
 * **[Локалізація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-uk-UA)**
 * **[Ведення журналу](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-uk-UA)**
 * **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**
+* **[Плаґіни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-uk-UA)**
 * **[Безпека](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-uk-UA)**
-* **[Сторонні додатки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools-uk-UA)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Двофакторна аутентифікація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)**
 
 ## Розробникам

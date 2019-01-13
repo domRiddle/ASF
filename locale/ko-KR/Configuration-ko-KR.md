@@ -495,15 +495,17 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 항목 타입입니다. 이 속성값은 ASF가 수동 및 자동으로 루팅할때 행동을 정의합니다. ASF는 `LootableTypes`에 있는 항목만 거래 제안에 포함할 것이므로, 이 속성값은 당신에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
 
-| 값 | 이름                          | 설명                                |
-| - | --------------------------- | --------------------------------- |
-| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입           |
-| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩       |
-| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘              |
-| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전     |
-| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경           |
-| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님   |
-| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함 |
+| 값 | 이름                          | 설명                                                       |
+| - | --------------------------- | -------------------------------------------------------- |
+| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입                                  |
+| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩                              |
+| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘                                     |
+| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전                            |
+| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경                                  |
+| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님                          |
+| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
+| 7 | SaleItem                    | Special items awarded during Steam sales                 |
+| 8 | Consumable                  | Special consumable items that disappear after being used |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 항목만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
@@ -515,15 +517,17 @@ ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 루팅�
 
 `ImmutableHashSet<byte>` 타입으로 기본값은 `5` Steam 항목 타입입니다. 이 속성값은 `TradingPreferences`의 `SteamTradeMatcher` 옵션이 활성화 되었을 때 매칭을 허락할 Steam 항목 타입을 정의합니다. 타입은 아래와 같이 정의됩니다.
 
-| 값 | 이름                          | 설명                                |
-| - | --------------------------- | --------------------------------- |
-| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입           |
-| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩       |
-| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘              |
-| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전     |
-| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경           |
-| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님   |
-| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함 |
+| 값 | 이름                          | 설명                                                       |
+| - | --------------------------- | -------------------------------------------------------- |
+| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입                                  |
+| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩                              |
+| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘                                     |
+| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전                            |
+| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경                                  |
+| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님                          |
+| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
+| 7 | SaleItem                    | Special items awarded during Steam sales                 |
+| 8 | Consumable                  | Special consumable items that disappear after being used |
 
 물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. **ASF는 트레이딩 봇이 아니며 가격이나 희귀도를 고려하지 않음을** 명심하십시오. 즉, `이모티콘(Emoticon)` 타입을 사용하는 경우 ASF는 배지(이 경우 이모티콘) 완성을 위해 당신의 희귀 이모티콘 2개를 희귀 1개와 일반 1개로 거래할 것입니다. 이 것이 괜찮다면 두번 생각해 보시기 바랍니다. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `5`를 유지하십시오.
 
@@ -693,15 +697,17 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 
 `ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 항목 타입입니다. 이 속성값은 `transfer` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 두 봇간에 전송가능한 Steam 항목 타입을 정의합니다. ASF는 `TransferableTypes`에 있는 항목만 거래 제안에 포함할 것이므로, 이 속성값은 당신의 봇 중 하나에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
 
-| 값 | 이름                          | 설명                                |
-| - | --------------------------- | --------------------------------- |
-| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입           |
-| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩       |
-| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘              |
-| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전     |
-| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경           |
-| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님   |
-| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함 |
+| 값 | 이름                          | 설명                                                       |
+| - | --------------------------- | -------------------------------------------------------- |
+| 0 | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입                                  |
+| 1 | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩                              |
+| 2 | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘                                     |
+| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전                            |
+| 4 | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경                                  |
+| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님                          |
+| 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
+| 7 | SaleItem                    | Special items awarded during Steam sales                 |
+| 8 | Consumable                  | Special consumable items that disappear after being used |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 항목만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 

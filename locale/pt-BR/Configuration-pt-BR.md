@@ -504,6 +504,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
+| 7     | SaleItem          | Special items awarded during Steam sales                                    |
+| 8     | Consumable        | Special consumable items that disappear after being used                    |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -524,6 +526,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
+| 7     | SaleItem          | Special items awarded during Steam sales                                    |
+| 8     | Consumable        | Special consumable items that disappear after being used                    |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. Por favor, note que **o ASF é não um bot de trocas** e ele **NÃO vai se importar com o preço ou a raridade**, o que significa que se você usá-lo, p. ex., com o tipo `Emoticon`, o ASF ficará feliz em trocar dois emoticons raros repetidos por 1x raro e 1x comum, já que isso faz progresso no sentido de concluir a insígnia (nesse caso, do set de emoticons). Por favor, pense duas vezes se isso é bom para você. A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5` padrão.
 
@@ -579,9 +583,9 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 | 2     | Distributing     | Distribui todas as keys entre si e os outros bots                                         |
 | 4     | KeepMissingGames | Guarda as keys de jogos que (possivelmente) não estejam em sua conta, deixando-as sem uso |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+Note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
-`Forwarding` fará com que o bot encaminhe uma key que não pode ser ativadar, para outro bot conectado e rodando que não tenha aquele jogo em particular (se for possível verificar). A situação mais comum é encaminhar um jogo `AlreadyPurchased` (já comprado) para outro bot que não tenha aquele jogo, mas esta opção também abrange outros cenários, tal como `DoesNotOwnRequiredApp` (não possui o jogo base), `RateLimited` (limite de tentativas excedido) ou `RestrictedCountry` (restrição regional).
+`Forwarding` fará com que o bot encaminhe uma key que não possa ser ativada para outro bot que esteja conectado e ativo e que não tenha o jogo em particular (se for possível verificar). A situação mais comum é encaminhar um jogo `AlreadyPurchased` (já comprado) para outro bot que não o possua, mas esta opção também abrange outros cenários, tais como `DoesNotOwnRequiredApp` (não possui o jogo base), `RateLimited` (limite de tentativas excedido) ou `RestrictedCountry` (restrição regional).
 
 `Distributing` fará com que o bot distribua todas as keys recebidas entre si e os outros bots. Isto significa que cada bot receberá uma key do lote. Normalmente isto é usado somente quando você está resgatando muitas keys de um mesmo jogo, e você quer distribuí-las igualmente entre seus bots, diferente de resgatar keys para vários jogos diferentes. Este recurso não faz sentido se você for resgatar apenas uma key em um único comando `redeem` (pois não há nenhuma key extra para ser distribuída).
 
@@ -702,6 +706,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
+| 7     | SaleItem          | Special items awarded during Steam sales                                    |
+| 8     | Consumable        | Special consumable items that disappear after being used                    |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 

@@ -36,8 +36,9 @@
 * **[Localisatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Configuratie met laag geheugenverbruik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Beveiliging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Programma's van derden](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Tweestapsverificatie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Ontwikkelaars

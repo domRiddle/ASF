@@ -504,6 +504,8 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -524,6 +526,8 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
@@ -702,6 +706,8 @@ For further explanation of ASF trading logic, and description of every available
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 

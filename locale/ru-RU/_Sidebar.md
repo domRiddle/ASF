@@ -36,8 +36,9 @@
 * **[Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-ru-RU)**
 * **[Журналирование](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ru-RU)**
 * **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
+* **[Плагины](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-ru-RU)**
 * **[Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**
-* **[Сторонние приложения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools-ru-RU)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Двухфакторная аутентификация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**
 
 ## Для разработчиков

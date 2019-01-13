@@ -1,8 +1,14 @@
-# 서드 파티 도구
+# Third-party
 
-여기에 있는 도구들은 독점적으로, 혹은 주로 ASF와 함께 사용하도록 작성되었습니다. 더욱 통합되도록 내부 라이브러리를 사용하는 간단한 웹 어플리케이션에서부터 다른 플랫폼을 위한 완전한 기능을 가진 봇 까지 범위가 넓습니다. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
+This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
 
-아래의 도구들은 ASF팀이 유지보수하지 않으므로 보안, 안전, 스팀 서비스약관 준수 측면에서 어떠한 것도 보장하지 않암을 유의하시기 바랍니다. 이 목록은 참조용으로만 유지됩니다. 사용하려는 도구가 충분히 합법적인지 항상 확인해야 합니다.
+Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. 이 목록은 참조용으로만 유지됩니다. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
+
+* * *
+
+## ASF plugins
+
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
 
 * * *
 
@@ -17,8 +23,6 @@
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, 아치 리눅스에서 ASF를 쉽게 설치할 수 있습니다.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, 아치 리눅스에서 ASF를 쉽게 설치할 수 있습니다.
-- **[만료됨] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, 다양한 시스템에 ASF V2버전을 쉽게 설치할 수 있습니다. 아직 최신의 ASF 버전으로 갱신되지 않았으므로 사용은 권장하지 않습니다. 아마 당신이 도움을 줄수도 있습니다?
-- **[만료됨] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, 홈브류에 ASF V2버전을 쉽게 설치할 수 있습니다. 아직 최신의 ASF 버전으로 갱신되지 않았으므로 사용은 권장하지 않습니다. 아마 당신이 도움을 줄수도 있습니다?
 
 * * *
 

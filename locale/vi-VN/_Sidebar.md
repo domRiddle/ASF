@@ -36,8 +36,9 @@
 * **[Bản địa hóa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Bản ghi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Thiết lập bộ nhớ thấp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Công cụ bên thứ ba](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Xác thực 2 bước](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Dành cho lập trình viên

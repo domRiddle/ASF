@@ -1,8 +1,14 @@
-# Сторонние приложения
+# Third-party
 
-Утилиты, перечисленные здесь, были написаны исключительно (или в основном) для использования совместно с ASF. Они покрывают весь спектр начиная с простых веб-приложений, включая внутренние библиотеки для удобства интеграции, и заканчивая полнофункциональными ботами для других платформ. Если вы хотите добавить что-то в этот список - свяжитесь с нами на нашем сервере Discord или в нашей группе Steam.
+This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. Если вы хотите добавить что-то в этот список - свяжитесь с нами на нашем сервере Discord или в нашей группе Steam.
 
-Пожалуйста, обратите внимание, что утилиты ниже не поддерживаются командой ASF и поэтому мы не даём никаких гарантий относительно них, особенно в части безопасности, надёжности и соответствия соглашению подписчика Steam. Этот список поддерживается только для справок. Вы должны самостоятельно убедиться, что утилита, которую вы собираетесь использовать, вам подходит.
+Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. Этот список поддерживается только для справок. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
+
+* * *
+
+## ASF plugins
+
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
 
 * * *
 
@@ -17,8 +23,6 @@
 
 - **[репозиторий AUR #1](https://aur.archlinux.org/packages/asf)**, позволяющий легко установить ASF на Arch linux.
 - **[репозиторий AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, позволяющий легко установить ASF на Arch linux.
-- **[УСТАРЕЛО] [Cookbook](https://supermarket.chef.io/cookbooks/asf)**, позволяющий легко установить ASF V2 на различных системах. Не обновлялось для последней версии ASF, поэтому использовать не рекомендуется. Возможно вы сможете помочь?
-- **[УСТАРЕЛО] [Brew formula](http://brewformulas.org/ArchiSteamFarm)**, позволяющий легко установить ASF V2 с помощь homebrew. Не обновлялось для последней версии ASF, поэтому использовать не рекомендуется. Возможно вы сможете помочь?
 
 * * *
 

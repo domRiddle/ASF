@@ -140,7 +140,7 @@ In short, default value should be decent for most cases, but you might want to i
 
 * * *
 
-### `Debug`
+### `除錯`
 
 `bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
@@ -244,7 +244,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Value | 名稱        | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None      | No protocol                                                                                      |
+| 0     | 無         | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -391,7 +391,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Value | 名稱                            | Description                                                           |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
+| 0     | 無                             | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -504,6 +504,8 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -524,6 +526,8 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
 
@@ -574,7 +578,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Value | 名稱               | Description                                                                    |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | None             | No redeeming preferences, typical                                              |
+| 0     | 無                | No redeeming preferences, typical                                              |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -657,7 +661,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Value | 名稱            | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 0     | 無             | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -676,7 +680,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Value | 名稱                  | Description                                                                                                                                                                                          |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                                                |
+| 0     | 無                   | No trading preferences - accepts only `Master` trades                                                                                                                                                |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -702,6 +706,8 @@ For further explanation of ASF trading logic, and description of every available
 | 4     | ProfileBackground | Profile background to use on your Steam profile               |
 | 5     | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem          | Special items awarded during Steam sales                      |
+| 8     | Consumable        | Special consumable items that disappear after being used      |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -826,12 +832,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | 名稱   |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| Value | 名稱 |
+| ----- | -- |
+| 0     | 無  |
+| 1     | A  |
+| 2     | B  |
+| 4     | C  |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

@@ -28,7 +28,7 @@ El primer paso es asegurarte de que tu SO puede siquiera ejecutar ASF correctame
 
 Es perfectamente normal que algunas (o incluso todas) las dependencias ya existan en tu sistema por haber sido instaladas por software de terceros que utilices. Aún así, debes asegurarte que verdaderamente ese es el caso ejecutando el instalador adecuado para tu sistema operativo - sin esas dependencias ASF no se ejecutará.
 
-Ten en cuenta que no necesitas hacer nada más para la compilación de SO específico, especialmente instalar .NET Core SDK o incluso el tiempo de ejecución, ya que el paquete de SO específico ya incluye todo eso. Solamente necesitas los prerrequisitos de .NET Core (dependencias) para correr el tiempo de ejecución de .NET Core incluido en ASF.
+Ten en cuenta que no necesitas hacer nada más para la compilación de SO específico, especialmente instalar .NET Core SDK o incluso "runtime", ya que el paquete de SO específico ya incluye todo eso. Solamente necesitas los prerrequisitos de .NET Core (dependencias) para correr el tiempo de ejecución de .NET Core incluido en ASF.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
@@ -200,63 +200,63 @@ Esto confirma que editaste con éxito tu configuración. Del mismo modo puedes c
 
 #### Usando la interfaz de ASF
 
-ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. However, there is ongoing work on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface which is still in preview state, but can be used without bigger issues.
+ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. Sin embargo, hay un trabajo en curso en **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** para nuestra interfaz IPC que aún se encuentra en estado anticipado, pero puede ser usado sin mayor problema.
 
-In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+Para poder usar la interfaz de usuario de ASF, debes asegurarte de establecer las propiedades de configuración global `IPC` y `SteamOwnerID` (pestaña ASF).
 
-For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
+Para `SteamOwnerID`, necesitas introducir el identificador único de tu cuenta de Steam en forma de 64-bits. Puedes encontrarlo de diversas formas, usaremos **[SteamRep](https://steamrep.com)** para ello. Abre el sitio web, ubica el botón "sign in through Steam" en la esquina superior derecha, luego inicia sesión. Posteriormente, en el mismo lugar, haz clic en tu avatar, y busca el campo `steamID64` en tu perfil.
 
 ![SteamRep](https://i.imgur.com/RUuJ63i.png)
 
-For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
+Para mi cuenta, es este número `76561198006963719`. Tendrás uno similar, que también inicia con `7656`. Cópialo.
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID.
+Ahora dirígete una vez más a nuestro generador de configuración web e ingresa ese número como SteamOwnerID.
 
 ![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
 
-You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
+Solo necesitas hacer una cosa más, cambia a configuración avanzada, busca la opción `IPC`, y actívala.
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Ahora puedes descargar tu configuración de ASF y ponerla en el directorio `config`, como de costumbre. Posteriormente, ejecuta ASF de nuevo, y debes poder confirmar que inició correctamente la interfaz IPC:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
+Si hiciste todo correctamente, ahora serás capaz de acceder a la interfaz IPC de ASF en **[este](http://127.0.0.1:1242)** enlace, siempre que ASF se esté ejecutando. Puedes usar la interfaz de usuario de ASF para diversos propósitos, por ejemplo, enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
 
 ![IPC 3](https://i.imgur.com/vCu2ZY5.png)
 
-Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
+Ten en cuenta que la interfaz de usuario de ASF está actualmente en estado anticipado y no todo está disponible/funcionando aún, pero es más que suficiente para un uso simple de ASF.
 
 * * *
 
-### Summary
+### Sumario
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has personalizado un poco a tu gusto. Si has seguido toda nuestra guía, entonces lograste enviar un comando simple a través de la interfaz de usuario de ASF. Ahora es un buen momento para leer toda nuestra sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** para aprender lo que haces las diferentes configuraciones que viste en la pestaña de configuración avanzada, y lo que ASF puede ofrecer. Si te has encontrado con algún problema o tienes alguna pregunta genérica, en cambio lee las **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** que debería cubrir todo, o al menos la mayoría de las preguntas que puedas tener. Si quieres aprender todo acerca de ASF y de cómo puede hacer tu vida más fácil, dirígete al resto de **[nuestra wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. ¡Diviértete!
 
 * * *
 
-## Generic setup
+## Configuración genérica
 
-This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
+Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)**. No se recomienda para personas que pueden usar la **[configuración de OS específico](#os-specific-setup)**.
 
-You want to use generic variant mainly in three situations (but of course you can use it regardless):
+Querrás usar la variante genérica principalmente en tres situaciones (por supuesto la puedes usar de todos modos):
 
-- When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
-- When you already have .NET Core Runtime/SDK, or want to install and use one
-- When you want to minimize ASF structure size by handling runtime requirements yourself
+- Cuando usas un sistema operativo para el cual no creamos un paquete de SO específico (tal como Windows de 32-bits)
+- Cuando ya tienes .NET Core Runtime/SDK, o quieres instalarlo y usarlo
+- Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de "runtime" por ti mismo
 
-However, keep in mind that you're in charge of .NET Core runtime in this case. This means that if your .NET Core SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET Core SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET Core runtime bundled with ASF can do so.
+Sin embargo, ten en cuenta que tú eres responsable del .NET Core "runtime" en este caso. Esto significa que ti tu .NET Core SDK (runtime) no está disponibles, está desactualizado o roto, ASF no funcionará. Es por esto que no recomendamos esta configuración para usuarios casuales, ya que no necesitas asegurarte de que tu .NET Core SDK (runtime) coincida con los requerimientos y puede ejecutar ASF, en contraposición a que **nosotros** nos aseguremos que nuestro .NET Core runtime en conjunto con ASF lo puede hacer.
 
-For generic package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
+Para el paquete genérico, puedes seguir toda la guía de SO específico de arriba, con dos pequeños cambios. Además de instalar los prerrequisitos de .NET Core, también querrás instalar .NET Core SDK, y en lugar de tener un archivo ejecutable `ArchiSteamFarm(.exe)` para SO específico, ahora tienes un binario genérico `ArchiSteamFarm.dll` solamente. Todo lo demás es exactamente igual.
 
-With extra steps:
+Con pasos extra:
 
 - Instalar los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
-- Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
+- Instalar **[.NET Core SDK](https://www.microsoft.com/net/download)** (o por lo menos "runtime") apropiado para tu SO. Probablemente querrás usar un instalador. Dirígete a **[requerimientos de "runtime"](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** si no estás seguro qué versión instalar.
+- Descarga la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en su variante genérica.
+- Extrae el archivo en una nueva ubicación (y usa `chmod +x ArchiSteamFarm.sh` si estás en Linux/OS X).
 - **[Configurar ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
+- Ejecuta ASF ya sea usando un script auxiliar (helper script) o ejecutando `dotnet /path/to/ArchiSteamFarm.dll` manualmente desde tu "shell" favorito.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Los scripts auxiliares (tal como `ArchiSteamFarm.cmd` para Windows y `ArchiSteamFarm.sh` para Linux/OS X) están ubicados junto al binario `ArchiSteamFarm.dll` - estos solo están incluidos en la variante genérica. Puedes usarlos si no quieres ejecutar manualmente el comando `dotnet`. También puedes crear un acceso directo a esos scripts cómo se mostró anteriormente, ya que deben proporcionar un reemplazo de binario en forma de script. Obviamente los scripts auxiliares no funcionarán si no instalaste .NET Core SDK y no tienes el ejecutable `dotnet` disponible en tu `PATH`. Los scripts auxiliares con completamente opcionales, siempre puedes usar manualmente `dotnet /path/to/ArchiSteamFarm.dll`.

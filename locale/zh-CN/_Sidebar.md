@@ -36,8 +36,9 @@
 * **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**
 * **[日志](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-CN)**
 * **[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**
+* **[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**
 * **[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**
-* **[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools-zh-CN)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**
 
 ## 开发者

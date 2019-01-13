@@ -13,7 +13,7 @@
 * **[Inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(empezar aqui)**
+* **[Iniciando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(empezar aquí)**
 
 ## Núcleo
 
@@ -36,8 +36,9 @@
 * **[Ubicación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logueo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Configuación de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Herramientas de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Segundo factor de autenticación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Desarrolladores

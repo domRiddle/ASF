@@ -36,8 +36,9 @@
 * **[Nyelvek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Naplózás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Beállítások kevés memóriához](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Biztonság](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Harmadik fél által fejlesztett alkalmazások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Harmadik fél](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Kétlépcsős hitelesítés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Fejlesztők

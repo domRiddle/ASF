@@ -36,8 +36,9 @@
 * **[Lokalizace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Zabezpečení](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Aplikace třetích stran](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Vývojáři

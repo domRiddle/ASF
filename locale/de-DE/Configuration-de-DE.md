@@ -31,7 +31,7 @@ Die Konfiguration kann entweder manuell, durch Erstellung korrekter JSON-Konfigu
 
 ## Web-basierter ConfigGenerator
 
-The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von dir eingegebenen Daten nirgendwo hin gesendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** funktioniert, wenn du alle Dateien herunterlädst und `index.html` in deinem Lieblingsbrowser öffnest.
+Der Zweck des **[web-basierten ConfigGenerators](https://justarchinet.github.io/ASF-WebConfigGenerator)** ist es, dir ein benutzerfreundliches Frontend zur Verfügung zu stellen, das zum Erzeugen von ASF-Konfigurationsdateien verwendet wird. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von dir eingegebenen Daten nirgendwo hin gesendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** funktioniert, wenn du alle Dateien herunterlädst und `index.html` in deinem Lieblingsbrowser öffnest.
 
 Der web-basierte ConfigGenerator wurde unter Chrome und Firefox getestet, sollte aber in allen gängigen JavaScript-fähigen Browsern ordnungsgemäß funktionieren.
 
@@ -124,7 +124,7 @@ Wenn du stattdessen nach einer Bot-basierten schwarzen Liste suchst, schaue dir 
 
 ### `ConnectionTimeout`
 
-`byte` type with default value of `90`. Diese Eigenschaft definiert die Auszeiten für verschiedene Netzwerkaktionen, die von ASF ausgeführt werden, in Sekunden. Im Einzelnen definiert `ConnectionTimeout` die Auszeit in Sekunden für HTTP- und IPC-Anfragen, `ConnectionTimeout / 10` definiert die maximale Anzahl der fehlgeschlagenen Heartbeats, während `ConnectionTimeout / 30` die Anzahl der Minuten definiert, die wir für die initiale Steam-Netzwerkverbindungsanforderung berücksichtigen. Der Standardwert von `90` sollte für die Mehrheit der Benutzer in Ordnung sein, aber wenn du eine eher langsame Netzwerkverbindung oder einen PC hast, solltest du diese Zahl vielleicht um etwas Höheres erhöhen (wie `120`). Bedenke, dass höhere Werte langsame oder sogar unzugängliche Steam-Server nicht auf magische Weise reparieren, also sollten wir nicht unendlich auf etwas warten, das nicht passieren wird, und es einfach später noch einmal versuchen. Eine zu hohe Einstellung dieses Wertes führt zu einer übermäßigen Verzögerung bei der Erfassung von Netzwerkproblemen und zu einer Verringerung der Gesamtleistung. Wenn du diesen Wert zu niedrig einstellst, verringert sich auch die Gesamtstabilität und -leistung, da ASF eine gültige Anfrage abbricht, die noch verarbeitet wird. Therefore setting this value lower than default has no advantage in general, as Steam servers tend to be super slow from time to time, and might require more time for parsing ASF requests. Der Standardwert ist eine ausgewogene Balance zwischen dem Vertrauen, dass unsere Netzwerkverbindung stabil ist, und dem Misstrauen des Steam-Netzwerks, unsere Anfrage innerhalb einer bestimmten Auszeit zu bearbeiten. If you want to detect issues sooner and make ASF reconnect/respond faster, default value should do (or very slightly below, like `60`, making ASF less patient). Wenn du stattdessen bemerkst, dass ASF auf Netzwerkprobleme stößt, wie z.B. fehlgeschlagene Anfragen, Heartbeats, die verloren gehen oder die Verbindung zu Steam unterbrochen wird, könnte es sinnvoll sein, diesen Wert zu erhöhen, wenn du sicher bist, dass es sich um **nicht** um Fehler handelt, die durch dein Netzwerk, sondern durch Steam selbst verursacht werden, da zunehmende Auszeiten ASF mehr "geduldig" machen und sich nicht entscheiden, die Verbindung sofort wieder herzustellen.
+`byte` Typ mit Standardwert von `90`. Diese Eigenschaft definiert die Auszeiten für verschiedene Netzwerkaktionen, die von ASF ausgeführt werden, in Sekunden. Im Einzelnen definiert `ConnectionTimeout` die Auszeit in Sekunden für HTTP- und IPC-Anfragen, `ConnectionTimeout / 10` definiert die maximale Anzahl der fehlgeschlagenen Heartbeats, während `ConnectionTimeout / 30` die Anzahl der Minuten definiert, die wir für die initiale Steam-Netzwerkverbindungsanforderung berücksichtigen. Der Standardwert von `90` sollte für die Mehrheit der Benutzer in Ordnung sein, aber wenn du eine eher langsame Netzwerkverbindung oder einen PC hast, solltest du diese Zahl vielleicht um etwas Höheres erhöhen (wie `120`). Bedenke, dass höhere Werte langsame oder sogar unzugängliche Steam-Server nicht auf magische Weise reparieren, also sollten wir nicht unendlich auf etwas warten, das nicht passieren wird, und es einfach später noch einmal versuchen. Eine zu hohe Einstellung dieses Wertes führt zu einer übermäßigen Verzögerung bei der Erfassung von Netzwerkproblemen und zu einer Verringerung der Gesamtleistung. Wenn du diesen Wert zu niedrig einstellst, verringert sich auch die Gesamtstabilität und -leistung, da ASF eine gültige Anfrage abbricht, die noch verarbeitet wird. Daher hat das Setzen dieses Wertes unter dem Standardwert im Allgemeinen keinen Vorteil, da Steam-Server von Zeit zu Zeit sehr langsam sind und mehr Zeit für das Verarbeiten von ASF-Anfragen benötigen könnten. Der Standardwert ist eine ausgewogene Balance zwischen dem Vertrauen, dass unsere Netzwerkverbindung stabil ist, und dem Misstrauen des Steam-Netzwerks, unsere Anfrage innerhalb einer bestimmten Auszeit zu bearbeiten. Wenn du Probleme früher erkennen und die ASF-Wiederverbindung bzw. -Antwort beschleunigen möchtest, sollte der Standardwert dies tun (oder ganz knapp darunter, wie z.B. `60`, wodurch ASF weniger geduldig wird). Wenn du stattdessen bemerkst, dass ASF auf Netzwerkprobleme stößt, wie z.B. fehlgeschlagene Anfragen, Heartbeats, die verloren gehen oder die Verbindung zu Steam unterbrochen wird, könnte es sinnvoll sein, diesen Wert zu erhöhen, wenn du sicher bist, dass es sich um **nicht** um Fehler handelt, die durch dein Netzwerk, sondern durch Steam selbst verursacht werden, da zunehmende Auszeiten ASF mehr "geduldig" machen und sich nicht entscheiden, die Verbindung sofort wieder herzustellen.
 
 An example situation that might require increase of this property is letting ASF to deal with a very huge trade offers that can take good 2+ minutes to be fully accepted and handled by Steam. By increasing default timeout, ASF will be more patient and wait longer before deciding that the trade is not going through and abandon the initial request.
 
@@ -469,7 +469,7 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Das Spielen von Spielen auf diese Weise erhöht deine "gespielten Stunden" dieser Spiele, aber nichts anderes als das. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird, aber in diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge nicht garantiert. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wenn ASF nichts zu sammeln hat, kann es stattdessen deine angegebenen Steam Spiele (`appIDs`) spielen. Das Spielen von Spielen auf diese Weise erhöht deine "gespielten Stunden" dieser Spiele, aber nichts anderes als das. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird, aber in diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge nicht garantiert. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
 * * *
 
@@ -504,6 +504,8 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 | 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
 | 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
 | 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
+| 7    | SaleItem          | Special items awarded during Steam sales                                                      |
+| 8    | Consumable        | Special consumable items that disappear after being used                                      |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -524,6 +526,8 @@ Die Standard-ASF-Einstellung basiert auf der am häufigsten verwendeten Nutzung 
 | 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
 | 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
 | 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
+| 7    | SaleItem          | Special items awarded during Steam sales                                                      |
+| 8    | Consumable        | Special consumable items that disappear after being used                                      |
 
 Natürlich beinhalten die Typen, die du für diese Eigenschaft verwenden solltest, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. Bitte bedenke, dass **ASF kein Handels-Bot** ist und **sich NICHT um Preis oder Seltenheit** kümmert, was bedeutet, dass, wenn du es z.B. mit `Emoticon` Typ verwendest, ASF dein 2x seltenes Emoticon gerne gegen 1x seltenes 1x normales tauschen wird, da dies Fortschritte in Richtung Abzeichen (in diesem Fall Emoticons) macht. Bitte überlege zweimal ob du damit Einverstanden bist. Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `5` belassen.
 
@@ -702,6 +706,8 @@ For further explanation of ASF trading logic, and description of every available
 | 4    | ProfileBackground | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
 | 5    | TradingCard       | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
 | 6    | SteamGems         | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
+| 7    | SaleItem          | Special items awarded during Steam sales                                                      |
+| 8    | Consumable        | Special consumable items that disappear after being used                                      |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -742,7 +748,7 @@ ASF benutzt eine einfache Dateistruktur.
 
 In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups", since you can always download the remaining (program) part from the GitHub, while not risking corrupting internal ASF files, e.g. through a faulty backup.
 
-Die `log.txt` Datei enthält das Protokoll, das durch deinen letzten ASF-Lauf erzeugt wurde. Diese Datei enthält keine sensiblen Informationen und ist äußerst nützlich, wenn es um Probleme, Abstürze oder einfach nur als Information an dich geht, was im letzten ASF-Lauf passiert ist. We will very often ask about this file if you run into issues or bugs. ASF verwaltet diese Datei automatisch für dich, aber du kannst die ASF **[Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**s-Modul weiter optimieren, wenn du ein fortgeschrittener Benutzer bist.
+Die `log.txt` Datei enthält das Protokoll, das durch deinen letzten ASF-Lauf erzeugt wurde. Diese Datei enthält keine sensiblen Informationen und ist äußerst nützlich, wenn es um Probleme, Abstürze oder einfach nur als Information an dich geht, was im letzten ASF-Lauf passiert ist. Wir werden sehr oft nach dieser Datei fragen, wenn du auf Probleme oder Fehler stößt. ASF verwaltet diese Datei automatisch für dich, aber du kannst die ASF **[Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**s-Modul weiter optimieren, wenn du ein fortgeschrittener Benutzer bist.
 
 `config` Verzeichnis ist der Ort, der die Konfiguration für ASF enthält, einschließlich aller seiner Bots.
 
@@ -788,9 +794,9 @@ Beispiel: `"ConnectionTimeout": 60`
 
 * * *
 
-`ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
+`ushort` - Unsignierter short Typ, der nur ganze Zahlen von `0` bis `65535` (einschließlich) akzeptiert.
 
-Example: `"WebLimiterDelay": 300`
+Beispiel: `"WebLimiterDelay": 300`
 
 * * *
 

@@ -23,7 +23,7 @@ Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die du berech
 Hier werden noch einmal Kernpunkte genannt, weil Leute ihnen im Allgemeinen nicht zustimmen wollen:
 
 - **Ja, du musst das Spiel besitzen, um für Kartendrops berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
-- **Nein, du kannst das Spiel nicht unendlich lange sammeln - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel bekommen hast wird es nicht mehr gesammelt. It doesn't matter that you own the game, you're done with it.**
+- **Nein, du kannst das Spiel nicht unendlich lange sammeln - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel bekommen hast wird es nicht mehr gesammelt. Es spielt keine Rolle, dass du das Spiel besitzt, du bist fertig damit.**
 - **Nein, du kannst keine Karten von F2P Spiele bekommen ohne Geld in ihnen ausgegeben zu haben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2.**
 - **Nein, du kannst keine Kartendrops auf einem eingeschränkten Konto (diejenigen die nie 5€ im Steam Shop ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
@@ -257,11 +257,11 @@ Du benutzt diese Software auf eigene Gefahr. Es ist sehr unwahrscheinlich, dass 
 
 **Ja**, wir hatten bereits ein paar Vorfälle, die zu einer Art Steam-Sperre führten. Ob ASF selbst die Ursache war oder nicht, ist eine ganz andere Geschichte, die wir wahrscheinlich nie erfahren werden.
 
-One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in a very short time.
+Ein Fall war von einem Typen mit über 1000+ Bots, der vom Handel ausgeschlossen wurde (zusammen mit allen Bots), höchstwahrscheinlich aufgrund der übermäßigen Verwendung von `loot ASF`, das auf allen Bots gleichzeitig ausgeführt wurde, oder einer anderen verdächtigen einseitigen Menge von Handelsangeboten in sehr kurzer Zeit.
 
 > Hello XXX, Thank you for contacting Steam Support. It looks like this account was used to manage a network of bot accounts. Botting is a violation of the Steam Subscriber Agreement.
 
-Bitte, benutze etwas gesunden Menschenverstand und gehe nicht davon aus, dass du solche verrückten Dinge nur tun kannst, weil ASF dir das erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and *most likely* you'll be fine.
+Bitte, benutze etwas gesunden Menschenverstand und gehe nicht davon aus, dass du solche verrückten Dinge nur tun kannst, weil ASF dir das erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Bedenke und benutze etwas gesunden Menschenverstand und ein Minimum an fairem Gebrauch in Bezug auf den Steam Service, und * höchstwahrscheinlich* wird es dir gut gehen.
 
 Ein weiterer Fall war ein Typ mit 170+ Bots, der während dem Steam Winter Sale gesperrt wurde.
 
@@ -359,7 +359,7 @@ Beende einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn
 
 ### Wie viele Bots kann ich mit ASF verwenden?
 
-ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to **100 bots** with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
+ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Derzeit kannst du bis zu **100 Bots** mit einer einzigen IP und einer einzelnen ASF-Instanz laufen lassen. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Bedenke, dass du, wenn du diese große Anzahl von Bots verwendest, deren Anzahl du selbst kontrollieren solltest, z.B. sicherstellen, dass sich alle tatsächlich anmelden und zur gleichen Zeit arbeiten. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Außerdem ist zu beachten, dass das obige Limit im Allgemeinen von vielen internen Faktoren abhängt - es ist eher eine Annäherung als ein strenges Limit - Du wirst höchstwahrscheinlich in der Lage sein, mehr/weniger Bots als oben beschrieben auszuführen.
 
 ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with this rule or not is your choice, ASF as a tool will not go against your own will, even if it'll result in your Steam accounts being suspended for doing so. Therefore, ASF will display you a warning if you'll go above what we recommend, but still allow you to run anything you want at your own risk and lack of our support.
 
@@ -468,7 +468,7 @@ ASF kann nur **versuchen** eine Verbindung mit den Steam-Servern herzustellen, u
 
 ASF wird sein Bestes tun, um eine Verbindung herzustellen, was nicht nur die Abfrage nach der aktualisierten Liste der Server beinhaltet, sondern auch den Versuch einer anderen IP, wenn die letzte fehlschlägt. Wenn es also wirklich ein temporäres Problem mit einem bestimmten Server oder einer bestimmten Route ist, wird ASF früher oder später eine Verbindung herstellen. Wenn du dich jedoch hinter der Firewall befindest oder auf andere Weise nicht in der Lage bist, die Steam-Server zu erreichen, dann musst du es natürlich selbst reparieren, mit Hilfe des `Debug`-Modus.
 
-Es ist auch möglich, dass deine Maschine nicht in der Lage ist, eine Verbindung mit den Steam-Servern über das Standardprotokoll in ASF herzustellen. Du kannst Protokolle, die ASF verwenden darf, ändern, indem du `SteamProtocols` globale Konfigurationseigenschaft änderst. For example, if you have problems reaching Steam with `UDP` protocol (e.g. due to firewalls), perhaps you'll have more luck with `TCP` or `WebSocket`.
+Es ist auch möglich, dass deine Maschine nicht in der Lage ist, eine Verbindung mit den Steam-Servern über das Standardprotokoll in ASF herzustellen. Du kannst Protokolle, die ASF verwenden darf, ändern, indem du `SteamProtocols` globale Konfigurationseigenschaft änderst. Wenn du zum Beispiel Probleme hast, Steam mit dem `UDP` Protokoll zu erreichen (z.B. Aufgrund Firewalls), dann kannst du `TCP` oder `WebSocket` versuchen.
 
 In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to another machine located in entirely different country, deleting `ASF.db` in order to refresh Steam servers on next launch might help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
 
@@ -482,7 +482,7 @@ Andere Gründe können temporäre Steam-Probleme, Netzwerkprobleme oder ähnlich
 
 * * *
 
-### ASF is failing with `Request failed after 5 tries` errors!
+### ASF schlägt fehl mit `Request failed after 5 tries` Fehler!
 
 Normalerweise bedeutet das, dass du die Steam Parental PIN für den Zugriff auf dein Konto verwendest, aber du hast vergessen, sie in die ASF-Konfiguration einzugeben. Du musst eine gültige PIN in `SteamParentalCode` Bot-Konfigurationseigenschaft eingeben, sonst kann ASF nicht auf die meisten Webinhalte zugreifen und kann daher nicht richtig funktionieren. Schaue unter **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** vorbei, um mehr über `SteamParentalCode` zu erfahren.
 
@@ -502,7 +502,7 @@ If nothing helps and you have no clue what is broken, you can always enable `Deb
     InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
     
 
-See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There might be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. Du kannst immer versuchen, den von ASF erwähnten Link selbst zu besuchen und zu überprüfen, ob er funktioniert - wenn nicht, dann weißt du, warum ASF auch nicht darauf zugreifen kann. If it does, and the same error doesn't go away after a day or two, it might be worth investigating and reporting.
+See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There might be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. Du kannst immer versuchen, den von ASF erwähnten Link selbst zu besuchen und zu überprüfen, ob er funktioniert - wenn nicht, dann weißt du, warum ASF auch nicht darauf zugreifen kann. Wenn dies der Fall ist und der gleiche Fehler nach ein oder zwei Tagen nicht verschwindet, könnte es sich lohnen, ihn zu untersuchen und zu melden.
 
 Bevor du das tust, **solltest du dich vergewissern, dass der Fehler überhaupt einen Bericht wert ist**. Wenn es in diesem FAQ erwähnt wird, wie z.B. handelsbedingte Probleme, dann ist das nicht der Fall. Wenn es sich um ein temporäres Problem handelt, das ein- oder zweimal auftrat, insbesondere wenn dein Netzwerk instabil war oder Steam ausgefallen ist - dann ist das nicht der Fall. Wenn du jedoch in der Lage warst, dein Problem mehrmals hintereinander, über 2 Tage, zu reproduzieren, ASF sowie deine Maschine im Prozess neu zu starten und sicherzustellen, dass es hier keinen FAQ-Eintrag gibt, der dir hilft, es zu lösen, dann könnte es sich lohnen, nach ihm zu fragen.
 
@@ -516,7 +516,7 @@ Du benutzt höchstwahrscheinlich Windows und deine Konsole hat den QuickEdit-Mod
 
 ### ASF kann keine Handelsangebote akzeptieren oder versenden!
 
-Offensichtliche Sache zuerst - neue Konten beginnen als begrenzt. Until you unlock account by loading its wallet or spending $5 in the store, ASF can't accept neither send trades using this account. In diesem Fall gibt ASF an, dass das Inventar leer ist, da jede Karte, die sich darin befindet, nicht handelbar ist. Es wird auch nicht möglich sein, ein Handelsangebot zu erhalten, da dieser Teil erfordert, dass ASF in der Lage ist, den API-Schlüssel zu holen, und die API-Schlüsselfunktionalität für begrenzte Konten deaktiviert ist. Kurz gesagt - der Handel ist für alle begrenzten Konten deaktiviert, keine Ausnahmen.
+Offensichtliche Sache zuerst - neue Konten beginnen als begrenzt. Bis du das Konto freischaltest, indem du sein Guthaben lädst oder 5€ im Shop ausgibst, kann ASF weder Handelsangebote akzeptieren noch über dieses Konto versenden. In diesem Fall gibt ASF an, dass das Inventar leer ist, da jede Karte, die sich darin befindet, nicht handelbar ist. Es wird auch nicht möglich sein, ein Handelsangebot zu erhalten, da dieser Teil erfordert, dass ASF in der Lage ist, den API-Schlüssel zu holen, und die API-Schlüsselfunktionalität für begrenzte Konten deaktiviert ist. Kurz gesagt - der Handel ist für alle begrenzten Konten deaktiviert, keine Ausnahmen.
 
 Als nächstes, wenn du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** nicht verwendest, ist es möglich, dass ASF tatsächlich das Handelsangebot akzeptiert/sendet, aber du musst es per E-Mail bestätigen. Ebenso musst du, wenn du die klassische 2FA verwendest, das Handelsangebot über deinen Authentifikator bestätigen. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider importing your authenticator into ASF 2FA.
 
@@ -587,7 +587,7 @@ Wenn du sichergestellt hast, dass das Datum auf deiner Maschine korrekt ist und 
 
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
-Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die ASF-Anfrage geantwortet hat. Normalerweise wird dies durch Steam-Netzwerkproblemen verursacht und hat keine Auswirkung auf ASF. In other cases it's the same as request failing after 5 tries. Die Meldung dieses Problems macht meistens keinen Sinn, da wir Steam nicht zwingen können, auf unsere Anfragen zu reagieren.
+Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die ASF-Anfrage geantwortet hat. Normalerweise wird dies durch Steam-Netzwerkproblemen verursacht und hat keine Auswirkung auf ASF. In manchen Fällen ist es das gleiche wie wenn die Anfrage nach 5 Versuchen fehlschlägt. Die Meldung dieses Problems macht meistens keinen Sinn, da wir Steam nicht zwingen können, auf unsere Anfragen zu reagieren.
 
 * * *
 

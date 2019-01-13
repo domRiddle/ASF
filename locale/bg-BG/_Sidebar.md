@@ -36,8 +36,9 @@
 * **[Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Логване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Защита](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **["Бисквитки" на трети страни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Двуфакторно удостоверяване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## разработчици

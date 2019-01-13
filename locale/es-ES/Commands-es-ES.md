@@ -38,7 +38,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Comandos
 
-| Command                                                                    | Acceso          | Description                                                                                                                                                                                           |
+| Command                                                                    | Acceso          | Descripción                                                                                                                                                                                           |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
@@ -155,7 +155,7 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | Nombre        |
+| Valor | Nombre        |
 | ----- | ------------- |
 | 1     | `Private`     |
 | 2     | `FriendsOnly` |
@@ -194,7 +194,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Nombre                | Description                                                           |
+| Valor | Nombre                | Descripción                                                           |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
@@ -221,7 +221,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Descripción                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |

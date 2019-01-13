@@ -36,8 +36,9 @@
 * **[Lokalisering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logføring](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Lav-hukommelsesopsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sikkerhed](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Tredjeparts-værktøjer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-tools)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[To-faktor autentificering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Udviklere
