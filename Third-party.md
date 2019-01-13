@@ -13,10 +13,16 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Tools
+## Integrations
 
-- **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+
+---
+
+## Libraries
+
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
 ---
 
@@ -27,11 +33,10 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Bots / Libraries
+## Tools
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
 
 ---
 
