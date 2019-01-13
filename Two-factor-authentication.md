@@ -16,7 +16,7 @@ Regardless if you use ASF 2FA explained below or not, ASF includes proper logic 
 
 ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
 
-You can verify whether your bot account is using ASF 2FA or not by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using the module.
+You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using the module.
 
 To enable ASF 2FA, you need to have:
 - Working steam authenticator in your Android
