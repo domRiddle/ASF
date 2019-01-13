@@ -8,6 +8,8 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## ASF plugins
 
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without command
+
 ## Tools
 
 - **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
