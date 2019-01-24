@@ -36,16 +36,16 @@ Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen
 
 ### .NET Framework
 
-Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp2.2` auf `net472` ändern. Denke daran, dass du zusätzlich zum .NET Core SDK ein entsprechendes **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** Developer Pack zum Kompilieren der `netf` Variante benötigst.
+Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp2.2` auf `net472` ändern. Beachte, dass du neben der .NET Core SDK auch ein entsprechendes **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** Entwicklerpaket für die Kompilierung der `netf` Variante benötigst, so dass das untenstehende nur unter Windows funktioniert:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
 ```
 
-In noch selteneren Fällen, wenn du das .NET Framework oder sogar das .NET Core SDK selbst nicht installieren kannst (z.B. weil du unter `linux-x86` mit `mono` kompilieren möchtest), kannst du `msbuild` direkt aufrufen:
+Falls du das .NET Framework oder sogar die .NET Core SDK selbst nicht installieren kannst (z.B. weil du auf `linux-x86` mit `mono` kompiliert hast), kannst du `msbuild` direkt aufrufen. Du musst auch `ASFNetFramework` manuell angeben, da ASF standardmäßig netf build auf Nicht-Windows-Plattformen deaktiviert:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

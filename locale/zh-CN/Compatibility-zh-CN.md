@@ -24,11 +24,11 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 #### .NET 框架包
 
-除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 该包是一种旧式包，它提供了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET Core 的 `Generic` 包则无法用于 Mono。
+除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 该包是一种旧式包，它补全了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET Core 的 `Generic` 包则无法用于 Mono。
 
-通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET Core 运行时环境，但能够运行 Mono 的平台。 此类平台的例子之一是没有获得 .NET Core 运行时环境的 `linux-x86` 平台。
+通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET Core 运行时环境，但能够运行 Mono 的平台。 此类平台的例子之一是至今仍没有获得 .NET Core 运行时环境支持的 `linux-x86` 平台。
 
-随着时间的推移，.NET Core 会支持更多平台，而 .NET Framework 和 .NET Core 之间会更加不兼容，`Generic-netf` 包将会在未来完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 软件包，请不要使用它，因为 `Generic-netf`与 .NET Core 版本相比缺少许多功能和兼容性，并且功能会随着时间的推移变少。 我们仅对无法使用 `Generic` 包的平台提供此版本的支持（例如 `linux-x86`），并且也仅基于最新版本的运行时环境（例如最新版 Mono）提供支持。
+随着时间的推移，.NET Core 会支持更多平台，而 .NET Framework 和 .NET Core 之间会更加不兼容，`Generic-netf` 包将会在未来完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 软件包，就不要使用框架包，因为 `Generic-netf` 与 .NET Core 版本相比缺少许多功能和兼容性，并且功能会随着时间的推移变少。 我们仅对无法使用 `Generic` 包的平台提供此版本的支持（例如 `linux-x86`），并且也仅基于最新版本的运行时环境（例如最新版 Mono）提供支持。
 
 * * *
 
@@ -40,7 +40,7 @@ ASF 目前提供以下几种 OS-specific 包：
 
 - `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，和未来的版本。
 - `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 特别是包括所有 Raspberry Pi 2 & 3 可用的 GNU/Linux 操作系统（例如 Raspbian）的当前和未来版本。 此包不支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现 GNU/Linux 特性的操作系统，例如 Android。
-- `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等很多操作系统以及他们的衍生版的当前和未来版本。
+- `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-x64` 支持 64 位 OS X 操作系统。 包括 10.12 及更新版本。
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET Core 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET Core 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET Core 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET Core SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。
@@ -65,4 +65,4 @@ ASF 目前指向的构建目标是 **.NET Core 2.2**（`netcoreapp2.2`），但�
 
 ### Debian Jessie 升级问题
 
-如果您从 Debian 8 Jessie（或更旧版本）升级到 Debian 9 Stretch，确保您**没有** `libssl1.0.0` 包，例如执行命令 `apt-get purge libssl1.0.0` 以清除。 否则，您可能会遇到段错误。 这个软件包已过时，已经从软件源中被移除，也无法在全新安装的 Debian 9 上安装，触发此问题的唯一途径是从 Debian 8 或更早版本升级——**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果一些其他软件包依赖于那个过时的 libssl 版本，那么您也应该升级或者卸载它们——不仅仅是因为这一个问题，还因为过时的库本来就应该被抛弃。
+如果您从 Debian 8 Jessie（或更旧版本）升级到 Debian 9 Stretch，请确保您**没有** `libssl1.0.0` 包，清除方法之一是执行命令 `apt-get purge libssl1.0.0`。 否则，您可能会遇到段错误。 这个软件包已过时，已经从软件源中被移除，也无法在全新安装的 Debian 9 上安装，触发此问题的唯一途径是从 Debian 8 或更早版本升级——**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果一些其他软件包依赖于那个过时的 libssl 版本，那么您也应该升级或者卸载它们——不仅仅是因为这一个问题，而是因为过时的库本来就应该被抛弃。

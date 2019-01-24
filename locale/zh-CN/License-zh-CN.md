@@ -1,6 +1,6 @@
 # 许可
 
-除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以使用 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
+除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以阅读 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
 
 ASF 的许可证是非常宽松的，您可以做的事比标准 GPL 许可证规定的更多，包括在商业项目中使用 ASF，而不需要使代码开源。 简而言之，正如 tl;dr Legal 所述：
 
@@ -21,15 +21,15 @@ ASF 的许可证是非常宽松的，您可以做的事比标准 GPL 许可证�
 您**可以**：
 
 - 声称您的软件/服务是**基于** ASF（或其代码）的
-- 指明您的软件/服务是 **ASF 的衍生版本**
-- 在您**没有**对 ASF 的源代码做任何修改的情况下，声称您的软件/服务由 ASF 提供支持。
+- 表示您的软件/服务是 **ASF 的衍生版本**
+- 在您**没有**对 ASF 的源代码做任何修改的情况下，声称您的软件/服务由 ASF 提供支持
 - 将 ASF 用于各种引用目的，例如说明软件/服务的起源、引用我们的 Wiki 或*“用于合理性和惯例性的描述作品起源和复制通知文件的内容”*
 
 您**不可以**：
 
 - 声称您的软件/服务**是** ASF
-- 引用您的软件/服务为 **ASF**
-- 在您**有**对 ASF 的源代码做任何修改的情况下，声称您的软件/服务由 ASF 提供支持。
+- 将您的软件/服务称为 **ASF**
+- 在您**有**对 ASF 的源代码做任何修改的情况下，声称您的软件/服务由 ASF 提供支持
 - 发布虚假广告，例如声明 ASF 或其开发人员与您的软件/服务有关联
 
 如有疑问，请与我们联系，我们将很乐意回答您的法律/许可问题。

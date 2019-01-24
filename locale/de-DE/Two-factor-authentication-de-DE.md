@@ -14,7 +14,9 @@ Unabhängig davon, ob du das unten erklärte ASF 2FA verwenden wirst oder nicht,
 
 # ASF 2FA
 
-Die Idee ist einfach. Wir implementieren bereits den Steam-Client, das Starten und Spielen von Spielen, warum also nicht ein mobiles Gerät? ASF 2FA ist genau das was du denkst es ist. Es ist nur ein Modul, das dafür verantwortlich ist, 2FA-Codes als gültiges, anerkanntes mobiles Gerät zu generieren, was es uns ermöglicht, Handelssperren zu überspringen und alle Handelsangebote automatisch zu bestätigen. Es dupliziert deinen vorhandenen Authentifikator, so dass es nicht notwendig ist, ASF 2FA ausschließlich zu verwenden.
+ASF 2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie z.B. das Erzeugen von Codes und das Annehmen von Bestätigungen. Es dupliziert deinen vorhandenen Authentifikator, so dass es nicht notwendig ist, ASF 2FA ausschließlich zu verwenden.
+
+Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn du deinen Authentifikator nicht bereits als ASF 2FA importiert hast, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass dein Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen geeignet ist, die den Betrieb des Moduls erfordern.
 
 Um ASF 2FA zu aktivieren benötigst du:
 
@@ -22,7 +24,7 @@ Um ASF 2FA zu aktivieren benötigst du:
 - oder funktionierenden Steam-Authentifikator in deinem iOS-Gerät
 - oder funktionierenden Steam-Authentifikator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - oder funktionierenden Steam-Authentifikator in **[WinAuth](https://winauth.github.io/winauth)**
-- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
+- oder jede andere funktionierende Implementierung eines Steam-Authentifikators mit Zugriff auf ein gemeinsames/identitäres Geheimnis und die Geräte-ID
 
 * * *
 
@@ -114,7 +116,7 @@ Wenn du das auch richtig gemacht hast, bist du jetzt fertig!
     [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
     
 
-Bitte bestätige, dass die Annahme von Bestätigungen tatsächlich funktioniert. Wenn du einen Fehler bei der Eingabe deiner `DeviceID` gemacht hast, dann hast du einen halb kaputten Authentifikator - Codes funktionieren aber Bestätigungen akzeptieren nicht. Du kannst `Bot.db` jederzeit entfernen und bei Bedarf neu beginnen.
+Bitte verifiziere, dass die Annahme von Bestätigungen tatsächlich funktioniert. Wenn du einen Fehler bei der Eingabe deiner `DeviceID` gemacht hast, dann hast du einen halb kaputten Authentifikator - Codes funktionieren aber Bestätigungen akzeptieren nicht. Du kannst `Bot.db` jederzeit entfernen und bei Bedarf neu beginnen.
 
 * * *
 
@@ -168,7 +170,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Erweitert
+## Erweiterte Einstellungen
 
 Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 

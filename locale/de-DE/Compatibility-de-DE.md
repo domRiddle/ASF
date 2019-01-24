@@ -39,7 +39,7 @@ Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der i
 ASF ist derzeit in folgenden betriebsystemspezifischen Varianten verfügbar:
 
 - `win-x64` ist kompatibel mit 64-Bit-Windows-Betriebssystemen. Dazu gehören Windows 7 (SP1+), 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016 sowie zukünftige Versionen.
-- `linux-arm` ist kompatibel mit 32-Bit-ARM-basierten (ARMv7+) GNU/Linux-Betriebssystemen. Dazu gehören insbesondere Raspberry Pi 2 & 3 mit allen für diese erhältlichen GNU/Linux-Betriebssystemen (wie zum Beispiel Raspbian), in aktuellen und zukünftigen Versionen. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux features, such as Android.
+- `linux-arm` ist kompatibel mit 32-Bit-ARM-basierten (ARMv7+) GNU/Linux-Betriebssystemen. Dazu gehören insbesondere Raspberry Pi 2 & 3 mit allen für diese erhältlichen GNU/Linux-Betriebssystemen (wie zum Beispiel Raspbian), in aktuellen und zukünftigen Versionen. Diese Variante funktioniert nicht mit älteren ARM-Architekturen, wie z.B. ARMv6 in Raspberry Pi 0 & 1, sie funktioniert auch nicht mit Betriebssystemen, die nicht die erforderlichen GNU/Linux-Funktionen implementieren, wie z.B. Android.
 - `linux-x64` ist kompatibel mit 64-Bit GNU/Linux-Betriebssystemen. Dazu gehören Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES und viele andere, einschließlich ihrer Derivate, in aktuellen und zukünftigen Versionen.
 - `osx-x64` ist kompatibel mit 64-Bit OS X Betriebssystemen. Dazu gehört die Version 10.12 sowie zukünftige Versionen.
 
@@ -55,7 +55,7 @@ Wenn du ein betriebssystemspezifisches Paket verwendest, musst du dir keine Sorg
 
 Wenn du jedoch versuchst, das **generische** ASF-Paket auszuführen, dann musst du sicherstellen, dass deine .NET Core Runtime die von ASF benötigte Plattform unterstützt.
 
-ASF als Programm richtet sich derzeit an **.NET Core 2.2** (`netcoreapp2.2`), könnte aber in Zukunft auch auf neuere Plattformen ausgerichtet sein. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
+ASF als Programm richtet sich derzeit an **.NET Core 2.2** (`netcoreapp2.2`), könnte aber in Zukunft auch auf neuere Plattformen ausgerichtet sein. `netcoreapp2.2` wird seit 2.2.100 SDK (2.2.0 Runtime) unterstützt, obwohl ASF konfiguriert ist, um ** die letzte Runtime zum Zeitpunkt der Kompilierung** zu verwenden, also solltest du sicherstellen, dass du **[die neueste SDK](https://www.microsoft.com/net/download)** für deine Maschine zur Verfügung hast. Die generische ASF-Variante kann den Start verweigern, wenn deine Runtime älter ist als die minimale (Ziel-) Runtime, die während der Kompilierung bekannt ist.
 
 Im Zweifelsfall solltest du überprüfen, was unsere **[kontinuierliche Integration](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** für die Kompilierung und Bereitstellung von ASF-Versionen auf GitHub verwendet. Dort findest du die `dotnet --info` Ausgabe oben in jedem Build.
 

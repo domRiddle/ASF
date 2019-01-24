@@ -38,7 +38,7 @@
 * **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**
 * **[Плаґіни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-uk-UA)**
 * **[Безпека](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-uk-UA)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Сторонні розробки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-uk-UA)**
 * **[Двофакторна аутентифікація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)**
 
 ## Розробникам

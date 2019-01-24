@@ -504,8 +504,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
-| 7     | SaleItem          | Special items awarded during Steam sales                                    |
-| 8     | Consumable        | Special consumable items that disappear after being used                    |
+| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -526,8 +526,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
-| 7     | SaleItem          | Special items awarded during Steam sales                                    |
-| 8     | Consumable        | Special consumable items that disappear after being used                    |
+| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. Por favor, note que **o ASF é não um bot de trocas** e ele **NÃO vai se importar com o preço ou a raridade**, o que significa que se você usá-lo, p. ex., com o tipo `Emoticon`, o ASF ficará feliz em trocar dois emoticons raros repetidos por 1x raro e 1x comum, já que isso faz progresso no sentido de concluir a insígnia (nesse caso, do set de emoticons). Por favor, pense duas vezes se isso é bom para você. A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5` padrão.
 
@@ -706,8 +706,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
 | 6     | SteamGems         | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
-| 7     | SaleItem          | Special items awarded during Steam sales                                    |
-| 8     | Consumable        | Special consumable items that disappear after being used                    |
+| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 

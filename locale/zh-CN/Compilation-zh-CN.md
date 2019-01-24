@@ -1,6 +1,6 @@
 # 编译
 
-编译是生成可执行文件的过程。 如果您希望对 ASF 作出自己的修改，或者出于某种原因不信任官方&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的可执行文件，编译就是您需要做的事。 如果您是用户而不是开发人员，则很可能您希望使用已预编译的二进制文件，但如果您想使用自己的二进制文件或学习新内容，请继续阅读。
+编译是生成可执行文件的过程。 如果您希望对 ASF 作出自己的修改，或者出于某种原因不信任官方&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的可执行文件，编译就是您需要做的事。 如果您是用户而不是开发者，则很可能您希望使用已预编译的二进制文件，但如果您想使用自己的二进制文件或学习新内容，请继续阅读。
 
 只要您拥有所有需要的工具，ASF 就可以在任何当前支持的平台上进行编译。
 
@@ -36,16 +36,16 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET 框架
 
-在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.2` 更改为 `net472`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包。
+在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.2` 更改为 `net472`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
 ```
 
-在更罕见的情况下，如果您无法安装 .NET 框架甚至 .NET Core SDK 本身（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`：
+在无法安装 .NET 框架甚至 .NET Core SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 netf：
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
 ```
 
 * * *
@@ -68,4 +68,4 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## 官方发布版本
 
-官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET Core SDK 的 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 编译。 经过测试后，所有的包都会被部署在 GitHub 上。 这也保证了透明度，因为 AppVeyor 总是为所有构建使用官方公共源，并且您可以检查 AppVeyor 的 Artifacts 与 GitHub 附件的校验和。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。
+官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET Core SDK 的 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 编译。 经过测试后，所有的包都会被部署在 GitHub 上。 这也保证了透明度，因为 AppVeyor 总是为所有构建使用官方公共源，并且您可以检查 AppVeyor 的 Artifacts 与 GitHub 附件的 Checksum（校验和）。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。

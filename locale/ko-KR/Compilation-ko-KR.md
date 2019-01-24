@@ -36,16 +36,16 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET Framework
 
-드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net472`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오.
+드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net472`로 변경할 수 있습니다. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
 ```
 
-더 드문 경우지만 .NET Framework나 심지어 .NET Core SDK도 설치할 수 없다면 `msbuild`를 직접 호출할 수 있습니다.(`linux-x86`에서 `mono`를 사용하여 빌드한 경우 등)
+In case of being unable to install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables netf build on non-Windows platforms:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

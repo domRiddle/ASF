@@ -1,4 +1,4 @@
-# Two-factor authentication
+# Двуфакторно удостоверяване
 
 A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
 
@@ -8,13 +8,15 @@ Now as you can see all trades are being hold for up to 15 days, which is not a m
 
 # ASF logic
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're required (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
 * * *
 
 # ASF 2FA
 
-The idea is simple. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+
+You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
 To enable ASF 2FA, you need to have:
 

@@ -8,14 +8,21 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## ASF plugins
 
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
 
 * * *
 
-## Strumenti
+## Integrations
 
-- **[Estrattore di chiavi](https://ske.pixv.io)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permette di gestire configurazioni multiple di ASF più facilmente.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot di telegram con l'integrazione per ASF, scritto in python.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, un altro bot di telegram (minimale) con l'integrazione per ASF, scritto in python.
+
+* * *
+
+## Libraries
+
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, libreria di python per un'ulteriore intregrazione con l'interfaccia IPC di ASF.
 
 * * *
 
@@ -26,11 +33,10 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## Bot / Librerie
+## Strumenti
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, libreria di python per un'ulteriore intregrazione con l'interfaccia IPC di ASF.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot di telegram con l'integrazione per ASF, scritto in python.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, un altro bot di telegram (minimale) con l'integrazione per ASF, scritto in python.
+- **[Estrattore di chiavi](https://ske.pixv.io)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permette di gestire configurazioni multiple di ASF più facilmente.
 
 * * *
 

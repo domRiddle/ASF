@@ -8,14 +8,21 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## ASF plugins
 
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
 
 * * *
 
-## 도구
+## Integrations
 
-- **[키 추출기](https://ske.pixv.io)**, 키를 복사-붙여넣기해서 다양한 형식으로 만들 수 있으며 ASF의 `redeem` 명령을 만들 수 있습니다. 자세한 내용은 **[GitHub repo](https://github.com/PixvIO/SKE)** 를 확인하시기 바랍니다.
-- **[ASF 대량 환경설정 에디터](https://github.com/genesix-eu/ASF_MCE)**, 다량의 ASF 환경설정을 더 쉽게 관리할 수 있습니다.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF와 통합되는 python으로 작성한 텔레그램 봇입니다.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
+
+* * *
+
+## Libraries
+
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, ASF의 IPC 인터페이스와 더욱 통합되는 python 라이브러리입니다.
 
 * * *
 
@@ -26,11 +33,10 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## 봇 / 라이브러리
+## 도구
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, ASF의 IPC 인터페이스와 더욱 통합되는 python 라이브러리입니다.
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF와 통합되는 python으로 작성한 텔레그램 봇입니다.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
+- **[키 추출기](https://ske.pixv.io)**, 키를 복사-붙여넣기해서 다양한 형식으로 만들 수 있으며 ASF의 `redeem` 명령을 만들 수 있습니다. 자세한 내용은 **[GitHub repo](https://github.com/PixvIO/SKE)** 를 확인하시기 바랍니다.
+- **[ASF 대량 환경설정 에디터](https://github.com/genesix-eu/ASF_MCE)**, 다량의 ASF 환경설정을 더 쉽게 관리할 수 있습니다.
 
 * * *
 

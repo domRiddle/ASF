@@ -169,7 +169,7 @@ Jedoch **gibt es** einen Unterschied, und du kannst deutlich feststellen, dass, 
 
 ### Kann ASF mehrere Spiele auf einmal sammeln?
 
-**Ja**, obwohl ASF besser weiß, wann dieses Feature zu verwenden ist, basierend auf dem ausgewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**. Card drops rate when idling multiple games is close to zero, this is why ASF is using multiple games idling exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, idling multiple games at once will not provide you with any card drops.
+**Ja**, obwohl ASF besser weiß, wann dieses Feature zu verwenden ist, basierend auf dem ausgewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**. Die Kartendrops-Rate beim Sammeln mehrerer Spiele ist nahe Null, deshalb verwendet ASF mehrere Spiele, die ausschließlich für Stunden sammeln, um `HoursUntilCardDrops` schneller zu überwinden, für bis zu `32` Spiele auf einmal. Deshalb solltest du dich auch auf den Teil der Konfiguration von ASF konzentrieren und den Algorithmus entscheiden lassen, was der optimale Weg ist, um das Ziel zu erreichen - was du für richtig hältst, ist in Wirklichkeit nicht unbedingt richtig, denn das Sammeln mehrerer Spiele auf einmal wird dir keine Kartendrops bescheren.
 
 * * *
 
@@ -181,7 +181,7 @@ Jedoch **gibt es** einen Unterschied, und du kannst deutlich feststellen, dass, 
 
 ### Kann ASF jedes Spiel automatisch für X Stunden spielen, bevor Karten gesammelt werden?
 
-**Nein**, der Sinn der Systemumstellung von Steam-Karten war es, mit falschen Statistiken und Geisterspielern zu kämpfen. ASF wird nicht mehr als nötig dazu beitragen, denn das Hinzufügen eines solchen Features ist nicht geplant und wird nicht geschehen. If your game receives card drops in usual way, ASF will idle them as soon as possible.
+**Nein**, der Sinn der Systemumstellung von Steam-Karten war es, mit falschen Statistiken und Geisterspielern zu kämpfen. ASF wird nicht mehr als nötig dazu beitragen, denn das Hinzufügen eines solchen Features ist nicht geplant und wird nicht geschehen. Wenn dein Spiel auf übliche Weise Kartendrops erhält, wird ASF diese so schnell wie möglich sammeln.
 
 * * *
 
@@ -341,13 +341,13 @@ Vielen Dank für dein Intresse! Alle Details hierzu kannst du in unserem Abschni
 
 ### Ich habe nur ein (Haupt-)Konto zu ASF hinzugefügt, kann ich trotzdem Befehle per Steam-Chat senden?
 
-**Ja**, es wird im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** erklärt. You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** might be easier for you.
+**Ja**, es wird im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** erklärt. Du kannst dies über den Steam-Gruppen-Chat tun, obwohl die Verwendung von **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** für dich einfacher sein könnte.
 
 * * *
 
 ### ASF scheint zu funktionieren, aber ich bekomme keine Karten!
 
-Die Sammelrate der Karten ist von Spiel zu Spiel unterschiedlich, wie du in **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** nachlesen kannst. Es dauert eine Weile, normalerweise **mehrere Stunden pro Spiel** und du solltest nicht erwarten, dass Karten in ein paar Minuten nach dem Start eines Programmes gesammelt werden. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine. It's possible that you've enabled an option such as `DismissInventoryNotifications` of `BotBehaviour` which automatically dismisses inventory notifications. Siehe **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** für Details.
+Die Sammelrate der Karten ist von Spiel zu Spiel unterschiedlich, wie du in **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** nachlesen kannst. Es dauert eine Weile, normalerweise **mehrere Stunden pro Spiel** und du solltest nicht erwarten, dass Karten in ein paar Minuten nach dem Start eines Programmes gesammelt werden. Wenn du sehen kannst, dass ASF den Kartenstatus aktiv überprüft und das Spiel wechselt, nachdem das aktuelle vollständig gesammelt wurde, dann funktioniert das Ganze einwandfrei. Es ist möglich, dass du eine Option wie `DismissInventoryNotifications` von `BotBehaviour` aktiviert hast, die Inventarbenachrichtigungen automatisch ausblendet. Siehe **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** für Details.
 
 * * *
 
@@ -359,9 +359,9 @@ Beende einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn
 
 ### Wie viele Bots kann ich mit ASF verwenden?
 
-ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Derzeit kannst du bis zu **100 Bots** mit einer einzigen IP und einer einzelnen ASF-Instanz laufen lassen. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Bedenke, dass du, wenn du diese große Anzahl von Bots verwendest, deren Anzahl du selbst kontrollieren solltest, z.B. sicherstellen, dass sich alle tatsächlich anmelden und zur gleichen Zeit arbeiten. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Außerdem ist zu beachten, dass das obige Limit im Allgemeinen von vielen internen Faktoren abhängt - es ist eher eine Annäherung als ein strenges Limit - Du wirst höchstwahrscheinlich in der Lage sein, mehr/weniger Bots als oben beschrieben auszuführen.
+ASF als Programm hat keine unmittelbare Obergrenze für Bot-Instanzen, so dass du so viele Bot-Instanzen ausführen kannst, wie du Speicher auf deinem Computer hast, aber du bist immer noch durch das Steam-Netzwerk und andere Steam-Dienste limitiert. Derzeit kannst du bis zu **100 Bots** mit einer einzigen IP und einer einzelnen ASF-Instanz laufen lassen. Es ist möglich, mehr Bots mit mehr IPs und mehr ASF-Instanzen auszuführen, indem man die IP-Beschränkungen umgeht. Bedenke, dass du, wenn du diese große Anzahl von Bots verwendest, deren Anzahl du selbst kontrollieren solltest, z.B. sicherstellen, dass sich alle tatsächlich anmelden und zur gleichen Zeit arbeiten. ASF wurde nicht für diese große Anzahl von Bots optimiert und die allgemeine Regel gilt, dass **je mehr Bots du hast, desto mehr Probleme wirst du bekommen**. Außerdem ist zu beachten, dass das obige Limit im Allgemeinen von vielen internen Faktoren abhängt - es ist eher eine Annäherung als ein strenges Limit - Du wirst höchstwahrscheinlich in der Lage sein, mehr/weniger Bots als oben beschrieben auszuführen.
 
-ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with this rule or not is your choice, ASF as a tool will not go against your own will, even if it'll result in your Steam accounts being suspended for doing so. Therefore, ASF will display you a warning if you'll go above what we recommend, but still allow you to run anything you want at your own risk and lack of our support.
+Das ASF-Team empfiehlt, bis zu **10 Bots insgesamt** laufen zu lassen (und zu **besitzen**), alles darüber wird nicht unterstützt und auf eigenes Risiko durchgeführt, gegen unseren Vorschlag, der hier gemacht wurde. Diese Empfehlung basiert auf internen Valve-Richtlinien sowie unseren eigenen Empfehlungen. Ob du diese Regel einhältst oder nicht, ist deine Entscheidung, ASF als Werkzeug wird nicht gegen deinen eigenen Willen handeln, auch wenn es dazu führen sollte, dass deine Steam-Konten dafür gesperrt werden. Daher wird ASF dir eine Warnung anzeigen, wenn du über das hinausgehst, was wir empfehlen, aber trotzdem alles, was du willst, auf eigenes Risiko und ohne unseren Support ausführen kannst.
 
 * * *
 
@@ -371,7 +371,7 @@ Du kannst so viele ASF-Instanzen auf einem Computer ausführen, wie du willst, v
 
 Deshalb ist es mein **Ratschlag**, immer maximal eine ASF-Instanz pro IP/Schnittstelle auszuführen. Wenn du mehr IPs/Interfaces hast, kannst du auf jeden Fall mehr ASF-Instanzen betreiben, wobei jede Instanz ihre eigene IP/Schnittstelle verwendet. Wenn du es nicht tust, ist es völlig sinnlos, mehr ASF-Instanzen zu starten, was nicht nur die Leistung beeinträchtigt und mehr Betriebssystem-Ressourcen (z.B. Speicher) beansprucht, sondern auch zu mangelnder Synchronisation und erhöhter Wahrscheinlichkeit führt, dass Probleme auftreten.
 
-Du wirst keine Vorteile haben, wenn du mehr als eine Instanz pro IP/Schnittstelle startest. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
+Du wirst keine Vorteile haben, wenn du mehr als eine Instanz pro IP/Schnittstelle startest. Steam wird es dir auf magische Weise nicht erlauben, mehr Bots auszuführen, nur weil du sie in einer anderen ASF-Instanz gestartet hast, und ASF beschränkt dich von Anfang an nicht.
 
 * * *
 
@@ -470,7 +470,7 @@ ASF wird sein Bestes tun, um eine Verbindung herzustellen, was nicht nur die Abf
 
 Es ist auch möglich, dass deine Maschine nicht in der Lage ist, eine Verbindung mit den Steam-Servern über das Standardprotokoll in ASF herzustellen. Du kannst Protokolle, die ASF verwenden darf, ändern, indem du `SteamProtocols` globale Konfigurationseigenschaft änderst. Wenn du zum Beispiel Probleme hast, Steam mit dem `UDP` Protokoll zu erreichen (z.B. Aufgrund Firewalls), dann kannst du `TCP` oder `WebSocket` versuchen.
 
-In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to another machine located in entirely different country, deleting `ASF.db` in order to refresh Steam servers on next launch might help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
+In einer sehr unwahrscheinlichen Situation, in der falsche Server zwischengespeichert werden, z.B. weil ASF `config` Ordner von einer Maschine auf eine andere Maschine in einem völlig anderen Land verschoben wurde, könnte das Löschen von `ASF.db` helfen, um die Steam-Server beim nächsten Start zu aktualisieren. Sehr oft ist es nicht notwendig und muss auch nicht getan werden, da diese Liste beim ersten Start und beim Verbindungsaufbau automatisch aktualisiert wird - wir erwähnen sie nur als eine Möglichkeit, um alles zu bereinigen, was mit der Liste der Steam-Server zusammenhängt, die von ASF im Zwischenspeicher gehalten werden.
 
 * * *
 
@@ -486,7 +486,7 @@ Andere Gründe können temporäre Steam-Probleme, Netzwerkprobleme oder ähnlich
 
 Normalerweise bedeutet das, dass du die Steam Parental PIN für den Zugriff auf dein Konto verwendest, aber du hast vergessen, sie in die ASF-Konfiguration einzugeben. Du musst eine gültige PIN in `SteamParentalCode` Bot-Konfigurationseigenschaft eingeben, sonst kann ASF nicht auf die meisten Webinhalte zugreifen und kann daher nicht richtig funktionieren. Schaue unter **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** vorbei, um mehr über `SteamParentalCode` zu erfahren.
 
-If parental PIN is not the reason, then this is a most common error, and you should get used to that, it simply means that ASF sent a request to Steam Network, and didn't get a valid response, 5 times in a row. Normalerweise bedeutet es, dass Steam entweder außer Betrieb ist oder einige Schwierigkeiten oder Wartungsarbeiten hat - ASF ist sich solcher Probleme bewusst und du solltest dir keine Sorgen um sie machen, es sei denn, sie passieren ständig für mehr als mehrere Stunden, und andere Benutzer haben keine derartigen Probleme.
+Wenn die Eltern-PIN nicht der Grund dafür ist, dann ist dies ein häufiger Fehler, und du solltest dich daran gewöhnen, bedeutet das einfach, dass ASF eine Anfrage an das Steam-Netzwerk gesendet hat und keine gültige Antwort erhalten hat, 5 mal in Folge. Normalerweise bedeutet es, dass Steam entweder außer Betrieb ist oder einige Schwierigkeiten oder Wartungsarbeiten hat - ASF ist sich solcher Probleme bewusst und du solltest dir keine Sorgen um sie machen, es sei denn, sie passieren ständig für mehr als mehrere Stunden, und andere Benutzer haben keine derartigen Probleme.
 
 Wie kann man überprüfen, ob Steam außer Betrieb ist? **[Steam Status](https://steamstat.us)** ist eine ausgezeichnete Quelle, um zu überprüfen, **ob** Steam in Betrieb sein sollte, wenn du Fehler bemerkst, insbesondere im Zusammenhang mit der Community oder der Web-API, dann hat Steam Schwierigkeiten. Entweder ASF in Ruhe lassen und es nach einer kurzen Zeit wieder versuchen, oder selbst warten.
 
@@ -496,7 +496,7 @@ In addition to that, Steam includes various rate-limiting measures which will te
 
 There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network, but Steam web will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. Zum Beispiel:
+Wenn nichts hilft und du keine Ahnung hast was kaputt ist, kannst du immer den `Debug`-Modus aktivieren und dir im ASF-Log selbst ansehen warum genau die Anfragen fehlschlagen. Zum Beispiel:
 
     InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
     InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
@@ -518,7 +518,7 @@ Du benutzt höchstwahrscheinlich Windows und deine Konsole hat den QuickEdit-Mod
 
 Offensichtliche Sache zuerst - neue Konten beginnen als begrenzt. Bis du das Konto freischaltest, indem du sein Guthaben lädst oder 5€ im Shop ausgibst, kann ASF weder Handelsangebote akzeptieren noch über dieses Konto versenden. In diesem Fall gibt ASF an, dass das Inventar leer ist, da jede Karte, die sich darin befindet, nicht handelbar ist. Es wird auch nicht möglich sein, ein Handelsangebot zu erhalten, da dieser Teil erfordert, dass ASF in der Lage ist, den API-Schlüssel zu holen, und die API-Schlüsselfunktionalität für begrenzte Konten deaktiviert ist. Kurz gesagt - der Handel ist für alle begrenzten Konten deaktiviert, keine Ausnahmen.
 
-Als nächstes, wenn du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** nicht verwendest, ist es möglich, dass ASF tatsächlich das Handelsangebot akzeptiert/sendet, aber du musst es per E-Mail bestätigen. Ebenso musst du, wenn du die klassische 2FA verwendest, das Handelsangebot über deinen Authentifikator bestätigen. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider importing your authenticator into ASF 2FA.
+Als nächstes, wenn du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** nicht verwendest, ist es möglich, dass ASF tatsächlich das Handelsangebot akzeptiert/sendet, aber du musst es per E-Mail bestätigen. Ebenso musst du, wenn du die klassische 2FA verwendest, das Handelsangebot über deinen Authentifikator bestätigen. Bestätigungen sind jetzt **obligatorisch**, also wenn du sie nicht selbst akzeptieren willst, erwäge deinen Authentifikator in ASF 2FA zu importieren.
 
 Beachte auch, dass du nur mit deinen Freunden und Personen mit bekanntem Handelslink handeln kannst. Wenn du versuchst, Bot->Master-Handelsangebot zu veranlassen, wie z.B. `loot`, dann musst du entweder deinen Bot auf deiner Freundesliste haben oder deinen `SteamTradeToken` in der Bot-Konfiguration angegeben haben. Stelle sicher, dass der Code gültig ist - sonst kannst du keine Handelsangebote versenden.
 

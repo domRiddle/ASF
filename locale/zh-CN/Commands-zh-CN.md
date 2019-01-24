@@ -64,7 +64,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `nickname`。                                                                                                          |
 | `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `appIDs` 和/或 `gameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
-| `password <Bots>`                                                    | `Master`        | 显示指定机器人的加密后密码（配合 `PasswordFormat` 使用）。                                                                                            |
+| `password <Bots>`                                                    | `Master`        | 显示指定机器人加密后的密码（配合 `PasswordFormat` 使用）。                                                                                            |
 | `pause <Bots>`                                                       | `Operator`      | 永久暂停指定机器人的自动挂卡模块。 ASF 在本次会话中将不会再尝试对此帐户进行挂卡，除非您手动 `resume` 或者重启 ASF。                                                               |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
 | `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
@@ -100,7 +100,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 ASF 使用所有空白字符作为命令的分隔符，例如空格和换行符。 这意味着您不仅可以使用空格来分隔参数，还可以使用任何其他空白字符（如制表符和换行符）。
 
-ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规定的最后一个复数参数上。 这意味着，对于 `redeem <Bots> <Keys>` 命令，`redeem bot key1 key2 key3` 与 `redeem bot key1,key2,key3` 的作用是相同的。 再加上您可以使用换行符作为命令分隔符，这样您就可以先写 `redeem bot`，然后在其后粘贴一个游戏序列号列表，其中每一项可以由任意空白字符（例如换行符）或者 ASF 标准的逗号 `,` 分隔。 请注意，要使用这一技巧，您必须采用参数最多的命令形式（所以在这种情况下，您必须指定 `<Bots>` 参数）。
+ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规定的最后一个复数参数上。 这意味着，对于 `redeem <Bots> <Keys>` 命令，`redeem bot key1 key2 key3` 与 `redeem bot key1,key2,key3` 的作用是相同的。 再加上您可以使用换行符作为命令分隔符，这样您就可以先写 `redeem bot`，然后在其后粘贴一个游戏序列号列表，其中每一项可以由任意空白字符（例如换行符）或者 ASF 标准的逗号 `,` 分隔。 请注意，要使用这一技巧，您必须采用该命令参数数量最多的形式（所以在这种情况下，您必须指定 `<Bots>` 参数）。
 
 如上所述，空白字符被用于分隔命令参数，所以参数内部无法再使用空白字符。 但同样如上所述，ASF 可以连接超出范围的参数，这意味着您可以在命令的最后一个参数中使用空白字符。 例如，`nickname bob Great Bob` 命令能够正确地将机器人 `bob` 的昵称更改为“Great Bob”。 类似地，您也可以使用 `owns` 命令检查含有空格的名称。
 
@@ -129,11 +129,11 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 `<Bots>` 是复数参数的一个特殊变体，它除了接受多个值以外，还有额外的功能。
 
-首先，您可以使用特殊的关键字 `ASF` 来表示“所有机器人”，所以 `status ASF` 命令与列出所有机器人的命令 `status all,your,bots,listed,here` 是相同的。 这也可以方便地识别您可以访问哪些机器人，因为尽管 `ASF` 关键字的目标是所有机器人，但只有您能够实际发送命令的机器人才会作出响应。
+首先，您可以使用特殊的关键字 `ASF` 来表示“所有机器人”，所以 `status ASF` 命令与列出所有机器人的命令 `status all,your,bots,listed,here` 是相同的。 这也可以方便地识别您有权操作哪些机器人，因为尽管 `ASF` 关键字的目标是所有机器人，但只有您能够实际发送命令的机器人才会作出响应。
 
 `<Bots>` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`<Bots>` 的一般语法为 `firstBot..lastBot`。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `firstBot` 和 `lastBot` 必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
 
-除了上述的范围语法，`<Bots>` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
+除了上述的范围语法，`<Bots>` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
 
 * * *
 

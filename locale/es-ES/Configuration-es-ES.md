@@ -228,7 +228,7 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF deb
 
 ### `SteamMessagePrefix`
 
-`string` type with default value of `"/me "`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
+Tipo `string` con valor predeterminado de `"/me "`. Esta propiedad define un prefijo que se antepondrá a todos los mensajes de Steam que envíe ASF. Por defecto ASF utiliza el prefijo `"/me "` para distinguir más fácilmente los mensajes de bots al mostrarlos con un color diferente en el chat de Steam. Otra cosa digna de mención es que el prefijo `"/pre "` logra resultados similares, pero usa un formato diferente. También puedes establecer esta propiedad en vacío o `null` para desactivar por completo el uso de prefijos y mostrar todos los mensajes de ASF de forma tradicional. Es bueno notar que esta propiedad solo afecta a los mensajes de Steam - las respuestas a través de otros canales (como IPC) no son afectadas. A menos que quieras personalizar el comportamiento estándar de ASF, es buena idea dejarlo en su valor predeterminado.
 
 * * *
 

@@ -20,7 +20,7 @@ ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` j
     Terraria ThisIsIgnored ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
-Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z nowej linii między każdego wpisu). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z nowej linii między każdego wpisu). ASF w tym przypadku użyje odpowiedzi Steam (jeśli to możliwe), aby wypełnić właściwą nazwę. W przypadku wszelkiego rodzaju tagowania kluczy zalecamy, abyś sam wymieniał klucze, ponieważ pakiety wymieniane na Steam nie muszą być zgodne z logiką gier, które aktywują, więc w zależności od tego, co zrobił programista, możesz zobaczyć poprawną grę nazwy, niestandardowe nazwy pakietów (np. Humble Indie Bundle 18) lub wręcz błędne i potencjalnie nawet złośliwe (np. Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,25 +28,25 @@ Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportuje twoje klucze ` </ 0>, zarówno podczas uruchamiania bota, jak i później w trakcie jego wykonywania. Po pomyślnym przeanalizowaniu pliku i ewentualnym pominięciu nieprawidłowych wpisów, wszystkie poprawnie wykryte gry zostaną dodane do kolejki tła, a sam plik <code> BotName.keys </ 0> zostanie usunięty z <code> config </ 0 > katalog.</p>
 
-### IPC
+<h3>IPC</h3>
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+<p>Oprócz użycia wspomnianego wcześniej pliku kluczy, ASF udostępnia również <GamesToRedeemInBackground </ 0> <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api"> punkt końcowy API ASF </ 1>, który może być wykonywany przez dowolne narzędzie IPC, w tym nasz ASF-ui. Używanie IPC może być znacznie potężniejsze, ponieważ możesz sam dokonać właściwego analizowania, na przykład użyć niestandardowego ogranicznika zamiast być zmuszonym do wstawiania znaków tabulacji, lub nawet wprowadzać całkowicie własną niestandardową strukturę klawiszy.</p>
 
-* * *
+<hr />
 
-## Kolejka
+<h2>Kolejka</h2>
 
-Pomyślnie zaimportowane gry są dodawane do kolejki. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+<p>Pomyślnie zaimportowane gry są dodawane do kolejki. ASF automatycznie przechodzi przez kolejkę tła, dopóki bot jest podłączony do sieci Steam, a kolejka nie jest pusta. Klucz, który próbował zostać wykorzystany i nie spowodował ograniczenia <code> RateLimited </ 0>, został usunięty z kolejki, a jego status został poprawnie zapisany w pliku w katalogu <code> config </ 0> - <code> BotName.keys.used </ 0> jeśli klucz został użyty w procesie (np. <code> BrakDetaila </ 0>, <code> Kod BadActivation </ 0>, <code> DuplicateActivationCode </ 0>) lub <0 > BotName.keys.unused </ 0> inaczej. ASF celowo używa podanej nazwy gry, ponieważ nie ma gwarancji, że kluczowa nazwa zostanie zwrócona przez sieć Steam - w ten sposób możesz oznaczyć klucze używając nawet niestandardowych nazw, jeśli są potrzebne / poszukiwane.</p>
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Potem proces jest kontynuowany, gdzie zostawił, aż cała kolejka jest pusta.
+<p>Jeśli podczas procesu nasze konto osiągnie status <code> RateLimited </ 0>, kolejka zostanie tymczasowo zawieszona na pełną godzinę, aby czekać na zakończenie czasu odnowienia. Potem proces jest kontynuowany, gdzie zostawił, aż cała kolejka jest pusta.</p>
 
-* * *
+<hr />
 
-## Przykład
+<h2>Przykład</h2>
 
-Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik `BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
+<p>Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik <code>BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
 
 Teraz można otworzyć nasz nowy plik i Kopiuj Wklej listę naszych 100 kluczy, ustalające format, w razie potrzeby. Po poprawki nasz plik `BotName.keys.new` będzie miał dokładnie 100 (lub 101, z ostatni znak nowego wiersza) wierszy, każdy wiersz o strukturze `GameName\tcd-key\n`, gdzie `\t` jest znak tabulacji i `\n` jest znak nowego wiersza.
 
@@ -54,14 +54,14 @@ Teraz jesteś gotowy, aby zmienić nazwę tego pliku od `BotName.keys.new` do `B
 
 Zamiast przy użyciu pliku `BotName.keys`, można również użyć IPC API punktu końcowego, lub nawet połączenie obu Jeśli chcesz.
 
-Po pewnym czasie może uzyskać generowane pliki `BotName.keys.used` i `BotName.keys.unused`. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+Po pewnym czasie może uzyskać generowane pliki `BotName.keys.used` i `BotName.keys.unused`. Te pliki zawierają wyniki naszego procesu wymiany. Na przykład, możesz zmienić nazwę pliku ` BotName.keys.unused </ 0> na plik <code> BotName2.keys </ 0>, a następnie przesłać nasze nieużywane klucze do innego bota, ponieważ poprzedni bot nie użył te klucze sam. Lub możesz po prostu skopiować i wkleić nieużywane klucze do jakiegoś innego pliku i zachować go na później, twój telefon. Należy pamiętać, że gdy ASF przechodzi przez kolejkę, nowe wpisy zostaną dodane do naszych wyjściowych <code> używanych </ 0> i <code> nieużywanych </ 0> plików, dlatego zaleca się, aby poczekać na pełne opróżnienie kolejki zanim skorzystasz z nich. Jeśli bezwzględnie musisz uzyskać dostęp do tych plików przed całkowitym opróżnieniem kolejki, powinieneś najpierw <strong> przenieść </ 0> plik wyjściowy, do którego chcesz uzyskać dostęp do innego katalogu, <strong> następnie </ 0> go przeanalizować. Dzieje się tak dlatego, że ASF może dodawać nowe wyniki, gdy robisz coś, co może prowadzić do utraty niektórych kluczy, jeśli czytasz plik zawierający np. 3 klucze wewnątrz, a następnie usuń je, całkowicie pomijając fakt, że ASF dodał 4 inne klucze do usuniętego pliku w międzyczasie. Jeśli chcesz uzyskać dostęp do tych plików, upewnij się, że zostały przeniesione z katalogu ASF <code> config </ 0> przed ich odczytaniem, na przykład przez zmianę nazwy.</p>
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+<p>Możliwe jest również dodanie dodatkowych gier do zaimportowania, podczas gdy niektóre gry są już w naszej kolejce, powtarzając wszystkie powyższe kroki. ASF poprawnie doda nasze dodatkowe wpisy do już trwającej kolejki i ostatecznie sobie z tym poradzi.</p>
 
-* * *
+<hr />
 
-## Uwagi
+<h2>Uwagi</h2>
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+<p>Background keys redeemer uses <code>OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
 
 Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.

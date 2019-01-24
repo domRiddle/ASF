@@ -8,13 +8,15 @@ Comme vous aurez pu le remarquer, tous les échanges venant de compte sans authe
 
 # Logique de ASF
 
-Peu importe si vous utilisez le ASF 2FA expliqué ci-dessous ou non, ASF inclut une logique qui lui permet de définir quels comptes sont protégés par le 2FA. Les informations requises vous seront automatiquement demandées lorsqu'elles seront nécessaires (comme durant la connexion). Mais si vous utilisez ASF 2FA, le programme pourra passer ces vérifications et générer automatiquement les codes nécessaires, ce qui pourra vous éviter les ennuis et vous permettra d'avoir accès à des fonctionnalités supplémentaires (décrites ci-dessous).
+Peu importe si vous utilisez le ASF 2FA expliqué ci-dessous ou non, ASF inclut une logique qui lui permet de définir quels comptes sont protégés par le 2FA. It will ask you for required details when they're needed (such as during logging in). Mais si vous utilisez ASF 2FA, le programme pourra passer ces vérifications et générer automatiquement les codes nécessaires, ce qui pourra vous éviter les ennuis et vous permettra d'avoir accès à des fonctionnalités supplémentaires (décrites ci-dessous).
 
 * * *
 
 # ASF 2FA
 
-L’idée est simple. Nous avons déjà implémenter le client steam, mettre en œuvre le lancement et jouer à un jeu, donc pourquoi pas implémenter un appareil mobile ? ASF 2FA est exactement ce que vous pensez que c’est, c’est juste un module chargé de générer des jetons 2FA comme périphérique mobile reconnu valide, qui nous permet d’ignorer les délais d'attente et confirmer automatiquement tous les échanges. Il fait double emploi avec votre authentificateur existante, il n’est pas nécessaire d’utiliser exclusivement le 2FA d'ASF.
+ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. Il fait double emploi avec votre authentificateur existante, il n’est pas nécessaire d’utiliser exclusivement le 2FA d'ASF.
+
+You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
 Pour activer ASF 2FA, vous devez avoir :
 
@@ -114,7 +116,7 @@ Retournez à « SteamGuard et Code de récupération » de WinAuth et vous dev
 <pre><code>[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 `</pre> 
 
-Veuillez confirmer que l'acceptation des confirmations fonctionne réellement. Si vous faites une erreur en entrant votre ` DeviceID </ 0>, vous aurez un authentificateur à moitié cassé - les jetons fonctionneront, mais l'acceptation des confirmations ne fonctionneront pas. Vous pouvez toujours supprimer <code>Bot.db` et recommencer si nécessaire.
+Veuillez confirmer que l'acceptation des confirmations fonctionne réellement. Si vous faites une erreur en entrant votre `DeviceID`, vous aurez un authentificateur à moitié cassé - les jetons fonctionneront, mais l'acceptation des confirmations ne fonctionneront pas. Vous pouvez toujours supprimer `Bot.db` et recommencer si nécessaire.
 
 * * *
 

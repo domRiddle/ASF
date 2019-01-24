@@ -8,13 +8,15 @@ Como você pode ver, todas as trocas são retidas por até 15 dias, o que não �
 
 # Lógica do ASF
 
-Independentemente de você usar o ASF 2FA explicado abaixo ou não, o ASF inclui lógica adequada e está plenamente consciente das contas protegidas pelo 2FA padrão. Ele irá te pedir por detalhes necessários quando eles forem exigidos (tal como durante o login, por exemplo). Se você usar o ASF 2FA, o programa será capaz de ignorar esses pedidos e gerar os tokens necessários, poupando-lhe aborrecimento e permitindo funcionalidades extras (descritas abaixo).
+Independentemente de você usar o ASF 2FA explicado abaixo ou não, o ASF inclui lógica adequada e está plenamente consciente das contas protegidas pelo 2FA padrão. Ele vai te pedir pelos dados necessários quando for preciso (durante o login, por exemplo). Se você usar o ASF 2FA, o programa será capaz de ignorar esses pedidos e gerar os tokens necessários, poupando-lhe aborrecimento e permitindo funcionalidades extras (descritas abaixo).
 
 * * *
 
 # ASF 2FA
 
-A ideia é simples. Nós já implementamos o cliente steam, implementamos iniciar e jogar um jogo, então porque não implementar um dispositivo móvel? O ASF 2FA é exatamente o que você imagina que é, ele é apenas um módulo responsável por gerar tokens de 2FA como um dispositivo móvel reconhecido e válido, que nos permite ignorar o período de retenção nas trocas e automaticamente confirmar todas elas. Ele duplica seu autenticador existente, então não há nenhuma necessidade de usar apenas o ASF 2FA.
+O ASF 2FA é um módulo embutido responsável por prover as funcionalidades do 2FA no processo do ASF, tal como gerar tokens e aceitar confirmações. Ele duplica seu autenticador existente, então não há nenhuma necessidade de usar apenas o ASF 2FA.
+
+Você pode verificar se sua conta bot já usa o ASF 2FA executando o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR) **`2fa`. A menos que você já tenha importado seu autenticador para o ASF 2FA, todos os comandos `2fa` não funcionarão, o que significa que sua conta não está usando o ASF 2FA e que não é possível usar as funcionalidades avançadas do ASF que requerem o módulo operante.
 
 Para habilitar o 2FA ASF, você precisa ter:
 

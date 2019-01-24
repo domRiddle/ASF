@@ -6,11 +6,11 @@
 
 ## 致用户
 
-ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 It's recommended to create a dedicated folder for each plugin that you want to use, it can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, put all the binary files of the plugin you've downloaded inside the folder you've created and start ASF. Usually plugin developers will publish their plugins in form of a `zip` file with already-prepared structure for you, so it's enough to unpack that zip archive into `plugins` directory, which will create the appropriate folder automatically.
+ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据插件名称为每个需要使用的插件建立专门的文件夹，例如 `MyPlugin`。 这样最终的文件夹结构为 `plugins/MyPlugin`。 最后，将您下载的插件包含的所有二进制文件放到您刚刚创建的文件夹中，然后启动 ASF。 通常，插件开发者会以 `zip` 文件形式发布插件，其中已有合适的文件结构，所以直接将 zip 压缩包解压到 `plugins` 文件夹就足够了，解压过程会自动创建合适的文件夹结构。
 
-如果插件成功加载，您将会在日志内看到它的名称和版本。 You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
+如果插件成功加载，您将会在日志内看到它的名称和版本。 在遇到与您使用的插件有关的问题、漏洞或者对其用法有疑问时，您应该咨询相应插件的开发人员。
 
-**Please note that ASF plugins might be malicious**. You should always ensure that you're using plugins made by developers that you can trust.
+**请注意，ASF 插件可能是有害的**。 您应该始终确保您使用插件来自于您可以信任的开发人员。
 
 * * *
 
@@ -24,7 +24,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 It's recommended 
 
 您的项目应该是一个标准 .NET 库，其目标指向对应 ASF 版本所使用框架的版本，如&#8203;**[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**&#8203;章节所述。 我们建议您以 .NET Core 为目标，但 .NET Framework 框架插件也是可用的。
 
-The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project (e.g. if you decided to add ASF tree as submodule). 这样，您就可以访问与检查 ASF 的结构、方法和属性，特别是您接下来需要继承的核心 `IPlugin` 接口。 该项目还必须至少引用 `System.Composition.AttributedModel`，使您能够将插件的 `IPlugin` 实现 `[Export]`（导出）给 ASF 使用。 此外，您可能还需要引用其他公共库，以便解析某些接口提供给您的数据结构，但除非您明确需要它们，否则现在这样就足够了。
+您的项目必须引用 `ArchiSteamFarm` 主程序集，或者您下载的 ASF 中包含的预编译 `ArchiSteamFarm.dll` 库，或者项目源代码（例如您决定将 ASF 代码树添加为子模块的情况）。 这样，您就可以访问与检查 ASF 的结构、方法和属性，特别是您接下来需要继承的核心 `IPlugin` 接口。 该项目还必须至少引用 `System.Composition.AttributedModel`，使您能够将插件的 `IPlugin` 实现 `[Export]`（导出）给 ASF 使用。 此外，您可能还需要引用其他公共库，以便解析某些接口提供给您的数据结构，但除非您明确需要它们，否则现在这样就足够了。
 
 如果您正确执行了所有操作，则您的 `csproj` 文件结构应该类似：
 
@@ -43,7 +43,7 @@ The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- 如果要作为 ASF 代码树的一部分构建，使用此设置代替上面的 <Reference> 标签 -->
     <!-- <ProjectReference Include="..\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
@@ -70,17 +70,17 @@ namespace YourNamespace.YourPluginName {
 }
 ```
 
-要使用您的插件，就必须先进行编译。 You can do that either from your IDE, or from within the root directory of your project via a command:
+要使用您的插件，就必须先进行编译。 您可以通过 IDE 进行此操作，也可以在您项目的根目录执行命令：
 
 ```shell
-# If your project is standalone (no need to define its name since it's the only one)
+# 如果您的项目是独立的（不需要定义其名称，因为它是唯一的项目）
 dotnet publish -c "Release" -o "out"
 
-# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
+# 如果您的项目属于 ASF 代码树的一部分（防止编译不需要的部分）
 dotnet publish YourNamespace.YourPluginName -c "Release" -o "out"
 ```
 
-Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
+然后，您的插件已经准备好进行部署。 如何分发和发布插件完全取决于您自己，但我们建议创建一个 zip 压缩包，其中只有一个以插件命名空间和插件名 `YourNamespace.YourPluginName` 为名的的目录，目录内部放置已编译好的插件及其&#8203;**[依赖项](#插件依赖项)**。 这样用户在安装时就只需要将 zip 压缩包解压到 `plugins` 目录而不需要其他操作。
 
 这只是让您入门的最基本场景，我们提供了 **[ArchiSteamFarm.CustomPlugins.ExamplePlugin](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
@@ -88,7 +88,7 @@ Afterwards, your plugin is ready for deployment. It's up to you how exactly you 
 
 ### API 可用性
 
-除了您有权在接口本身中访问的内容外，ASF 还向您公开了许多内部 API，您可以使用这些 API 来扩展功能。 例如，如果您想向 Steam Web 发送某种新请求，则无需从零开始实现一切，特别是自行处理我们已经处理过的一切。 只需要使用我们的 `Bot.ArchiWebHandler`，其中已经公开了许多 `UrlWithSession()` 方法供您使用，它们已经为您完成了一切底层工作，例如身份验证、会话刷新或者处理 Web 限制等。
+除了您有权在接口本身中访问的内容外，ASF 还向您公开了许多内部 API，您可以使用这些 API 来扩展功能。 例如，如果您想向 Steam Web 发送某种新请求，则无需从零开始实现一切，特别是无需自行处理我们已经处理过的问题。 只需要使用我们的 `Bot.ArchiWebHandler`，其中已经公开了许多 `UrlWithSession()` 方法供您使用，它们已经为您完成了一切底层工作，例如身份验证、会话刷新或者处理 Web 限制等。
 
 我们对于 API 可用性方面的政策非常开放，所以如果您需要利用 ASF 代码中已有的内容，请&#8203;**[开启一个 Issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**，并在其中解释您需要使用的 ASF 内部 API 以及您计划使用的场景。 只要您的使用场景有意义，我们就很可能不会反对。 我们不可能立刻公开一切可以利用的内容，所以我们只会公开目前对我们来说最有意义的部分，然后等待您的需求，如果您需要访问的内容尚未标记为 `public`（公开）。 这也包括所有关于新 `IPlugin` 接口的建议，只要它们能够合理地扩展现有功能。
 
@@ -104,14 +104,24 @@ Afterwards, your plugin is ready for deployment. It's up to you how exactly you 
 
 * * *
 
-### Plugin dependencies
+### 插件依赖项
 
-Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it might include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
+默认情况下，您的插件需要至少两个依赖项，`ArchiSteamFarm` 用于引用内部 API，以及 `System.Composition.AttributedModel` 的 `PackageReference`，这是使项目被识别为 ASF 插件所必需的。 除此之外，根据您插件的功能，您可能还需要添加更多依赖项（例如，如果您的插件需要集成 Discord，就需要 `Discord.Net` 库）。
 
-The output of your build will include your core `YourNamespace.YourPluginName.dll` library, and all the dependencies that you've referenced, at the minimum `ArchiSteamFarm.dll` and `System.Composition.AttributedModel.dll`.
+构建过程的输出包括您的核心 `YourNamespace.YourPluginName.dll` 库和所有您引用的依赖项，其中至少包括 `ArchiSteamFarm.dll` 和 `System.Composition.AttributedModel.dll`。
 
-Since you're developing a plugin to already-working program, you don't have to, and even **shouldn't** include all the dependencies that were generated for you during build. This is because ASF already includes majority of those, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`. Stripping down your build off dependencies shared with ASF is not the absolute requirement for your plugin to work, but doing so will dramatically cut the memory footprint and the size of your plugin, together with increasing the performance, due to the fact that ASF will share its own dependencies with you, and will load only those libraries that it doesn't know about itself.
+因为您正在为已经正常工作的程序开发插件，您不需要也**不应该**打包所有在构建过程中自动生成的依赖项。 这是因为 ASF 已经包含其中的大多数内容，例如 `ArchiSteamFarm`、`SteamKit2` 或者 `Newtonsoft.Json`。 在构建中削减与 ASF 共享的依赖项并不是使插件运行所强制要求的，但这样做将极大地减少内存占用和插件本身的大小，同时提高性能，因为 ASF 会与您的插件共享自己的依赖项，并且只会加载它未知的库。
 
-Therefore, it's a recommended practice to include only those libraries that ASF doesn't include, or includes in the wrong version. Examples of those would be obviously `YourNamespace.YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to depend on it. Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance.
+因此，建议的做法是，只打包 ASF 不包含的或者与 ASF 包含版本不同/不兼容的库。 相应的例子显然有 `YourNamespace.YourPluginName.dll`，但如果您决定集成 Discord，也就包括 `Discord.Net.dll`。 如果您希望确保 API 兼容性，打包与 ASF 共享的库仍然是有意义的（例如，确保您在插件中使用的 `Newtonsoft.Json` 始终锁死在版本 `X`，而不是 ASF 提供的版本），但显然这样做的成本是增大了内存开销和插件的大小，并且导致性能下降。
 
-If you're confused about above statement and you don't know better, check which `dll` libraries are included in `ASF-generic.zip` package and ensure that your plugin includes only those that are not part of it yet. This will be only `YourNamespace.YourPluginName.dll` for the most simple plugins. If you get any issues during runtime in regards to version mismatch, include the affected libraries as well.
+如果您对上述句子感到困惑并且难以理解，请查看 `ASF-generic.zip` 包内含有的所有 `dll` 库，并确保您的插件只包含没有出现在这里的库。 对于最简单的插件来说，唯一符合条件的就是 `YourNamespace.YourPluginName.dll`。 如果您在运行时遇到某些库出现问题，也请一并打包受到影响的库。 如果一切尝试都失败，您仍然可以自行决定打包哪些内容。
+
+* * *
+
+### 本机依赖项
+
+本机依赖项是作为特定操作系统构建的一部分生成的，因为此时宿主机上没有可用的 .NET Core 运行时环境，而 ASF 需要通过特定操作系统构建内自带的 .NET Core 运行时环境运行。 为了最大限度地减小构建大小，ASF 会削减其本机依赖项，使其仅包括程序中可能用到的代码，从而有效地减少运行时不会使用的部分。 这可能会给您的插件带来潜在的问题，您可能会突然发现自己的插件依赖于某些未在 ASF 中使用的 .NET Core 功能，从而使特定操作系统构建无法正确执行它。 这对于 generic 构建来说从来都不是问题，因为它们本来就不会自己处理本机依赖项（它们需要宿主机上的完整运行时环境来执行 ASF）。 这也是该问题的一个简单解决方案，只为 generic 构建中使用插件，但其缺点也很明显，即使特定操作系统构建的用户无法使用您的插件。
+
+幸运的是，此问题的真正解决方案非常类似于一般的插件依赖项，也就是再次在您的插件中打包 ASF 自身不包含或者版本错误/不兼容的（例如被削减掉的）依赖项。 与插件依赖项相比，您无法确认 ASF 削减版本的本机依赖项是否满足您插件的需求，所以您可以简单地将一切打包到一起，或者手动深入验证 ASF 缺少哪些组件，然后仅仅打包这部分组件。
+
+这也意味着您可能需要为每个 ASF 操作系统包都提供专门的插件构建，因为每个特定操作系统的 ASF 构建可能会缺失您插件所需的不同功能。 这在很大程度上取决于您的插件的实际功能以及它的依赖，因为完全基于 ASF 功能的简单插件会在所有构建中正常工作，因为它们自身没有带来任何新的依赖项。 更复杂的插件（尤其是本身有依赖项的插件）可能需要采取额外的措施，以确保它们确实提供了所有必须的代码组件，不仅包括高级的插件依赖项，还包括低级的本机依赖项。 如果一切尝试都失败，如上所述，您仍然可以在插件中将一切依赖项都打包进来。

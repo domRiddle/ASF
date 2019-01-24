@@ -36,15 +36,17 @@ Bien sûr, remplacez ` linux-x64 </ 0> par l'architecture du système d'exploita
  
 </h3>
 
-<p>Dans de très rares cas où vous souhaitez créer le package <code> generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. N'oubliez pas que vous aurez besoin du pack de développeurs <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks"> .NET Framework </ 0> approprié pour la compilation de la variante <code> netf </ 1>, en plus du kit de développement .NET Core SDK.</p>
+<p>Dans de très rares cas où vous souhaitez créer le package <code> generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. Keep in mind that you'll need appropriate <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks">.NET Framework</a></strong> developer pack for compiling <code>netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
-`</pre> 
+```shell
+dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
+```
 
-Dans des cas encore plus rares, si vous ne pouvez pas installer .NET Framework ou même .NET Core SDK lui-même (par exemple, en raison de la construction sur ` linux-x86 </ 0> avec <code> mono </ 0>), vous pouvez appeler <code> msbuild </ 0> directement:</p>
+In case of being unable to install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables netf build on non-Windows platforms:
 
-<pre><code class="shell">msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /r /t:Publish ArchiSteamFarm
-`</pre> 
+```shell
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+```
 
 * * *
 

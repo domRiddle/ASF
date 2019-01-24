@@ -8,13 +8,15 @@ Mostmár tudod,hogy minden csere maximum 15 napig van visszatartva, ami ugyan ne
 
 # ASF-megoldás
 
-Független attól,hogy használod-e az ASF 2FA-t vagy nem, a program magában foglalja a megfelelő methódust,azonban a normál 2FA is teljes mértékben megvédi a felhasználót. Csak a szükséges adatokra kérdez rá. (Például bejelentkezés során.) Viszont ha használod az ASF 2FA-t, a program magától kéri és generálja a szükséges adatokat,így időt takarít meg és extra funkciókat tár fel a felhasználó számára.
+Független attól,hogy használod-e az ASF 2FA-t vagy nem, a program magában foglalja a megfelelő methódust,azonban a normál 2FA is teljes mértékben megvédi a felhasználót. It will ask you for required details when they're needed (such as during logging in). Viszont ha használod az ASF 2FA-t, a program magától kéri és generálja a szükséges adatokat,így időt takarít meg és extra funkciókat tár fel a felhasználó számára.
 
 * * *
 
 # ASF 2FA
 
-Az ötlet egyszerű. We already implement steam client, implement launching and playing a game, so why not implement a mobile device? ASF 2FA is exactly what you think it is, it's just a module responsible for generating 2FA tokens as valid recognized mobile device, which allows us to skip trade holds, and automatically confirm all trades. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+
+You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
 Az ASF 2FA aktiválásához szükséged lesz:
 

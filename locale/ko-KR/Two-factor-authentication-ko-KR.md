@@ -8,13 +8,15 @@
 
 # ASF 논리 구조
 
-아래에서 설명할 ASF 2단계 인증의 사용여부와 상관없이 ASF는 적절한 논리구조를 가지고 있으며 표준 2단계 인증으로 보호받는 계정을 알고 있습니다. 예를 들어 로그인 중에도 필요하면 세부사항을 입력하도록 요청할 것입니다. ASF 2단계 인증을 사용한다면 이러한 요청을 건너뛰고 자동으로 필요한 토큰을 생성하여 번거로움을 줄이고 추가 기능을 활성화 할 것입니다.(아래 참조)
+아래에서 설명할 ASF 2단계 인증의 사용여부와 상관없이 ASF는 적절한 논리구조를 가지고 있으며 표준 2단계 인증으로 보호받는 계정을 알고 있습니다. It will ask you for required details when they're needed (such as during logging in). ASF 2단계 인증을 사용한다면 이러한 요청을 건너뛰고 자동으로 필요한 토큰을 생성하여 번거로움을 줄이고 추가 기능을 활성화 할 것입니다.(아래 참조)
 
 * * *
 
 # ASF 2단계 인증(2FA)
 
-개념은 간단합니다. Steam 클라이언트도 이미 구현했고, 게임 실행과 플레이도 구현했는데, 휴대용 기기를 구현하지 못할게 뭐 있지? ASF의 2단계 인증(2FA)는 당신이 생각하는 바로 그것입니다. 이 모듈은 유효한 휴대기기로 인식되어 2단계 인증 토큰을 생성하고, 거래 멈춤을 생략하고 모든 거래를 자동으로 승인합니다. 기존의 인증기를 복제하므로 ASF 2단계 인증만을 사용할 필요는 없습니다.
+ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. 기존의 인증기를 복제하므로 ASF 2단계 인증만을 사용할 필요는 없습니다.
+
+You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
 ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 

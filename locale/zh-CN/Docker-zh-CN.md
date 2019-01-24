@@ -177,8 +177,8 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 ## 高级技巧
 
-在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm`、`docker pull` 和 `docker run` 这一套命令来更新 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建映像）。
+在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm`、`docker pull` 和 `docker run` 这一系列命令来更新 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建映像）。
 
-正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣，
+正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣。
 
-通常，您应该在全局配置文件中设置 Docker 容器内的 ASF 运行于 `Headless: true` 模式。 这回明确告诉 ASF，您无法直接提供它所需的数据，它不应该在命令行中直接询问这些。 当然，对于初次设置来说，您应该保持这个选项为 `false` 以便于设置，但长期来看，您很少需要连接到 ASF 控制台上，因此使 ASF 这样做是很合理的。当需要向 ASF 输入内容时，使用 `input` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 这样，ASF 就不必无限等待不存在的用户输入（也无需因此而浪费资源）。
+通常，您应该在全局配置文件中设置 Docker 容器内的 ASF 运行于 `Headless: true` 模式。 这会明确告诉 ASF，您无法直接提供它所需的数据，它不应该在命令行中直接询问这些。 当然，对于初次设置来说，您应该保持这个选项为 `false` 以便于设置，但长期来看，您很少需要连接到 ASF 控制台上，因此使 ASF 这样做是很合理的。当需要向 ASF 输入内容时，使用 `input` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 这样，ASF 就不必无限等待不存在的用户输入（也无需因此而浪费资源）。
