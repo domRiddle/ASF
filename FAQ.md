@@ -296,9 +296,9 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-### I'm using unsupported OS such as 32-bit Windows, can I still use latest version of ASF?
+### I'm using unsupported OS such as 32-bit Windows, can I still use the latest version of ASF?
 
-Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section for generic variant.
+Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section for generic variant. ASF doesn't have any strong dependency upon the OS, and it can work anywhere where you can get a working .NET Core runtime, which includes 32-bit Windows, even if there is no `win-x86` OS-specific package from us.
 
 ---
 
