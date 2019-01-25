@@ -46,7 +46,7 @@ If you did everything properly, your `csproj` will be similar to below:
     </Reference>
 
     <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="..\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```
