@@ -79,7 +79,7 @@ In order to make use of your plugin, you must firstly compile it. You can do tha
 dotnet publish -c "Release" -o "out"
 
 # If your project is part of ASF source tree (to avoid compiling unnecessary parts)
-dotnet publish YourNamespace.YourPluginName -c "Release" -o "out"
+dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
 Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
