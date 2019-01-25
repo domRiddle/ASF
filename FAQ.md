@@ -20,7 +20,7 @@ Before trying to understand what ASF is, you should make sure that you understan
 
 In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
 
-Core points are stated once again here, because people in general don't want to agree with them:
+Core points are stated once again here, because people in general don't want to see them and act like those do not exist:
 
 - **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
 - **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game, it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
