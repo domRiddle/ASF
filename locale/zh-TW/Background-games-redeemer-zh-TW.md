@@ -1,26 +1,26 @@
-# 背景啟動序號
+# 背景序號啟動器
 
-背景啟動序號是 ASF 內建的特殊功能，可以讓你輸入一組 Steam 序號並在背景啟用，然後告訴你遊戲的名稱。 如果你想批次啟用多組序號，請確保 `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** 才能完成整個過程。
+背景序號啟動器是 ASF 內建的特殊功能，可以讓你匯入一批 Steam 序號（包含遊戲名稱）以便在背景啟用。 如果你需要啟動大量的序號，且在全數啟動前肯定會觸發 `RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#啟動遊戲序號時的狀態是什麼意思)**，此時背景啟動功能將十分有用。
 
-背景啟用序號是單一 bot 執行的範圍，這表示它不使用 `RedeemingPreferences`。 如果需要，此功能可以與 `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** 一起使用。
+背景序號啟動器僅對單個 BOT 有效，也就是說它不會採用 `RedeemingPreferences` 的設置。 如有需要，這個功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
 
 * * *
 
 ## 匯入
 
-導入可以通過兩種方式進行，使用檔案或 IPC。
+匯入可以通過兩種方式進行，使用文字檔或 IPC。
 
-### 檔案
+### 文字檔
 
-在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys` 的檔案，`BotName` 為你的 bot名稱。 That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. 若有多個 Tab 已被使用，則第一項應考慮遊戲的名稱，最後一項是序號，中間的所有內容都被忽略。 範例：
+ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `BotName` 是你的 BOT 名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間須以 Tab 分隔，最後以一個換行符結束表示開始下一項。 如果使用多個 Tab，則第一項會被認定是遊戲名稱，最後一項會被認定是遊戲序號，中間的所有內容將被忽略。 範例：
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+    POSTAL 2	ABCDE-EFGHJ-IJKLM
+    Domino Craft VR	12345-67890-ZXCVB
+    A Week of Circus Terror	POIUY-KJHGD-QWERT
+    Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 我們建議你自行標記所有序號的名稱，因為在 Steam 上啟動的 Package 名稱不一定會符合 Package 中的遊戲名稱，所以根據開發者填寫的內容，你可能會看到正確的遊戲名稱、自訂名稱（例如 Humble Indie Bundle 18），或完全錯誤、甚至是惡意的名稱（例如 Half-Life 4）。
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,40 +28,40 @@ Alternatively, you're also able to use keys only format (still with a newline be
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. 成功讀取檔案並跳過錯誤的項目後，`BotName.keys` 將自動從 `config` 刪除。
+無論你選擇哪種格式，ASF 都將在 BOT 啟動或執行時匯入你的 `keys` 檔案。 成功解析並忽略無效的序號後，所有正確辨識的遊戲將會加入背景佇列，而 `BotName.keys` 檔案也會自動從 `config` 資料夾移除。
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+除了使用上述的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**。 IPC 將可提供更完善的功能，因為你可以使用你覺得合適的方式進行解析。例如使用自訂分隔符，而非強制使用 Tab，甚至可以完全自訂序號格式。
 
 * * *
 
 ## 佇列
 
-當遊戲成功導入時，會被添加到佇列中。 ASF 會自動在背景處理佇列，而 bot 必須與 Steam 保持連線。 A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+成功匯入遊戲後，它們會加入佇列中。 只要 BOT 與 Steam 網路保持連線，且佇列中仍有遊戲，ASF 就會自動處理背景佇列。 嘗試啟動序號且沒有觸發 `RateLimited` 後，該序號將會被移出佇列並根據其啟動結果寫入位於 `config` 資料夾中的檔案。當序號被使用時（例如結果為：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），將會寫入 `BotName.keys.used`，否則就會寫入 `BotName.keys.unused`。 由於 Steam 網路不一定會回傳序號所屬遊戲的正確名稱，所以 ASF 會使用你提供的遊戲名稱。這樣你就可以根據需要使用自訂名稱標記你的序號。
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+如果在啟動過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 接著，啟動程序將會從中斷的地方繼續，直到佇列完全清空。
 
 * * *
 
 ## 範例
 
-假設你的列表有一個 100 組序號。 首先必須在 ASF `config` 目錄中建立一個 `BotName.keys.new` 檔案。 我們添加了 `.new`副檔名，以便讓 ASF 知道不應該馬上處理此文件 (因為它是剛建立好的，還沒準備好導入)。
+假設你有一個包含 100 個序號的清單。 首先你應該在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys.new` 的檔案。 我們加上 `.new` 後綴是為了防止 ASF 在建立檔案時立刻讀取該檔案（因為它是一個空白文件，尚未準備匯入）。
 
-現在可以打開剛建立好的的檔案並在裡面貼上你那 100 組序號列表，如果需要的話就修改格式。 After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+現在你可以打開剛建立的檔案並將 100 個序號貼上，並視情況修正格式。 之後 `BotName.keys.new` 檔案中應該正好有 100 行（或如果末尾有空行的話就是 101 行），每一行的格式均為 `遊戲名稱\t遊戲序號\n`，其中 `\t` 是 Tab 符，`\n` 是換行符。
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+你現在可以將該檔案從 `BotName.keys.new` 重新命名為 `BotName.keys`，以便讓 ASF 知道該檔案已準備好匯入。 重新命名後，ASF 會自動匯入該檔案（不需要重啟），並在確認所有遊戲皆解析成功、加入佇列後刪除該檔案。
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+除了 `BotName.keys` 檔案，您也可以使用 IPC API 端點，甚至也可以根據需要將兩種方式合併使用。
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files might get generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+經過一段時間後，可能會產生 `BotName.keys.used` 和 `BotName.keys.unused` 等兩個檔案。 這兩個檔案包含了啟動過程的結果。 舉例來說，你可以將 `BotName.keys.unused` 重新命名為 `BotName2.keys`，以便將未使用的序號交給其他的 BOT 啟動，因為前一個 BOT 並未用到這些序號。 或者您也可以將未使用的序號複製貼上到其他檔案留作他用。 請留意，當 ASF 處理佇列時，新的項目會逐一寫入 `used` 和 `unused` 等兩個輸出檔案中，因此建議等待佇列完全清空後再使用這兩個檔案。 如果要在佇列完全清空之前存取這些輸出檔案的話，請先將欲存取的檔案**移動**到別的資料夾，**然後**再對其做進一步處理。 這是因為 ASF 可能會在你處理這些檔案的時候寫入新的結果，且可能導致某些序號遺失。例如，你讀取了一個包含 3 個序號的檔案，然後將其刪除，但 ASF 在此期間又寫入了 4 個新序號，那些序號便會遺失。 如果你想存取這些檔案，請務必先將它們從 ASF 的 `config` 資料夾中移出，例如將其重新命名。
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+你也可以在佇列已有遊戲的情況下匯入更多遊戲，只需要重覆上述步驟就行了。 ASF 會正確地將其加入正在處理的佇列中並完成啟動程序。
 
 * * *
 
-## Remarks
+## 備註
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+背景序號啟動器在底層使用了 `OrderedDictionary`，意思是遊戲序號將會按照檔案中（或 IPC API 呼叫）的順序啟動。 這代表如果某些序號需要先擁有另一個序號才能啟動，請將其列於該序號後方。 舉例來說，如果你有 DLC `D` ，且需要先啟動遊戲 `G` 才能啟動，那麼你**必須**將遊戲 `G` 的序號排在 DLC `D` 的前面。 同樣地，如果啟動 DLC `D` 之前需先啟動 `A`、`B` 和 `C`，那麼這三個序號就應該放在前面（任意順序均可，除非它們各自也有相依關係）。
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+如果未按照上方所述的方式啟動，就會導致 DLC 啟動失敗並回傳 `DoesNotOwnRequiredApp` 結果，即使你的帳戶在完成整個佇列後就可以啟動該 DLC，它也不會在此時被啟動。 如要避免這種錯誤，請務必確保佇列中的 DLC 列在遊戲本體之後。

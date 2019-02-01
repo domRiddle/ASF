@@ -31,7 +31,7 @@
 * **[棄用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[高性能設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[高性能配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[日誌](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**

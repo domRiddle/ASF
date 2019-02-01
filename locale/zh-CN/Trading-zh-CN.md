@@ -53,7 +53,7 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 
 `MatchActively`（主动匹配）是 `SteamTradeMatcher` 的扩展版本，除了被动匹配以外，机器人还可以主动向其他人发送交易报价。
 
-为了使用该选项，您需要满足一系列需求。 首先，您需要启用 `SteamTradeMatcher`（因为此功能是它的扩展版），并且禁用 `MatchEverything` 属性（因为交易机器人不会主动发起交易）。 之后，您需要有加入我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**&#8203;的资格，但不需要有 100 件物品。 这意味着，您至少应该启用 `Statistics`、帐户&#8203;**[不受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;并且至少在 `MatchableTypes` 中设置了一种有效的类型，例如集换式卡牌。
+为了使用该选项，您需要满足一系列需求。 首先，您需要启用 `SteamTradeMatcher`（因为此功能是它的扩展版），并且**禁用** `MatchEverything` 属性（因为交易机器人不会主动发起交易）。 之后，您需要有加入我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**&#8203;的资格，但不需要有 100 件物品。 这意味着，您至少应该启用 `Statistics`、帐户&#8203;**[不受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;并且至少在 `MatchableTypes` 中设置了一种有效的类型，例如集换式卡牌。
 
 如果您满足上述所有要求，ASF 将会定期与我们的&#8203;**[公共 ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)**&#8203;通信，以主动匹配当前在线的 `Any` 标记的（`MatchEverything`）机器人。
 

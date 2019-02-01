@@ -1,3 +1,5 @@
+# Perguntas Frequentes Adicionais
+
 Nosso FAQ (Perguntas Frequentes) estendido cobre perguntas e respostas um pouco menos comuns que você pode ter. Para questões mais comuns, visite o nosso **[FAQ básico](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**.
 
 * * *

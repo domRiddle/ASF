@@ -16,7 +16,7 @@ Unabhängig davon, ob du das unten erklärte ASF 2FA verwenden wirst oder nicht,
 
 ASF 2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie z.B. das Erzeugen von Codes und das Annehmen von Bestätigungen. Es dupliziert deinen vorhandenen Authentifikator, so dass es nicht notwendig ist, ASF 2FA ausschließlich zu verwenden.
 
-Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn du deinen Authentifikator nicht bereits als ASF 2FA importiert hast, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass dein Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen geeignet ist, die den Betrieb des Moduls erfordern.
+Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn du deinen Authentifikator nicht bereits als ASF 2FA importiert hast, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass dein Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen geeignet ist, die den Betrieb des Moduls erfordern.
 
 Um ASF 2FA zu aktivieren benötigst du:
 
@@ -30,7 +30,7 @@ Um ASF 2FA zu aktivieren benötigst du:
 
 ## Import
 
-Ab Version V2.1 erlaubt ASF nicht mehr den ASF 2FA "Solomodus" - das bedeutet, dass du bereits einen verknüpften und funktionierenden Authenticator haben solltest, der von ASF unterstützt wird. ASF unterstützt derzeit vier verschiedene Quellen von 2FA - Android, iOS, SteamDesktopAuthenticator und WinAuth. Falls du noch keinen Authentifikator hast und dich zum ersten Mal verknüpfen möchtest, empfehle ich dir dringend WinAuth zu verwenden, welches dann in ASF importiert (und von dir verwendet) werden kann.
+Ab Version V2.1 erlaubt ASF nicht mehr den ASF 2FA "Solomodus" - das bedeutet, dass du bereits einen verknüpften und funktionierenden Authenticator haben solltest, der von ASF unterstützt wird. ASF unterstützt derzeit vier verschiedene Quellen von 2FA - Android, iOS, SteamDesktopAuthenticator und WinAuth. Falls du noch keinen Authentifikator hast und du ihn zum ersten Mal verknüpfen möchtest, empfehle ich dir dringend WinAuth zu verwenden, welches dann in ASF importiert (und von dir verwendet) werden kann.
 
 Alle folgenden Anleitungen erfordern von dir, dass du bereits einen **funktionierenden und betriebsbereiten** Authentifikator hast, der mit dem gegebenen Programm/Anwendung verwendet wird. ASF 2FA funktioniert nicht ordnungsgemäß, wenn du ungültige Daten importierst. Stelle daher sicher, dass dein Authentifikator ordnungsgemäß funktioniert bevor du versuchst ihn zu importieren. Dies beinhaltet das Testen und Überprüfen, ob die folgenden Authentifikator-Funktionen ordnungsgemäß funktionieren:
 
@@ -170,9 +170,9 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Erweiterte Einstellungen
+## Erweitert
 
-Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
+Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Sie sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 
 ```json
 {
@@ -182,6 +182,6 @@ Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch man
 }
 ```
 
-`device_id` ist optional beim Import, aber obligatorisch für den ASF-Betrieb - Falls du es weglässt fragt ASF beim Import danach. Natürlich musst du `"STRING"` durch einen gültigen Inhalt in jedem Feld ersetzen.
+`device_id` ist optional beim Import, aber obligatorisch für den ASF-Betrieb - Falls du sie weglässt fragt ASF beim Import danach. Natürlich musst du `"STRING"` durch einen gültigen Inhalt in jedem Feld ersetzen.
 
 Standard-Authentifikatordaten haben mehr Felder - sie werden von ASF beim Import völlig ignoriert, da sie nicht benötigt werden. Du musst sie auch nicht entfernen - ASF benötigt nur gültiges JSON mit den 2 oben beschriebenen Pflichtfeldern und optional auch `device_id`.

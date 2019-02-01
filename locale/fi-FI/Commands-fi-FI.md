@@ -18,7 +18,7 @@ All commands below are affected by `CommandPrefix` **[global configuration prope
 
 Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Kuvakaappaus](https://i.imgur.com/PPxx7qV.png)
 
 * * *
 
@@ -32,7 +32,7 @@ Very similar to above, but this time on group chat of given Steam group. Keep in
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://i.imgur.com/pzKE4EJ.png)
+![Kuvakaappaus](https://i.imgur.com/pzKE4EJ.png)
 
 * * *
 
@@ -163,7 +163,7 @@ While valid values for all of them are:
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### Esimerkki
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -232,7 +232,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Esimerkki
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

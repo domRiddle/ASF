@@ -208,7 +208,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 现在这种情况较为特殊，因为这些链接基于当前文档中各小节的标题。 对于 URL，我们通常可以将 `-locale` 添加到 URL，并且在任何情况下都可用，但小节标题将因为您或其他人的翻译而产生变化，因此您需要确保它们指向正确的位置。
 
-例如，您会在我们的 **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/#introduction)** 章节中找到 `#introduction` 链接：
+例如，您会在我们的 **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** 章节中找到 `#introduction` 链接：
 
 * * *
 

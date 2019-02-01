@@ -12,7 +12,7 @@ Der Importvorgang kann auf zwei Arten durchgeführt werden - entweder über eine
 
 ### Datei
 
-ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine feste erwartete Struktur, bestehend aus Spielname und Produktschlüssel, getrennt durch ein Tab-Zeichen und endend mit einem Zeilenumbruch. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
+ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus dem Namen des Spiels und dessen Produktschlüssel, getrennt von einander durch ein Tab-Zeichen und endend mit einem Zeilenumbruch zur Kennzeichnung des nächsten Eintrags. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,7 +20,7 @@ ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.key
     Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
     
 
-Alternativ kannst du auch nur Produktschlüssel als Format verwenden (immer noch mit einem Zeilenumbruch zwischen jedem Eintrag). ASF wird in dem Fall den richtigen Steam Namen (falls verfügbar) automatisch abfragen und eintragen. Für jede Art der Schlüsselidentifikation wird empfohlen, dass Sie Ihre Schlüssel selbst benennen, da bei Steam eingelöste Pakete nicht der Logik der Spielnamen folgen müssen. Abhängig was der Entwickler gesetzt hat, sehen Sie möglicherweise den richtigen Spielnamen, einen angepassten Paketnamen (z.B. Humble Indie Bundle 18) oder einen vollständig, möglicherweise sogar täuschenden, falschen Spielnamen (z. B. Half-Life-4).
+Alternativ kannst du auch nur Produktschlüssel als Format verwenden (immer noch mit einem Zeilenumbruch zwischen jedem Eintrag). ASF verwendet in diesem Fall die Antwort von Steam (wenn möglich), um den richtigen Namen zu finden. Für jede Art von Produktschlüsselkennzeichnung empfehlen wir dir, deine Produktschlüssel selbst zu benennen, da Pakete, die bei Steam eingelöst werden, nicht der Logik der Spiele folgen müssen, die sie aktivieren, so dass du je nachdem, was der Entwickler angegeben hat, korrekte Spielnamen, benutzerdefinierte Paketnamen (z.B. Humble Indie Bundle 18) oder völlig falsche und möglicherweise sogar gefährliche (z.B. Half-Life 4) sehen kannst.
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -48,7 +48,7 @@ Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wir
 
 Nehmen wir an, du hast eine Liste mit 100 Produktschlüsseln. Zuerst solltest du eine neue `BotName.keys.new` Datei im ASF Verzeichnis `config` erstellen. Wir fügen die Erweiterung `.new` hinzu, um ASF wissen zu lassen, dass es diese Datei nicht sofort beim Erstellen einlesen soll (da es sich um eine neue leere Datei handelt, die noch nicht für den Import bereit ist).
 
-Nun kannst du unsere neue Datei öffnen und dort unsere Liste der 100 Produktschlüssel entsprechend der oben beschriebenen Struktur einfügen und bei Bedarf das Format korrigieren. Nach gegebenenfalls nötigen Korrekturen umfasst unsere Datei `BotName.keys.new` genau 100 Zeilen (oder 101, wenn man die letzte Zeile hinzuzählt), wobei jede Zeile als `Spielname\tProduktschlüssel\n` strukturiert ist, wobei `\t` ein Tabulatorzeichen und `\n` ein Zeilenumbruch darstellt.
+Nun kannst du unsere neue Datei öffnen und dort unsere Liste der 100 Produktschlüssel entsprechend der oben beschriebenen Struktur einfügen und bei Bedarf das Format korrigieren. Nach gegebenenfalls nötigen Korrekturen umfasst unsere Datei `BotName.keys.new` genau 100 Zeilen (oder 101, wenn man die letzte Zeile hinzuzählt), wobei jede Zeile als `Spielname\tProduktschlüssel\n` strukturiert ist (wobei `\t` ein Tabulatorzeichen und `\n` ein Zeilenumbruch darstellt).
 
 Nun kannst du diese Datei von `BotName.keys.new` in `BotName.keys` umbenennen, um ASF mitzuteilen, dass sie bereit ist, eingelesen zu werden. In diesem Augenblick importiert ASF die Datei automatisch (ohne Neustart) und löscht sie anschließend, um zu bestätigen, dass alle unsere Spiele eingelesen und der Warteschlange hinzugefügt wurden.
 

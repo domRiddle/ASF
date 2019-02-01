@@ -6,11 +6,13 @@
 
 ## 致用户
 
-ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据插件名称为每个需要使用的插件建立专门的文件夹，例如 `MyPlugin`。 这样最终的文件夹结构为 `plugins/MyPlugin`。 最后，将您下载的插件包含的所有二进制文件放到您刚刚创建的文件夹中，然后启动 ASF。 通常，插件开发者会以 `zip` 文件形式发布插件，其中已有合适的文件结构，所以直接将 zip 压缩包解压到 `plugins` 文件夹就足够了，解压过程会自动创建合适的文件夹结构。
+ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据插件名称，将每个您需要使用的插件放在专门的文件夹内，例如 `MyPlugin`。 这样最终的文件夹结构为 `plugins/MyPlugin`。 最后，这个插件的所有二进制文件都应该被放在这个专门的文件夹内，而 ASF 会在重启之后自动发现并启用您的插件。
+
+通常，插件开发者会以 `zip` 文件形式发布插件，其中已有合适的文件结构，所以直接将 zip 压缩包解压到 `plugins` 文件夹就足够了，解压过程会自动创建合适的文件夹结构。
 
 如果插件成功加载，您将会在日志内看到它的名称和版本。 在遇到与您使用的插件有关的问题、漏洞或者对其用法有疑问时，您应该咨询相应插件的开发人员。
 
-**请注意，ASF 插件可能是有害的**。 您应该始终确保您使用插件来自于您可以信任的开发人员。
+**请注意，ASF 插件可能是有害的**。 您应该始终确保您使用插件来自于您可以信任的开发人员。 如果您决定使用任何自定义插件，ASF 开发者将不再保证您的正常 ASF 权益（例如不保证没有恶意软件或者 VAC 安全）。
 
 * * *
 
@@ -44,7 +46,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
     </Reference>
 
     <!-- 如果要作为 ASF 代码树的一部分构建，使用此设置代替上面的 <Reference> 标签 -->
-    <!-- <ProjectReference Include="..\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```
@@ -77,12 +79,12 @@ namespace YourNamespace.YourPluginName {
 dotnet publish -c "Release" -o "out"
 
 # 如果您的项目属于 ASF 代码树的一部分（防止编译不需要的部分）
-dotnet publish YourNamespace.YourPluginName -c "Release" -o "out"
+dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
 然后，您的插件已经准备好进行部署。 如何分发和发布插件完全取决于您自己，但我们建议创建一个 zip 压缩包，其中只有一个以插件命名空间和插件名 `YourNamespace.YourPluginName` 为名的的目录，目录内部放置已编译好的插件及其&#8203;**[依赖项](#插件依赖项)**。 这样用户在安装时就只需要将 zip 压缩包解压到 `plugins` 目录而不需要其他操作。
 
-这只是让您入门的最基本场景，我们提供了 **[ArchiSteamFarm.CustomPlugins.ExamplePlugin](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
+这只是让您入门的最基本场景，我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
 * * *
 
@@ -108,13 +110,13 @@ dotnet publish YourNamespace.YourPluginName -c "Release" -o "out"
 
 默认情况下，您的插件需要至少两个依赖项，`ArchiSteamFarm` 用于引用内部 API，以及 `System.Composition.AttributedModel` 的 `PackageReference`，这是使项目被识别为 ASF 插件所必需的。 除此之外，根据您插件的功能，您可能还需要添加更多依赖项（例如，如果您的插件需要集成 Discord，就需要 `Discord.Net` 库）。
 
-构建过程的输出包括您的核心 `YourNamespace.YourPluginName.dll` 库和所有您引用的依赖项，其中至少包括 `ArchiSteamFarm.dll` 和 `System.Composition.AttributedModel.dll`。
+构建过程的输出包括您的核心 `YourPluginName.dll` 库和所有您引用的依赖项，其中至少包括 `ArchiSteamFarm.dll` 和 `System.Composition.AttributedModel.dll`。
 
 因为您正在为已经正常工作的程序开发插件，您不需要也**不应该**打包所有在构建过程中自动生成的依赖项。 这是因为 ASF 已经包含其中的大多数内容，例如 `ArchiSteamFarm`、`SteamKit2` 或者 `Newtonsoft.Json`。 在构建中削减与 ASF 共享的依赖项并不是使插件运行所强制要求的，但这样做将极大地减少内存占用和插件本身的大小，同时提高性能，因为 ASF 会与您的插件共享自己的依赖项，并且只会加载它未知的库。
 
-因此，建议的做法是，只打包 ASF 不包含的或者与 ASF 包含版本不同/不兼容的库。 相应的例子显然有 `YourNamespace.YourPluginName.dll`，但如果您决定集成 Discord，也就包括 `Discord.Net.dll`。 如果您希望确保 API 兼容性，打包与 ASF 共享的库仍然是有意义的（例如，确保您在插件中使用的 `Newtonsoft.Json` 始终锁死在版本 `X`，而不是 ASF 提供的版本），但显然这样做的成本是增大了内存开销和插件的大小，并且导致性能下降。
+因此，建议的做法是，只打包 ASF 不包含的或者与 ASF 包含版本不同/不兼容的库。 相应的例子显然有 `YourPluginName.dll`，但如果您决定集成 Discord，也就包括 `Discord.Net.dll`。 如果您希望确保 API 兼容性，打包与 ASF 共享的库仍然是有意义的（例如，确保您在插件中使用的 `Newtonsoft.Json` 始终锁死在版本 `X`，而不是 ASF 提供的版本），但显然这样做的成本是增大了内存开销和插件的大小，并且导致性能下降。
 
-如果您对上述句子感到困惑并且难以理解，请查看 `ASF-generic.zip` 包内含有的所有 `dll` 库，并确保您的插件只包含没有出现在这里的库。 对于最简单的插件来说，唯一符合条件的就是 `YourNamespace.YourPluginName.dll`。 如果您在运行时遇到某些库出现问题，也请一并打包受到影响的库。 如果一切尝试都失败，您仍然可以自行决定打包哪些内容。
+如果您对上述句子感到困惑并且难以理解，请查看 `ASF-generic.zip` 包内含有的所有 `dll` 库，并确保您的插件只包含没有出现在这里的库。 对于最简单的插件来说，唯一符合条件的就是 `YourPluginName.dll`。 如果您在运行时遇到某些库出现问题，也请一并打包受到影响的库。 如果一切尝试都失败，您仍然可以自行决定打包哪些内容。
 
 * * *
 

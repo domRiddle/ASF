@@ -42,7 +42,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 * * *
 
-## Usage
+## 使用方法
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 

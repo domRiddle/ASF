@@ -20,7 +20,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern ge
 
 * * *
 
-## Bibliothek
+## Bibliotheken
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, eine Python-Bibliothek zur weiteren Integration mit der IPC-Schnittstelle von ASF.
 

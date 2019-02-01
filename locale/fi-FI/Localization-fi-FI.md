@@ -1,4 +1,4 @@
-# Localization
+# Lokalisointi
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
@@ -12,13 +12,13 @@ Our platform supports localization of our main ASF program, as well as whole loc
 
 * * *
 
-## Signing up
+## Rekisteröityminen
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
 * * *
 
-### Translating
+### Kääntäminen
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
@@ -30,7 +30,7 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
-Or:
+Tai:
 
 > {0} is the number of games to idle.
 
@@ -46,7 +46,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 * * *
 
-### Proof-reading
+### Oikoluku
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -83,7 +83,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 * * *
 
-## Missing languages
+## Puuttuvat kielet
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one.
 

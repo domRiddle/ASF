@@ -1,12 +1,12 @@
 # 指令參數
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF 支持一些能夠影響程式運行時的命令行參數。 高級用戶可使用這些參數以定義程式運行方式。 相較使用 `ASF.json `配置文件的預設方式，命令行參數可用於核心初始化（如` --path`）、平臺特定設置（如` --system-required`）或敏感數據（如` --cryptkey`）。
 
 * * *
 
-## Usage
+## 使用方法
 
-Usage depends on your OS and ASF flavour.
+使用方法取決於您的操作系統和ASF偏好。
 
 Generic:
 
@@ -26,29 +26,29 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+命令行參數也可用於通用輔助腳本中，例如`ArchiSteamFarm.cmd`或`ArchiSteamFarm.sh`。 除此之外，如在**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**一節中所述，使用輔助腳本時，您也可使用`ASF_ARGS`環境變數。
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+若您的參數中存在空格，請務必要使用引號將其括住。 兩個錯誤示例：
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+兩個正確示例：
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## 參數
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey<key>`  或 `--cryptkey=<key>`將以值為`<code><key>`</code>的自定義密鑰啟動 ASF。 此參數將導致 ASF 使用您所提供的自定義密鑰`<key>`， 而非硬編碼在程式中的預設密鑰, 且影響**[​安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​。 請謹記使用此密鑰加密的密碼在每次 ASF 運行時傳遞相同的密鑰才能正確解密。
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you might also make use of this switch (otherwise you're better with global config property).
+`--no-restart` 此開關主要用於 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** 容器並將 `AutoRestart` 強制設置為 `false`。 除非有特殊的需要，否則您應直接在描述檔中配置 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全局配置即可適應環境。 當然，如果是在腳本中運行 ASF，您也可以使用此開關（否則您最好使用全局配置屬性）。
 
 * * *
 

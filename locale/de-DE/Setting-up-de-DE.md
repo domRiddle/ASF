@@ -84,7 +84,7 @@ Dies ist auch eine Struktur, die wir empfehlen würden, so dass du nicht durch e
 
 Okay, wir bereiten nun den ASF-Ordner für die Verwendung vor. Wenn du möchtest, kannst du jetzt zum nächsten Schritt übergehen, da das Bereinigen der ASF-Struktur nicht erforderlich ist, aber es wird dein Leben ein wenig einfacher machen.
 
-Öffne den ASF-Ordner und finde die ausführbare Kerndatei, dies ist `ArchiSteamFarm.exe` unter Windows, und `ArchiSteamFarm` unter Linux/OS X. Klicke mit der rechten Maustaste darauf und wähle "Kopieren". Navigiere nun zu dem Ort, an dem du die ASF-Verknüpfung haben möchtest (z.B. auf deinem Desktop), klicke mit der rechten Maustaste und wähle "Verknüpfung hier einfügen". Wenn du möchtest, kannst du deine Verknüpfung umbenennen, z.B. indem du ihr den Namen "ASF" gibst. Jetzt machst du dasselbe mit dem Verzeichnis `config`, das du an der gleichen Stelle wie die ASF-Binärdatei finden kannst.
+Öffne den ASF-Ordner und finde die ausführbare Kerndatei. Dies ist `ArchiSteamFarm.exe` unter Windows und `ArchiSteamFarm` unter Linux/OS X. Klicke mit der rechten Maustaste darauf und wähle "Kopieren". Navigiere nun zu dem Ort an dem du die ASF-Verknüpfung haben möchtest (z.B. auf deinem Desktop), klicke mit der rechten Maustaste und wähle "Verknüpfung hier einfügen" aus. Wenn du möchtest kannst du deine Verknüpfung umbenennen, z.B. indem du ihr den Namen "ASF" gibst. Jetzt machst du dasselbe mit dem Verzeichnis `config`, das du an der gleichen Stelle wie die ASF-Binärdatei finden kannst.
 
 Nach einer kleinen Säuberung hast du nun eine sehr komfortable Struktur, ähnlich der untenstehenden:
 

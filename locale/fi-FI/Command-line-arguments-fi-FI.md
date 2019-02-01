@@ -4,7 +4,7 @@ ASF includes support for several command-line arguments that can affect the prog
 
 * * *
 
-## Usage
+## Käyttö
 
 Usage depends on your OS and ASF flavour.
 

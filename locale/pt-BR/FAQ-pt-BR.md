@@ -16,14 +16,14 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 
 ### Então, como exatamente ele funciona?
 
-Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as Cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
+Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
 
 Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, e podem ser usadas para criar insígnias, vender no mercado da Steam ou qualquer outro objetivo de sua escolha.
 
-Os pontos principais são apresentados aqui novamente, porque as pessoas em geral não querem concordar com eles:
+Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem vê-los e agem como se eles não existissem:
 
 - **Sim, você precisa possuir o jogo para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
-- **Não, você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você conseguir todas as cartas de um jogo, ele não será mais apto a coleta. Não importa que você ainda tenha o jogo, você já coletou as cartas dele.**
+- **Não, você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você conseguir todas as cartas que um jogo libera (metade de set completo), ele não será mais apto a coleta. Não importa que você ainda tenha o jogo, você já coletou as cartas dele.**
 - **Não, não é possível coletar cartas de jogos gratuitos sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2.**
 - **Não, não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram $5 na loja Steam), não importando os jogos possuídos. Isso foi possível no passado, mas não é mais o caso.**
 
@@ -31,7 +31,7 @@ Então como você pode ver, Cartas Colecionáveis Steam são concedidas a você 
 
 O ASF como um programa é bastante complexo para entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação muito simples abaixo.
 
-O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido usando suas credenciais fornecidas. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
+O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido no código usando as credenciais que você forneceu. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
 
 Tenha em mente que a explicação acima é simplificada e não descreve as dezenas de recursos e funções extras que o ASF oferece. Visite o resto da **[nossa wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** se você quiser conhecer cada detalhe do ASF. Eu tentei fazê-la simples o bastante para que todos a entendam, sem entrar em detalhes técnicos - usuários avançados são encorajados a cavar mais fundo.
 
@@ -47,7 +47,7 @@ Então resumindo - o ASF é um programa que ajuda a pegar as cartas que você é
 
 **Sim**. O ASF exige suas credenciais de conta da mesma forma que o cliente oficial da Steam, já que ele está usando o mesmo método para interagir com a rede Steam. No entanto, isso não significa que você tenha que colocar suas credenciais de conta nos arquivos de configuração do ASF, você pode usar o ASF com `SteamLogin` e/ou `SteamPassword` `null`/vazio, e colocar esses dados cada vez que abrir o ASF, quando for preciso (assim como várias outras credenciais de login, veja a seção configuração). Desta forma, seus dados não são salvos em lugar nenhum, mas é claro, assim o ASF não poderá auto-reiniciar sem a sua ajuda. O ASF também oferece várias outras formas de aumentar a sua **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, então sinta-se a a vontade para ler essa parte da wiki se você for um usuário avançado. Se você não for, e não quiser colocar suas credenciais nas configurações do ASF, então simplesmente não o faça, apenas insira-as quando o ASF as pedir.
 
-Tenha em mente que o ASF é uma ferramenta para seu uso pessoal e as suas credenciais nunca deixarão seu computador. Você também não estará compartilhando elas com ninguém, o que cumpre os termos de serviço da Steam - uma coisa muito importante da qual as pessoas esquecem. Você não vai mandar seus dados para nossos servidores ou o servidor de algum terceiro, somente diretamente para os servidores da Steam operados pela Valve.
+Tenha em mente que o ASF é uma ferramenta para seu uso pessoal e as suas credenciais nunca deixarão seu computador. Você também não estará compartilhando elas com ninguém, o que cumpre os termos de serviço da Steam - uma coisa muito importante da qual as pessoas esquecem. Você não vai mandar seus dados para nossos servidores ou o servidor de algum terceiro, somente diretamente para os servidores da Steam operados pela Valve. Nós não temos acesso a suas credenciais independente de você colocá-las nos arquivos de configuração ou não.
 
 * * *
 
@@ -291,9 +291,9 @@ Você pode encontrar uma explicação detalhada do que exatamente essa opção f
 
 * * *
 
-### Estou usando um sistema operacional não suportado, como Windows 32-bit por exemplo, ainda posso usar o ASF V3?
+### Estou usando um sistema operacional não suportado, como Windows 32-bit por exemplo, ainda posso usar a última versão do ASF?
 
-Sim e essa versão não tem falta de suporte, ela só não é oficialmente compilada. Procure na seção de **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)** pela variante genérica.
+Sim e essa versão não tem falta de suporte, ela só não é oficialmente compilada. Procure na seção de **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)** pela variante genérica. O ASF não tem nenhuma grande dependência em relação ao SO, e pode rodar em qualquer lugar onde você consiga rodar o tempo de execução .NET Core, o que inclui o Windows 32-bit, mesmo que não tenhamos um pacote específico `win-x86`.
 
 * * *
 
@@ -359,7 +359,7 @@ Simplesmente feche o processo ASF, por exemplo, clicando em [X] no Window. Se ao
 
 ### Quantos bots posso rodar com o ASF?
 
-Como programa, o ASF não tem nenhum limite máximo de contas bot, então você pode rodar o quanto quiser, enquanto você tiver memória disponível em seu computador, no entanto, você ainda estará limitado pela rede e pelos outros serviços do Steam. Atualmente você pode rodar até **100 bots** por IP e por instância do ASF. É possível rodar mais bots com mais IPs e mais instâncias do ASF, contornando as limitações de IP. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
+Como programa, o ASF não tem nenhum limite máximo de contas bot, então você pode rodar o quanto quiser, enquanto você tiver memória disponível em seu computador, no entanto, você ainda estará limitado pela rede e pelos outros serviços do Steam. Atualmente você pode rodar de 100 a 200 bots por IP e por instância do ASF. É possível rodar mais bots com mais IPs e mais instâncias do ASF, contornando as limitações de IP. Tenha em mente que se você estiver usando uma grande quantidade de bots, você deve controlar a quantidade deles por sua conta, por exemplo, certificando-se de que todos eles são de fato se conectando e trabalhando ao mesmo tempo. O ASF não foi desenvolvido para uma quantidade enorme de bots, e a regra que se aplica é que **quanto mais bots você tiver, mais problemas você encontrará**. Também note que o limite acima em geral depende de muitos fatores internos, ele é uma aproximação e não um limite exato, você provavelmente será capaz de executar mais/menos bots do que o especificado acima.
 
 A equipe do ASF sugere rodar (e **possuir**) **no máximo 10 bots**, não há suporte para qualquer quantidade acima disso e caso você insista é por sua conta e risco e contra nossas sugestões. Essa recomendação é feita tanto com base em diretrizes internas da Valve quanto nossas sugestões. Se você vai concordar com essa regra ou não é escolha sua, o ASF, como ferramenta, não vai te proibir de fazer isso, mesmo se isso resultar na suspensão de suas contas no Steam. O ASF vai exibir um aviso se você passar da quantidade recomendada, porém vai permitir que você rode quantos bots quiser, por sua própria conta e risco e ciente da falta de suporte.
 
@@ -420,7 +420,7 @@ Em suma, o ícone de Cartas Colecionáveis na loja Steam não significa nada, ve
 
 A segunda questão é menos óbvia, e é a situação onde o seu jogo aparece na página de insígnia como disponível para recebimento de cartas e, no entanto, não está sendo executado pelo ASF. A menos que você esteja se deparando com algum bug, tal como o ASF ser incapaz de verificar as páginas de insígnias (descritas abaixo), é simplesmente um efeito de cache e do lado do ASF a Steam ainda está mostrando a página de insígnias desatualizada. Esse problema deve resolver-se mais cedo ou mais tarde, quando o cache for invalidado. Também não dá para consertar isso do nosso lado.
 
-Claro, tudo isso pressupõe que você está executando o ASF com as configurações padrão intocadas, uma vez que você também pode ter adicionado este jogo à lista de bloqueio, usado `false` em `IdleRefundableGames` entre outras coisas.
+Claro, tudo isso pressupõe que você está executando o ASF com as configurações padrão intocadas, uma vez que você também pode ter adicionado este jogo à lista de bloqueio, usado `true` em `IdlePriorityQueueOnly`, `false` em `IdleRefundableGames` entre outras coisas.
 
 * * *
 
@@ -567,7 +567,7 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 ### `System.IO.IOException: Input/output error`
 
-Se esse erro ocorreu durante uma entrada no ASF (por exemplo, `Console.ReadLine()` é mostrado no stacktrace) então ele foi causado por seu ambiente que não permitiu que o ASF lesse uma entrada no seu console. Isso pode ocorrer por muitos motivos, mas o mais comum é você rodar o ASF no ambiente errado (por exemplo, no segundo plano `&` em vez da `screen` no Linux). Se o ASF não puder acessar sua entrada padrão, então você verá este erro no registro e a incapacidade do ASF de usar seus dados durante o tempo de execução.
+Se esse erro ocorreu durante uma entrada no ASF (por exemplo, `Console.ReadLine()` é mostrado no stacktrace) então ele foi causado por seu ambiente que não permitiu que o ASF lesse uma entrada no seu console. Isso pode ocorrer por muitos motivos, mas o mais comum é você rodar o ASF no ambiente errado (por exemplo, no segundo plano `nohup` ou `&` em vez da `screen` no Linux). Se o ASF não puder acessar sua entrada padrão, então você verá este erro no registro e a incapacidade do ASF de usar seus dados durante o tempo de execução.
 
 Se você **espera** que isso aconteça é porque você **pretende** executar o ASF em um ambiente sem entradas, então você deve explicitamente dizer isso ao ASF, definindo o modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless)** de forma apropriada.
 

@@ -88,7 +88,7 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 ### Kann ich mit eigenen Programmen oder Benutzerskripten auf die ASF-API zugreifen?
 
-Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der Logik **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)**, und wir erlauben Zugriff von allen Ursprüngen für sie (`*`) solange `IPCPassword` gesetzt ist, als zusätzliche Sicherheitsmaßnahme. Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
+Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
 ### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einer anderen Maschine aus?
 
@@ -182,7 +182,7 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich `Endpoints` und `PathBase`.
 
-`Endpoints` - Dies ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie `example-http4`) und `Url` Eigenschaft, die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
+`Endpoints` - Dies ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie z.B. `example-http4`) und eine `Url` Eigenschaft, welche die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
 
 `Host` akzeptiert eine Vielzahl von Werten, einschließlich dem Wert `*`, der den http-Server von ASF an alle verfügbaren Schnittstellen bindet. Achte sehr genau darauf wenn du `Host` Werte verwendest, da sie den Fernzugriff erlauben. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Maschinen aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. Wir empfehlen dringend in diesem Fall mindestens `IPCPassword` (und vorzugsweise auch deine eigene Firewall) zu verwenden.
 
@@ -192,7 +192,7 @@ Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es
 
 ### Beispielhafte Konfiguration
 
-Die folgende Konfiguration ermöglicht den Fernzugriff aus allen Quellen, daher solltest du sicherstellen, dass du unseren Hinweis dazu, der oben verfügbar ist, gelesen und verstanden hast.
+Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher solltest du sicherstellen, dass du unseren Hinweis dazu, der oben verfügbar ist, gelesen und verstanden hast.
 
 ```json
 {
