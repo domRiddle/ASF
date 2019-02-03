@@ -155,7 +155,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 ---
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
 
 ---
 
