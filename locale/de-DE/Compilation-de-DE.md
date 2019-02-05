@@ -14,19 +14,19 @@ Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nic
 
 ## Kompilierung
 
-Wenn dein .NET Core SDK funktioniert und in der entsprechenden Version installiert ist, wechsle einfach in das ASF-Verzeichnis und führe folgendes aus:
+Wenn deine .NET Core SDK funktioniert und in der entsprechenden Version installiert ist, wechsle einfach in das ASF-Verzeichnis und führe folgendes aus:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 ```
 
-Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, das dasselbe in etwas komplexerer Weise tut.
+Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
 
 Wenn die Kompilierung erfolgreich beendet wurde, findest du dein ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies ist dasselbe wie der offizielle `generische` ASF-Build, aber es hat `UpdateChannel` und `UpdatePeriod` von `0` erzwungen.
 
 ### Betriebssystemspezifisch
 
-Du kannst auch das betriebssystemspezifische .NET Core Paket generieren, wenn du einen bestimmten Grund dazu hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime laufen lassen kannst, die du für die Kompilierung verwendet hast, aber nur für den Fall, dass du es möchtest:
+Du kannst auch das betriebssystemspezifische .NET Core Paket erstellen, falls du einen bestimmten Grund dazu hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime, die du für die Kompilierung verwendet hast, laufen lassen kannst. Aber für den Fall, dass du es trotzdem möchtest:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
@@ -52,11 +52,11 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## Entwicklung
 
-Wenn du ASF-Quelltext bearbeiten möchtest, kannst du zu diesem Zweck jede .NET Core kompatible IDE verwenden, obwohl selbst das optional ist. Du kannst auch mit einem Notepad arbeiten und mit dem oben beschriebenen Befehl `dotnet` kompilieren. Dennoch empfehlen wir für Windows ein **[aktuelles Visual Studio](https://visualstudio.microsoft.com/downloads)** (kostenlose Community-Version reicht vollkommen). Wir empfehlen auch, Visual Studio zusammen mit **[ReSharper](https://www.jetbrains.com/resharper)** zu verwenden (optional), auch wenn dies kein kostenloses Produkt ist.
+Wenn du ASF-Quelltext bearbeiten möchtest, kannst du zu diesem Zweck jede .NET Core kompatible IDE verwenden, obwohl selbst das optional ist. Du kannst auch mit einem Notepad arbeiten und mit dem oben beschriebenen `dotnet` Befehl kompilieren. Dennoch empfehlen wir für Windows ein **[aktuelles Visual Studio](https://visualstudio.microsoft.com/downloads)** (kostenlose Community-Version reicht vollkommen). Wir empfehlen auch, Visual Studio zusammen mit **[ReSharper](https://www.jetbrains.com/resharper)** zu verwenden (optional), auch wenn dies kein kostenloses Produkt ist.
 
 Wenn du stattdessen den ASF-Quelltext unter Linux/OS X bearbeiten möchtest, empfehlen wir eine **[aktuelle Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
 
-Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden Visual Studio + ReSharper für die ASF-Entwicklung, mit einem kleinen Teil der Drittanbieter `Programme`, die du im Repository finden kannst.
+Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden Visual Studio + ReSharper für die ASF-Entwicklung, sowie ein paar der Drittanbieter `Programme`, die du im Repository finden kannst.
 
 * * *
 

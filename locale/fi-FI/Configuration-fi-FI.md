@@ -140,7 +140,7 @@ In short, default value should be decent for most cases, but you might want to i
 
 * * *
 
-### `Debug`
+### `Vianetsintä`
 
 `bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
@@ -220,7 +220,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `Tilastot`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -529,7 +529,11 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
 
-Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
+Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
+
+Please note that **ASF is not a trading bot** and **will NOT care about the market price**. If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
+
+Unless you know what you're doing, you should keep it with default value of `5`.
 
 * * *
 
@@ -539,8 +543,8 @@ Of course, types that you should use for this property typically include only `2
 
 | Value | Nimi           |
 | ----- | -------------- |
-| 0     | Offline        |
-| 1     | Online         |
+| 0     | Ei paikalla    |
+| 1     | Paikalla       |
 | 2     | Busy           |
 | 3     | Away           |
 | 4     | Snooze         |
@@ -723,7 +727,7 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](#configuration)**
+**[Takaisin ylös](#configuration)**
 
 * * *
 
@@ -768,7 +772,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](#configuration)**
+**[Takaisin ylös](#configuration)**
 
 * * *
 
@@ -868,7 +872,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
 
-**[Back to top](#configuration)**
+**[Takaisin ylös](#configuration)**
 
 * * *
 
@@ -885,4 +889,4 @@ All of the above is transparent and will be done automatically without a need of
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
 
-**[Back to top](#configuration)**
+**[Takaisin ylös](#configuration)**

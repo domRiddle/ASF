@@ -1,30 +1,30 @@
 # Často kladené otázky
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Toto FAQ obsahuje odpovědi na běžné otázky. Pro méně obvyklé dotazy navštivte **[rozšířené FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
-# Table of contents
+# Obsah
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
+- [Obecné](#general)
+- [Srovnání s podobnými nástroji](#comparison-with-similar-tools)
+- [Bezpečnost / Soukromí / VAC / Bany / Podmínky užití](#security--privacy--vac--bans--tos)
 - [Různé](#misc)
-- [Issues](#issues)
+- [Problémy](#issues)
 
 * * *
 
-## General
+## Obecné
 
-### So how it exactly works?
+### Jak to tedy přesně funguje?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Dříve než se pokusíte pochopit, co je ASF, měli byste se ujistit, že rozumíte tomu, co jsou Steam karty a jak je získat, což je dobře popsáno v oficiálním FAQ **[zde](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Ve zkratce, Steam karty jsou sbíratelné položky, které můžete získat při vlastnictví konkrétní hry a mohou být použity pro výrobu odznaků, prodej na komunitním trhu služby Steam, nebo jakýkoliv jiný účel.
 
-Core points are stated once again here, because people in general don't want to see them and act like those do not exist:
+Zde jsou opět uvedeny základní body, protože lidé je přehlíží a jednají tak, jako by neexistovaly:
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game (half of a full set), it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
+- **Ano, musíte být vlastníkem hry, abyste byl způsobilý pro získání karet. Rodinné sdílení se nepočítá.**
+- **Ne, není možné farmit hru do nekonečna, každá hra má fixní počet karet, které se dají získat. Jakmile dosáhnete maximálního počtu karet (polovina jedné sady), není možné hru farmit dále. Nezáleží na tom, že hru vlastníte, s farmením je konec.**
+- **Není možné získat karty z F2P her bez útraty. To zahrnuje F2P hry jako Team Fortress 2 nebo Dota 2.**
 - **No, you can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
@@ -97,7 +97,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Srovnání s podobnými nástroji
 
 * * *
 
@@ -193,7 +193,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Bezpečnost / Soukromí / VAC / Bany / Podmínky užití
 
 * * *
 
@@ -408,7 +408,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problémy
 
 * * *
 

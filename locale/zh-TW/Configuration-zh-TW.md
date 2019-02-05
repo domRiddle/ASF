@@ -9,7 +9,7 @@
 - **[BOT 設定](#bot-config)**
 - **[檔案結構](#file-structure)**
 - **[JSON 對映](#json-mapping)**
-- **[相容性映射](#compatibility-mapping)**
+- **[相容性對映](#compatibility-mapping)**
 - **[配置相容性](#configs-compatibility)**
 - **[自動重新載入](#auto-reload)**
 
@@ -19,31 +19,31 @@
 
 ASF 設定檔分為兩個主要的部份 - 全域（程序）設定，以及所有 BOT 的設定。 每個 BOT 都有它們專屬的 BOT 設定檔名為 `BotName.json` （ `BotName` 即為 BOT 的名稱），而全域 ASF（程序）設定為一個檔案名為 `ASF.json`。
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+每個機器人都是一個在 ASF 進程中運行的獨立的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**機器人實例。 進程不會為機器人實例設定強制的數量限制，所以您可以運行任意數量的機器人（Steam 帳戶）。
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
+ASF 採用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存儲其配置檔案。 這是人性化、可讀性高且非常通用的格式，您可以在其中對程式進行配置。 不過不用擔心，您不需要為了配置 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批量創建大量 ASF 配置檔案。
 
-Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
+您可以通過創建合適的 JSON 配置檔案來手動完成配置，也可以通過我們的**[​網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**來進行配置，那將會更簡單方便。 除非您是高級用戶，否則我建議您使用網頁設定檔產生器，我們將會在下方對其進行具體說明。
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
 ## 網頁設定檔產生器
 
-The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於生成 ASF 配置檔案的友好前端。 網頁設定檔產生器是 100% 基於客戶端的，這意味著您輸入的任何信息都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**​運行。
 
-Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
+網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常運行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常運行。
 
-The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
+它的用法非常簡單——切換到正確的標簽來選擇要生成 `ASF` 設定檔還是 `Bot（機器人）`設定檔，確保所選設定檔的版本與您的 ASF 版本相匹配，然後輸入所有詳細信息並點擊“下載”按鈕。 將此檔案移動到 ASF 的 `config` 檔案夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重覆以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
 ## 手動設定
 
-I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
+我強烈推薦使用網頁設定檔產生器，但若您出於某些原因不想使用它，您亦可手動創建設定檔。 Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
 **[回到頂部](#configuration)**
 
@@ -51,7 +51,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 ## 全域設定
 
-全局配置存放於 `ASF.json 文件中`，其結構如下：
+全域設定存放於 `ASF.json 檔案中`，其結構如下：
 
 ```json
 {
@@ -244,7 +244,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | 值 | 名稱        | 描述                                                                        |
 | - | --------- | ------------------------------------------------------------------------- |
-| 0 | None      | 無協議                                                                       |
+| 0 | 無         | 無協議                                                                       |
 | 1 | TCP       | **[傳輸控制協議](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2 | UDP       | **[用戶數據報協議](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                  |
@@ -317,7 +317,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
@@ -529,7 +529,11 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 7 | SaleItem          | Special items awarded during Steam sales                      |
 | 8 | Consumable        | Special consumable items that disappear after being used      |
 
-Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. Please note that **ASF is not a trading bot** and **will NOT care about price or rarity**, which means that if you use it e.g. with `Emoticon` type, then ASF will be happy to trade your 2x rare emoticon for 1x rare 1x common, as that makes progress towards badge (in this case emoticons) completion. Please evaluate twice if you're fine with that. Unless you know what you're doing, you should keep it with default value of `5`.
+Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
+
+Please note that **ASF is not a trading bot** and **will NOT care about the market price**. If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
+
+Unless you know what you're doing, you should keep it with default value of `5`.
 
 * * *
 
@@ -723,7 +727,7 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
@@ -768,7 +772,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
@@ -852,15 +856,15 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 
-## Compatibility mapping
+## 相容性對映
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](#configuration)**
+**[回到頂部](#configuration)**
 
 * * *
 

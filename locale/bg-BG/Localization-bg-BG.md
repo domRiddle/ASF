@@ -1,4 +1,4 @@
-# Localization
+# Локализация
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
 
 * * *
 

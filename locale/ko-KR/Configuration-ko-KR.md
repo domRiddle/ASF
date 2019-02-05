@@ -529,7 +529,11 @@ ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 루팅�
 | 7 | SaleItem                    | Special items awarded during Steam sales                 |
 | 8 | Consumable                  | Special consumable items that disappear after being used |
 
-물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. **ASF는 트레이딩 봇이 아니며 가격이나 희귀도를 고려하지 않음을** 명심하십시오. 즉, `이모티콘(Emoticon)` 타입을 사용하는 경우 ASF는 배지(이 경우 이모티콘) 완성을 위해 당신의 희귀 이모티콘 2개를 희귀 1개와 일반 1개로 거래할 것입니다. 이 것이 괜찮다면 두번 생각해 보시기 바랍니다. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `5`를 유지하십시오.
+물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
+
+Please note that **ASF is not a trading bot** and **will NOT care about the market price**. If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
+
+무슨 일을 하고 있는지 알지 못한다면 기본값인 `5`를 유지하십시오.
 
 * * *
 

@@ -234,15 +234,15 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+Як бачите, слово `RateLimited` взяте у блок коду і відображує внутрішній статус ASF, який не треба перекладати. Так само, не потрібно перекладати і інші блокі коду, такі як назви параметрів конфігурації (наприклад `TradingPreferences`), члени переліків enum (наприклад опції `Stable` та `Experimental` у параметрі `UpdateChannel`) і таке інше.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+Однак, тільки через те що ці слова не треба перекладати, не означає що ви не можете додати до них відповідний переклад, наприклад у дужках.
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+Як ви бачите вище, ми додали "zbyt częstej aktywacji", що означає "занадто часта активація" поруч з `RateLimited` для того щоб перекласти цей статус, і у той самий час лишили вихіндне значення ASF, яке користувач побачить під час користування програмою. Так само ви можете перекладати/пояснювати інші, схожі випадки різноманітних слів чи речень.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**.
+Якщо ви вважаєте що якась частина тексту взята у блок коду безпідставно, або навпаки, є текст якій має бути взятий у блок коду, не зволікайте запитати на crowdin або зробіть відповідний коментар з поміткою **[issue](#user-content-Проблеми)**.
 
 * * *
 

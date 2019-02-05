@@ -8,7 +8,7 @@
 
 * * *
 
-## Basics
+## Základy
 
 * **[Domovská stránka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfigurace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -22,7 +22,7 @@
 * **[Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Statistiky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Rodinné sdílení na Steamu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Obchodování](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Další nastavení
@@ -31,14 +31,14 @@
 * **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Rozšířené otázky a odpovědi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Nastavení pro vysoký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalizace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Logování](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Nastavení pro nízký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Pluginy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Zabezpečení](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Třetí strana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Vývojáři

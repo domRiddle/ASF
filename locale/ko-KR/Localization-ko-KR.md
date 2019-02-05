@@ -156,7 +156,7 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 * * *
 
-어떤 경우건 상관없이 먼저 원본 문자열을 복사하고, 평소처럼 번역을 하거나 HTML이 있다면 전체 HTML을 그대로 둡니다. 다음은 폴란드어의 번역 예제입니다:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. 다음은 폴란드어의 번역 예제입니다:
 
 * * *
 

@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Issues
+### Problémy
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) in-tact. This would be example of translation for Polish language:
+Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
 
 * * *
 

@@ -6,19 +6,21 @@ Ab ASF V4 bietet das Programm Unterstützung für benutzerdefinierte Plugins, di
 
 ## Für Benutzer
 
-ASF lädt Plugins aus dem Verzeichnis `plugins`, das sich in deinem ASF-Ordner befindet. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Dies führt zur finalen Baumstruktur von `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
+ASF lädt Plugins aus dem Verzeichnis `plugins`, das sich in deinem ASF-Ordner befindet. Es wird empfohlen, für jedes Plugin das du verwenden möchtest ein eigenes Verzeichnis zu erstellen, das auf seinem Namen basieren kann, wie z.B. `MeinPlugin`. Dies führt zur finalen Baumstruktur von `plugins/MeinPlugin`. Schließlich sollten alle Binärdateien des Plugins in diesem speziellen Ordner abgelegt werden. ASF wird dein Plugin nach dem Neustart ordnungsgemäß ermitteln und verwenden.
 
 Normalerweise veröffentlichen Plugin-Entwickler ihre Plugins in Form einer `zip` Datei mit bereits vorbereiteter Struktur für dich, so dass es genügt, das Zip-Archiv in das Verzeichnis `plugins` zu entpacken, das automatisch den entsprechenden Ordner erstellt.
 
 Wenn das Plugin erfolgreich geladen wurde, siehst du seinen Namen und seine Version in deinem Protokoll. Du solltest deinen Plugin-Entwickler konsultieren, wenn es um Fragen, Probleme oder die Verwendung der Plugins geht, die du verwendet hast.
 
-**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass du Plugins von Entwicklern verwendest, denen du vertrauen kannst. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins.
+You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+
+**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass du Plugins von Entwicklern verwendest, denen du vertrauen kannst. Die ASF-Entwickler können dir die üblichen ASF-Vorteile (wie z.B. keine Schadsoftware oder VAC-Freiheit) nicht mehr garantieren, wenn du dich dazu entschließt benutzerdefinierte Plugins zu verwenden. Wir können auch keine Konfigurationen unterstützen, die benutzerdefinierte Plugins verwenden, da du keinen originalen ASF-Quellcode mehr verwendest.
 
 * * *
 
 ## Für Entwickler
 
-Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+Plugins sind Standard .NET-Bibliotheken, die die übliche `IPlugin`-Schnittstelle von ASF erben. Du kannst Plugins völlig unabhängig von der Haupt-ASF-Version entwickeln und in aktuellen und zukünftigen ASF-Versionen wiederverwenden, solange die API kompatibel bleibt. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
 * * *
 
@@ -28,7 +30,7 @@ Your project should be a standard .NET library targetting appropriate framework 
 
 The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project (e.g. if you decided to add ASF tree as submodule). This will allow you to access and discover ASF structures, methods and properties, especially core `IPlugin` interface which you'll need to inherit from in the next step. The project must also reference `System.Composition.AttributedModel` at the minimum, which allows you to `[Export]` your `IPlugin` for ASF to use. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
 
-If you did everything properly, your `csproj` will be similar to below:
+Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten aussehen:
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
