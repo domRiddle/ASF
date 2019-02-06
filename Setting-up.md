@@ -130,7 +130,7 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![Structure 2](https://i.imgur.com/crWdjcp.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
