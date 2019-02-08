@@ -189,7 +189,7 @@ Once you do that and start ASF again, you'll notice that ASF now displays your c
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, then downloading generated config and replacing core `ASF.json` file.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 ---
 
