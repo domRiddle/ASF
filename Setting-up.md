@@ -181,7 +181,7 @@ So let's do that, if you run ASF and start idling, in default settings you'll se
 
 Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
 
