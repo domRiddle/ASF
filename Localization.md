@@ -203,7 +203,7 @@ From there you can easily correct the link to point to new location, without eve
 
 ### Local links
 
-Across the wiki you will also find local links that point to particular section of the document. Those links start with `#` character.
+Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character as a name of the section.
 
 Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
 
