@@ -25,8 +25,6 @@ ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing i
 
 Configuration can be done either manually - by creating proper JSON configs, or by using our **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which should be much easier and convenient. Unless you're advanced user, I suggest using the config generator, which will be described below.
 
-**[Back to top](#configuration)**
-
 * * *
 
 ## Web-based ConfigGenerator
@@ -37,15 +35,11 @@ Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but
 
 The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
 
-**[Back to top](#configuration)**
-
 * * *
 
 ## Ręczna konfiguracja
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
-
-**[Back to top](#configuration)**
 
 * * *
 
@@ -140,7 +134,7 @@ In short, default value should be decent for most cases, but you might want to i
 
 * * *
 
-### `Debugowanie`
+### `Debug`
 
 `bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
@@ -220,7 +214,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statystyki`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -244,7 +238,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Value | Nazwa     | Opis                                                                                             |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | Brak      | No protocol                                                                                      |
+| 0     | None      | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -314,10 +308,6 @@ Unless you have a reason to edit this property, you should keep it at default.
 `string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
 Unless you have a reason to edit this property, you should keep it at default.
-
-* * *
-
-**[Back to top](#configuration)**
 
 * * *
 
@@ -391,7 +381,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Value | Nazwa                         | Opis                                                                  |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | Brak                          | No special bot behaviour, the least invasive mode, default            |
+| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -506,6 +496,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -528,6 +519,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -582,7 +574,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Value | Nazwa            | Opis                                                                           |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | Brak             | No redeeming preferences, typical                                              |
+| 0     | None             | No redeeming preferences, typical                                              |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -665,7 +657,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Value | Nazwa         | Opis                                                                                                                                                                                               |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Brak          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
+| 0     | None          | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                                 |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -684,7 +676,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Value | Nazwa               | Opis                                                                                                                                                                                                 |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Brak                | No trading preferences - accepts only `Master` trades                                                                                                                                                |
+| 0     | None                | No trading preferences - accepts only `Master` trades                                                                                                                                                |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -712,6 +704,7 @@ For further explanation of ASF trading logic, and description of every available
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -726,8 +719,6 @@ Default ASF setting is based on most common usage of the bot, with transfering o
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
-
-**[Back to top](#configuration)**
 
 * * *
 
@@ -771,8 +762,6 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
-
-**[Back to top](#configuration)**
 
 * * *
 
@@ -838,7 +827,7 @@ For example, given following values:
 
 | Value | Nazwa |
 | ----- | ----- |
-| 0     | Brak  |
+| 0     | None  |
 | 1     | A     |
 | 2     | B     |
 | 4     | C     |
@@ -856,23 +845,17 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-**[Back to top](#configuration)**
-
 * * *
 
 ## Compatibility mapping
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Back to top](#configuration)**
-
 * * *
 
 ## Configs compatibility
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
-
-**[Back to top](#configuration)**
 
 * * *
 
@@ -888,5 +871,3 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
-
-**[Back to top](#configuration)**

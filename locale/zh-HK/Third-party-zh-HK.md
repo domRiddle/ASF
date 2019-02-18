@@ -1,45 +1,46 @@
-# Third-party
+# 第三方工具
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+本節包括專門（或主要）與 ASF 配合使用的各種第三方工具內容。 它們包括 ASF 外掛程式, 簡單的 Web 應用程式，用於集成的內部庫, 以及適用于各種平臺的全能機械人。 如果您想在此清單中添加一些內容, 請在Discord 或我們的 Steam 群組上聯絡我們。
 
-Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
-
-* * *
-
-## ASF plugins
-
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
+請注意, 以下程式 **并非**由 ASF 開發人員維護, 因此我們對於其中任何程式的安全性或Steam ToS合規性方面𣎴提供任何擔保。 此清單僅供參考。 您應該始終確保您將要使用的程式對你來說足夠合法，因為在使用所有這些程式時，您需要自行承擔風險。
 
 * * *
 
-## Integrations
+## ASF 外掛程式
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
-
-* * *
-
-## Libraries
-
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
 
 * * *
 
-## Packaging
+## 集成
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-
-* * *
-
-## Tools
-
-- **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, 以Python 編寫、集成ASF功能的Telegram 機械人。
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, 另一個以Python 編寫、集成ASF基礎功能的(迷你）Telegram 機械人。
 
 * * *
 
-## Want to find more?
+## 庫
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)** Python庫, 以便進一步集成 ASF 的 IPC 介面。
+
+* * *
+
+## 包
+
+- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, 讓您可以輕鬆地在Arch Linux上安裝ASF。
+- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, 讓您可以輕鬆地在Arch Linux上安裝ASF。
+
+* * *
+
+## 工具
+
+- **Keys extractor</0 >, 允許您從各種格式的文本中複製/粘貼金鑰，並為 ASF創建 `redeem` 命令。 有關詳細資訊, 請查看 **[GitHub repo](https://github.com/PixvIO/SKE)**。</li> 
+    
+    - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, 使您更輕鬆地管理多個ASF配置。</ul> 
+    
+    * * *
+    
+    ## 想要了解更多？
+    
+    我們建議您在 Github 上搜索 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 標記以查詢與 ASF 集成的所有專案。

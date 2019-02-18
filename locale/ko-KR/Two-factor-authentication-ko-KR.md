@@ -30,7 +30,7 @@ ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 
 ## 가져오기
 
-V2.1 버전부터 ASF는 ASF 2단계인증 "솔로" 모드를 사용할 수 없습니다. 즉, Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF는 현재 4개의 다른 2단계 인증을 지원합니다. 안드로이드, iOS, SteamDesktopAuthenticator, WinAuth 입니다. 아직 인증기가 없고 처음으로 연결하려한다면, ASF로 가져올 수 있는 WinAuth의 사용을 강력하게 권장합니다.
+In order to complete the steps explained below, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
 
 아래의 모든 가이드는 **정상동작하고 있는** 인증기를 필요로 합니다. 유효하지 않은 데이터를 가져오면 ASF 2단계 인증은 정상적으로 동작하지 않을것이므로 데이터를 가져오기 전에 인증기가 정상 작동하는지 확인하여야 합니다. 다음의 인증기 기능이 정상 작동하는지 테스트하고 확인하십시오.
 
@@ -44,21 +44,25 @@ V2.1 버전부터 ASF는 ASF 2단계인증 "솔로" 모드를 사용할 수 없�
 
 ### 안드로이드 전화기
 
-일반적으로 안드로이드 전화기에서 인증기를 가져올때 **[루트](https://ko.wikipedia.org/wiki/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A3%A8%ED%8C%85)** 권한이 필요하지는 않습니다. 예전에 **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** 에는 루팅이 필요없는 **[방법](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)** 이 있었지만 이제는 아니어서 보호된 Steam 파일에 루팅없이 접근할 수 없습니다. 루팅이 필요없는 현존하는 유일한 방법은 `/data`를 백업하고 PC에서 적합한 파일을 수동으로 가져오는 것입니다. 이는 OS에 매우 의존하고 안드로이드 표준이 아니므로 여기서 다루지는 않습니다. 운이 좋아서 그런 기능이 있다면 사용할 수 있겠지만 대부분의 사용자들은 그런 것이 없습니다.
+일반적으로 안드로이드 전화기에서 인증기를 가져올때 **[루트](https://ko.wikipedia.org/wiki/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A3%A8%ED%8C%85)** 권한이 필요하지는 않습니다. 루팅은 기기마다 다르므로 어떻게 루팅하는지는 말씀드리지 않겠습니다. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
-루팅은 기기마다 다르므로 어떻게 루팅하는지는 말씀드리지 않겠습니다. 어떻게 하는지에 대한 훌륭한 가이드와 일반적 정보는 **[XDA](https://www.xda-developers.com/root)** 를 참고하십시오. 자신의 기기나 필요한 튜토리얼을 찾을 수 없다면 구글에서 찾아보십시오.
+At least officially, it's not possible to access protected Steam files without root. The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. 운이 좋아서 그런 기능이 있다면 사용할 수 있겠지만 대부분의 사용자들은 그런 것이 없습니다.
 
-가져오기 단계에서 보호된 파일에 접근해야합니다. 따라서 마켓에서 **[이것](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** 과 같은 어떤 루트 탐색기를 다운로드해야 합니다. 보호된 파일에 접근하고 PC로 복사하는데 ADB(Android Debug Bridge)나 다른 방법을 사용해도 됩니다.
+Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version 2.1 (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. However, since it's a serious security breach and entirely unsupported way to extract the files, we won't elaborate further on this, Valve disabled this security hole in newer versions for a reason, and we only mention it as a possibility.
 
-이제 인증기를 WinAuth에 먼저 가져오고 그 뒤에 ASF로 가져올수도 있고, ASF에 바로 가져올 수도 있습니다. 첫번째 옵션은 더 친숙하고 인증기를 PC에 복제하여 전화기, PC, ASF 세가지 다른 곳에서 확인을 누르고 토큰을 생성할 수 있게 합니다. 이렇게 하려면 WinAuth를 열고, 새 Steam 인증기를 추가하고, 안드로이드에서 가져오기를 선택하고, 지시를 따르십시오. 끝난 뒤에 이 인증기를 WinAuth에서 ASF로 가져올 수 있습니다. 방법은 다음과 같습니다.
+Assuming that you've successfully rooted your phone, you should afterwards download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one of your preference). You can also access the protected files through ADB (Android Debug Bridge) or any other available to you method, we'll do it through the explorer since it's definitely the most user-friendly way.
 
-WinAuth를 사용하고 싶지 않거나 필요없다면 `/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX`을 복사하십시오. XXX는 추가하려는 계정의 `SteamID`입니다. `/data/data` 디렉토리는 보호되어 있으며 루트 권한 없이 접근할 수 없음을 명심하십시오. 이 파일을 PC에 옮긴 후, ASF 환경설정 디렉토리에 `봇이름.maFile` 라는 이름으로 넣으십시오. `봇이름`은 ASF 2단계 인증을 추가하려는 봇의 이름입니다. 이 단계 후에 ASF를 실행하십시오. ASF는 `.maFile`을 인식하고 가져올 것입니다.
+Once you opened your root explorer, navigate to `/data/data` folder. `/data/data` 디렉토리는 보호되어 있으며 루트 권한 없이 접근할 수 없음을 명심하십시오. Once there, find `com.valvesoftware.android.steam.community` folder and copy it to your `/sdcard`, which points to your built-in internal storage. Afterwards, you should be able to plug your phone to your PC and copy the folder from your internal storage like usual. If by any chance the folder won't be visible despite you being sure that you copied it to the right place, try restarting your phone first.
+
+이제 인증기를 WinAuth에 먼저 가져오고 그 뒤에 ASF로 가져올수도 있고, ASF에 바로 가져올 수도 있습니다. 첫번째 옵션은 더 친숙하고 인증기를 PC에 복제하여 전화기, PC, ASF 세가지 다른 곳에서 확인을 누르고 토큰을 생성할 수 있게 합니다. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions by accessing the files that you've obtained above. When done, you can then import this authenticator from WinAuth to ASF, which is explained in dedicated WinAuth section below.
+
+If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. 이 단계 후에 ASF를 실행하십시오. ASF는 `.maFile`을 인식하고 가져올 것입니다.
 
     [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
     <1> Device ID를 입력하세요. ("android:" 포함해서):
     
 
-한 단계만 더 하면 됩니다. `/data/data/com.valvesoftware.android.steam.community/shared_prefs/steam.uuid.xml`에서 `DeviceID` 속성값을 찾으십시오. `android:`로 시작하는 XML 태그 안에 있습니다. 이것을 복사해서 ASF가 요청하면 넣으십시오. 모든 것을 정확하게 했다면 가져오기가 완료될 것입니다.
+You will need to do only one more step - find your `DeviceID` property in `shared_prefs/steam.uuid.xml`. `android:`로 시작하는 XML 태그 안에 있습니다. Copy that (or write it down) and put it in ASF as asked. 모든 것을 정확하게 했다면 가져오기가 완료될 것입니다.
 
     [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
     
@@ -120,7 +124,9 @@ WinAuth의 "Show SteamGuard and Recovery Code" 메뉴로 돌아가십시오. 좀
 
 * * *
 
-지금부터 모든 `2fa` 명령어가 기존의 2단계 인증 기기에서 호출한 것 처럼 작동할 것입니다. 토큰을 생성하고 확인사항을 수락하는 데 ASF 2단계 인증과 당신의 인증기(안드로이드, iOS, SDA, WinAuth)를 둘다 사용할 수 있습니다.
+## 완료
+
+From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. 토큰을 생성하고 확인사항을 수락하는 데 ASF 2단계 인증과 당신의 인증기(안드로이드, iOS, SDA, WinAuth)를 둘다 사용할 수 있습니다.
 
 전화기에 인증기가 있다면 SteamDesktopAuthenticator 와 WinAuth는 더이상 필요가 없으므로 삭제해도 됩니다. 하지만 만일을 대비해서 남겨두길 권장합니다. 일반적인 스팀 인증기보다 더 편리한 것은 말할것도 없습니다. ASF 2단계 인증은 범용 인증기가 **아닙니다**. 따라서 **절대로** 유일한 인증기가 되어서는 안됩니다. ASF 2단계 인증은 인증기가 가지고 있어야 할 모든 데이터를 포함하고 있지도 않습니다. ASF 2단계 인증을 원래의 인증기로 변환할 수 없으므로, 범용 인증기를 WinAuth, SDA, 전화기같은 다른 곳에 가지고 있어야 합니다.
 
@@ -154,11 +160,11 @@ ASF 모바일 인증기는 해당 계정에 관련된 중요한 다른 데이터
 
 ### ASF 2단계 인증을 제거하려면 어떻게 해야 합니까?
 
-그냥 ASF를 중지하고 제거하려는 ASF 2단계 인증과 연결된 봇의 `봇이름.db` 파일을 삭제하십시오. 이렇게 하면 ASF로 가져온 2단계 인증은 제거되지만 인증기와의 연결을 끊지는 않습니다. 그 대신 인증기와의 연결을 끊고 싶다면, ASF에서 삭제하는 것과 상관없이 사용하는 안드로이드, iOS, SDA, WinAuth 등의 인증기에서 연결을 끊어야 합니다. 혹은 무슨 이유로든 그렇게 할 수 없다면 인증기와 연결되어있는 동안 받았던 복구 코드를 Steam 웹사이트에서 사용하십시오.
+그냥 ASF를 중지하고 제거하려는 ASF 2단계 인증과 연결된 봇의 `봇이름.db` 파일을 삭제하십시오. 이렇게 하면 ASF로 가져온 2단계 인증은 제거되지만 인증기와의 연결을 끊지는 않습니다. 그 대신 인증기와의 연결을 끊고 싶다면, ASF에서 삭제하는 것과 상관없이 사용하는 안드로이드, iOS, SDA, WinAuth 등의 인증기에서 연결을 끊어야 합니다. 혹은 무슨 이유로든 그렇게 할 수 없다면 인증기와 연결되어있는 동안 받았던 복구 코드를 Steam 웹사이트에서 사용하십시오. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 
 * * *
 
-### SDA/WinAuth에 인증기를 연결하고 ASF로 가져왔습니다. 이 연결을 끊고 전화기로 다시 연결할 수 있습니까?
+### SDA/WinAuth에 인증기를 연결하고 ASF로 가져왔습니다. Can I now unlink it and link it again on my phone?
 
 **아니오**. ASF는 인증기 정보를 사용하기 위해 그 정보를 **가져옵니다**. 위의 질문에서처럼 먼저 ASF 2단계 인증을 제거하는 것과 상관없이, 인증기와 연결을 끊게 되면 ASF 2단계 인증도 기능을 멈추게 됩니다. 인증기를 전화기와 ASF(추가로 SDA/WinAuth) 양쪽에서 사용하고 싶다면 SDA/WinAuth에서 인증기를 생성하지 말고 전화기에서 인증기를 **가져와야 합니다**. 오직 **하나의** 인증기만 연결할 수 있습니다. ASF는 ASF 2단계 인증에서 사용하기 위해 그 인증기와 데이터를 **가지고 옵니다**. **동일한** 인증기가, 그냥 두 곳에 있는 것 뿐입니다. 어떤 방식으로든 모바일 인증기 자격증명의 연결을 끊기로 결정했다면, 이전에 복사한 모바일 인증기 자격증명은 더이상 유효하지 않으므로 ASF 2단계 인증은 작동을 멈출것입니다. ASF 2단계 인증과 전화기의 인증기를 함께 사용하기 위해서는 위에서 설명한대로 안드로이드/iOS에서 가져와야만 합니다.
 

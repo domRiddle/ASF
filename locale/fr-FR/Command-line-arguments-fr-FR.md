@@ -51,7 +51,7 @@ Cependant, ces deux la sont complètement valides:
 
 * * *
 
-`--path <path>` ou `--path=<path>` - ASF navigue toujours vers son propre répertoire au démarrage. En spécifiant cet argument, ASF naviguera vers un répertoire donné après l’initialisation, ce qui vous permet d’utiliser un chemin personnalisé pour `config` (et éventuellement aussi `www`) le répertoire sans avoir besoin de dupliquer le binaire au même endroit. Cela peut s'avérer particulièrement utile si vous souhaitez séparer le binaire de la configuration réelle, comme cela est fait dans un paquet de type Linux - de cette façon, vous pouvez utiliser un binaire (à jour) avec plusieurs configurations différentes. Le chemin peut être relatif en fonction de l'emplacement actuel du binaire ASF ou en absolu. Lorsque vous exécutez plusieurs instances du même fichier binaire, n'oubliez pas que vous devez généralement désactiver les mises à jour automatiques, car elles ne sont pas synchronisées. N'oubliez pas non plus que cette commande pointe vers le nouveau "ASF home" - le répertoire qui a la même structure que l'ASF d'origine, avec le répertoire `config` à l'intérieur.
+`--path <path>` ou `--path=<path>` - ASF navigue toujours vers son propre répertoire au démarrage. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. Cela peut s'avérer particulièrement utile si vous souhaitez séparer le binaire de la configuration réelle, comme cela est fait dans un paquet de type Linux - de cette façon, vous pouvez utiliser un binaire (à jour) avec plusieurs configurations différentes. Le chemin peut être relatif en fonction de l'emplacement actuel du binaire ASF ou en absolu. Lorsque vous exécutez plusieurs instances du même fichier binaire, n'oubliez pas que vous devez généralement désactiver les mises à jour automatiques, car elles ne sont pas synchronisées. N'oubliez pas non plus que cette commande pointe vers le nouveau "ASF home" - le répertoire qui a la même structure que l'ASF d'origine, avec le répertoire `config` à l'intérieur.
 
 Exemple :
 
@@ -64,9 +64,10 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Chemin alternatif
     │     ├── ASF
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
-    │     └── DossierCible
+    │     └── TargetDirectory
     │           ├── config
-    │           └── www (optionnel)
+    │           └── plugins (optional)
+    │           └── www (optional)
     └── ...
     
 

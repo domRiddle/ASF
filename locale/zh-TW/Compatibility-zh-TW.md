@@ -2,7 +2,7 @@
 
 ASF 是一個在.NET Core 平臺上運行的 C# 應用程式。 這意味著 ASF 並非直接被編譯為可供 CPU 執行的​**[機器碼](https://en.wikipedia.org/wiki/Machine_code)**，而是被編譯為 **[通用中間語言](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**，一種需要相應的運行環境才能執行的語言。
 
-這種方法能夠帶來巨大的方便。由於 CIL 是跨平臺的，這使得 ASF 能夠運行在許多作業系統上，特別是 Windows、Linux 和 OS X 這三個系統。ASF 不僅不需要通過模擬運行，同時所有對於系統及其相關硬體的優化也對其有效。 因此, ASF可以實現卓越的性能和優化, 同時仍然提供完美的相容性和可靠性。
+這種方法能夠帶來巨大的方便。由於 CIL 是跨平臺的，這使得 ASF 能夠運行在許多作業系統上，特別是 Windows、Linux 和 OS X 這三個系統。ASF 不僅不需要通過模擬運行，同時所有對於系統及其相關硬體的優化也對其有效。 因此，ASF可以實現卓越的性能和優化，同時仍然提供完美的相容性和可靠性。
 
 這也意味著運行 ASF **沒有特定的作業系統要求**，因為它需要的只是運行於作業系統上的**運行環境**而非作業系統本身。 這也意味著運行 ASF 沒有特定的作業系統要求，因為它需要的只是運行於作業系統上的運行環境而非作業系統本身。 只要運行環境能夠正確地執行 ASF 的代碼，底層系統是 Windows、Linux、OS X 還是 BSD，硬體是 Sony Playstation 4、Nintendo Wii甚至是您的烤麵包機都無所謂。只要有**[.NET Core ](https://github.com/dotnet/core-setup#daily-builds)**，就能用 **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。
 
@@ -12,7 +12,7 @@ ASF 是一個在.NET Core 平臺上運行的 C# 應用程式。 這意味著 ASF
 
 ## ASF 包
 
-ASF 有兩種主要的打包方式——Generic 包以及 OS-specific 包（針對特定作業系統的包）。 從功能上來講，這兩種包是完全一樣的，都能夠自動進行更新。 唯一的區別就是 **Generic包**中不包含** OS-specific **包內附帶的能使 ASF 運行的環境。
+ASF comes in 2 main flavours - generic package and OS-specific. 從功能上來講，這兩種包是完全一樣的，都能夠自動進行更新。 唯一的區別就是 **Generic包**中不包含** OS-specific **包內附帶的能使 ASF 運行的環境。
 
 * * *
 
@@ -55,7 +55,7 @@ ASF目前可用於以下作業系統 ：
 
 但如果您使用 **Generic** 包，則必須保證已安裝 ASF 所需的對應平臺的 .NET Core 運行時環境。
 
-目前ASF 的標的是 **.NET Core 2.2**（`netcoreapp2.2`），但未來可能會指向更高版本。 `netcoreapp2.2` 自 2.2.100 SDK（2.2.0 運行時環境）以來就受到支援，但 ASF 以**編譯時最新版本的運行時環境**為標的，所以您應該確保您的機器上有​**[最新版 SDK](https://www.microsoft.com/net/download)**。 如果您的運行時環境版本低於編譯時的已知最低標的版本，Generic ASF 包將會拒絕啟動。
+ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it might target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
 
 如有疑問，您可以訪問我們用於編譯併在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個構建的頂端找到 `dotnet --info` 的輸出。
 
@@ -65,4 +65,4 @@ ASF目前可用於以下作業系統 ：
 
 ### Debian Jessie 更新
 
-如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 顧名思義，這個軟體包已過時并從軟體源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級——如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果有一些其他軟體包依賴於那個過時的 libssl 版本，那麼您應該升級或者卸載它們——不僅僅是因為這個問題，而是因為過時的庫本來就應該被摒棄。
+如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.

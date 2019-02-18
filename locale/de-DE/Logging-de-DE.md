@@ -6,9 +6,9 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 ## Standard Protokollierung
 
-Eine benutzerdefinierte NLog Konfiguration deaktiviert automatisch die Standard ASF Konfiguration, welche `ColoredConsole` und `File` beinhaltet. In anderen Worten überschreibt deine Konfiguration **komplett** die standard ASF Protokollierung, was bedeutet, dass wenn du z.B. `ColoredConsole` als Ziel behalten möchtest, du es selber definieren musst. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch **Standardziele** zu verändern oder deaktivieren.
+Eine benutzerdefinierte NLog-Konfiguration deaktiviert automatisch die standard ASF-Konfiguration, welche `ColoredConsole` und `File` beinhaltet. In anderen Worten überschreibt deine Konfiguration die standard ASF-Protokollierung **komplett**, was bedeutet, dass wenn du z.B. `ColoredConsole` als Ziel behalten möchtest, du es selber definieren musst. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
-Wenn du die Standard ASF Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF Protokollierung nicht verändern möchtest. Als Referenz dagegen, die entsprechende hardgecodete Variante der ASF Protokollierung wäre:
+Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF-Protokollierung nicht verändern möchtest. Zum Vergleich: Das Äquivalent zur fest definierten standard ASF-Protokollierung wäre:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -33,9 +33,9 @@ Wenn du die Standard ASF Protokollierung ohne irgendwelche Veränderung verwende
 
 ## ASF Integration
 
-ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es dir ermöglichen, bestimmte Nachrichten leichter zu erfassen.
+ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es dir ermöglichen bestimmte Nachrichten leichter zu erfassen.
 
-Die NLog-spezifische `${logger}` Variable wird immer die Quelle der Nachricht unterscheiden - es wird entweder `BotName` von einem deiner Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise kannst du Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
+Die NLog-spezifische `${logger}` Variable wird immer die Quelle der Nachricht anzeigen - es wird entweder `BotName` von einem deiner Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise kannst du Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
 
 ASF versucht, Meldungen entsprechend den von NLog bereitgestellten Warnstufen zu kennzeichnen, was es dir ermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber du kannst ASF definitiv weniger/mehr leise machen, wie du es für richtig hältst.
 

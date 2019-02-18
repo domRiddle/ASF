@@ -14,7 +14,7 @@ Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nic
 
 ## Kompilierung
 
-Wenn deine .NET Core SDK funktioniert und in der entsprechenden Version installiert ist, wechsle einfach in das ASF-Verzeichnis und führe folgendes aus:
+Unter der Annahme, dass du die .NET Core SDK funktionsfähig und in der entsprechenden Version hast, navigiere einfach zum Quell-ASF-Verzeichnis (geklont oder heruntergeladen und entpacktes ASF-Repository) und führe folgendes aus:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
@@ -32,7 +32,7 @@ Du kannst auch das betriebssystemspezifische .NET Core Paket erstellen, falls du
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
-Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen, die du anpeilen möchtest, wie beispielsweise `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
+Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen die du anpeilen möchtest, wie beispielsweise `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
 
 ### .NET Framework
 
@@ -62,10 +62,10 @@ Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden wa
 
 ## Tags
 
-`master` Zweig ist nicht garantiert in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Wenn du ASF aus dem Quelltext kompilieren möchtest, dann solltest du dafür einen geeigneten **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** verwenden, der zumindest eine erfolgreiche Kompilierung garantiert und sehr wahrscheinlich auch fehlerfreie ausgeführt werden kann (wenn der Build als stabile Version markiert wurde). Um den aktuellen "Gesundheitszustand" des Baumes zu überprüfen, kannst du unsere CIs verwenden - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** oder **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
+Der `master` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Wenn du ASF aus dem Quelltext kompilieren möchtest, dann solltest du dafür einen geeigneten **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** verwenden, der zumindest eine erfolgreiche Kompilierung garantiert und sehr wahrscheinlich auch fehlerfreie ausgeführt werden kann (wenn der Build als stabile Version markiert wurde). Um den aktuellen "Gesundheitszustand" des Baumes zu überprüfen, kannst du unsere CIs verwenden - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** oder **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
 
 * * *
 
 ## Offizielle Veröffentlichungen
 
-Offizielle ASF-Veröffentlichungen werden von **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** unter Windows kompiliert, mit der neuesten .NET Core SDK, welche den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** entspricht. Nach bestandenen Tests werden alle Pakete auf GitHub bereitgestellt. Dies garantiert auch Transparenz, da AppVeyor für alle Builds immer offizielle öffentliche Quellen verwendet und man Prüfsummen von AppVeyor-Artefakten mit GitHub Assets vergleichen kann. Die ASF-Entwickler kompilieren oder veröffentlichen Builds nicht selbst, außer für den privaten Entwicklungsprozess und Debugging.
+Die offiziellen ASF-Veröffentlichungen werden von **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** unter Windows kompiliert, mit der neuesten .NET Core SDK, welche den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** entspricht. Nach dem Bestehen der Tests werden alle Pakete auf GitHub bereitgestellt. Dies garantiert auch Transparenz, da AppVeyor für alle Builds immer den offiziellen und öffentlichen Quelltext verwendet und man die Prüfsummen von AppVeyor-Artefakten mit GitHub Assets vergleichen kann. Die ASF-Entwickler kompilieren oder veröffentlichen selbst keine Builds, außer für den privaten Entwicklungsprozess und Debugging.

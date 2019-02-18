@@ -20,17 +20,17 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 要启用两步认证，您需要：
 
-- Android 设备上可用的 Steam 身份认证器
-- 或 iOS 设备上可用的 Steam 身份认证器
+- Android 设备上可用的 Steam 身份验证器
+- 或 iOS 设备上可用的 Steam 身份验证器
 - 或 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份认证器
+- 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份验证器
 - 或任何其他能够获取到 shared secret、identity secret 和 device id 的可用 Steam 验证器实现。
 
 * * *
 
 ## 导入
 
-自版本 V2.1 起，ASF 不再允许您使用 ASF “Solo”模式（即由 ASF 自己生成新的两步验证器）——这意味着您应拥有且关联了 ASF 支持的可用认证器。 ASF 支持导入 4 种来源的两步验证——Android、iOS、SteamDesktopAuthenticator 和 WinAuth。 如果您还没有任何验证器，并且首次打算使用，我强烈建议您选择 WinAuth，然后将其导入 ASF（同时您自己还可以继续使用 WinAuth）。
+为了完成以下步骤，您应该已经拥有且绑定了受 ASF 支持的可用验证器。 ASF 支持导入不同来源的两步验证——Android、iOS、SteamDesktopAuthenticator 和 WinAuth。 如果您还没有任何验证器，就需要选择上述验证器之一，并首先设置好它。 如果您不知道选择哪个更好，我们推荐 WinAuth，但只要您正确按照说明操作，上述的任何一个验证器都可以正常工作。
 
 以下所有指南都需要您在指定的工具/应用中已有**正常工作**的验证器。 如果导入了无效数据，ASF 2FA 将无法正常运行，因此在尝试导入之前，请确保您的验证器正常工作。 这包括测试和验证以下验证器功能是否正常工作：
 
@@ -44,21 +44,25 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ### Android 手机
 
-一般情况下，从 Android 手机导入验证器需要您拥有 **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** 权限。 **[SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator/blob/master/README.md)** 曾经有&#8203;**[方法](https://github.com/Jessecar96/SteamDesktopAuthenticator/wiki/Importing-account-from-an-Android-phone)**&#8203;从未经 root 的设备中导入验证器，但这种方法已失效，无法在没有 root 权限的情况下访问受保护的 Steam 数据文件。 目前唯一支持的无需 root 的方法是以某种方法制作一份 `/data` 文件夹的备份，然后在 PC 上手动获取所需的文件。 因为这种方法取决于操作系统，并且不符合 Android 标准，所以我们不会在此讨论。 如果您的设备很幸运支持这样的功能，您可以使用它，但大多数用户没有这种东西。
+一般情况下，从 Android 手机导入验证器需要您拥有 **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** 权限。 不同的设备有不同的 root 方法，所以我无法告诉您如何 root 您的设备。 您可以访问 **[XDA](https://www.xda-developers.com/root)** 查找相关的指南，以及关于 root 的一般信息。 如果您找不到适合您设备的指南，可以再尝试在搜索引擎中搜索。
 
-不同的设备有不同的 root 方法，所以我无法告诉您如何 root 您的设备。 您可以访问 **[XDA](https://www.xda-developers.com/root)** 查找一些指南等信息。 如果您找不到适合您设备的教程，可以尝试在搜索引擎中搜索。
+至少从官方角度来说，没有 root 权限就无法访问受保护的 Steam 文件。 目前唯一正式的无需 root 的提取 Steam 文件的方法是以某种方法制作一份未加密的 `/data` 的备份，然后在 PC 上手动提取所需的文件，但这种功能在很大程度上依赖于您的手机制造商，并且**不属于** Android 标准，因此我们不会在此讨论该方法。 如果您的设备很幸运地支持这样的功能，您可以使用它，但大多数用户没有这样的机会。
 
-在导入过程中，我们需要访问受保护的文件。 因此，您应该在应用商店下载任何一款 root 文件管理器，例如&#8203;**[这个](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)**（或者任何其他类似的应用）。 您也可以使用 ADB（Android Debug Bridge）或任何其他工具在 PC 上访问并复制这些受保护的文件。
+也有无需 root 权限的非正式方法，即安装或者降级 Steam 应用为 2.1 或者更旧版本，在此版本绑定手机验证器，然后通过 `adb backup` 命令创建一份应用的快照（包含我们所需的 `data` 文件）。 然而，由于该方法属于严重的安全漏洞以及不受支持的提取文件的方式，我们不会进一步详述这一点，Valve 在新版本中禁用了这个安全漏洞，我们在此提及此方法仅仅是把它作为一种可能性。
 
-现在，您可以选择先将验证器导入到 WinAuth，再导入到 ASF，或者直接导入到 ASF。 第一个选项更友好，使您在 PC 上也复制一份验证器，这样您就有 3 种方式确认交易和生成令牌——您的手机、您的 PC 和 ASF。 如果您要这样做，只需要打开 WinAuth，添加新的 Steam 验证器，然后选择从 Android 设备导入，按照屏幕上的指示操作。 完成后，您可以从 WinAuth 将验证器导入 ASF，详见下文。
+假设您已经成功 root 了您的手机，接下来您应该在应用商店下载任何一款 root 文件管理器，例如&#8203;**[这个](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)**（或者任何您喜爱的类似应用）。 您也可以通过 ADB（Android Debug Bridge，Android 调试桥）或者任何其他可用的方法访问受保护的文件，我们采用文件管理器是因为这是对大多数用户最友好的方式。
 
-如果您不想这样做，或者只是不想用 WinAuth，则可以直接复制 `/data/data/com.valvesoftware.android.steam.community/files/Steamguard-XXX` 文件，其中 XXX 是您要添加的帐户的 `SteamID`（可能有多个文件，如果只有一个帐户则只有一个文件）。 请注意，`/data/data` 文件夹受保护，如果您没有 root 权限则无法访问它。 将文件复制到 PC 上之后，将其重命名为 `BotName.maFile` 并将其放入 ASF 配置文件夹，其中 `BotName` 是您需要导入 ASF 2FA 的机器人名称。 在这一步之后，运行 ASF——它将会发现 `.maFile` 文件并导入。
+打开 root 文件管理器之后，前往 `/data/data` 文件夹。 请注意，`/data/data` 文件夹受保护，如果您没有 root 权限则无法访问它。 然后，找到 `com.valvesoftware.android.steam.community` 文件夹，将它复制到您的 `/sdcard` 文件夹，也就是您的内置存储设备。 之后，您应该可以将手机连接到 PC，将上述文件夹从内置存储设备复制到 PC 上。 如果您无法看见这个文件夹，但您确定您已经将它复制到了正确的位置，请先尝试重新启动手机。
+
+现在，您可以选择先将验证器导入到 WinAuth，再导入到 ASF，或者直接导入到 ASF。 第一个选项更友好，使您在 PC 上也复制一份验证器，这样您就有 3 种方式确认交易和生成令牌——您的手机、您的 PC 和 ASF。 如果您要这样做，只需要打开 WinAuth，添加新的 Steam 验证器，然后选择从 Android 设备导入，按照屏幕上的指示访问之前您获取到的文件。 完成后，您可以从 WinAuth 将验证器导入 ASF，详见下文 WinAuth 一节。
+
+如果您不想这样做，或者只是不想用 WinAuth，则可以直接从受保护文件夹中复制 `files/Steamguard-SteamID` 文件，其中 `SteamID` 是您要添加的帐户的 64 位 ID（可能有多个文件，如果只有一个帐户则只有一个文件）。 您需要将这个文件放入 ASF 的 `config` 文件夹。 完成这一步之后，将此文件重命名为 `BotName.maFile`，其中 `BotName` 是您需要导入 ASF 2FA 的机器人名称。 在这一步之后，运行 ASF——它将会发现 `.maFile` 文件并导入。
 
     [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
     <1> 请输入您的设备 ID (包括"android:"):
     
 
-您还需要一步操作——在 `/data/data/com.valvesoftware.android.steam.community/shared_prefs/steam.uuid.xml` 文件中找到您的 `DeviceID` 属性值。 这个值应该在 XML 标签中，以 `android:` 开头。 复制它并将其输入 ASF。 如果您的操作完全正确，导入过程应该已完成。
+您还需要一步操作——在 `shared_prefs/steam.uuid.xml` 文件中找到您的 `DeviceID` 属性值。 这个值应该在 XML 标签中，以 `android:` 开头。 复制它（或者记下来）并将其输入 ASF。 如果您的操作完全正确，导入过程应该已完成。
 
     [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
     
@@ -81,7 +85,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ### SteamDesktopAuthenticator
 
-如果您已有运行于 SDA 中的验证器，您应该已经注意到 `maFiles` 文件夹下有 `steamID.maFile` 文件。 将该文件复制到 ASF 的 `config` 文件夹。 确保 `.maFile` 是未加密形式，因为 ASF 无法解密 SDA 文件——未加密的文件内容应该以一个 `{` 符号开头。
+如果您已有运行于 SDA 中的验证器，您应该已经注意到 `maFiles` 文件夹下有 `steamID.maFile` 文件。 将该文件复制到 ASF 的`config` 文件夹。 确保 `.maFile` 是未加密形式，因为 ASF 无法解密 SDA 文件——未加密的文件内容应该以一个 `{` 符号开头。
 
 现在您应该将 `steamID.maFile` 文件重命名为 `BotName.maFile` 并将其放入 ASF 配置文件夹，其中 `BotName` 是您需要导入 ASF 2FA 的机器人名称。 或者，您可以将其保持原样，ASF 将会在登录帐户后自动选择此文件。 如果您在这一步帮助 ASF 重命名，ASF 就可以在登录之前使用 ASF 2FA，否则，ASF 就只能在成功登录之后导入文件（因为 ASF 在登录之前无法获取您帐户的 `steamID`）。
 
@@ -120,6 +124,8 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 * * *
 
+## 完成导入
+
 从此，所有的 `2fa` 命令将会像原有的 2FA 设备一样正常工作。 您可以用 ASF 2FA 和其他验证器（Android、iOS、SDA 或 WinAuth）生成令牌或者接受确认。
 
 如果您的手机上有验证器，也可以选择移除 SteamDesktopAuthenticator 和/或 WinAuth，因为我们不再需要它了。 不过，我建议保留它们以防万一，而且它们比官方的 Steam 验证器更好用。 需要注意的是，ASF 2FA **不是**通用的验证器，您**不能**将其作为唯一的验证器，因为它甚至不包括验证器所需的所有数据。 无法将 ASF 2FA 转换成原始的验证器，因此请始终确保您在其他地方（如 WinAuth、SDA 或手机）有完整功能的通用验证器。
@@ -154,7 +160,7 @@ ASF 验证器数据被保存在配置文件文件夹的 `BotName.db` 文件里�
 
 ### 如何移除 ASF 2FA？
 
-只需要关闭 ASF 并移除指定机器人的 `BotName.db` 文件。 此选项将会移除 ASF 与导入的两步验证的关联，但不会解绑您的身份验证器。 如果您打算解绑验证器，除了将其从 ASF 删除外，还需要在您原有的验证器设备上（Android、iOS、SDA 或 WinAuth）解绑，或者，如果您已无法使用验证器，则应该在 Steam 网站上使用绑定验证器时保存的恢复代码。
+只需要关闭 ASF 并移除指定机器人的 `BotName.db` 文件。 此选项将会移除 ASF 与导入的两步验证的关联，但不会解绑您的身份验证器。 如果您打算解绑验证器，除了将其从 ASF 删除外，还需要在您原有的验证器设备上（Android、iOS、SDA 或 WinAuth）解绑，或者，如果您已无法使用验证器，则应该在 Steam 网站上使用绑定验证器时保存的恢复代码。 您无法通过 ASF 解绑您的验证器，这也是您已拥有的一般用途验证器的目标。
 
 * * *
 

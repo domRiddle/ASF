@@ -1,24 +1,24 @@
-# 插件
+# 外掛程式
 
-Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
-
-* * *
-
-## For users
-
-ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
-
-Usually plugin developers will publish their plugins in form of a `zip` file with already-prepared structure for you, so it's enough to unpack that zip archive into `plugins` directory, which will create the appropriate folder automatically.
-
-If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
-
-You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
-
-**Please note that ASF plugins might be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. We're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+ASF從V4開始支援可在運行時載入的自訂外掛程式。 外掛程式允許您通過添加自訂命令、自訂交易邏輯或與第三方工具和 API的整體集成自訂ASF行為。
 
 * * *
 
-## For developers
+## 致使用者
+
+ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為要使用的每個外掛程式維護一個專用目錄，該目錄可以基於其名稱，例如`MyPlugin`。 這樣做將生成 `plugins/MyPlugin` 的最終樹結構。 最後，外掛程式的所有二進位檔案都應該放在那個專用資料夾裡，ASF 會在重新開機後成功偵測並使用您的外掛程式。
+
+通常外掛程式開發人員會準備好檔的結構，並以`zip`的形式發佈他們的外掛程式檔，所以它足以在解壓後自動創建資料夾至`plugins` 目錄。
+
+如果外掛程式已成功載入，您將在日誌中看到它的名稱和版本。 在遇到與您決定使用的外掛程式相關的錯誤或用法問題時，您應該諮詢相關外掛程式開發人員。
+
+您可以在我們的**[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)**部分找到一些特色外掛程式。
+
+**請注意，ASF外掛程式可能是惡意的**。 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟體或避免VAC）。 我們也無法支援使用自訂外掛程式的設置，因為您不再運行原本的 ASF 代碼。
+
+* * *
+
+## 致開發人員
 
 Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
@@ -124,8 +124,10 @@ If you're confused about above statement and you don't know better, check which 
 
 ### Native dependencies
 
-Native dependencies are generated as part of OS-specific builds, as there is no .NET Core runtime available on the host and ASF is running through its own .NET Core runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET Core feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly. This is never a problem with generic builds, because those are never dealing with native dependencies in the first place (as they have complete working runtime on the host, executing ASF). It's also automatically one solution to the problem, using your plugin in generic builds exclusively, but obviously that has its own downside of cutting your plugin from users that are running OS-specific builds of ASF.
+Native dependencies are generated as part of OS-specific builds, as there is no .NET Core runtime available on the host and ASF is running through its own .NET Core runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET Core feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly.
+
+This is never a problem with generic builds, because those are never dealing with native dependencies in the first place (as they have complete working runtime on the host, executing ASF). It's also automatically one solution to the problem, **use your plugin in generic builds exclusively**, but obviously that has its own downside of cutting your plugin from users that are running OS-specific builds of ASF. If you're wondering if your issue is related to native dependencies, you can also use this method for verification, load your plugin in ASF generic build and see if it works. If it does, you have plugin dependencies covered, so only native dependencies to work on.
 
 Luckily, the real solution to the problem, very similar to general plugin dependencies, is once again bundling your plugin with the dependencies that ASF either doesn't have itself, or has in a wrong/incompatible (e.g. trimmed) version. Compared to plugin dependencies, you can't be sure whether the trimmed version of ASF native dependency has everything you need, so you can either decide to go easy way and just bundle everything, or go hard way and manually verify which parts are missing from ASF and include only those parts.
 
-This also means that you might need to have a dedicated build of your plugin for each ASF variant, as each OS-specific ASF build can miss different features that you'll need to provide yourself. This greatly depends on what your plugin in fact does and what it depends on, since very simple plugins that are based purely on ASF functions are guaranteed to work fine in all setups, as they do not bring any dependencies on their own. More complicated plugins (especially those that have dependencies on their own) might need to take extra measures to ensure that they indeed provide all required code parts, not only high-level plugin dependencies, but low-level native dependencies as well. If all else fails, like above, you can always just bundle all the dependencies together with your plugin.
+This also means that **you might need to have a dedicated build of your plugin for each ASF variant**, as each OS-specific ASF build can miss different features that you'll need to provide yourself, and your generic plugin build can't provide all of them on its own. This greatly depends on what your plugin in fact does and what it depends on, since very simple plugins that are based purely on ASF functions are guaranteed to work fine in all setups, as they do not bring any dependencies on their own and have all native dependencies covered by definition. More complicated plugins (especially those that have dependencies on their own) might need to take extra measures to ensure that they indeed provide all required code parts, not only high-level plugin dependencies (described in section above), but low-level native dependencies as well. If all else fails, like above, you can always compile your plugin for the same OS-specific variant that you want to use, and just bundle all the generated dependencies.

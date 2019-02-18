@@ -14,7 +14,7 @@ Quelle que soit la plate-forme, vous avez besoin du SDK .NET Core complet (pas s
 
 <h2>Compilation</h2>
 
-<p>En supposant que le SDK .NET Core soit opérationnel et dans la version appropriée, il vous suffit de naviguer vers le répertoire ASF et d’exécuter:</p>
+<p>Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:</p>
 
 <pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 `</pre> 
@@ -30,13 +30,11 @@ Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui 
 <pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 `</pre> 
 
-Bien sûr, remplacez ` linux-x64 </ 0> par l'architecture du système d'exploitation que vous souhaitez cibler, tel que <code> win-x64 </ 0>. Cette mise à jour aura également des mises à jour désactivées.</p>
+Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. Cette mise à jour aura également des mises à jour désactivées.
 
-<h3>.NET Framework
- 
-</h3>
+### .NET Framework 
 
-<p>Dans de très rares cas où vous souhaitez créer le package <code> generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. Keep in mind that you'll need appropriate <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks">.NET Framework</a></strong> developer pack for compiling <code>netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
+Dans de très rares cas où vous souhaitez créer le package ` generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. Keep in mind that you'll need appropriate <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks">.NET Framework</a></strong> developer pack for compiling <code>netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"

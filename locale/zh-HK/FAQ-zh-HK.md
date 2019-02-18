@@ -1,13 +1,13 @@
-# FAQ
+# 常見問題
 
-Our basic FAQ covers standard questions and answers that you might have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+我們的基本常見問題解答涵蓋了您可能會问的問題和標準答案。 對於不太常見的問題, 請訪問我們的 **常見問題擴展</0 >。</p> 
 
-# 文章目錄
+# 目錄
 
 - [常規](#general)
 - [與類似的工具比較](#comparison-with-similar-tools)
 - [安全/隱私/VAC/封鎖/條款](#security--privacy--vac--bans--tos)
-- [其他](#misc)
+- [雜項](#misc)
 - [問題](#issues)
 
 * * *
@@ -18,80 +18,80 @@ Our basic FAQ covers standard questions and answers that you might have. For a l
 
 在嘗試了解 ASF 是什麼之前，你應該先了解什麼是交換卡片以及如何得到它們，這在官方 **[常見問題](https://steamcommunity.com/tradingcards/faq)** 中有很好的說明。
 
-Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
+簡而言之, Steam卡牌是您在擁有特定遊戲時有資格獲得的收藏物品, 可用於製作徽章、在 Steam 市集上銷售或您選擇的任何其他目的。
 
-Core points are stated once again here, because people in general don't want to see them and act like those do not exist:
+在此再次陳述重點，因為一般人不希望看到它們, 並表現得好像它們不存在：
 
-- **Yes, you need to own the game in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **No, you can't farm the game infinitely, every game has fixed number of card drops. Once you run out of cards to drop in given game (half of a full set), it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
-- **No, you can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **是的, 你需要擁有遊戲, 才有資格獲得掉落的卡牌。 親友同享的遊戲不算數。**
+- **不, 您不能無限掛卡, 每一個遊戲的掉落卡牌數量都是固定的。 一旦您獲得了在特定遊戲中掉落的卡牌 (全套的一半), 它就不可再用於掛卡了。 擁有遊戲並不重要, 您已經完成了掛卡。**
+- **不, 您無法在未消費的情況下從 F2P 遊戲中獲得掉落的卡牌。 這涉及到永久免費的 F2P 遊戲, 如 Team Fortress 2 或 Dota 2。**
+- **不, 您不能在受限的帳戶 (那些從未在蒸汽商店花5美元的帳戶) 上獲得掉落的卡片, 不管擁有什麼遊戲。 這在過去是有可能的, 但現在已經不是這樣了。**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+所以, 正如您所看到的, Steam卡片是一種玩遊戲得到的奖品，您購買的遊戲, 或您花錢的F2P 遊戲。 換句話說, 如果您玩一個遊戲的時間足夠長, 該遊戲的所有卡片都會掉到你的庫存中, 使您有可能合成一個徽章, 出售它們, 或者做任何您想做的事情。
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+ASF是一個相當複雜且不易理解的程式，所以下面我們將提供一個非常簡單的解釋，而不是詳列所有的技術細節。
 
-ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF使用您提供的憑據，通過內置自訂Steam用戶端實現登錄到您的Steam帳戶。 成功登錄後, 它會分析您的 **[徽章](https://steamcommunity.com/my/badges)**, 以查找可供掛卡的遊戲 (您可以從玩這個遊戲中再獲得X張卡片)。 在分析了所有徽章頁面並構建了可用遊戲的最終清單後, ASF選擇了最有效的掛卡演算法並啟動進程。 這個過程取決於選擇的 **掛卡演算法 </0 >, 但通常包括玩合格的遊戲, 並定期 (且當每個物品掉落) 檢查遊戲是否已經完成掛卡——如果是, ASF可以繼續下一個遊戲, 使用相同的流程, 直到獲得所有的遊戲卡片。</p> 
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+請記住, 上面的解釋是簡化的, 並不阐述ASF提供的諸多額外功能和特性。 如果你想了解ASF的所有細節, 請訪問我們的 **[wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)**的其餘部分。 我盡可能簡明地講解，以讓每個人都能理解它, 但并未帶來技術細節——在此鼓勵高級使用者更深入地挖掘。
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+現在作為一個程式，ASF提供了一些魔法。 第一, 它不需要下載任何你的遊戲檔案，它可以馬上玩遊戲。 其次, 它完全獨立于您的Steam用戶端——您根本不需要運行Steam用戶端, 甚至根本不需要安裝Steam用戶端。 第三, 它是自動化的解決方案。這意味著 ASF 會在後台自動做所有的事情, 而不需要您告訴它該怎麼做，這減少了您的麻煩并节省您的時間。 最後, 它不需要通過過程模擬來欺騙Steam網路 (例如, Idle Master正在使用的邏輯), 因為它可以直接與Steam網路通信。 它也是超快和輕量級的, 是一個驚人的解決方案, 讓每個人輕鬆地獲得卡片——您可以讓它運行在後臺, 而去做其他的事情, 甚至在離線模式下玩。
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+以上所有的功能都很不錯, 但ASF也有一些技術上的限制, 這是由Steam制度決定的。我們不能掛你未擁有的遊戲, 我們不能永遠掛已掉落所有卡片的遊戲， 我們不能在您玩遊戲的時候掛卡。 所有這些都應該是 "符合邏輯的", 考慮到 ASF 的工作方式, 友情提示, ASF沒有超能力, 不會做一些物理上不可實現的事情, 所以要記住這一點，使用ASF基本上和您告訴別人從另一台電腦登錄您的帳戶為掛卡一樣 。
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
-
-* * *
-
-### Do I have to put my account credentials?
-
-**是的**。 ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
-
-Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills Steam ToS - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve. We don't know your credentials regardless if you put them in your configs, or not.
+所以總結起來，ASF是一個可以讓你獲得那些可掉落卡片的程式, 沒有太多麻煩。 它還提供了其他幾個功能, 但讓我們暫時專注於此功能。
 
 * * *
 
-### 我需要等待多久才會有卡片掉落？
+### 我必須提供我的帳戶憑據嗎？
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account might be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**是的**。 ASF要求您的帳戶憑據的方式與官方Steam用戶端一致，因為它使用與Steam網路交互相同的方法。 This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). 這樣, 您的詳細資訊不會保存在任何地方, 但如果沒有您的幫助, ASF無法自動啟動。 ASF還提供了其他幾種方法來提高您的 **[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, 因此, 如果您是高級使用者, 請隨時閱讀wiki的這一部分。 如果您不是, 並且不想將您的帳戶憑據放在ASF配置中, 則無需這樣做, 而是在ASF要求時根據需要輸入它們。
 
-* * *
-
-### 掛卡耗費時間太長，我該怎麼讓它加快速度？
-
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+請記住, ASF工具是供您個人使用的, 您的憑據永遠不會離開您的電腦。 您也不會和任何人分享這些信息，這遵循了Steam ToS ──這是很多人忘記的非常重要的事情。 您的詳細資訊將不會被發送到我們的伺服器或協力項目, 而將直接發送到Valve運營的 Steam 伺服器。 我們無法獲得您的身份凭證，無論你在配置中保存與否。
 
 * * *
 
-### 但 ASF 說掛卡會耗費大約 X 小時！
+### 我需要等待多久才會獲得掉落的卡片？
 
-ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
-
-* * *
-
-### ASF 是否可執行在我的 Android / 智慧型手機呢？
-
-ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
-
-It's very likely that in the future we'll see working .NET Core for Android itself.
+講真，**這取決於它需要多久。** 每款遊戲的掛卡難度由開發商/出版商設定, 掉卡速度完全取決於他們。 大多數遊戲是每 3 0分鐘就會掉落1張卡片, 但也有遊戲需要在遊玩幾個小時後才會有卡片掉落。 除此之外, 您的帳戶可能會被限制接收您沒有玩足夠時間的遊戲中的卡片, 如 **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** 部分所述。 不要試圖猜測ASF可能的掛卡時間，這不是由您決定的，甚至也不是ASF可以決定的。 There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. 在最好的情況下, 您平均每30分鐘可獲得1張掉落的卡片。 在最壞的情況下, 啟動ASF 4小時後您也有可能顆粒無收。 這兩種情況都是正常的, 並會在我們的 **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** 部分仲介紹。
 
 * * *
 
-### Can ASF idle items from Steam games, such as CS:GO or Unturned?
+### 掛卡花的時間太長, 我能加快它的速度嗎？
 
-**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
+唯一嚴重影響掛卡速度的是您為您的機械人實例選擇的**[掛卡演算法 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**。 其他一切行為僅會帶來微不足道的影響, 不會使掛卡更快, 而一些行動, 如多次啟動 ASF 過程, 甚至會 **使它更糟糕**。 If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. 然而, 正如我所說, 效果可以忽略不計, 為給定的帳戶選擇合適的掛卡演算法是一個關鍵的選擇, 可以嚴重影響掛卡的速度, 其他一切都是錦上添花。 與其擔心掛卡速度，不如放手讓 ASF 自主運行──我可以向你保證，它是以我能想出的最有效的方式來工作的。 認真你就輸了。
 
 * * *
 
-### Can I choose which games should be idled?
+### 但 ASF 說掛卡將需要大約 X 小時！
 
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. 如上所述，不要試圖猜測給定的遊戲掛卡需要多久，這不是您可以決定的，也不是 ASF 可以決定的。
+
+* * *
+
+### ASF 可以在我的 Android/智慧手機上工作嗎？
+
+ASF 是一個需要 .NET Core運行時環境的C#程式。 Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+
+很有可能在未來我們會看到支援 Android 平台的 .NET Core。
+
+* * *
+
+### ASF 可以從蒸汽遊戲中獲取掉落物品嗎？比如 CS:GO或Unturned？
+
+**No**, this is against Steam ToS and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. 所有其他類型的掛卡也是如此，例如 CS：GO 直播中的物品掉落。 ASF 專注于Steam交易卡片。
+
+* * *
+
+### 我可以選擇用於掛卡的遊戲嗎？
+
+**當然**，這有幾種不同的方式。 If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
 In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 * * *
 
-### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
+### 我是 Linux / OS X 使用者，ASF 能對不支援我的作業系統的遊戲進行掛卡嗎？ 當我在32位作業系統上運行 ASF 時，它是否能對64位遊戲掛卡？
 
 Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we didn't test this.
 
@@ -103,7 +103,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ### ASF與Idle Master相似嗎？
 
-The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
+這兩個程式的唯一相同之處在於目的，掛卡以獲取 Steam 卡片。 其他一切，包括實際的閒置方法、使用的演算法、程式結構、功能、相容性，以及原始程式碼本身，都是完全不同的，這兩個程式之間沒有什麼共同點，甚至是核心架構（IM在. net 框架上運行，ASF 在. net core 上運行)。 ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
 This is also why you shouldn't compare ASF to IM based on IM expectations. You should treat ASF and IM as entirely independent programs with their own exclusive sets of features. Some of them indeed overlap and you can find a particular feature in both of them, but very rarely, as ASF is serving its purpose with entirely different approach compared to IM.
 
@@ -167,7 +167,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can ASF idle multiple games at once?
+### ASF 能同時游玩多個游戲嗎？
 
 **Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Card drops rate when idling multiple games is close to zero, this is why ASF is using multiple games idling exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, idling multiple games at once will not provide you with any card drops.
 
@@ -185,7 +185,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 * * *
 
-### Can I play a game while ASF is farming?
+### 我能在 ASF 掛卡時玩游戲嗎？
 
 **不**。 ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
@@ -197,7 +197,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-### 我會因為使用這個被 VAC 封鎖嗎？
+### 我會因為使用它被 VAC 封鎖嗎？
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
@@ -213,7 +213,7 @@ However, keep in mind that Valve might still add ASF to the blacklist at some po
 
 * * *
 
-### 這個安全嗎？
+### 它安全嗎？
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. Code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code.
 
@@ -287,7 +287,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## 其他
+## 雜項
 
 * * *
 

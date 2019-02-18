@@ -42,7 +42,7 @@ Diese Flexibilität wird speziell für dich bereitgestellt, so dass du den ASF-S
 
 Wenn deine Zeichenkette bereits von jemand anderem übersetzt wurde, kannst du dafür stimmen. Stimmen macht es möglich die beste Variante einer Übersetzung auszusuchen, anstatt an einem ursprünglichen Vorschlag festzuhalten - Das Verbessert die Qualität der Übersetzungen weiter. Du kannst für bereits verfügbare Vorschläge stimmen oder deinen eigenen Vorschlag der Übersetzung hinzufügen, der durch den selben Prozess gehen wird. Schlussendlich wird ein endgültiger Wert gewählt, basierend auf dem Vorschlag mit den meisten Stimmen oder als Wahl eines Korrekturlesers, der für diese Sprache ausgewählt wurde, der die gegebene Übersetzung persönlich genehmigt (unter Anderem basierend auf deinen Stimmen).
 
-**Du brauchst keine Genehmigung um deine Übersetzungen in ASF zu sehen**. Genehmigung heißt einfach, dass jemand, dem wir vertrauen, deinen Beitrag angesehen und für gut befunden hat. Es ist in Ordnung, nicht genehmigte Übersetzungen, die von der Community gemacht wurden zu haben, wo du für die Beste Version stimmst. So lange es übersetzt ist, ist es in Ordnung! Wenn du denkst, dass die aktuelle Übersetzung schlecht ist, kannst du gerne jederzeit für eine bessere stimmen oder selbst eine vorschlagen!
+**Du brauchst keine Genehmigung um deine Übersetzungen in ASF zu sehen**. Genehmigung heißt einfach, dass jemand dem wir vertrauen deinen Beitrag angesehen und für gut befunden hat. Es ist in Ordnung, nicht genehmigte Übersetzungen, die von der Community gemacht wurden zu haben, wo du für die Beste Version stimmst. So lange es übersetzt ist, ist es in Ordnung! Wenn du denkst, dass die aktuelle Übersetzung schlecht ist, kannst du gerne jederzeit für eine bessere stimmen oder selbst eine vorschlagen.
 
 * * *
 
@@ -50,7 +50,7 @@ Wenn deine Zeichenkette bereits von jemand anderem übersetzt wurde, kannst du d
 
 Es ist eine gute Idee eine konsistente Übersetzung zu haben, selbst, wenn es möglicherweise die Freiheiten der oben erklärten Community-Rezensierung oder des Stimmprozesses einschränken könnte. Das ist hauptsächlich weil falsche Übersetzungen, die nicht notwendigerweise schlecht sind, so viele Stimmen bekommen könnten, dass es nicht möglich ist eine bessere Übersetzung vorzuschlagen, selbst, wenn diese jemand hat.
 
-Wenn du bereits in der Vergangenheit Beiträge auf Crowdin oder einer anderen Übersetzungsplattform übersetzt hast, die wir verifizieren und vertrauensvoll nennen können, würden wir uns freuen, dir Korrekturleser-Zugriff zu der Sprache zu geben, die du übersetzt, damit es dir möglich ist gegebene Übersetzungen zu genehmigen oder konsistenter zu gestalten. Korrekturlesen ist keine einfache Aufgabe, besonders, weil ASF von Zeit zu Zeit sehr "technisch" und schwer zu übersetzen sein kann, aber wir verstehen, dass es für eine perfekte Übersetzung oft nötig ist. Wenn du uns helfen kannst eine Sprache Korrektur zu lesen, bitten wir dich: **[Gib uns Bescheid](https://crowdin.com/messages/create/13177432)**, bedenke aber, dass du deine Anfrage mit vergangenen Beiträgen, die wir verifizieren können (etwa bei ASF oder anderen Projekten auf Crowdin), stützen musst. Wir können auch fortgeschrittenen Benutzern das initiale Korrekturlesen erlauben, wenn wir sie persönlich kennen und sie mit dem Rest der Community kooperieren können um ASF in der gegebenen Sprache bestmöglich zu übersetzen.
+Wenn du bereits in der Vergangenheit Beiträge auf Crowdin oder einer anderen Übersetzungsplattform übersetzt hast, die wir verifizieren und vertrauensvoll nennen können, würden wir uns freuen, dir Korrekturleser-Zugriff zu der Sprache zu geben, die du übersetzt, damit es dir möglich ist gegebene Übersetzungen zu genehmigen oder konsistenter zu gestalten. Korrekturlesen ist keine einfache Aufgabe, besonders, weil ASF von Zeit zu Zeit sehr "technisch" und schwer zu übersetzen sein kann, aber wir verstehen, dass es für eine perfekte Übersetzung oft nötig ist. Wenn du uns helfen kannst eine Sprache Korrektur zu lesen, bitten wir dich: **[Gib uns Bescheid](https://crowdin.com/messages/create/13177432/240376)**, bedenke aber, dass du deine Anfrage mit vergangenen Beiträgen, die wir verifizieren können (etwa bei ASF oder anderen Projekten auf Crowdin zu helfen), stützen musst. Wir können auch fortgeschrittenen Benutzern das initiale Korrekturlesen erlauben, wenn wir sie persönlich kennen und sie mit dem Rest der Community kooperieren können um ASF in der gegebenen Sprache bestmöglich zu übersetzen.
 
 Die generellen Regeln gelten auch für das Korrekturlesen - nimm dir Zeit, hör auf die Benutzer, arbeite als Projektmanager, löse Probleme und stell sicher, dass du die Dinge besser machst und nicht schlimmer.
 
@@ -85,7 +85,7 @@ ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie
 
 ## Fehlende Sprachen
 
-Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432)** und wir werden sie schnellstmöglichst hinzufügen. Wir wollen nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen.
+Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir werden sie schnellstmöglichst hinzufügen. Wir wollen nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achte einfach darauf, dass du den tatsächlichen Willen und die Entschlossenheit hast ASF in deine Sprache zu übersetzen bevor du dich entscheidest mit uns Kontakt aufzunehmen.
 
 Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://support.crowdin.com/api/language-codes)**.
 
@@ -204,7 +204,7 @@ Von dort aus kannst du den Link zum Verweis auf eine neue Position leicht korrig
 
 ### Lokale Links
 
-Im gesamten Wiki findest du auch lokale Links die auf einen bestimmten Abschnitt des Dokuments verweisen. Diese Links beginnen mit dem `#` Zeichen.
+Im gesamten Wiki findest du auch lokale Links die auf einen bestimmten Abschnitt des Dokuments verweisen. Diese Links beinhalten ein `#` Zeichen die dem Webbrowser anzeigen, dass er sich in Richtung dieses Abschnitts des Dokuments bewegen soll.
 
 Dies sind nun Sonderfälle, da diese Links auf den Namen der Abschnitte des aktuellen Dokuments basieren. Während wir für URLs die allgemeine Konvention haben der URL die `-locale` hinzuzufügen (dies funktioniert überall), werden Abschnittsnamen von dir und anderen Leuten übersetzt, also musst du sicherstellen, dass sie auf den richtigen Ort zeigen.
 
@@ -242,7 +242,7 @@ Nur weil diese Wörter nicht übersetzt werden sollten, bedeutet das nicht, dass
 
 Wie du oben sehen kannst, haben wir neben `RateLimited` "zu häufiges Aktivieren" hinzugefügt, um diesen Status benutzerfreundlich zu übersetzen, während gleichzeitig das ursprüngliche ASF-Wort beibehalten wird, dass der Benutzer während der Nutzung des Programms eventuell sieht. Auf die gleiche Weise kannst du auch andere ähnliche Fälle von verschiedenen Wörtern und Sätzen übersetzen/erklären.
 
-Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder es einen Text gibt der sich nicht in einem Codeblock befindet, sich aber in einem Codeblock befinden sollte, kannst du gerne hier auf Crowdin fragen, indem du ein entsprechendes **[Problem](#Probleme)** erstellst.
+Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder es einen Text gibt der sich nicht in einem Codeblock befindet, sich aber in einem Codeblock befinden sollte, kannst du gerne hier auf Crowdin fragen, indem du ein entsprechendes **[Problem](#Probleme)** erstellst. Dies dient auch als praktisches Beispiel für die Nutzung eines lokalen Links.
 
 * * *
 

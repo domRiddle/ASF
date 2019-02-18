@@ -1,38 +1,38 @@
 # 棄用
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
+從 ASF V3.1.2.2 開始，我們將遵循一致的棄用策略，以使開發和使用更加一致。
 
 * * *
 
-## What is deprecation?
+## 什麼是棄用？
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+棄用是重大更改（增刪）的過程，這些更改使以前使用的一些選項、參數、功能或使用方式過時。 棄用通常意味著給定的內容被簡單地重寫為另一個（類似）表單, 您應該及時確保您對其進行適當的切換。 在這種情況下，它只是將給定的功能移動到更合適的位置。
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we might change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+ASF 版本迭代迅速，總是追求卓越。 遺憾的是，這意味著我們可能會更改或將一些現有功能移動到程式的另一個部分，以便它從新功能、相容性或穩定性中受益。 正因如此，我們不需要堅持我們多年前做出的過時或錯誤的發展決定。 我們一直在努力提供合理的替換方案，以兼容以前可用的功能，這就是為什麼棄用大多是無害的，僅需要對以前的邏輯進行小的修復。
 
 * * *
 
 ## 棄用階段
 
-ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
+ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 ### 第1階段
 
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
+一旦給定的功能被棄用，就會進入第1階段，並立即對此功能提供另一個解決方案（如果沒有重新引入的計畫，則不提供）。
 
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
+在此階段，ASF 將在不推薦使用的函數被調用時列印恰當的警告。 只要有可能，ASF 就會嘗試模仿之前的行為，並繼續與之相容。 至少在下一個穩定版本發佈之前，ASF 將繼續處於第1階段。 在這個時刻，希望您在不破壞相容性的情況下，可以在所有的工具和模式中進行適當的切換，以滿足新的行為。 當您不再看到棄用警告，這表示您進行了所有適當的更改。
 
-### Stage 2
+### 第2階段
 
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+第2階段安排在上面解釋的第1階段發生後，並在穩定的版本中發佈。 此階段將完全刪除之前不推薦使用的功能，這意味著 ASF 甚至不會承認您正在嘗試使用不推薦使用的功能，更不用說考慮它了，因為它根本不存在於當前代碼中。 ASF 將不再列印任何警告，因為它不再識別您嘗試執行的操作。
 
 * * *
 
 ## 概要
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+您有至少**一個月** 來切換並適應，這對於一個普通的 ASF 使用者來說應足夠了。 在這段時間之後，ASF 不再保證舊設置將產生任何效果（第2階段），在您察覺不到的情況下使某些功能完全停止運行。 如果您在一個多月離線後啟動 ASF，建議您**[從頭來過](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**以啟動 ASF，或者再次閱讀您錯過的所有更改，並手動調整您的使用方式以適應當前的更改。
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which might or might not match your personal preferences).
+在大多數情況下，無視棄用警告並不會使 ASF 的常規功能不可用，僅會退回到預設行為（這可能與您的個人偏好相符合，也可能不符合）。
 
 * * *
 

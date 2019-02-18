@@ -25,8 +25,6 @@ ASF usa el formato **[JSON](https://en.wikipedia.org/wiki/JSON)** para almacenar
 
 La configuración puede ser hecha manualmente - creando configuraciones JSON, o usando nuestro **[ConfigGenerator basado en la web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, lo cual debería ser mucho más fácil y conveniente. A menos que seas un usuario avanzado, sugiero usar el generador de configuraciones, que será descrito a continuación.
 
-**[Regresar arriba](#configuration)**
-
 * * *
 
 ## ConfigGenerator basado en la web
@@ -37,15 +35,11 @@ Está verificado que el ConfigGenerator basado en la web funciona correctamente 
 
 El uso es bastante simple - elige si quieres generar una configuración de `ASF` o de `Bot` cambiando a la pestaña adecuada, asegúrate que la versión elegida del archivo de configuración coincida con la de ASF, luego introduce todos los detalles y haz clic en el botón "Download". Mueve este archivo al directorio `config` de ASF, sobreescribiendo los archivos existentes si es necesario. Repite para todas las posteriores modificaciones y dirígete al resto de esta sección para una explicación de todas las opciones disponibles para configurar.
 
-**[Regresar arriba](#configuration)**
-
 * * *
 
 ## Configuración manual
 
 Recomiendo fuertemente usar el ConfigGenerator basado en la web, pero por si alguna razón no quieres, entonces también puedes crear archivos de configuración tú mismo. Revisa los ejemplos de JSON debajo para un buen comienzo en la estructura apropiada, puedes copiar el contenido en un archivo y usarlo como base para tu configuración. Ya que no estás usando nuestra interfaz, asegúrate de que tu configuración es **[válida](https://jsonlint.com)**, ya que ASF se negará a cargarla si no puede ser analizada. Para una apropiada estructura JSON de todos los campos disponibles, dirígete a la sección **[mapeo JSON](#json-mapping)** y la documentación debajo.
-
-**[Regresar arriba](#configuration)**
 
 * * *
 
@@ -196,7 +190,7 @@ Tipo `string` con valor predeterminado de `null`. Esta propiedad define la contr
 
 ### `LoginLimiterDelay`
 
-Tipo `byte` con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de tarifa. El valor predeterminado de `10` fue establecido basado en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo, tal vez o quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una poca cantidad de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam restrinja temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
+Tipo `byte`con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de tarifa. El valor predeterminado de `10` fue establecido basado en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo, tal vez o quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una poca cantidad de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam restrinja temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
 
 Como nota, esto valor también es usado como un búfer balance de carga in todas las acciones de programadas de ASF, tal como intercambios en `SendTradePeriod`. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -314,10 +308,6 @@ A menos que tengas una razón para editar esta propiedad, deberías dejarla en s
 Tipo `string` con valor predeterminado de `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
 A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
-
-* * *
-
-**[Regresar arriba](#configuration)**
 
 * * *
 
@@ -506,6 +496,7 @@ Tipo `bool` con valor predeterminado de `true`. This property defines if ASF is 
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -528,6 +519,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -712,6 +704,7 @@ For further explanation of ASF trading logic, and description of every available
 | 6     | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7     | SaleItem          | Special items awarded during Steam sales                      |
 | 8     | Consumable        | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -726,8 +719,6 @@ Tipo `bool` con valor predeterminado de `true`. This property defines if ASF sho
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
-
-**[Regresar arriba](#configuration)**
 
 * * *
 
@@ -771,8 +762,6 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
-
-**[Regresar arriba](#configuration)**
 
 * * *
 
@@ -856,23 +845,17 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-**[Regresar arriba](#configuration)**
-
 * * *
 
 ## Compatibilidad de mapeo
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-**[Regresar arriba](#configuration)**
-
 * * *
 
 ## Compatibilidad de configuraciones
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
-
-**[Regresar arriba](#configuration)**
 
 * * *
 
@@ -888,5 +871,3 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
-
-**[Regresar arriba](#configuration)**

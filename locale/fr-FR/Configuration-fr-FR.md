@@ -25,8 +25,6 @@ ASF utilise le format **[JSON](https://en.wikipedia.org/wiki/JSON)** pour stocke
 
 La configuration peut être effectuée manuellement - en créant les configurations JSON appropriées ou en utilisant notre **[Panel Web de configuration](https://justarchinet.github.io/ASF-WebConfigGenerator)**, ce qui devrait être beaucoup plus simple et pratique. À moins que vous ne soyez un utilisateur expérimenté, je suggère d'utiliser le générateur de configuration, qui sera décrit ci-dessous.
 
-**[Retour en haut](#configuration)**
-
 * * *
 
 ## Panel Web de configuration
@@ -37,15 +35,11 @@ Le Panel Web de configuration est vérifié pour fonctionner correctement sur Ch
 
 L’utilisation est assez simple - indiquez si vous souhaitez générer la configuration `ASF` ou `Bot` en basculant sur l’onglet approprié, assurez-vous que la version choisie du fichier de configuration correspond à votre version ASF, puis saisissez tous les détails et cliquez sur le bouton "télécharger". Déplacez ce fichier dans le répertoire ASF `config`, en écrasant les fichiers existants si nécessaire. Répétez cette procédure pour toutes les modifications ultérieures éventuelles et reportez-vous au reste de cette section pour obtenir une explication de toutes les options disponibles pour la configuration.
 
-**[Retour en haut](#configuration)**
-
 * * *
 
 ## Configuration Manuelle
 
 Je recommande fortement d'utiliser ConfigGenerator sur le Web, mais si, pour une raison quelconque, vous ne le souhaitez pas, vous pouvez également créer les configurations appropriées vous-même. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Pour connaître la structure JSON appropriée avec tous les champs disponibles, reportez-vous à la section **[Mappage JSON](#json-mapping)** et à la documentation ci-dessous.
-
-**[Retour en haut](#configuration)**
 
 * * *
 
@@ -164,7 +158,7 @@ En bref, la valeur par défaut devrait être convenable dans la plupart des cas,
 
 <h3><code>Headless`</h3> 
 
-`bool` avec la valeur par défaut `false`. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server or in other non-interactive environment, therefore it will not attempt to read crucial account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate. This is equal to making ASF console read-only. `Headless` mode is useful mainly for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. This is useful for servers, as ASF can abort trying to log onto the account when asked for credentials, instead of waiting (infinitely) for user to provide those. Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. If you're not sure how to set this property, leave it with default value of `false`.
+`bool` avec la valeur par défaut `true</ 0>. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server or in other non-interactive environment, therefore it will not attempt to read crucial account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate. This is equal to making ASF console read-only. <code>Headless` mode is useful mainly for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. This is useful for servers, as ASF can abort trying to log onto the account when asked for credentials, instead of waiting (infinitely) for user to provide those. Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. If you're not sure how to set this property, leave it with default value of `false`.
 
 If you're running ASF on the server, you might want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
 
@@ -184,11 +178,11 @@ If you're running ASF on the server, you might want to use this option together 
 
 ### `IPC`
 
-`bool` avec la valeur par défaut `false`. Cette fonction définit si le serveur **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** d'ASF doit démarrer en même temps que le processus. IPC permet une communication inter-processus en démarrant un serveur HTTP local. Si vous n'allez pas utiliser le serveur IPC d'ASF, vous n'avez alors aucune raison d'activer cette option.
+`bool` avec la valeur par défaut `true</ 0>. Cette fonction définit si le serveur <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC">IPC</a></strong> d'ASF doit démarrer en même temps que le processus. IPC permet une communication inter-processus en démarrant un serveur HTTP local. Si vous n'allez pas utiliser le serveur IPC d'ASF, vous n'avez alors aucune raison d'activer cette option.</p>
 
-* * *
+<hr />
 
-### `IPCPassword`
+<h3><code>IPCPassword`</h3> 
 
 `chaîne` avec la valeur par défaut `null`. This property defines mandatory password for every API call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Sauf si vous avez une raison de modifier cette fonction, vous devez la conserver par défaut.
 
@@ -318,10 +312,6 @@ Sauf si vous avez une raison de modifier cette fonction, vous devez la conserver
 
 * * *
 
-**[Retour en haut](#configuration)**
-
-* * *
-
 ## Configuration Bot
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
@@ -372,7 +362,7 @@ Toutes les options sont expliquées ci-dessous :
 
 ### `AcceptGifts`
 
-`bool` avec la valeur par défaut `true</ 0>. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in <code>SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
+`bool` avec la valeur par défaut `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
 
 This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
 
@@ -482,7 +472,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `IdlePriorityQueueOnly`
 
-`bool` avec la valeur par défaut `true</ 0>. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with <code>iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
+`bool` avec la valeur par défaut `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
 
 * * *
 
@@ -507,6 +497,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 6       | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem          | Special items awarded during Steam sales                      |
 | 8       | Consumable        | Special consumable items that disappear after being used      |
+| 9       | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -529,6 +520,7 @@ Default ASF setting is based on most common usage of the bot, with looting only 
 | 6       | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem          | Special items awarded during Steam sales                      |
 | 8       | Consumable        | Special consumable items that disappear after being used      |
+| 9       | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -606,7 +598,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` avec la valeur par défaut `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+`bool` avec la valeur par défaut `true</ 0>. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with <code>Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `false`.
 
@@ -713,6 +705,7 @@ For further explanation of ASF trading logic, and description of every available
 | 6       | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem          | Special items awarded during Steam sales                      |
 | 8       | Consumable        | Special consumable items that disappear after being used      |
+| 9       | ProfileModifier   | Special items that can modify Steam profile appearance        |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -727,8 +720,6 @@ Default ASF setting is based on most common usage of the bot, with transfering o
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
-
-**[Retour en haut](#configuration)**
 
 * * *
 
@@ -772,8 +763,6 @@ Outre les fichiers de configuration, ASF utilise également le répertoire `conf
 `BotName.keys` est un fichier spécial qui peut être utilisé pour importer des clés dans **[background de jeux d’arrière-plan](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. Ce n'est pas obligatoire ni généré, mais reconnu par ASF. Ce fichier est automatiquement supprimé une fois les clés importées.
 
 `BotName.maFile` est un fichier spécial qui peut être utilisé pour importer **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. Ce n'est pas obligatoire ni généré, mais reconnu par ASF si votre `BotName` n'utilise pas encore ASF 2FA. Ce fichier est automatiquement supprimé une fois ASF 2FA importé avec succès.
-
-**[Retour en haut](#configuration)**
 
 * * *
 
@@ -857,23 +846,17 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-**[Retour en haut](#configuration)**
-
 * * *
 
 ## Mode de compatibilité
 
 En raison de limitations JavaScript empêchant de sérialiser correctement les champs `ulong` simples dans JSON lors de l'utilisation de ConfigGenerator sur le Web, les champs `ulong` seront restitués sous forme de chaînes avec `s_` préfixe dans la configuration résultante. Cela inclut par exemple `"SteamOwnerID": 76561198006963719` qui sera écrit par notre ConfigGenerator en tant que `"s_SteamOwnerID": "76561198006963719"`. ASF inclut une logique appropriée pour la gestion automatique de ce mappage de chaîne. Les entrées `s _` de vos configurations sont donc valides et correctement générées. Si vous générez vous-même des configurations, nous vous recommandons, si possible, de vous en tenir aux champs d'origine `ulong`, mais en cas d'impossibilité, vous pouvez également suivre ce schéma et les encoder sous forme de chaînes avec <0 >s_ </code> ajouté à leurs noms. Nous espérons résoudre cette limitation de JavaScript éventuellement.
 
-**[Retour en haut](#configuration)**
-
 * * *
 
 ## Compatibilité des configurations
 
 La priorité absolue pour ASF de rester compatible avec les anciennes configurations. Comme vous le savez sûrement déjà, les propriétés de configuration manquantes sont traitées de la même manière que celles définies avec leurs **valeurs par défaut**. Par conséquent, si une nouvelle propriété de configuration est introduite dans la nouvelle version d’ASF, toutes vos configurations resteront **compatibles** avec la nouvelle version, et ASF traitera cette nouvelle propriété de configuration telle qu’elle serait définie avec sa valeur **valeur par défaut**. Vous pouvez toujours ajouter, supprimer ou modifier les propriétés de configuration en fonction de vos besoins. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
-
-**[Retour en haut](#configuration)**
 
 * * *
 
@@ -889,5 +872,3 @@ Depuis ASF V2.1.6.2 +, le programme est maintenant conscient des modifications d
 Tout ce qui précède est transparent et se fera automatiquement sans qu'il soit nécessaire de redémarrer le programme ou de tuer d'autres instances de bot (non affectées).
 
 En plus de cela, ASF redémarrera également de lui-même (si ` AutoRestart ` le permet) si vous modifiez ASF de base ` ASF.json ` config. De même, le programme quittera si vous le supprimez ou le renommez.
-
-**[Retour en haut](#configuration)**

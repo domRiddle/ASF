@@ -6,19 +6,19 @@
 
 ## 標籤
 
-ASF 有4種主要類型的 **[ 標籤 ](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**：
+ASF 支援4種主要類型的**[ 標籤 ](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**：
 
 ### `master`
 
-此標記始終指向從主分支中的最新提交生成的 ASF, 其工作原理與 **[ 發佈週期 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** 中描述的實驗 AppVeyor 生成相同。 通常, 您應該避免此標記, 因為它有大量的漏洞，是以開發為目的專們給開發人員和高級使用者。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
+此標記始終指向從主分支中的最新提交生成的 ASF, 其工作原理與 **[ 發佈週期 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** 中描述的實驗 AppVeyor 生成相同。 通常，您應該避免使用此標記，因為它以開發為目的，專門提供給開發人員和高級使用者，可能有大量漏洞。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
 
 ### `released`
 
-Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+與上面類似的是，此標記始終指向**[最新發佈的ASF版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**，包括預發佈版本。 Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. 如果您不想使用 `最新` 標記，我們建議您使用此選項。 請注意，使用此標籤等於使用我們的 **[預發佈版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。
 
 ### `latest`
 
-This tag in comparison with previous two, as the first one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+This tag in comparison with previous two, as the first one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. 此標記的目的是提供一個能夠運行 ASF 並自動更新的常規預設 Docker 容器。 Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
 
 ### `A.B.C.D`
 
@@ -26,9 +26,9 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 * * *
 
-## Which tag is the best for me?
+## 哪個標籤最適合我？
 
-That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
+這取決於您需要什麼。 For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
 We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
 
@@ -42,7 +42,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 * * *
 
-## 使用
+## 使用方法
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
@@ -104,7 +104,7 @@ This has to be done only once after you created your container with `docker run`
 
 * * *
 
-## 指令行參數
+## 命令列參數
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container by using `ASF_ARGS` environment variable. This can be added on top of `docker run` with `-e` switch. 範例：
 

@@ -52,7 +52,7 @@ Aber diese beiden sind völlig in Ordnung:
 
 * * *
 
-`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Durch die Angabe dieses Arguments wechselt ASF nach der Initialisierung zu dem angegebenen Verzeichnis. Dadurch kannst du einen benutzerdefinierten Pfad für das Verzeichnis `config` (und optional auch `www`) verwenden, ohne dass du Binärdateien an diese Stelle kopieren musst. Es könnte besonders nützlich sein, wenn du die Binärdatei von der eigentlichen Konfiguration trennst, wie es in einem Linux-ähnlichen Paket geschieht. Auf diese Weise kannst du eine einzelne (aktuelle) Binärdatei mit mehreren verschiedenen Einstellungen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Wenn du mehrere Instanzen derselben Binärdatei ausführst, denke daran, dass du normalerweise automatische Updates deaktivieren solltest, da es keine Synchronisation zwischen ihnen gibt. Bedenke auch, dass dieser Befehl auf einen neuen "ASF Ordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF Ordner hat, mit einem Verzeichnis `config` darin.
+`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Durch die Angabe dieses Arguments wechselt ASF nach der Initialisierung zu dem angegebenen Verzeichnis. Dadurch kannst du einen benutzerdefinierten Pfad für das `config` (und optional auch andere wie `plugins` oder `www`) Verzeichnis verwenden, ohne dass du Binärdateien an diese Stelle kopieren musst. Es könnte besonders nützlich sein, wenn du die Binärdatei von der eigentlichen Konfiguration trennst, wie es in einem Linux-ähnlichen Paket geschieht. Auf diese Weise kannst du eine einzelne (aktuelle) Binärdatei mit mehreren verschiedenen Einstellungen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Wenn du mehrere Instanzen derselben Binärdatei ausführst, denke daran, dass du normalerweise automatische Updates deaktivieren solltest, da es keine Synchronisation zwischen ihnen gibt. Bedenke auch, dass dieser Befehl auf einen neuen "ASF Ordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF Ordner hat, mit einem Verzeichnis `config` darin.
 
 Beispiel:
 
@@ -67,6 +67,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relativer Pfad fu
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
+    │           └── plugins (optional)
     │           └── www (optional)
     └── ...
     

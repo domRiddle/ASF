@@ -11,19 +11,19 @@ ASF 支持一些能夠影響程式運行時的指令參數。 高級用戶可使
 Generic（通用）:
 
 ```shell
-dotnet ArchiSteamFarm.dll --參數 -- 另一個
+dotnet ArchiSteamFarm.dll --argument --otherOne
 ```
 
 Windows:
 
 ```powershell
-.\ArchiSteamFarm.exe --參數--另一個
+.\ArchiSteamFarm.exe --argument --otherOne
 ```
 
 Linux/OS X
 
 ```shell
-./ArchiSteamFarm --參數--另一個
+./ArchiSteamFarm --argument --otherOne
 ```
 
 指令參數也可用於通用輔助腳本中，例如`ArchiSteamFarm.cmd`或`ArchiSteamFarm.sh`。 除此之外，如在**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**一節中所述，使用輔助腳本時，您也可使用`ASF_ARGS`環境屬性。
@@ -44,43 +44,42 @@ Linux/OS X
 
 ## 參數
 
-`--cryptkey<key>`  或 `--cryptkey=<key>`將以值為`<code><key>`</code>的自定義密鑰啟動 ASF。 此參數將導致 ASF 使用您所提供的自定義密鑰`<key>`， 而非硬編碼在程式中的預設密鑰, 且影響**[​安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​。 請謹記使用此密鑰加密的密碼在每次 ASF 運行時傳遞相同的密鑰才能正確解密。
+`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
 
 * * *
 
-`--no-restart` 此開關主要用於 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** 容器並將 `AutoRestart` 強制設置為 `false`。 除非有特殊的需要，否則您應直接在描述檔中配置 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全局配置即可適應環境。 當然，如果是在腳本中運行 ASF，您也可以使用此開關（否則您最好使用全局配置屬性）。
+`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. 除非有特殊的需要，否則您應直接在描述檔中配置 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全局配置即可適應環境。 當然，如果是在腳本中運行 ASF，您也可以使用此開關（否則您最好使用全局配置屬性）。
 
 * * *
 
-`--path <path>` 或 `--path=<path>` - ASF在啟動時始終會定位至自身所在的資料夾。 通過指定此參數，ASF 會在初始化完成後開始使用指定的資料夾，這讓您可以使用自定義路徑來定義`config`（或者 `www`）資料夾的位置，而無需複製二進位檔案至默认資料夾。 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用, 正如Linux 打包機制——這樣您就可以在多個配置中使用一個（最新的）二進位檔案。 此路徑既可以是基於 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 請注意，當使用同一份二進位檔案運行不同實例時應禁用自動更新功能，因為它們之間不會進行同步。 也請注意，該命令指向新的「ASF 主資料夾」——與原始的 ASF 具有相同結構的資料夾，其中包含 `config` 資料夾。
+`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用, 正如Linux 打包機制——這樣您就可以在多個配置中使用一個（最新的）二進位檔案。 此路徑既可以是基於 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 請注意，當使用同一份二進位檔案運行不同實例時應禁用自動更新功能，因為它們之間不會進行同步。 Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
 
 範例:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll - 路徑
-/opt/TargetDirectory # 絕對路徑
-dotnet /opt/ASF/ArchiSteamFarm.dll - 路徑
-../TargetDirectory # 相對路徑
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
 ```
 
     ├── /opt
     │     ├── ASF
     │     │     ├── ArchiSteamFarm.dll
     │     │     └── ...
-    │     └── 目標目录
-    │           ├── config（配置）
-    │           └── www (可選）
+    │     └── TargetDirectory
+    │           ├── config
+    │           └── plugins (optional)
+    │           └── www (optional)
     └── ...
     
 
 * * *
 
-`--process-required` 預設情況下，ASF 將會在無機器人運行的情況下關閉，聲明此開關將禁用這一行為。 當與 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 配合使用時停用自動關閉會非常有用，大部分用戶希望自己能夠正常運行網頁服務，無論啟用多少機器人。 如果您在使用 IPC 或者需要 ASF 進程持續運行直至手動關閉它，這就是正確的選項。
+`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
 
-如果您不打算運行 IPC，那麼該選項對您來說毫無用處，因為您可以在需要時重新啟動進程（與需要始終監聽以接受命令的 ASF 網頁服務相反）。
+If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
 
 * * *
 
-`--system-required` 聲明這個開關將會導致 ASF 嘗試通知作業系統“此進程需要在運行過程中保持系統處於啟動狀態並正常運行”。 目前, 此開關僅對 windows 設備有效, 只要進程正在運行, 它就會阻止您的系統進入睡眠模式。 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 將會在掛卡時保持電腦處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動退出，使您的作業系統可以進入睡眠模式，以此節約電力消耗。
+`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 將會在掛卡時保持電腦處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動退出，使您的作業系統可以進入睡眠模式，以此節約電力消耗。
 
-請注意，要让 ASF正確地自動關閉，您還需要其他設置——特別是避免 `--process-required`，且確保所有機器人都已啟用 `ShutdownOnFarmingFinished`。 當然，自動關閉只是這個參數的用法之一，因為您還可以將此參數配合 `--process-required` 使用，使您的作業系統在 ASF 啟動之後無限運行下去。
+Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. 當然，自動關閉只是這個參數的用法之一，因為您還可以將此參數配合 `--process-required` 使用，使您的作業系統在 ASF 啟動之後無限運行下去。

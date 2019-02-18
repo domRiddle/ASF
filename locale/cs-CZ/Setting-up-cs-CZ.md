@@ -135,7 +135,7 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![Structure 2](https://i.imgur.com/crWdjcp.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
@@ -186,7 +186,7 @@ So let's do that, if you run ASF and start idling, in default settings you'll se
 
 Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
 
@@ -194,7 +194,7 @@ Once you do that and start ASF again, you'll notice that ASF now displays your c
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, then downloading generated config and replacing core `ASF.json` file.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 * * *
 

@@ -13,7 +13,7 @@
 * **[Hjem](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[OSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Opsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start her)**
+* **[Opsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-da-DA)** **(start her)**
 
 ## Kernefunktioner
 
@@ -38,7 +38,7 @@
 * **[Lav-hukommelsesopsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sikkerhed](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Tredjepart](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[To-faktor autentificering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Udviklere

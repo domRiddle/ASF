@@ -112,7 +112,7 @@ Nach dem Öffnen der Seite klicke auf "Bot". Du solltest nun eine ähnliche Seit
 
 Wenn die Version von ASF, die du gerade heruntergeladen hast, älter ist als der Konfigurationsgenerator, der standardmäßig verwendet wird, wähle einfach deine ASF-Version aus dem Dropdown-Menü. Dies kann passieren, da der Konfigurationsgenerator zum Erzeugen von Konfigurationen für neuere (Vorabversionen) ASF-Versionen verwendet werden kann, die noch nicht als stabil markiert wurden. Du hast die neueste stabile Version von ASF heruntergeladen, die auf ihre zuverlässige Funktion überprüft wurde.
 
-Beginne damit, den Namen deines Bot in das rot markierte Feld zu schreiben. Dies kann jeder beliebige Name sein, den du verwenden möchtest, wie z.B. dein Spitzname, Kontoname, eine Nummer oder etwas anderes. Es gibt nur ein Wort, das du nicht verwenden kannst, nämlich `ASF`, da dieses Schlüsselwort für die globale Konfigurationsdatei reserviert ist. Außerdem kann dein Bot-Name nicht mit einem Punkt beginnen (ASF ignoriert diese Dateien absichtlich). Wir empfehlen dir auch, keine Leerzeichen zu verwenden, du solltest `_` bei Bedarf als Trennzeichen verwenden.
+Beginne damit, den Namen deines Bot in das rot markierte Feld zu schreiben. Dies kann jeder beliebige Name sein, den du verwenden möchtest, wie z.B. dein Spitzname, Kontoname, eine Nummer oder etwas anderes. Es gibt nur ein Wort, das du nicht verwenden kannst, nämlich `ASF`, da dieses Schlüsselwort für die globale Konfigurationsdatei reserviert ist. Außerdem kann dein Bot-Name nicht mit einem Punkt beginnen (ASF ignoriert diese Dateien absichtlich). Wir empfehlen dir auch keine Leerzeichen zu verwenden. Du solltest bei Bedarf `_` als Trennzeichen verwenden.
 
 Nachdem du dich für einen Namen entschieden hast, aktiviere den `Enabled` Schalter. Hiermit wird festgelegt, ob dein Bot von ASF automatisch nach dem Start (des Programms) gestartet werden soll.
 
@@ -121,11 +121,11 @@ Jetzt kannst du dich für zwei Dinge entscheiden:
 - Du kannst deinen Login in das Feld `SteamLogin` und dein Passwort in das `SteamPassword` Feld eintragen
 - Oder du kannst sie leer lassen
 
-Wenn du das erste tust, kann ASF deine Konto-Anmeldeinformationen während des Startvorgangs automatisch verwenden, so dass du sie nicht jedes Mal manuell eingeben musst, wenn ASF sie benötigt. Du kannst sie jedoch auch weglassen, in diesem Fall werden sie nicht gespeichert, so dass ASF nicht ohne deine Hilfe automatisch starten kann und du sie während der Laufzeit eingeben musst.
+Wenn du das erste tust, kann ASF deine Konto-Anmeldeinformationen während des Startvorgangs automatisch verwenden, so dass du sie nicht jedes Mal manuell eingeben musst, wenn ASF sie benötigt. Du kannst sie jedoch auch weglassen. In diesem Fall werden sie nicht gespeichert, so dass ASF nicht ohne deine Hilfe automatisch starten kann und du sie während der Laufzeit eingeben musst.
 
-ASF benötigt deine Anmeldeinformationen, da es seine eigene Implementierung des Steam-Clients beinhaltet und die gleichen Details benötigt, die du selbst benutzt, um dich anzumelden. Deine Anmeldeinformationen werden nirgends außer auf deinem PC im ASF `config` Verzeichnis gespeichert, unser Web-Konfigurationsgenerator ist client-basiert, was bedeutet, dass der Programmcode lokal in deinem Browser ausgeführt wird, um gültige ASF-Konfigurationen zu generieren, ohne dass du Details eingibst, die deinen PC überhaupt erst verlassen, so dass du dir keine Sorgen über einen möglichen Verlust vertraulicher Daten machen musst. Dennoch, wenn du aus irgendeinem Grund deine Zugangsdaten nicht dort ablegen möchtest, verstehen wir das, und du kannst sie später manuell in generierte Dateien einfügen, oder sie ganz weglassen und nur in die ASF-Befehlszeile eingeben. Mehr zu Sicherheitsfragen findest du im Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
+ASF benötigt deine Anmeldeinformationen, da es seine eigene Implementierung des Steam-Clients beinhaltet und die gleichen Details benötigt, die du selbst benutzt um dich anzumelden. Deine Anmeldeinformationen werden nirgends außer auf deinem PC im `config` ASF-Verzeichnis gespeichert. Unser Web-Konfigurationsgenerator ist client-basiert, was bedeutet, dass der Programmcode lokal in deinem Browser ausgeführt wird, um gültige ASF-Konfigurationen zu generieren, ohne dass du Details eingibst, die deinen PC überhaupt erst verlassen, so dass du dir keine Sorgen über einen möglichen Verlust vertraulicher Daten machen musst. Dennoch, wenn du aus irgendeinem Grund deine Zugangsdaten dort nicht eingeben möchtest, verstehen wir das, und du kannst sie später manuell in generierte Dateien einfügen, oder sie ganz weglassen und sie nur in die ASF-Befehlszeile eingeben. Mehr zu Sicherheitsfragen findest du im Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 
-Du kannst auch nur ein Feld leer lassen, wie z.B. `SteamPassword`, ASF kann dann dein Login automatisch verwenden, fragt aber trotzdem nach dem Passwort (ähnlich dem Steam Client). Wenn du Steam-Parental benutzt, um das Konto freizuschalten, musst du es in das Feld `SteamParentalCode` eingeben.
+Du kannst auch nur ein Feld leer lassen, wie z.B. `SteamPassword`. ASF kann dann dein Login automatisch verwenden, fragt aber trotzdem nach dem Passwort (ähnlich wie beim Steam Client). Wenn du die Steam-Familienansicht benutzt um das Konto freizuschalten musst du es in das Feld `SteamParentalCode` eingeben.
 
 Nach der Entscheidung und den optionalen Details wird deine Webseite nun ähnlich wie die untenstehende aussehen:
 
@@ -135,7 +135,7 @@ Du kannst jetzt auf den "Download"-Button klicken und unser Web-Konfigurationsge
 
 Dein `config` Verzeichnis sieht nun wie folgt aus:
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![Structure 2](https://i.imgur.com/crWdjcp.png)
 
 Glückwunsch! Du hast gerade die sehr einfache ASF-Bot-Konfiguration abgeschlossen. Wir werden dies in Kürze erweitern, denn jetzt ist dies alles, was du brauchst.
 
@@ -153,7 +153,7 @@ Wenn du `SteamLogin` und `SteamPassword` für ASF angegeben hast, wirst du nur n
 
 Jetzt ist ein guter Zeitpunkt, um unseren Abschnitt zur **[Datenschutzerklärung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE#aktuelle-datenschutzerkl%C3%A4rung)** zu lesen, wenn du dir Sorgen darüber machst, was als nächstes passieren wird, wie von ASF selbst angegeben.
 
-Nachdem du das anfängliche Anmeldeportal passiert hast, wirst du dich erfolgreich anmelden, wenn deine Daten korrekt sind, und ASF beginnt mit den Standardeinstellungen, die du bisher nicht geändert hast, zu sammeln:
+Nachdem du das anfängliche Anmeldeportal passiert hast, (davon ausgegangen, dass deine Daten korrekt sind) wirst du erfolgreich angemeldet und ASF beginnt mit den Standardeinstellungen, die du bisher nicht geändert hast, zu sammeln:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
@@ -178,7 +178,7 @@ Mit anderen Worten, gehe einfach erneut zur Konfiguration und mache genau das Gl
 
 #### Einstellungen ändern
 
-Du kannst bestehende Einstellungen auf die gleiche Weise ändern, indem du eine neue Konfigurationsdatei erzeugst. Wenn du unseren Web-Konfigurationsgenerator noch nicht geschlossen hast, klicke auf "Erweiterte Einstellungen anzeigen" und sieh dir an, was du entdecken kannst. Für diese Anleitung werden wir die Einstellung `CustomGamePlayedWhileFarming` ändern, mit der du einstellen kannst, dass der benutzerdefinierte Name angezeigt wird, wenn ASF am Sammeln ist, anstatt das aktuelle Spiel anzuzeigen.
+Du kannst bestehende Einstellungen auf die gleiche Weise ändern, indem du eine neue Konfigurationsdatei erzeugst. Wenn du unseren Web-Konfigurationsgenerator noch nicht geschlossen hast, klicke auf "Zu den erweiterten Einstellungen umschalten" und sieh dir an, was du entdecken kannst. Für diese Anleitung werden wir die Einstellung `CustomGamePlayedWhileFarming` ändern, mit der du einstellen kannst, dass der benutzerdefinierte Name angezeigt wird, wenn ASF am Sammeln ist, anstatt das aktuelle Spiel anzuzeigen.
 
 Also lass uns das tun, wenn du ASF ausführst und das Sammeln beginnst, wirst du in den Standardeinstellungen sehen, dass dein Steam-Konto jetzt im Spiel ist:
 
@@ -186,7 +186,7 @@ Also lass uns das tun, wenn du ASF ausführst und das Sammeln beginnst, wirst du
 
 Lass uns das jetzt ändern. Aktiviere die erweiterten Einstellungen im Webkonfigurationsgenerator und suche `CustomGamePlayedWhileFarming`. Sobald du das getan hast, füge dort deinen eigenen benutzerdefinierten Text ein, den du anzeigen möchtest, wie zum Beispiel "Idling cards":
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 Nun kannst du die neue Konfigurationsdatei auf genau die gleiche Weise herunterladen, dann **überschreibe** deine alte Konfigurationsdatei mit der neuen. Du kannst natürlich auch deine alte Konfigurationsdatei löschen und an ihre Stelle die neue einfügen.
 
@@ -194,7 +194,7 @@ Sobald du das getan hast und ASF erneut startest, wirst du feststellen, dass ASF
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-Dies bestätigt, dass du deine Konfiguration erfolgreich bearbeitet hast. Auf genau die gleiche Weise kannst du die globale ASF-Eigenschaften ändern, indem du von der Bot-Registerkarte auf die Registerkarte "ASF" wechselst, dann die generierte Konfiguration herunterlädst und die Kern-Datei `ASF.json` ersetzt.
+Dies bestätigt, dass du deine Konfiguration erfolgreich bearbeitet hast. Auf genau die gleiche Weise kannst du globale ASF-Eigenschaften ändern, indem du vom Bot-Tab zum "ASF"-Tab wechselst, die generierte `ASF.json` Konfigurationsdatei herunterlädst und sie in dein `config` Verzeichnis legst.
 
 * * *
 

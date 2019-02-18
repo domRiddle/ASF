@@ -14,7 +14,7 @@
 
 ## 编译
 
-假设您已安装适当版本的 .NET Core SDK，现在只需要前往 ASF 目录并执行：
+假设您已安装适当版本的 .NET Core SDK，现在只需要前往 ASF 源代码目录（Clone 或者下载并解压的 ASF 仓库）并执行：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"

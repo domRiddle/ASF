@@ -135,7 +135,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 您的 `config` 文件夹现在看起来类似：
 
-![Structure 2](https://i.imgur.com/2s7ZUUu.png)
+![Structure 2](https://i.imgur.com/crWdjcp.png)
 
 恭喜您！ 您刚刚完成了最基本的 ASF 机器人配置。 我们会在之后对此进行扩展，但现在这就是您需要的一切。
 
@@ -186,7 +186,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 我们可以改变它。 在配置文件生成器中启用高级设置，找到 `CustomGamePlayedWhileFarming`。 找到之后，在这里填写您想要显示的文本，例如“Idling cards”（挂卡中）。
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 现在，像之前一样下载新的配置文件，然后**覆盖**旧的配置文件。 当然，您也可以先删除旧配置文件，再将新配置文件放到原来的地方。
 
@@ -194,7 +194,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-这证明您已经成功更改了配置文件。您也可以用同样地方式更改全局 ASF 属性，只需要切换到“ASF”标签，然后下载生成的配置文件，替换掉 `ASF.json` 文件。
+这证明您已经成功更改了配置文件。您也可以用同样的方式更改全局 ASF 属性，只需要切换到“ASF”标签，下载生成的 `ASF.json` 配置文件，将其放到 `config` 文件夹内。
 
 * * *
 

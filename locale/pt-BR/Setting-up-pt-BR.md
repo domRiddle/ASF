@@ -135,7 +135,7 @@ Agora você pode clicar em "baixar" e o gerador de configuração web vai gerar 
 
 Sua pasta `config` ficará assim:
 
-![Estrutura 2](https://i.imgur.com/2s7ZUUu.png)
+![Estrutura 2](https://i.imgur.com/crWdjcp.png)
 
 Parabéns! Você acabou de terminar a configuração básica de um bot ASF. Nós vamos ampliar isso em breve, mas por enquanto isso é tudo o que você precisa saber.
 
@@ -186,7 +186,7 @@ Então vamos lá, se você executar o ASF e iniciar a coleta, com as configuraç
 
 Vamos mudar isso. Vá para as configurações avançada do gerador de configuração web e encontre `CustomGamePlayedWhileFarming`. Coloque no campo o texto que você quer mostrar, por exemplo: "Idling Cards":
 
-![Aba bot 4](https://i.imgur.com/gHqdEqb.png)
+![Aba bot 3](https://i.imgur.com/gHqdEqb.png)
 
 Agora baixe o arquivo de configuração da mesma forma que antes e **substitua** o arquivo antigo por esse. Você também pode apagar o antigo e colocar esse novo no lugar.
 
@@ -194,7 +194,7 @@ Assim que fizer isso e abrir o ASF novamente você vai perceber que o Steam agor
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-Isso confirma que você editou sua configuração com sucesso. Da mesma forma você pode editar as configurações globais do ASF, apenas mudando da aba "Bot" para a aba "ASF", baixando a configuração gerada e substituindo o arquivo principal `ASF.json`.
+Isso confirma que você editou sua configuração com sucesso. Da mesma forma você pode editar as configurações globais do ASF, apenas mudando da aba "Bot" para a aba "ASF", baixando o arquivo de configuração `ASF.json` e o colocando na pasta `config`.
 
 * * *
 

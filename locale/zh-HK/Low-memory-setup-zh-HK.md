@@ -42,15 +42,15 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 * * *
 
-## Runtime tuning (advanced)
+## 運行時優化（進階）
 
 Below tricks **involve performance degradation** and should be used with caution.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` 允許您調整 ASF 運行時，特別是在伺服器 GC 和工作站 GC 之間切換。
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection: - Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the `<gcServer>` element in the runtime configuration schema. - Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> 垃圾收集器是自調整的，可以在各種情況下工作。 您可以使用設定檔根據工作負荷的特徵設置垃圾回收的類型。 CLR 提供以下類型的垃圾回收： ——工作站垃圾回收，適用于所有用戶端工作站和獨立 PC。 這是運行時配置架構中 `<gcServer>` 元素的默認設置。 ——伺服器垃圾回收，適用于需要高吞吐量和可伸縮性的伺服器應用程式。 伺服器垃圾回收可以是非併發方式的，也可以在後台運行。
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+可在**[垃圾收集概要](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**中了解更多。
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 

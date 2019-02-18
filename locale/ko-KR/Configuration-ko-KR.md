@@ -25,8 +25,6 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
 
 환경설정은 정확한 JSON 환경설정을 작성하여 수동으로 혹은 훨씬 쉽고 편리한 **[웹 기반 환경설정 생성기(ConfigGenerator)](https://justarchinet.github.io/ASF-WebConfigGenerator)** 를 이용해서 가능합니다. 고급 사용자가 아니라면 아래에서 설명할 환경설정 생성기를 사용하는 것을 추천합니다.
 
-**[위로 돌아가기](#환경설정)**
-
 * * *
 
 ## 웹 기반 환경설정 생성기(ConfigGenerator)
@@ -37,15 +35,11 @@ The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-
 
 사용법은 매우 간단합니다. 적절한 탭을 선택해서 생성을 원하는 `ASF` 또는 `봇` 환경설정을 선택합니다. ASF 버전과 환경설정 파일의 버전이 맞는지 다시한번 확인 후, 모든 세부내용을 입력하고 "다운로드" 버튼을 누릅니다. 이 파일을 ASF의 `config` 디렉토리로 옮깁니다. 필요하다면 기존의 파일에 덮어쓰기 합니다. 매 최종수정마다 이를 반복합니다. 환경설정에서 가능한 옵션에 대한 설명은 이 섹션의 나머지 부분을 참고하십시오.
 
-**[위로 돌아가기](#환경설정)**
-
 * * *
 
 ## 수동 환경설정
 
 웹기반 환경설정 생성기를 사용하는 것을 매우 권장합니다만, 모종의 이유로 사용을 원하지 않는 경우에는 직접 정확한 환경설정파일을 만들 수도 있습니다. 정확한 구조를 위해 아래의 JSON 예제를 참조하여, 이를 파일로 복사하여 자신의 환경설정의 기본으로 사용할 수도 있습니다. 우리의 프론트엔드를 사용하지 않으므로 환경설정이 **[유효한지](https://jsonlint.com)** 확인해야 합니다. 그렇지 않으면 ASF는 파싱할 수 없어 로딩을 거부할 것입니다. 모든 가능한 항목의 적절한 JSON 구조는 아래의 **[JSON 매핑](#json-매핑)** 항목과 설명을 참고하십시오.
-
-**[위로 돌아가기](#환경설정)**
 
 * * *
 
@@ -317,10 +311,6 @@ ASF의 업데이트 프로세스는 `config` 디렉토리에 위치한 환경설
 
 * * *
 
-**[위로 돌아가기](#환경설정)**
-
-* * *
-
 ## 봇 환경설정
 
 당신이 이미 알다시피, 모든 봇은 자신만의 설정을 가지고 있어야 합니다. 아래는 기본이 되는 JSON구조의 예시입니다. `1.json`, `main.json`, `primary.json` 또는 `AnythingElse.json` 등 봇의 이름을 짓는 것부터 시작해서 환경설정으로 넘어갑니다.
@@ -420,7 +410,7 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 ### `CustomGamePlayedWhileFarming`
 
-`string` 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
+문자열(`string`) 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
@@ -506,6 +496,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
 | 7 | SaleItem                    | Special items awarded during Steam sales                 |
 | 8 | Consumable                  | Special consumable items that disappear after being used |
+| 9 | ProfileModifier             | Special items that can modify Steam profile appearance   |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 항목만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
@@ -528,6 +519,7 @@ ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 루팅�
 | 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
 | 7 | SaleItem                    | Special items awarded during Steam sales                 |
 | 8 | Consumable                  | Special consumable items that disappear after being used |
+| 9 | ProfileModifier             | Special items that can modify Steam profile appearance   |
 
 물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -712,6 +704,7 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 | 6 | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함                        |
 | 7 | SaleItem                    | Special items awarded during Steam sales                 |
 | 8 | Consumable                  | Special consumable items that disappear after being used |
+| 9 | ProfileModifier             | Special items that can modify Steam profile appearance   |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 항목만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
@@ -726,8 +719,6 @@ ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 전송�
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
-
-**[위로 돌아가기](#환경설정)**
 
 * * *
 
@@ -771,8 +762,6 @@ ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하�
 `봇이름.keys`는 **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 에서 불러올 키를 저장하는 특별한 파일입니다. 이 파일은 필수사항도 아니고 생성되지도 않지만 ASF가 인식은 합니다. 이 파일은 키를 성공적으로 불러온 다음 자동으로 삭제됩니다.
 
 `봇이름.maFile`은 **[ASF 2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 불러오는데 사용하는 특별한 파일입니다. 이 파일은 필수사항도 아니고 생성되지도 안지만 `봇이름`이 ASF 2단계 인증을 사용하지 않는경우 ASF가 인식합니다. 이 파일은 ASF 2단계 인증을 성공적으로 불러온 다음 자동으로 삭제됩니다.
-
-**[위로 돌아가기](#환경설정)**
 
 * * *
 
@@ -856,23 +845,17 @@ ASF가 사용하는 타입은 네이티브 C# 타입으로, 아래에 설명되�
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-**[위로 돌아가기](#환경설정)**
-
 * * *
 
 ## 호환성 매핑
 
 웹기반 ConfigGenerator를 사용할 때 JSON의 `ulong` 항목을 정확하게 표현할 수 없는 자바 스크립트의 한계로, `ulong` 항목은 환경설정에 `s_` 접두사가 붙는 문자열로 처리됩니다. 예를 들어 `"SteamOwnerID": 76561198006963719`는 ConfigGenerator에서 `"s_SteamOwnerID": "76561198006963719"`로 표기됩니다. ASF는 이 문자열 매핑을 자동으로 처리할 수 있는 적절한 논리구조를 가지고 있으며, 환경설정의 `s_` 항목은 실제로 유효하고 정확하게 생성된 것입니다. 만약 환경설정을 스스로 생성한다면, 가능하면 원래의 `ulong` 항목을 사용하기를 권장하지만 그럴수 없다면 이름에 `s_` 접두사를 붙여서 문자열로 인코딩하는 방식을 사용할 수도 있습니다. 이 자바 스크립트 한계가 해결되기를 바랍니다.
 
-**[위로 돌아가기](#환경설정)**
-
 * * *
 
 ## 환경설정 호환성
 
 ASF가 오래된 환경설정과도 호환성을 유지하도록 하는 것은 최우선사항입니다. 아시다시피, 환경설정 속성값이 없다면 **기본값** 으로 정의된 것과 동일하게 처리됩니다. 따라서 새 환경설정 속성값이 ASF 새버전에 도입되면, 당신의 모든 환경설정은 새 버전과 **호환됩니다**. ASF는 새로운 환경설정 속성값을 **기본값**으로 정의된 것으로 처리합니다. 언제나 필요에 따라 환경설정 속성값을 추가하고, 제거하고, 변경할 수 있습니다. 정의된 환경설정 속성값을 변경하기를 원하는 것으로만 제한하는 것을 권장합니다. 이렇게 해서 자동으로 다른 모든 속성값을 기본값으로 상속받을 수 있고, 환경설정을 깨끗하게 유지하고 당신이 스스로 명시적으로 설정하고 싶지 않은 속성값을 우리가 기본값으로 변경하길 원하는 경우에 호환성을 증가시킬 수 있습니다(예: `WebLimiterDelay`).
-
-**[위로 돌아가기](#환경설정)**
 
 * * *
 
@@ -888,5 +871,3 @@ ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지�
 위의 모든 것은 투명하고 프로그램의 재시작이나 다른 영향이 없는 봇 인스턴스의 중지 없이 자동으로 수행됩니다.
 
 게다가 ASF는 `AutoRestart`가 허용되어있다면 `ASF.json` 환경설정이 변경되면 ASF를 재시작합니다. 동일하게 삭제하거나 이름을 바꾸면 프로그램은 종료됩니다.
-
-**[위로 돌아가기](#환경설정)**

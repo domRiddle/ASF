@@ -14,7 +14,7 @@ ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체
 
 ## 컴파일
 
-적절한 .NET Core SDK 버전이 실행되고 있다고 가정하고, ASF 디렉토리로 이동해서 다음을 실행합니다:
+Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
@@ -32,7 +32,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
-물론 대상으로 하는 OS 아키텍쳐에 따라 `linux-x64`를 `win-x64` 등으로 변경하십시오. 이 빌드도 업데이트가 비활성화됩니다.
+Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. 이 빌드도 업데이트가 비활성화됩니다.
 
 ### .NET Framework
 

@@ -1,6 +1,6 @@
 # 編譯
 
-編譯是創建可執行檔的過程。 如果您想將自己的更改添加到ASF, 或者出於任何原因不信任官方 **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 中提供的可執行檔, 則需要執行此操作。 如果您是用戶而不是開發人員, 則很可能需要使用已預編譯的二進位檔案, 但如果您希望使用自己的二進位檔案, 或學習新內容, 請繼續閱讀。
+編譯是創建可執行檔的過程。 如果您想將自己的更改添加到ASF，或者出於任何原因不信任官方 **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 中提供的可執行檔，則需要執行此操作。 如果您是用戶而不是開發人員，則很可能需要使用已預編譯的二進位檔案，但如果您希望使用自己的二進位檔案或學習新內容，請繼續閱讀。
 
 只要您擁有所有需要的工具， 即可以在任何當前支援的平臺上編譯ASF。
 
@@ -14,7 +14,7 @@
 
 ## 編譯
 
-假設您已安裝適當版本的 .NET Core SDK，現在只需前往 ASF 目錄並執行：
+Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
@@ -32,7 +32,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
-當然，您需要將 `linux-x64` 替換成您需要的目標作業系統架構，例如 `win-x64`。 這一構建也將禁用自動更新。
+Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. 這一構建也將禁用自動更新。
 
 ### .NET 框架
 

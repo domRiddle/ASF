@@ -42,7 +42,7 @@ A flexibilidade é fornecida especialmente para você, então você pode reformu
 
 Se a frase já foi traduzida por alguém, você pode votar nela. O voto torna possível escolher a melhor variante da tradução ao invés de se prender a sugestão inicial - isso melhora ainda mais a qualidade da tradução. Você pode votar nas sugestões já disponíveis ou sugerir a sua própria tradução, que passará pelo mesmo processo. Eventualmente, a frase final será escolhida pela sugestão mais votada ou pelo revisor escolhido para aquele idioma, que aprova manualmente determinada tradução (baseada em seus votos também).
 
-**Não é preciso aprovação para ver suas linhas traduzidas no ASF**. Aprovação significa simplesmente que alguém confiável revisou o conteúdo, e escolheu a versão final da tradução. É perfeitamente normal ter traduções criadas pela comunidade não aprovadas, onde você vota pela melhor. Contanto que esteja traduzido, tudo bem! E se você acha que a tradução atual está ruim, você sempre pode votar pela melhor, ou sugerir uma você mesmo!
+**Não é preciso aprovação para ver suas linhas traduzidas no ASF**. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. É perfeitamente normal ter traduções criadas pela comunidade não aprovadas, onde você vota pela melhor. Contanto que esteja traduzido, tudo bem! E se você acha que a tradução atual está ruim, você sempre pode votar pela melhor, ou sugerir uma você mesmo.
 
 * * *
 
@@ -50,7 +50,7 @@ Se a frase já foi traduzida por alguém, você pode votar nela. O voto torna po
 
 É uma boa ideia ter uma tradução consistente, mesmo que potencialmente possa tomar a liberdade do processo de revisão/votação da comunidade explicado acima. Isto ocorre principalmente porque traduções incorretas que não são necessariamente ruins podem ter tantos votos favoráveis que já não é possível sugerir qualquer tradução melhor, mesmo se alguém a tem.
 
-Se você tem histórico de contribuições no Crowdin ou qualquer outra plataforma/serviço de localização que podemos verificar e assumir confiável, estaremos felizes em dar-lhe o acesso de revisor para o idioma que você está contribuindo, então você será capaz de aprovar determinada tradução e torná-lo coerente. A prova de leitura não é uma tarefa fácil, especialmente porque o ASF pode ser muito "técnico" as vezes e muito difícil de traduzir, mas entendemos que muitas vezes é necessário para uma perfeita tradução. Portanto, se você pode ajudar revisando determinado idioma, **[diga-nos](https://crowdin.com/messages/create/13177432)**, mas tenha em mente que você precisará suportar seu pedido com contribuições de localização anteriores que podessamos verificar (por exemplo, trabalhando com a localização do ASF no Crowdin, ou com qualquer outro projeto). Nós também podemos permitir que usuários mais avançados realizem uma revisão inicial se nós os conhecemos pessoalmente e eles são capazes de cooperar com o resto da comunidade a fim de melhor localizar o ASF nesse determinado idioma.
+Se você tem histórico de contribuições no Crowdin ou qualquer outra plataforma/serviço de localização que podemos verificar e assumir confiável, estaremos felizes em dar-lhe o acesso de revisor para o idioma que você está contribuindo, então você será capaz de aprovar determinada tradução e torná-lo coerente. A prova de leitura não é uma tarefa fácil, especialmente porque o ASF pode ser muito "técnico" as vezes e muito difícil de traduzir, mas entendemos que muitas vezes é necessário para uma perfeita tradução. Portanto, se você pode ajudar revisando determinado idioma, **[diga-nos](https://crowdin.com/messages/create/13177432/240376)**, mas tenha em mente que você precisará suportar seu pedido com contribuições de localização anteriores que podessamos verificar (por exemplo, trabalhando com a localização do ASF no Crowdin, ou com qualquer outro projeto). Nós também podemos permitir que usuários mais avançados realizem uma revisão inicial se nós os conhecemos pessoalmente e eles são capazes de cooperar com o resto da comunidade a fim de melhor localizar o ASF nesse determinado idioma.
 
 Regras gerais se aplicam para a prova de leitura - não tenha pressa, ouça seus usuários, trabalhe como um gerente de projetos, resolva problemas, certifique-se de que você está fazendo as coisas melhor e não pior.
 
@@ -85,7 +85,7 @@ ASF incluirá determinado idioma **logo que possível**, o que significa que ele
 
 ## Idiomas ausentes
 
-Por padrão o projeto do ASF tem tradução aberta apenas para os 30 idiomas mais falados no mundo. Se você gostaria de acrescentar outro (ou um dialeto local para um idioma já disponível), por favor **[avise-nos](https://crowdin.com/messages/create/13177432),** e vamos adicioná-lo o mais rápido possível. Não queremos abrir várias centenas de idiomas diferentes se ninguém vai traduzi-los, é por isso que limitamos para um número justo. Por favor, não hesite em nos contatar se você gostaria de traduzir para um idioma não listado, é muito fácil adicionar outro.
+Por padrão o projeto do ASF tem tradução aberta apenas para os 30 idiomas mais falados no mundo. Se você gostaria de acrescentar outro (ou um dialeto local para um idioma já disponível), por favor **[avise-nos](https://crowdin.com/messages/create/13177432/240376),** e vamos adicioná-lo o mais rápido possível. Não queremos abrir várias centenas de idiomas diferentes se ninguém vai traduzi-los, é por isso que limitamos para um número justo. Por favor, não hesite em nos contatar se você gostaria de traduzir para um idioma não listado, é muito fácil adicionar outro. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
 
 Para obter uma lista completa de todos os idiomas disponíveis para os quais o ASF pode ser traduzido **[clique aqui](https://support.crowdin.com/api/language-codes)**.
 
@@ -156,7 +156,7 @@ No exemplo acima vemos o primeiro caso (já que apenas "setting up" é um link),
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. Segue um exemplo da tradução para o polonês:
+Independente do caso, você deve copiar a frase a ser traduzida e traduzi-la normalmente, deixando todo o HTML (se houver) intacto. Segue um exemplo da tradução para o polonês:
 
 * * *
 
@@ -204,7 +204,7 @@ A partir de lá você pode corrigir facilmente os links para apontarem para a no
 
 ### Links locais
 
-Na wiki você também encontrará links locais que apontam para determinadas seções do documento. Esses links começam com `#`.
+Na wiki você também encontrará links locais que apontam para determinadas seções do documento. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
 Esses são casos especiais, já que são baseados nos nomes das seções do documento atual. Enquanto para as URLs adicionamos `-locale` que funciona para todos os casos, os nomes de seção serão traduzidos e então você precisa garantir que eles apontem para local apropriado.
 
@@ -242,7 +242,7 @@ No entanto, não é porque essas palavras não devem ser traduzidas que você n�
 
 Como você pode ver acima, nós adicionamos "muitas tentativas de ativação" ao lado de `RateLimited` para traduzir o significado desse status de forma amigável, enquanto mantemos ao mesmo tempo o original do ASF, aquele que o usuário pode ver durante o uso do programa. Da mesma forma você pode traduzir/explicar outros casos semelhantes de várias palavras e frases.
 
-Se você acredita que algo inapropriado foi incluso em um bloco de código, ou que há um texto que não está em um mas deveria, sinta-se livre para nos perguntar em um comentário do Crowdin marcado como **[issue](#issues)**.
+Se você acredita que algo inapropriado foi incluso em um bloco de código, ou que há um texto que não está em um mas deveria, sinta-se livre para nos perguntar em um comentário do Crowdin marcado como **[issue](#issues)**. This also serves as a practical example of using a local link.
 
 * * *
 

@@ -1,29 +1,29 @@
 # 常見問題擴展
 
-Our extended FAQ covers a bit less common questions and answers that you might have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
+我們的常見問題擴展涵蓋了一些不太常見的問題以及它們的答案。 有關更常見的事項，請訪問我們的**[常見問題基礎](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**。
 
 * * *
 
-### Who has created ASF?
+### 誰創造了 ASF？
 
-ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
+ASF于2015年10月由 **[Archi](https://github.com/JustArchi)** 創造。 如果您好奇的話，我和您一樣，是個**[Steam 使用者](https://steamcommunity.com/profiles/76561198006963719)**。 如您所見，除了玩遊戲，我也喜歡將我的技能和決心付諸行動，歡迎探索我的作品！ 這裡沒有大公司參與，沒有開發商團隊，也沒有100萬美元的預算來支援，只有我自己，在維護并優化這些專案。
 
-However, ASF is open-source project, and I can't express enough that I'm not behind everything that you can see here. We have a few **[other](https://github.com/JustArchiNET?q=ASF-)** ASF projects that are being developed almost exclusively by other developers. Even core ASF project has a lot of **[contributors](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** that helped me to make all of this happen. On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[Discord](https://discordapp.com/open-source)**, **[AppVeyor](https://www.appveyor.com)**, **[Travis](https://travis-ci.com)**, **[ReSharper](https://www.jetbrains.com/resharper)** and **[Crowdin](https://crowdin.com)**. And of course you can't forget about all the awesome libraries and tools that made ASF happen, especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. ASF also wouldn't be where it is today without my **[patrons](https://www.patreon.com/JustArchi)** supporting me in everything that I'm doing here.
+然而，ASF是開源專案，您在這裡看到的一切並非完全出自我手。 我們有一些 **[其他](https://github.com/JustArchiNET?q=ASF-)** ASF專案，它們幾乎完全由其他開發人員開發。 即使是核心 ASF專案，也有很多 **[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** 幫助我實現。 除此之外，還有幾個支援ASF開發的第三方工具，特別是 **[GitHub](https://github.com)**、**[Discord](https://discordapp.com/open-source)**、**[AppVeyor](https://www.appveyor.com)**、**[Travis](https://travis-ci.com)**、**[ReSharper](https://www.jetbrains.com/resharper)** 和 **[Crowdin](https://crowdin.com)**。 當然，我們不會忘記那些支援ASF開發的庫和工具，尤其是**[SteamKit2](https://github.com/SteamRE/SteamKit)**，如果沒有它就沒有ASF的誕生。 如果這一切的背後沒有我的**[Patreons](https://www.patreon.com/JustArchi)**支援，ASF可能永遠無法達到現在的高度。
 
-Thank you all for helping in ASF development!
-
-* * *
-
-### Why was ASF created in the first place?
-
-ASF was created with primary purpose of being fully automated Steam idling tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF has progressed, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
-
-It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, the way I wanted it.
+感謝大家協助ASF開發！
 
 * * *
 
-### OK, where is the catch?
+### 創造ASF的初心？
 
-There is no catch, I created ASF **for myself** and shared it with the rest of community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or other activity that would generate any monetary benefit for me, excluding non-obligatory donations from happy users that is. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee (or not).
+創造ASF的主要目的是為了在Linux上實現免依賴項（如Steam 客戶端）的全自動化掛卡工具。 時至今日，這仍然是ASF的主要目的和重點，因為我的ASF理念從未改變，我使用它的方式仍然和2015年完全一樣。 當然，自那時以來，確實發生了**很多** 的變化， 我很高興地看到ASF已經取得了巨大的進展，這要感謝它的使用者們，因為如果它僅由我使用，我可能甚至不會寫出當前一半的功能。
 
-Although no, on the second thought there is a catch here - I'm using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if you by any chance learn something new from my project, then that's a double win for me! Yes!
+很高興地宣告，ASF從未被視為其他掛卡工具（尤其是**[Idle Master](https://www.steamidlemaster.com)**的競品，因為時至今日，ASF從未被設計成為一個桌面/使用者應用程式。 如果您分析上述ASF的主要用途，您會發現Idle Master與此**截然相反**。 現在您肯定可以找到其他類似ASF的掛卡工具，但對於我來說，無論過去（還是現在）都沒有足以令我滿意的工具，因此我按照自己的設想創造了ASF。
+
+* * *
+
+### 好吧，問我有何訴求？
+
+我**為自己**創造了ASF並將它分享給社區，期待它能有所作用，別無所求。 這樣的事情層出不窮，回溯至1991年，Linus Torvalds向全世界**[分享了他的第一個Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**。 沒有隱藏的惡意程式，資料盜用，金鑰竊取，或其他可以為我帶來金錢利益的行為，除了滿意ASF的使用者們自願捐的捐獻。 您可以用和我一樣的方式使用ASF，如果您喜歡，您總是可以請我飲一杯咖啡（或不）。
+
+即便如此，我還有另外一個想法──我將ASF作為一個現代C#專案的絕好範例，無論是技術、專案管理或代碼本身，我始終追求完美與最佳實踐，永無止境。 這是我對「正確的事」的定義，所以如果您有機會從我的專案中學到一些新的東西，那麼這對我來說就是雙贏！ 贊！

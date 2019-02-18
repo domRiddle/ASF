@@ -1,10 +1,10 @@
-# 設定
+# 設置指南
 
-如果你是第一次來到這裡，歡迎！ 我們很高興看到另一位對我們的項目感興趣的旅行者，但請記住能力越強責任越大 - 只要你**足夠小心學習如何使用它**，ASF 能夠完成許多不同的 Steam 相關事務。 這將會是一個陡峭的學習曲線，我們希望您在這方面閱讀維基，它會詳細解釋了一切如何運作。
+如果您是首次來訪，歡迎！ 我們很高興又見到一位對我們的項目感興趣的訪客，但請記住能力越強責任越大──只要你**足夠認真去學習如何使用它**，ASF 有能力完成非常多的 Steam 相關事務。 書山有路勤為徑，學海無涯苦作舟，在開始這段陡峭的學習旅途之前，我們期待您閱讀這方面的wiki，詳細了解這一切是如何運作的。
 
-如果你還在這裡，那就表示你可以忍受了我們上面的文字，非常好。 除非你跳過它，否則你很快就會有一個**[很糟的時刻](https://www.youtube.com/watch?v=WJgt6m6njVw)**... 無論如何，ASF是一個控制台應用程序，這意味著應用程式本身沒有你習慣的友好圖型介面。 ASF主要設計是在伺服器上執行，所以它只是一個服務 (daemon) 而非桌面應用程式。
+如果您還在這裡，那就意味著您認同我們上面的文字，不錯。 除非你跳過它，否則您很快就會經歷**[一段艱難的時間](https://www.youtube.com/watch?v=WJgt6m6njVw)**⋯⋯ 無論如何，ASF是一個控制台應用程序，這意味著應用程式不會提供您習慣的友好圖型介面。 ASF 主要設計以在伺服器上執行，所以它僅作為一個服務（守護進程）運行，而非桌面應用程式。
 
-然而這並不代表著你不能在 PC 上使用它，或它在某種程度上比平常更複雜，並不是這樣的。 ASF是一個獨立的程式，不需要安裝並且可以立即使用，但這之前需要進行設置。 設置 ASF 啟動它之後應該做什麼。 如果你在沒有設置的情況下啟動它，那麼 ASF 將不會做任何事情，就是這麼簡單。
+然而這並不代表您不能在 PC 上使用它，或它在某種程度上比常見的程式更複雜，並非如此。 ASF是一個獨立的程式，不需要安裝並且可以立即使用，但這之前需要進行設置。 設置 ASF 以定義它啟動之後應該做什麼。 如果你在沒有設置的情況下啟動它，那麼 ASF 將不會做任何事情，就是這麼簡單。
 
 * * *
 
@@ -13,37 +13,37 @@
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
 
 - 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
-- 下載適合你作業系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
-- 將解壓縮到你指定的位置 ( 並且 `chmod +x ArchiSteamFarm`，若使用Linux/OS X 系統)。
-- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-- 執行 ASF 並觀賞神奇的一刻
+- 下載適合您作業系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
+- 將安裝包解壓縮到您指定的位置 ( 若你使用Linux/OS X 系統，則需執行 `chmod +x ArchiSteamFarm`命令)。
+- **[配置ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**。
+- 啟動 ASF，見證奇蹟的時刻！
 
-聽起來有夠簡單，是吧? 所以讓我們繼續吧。
+輕而易舉，對吧？ 所以讓我們繼續吧。
 
 * * *
 
 ### .NET 核心套件
 
-第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 c# 編寫的, 基於 .NET 核心, 並且可能需要你的系統上尚未使用的本機庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
+第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 以 C# 編寫的，基於. net core，可能需要您的平臺上尚不可用的本機庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文檔中。 這是我們應該使用的參考資料，但為了簡單起見，我們還在下面詳細介紹了所有需要的軟體套件。因此您無需閱讀完整的文檔。
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+在通常情況下，您正在使用的其他軟體已安裝了其依賴項，因此您的作業系統上可能已經存在某些（甚至全部）Asf 的依賴項。 然而，您還是應運行相應安裝程式以確保您的作業系統上確實已經存在 ASF 的依賴項──否則 ASF 無法啟動。
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+請謹記，您不需要為特定于作業系統的 ASF 安裝包執行任何其他操作，尤其是 .NET Core SDK 甚至是運行時環境，因為此包自帶這些內容。 您只需要 .NET Core 核心套件（依賴項）即可運行 ASF 中包含的 .NET Core 運行時。
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- 強烈建議確保已安裝所有Windows更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，並可能需要更多更新檔。 如果您的Windows更新到最新版，則上述所有都已安裝。 在安裝 Visual C ++ 之前，請確保滿足這些要求。
+- 強烈建議您確保已安裝所有 Windows 更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，並可能需要更多更新檔。 如果您的 Windows 是最新版本，則上述所有更新都已安裝。 在安裝 Visual C ++ 套件之前，請確保滿足這些要求。
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+套件名稱因您使用的 Linux 版本而異，我們列出了最常見的套件軟體名稱。 您可以獲得所有這些適用於您作業系統的本機套件管理器（如適用於 Debian 的`apt`或適用於 CentOS 的 `yum`）。
 
 - libcurl3 (libcurl)
-- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu（適用於您作業系統的最新版本，例如用於 Debian 9 的`libicu57`）
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, 適用於您作業系統的最新版 1.0.X)
 - zlib1g (zlib)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
@@ -135,7 +135,7 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![架構 2](https://i.imgur.com/2s7ZUUu.png)
+![架構 2](https://i.imgur.com/crWdjcp.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
@@ -186,7 +186,7 @@ So let's do that, if you run ASF and start idling, in default settings you'll se
 
 Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
-![Bot tab 4](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
 
@@ -194,7 +194,7 @@ Once you do that and start ASF again, you'll notice that ASF now displays your c
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, then downloading generated config and replacing core `ASF.json` file.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 * * *
 
@@ -256,7 +256,7 @@ With extra steps:
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+- **[配置ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**。
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

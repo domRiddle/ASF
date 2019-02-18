@@ -135,7 +135,7 @@ Ahora puedes presionar el botón "Descargar" y nuestro generador de configuraci�
 
 Tu directorio `config` ahora se verá así:
 
-![Estructura 2](https://i.imgur.com/2s7ZUUu.png)
+![Estructura 2](https://i.imgur.com/crWdjcp.png)
 
 ¡Felicidades! Acabas de terminar la configuración más básica de un bot en ASF. Explicaremos más en breve, por ahora esto es todo lo que necesitas.
 
@@ -186,7 +186,7 @@ Empecemos, si ejecutas ASF y empieza a "idlear", en ajustes predeterminados ver�
 
 Cambiemos eso. Cambia a configuración avanzada en el generador de configuración web y busca `CustomGamePlayedWhileFarming`. Una vez que hagas eso, pon el texto personalizado que quieras que se muestre, tal como "idleando cromos":
 
-![Pestaña de bot 4](https://i.imgur.com/gHqdEqb.png)
+![Pestaña de bot 3](https://i.imgur.com/gHqdEqb.png)
 
 Ahora descarga el nuevo archivo de configuración exactamente de la misma manera, luego **sobrescribe** tu archivo de configuración previo con el nuevo. También puedes eliminar tu viejo archivo de configuración y poner el nuevo en su lugar.
 
@@ -194,7 +194,7 @@ Una vez que hagas eso y ejecutes ASF de nuevo, notarás que ASF ahora muestra tu
 
 ![Steam 2](https://i.imgur.com/NeFYrdU.png)
 
-Esto confirma que editaste con éxito tu configuración. Del mismo modo puedes cambiar las propiedades globales de ASF, cambiando de la pestaña del bot a la de "ASF", y luego descargando el archivo de configuración generado y reemplazando el archivo `ASF.json`.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 * * *
 
