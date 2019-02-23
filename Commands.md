@@ -2,7 +2,7 @@
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
-Below commands can be sent to the bot through three different ways:
+Below commands can be sent to the bot through various different ways:
 - Through interactive ASF console
 - Through steam private chat
 - Through steam group chat
