@@ -21,17 +21,13 @@ Starting with V4.0.0.9, ASF has support for interactive console that can be enab
 
 ---
 
-### Steam private chat
+### Steam chat
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. Obviously, you can't do that if you're running ASF with a single bot account that is your own.
+You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
 ![Screenshot](https://i.imgur.com/IvFRJ5S.png)
 
----
-
-### Steam group chat
-
-Very similar to above, but this time on group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account. You most likely don't want to use this method for more bots than 1.
+In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You most likely don't want to use this method for more bots than 1, as each bot listening on your group chat will execute the command independently.
 
 ---
 
