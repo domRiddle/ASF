@@ -4,9 +4,8 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 
 Below commands can be sent to the bot through various different ways:
 - Through interactive ASF console
-- Through steam private chat
-- Through steam group chat
-- Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Through Steam private/group chat
+- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
