@@ -3,6 +3,7 @@
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
 Below commands can be sent to the bot through three different ways:
+- Through interactive ASF console
 - Through steam private chat
 - Through steam group chat
 - Through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
@@ -10,6 +11,14 @@ Below commands can be sent to the bot through three different ways:
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
 All commands below are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead).
+
+---
+
+### Interactive console
+
+Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+
+![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 
 ---
 
