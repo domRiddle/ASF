@@ -32,7 +32,7 @@ ASF-ui is a community project that aims to create user-friendly graphical web in
 
 As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
 
-![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 * * *
 
@@ -72,7 +72,7 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
-Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
+Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. 由於我們的 swagger 文檔是從 ASF 代碼自動生成的，因此您可以保證文檔始終與您的 ASF 版本中包含的API端點中的最新文檔保持同步。
 
 ![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
 
@@ -88,7 +88,7 @@ However, if you decide to change default `localhost` bind addresses to something
 
 ### Can I access ASF API through my own tools or userscripts?
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+是的，這就是ASF API的設計目的，您可以使用任何能夠發送HTTP請求的工具來訪問它。 Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
 ### Can I access ASF's IPC remotely, e.g. from another machine?
 

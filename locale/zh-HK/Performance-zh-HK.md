@@ -1,8 +1,8 @@
 # 性能
 
-The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
+ASF的主要目標是盡可能有效地進行掛卡，它基于兩種類型的數據——ASF無法自行猜測/檢查，需要用戶提供的一小部分數據，以及可以由ASF自動檢查的更大數據集 。
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
+在自動模式下，ASF不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
 
 * * *
 

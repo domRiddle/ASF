@@ -10,7 +10,7 @@ ASF 支援4種主要類型的**[ 標籤 ](https://hub.docker.com/r/justarchi/arc
 
 ### `master`
 
-此標記始終指向從主分支中的最新提交生成的 ASF, 其工作原理與 **[ 發佈週期 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** 中描述的實驗 AppVeyor 生成相同。 通常，您應該避免使用此標記，因為它以開發為目的，專門提供給開發人員和高級使用者，可能有大量漏洞。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
+此標記始終指向從主分支中的最新提交生成的 ASF, 其工作原理與 **[ 發佈週期 ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** 中描述的實驗 AppVeyor 生成相同。 通常，您應該避免使用此標記，因為它以開發為目的，專門提供給開發人員和高級用戶，可能有大量漏洞。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 我們在此標記ASF項目的現時狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
 
 ### `released`
 
@@ -30,7 +30,7 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 這取決於您需要什麼。 For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
-We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
+我們通常不鼓勵嘗試` master `構建，就像自動AppVeyor構建一樣——這個構建在這裏是為了標記ASF項目的現時狀態。 Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
 
 * * *
 
@@ -59,7 +59,7 @@ docker run -it --name asf justarchi/archisteamfarm
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+如果您仔細查看該命令，那麼您會注意到我們沒有聲明任何標記，該標記自動預設為` latest `。 If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
@@ -72,7 +72,7 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
+例如，我們假設您的ASF配置資料夾位於 `/home/archi/ASF/config`目錄中。 This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 
 ```shell
 docker pull justarchi/archisteamfarm

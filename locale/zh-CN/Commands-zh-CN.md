@@ -43,31 +43,31 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `2fa <Bots>`                                                         | `Master`        | 为指定机器人生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。       |
 | `2fano <Bots>`                                                       | `Master`        | 为指定机器人拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
 | `2faok <Bots>`                                                       | `Master`        | 为指定机器人接受所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人激活给定的 `appIDs`（Steam Network）或 `subIDs`（Steam 商店），仅免费游戏有效。                                                                  |
+| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人激活给定的 `AppIDs`（Steam 网络）或 `SubIDs`（Steam 商店），仅免费游戏有效。                                                                       |
 | `balance <Bots>`                                                     | `Master`        | 显示指定机器人的 Steam 钱包余额。                                                                                                              |
 | `bl <Bots>`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                  |
-| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 将给定的 `steamIDs` 加入指定机器人的交易黑名单。                                                                                                    |
-| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 将给定的 `steamIDs` 从指定机器人的交易黑名单中移除。                                                                                                  |
+| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 将给定的 `SteamIDs` 加入指定机器人的交易黑名单。                                                                                                    |
+| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 将给定的 `SteamIDs` 从指定机器人的交易黑名单中移除。                                                                                                  |
 | `exit`                                                                     | `Owner`         | 完全停止 ASF 进程。                                                                                                                      |
 | `farm <Bots>`                                                        | `Master`        | 重新启动指定机器人的挂卡模块。                                                                                                                   |
 | `help`                                                                     | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                   |
 | `input <Bots> <Type> <Value>`                            | `Master`        | 为指定机器人填写给定的输入值，仅在 `Headless` 模式中可用——详见&#8203;**[下文的解释](#input-命令)**。                                                              |
 | `ib <Bots>`                                                          | `Master`        | 列出指定机器人的自动挂卡黑名单。                                                                                                                  |
-| `ibadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appIDs` 加入指定机器人的自动挂卡黑名单。                                                                                                    |
-| `ibrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appIDs` 从指定机器人的自动挂卡黑名单中移除。                                                                                                  |
+| `ibadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `AppIDs` 加入指定机器人的自动挂卡黑名单。                                                                                                    |
+| `ibrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `AppIDs` 从指定机器人的自动挂卡黑名单中移除。                                                                                                  |
 | `iq <Bots>`                                                          | `Master`        | 列出指定机器人的优先挂卡队列。                                                                                                                   |
-| `iqadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `appIDs` 加入指定机器人的优先挂卡队列。                                                                                                     |
-| `iqrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `appIDs` 从指定机器人的优先挂卡队列中移除。                                                                                                   |
+| `iqadd <Bots> <AppIDs>`                                        | `Master`        | 将给定的 `AppIDs` 加入指定机器人的优先挂卡队列。                                                                                                     |
+| `iqrm <Bots> <AppIDs>`                                         | `Master`        | 将给定的 `AppIDs` 从指定机器人的优先挂卡队列中移除。                                                                                                   |
 | `level <Bots>`                                                       | `Master`        | 显示指定机器人的 Steam 帐户等级。                                                                                                              |
 | `loot <Bots>`                                                        | `Master`        | 将指定机器人的所有 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                |
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。             |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
-| `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `nickname`。                                                                                                          |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `appIDs` 和/或 `gameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
+| `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `Nickname`。                                                                                                          |
+| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `AppIDs` 和/或 `GameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
 | `password <Bots>`                                                    | `Master`        | 显示指定机器人加密后的密码（配合 `PasswordFormat` 使用）。                                                                                            |
 | `pause <Bots>`                                                       | `Operator`      | 永久暂停指定机器人的自动挂卡模块。 ASF 在本次会话中将不会再尝试对此帐户进行挂卡，除非您手动 `resume` 或者重启 ASF。                                                               |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
-| `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
+| `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `Seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切换到手动挂卡——使指定机器人运行给定的 `AppIDs`，并且可选自定义 `GameName` 为游戏名称。 使用 `resume` 以返回自动挂卡模式。                                                    |
 | `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                         |
 | `redeem <Bots> <Keys>`                                         | `Operator`      | 为指定机器人激活给定的游戏序列号或钱包充值码。                                                                                                           |
@@ -104,7 +104,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 如上所述，空白字符被用于分隔命令参数，所以参数内部无法再使用空白字符。 但同样如上所述，ASF 可以连接超出范围的参数，这意味着您可以在命令的最后一个参数中使用空白字符。 例如，`nickname bob Great Bob` 命令能够正确地将机器人 `bob` 的昵称更改为“Great Bob”。 类似地，您也可以使用 `owns` 命令检查含有空格的名称。
 
-请注意，向群组聊天发送命令类似于接力赛跑——如果您向一个含有 3 个机器人的群组聊天室发送 `redeem X` 命令，其效果等价于分别在私聊中向每个机器人发送 `redeem X`。 在大多数情况下，**这不是您想要的效果**，您应该像之前**与单个机器人私聊时**一样，使用指定机器人名称的命令形式。 ASF 支持群组聊天，是因为在很多情况下它是一种有用的通信方式，但如果您的群组中有多个 ASF 机器人，就最好不要在这里执行命令，除非您完全理解 ASF 的相关行为，并且您确实想要让所有的机器人转发执行相同的命令。
+请注意，向群组聊天发送命令就像是接力赛跑——如果您向一个含有 3 个机器人的群组聊天室发送 `redeem X` 命令，其效果等价于分别在私聊中向每个机器人发送 `redeem X`。 在大多数情况下，**这不是您想要的效果**，您应该像之前**与单个机器人私聊时**一样，使用指定机器人名称的命令形式。 ASF 支持群组聊天，是因为在很多情况下它是一种有用的通信方式，但如果您的群组中有多个 ASF 机器人，就最好不要在这里执行命令，除非您完全理解 ASF 的相关行为，并且您确实想要让所有的机器人转发执行相同的命令。
 
 *但即使是在这种情况下，您也应该用私人聊天代替，并在命令中指定机器人 `<Bots>`。*
 

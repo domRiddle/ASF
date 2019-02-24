@@ -16,7 +16,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 ### Steam 私人聊天
 
-與 ASF 交互的最簡單方式──向正在運行於 ASF 進程中的機械人發送命令。 顯然，如果您只在 ASF 中運行您自己的帳戶，就無法使用這個方法。
+與 ASF 交互的最簡單方式──向當前正運行於 ASF 進程中的機械人發送命令。 顯然，如果您只在 ASF 中運行您自己的帳戶，就無法使用這個方法。
 
 ![截圖](https://i.imgur.com/PPxx7qV.png)
 
@@ -30,7 +30,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 ### IPC
 
-這是最先進、靈活的執行命令方式，非常適合使用者集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行命令。
+這是最先進、靈活的執行命令方式，非常適合用戶集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行命令。
 
 ![截圖](https://i.imgur.com/pzKE4EJ.png)
 
@@ -43,15 +43,15 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `2fa <Bots>`                                                         | `Master`        | 為指定機械人實例生成臨時​**[雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**​代碼。              |
 | `2fano <Bots>`                                                       | `Master`        | 為指定機械人拒絕所有待處理的​**[​雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**​交易確認。         |
 | `2faok <Bots>`                                                       | `Master`        | 為指定機械人接受所有待處理的​**[雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**​交易確認。          |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 為指定機械人激活給定的 `appIDs`（Steam網路）或 `subIDs`（Steam 商店），此命令僅適用於免費游戲。                                                          |
+| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 為指定機械人激活給定的 `appIDs`（Steam網絡）或 `subIDs`（Steam 商店），此命令僅適用於免費遊戲。                                                          |
 | `balance <Bots>`                                                     | `Master`        | 顯示指定機械人的 Steam 錢包餘額。                                                                                                    |
-| `bl <Bots>`                                                          | `Master`        | 列出指定機械人實例的交易用戶黑名單。                                                                                                      |
+| `bl <Bots>`                                                          | `Master`        | 列出指定機械人實例交易模組中的用戶黑名單。                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 將特定的 `steamIDs` 加入指定機械人實例交易模組的用戶黑名單。                                                                                    |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 將特定的 `steamIDs `移出指定機械人實例交易模組的用戶黑名單。                                                                                    |
 | `exit`                                                                     | `Owner`         | 完全終止ASF進程。                                                                                                              |
 | `farm <Bots>`                                                        | `Master`        | 重啟指定機械人實例的掛卡模組。                                                                                                         |
 | `help`                                                                     | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                         |
-| `input <Bots> <Type> <Value>`                            | `Master`        | 為指定機械人輸入特定欄位的值，僅在 `Headless` 模式中可用──詳見​**[下文](#input-command)**的解釋。                                                     |
+| `input <Bots> <Type> <Value>`                            | `Master`        | 為指定機械人輸入特定字段的值，僅在 `Headless` 模式中可用──詳見​**[下文](#input-command)**的解釋。                                                     |
 | `ib <Bots>`                                                          | `Master`        | 列出指定機械人實例的自動掛卡遊戲黑名單。                                                                                                    |
 | `ibadd <Bots> <AppIDs>`                                        | `Master`        | 將特定的 `appIDs` 加入指定機械人實例的自動掛卡遊戲黑名單。                                                                                      |
 | `ibrm <Bots> <AppIDs>`                                         | `Master`        | 將特定的 `appIDs` 移出指定機械人實例的自動掛卡遊戲黑名單。                                                                                      |
@@ -63,11 +63,11 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 將指定機械人實例的所有符合特定 `RealAppIDs` 的 `LootableTypes` 社區物品發送給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。 |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 將指定機械人實例的`ContextID` 庫存分類中符合特定 `AppID` 的物品發送給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。          |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | 將指定機械人的Steam`nickname`更改為自訂昵稱。                                                                                          |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 檢查指定機械人是否已擁有某遊戲，支持查詢欄位： `appIDs` 和/或 `gameNames`（可以是遊戲名稱的一部分）。 也可以使用 `*` 顯示所有已擁有的遊戲。                                    |
+| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 檢查指定機械人是否已擁有某遊戲，支持查詢字段： `appIDs` 和/或 `gameNames`（可以是遊戲名稱的一部分）。 也可以使用 `*` 顯示所有已擁有的遊戲。                                    |
 | `password <Bots>`                                                    | `Master`        | 顯示指定機械人加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                  |
-| `pause <Bots>`                                                       | `Operator`      | 停止指定機械人的自動掛卡模組。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume`或者重啟 ASF。                                                        |
+| `pause <Bots>`                                                       | `Operator`      | 停止指定機械人的自動掛卡模組。 ASF 在本次會話中將不會再嘗試對當前帳戶進行掛卡，除非您手動 `resume`或者重啟 ASF。                                                       |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 暫停指定機械人的自動掛卡模組。 掛卡進程將會在下次遊戲事件被觸發時或機械人斷開連接時自動恢復。 您可以使用`resume`命令以恢復掛卡。                                                   |
-| `pause& <Bots> <Seconds>`                                  | `Operator`      | 暂停指定機械人的自动挂卡模块 `seconds` 秒。 之後，掛卡將自動恢復。                                                                                 |
+| `pause& <Bots> <Seconds>`                                  | `Operator`      | 暂停指定機械人的自动挂卡模块 `seconds` 秒。 之後，掛卡模組將自動恢復。                                                                               |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式──使指定機械人運行特定的`AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 使用`resume`命令以返回自動掛卡模式。                                        |
 | `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定機械人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。            |
 | `redeem <Bots> <Keys>`                                         | `Operator`      | 為指定機械人實例兌換給定的CD金鑰或錢包充值碼。                                                                                                |
@@ -94,7 +94,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 `<Bots>` 參數對所有命令都是可選的。 當指定該參數時，指令會在指定的機械人上執行。 但省略時，指令會在當前接收指令的機械人上執行。 換句話說，向機械人 `B` 發送 `status A`命令等於向機械人 `A` 發送 `status` 命令。
 
-命令的**Access**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全局配置檔案中的 `SteamOwnerID` 用戶（擁有最高許可權）。
+命令的**Access**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全域配置檔案中的 `SteamOwnerID` 用戶（擁有最高許可權）。
 
 複數參數，例如 `<Bots>`，`<Keys>`或`<AppIDs>`意味著該參數支援多個由逗號分隔的同類型值。 例如，`status<Bots>` 命令支援 `status MyBot,MyOtherBot,Primary `形式的用法。 這樣，該命令會在**所有目標機械人**上執行，效果等同分別向所有機械人單獨發送 `status`命令。 需要注意的是`，`後面不能有空格。
 
@@ -104,7 +104,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 如上所述，空白字元被用作命令的分隔符號，因此它不能在參數中使用。 但是，如上所述，ASF可以聯接超出範圍的參數, 這意味著您實際上能夠在參數中使用空白字元，該字元被定義為給定命令的最後一個字元。 例如，`nickname bob Great Bob` 將正確地將機械人 `bob` 的昵稱設置為「Great Bob」。 與此類似，您可以使用`owns` 命令檢查含有空格的名稱。
 
-請注意，向群組交談發送命令類似於一個中繼器──如果您向一個含有 3 個機械人的群組聊天發送 `redeem X` ，其效果等同於分別在私人聊天中向每個機械人發送 `redeem X`。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機械人交談**時一樣，向`特定機械人`發送命令。 ASF 支持群組聊天，是因為在多數情況下它是一種有效的通信方式，但如果您的群組中有多個 ASF 機械人，就最好不要在這裡執行命令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有的機械人執行相同的命令。
+請注意，向群組交談發送命令類似於一個中繼器──如果您向一個含有 3 個機械人的群組聊天發送 `redeem X` ，其效果等同於分別在私人聊天中向每個機械人發送 `redeem X`。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機械人交談**時一樣，向`特定機械人`發送命令。 ASF 支持群組聊天，是因為在多數情況下它是一種有效的通信方式，但如果您的群組中有多個 ASF 機械人，就最好不要在這裏執行命令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有的機械人執行相同的命令。
 
 *即使在這種情況下，您也應該使用 `<Bots>` 私人聊天向機械人發送命令。*
 
@@ -151,7 +151,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 | 6  | InventoryGifts | Inventory  |
 | 7  | Comments       | Profile    |
 
-有關上述欄位的說明，請訪問 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**。
+有關上述字段的說明，請訪問 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**。
 
 每個選項的有效值可以是：
 
@@ -215,11 +215,11 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 ## `input` 命令
 
-輸入命令只能在 `Headless` 模式下使用，用於在 ASF 運行而不支援使用者交互的情況下，通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或 Steam 聊天輸入給定的資料。
+輸入命令只能在 `Headless` 模式下使用，用於在 ASF 運行而不支援用戶交互的情況下，通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或 Steam 聊天輸入給定的資料。
 
 通用語法是 `input <Bots> <Type> <Value>`。
 
-`<Type>` 不區分大小寫，並定義由ASF識別的輸入類型。 目前，ASF可識別以下類型：
+`<Type>` 不區分大小寫，並定義由ASF識別的輸入類型。 當前，ASF可識別以下類型：
 
 | 類型                      | 描述                                        |
 | ----------------------- | ----------------------------------------- |
@@ -230,7 +230,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 | SteamParentalCode       | `SteamParentalCode` 機械人配置屬性，在設定檔缺失這個值時使用。 |
 | TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA代碼 。 |
 
-`<Value>` 是為給定類型設置的值。 目前，所有值都是字串。
+`<Value>` 是為給定類型設置的值。 當前，所有值都是字串。
 
 ### 範例
 
@@ -238,7 +238,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 為此，我們需要執行以下命令：
 
-`start MySteamGuardBot` ->機械人會嘗試登入，但缺少驗證碼會導致登入失敗，在`Headless` 模式下，機械人會停止運行。 我們需要這樣做的目的是使Steam網路通過電子郵件向我們發送驗證代碼──如果不需要這樣做，我們將完全跳過這一步。
+`start MySteamGuardBot` ->機械人會嘗試登入，但缺少驗證碼會導致登入失敗，在`Headless` 模式下，機械人會停止運行。 我們需要這樣做的目的是使Steam網絡通過電子郵件向我們發送驗證代碼──如果不需要這樣做，我們將完全跳過這一步。
 
 `input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` 機械人的 `SteamGuard` 輸入設置為 `ABCDE`。 當然，在這種情況下，`ABCDE`是我們在電子郵件中獲得的驗證代碼。
 

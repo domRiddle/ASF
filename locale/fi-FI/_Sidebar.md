@@ -17,33 +17,33 @@
 
 ## Ydin
 
-* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Taustalla pelien lunastaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Komennot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Yhteensopivuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Suorityskyky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Tilastot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Steamin perhejako](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Vaihtaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Edistynyt
 
-* **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Komentoriviltä syötettävät komennot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Laajennettu UKK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Suuren suorituskyvyn asetelma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalisointi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Kirjaus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Alhaisen muistin asetelma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Liitännäiset](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Turvallisuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Kolmas osapuoli](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Kaksivaiheinen todentaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Kehittäjille
 
-* **[Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Suorittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[Osallistumisen reunaehdot](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Lisenssi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Julkaisukierto](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

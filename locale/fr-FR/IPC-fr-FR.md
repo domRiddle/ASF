@@ -32,7 +32,7 @@ ASF-ui est un projet communautaire qui vise à créer une interface Web graphiqu
 
 As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
 
-![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 * * *
 
@@ -72,7 +72,7 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
-Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the features that ASF exposes.
+Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
 ![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
 

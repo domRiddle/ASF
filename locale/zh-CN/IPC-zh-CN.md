@@ -32,7 +32,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 如上所述，ASF-ui 是一个社区项目，并非由 ASF 核心开发者维护。 它遵循自己的开发流程，所有相关的问题、讨论、漏洞报告和建议都应该发表于 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**。
 
-![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 * * *
 
@@ -72,7 +72,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 我们的 IPC 接口，除了 ASF API 和 ASF-ui，还包括 Swagger 文档，您可以访问 `/swagger` **[URL](http://127.0.0.1:1242/swagger)** 来查看。 Swagger 文档的角色是我们的 API 实现与使用 API 的工具之间的一个中间人。 它在 **[OpenAPI](https://swagger.io/resources/open-api)** 部分包含了所有 API 端点的完整文档与功能说明，您可以在此为其他项目轻松编写与测试 ASF API。
 
-除了查阅 Swagger 文档获取 ASF API 的完整格式以外，您还可以将其作为一种执行各种 API 端点的友好方式，尤其是那些尚未由 ASF-ui 实现的端点。 由于 Swagger 文档是由 ASF 代码自动生成的，因此文档会始终与 ASF 提供的特性保持最新。
+除了查阅 Swagger 文档获取 ASF API 的完整格式以外，您还可以将其作为一种执行各种 API 端点的友好方式，尤其是那些尚未由 ASF-ui 实现的端点。 由于 Swagger 文档是由 ASF 代码自动生成的，因此文档会始终与您所使用的 ASF 版本提供的 API 端点保持一致。
 
 ![Swagger 文档](https://i.imgur.com/mLpd5e4.png)
 
@@ -192,7 +192,7 @@ server {
 
 ### 示例配置
 
-以下配置运行任何来源的远程访问，因此您应该确认您已阅读并理解上文的警告。
+以下配置允许任何来源的远程访问，因此您应该确认您已阅读并理解上文的警告。
 
 ```json
 {

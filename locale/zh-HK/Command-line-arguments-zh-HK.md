@@ -1,12 +1,12 @@
 # 命令列參數
 
-ASF 支援一些能夠影響程式運行時的命令列參數。 高級用戶可使用這些參數以定義程式運行方式。 與`ASF.json `配置文件的預設方式相比，命令列參數可用於核心初始化（例如`--path`）、平臺特定設置（例如`--system-required`）或敏感性資料（例如`--cryptkey`）。
+ASF 支援一些能夠影響程式運行時的命令列參數。 高級用戶可使用這些參數以定義程式運行方式。 與`ASF.json `配置文件的預設方式相比，命令列參數可用於核心初始化（例如`--path`）、平台特定設置（例如`--system-required`）或敏感性資料（例如`--cryptkey`）。
 
 * * *
 
 ## 使用方法
 
-使用方法取決於您的作業系統和ASF版本。
+使用方法取決於您的操作系統和ASF版本。
 
 Generic（通用）:
 
@@ -48,7 +48,7 @@ Linux/OS X
 
 * * *
 
-`--no-restart`──此開關主要用於**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**&#8203;容器並將 `AutoRestart` 強制設置為 `false`。 除非有特殊的需要，否則您應直接在配置中配置 `AutoRestart` 屬性。這個開關的作用是使 Docker 腳本不必修改您的全局配置即可適應環境。 當然，如果您在腳本中運行 ASF，也可以使用此開關（否則您最好使用全域配置屬性）。
+`--no-restart`──此開關主要用於**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**&#8203;容器並將 `AutoRestart` 強制設置為 `false`。 除非有特殊的需要，否則您應直接在配置中配置 `AutoRestart` 屬性。這個開關的作用是使 Docker 腳本不必修改您的全域配置即可適應環境。 當然，如果您在腳本中運行 ASF，也可以使用此開關（否則您最好使用全域配置屬性）。
 
 * * *
 
@@ -69,19 +69,19 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
-    │           └── plugins (optional)
+    │           ├── plugins (optional)
     │           └── www (optional)
     └── ...
     
 
 * * *
 
-`--process-required`──預設情況下，ASF 將會在無機械人運行的情況下關閉，聲明此開關將禁用這一行為。 阻止自動關機功能在和**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**配合下特別有用，大多數使用者都希望他們的 Web 服務正常運行，無論啟用了多少個機械人。 如果您在使用 IPC 或者需要 ASF 進程持續運行直至手動關閉它，這就是正確的選項。
+`--process-required`──預設情況下，ASF 將會在無機械人運行的情況下關閉，聲明此開關將禁用這一行為。 阻止自動關機功能在和**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**配合下特別有用，大多數用戶都希望他們的 Web 服務正常運行，無論啟用了多少個機械人。 如果您在使用 IPC 或者需要 ASF 進程持續運行直至手動關閉它，這就是正確的選項。
 
-如果您不打算運行 IPC，此選項對您來說將相當無用， 因為您可以在需要時再次啟動該過程 (而不是 ASF 的 web 伺服器，在那裡您需要它一直偵聽以發送命令)。
+如果您不打算運行 IPC，此選項對您來說將相當無用， 因為您可以在需要時再次啟動該過程 (而不是 ASF 的 web 伺服器，在那裏您需要它一直偵聽以發送命令)。
 
 * * *
 
-`--system-required`──聲明此開關將導致 ASF 嘗試通知作業系統「此進程要求系統在其存留期內處於啟動狀態並正常運行」。 目前，此開關僅對 Windows 電腦有效，只要ASF進程正在運行，它就會阻止您的系統進入睡眠模式。 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 能夠在掛卡時保持系統處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動關閉，允許您的系統再次進入睡眠模式，因此，一旦掛卡完成，即可立刻節省電力。
+`--system-required`──聲明此開關將導致 ASF 嘗試通知操作系統「此進程要求系統在其存留期內處於啟動狀態並正常運行」。 當前，此開關僅對 Windows 電腦有效，只要ASF進程正在運行，它就會阻止您的系統進入睡眠模式。 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 能夠在掛卡時保持系統處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動關閉，允許您的系統再次進入睡眠模式，因此，一旦掛卡完成，即可立刻節省電力。
 
 請注意，要让 ASF正確地自動關閉，您還需要其他設置──特別是避免 `--process-required`，且確保所有機械人都已啟用 `ShutdownOnFarmingFinished`。 當然，自動關機只是這個參數的用法之一，而非必需，因為您還可以將此參數配合 `--process-required` 使用，從而有效地使您的系統在 ASF 啟動之後無限運行下去。

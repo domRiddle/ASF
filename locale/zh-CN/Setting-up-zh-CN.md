@@ -200,7 +200,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 #### 使用 ASF-ui
 
-ASF 是一个控制台应用程序，没有图形用户界面。 然而，现在已有 IPC 接口的前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，它仍然处于预览状态，但是一般使用应该已经没有问题了。
+ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们正在积极开发 IPC 接口的前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，它是访问各种 ASF 功能的一种非常简便的、适合用户的方式。
 
 若要使用 ASF-ui，您需要确保您已在全局配置属性（ASF 标签）中设置好 `IPC` 和 `SteamOwnerID`。
 
@@ -224,7 +224,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，现在
 
 如果一切正常，只要 ASF 还在运行，您就可以通过&#8203;**[这个链接](http://127.0.0.1:1242)**&#8203;访问 ASF 的 IPC 接口。 您可以使用 ASF-ui 进行各种操作，例如发送&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以随意浏览一下，了解 ASF-ui 的所有功能。
 
-![IPC 3](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 请注意，ASF-ui 目前还在预览状态，不保证所有功能都可用或者正常工作，但是对于简单的 ASF 操作来说已经足够了。
 

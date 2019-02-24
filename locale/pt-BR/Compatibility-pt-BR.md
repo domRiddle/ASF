@@ -39,7 +39,7 @@ O pacote para Sistema Operacional específico, além do código gerenciado inclu
 ASF está atualmente disponível nas seguintes variantes específicas de Sistema Operacional:
 
 - `win-x64` funciona em Sistemas Operacionais Windows 64-bit. Isso inclui Windows 7 (SP1 +), 8.1, 10, Server 2008 R2 (SP1 +), 2012, 2012 R2, 2016, bem como futuras versões.
-- `Linux-arm` funciona em Sistemas Operacionais GNU/Linux 32 bits baseados em ARM (ARMv7 +). Isso inclui especialmente os Raspberry Pi 2 & 3 com todos os Sistemas Operacionais GNU/Linux disponíveis para eles (como o Raspian), nas versões atuais e futuras. Essa variante não vai funcionar com arquiteturas ARM antigas, como a ARMv6 encontrada no Raspberry Pi 0 & 1, também não vai funcionar com SOs que não implementem as funcionalidades GNU/Linux requeridas. como o Android.
+- `Linux-arm` funciona em Sistemas Operacionais GNU/Linux 32 bits baseados em ARM (ARMv7 +). Isso inclui especialmente os Raspberry Pi 2 & 3 com todos os Sistemas Operacionais GNU/Linux disponíveis para eles (como o Raspian), nas versões atuais e futuras. Essa variante não vai funcionar com arquiteturas ARM antigas, como a ARMv6 encontrada no Raspberry Pi 0 & 1, também não vai funcionar com SOs que não implementem o ambiente GNU/Linux requerido, tal qual o Android.
 - `Linux-x64` funciona em Sistemas Operacionais GNU/Linux 64 bits. Isso inclui Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES e muitos outros, incluindo seus derivados, nas versões atuais e futuras.
 - `osx-x64` funciona em Sistemas Operacionais OS X 64-bit. Isso inclui o 10.12, bem como futuras versões.
 

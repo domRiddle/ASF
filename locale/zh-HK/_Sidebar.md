@@ -19,7 +19,7 @@
 
 * **[後台序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[統計資訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam 親友同享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

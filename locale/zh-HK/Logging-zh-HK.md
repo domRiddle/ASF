@@ -1,14 +1,14 @@
 # 日誌
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF允許您自訂將在運行時使用的自定義日誌記錄模組。 您可以通過在應用程序的目錄中放入名為` NLog.config `的特殊檔案來完成此操作。 您可以在** [ NLog wiki ](https://github.com/NLog/NLog/wiki/Configuration-file) **上閱讀NLog的完整文檔，除此之外，您也可以在這裡找到一些有用的例子。
 
 * * *
 
-## Default logging
+## 預設日誌
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+使用自定義NLog配置會自動禁用預設ASF配置，包括` ColoredConsole `和` File `。 換句話說，您的自訂配置會**完全**覆蓋預設ASF日誌記錄對象，這意味著，如果想要保留` ColoredConsole `，你必須自己定義它。 這不僅允許您添加**額外**日誌記錄對象，而且還可以禁用或修改**預設值**。
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+如果您要在不進行任何修改的情況下使用預設 ASF 日誌記錄，則無需執行任何操——您也不需要在自訂 `NLog.config`中定義它。 如果不想修改預設 ASF 日誌記錄，請不要使用自訂 `NLog.config`。 但是，作為參考，相當於硬編碼的ASF默認日誌記錄將是：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -31,27 +31,27 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## ASF集成
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF包含一些很好的代碼技巧，可以增強與NLog的集成，使您可以更輕鬆地捕獲特定的消息。
 
 NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+ASF嘗試根據NLog提供的警告級別適當地標記消息，這使您可以僅捕獲來自特定日誌級別而不是所有日誌級別的特定消息。 當然，特定消息的日誌記錄級別無法自訂，因為它是ASF硬編碼決定給定消息的嚴重程度，但您確實可以出於個人喜好使ASF捕獲更少/更多消息。
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+ASF在` Trace `日誌級別上記錄額外信息，例如用戶/聊天消息。 ASF日誌預設僅記錄` Debug `級別及以上信息，它隱藏了額外信息，因為大多數用戶不需要這些信息，以及包含可能更重要的消息的雜亂輸出。 但是，您可以通過重新啟用` Trace `日誌記錄級別來使用該信息，特別是結合僅記錄您選擇的一個特定機械人，以及您感興趣的特定事件。
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+通常，ASF會盡可能簡單方便地記錄您想要的消息，而不是強迫您通過第三方工具（如` grep `等）手動過濾它。 只需按照下面的說明正確配置NLog，您就可以使用自訂目標（如整個數據庫）指定非常複雜的日誌記錄規則。
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+關於版本控制——在ASF發佈時，ASF嘗試始終附帶最新版本的NLog，可在** [ NuGet ](https://www.nuget.org/packages/NLog)**上找到 。 It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
 
-As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
+作為ASF集成的一部分，ASF還包括對其他ASF NLog日誌記錄目標的支援，這將在下面解釋。
 
 * * *
 
-## Examples
+## 範例
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+千里之行始於足下。 舉個簡單的例子，僅使用** [ ColoredConsole ](https://github.com/nlog/nlog/wiki/ColoredConsole-target) **目標。 我們的初始` NLog.config `將如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -146,13 +146,13 @@ You can see how we used ASF integration above and easily distinguished source of
 
 * * *
 
-## Advanced usage
+## 進階功能
 
-The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
+上面的簡單示例向您展示了自訂自己的ASF日誌記錄規則是多麼容易。 You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
 
 * * *
 
-## Limitations
+## 限制
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
@@ -326,19 +326,19 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-##### Layout Options
+##### 佈局選項
 
 *layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 
-##### HistoryTarget Options
+##### 歷史目標選項
 
 *maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 
-## Caveats
+## 注意事項
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

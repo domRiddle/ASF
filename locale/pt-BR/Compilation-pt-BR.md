@@ -14,7 +14,7 @@ Independente da plataforma, você precisa do SDK completo do .NET Core (e não a
 
 ## Compilação
 
-Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
+Assumindo que você tenha o SDK do .NET Core na versão apropriada, simplesmente navegue para o diretório raiz do ASF (copiado ou baixado e descompactado do repositório do ASF) e execute:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
@@ -32,7 +32,7 @@ Você também pode gerar um pacote .NET Core específico para OS se você tiver 
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 ```
 
-Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. Essa compilação também terá as atualizações desabilitadas.
+Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal como `win-x64`. Essa compilação também terá as atualizações desabilitadas.
 
 ### .NET framework
 

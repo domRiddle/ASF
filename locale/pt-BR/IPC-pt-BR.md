@@ -32,7 +32,7 @@ A ASF-ui é um projeto da comunidade que busca criar uma interface gráfica web 
 
 Como mencionado acima, a ASF-ui é um projeto da comunidade que não é mantido pelos principais desenvolvedores do ASF. Ela segue seu próprio fluxo de desenvolvimento no **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)** que deve ser usado para todas as questões relacionadas a ela, tais como problemas, relatórios de bugs e sugestões.
 
-![ASF-ui](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 * * *
 
@@ -72,7 +72,7 @@ Há suporte para ambas as formas e a escolha é totalmente sua em qual usar. Rec
 
 Nossa interface IPC, da API do ASF e do ASF-ui também inclui documentação Swagger, que está disponível em `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. A documentação Swagger serve como um intermediário entre a nossa implementação de API e outras ferramentas que a usam (por exemplo, ASF-ui). Ele fornece uma documentação completa e disponibilidade de todos os API endpoints nas especificações do **[OpenAPI](https://swagger.io/resources/open-api)** que pode ser facilmente usada por outros projetos, permitindo que você escreva e teste a API do ASF com facilidade.
 
-Além de usar nossa documentação Swagger como uma especificação completa do API do ASF, você pode também usá-lo como uma maneira amigável de executar vários API endpoints, principalmente aqueles que não são implementados pelo ASF-ui. Como nossa documentação Swagger é gerada automaticamente a partir código ASF, você tem a garantia de que a documentação estará sempre atualizada com os do ASF.
+Além de usar nossa documentação Swagger como uma especificação completa do API do ASF, você pode também usá-lo como uma maneira amigável de executar vários API endpoints, principalmente aqueles que não são implementados pelo ASF-ui. Como nossa documentação Swagger é gerada automaticamente a partir código ASF, você tem a garantia de que a documentação estará sempre atualizada com os endpoints de API inclusos na sua versão do ASF.
 
 ![Documentação Swagger](https://i.imgur.com/mLpd5e4.png)
 

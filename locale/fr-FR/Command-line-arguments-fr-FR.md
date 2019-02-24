@@ -66,7 +66,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Chemin alternatif
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
-    │           └── plugins (optional)
+    │           ├── plugins (optional)
     │           └── www (optional)
     └── ...
     

@@ -200,7 +200,7 @@ Isso confirma que você editou sua configuração com sucesso. Da mesma forma vo
 
 #### Usando a ASF-ui
 
-O ASF é um aplicativo de console e não inclui uma interface gráfica de usuário (GUI). No entanto, há um trabalho em andamento para a criação da **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** (interface de usuário do ASF) para o nosso IPC que está atualmente em fase de testes, mas que pode ser usada sem maiores problemas.
+O ASF é um aplicativo de console e não inclui uma interface gráfica de usuário (GUI). However, we're actively working on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface, which can be a very decent and user-friendly way to access various ASF features.
 
 Para usar a ASF-ui, você deve configurar `IPC` e `SteamOwnerID` nos parâmetros correspondentes na configuração global (na aba ASF).
 
@@ -224,7 +224,7 @@ Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `confi
 
 Se você fez tudo corretamente, você será capaz de acessar a interface IPC do ASF **[nesse](http://127.0.0.1:1242)** link, enquanto ASF estiver em execução. Você pode usar a ASF-ui para muitas coisas, como por exemplo enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**. Sinta-se a vontade para dar uma olhada e descobrir todas as funcionalidade da ASF-ui.
 
-![IPC 3](https://i.imgur.com/vCu2ZY5.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
 
 Por favor, note que a ASF-ui está atualmente em fase de testes e nem tudo está disponível/funcionando ainda, mas é mais que o suficiente para o uso básico do ASF.
 

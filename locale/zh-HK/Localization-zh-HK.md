@@ -52,7 +52,7 @@ It's a good idea to have a consistent translation, even if it could potentially 
 
 If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. 校對不是一件容易的事情，特別是因為ASF有時會非常「技術性」且難以翻譯，但我們明白，它通常是完美翻譯所必需的。 Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432/240376)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
 
-適用于校對的一般規則──不要心急，傾聽使用者的聲音，統籌專案，解決問題，確保把事情做得更好，而不是更糟。
+適用于校對的一般規則──不要心急，傾聽用戶的聲音，統籌項目，解決問題，確保把事情做得更好，而不是更糟。
 
 * * *
 
@@ -62,7 +62,7 @@ If you have a problem with particular translation, e.g. you do not know how to t
 
 **Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
-目前我們對以下4類問題提供支援：
+當前我們對以下4類問題提供支援：
 
 * 一般問題──任何不符合下面任何標準的問題。 In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
 * Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.
@@ -127,7 +127,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> 如果您是新使用者，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。
+> 如果您是新用戶，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。
 
 Which is originally written as:
 

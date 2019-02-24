@@ -39,7 +39,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 ASF 目前提供以下几种 OS-specific 包：
 
 - `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，和未来的版本。
-- `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 特别是包括所有 Raspberry Pi 2 & 3 可用的 GNU/Linux 操作系统（例如 Raspbian）的当前和未来版本。 此包不支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现 GNU/Linux 特性的操作系统，例如 Android。
+- `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 特别是包括所有 Raspberry Pi 2 & 3 可用的 GNU/Linux 操作系统（例如 Raspbian）的当前和未来版本。 此包不支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统，例如 Android。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-x64` 支持 64 位 OS X 操作系统。 包括 10.12 及更新版本。
 

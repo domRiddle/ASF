@@ -42,7 +42,7 @@ A flexibilidade é fornecida especialmente para você, então você pode reformu
 
 Se a frase já foi traduzida por alguém, você pode votar nela. O voto torna possível escolher a melhor variante da tradução ao invés de se prender a sugestão inicial - isso melhora ainda mais a qualidade da tradução. Você pode votar nas sugestões já disponíveis ou sugerir a sua própria tradução, que passará pelo mesmo processo. Eventualmente, a frase final será escolhida pela sugestão mais votada ou pelo revisor escolhido para aquele idioma, que aprova manualmente determinada tradução (baseada em seus votos também).
 
-**Não é preciso aprovação para ver suas linhas traduzidas no ASF**. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. É perfeitamente normal ter traduções criadas pela comunidade não aprovadas, onde você vota pela melhor. Contanto que esteja traduzido, tudo bem! E se você acha que a tradução atual está ruim, você sempre pode votar pela melhor, ou sugerir uma você mesmo.
+**Não é preciso aprovação para ver suas linhas traduzidas no ASF**. Aprovação significa simplesmente que alguém em quem confiamos revisou o conteúdo, e escolheu a versão final da tradução. É perfeitamente normal ter traduções criadas pela comunidade não aprovadas, onde você vota pela melhor. Contanto que esteja traduzido, tudo bem! E se você acha que a tradução atual está ruim, você sempre pode votar pela melhor, ou sugerir uma você mesmo.
 
 * * *
 
@@ -85,7 +85,7 @@ ASF incluirá determinado idioma **logo que possível**, o que significa que ele
 
 ## Idiomas ausentes
 
-Por padrão o projeto do ASF tem tradução aberta apenas para os 30 idiomas mais falados no mundo. Se você gostaria de acrescentar outro (ou um dialeto local para um idioma já disponível), por favor **[avise-nos](https://crowdin.com/messages/create/13177432/240376),** e vamos adicioná-lo o mais rápido possível. Não queremos abrir várias centenas de idiomas diferentes se ninguém vai traduzi-los, é por isso que limitamos para um número justo. Por favor, não hesite em nos contatar se você gostaria de traduzir para um idioma não listado, é muito fácil adicionar outro. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
+Por padrão o projeto do ASF tem tradução aberta apenas para os 30 idiomas mais falados no mundo. Se você gostaria de acrescentar outro (ou um dialeto local para um idioma já disponível), por favor **[avise-nos](https://crowdin.com/messages/create/13177432/240376),** e vamos adicioná-lo o mais rápido possível. Não queremos abrir várias centenas de idiomas diferentes se ninguém vai traduzi-los, é por isso que limitamos para um número justo. Por favor, não hesite em nos contatar se você gostaria de traduzir para um idioma não listado, é muito fácil adicionar outro. Apenas certifique-se de que você tem vontade e determinação reais para traduzir o ASF em seu idioma antes de decidir entrar em contato conosco.
 
 Para obter uma lista completa de todos os idiomas disponíveis para os quais o ASF pode ser traduzido **[clique aqui](https://support.crowdin.com/api/language-codes)**.
 
@@ -204,7 +204,7 @@ A partir de lá você pode corrigir facilmente os links para apontarem para a no
 
 ### Links locais
 
-Na wiki você também encontrará links locais que apontam para determinadas seções do documento. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
+Na wiki você também encontrará links locais que apontam para determinadas seções do documento. Esses links incluem o caracter `#`, indicando ao navegador que ele deve ir até essa seção do documento.
 
 Esses são casos especiais, já que são baseados nos nomes das seções do documento atual. Enquanto para as URLs adicionamos `-locale` que funciona para todos os casos, os nomes de seção serão traduzidos e então você precisa garantir que eles apontem para local apropriado.
 
@@ -242,7 +242,7 @@ No entanto, não é porque essas palavras não devem ser traduzidas que você n�
 
 Como você pode ver acima, nós adicionamos "muitas tentativas de ativação" ao lado de `RateLimited` para traduzir o significado desse status de forma amigável, enquanto mantemos ao mesmo tempo o original do ASF, aquele que o usuário pode ver durante o uso do programa. Da mesma forma você pode traduzir/explicar outros casos semelhantes de várias palavras e frases.
 
-Se você acredita que algo inapropriado foi incluso em um bloco de código, ou que há um texto que não está em um mas deveria, sinta-se livre para nos perguntar em um comentário do Crowdin marcado como **[issue](#issues)**. This also serves as a practical example of using a local link.
+Se você acredita que algo inapropriado foi incluso em um bloco de código, ou que há um texto que não está em um mas deveria, sinta-se livre para nos perguntar em um comentário do Crowdin marcado como **[issue](#issues)**. Isso também serve como um exemplo prático de uso de um link local.
 
 * * *
 

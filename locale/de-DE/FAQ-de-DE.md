@@ -293,31 +293,31 @@ Eine detaillierte Erklärung findest du im Abschnitt **[Statistiken](https://git
 
 ### Ich verwende ein nicht unterstütztes Betriebssystem z.B. 32-Bit-Windows, kann ich trotzdem die neueste ASF Version verwenden?
 
-Ja, und diese Version wird in keiner Weise nicht unterstützt, nur nicht offiziell erstellt. Schaue dir den Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** für generische Varianten an. ASF hat keine ausgeprägte Abhängigkeit vom Betriebssystem und es kann überall dort funktionieren, wo du eine funktionierende .NET Core Runtime bekommen kannst, zu der auch 32-Bit Windows gehört, auch wenn es kein `win-x86` OS-spezifisches Paket von uns gibt.
+Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Schaue dir hierfür die generische Varianten im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** an. ASF hat keine ausgeprägte Abhängigkeit vom Betriebssystem und es kann überall dort funktionieren, wo du eine funktionierende .NET Core Runtime, die auch 32-Bit Windows enthält, zum Laufen bekommen kannst, auch wenn es kein OS-spezifisches Paket für `win-x86` von uns gibt.
 
 * * *
 
 ### ASF ist großartig! Kann ich spenden?
 
-Ja, und wir freuen uns sehr zu hören, dass dir unser Projekt gefällt! Unter jeder **[Veröffentlichung](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** und auch **[auf der Hauptseite](https://github.com/JustArchiNET/ArchiSteamFarm)** findest du verschiedene Möglichkeiten eine Spende zu tätigen. Es ist gut zu wissen, dass wir neben allgemeinen Geldspenden auch Steam-Gegenstände akzeptieren, so dass dich nichts davon abhält, Skins, Keys oder einen kleinen Teil der Karten zu spenden, die du mit ASF gesammelt hast, wenn du möchtest. Vielen Dank im Voraus für deine Großzügigkeit!
+Ja, und wir freuen uns sehr zu hören, dass dir unser Projekt gefällt! Unter jeder **[Veröffentlichung](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** und auch **[auf der Hauptseite](https://github.com/JustArchiNET/ArchiSteamFarm)** findest du verschiedene Möglichkeiten eine Spende zu tätigen. Es ist gut zu wissen, dass wir neben allgemeinen Geldspenden auch Steam-Gegenstände akzeptieren, so dass dich nichts davon abhält, Skins, Keys oder einen kleinen Teil der Karten, die du mit ASF gesammelt hast, zu spenden. Natürlich nur wenn du möchtest. Vielen Dank im Voraus für deine Großzügigkeit!
 
 * * *
 
-### Ich verwende die Steam Parental PIN, um mein Konto zu schützen, muss ich sie irgendwo eingeben?
+### Ich verwende den Steam Parental Code um mein Konto zu schützen, muss ich sie irgendwo eingeben?
 
-Ja, du musst es in der `SteamParentalCode` Bot-Konfigurationseigenschaft setzen. Dies liegt hauptsächlich daran, dass ASF auf viele geschützte Teile deines Steam-Kontos zugreift und es für ASF unmöglich ist, ohne sie zu arbeiten.
+Ja, du musst ihn in der `SteamParentalCode` Bot-Konfigurationseigenschaft setzen. Dies liegt hauptsächlich daran, dass ASF auf viele geschützte Teile deines Steam-Kontos zugreift und es für ASF unmöglich ist ohne ihn zu arbeiten.
 
 * * *
 
 ### Ich möchte nicht, dass ASF standardmäßig irgendwelche Spiele sammelt, aber ich möchte zusätzliche ASF-Funktionen verwenden. Ist das möglich?
 
-Ja, du kannst `Paused` Bot-Konfigurationseigenschaft auf `true` setzen, um ASF mit angehaltenem Karten-Sammel-Modul zu starten, dann kannst du zusätzliche ASF-Funktionen nutzen, wie `GamesPlayedWhileIdle`.
+Ja, du kannst die `Paused` Bot-Konfigurationseigenschaft auf `true` setzen um ASF mit angehaltenem Karten-Sammel-Modul zu starten, dann kannst du zusätzliche ASF-Funktionen nutzen, wie z.B. `GamesPlayedWhileIdle`.
 
 * * *
 
-### Kann ASF in das Benachrichtigungsfeld minimieren?
+### Kann ich ASF in die Taskleiste minimieren?
 
-ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Du kannst jedoch auch ein beliebiges Drittanbieterprogramm verwenden, wie z.B. **[RBTray](http://rbtray.sourceforge.net)** für Windows, oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
+ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Du kannst jedoch ein beliebiges Drittanbieterprogramm verwenden wie z.B. **[RBTray](http://rbtray.sourceforge.net)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
 
 * * *
 
@@ -327,15 +327,15 @@ ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fe
 
 * * *
 
-### Gibt es eine Möglichkeit, mit ASF zu kommunizieren?
+### Gibt es eine Möglichkeit mit ASF zu kommunizieren?
 
-Ja, durch den Steam-Chat or mittels **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**. Weitere Informationen findest du im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+Ja, durch den Steam-Chat or mittels **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**. Weitere Informationen findest du im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**.
 
 * * *
 
 ### Ich möchte bei der Übersetzung von ASF helfen, was muss ich tun?
 
-Vielen Dank für dein Intresse! Alle Details hierzu kannst du in unserem Abschnitt **[Lokalisierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** finden.
+Vielen Dank für dein Intresse! Alle Details hierzu kannst du in unserem Abschnitt **[Lokalisierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)** finden.
 
 * * *
 

@@ -1,10 +1,10 @@
 # 統計資訊
 
-ASF 開發的主要支援來自三個渠道：捐贈、使用者回饋和統計資訊。 捐贈直接影響我們在專案上工作的意願，閱讀使用者的回饋總是令我開心（特別是積極的），而統計資訊為我們提供了使用者如何使用我們的軟體的資訊，以及使用者的數量——這樣我們就可以知道該如何改進，該修復什麼，以及工作的重點應該是什麼。
+ASF 開發的主要支援來自三個渠道：捐贈、用戶回饋和統計資訊。 捐贈直接影響我們在項目上工作的意願，閱讀用戶的回饋總是令我開心（特別是積極的），而統計資訊為我們提供了用戶如何使用我們的軟件的資訊，以及用戶的數量——這樣我們就可以知道該如何改進，該修復什麼，以及工作的重點應該是什麼。
 
-ASF在全域配置中預設啟用`統計資訊`。 If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, as this is what our current statistics are mainly doing.
+ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本發佈，錯誤修復，新功能實現，您應該考慮保持統計功能啟用，所以我們可以利用這些數據，以便為您提供更好的軟件（但不僅如此）。 這一點尤為重要，因為 ASF 是**免費**的，但您總是可以表達一些小小謝意—— **告訴我們您在使用ASF **，因為這是我們目前主要統計的數據。
 
-We keep usage of statistics to bare minimum, and every single information being collected requires practical explanation - what we collect, for what purpose, and how it's supposed to help. 所有這些都可以在下面找到。
+我們將統計數據的使用保持在最低限度，收集的每一條信息都有實際解釋——我們收集的內容，目的以及它如何用於幫助。 所有這些都可以在下面找到。
 
 * * *
 
@@ -15,60 +15,60 @@ We keep usage of statistics to bare minimum, and every single information being 
 a) 使用ASF的每個帳戶都將加入我們的 **[Steam群組](https://steamcommunity.com/gid/103582791440160998)**。 這樣做有三個原因：
 
 * 它為**您**提供群組公告，特別是新版本，關鍵問題，Steam故障和其他重要的東西，以保持社區更新（保證不會有與ASF無關的垃圾消息）。
-* 它允許 **您** 通過提問，回答問題，報告問題或建議改進來使用我們的技術支援。
-* 它可以讓我們看到ASF實際有多少Steam使用者。
+* 它允許**您**使用我們的技術支援，您可以提問、回答、報告漏洞或提交建議。
+* 它可以讓我們看到 ASF 實際上有多少 Steam 用戶。
 
-b) If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and includes `SteamTradeMatcher` in `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)**. 實際資料由唯一的ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
+b) 如果您的帳戶**[未受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663) **，並啟用** [ ASF 2FA ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa) **，** <a href = “https://steamcommunity.com/my/edit/settings">將物品庫設置為公開</a> **，且在物品庫中至少有100個符合` TradingPreferences `屬性中` SteamTradeMatcher `所選的` MatchableTypes `類型物品，ASF將定期與我們的** [伺服器](https://asf.justarchi.net) **通信。 實際資料由唯一的ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
 
 * 您的Steam身份驗證器（64位形式，用於生成連結）
 * 您的昵稱（用於顯示）
 * 您的頭像（哈希，用於顯示）
-* 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的使用者對您發起交易）
+* 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的用戶對您發起交易）
 * 您的`匹配類型`（用於顯示）
 * 您在`TradingPreferences`中設置 的`MatchEverything`的值（用於顯示和排序）
 * 您庫存里符合`MatchableTypes`的Steam物品總數量（用於顯示和排序）
 * 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和排序）
 
-ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be serious enough, as Steam group in no way identifies the account of using ASF program or not, while our public listing is enabled only if you intentionally enable `SteamTradeMatcher` feature, so when you actually **do** want people to know about that and send you trade offers in the first place.
+ASF **不會**收集任何其他上述清單之外的數據，因此這一點不會在更改日誌中另行通知。 我們不認為上述任何內容非常嚴重，因為 Steam 集團決不會識別使用 ASF 程序的帳戶，而我們的公開列表僅在您有意啟用` SteamTradeMatcher `功能時工作，所以您**的確**希望人們了解這一點，並向您發送交易報價。
 
 * * *
 
 # 資料使用方式
 
-All values specified in point b) are being used for our **Public ASF STM listing** explained below, and only for that.
+在b) 中提到的所有值都用於我們的**公開 ASF STM 清單**，且僅用於此。
 
 * * *
 
-## 公眾 ASF STM 機械人名單
+## 公開 ASF STM 清單
 
-Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** and serves a very simple purpose of allowing all users to quickly match ASF bots for dupes.
+我們的公開 ASF STM 清單位於**[此處](https://asf.justarchi.net/STM)**，且服務於一個非常簡單的目的，讓所有用戶能輕鬆匹配機械人以交易冗餘物品。
 
-Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
+感謝我們的清單，每個感興趣的 ASF 用戶和非 ASF 用戶都可以輕鬆地查詢到當前活躍的機械人，並向他們發送 STM 交易提案，這是雙贏的方案，** 對於您來說**，這可以擺脫冗餘的卡片並增加徽章完成進度。 我們想長期運行這樣的項目，因為**每個人** 都可以從 ASF 的即時響應中受益，這可以大大提高匹配效率，以及更新機械人可用性相關的資訊——時至今日，這都不是一件容易的事，多虧了 ASF，才容易多了。
 
 ### 工作原理
 
-ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
+登錄後，ASF 會發送一次初始數據，其中包含公開清單會使用的所有屬性。 然後，每10分鐘，ASF 發送一個非常小的心跳請求，通知我們的伺服器機械人仍在運行。 如果由於某種原因心跳訊號沒有到達，例如由於網絡問題，ASF 將每分鐘重試發送一次，直到伺服器註冊它。
 
-This allows our website to record which accounts can be used for matching, as well as if they're still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**.
+這允許我們的網站記錄哪些帳戶可用於匹配，以及它們是否仍處於活動狀態。 多虧了這一點，我們的網站可以顯示在**過去15分鐘**中活躍的所有啟用 ASF 2FA 和 STM 的帳戶。
 
-Users are sorted according to their inventories (in descending order) - `MatchableTypes` unique games count, then `MatchableTypes` items count, with addition of `MatchEverything` bots being listed on the top with `Any` banner.
+用戶根據他們的庫存排序（降序）——符合`MatchableTypes`的唯一遊戲計數，然後是符合 `MatchableTypes` 的物品計數，此外，`MatchEverything` 類型為` Any `的機械人將列在頂部。
 
-Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so point b) is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and might refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過b) 點。 此外，公開清單僅與兼容最新的ASF穩定版，並且可能拒絕顯示過時的機械人，特別是如果它們缺少只能在較新版本中找到的核心功能。
 
 ### API
 
-ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
+ASF STM 清單暫時只接受 ASF 機械人。 目前無法在我們的清單中列出第三方機器人（因為我們無法輕鬆查看其代碼並確保它們符合我們的整個交易邏輯）。
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use.
+如果您正在尋找以編程方式訪問我們清單的簡便方法，我們有一個非常簡單的**[/Api/Bots](https://asf.justarchi.net/Api/Bots)**端點供您使用。
 
 ### 注意
 
-*The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
+*整個概念，網站集成以及 ASF 報表仍處於測試階段——可能隨著時間的推移進行更新/删除（一旦我們覺得對某功能沒有足夠的興趣，就會將其刪除）。*
 
 * * *
 
 ## 選擇退出權
 
-Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
+儘管我們高度鼓勵未來的計劃，但參與統計資訊**並非強制性的**。 如果您希望不為人知地使用ASF，我們不予置評，您可以將全域配置中的` Statistics `屬性切換為 `false`來**完全**禁用統計。 禁用統計資訊將使整個模組無法運行，且不會執行上述隱私政策中指定的任何操作。
 
-> Please note that disabling statistics might influence our technical support and other things that are offered to you (for free), such as ASF functionality and the program itself.
+> 請注意，禁用統計資訊可能會影響我們的技術支援和其他為您提供的功能（目前這些都是免費的），例如 ASF 功能和程序本身。

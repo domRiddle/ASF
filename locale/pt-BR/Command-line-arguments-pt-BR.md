@@ -52,7 +52,7 @@ No entanto, esses dois estão completamente corretos:
 
 * * *
 
-`--path <path>` or `--path=<path>` - o ASF sempre navega até a sua própria pasta na inicialização. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. Pode ser especialmente útil se você quiser separar os arquivos executáveis dos arquivos de configuração, como nos pacotes do Linux; desta forma, você pode usar um arquivo executável (atualizado) com várias configurações diferentes. O caminho pode tanto ser relativo de acordo com o local atual do executável do ASF, ou absoluto. Quando etiver executando várias instâncias do mesmo executável, tenha em mente que você normalmente deve desativar as atualizações automáticas, pois não existe nenhuma sincronização entre eles. Também tenha em mente que este comando aponta para uma nova "pasta principal do ASF", ou seja, a pasta que tem a mesma estrutura original do ASF, com a pasta `config` dentro.
+`--path <path>` or `--path=<path>` - o ASF sempre navega até a sua própria pasta na inicialização. Ao especificar esse argumento, o ASF navegará até a pasta selecionada ao inicializar, o que permite que você use um caminho personalizado para a pasta `config` (e também outras como `plugins` ou `www`) sem a necessidade de duplicar o executável no mesmo lugar. Pode ser especialmente útil se você quiser separar os arquivos executáveis dos arquivos de configuração, como nos pacotes do Linux; desta forma, você pode usar um arquivo executável (atualizado) com várias configurações diferentes. O caminho pode tanto ser relativo de acordo com o local atual do executável do ASF, ou absoluto. Quando etiver executando várias instâncias do mesmo executável, tenha em mente que você normalmente deve desativar as atualizações automáticas, pois não existe nenhuma sincronização entre eles. Também tenha em mente que este comando aponta para uma nova "pasta principal do ASF", ou seja, a pasta que tem a mesma estrutura original do ASF, com a pasta `config` dentro.
 
 Exemplo:
 
@@ -67,8 +67,8 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Caminho relativo 
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
-    │           └── plugins (optional)
-    │           └── www (optional)
+    │           ├── plugins (opcional)
+    │           └── www (opcional)
     └── ...
     
 

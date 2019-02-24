@@ -41,7 +41,7 @@ Le package spécifique au système d'exploitation, outre le code géré inclus d
 <ul>
 <li><code>win-x64` fonctionne sur les systèmes d’exploitation Windows 64 bits. Cela inclut Windows 7 (SP1 +), 8.1, 10, Server 2008 R2 (SP1 +), 2012, 2012 R2, 2016 et les versions futures.</li> 
 
-- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes especially Raspberry Pi 2 & 3 with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux features, such as Android.
+- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes especially Raspberry Pi 2 & 3 with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment, such as Android.
 - `linux-x64` works on 64-bit GNU/Linux OSes. Cela inclut Alpine, CentOS / Fedora / RHEL, Debian / Ubuntu / Linux Mint, OpenSUSE / SLES et de nombreux autres, y compris leurs dérivés, dans les versions actuelles et futures.
 - `osx-x64` fonctionne sur les systèmes d’exploitation OS X 64 bits. Cela inclut 10.12, ainsi que les versions futures.</ul> 
 

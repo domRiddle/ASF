@@ -1,8 +1,8 @@
 # 後台序號啟動器
 
-後台序號啟動器是一個特殊的 ASF 內置功能，允許您導入給定的 Steam CD序號集 (及其名稱以作標記) 并在後台兌換。 如果您想批次兌換多個產品序號，完成整個過程之前必將觸發`RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)**，此時這個功能將會非常有用。
+後台序號啟動器是一個特殊的 ASF 內置功能，允許您導入一組給定的Steam cd-keys（連同其名稱）以在後台兌換。 如果您想批次兌換多個產品序號，完成整個過程之前必將觸發`RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)**，此時這個功能將會非常有用。
 
-後台序號啟動器僅對單個機械人有效，這意味著它不會採用 `RedeemingPreferences` 的設置。 若有需要，此功能可以與 `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**&#8203;一起使用（或代替它）。
+後台序號啟動器僅對單個機械人有效，這意味著它不會採用 `RedeemingPreferences` 的設置。 若有需要，此功能可以與（或代替） `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**一起使用。
 
 * * *
 
@@ -12,7 +12,7 @@
 
 ### 檔案：
 
-ASF 會識別`config`資料夾下名為 `BotName.keys`的檔案，其中 `BotName`是您的機械人名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間以 Tab 分隔，並以一個分行符號結束，表示開始下一項。 如果使用多個 Tab，則第一個條目會被視為遊戲名稱，最後一個會被視為遊戲序號，中間的所有內容都將被忽略。 範例：
+ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`是您的機械人名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間以 Tab 分隔，並以一個分行符號結束，表示開始下一項。 如果使用多個 Tab，則第一個條目會被視為遊戲名稱，最後一個會被視為遊戲序號，中間的所有內容都將被忽略。 範例：
 
     POSTAL 2	ABCDE-EFGHJ-IJKLM
     Domino Craft VR	12345-67890-ZXCVB
@@ -28,7 +28,7 @@ ASF 會識別`config`資料夾下名為 `BotName.keys`的檔案，其中 `BotNam
     ZXCVB-ASDFG-QWERT
     
 
-無論你決定使用哪種格式，ASF 都將在機械人啟動或執行時導入你的 `keys` 檔案。 成功解析檔案並跳過無效序號後，所有正確辩識的遊戲都將添加到后台佇列中，`BotName.keys` 檔案將自動從 `config` 目錄中刪除。
+無論你決定使用哪種格式，ASF 都將在機械人啟動或執行時導入你的 `keys` 檔案。 成功解析檔案並跳過無效序號後，所有正確檢測到的遊戲都將被添加到后台佇列中，`BotName.keys` 檔案將自動從 `config` 目錄中刪除。
 
 ### IPC
 
@@ -38,7 +38,7 @@ ASF 會識別`config`資料夾下名為 `BotName.keys`的檔案，其中 `BotNam
 
 ## 佇列
 
-成功導入遊戲後，它們將添加到佇列中。 只要機械人與 Steam 網路保持連線，且佇列不為空，ASF 就會自動處理後台佇列。 如果ASF嘗試兌換一個序號卻沒有觸發 `RateLimited` ，該序號將會被移出佇列並根據其兌換結果寫入位於 `config` 資料夾中的檔案。當序號被使用時（例如結果為：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），兌換將會被寫入 `BotName.keys.used`，否則就會被寫入 `BotName.keys.unused`。 由於 Steam 網路不一定會回傳序號所屬遊戲的正確名稱，所以 ASF 會使用您提供的遊戲名稱。這樣您就可以根據需要使用自訂名稱標記你的序號。
+成功導入遊戲後，它們將添加到佇列中。 只要機械人與 Steam 網絡保持連線，且佇列不為空，ASF 就會自動處理後台佇列。 如果ASF嘗試兌換一個序號卻沒有觸發 `RateLimited` ，該序號將會被移出佇列並根據其兌換結果寫入位於 `config` 資料夾中的檔案。當序號被使用時（例如結果為：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），兌換將會被寫入 `BotName.keys.used`，否則就會被寫入 `BotName.keys.unused`。 由於 Steam 網絡不一定會回傳序號所屬遊戲的正確名稱，所以 ASF 會使用您提供的遊戲名稱。這樣您就可以根據需要使用自訂名稱標記你的序號。
 
 如果在兌換過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 之後，兌換程序將會從中斷的地方繼續，直到佇列完全清空。
 

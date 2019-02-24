@@ -4,9 +4,9 @@ ASF從V4開始支援可在運行時載入的自訂外掛程式。 外掛程式�
 
 * * *
 
-## 致使用者
+## 致用戶书
 
-ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為要使用的每個外掛程式維護一個專用目錄，該目錄可以基於其名稱，例如`MyPlugin`。 這樣做將生成 `plugins/MyPlugin` 的最終樹結構。 最後，外掛程式的所有二進位檔案都應該放在那個專用資料夾裡，ASF 會在重新開機後成功偵測並使用您的外掛程式。
+ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為要使用的每個外掛程式維護一個專用目錄，該目錄可以基於其名稱，例如`MyPlugin`。 這樣做將生成 `plugins/MyPlugin` 的最終樹結構。 最後，外掛程式的所有二進位檔案都應該放在那個專用資料夾裏，ASF 會在重新開機後成功偵測並使用您的外掛程式。
 
 通常外掛程式開發人員會準備好檔的結構，並以`zip`的形式發佈他們的外掛程式檔，所以它足以在解壓後自動創建資料夾至`plugins` 目錄。
 
@@ -14,7 +14,7 @@ ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為�
 
 您可以在我們的**[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)**部分找到一些特色外掛程式。
 
-**請注意，ASF外掛程式可能是惡意的**。 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟體或避免VAC）。 我們也無法支援使用自訂外掛程式的設置，因為您不再運行原本的 ASF 代碼。
+**請注意，ASF外掛程式可能是惡意的**。 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟件或避免VAC）。 我們也無法支援使用自訂外掛程式的設置，因為您不再運行原本的 ASF 代碼。
 
 * * *
 
@@ -84,7 +84,7 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
+Afterwards, your plugin is ready for deployment. 如何分發和發布外掛程式由您決定，但我們建議創建一個zip，其中包含一個名為` YourNamespace.YourPluginName `的資料夾，您可以在其中將已編譯的外掛程式與其一起放入其中 ** [依賴項](#plugin-dependencies) **。 This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
 
 This is only the most basic scenario to get you started, we have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
 
