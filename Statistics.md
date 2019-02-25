@@ -24,10 +24,10 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
 * Your nickname (for display purposes)
 * Your avatar (hash, for display purposes)
 * Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
-* Your `MatchableTypes` (for display purposes)
-* Value of `MatchEverything` in your `TradingPreferences` (for display purposes and sorting)
-* Total number of `MatchableTypes` Steam items in your inventory (for display purposes and sorting)
-* Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and sorting)
+* Your `MatchableTypes` (for display purposes and matching)
+* Value of `MatchEverything` in your `TradingPreferences` (for display purposes and matching)
+* Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
+* Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
 ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be serious enough, as Steam group in no way identifies the account of using ASF program or not, while our public listing is enabled only if you intentionally enable `SteamTradeMatcher` feature, so when you actually **do** want people to know about that and send you trade offers in the first place.
 
