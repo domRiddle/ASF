@@ -29,21 +29,19 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
 * Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
 * Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
-ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be serious enough, as Steam group in no way identifies the account of using ASF program or not, while our public listing is enabled only if you intentionally enable `SteamTradeMatcher` feature, so when you actually **do** want people to know about that and send you trade offers in the first place.
+ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
 
 ---
 
 # Usage of data
 
-All values specified in second point are being used for our **Public ASF STM listing** explained below, and only for that.
+All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 
 ---
 
 ## Public ASF STM listing
 
-Our public ASF STM listing is located **[here](https://asf.justarchi.net/STM)** and serves a very simple purpose of allowing all users to quickly match ASF bots for dupes.
-
-Thanks to our listing, every interested ASF and non-ASF user can easily notice bots that are currently active, and send them STM trade offer, which helps both users, **also you**, to get rid of duplicated cards and head further towards badge completion. We wanted to create something like this for a long time, as **everybody** appreciates instant response to trade offers that ASF includes, which can drastically improve efficiency of matching, as well as information about bots availability - until now it was very hard to make a public listing like this, and thanks to ASF it's much easier.
+Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
 ### How it exactly works
 
@@ -51,7 +49,7 @@ ASF sends initial data once after logging in, that contains all properties publi
 
 This allows our website to record which accounts can be used for matching, as well as if they're still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**.
 
-Users are sorted according to their inventories (in descending order) - `MatchableTypes` unique games count, then `MatchableTypes` items count, with addition of `MatchEverything` bots being listed on the top with `Any` banner.
+Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
 
 Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so second point is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and might refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
@@ -71,4 +69,4 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
 
-> Please note that disabling statistics might influence our technical support and other things that are offered to you (for free), such as ASF functionality and the program itself.
+Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `SteamTradeMatcher` or `MatchActively` without having `Statistics` enabled.
