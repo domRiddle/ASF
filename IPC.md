@@ -103,10 +103,10 @@ Example Nginx configuration can be found below. We included full `server` block,
 
 ```nginx
 server {
-        listen *:443 ssl;
-        server_name asf.mydomain.com;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
+	listen *:443 ssl;
+	server_name asf.mydomain.com;
+	ssl_certificate /path/to/your/certificate.crt;
+	ssl_certificate_key /path/to/your/certificate.key;
 
 	location ~* /Api/NLog {
 		proxy_pass http://127.0.0.1:1242;
