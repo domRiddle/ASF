@@ -182,7 +182,7 @@ You change existing settings in exactly the same way - by generating a new confi
 
 So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
 
-![Steam](https://i.imgur.com/sCdSMZj.png)
+![Steam](https://i.imgur.com/1VCDrGC.png)
 
 Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
@@ -192,7 +192,7 @@ Now download the new config file in exactly the same way, then **overwrite** you
 
 Once you do that and start ASF again, you'll notice that ASF now displays your custom text in previous place:
 
-![Steam 2](https://i.imgur.com/NeFYrdU.png)
+![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
 This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
@@ -224,7 +224,7 @@ Now you can download your ASF config and put it in your `config` directory, as u
 
 If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://127.0.0.1:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
 

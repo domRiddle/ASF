@@ -2,29 +2,39 @@
 
 ASF는 프로세스와 봇 인스턴스의 행동을 제어하는데 사용되는 다양한 명령어를 지원합니다.
 
-아래의 명령어들은 세 가지 방법으로 봇에게 보내질 수 있습니다.
+Below commands can be sent to the bot through various different ways:
 
-- 스팀 개인 채팅
-- 스팀 그룹 채팅
-- **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC- ko-KR)**
+- Through interactive ASF console
+- Through Steam private/group chat
+- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
 ASF와의 상호 작용은 당신으로부터 ASF의 권한에 따라서 명령을 내릴 자격을 요구한다는 점을 명심하시기 바랍니다. 자세한 내용은 `SteamUserPermissions`과 `SteamOwnerID` 설정 속성들을 확인하시기 바랍니다.
 
-아래의 모든 명령어들은 기본값으로 `!`으로 지정된 `CommandPrefix` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#commandprefix)** 의 영향을 받습니다. 이것은 예를 들어 `status` 명령어를 실행하는 경우에, 실제로 `!status` (또는 선택에 따라서 대신 지정된 `CommandPrefix`)를 입력해야 한다는 것을 의미합니다.
+Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. 이것은 예를 들어 `status` 명령어를 실행하는 경우에, 실제로 `!status` (또는 선택에 따라서 대신 지정된 `CommandPrefix`)를 입력해야 한다는 것을 의미합니다. `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
 
 * * *
 
-### 스팀 개인 채팅
+### Interactive console
 
-명백히 ASF와 상호 작용하는 가장 쉬운 방법은 ASF 프로세스에서 현재 실행중인 ASF 봇에게 손쉽게 명령어를 실행하는 것입니다. 당연하게도, 만약 자기 자신의 단일 봇 계정을 가진 ASF가 실행중이라면 그것을 시행할 수 없습니다.
+Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![스크린샷](https://i.imgur.com/PPxx7qV.png)
+![스크린샷](https://i.imgur.com/bH5Gtjq.png)
+
+Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
 
 * * *
 
-### 스팀 그룹 채팅
+### Steam chat
 
-위와 매우 비슷하지만 이번에는 해당 Steam 그룹의 그룹 채팅에서 명령어를 실행하는 것입니다. 이 옵션은 `SteamMasterClanID` 속성이 적절하게 설정되어야 한다는 점을 명심하시기 바랍니다. 이 경우에 봇은 그룹 채팅에서도 명령어들을 기다릴 것입니다. (그리고 필요한 경우에 그룹 채팅에 합류합니다.) 이것은 또한 전용 봇 계정을 필요로 하지 않기 때문에, "자기 자신에게 말하기"로 사용될 수 있습니다. 아마도 대부분은 하나보다 많은 봇들에 대해서 이 방법을 사용하지 않을 것입니다.
+You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+
+![스크린샷](https://i.imgur.com/IvFRJ5S.png)
+
+In similar way you can also use group chat of given Steam group. 이 옵션은 `SteamMasterClanID` 속성이 적절하게 설정되어야 한다는 점을 명심하시기 바랍니다. 이 경우에 봇은 그룹 채팅에서도 명령어들을 기다릴 것입니다. (그리고 필요한 경우에 그룹 채팅에 합류합니다.) This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
+
+Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+
+*And even in this case you should use private chat with `<Bots>` syntax instead.*
 
 * * *
 
@@ -32,7 +42,7 @@ ASF와의 상호 작용은 당신으로부터 ASF의 권한에 따라서 명령�
 
 사용자 상호 작용(ASF-ui) 및 서드-파티 도구 또는 스크립팅(ASF API) 에 대해서 가장 적합한 명령어들을 실행하는 가장 진보적이고 유연한 방법은 ASF가 `IPC` 모드로 실행하는 것을 요구하고 클라이언트는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스를 통해서 명령을 실행합니다.
 
-![스크린샷](https://i.imgur.com/pzKE4EJ.png)
+![스크린샷](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ ASF와의 상호 작용은 당신으로부터 ASF의 권한에 따라서 명령�
 
 모든 명령어들은 대소문자 구별이 없지만, 그것들의 요소들(예를 들어 봇 이름들) 은 일반적으로 대소분자를 구별합니다.
 
-`<Bots>` 요소는 모든 명령어들에서 선택적입니다. 지정된 경우, 명령어는 주어진 봇들에게서 실행됩니다. 지정되지 않은 경우, 명령어는 명령어를 받는 현재 봇에서 실행됩니다. 다시 말해서, 봇 `B`에게 전송된 `status A`는 봇 `A`에게 `status`를 보내는 것과 동일합니다.
+`<Bots>` 요소는 모든 명령어들에서 선택적입니다. 지정된 경우, 명령어는 주어진 봇들에게서 실행됩니다. 지정되지 않은 경우, 명령어는 명령어를 받는 현재 봇에서 실행됩니다. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy.
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
@@ -104,10 +114,6 @@ ASF will "join" extra out-of-range arguments to plural type of the last in-range
 
 As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
 
-Please note that sending a command to the group chat acts like a relay - if you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with it, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
-
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
-
 * * *
 
 일부 명령어들은 또한 입력을 줄이기 위해서 그것들의 별칭과 함께 사용 가능합니다:
@@ -118,10 +124,6 @@ Please note that sending a command to the group chat acts like a relay - if you'
 | `status ASF` | `sa` |
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
-
-* * *
-
-It's not required to have any extra account for executing commands though Steam chat - you can create a group, set `SteamMasterClanID` properly to that newly created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there). Apart from that, you can also use **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, but chatroom way is much easier, and if you have access to some alt account, then using that instead is even easier.
 
 * * *
 

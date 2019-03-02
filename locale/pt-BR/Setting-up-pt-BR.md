@@ -182,7 +182,7 @@ Você pode alterar as configurações existentes exatamente da mesma forma: gera
 
 Então vamos lá, se você executar o ASF e iniciar a coleta, com as configurações padrão você vai ver que o Steam mostra "Em jogo":
 
-![Steam](https://i.imgur.com/sCdSMZj.png)
+![Steam](https://i.imgur.com/1VCDrGC.png)
 
 Vamos mudar isso. Vá para as configurações avançada do gerador de configuração web e encontre `CustomGamePlayedWhileFarming`. Coloque no campo o texto que você quer mostrar, por exemplo: "Idling Cards":
 
@@ -192,7 +192,7 @@ Agora baixe o arquivo de configuração da mesma forma que antes e **substitua**
 
 Assim que fizer isso e abrir o ASF novamente você vai perceber que o Steam agora mostra seu texto:
 
-![Steam 2](https://i.imgur.com/NeFYrdU.png)
+![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
 Isso confirma que você editou sua configuração com sucesso. Da mesma forma você pode editar as configurações globais do ASF, apenas mudando da aba "Bot" para a aba "ASF", baixando o arquivo de configuração `ASF.json` e o colocando na pasta `config`.
 
@@ -224,7 +224,7 @@ Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `confi
 
 Se você fez tudo corretamente, você será capaz de acessar a interface IPC do ASF **[nesse](http://127.0.0.1:1242)** link, enquanto ASF estiver em execução. Você pode usar a ASF-ui para muitas coisas, como por exemplo enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**. Sinta-se a vontade para dar uma olhada e descobrir todas as funcionalidade da ASF-ui.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 Por favor, note que a ASF-ui está atualmente em fase de testes e nem tudo está disponível/funcionando ainda, mas é mais que o suficiente para o uso básico do ASF.
 

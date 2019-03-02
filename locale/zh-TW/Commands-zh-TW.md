@@ -2,29 +2,39 @@
 
 ASF 支援各種指令，以此控制程式和機器人實例的行為。
 
-您可以通過以下三種不同的方式發送指令：
+Below commands can be sent to the bot through various different ways:
 
-- 通過 Steam 私人交談
-- 通過 Steam 群組交談
-- 通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Through interactive ASF console
+- Through Steam private/group chat
+- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
 請注意，與 ASF 交互需要您擁有執行相關指令的許可權。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 配置文件屬性瞭解更多。
 
-以下所有指令都受 `CommandPrefix`**[ 全局配置屬性​影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**，該屬性的預設值為`!`。 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。
+Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
 
 * * *
 
-### Steam 私人交談
+### Interactive console
 
-Definitely the easiest method to interact with ASF - simply execute command to ASF bot that is currently running in ASF process. 顯然，如果您只在 ASF 中運行您自己的帳戶，就無法使用這個方法。
+Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![截圖](https://i.imgur.com/PPxx7qV.png)
+![截圖](https://i.imgur.com/bH5Gtjq.png)
+
+Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
 
 * * *
 
-### Steam 群組交談
+### Steam chat
 
-與上述方法非常相似，但這次需要向指定 Steam 群組的聊天室發送消息。 請注意，此選項需要您正確設置 `SteamMasterClanID` 屬性，使機器人同樣監聽（並加入）指定的群組交談。 因為這種方法不需要額外的帳戶，所以可以用來“與自己交談”。 如果您有多個機器人，可能就不希望使用此方法。
+You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+
+![截圖](https://i.imgur.com/IvFRJ5S.png)
+
+In similar way you can also use group chat of given Steam group. 請注意，此選項需要您正確設置 `SteamMasterClanID` 屬性，使機器人同樣監聽（並加入）指定的群組交談。 This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. 這樣，ASF 機器人（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 實例將會收到指令，即使界面上顯示只有您自己在聊天室內）。
+
+Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機器人交談**時一樣，使用`特定機器人`名稱的指令形式。 ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+
+*即使在這種情況下, 您也應該使用 `<Bots>` 私人交談向機器人發送指令。*
 
 * * *
 
@@ -32,7 +42,7 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 這是最先進、靈活的執行指令方式，非常適合用戶集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行指令。
 
-![截圖](https://i.imgur.com/pzKE4EJ.png)
+![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ Definitely the easiest method to interact with ASF - simply execute command to A
 
 所有的指令都不區分大小寫，但它們的參數（例如機器人名稱）通常是區分大小寫的。
 
-`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的機器人上執行。 但省略時，指令會在當前接收指令的機器人上執行。 換句話說，向機器人 `B` 發送 `status A`指令等於向機器人 `A` 發送 `status` 指令。
+`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的機器人上執行。 但省略時，指令會在當前接收指令的機器人上執行。 In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy.
 
 指令的**許可權**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全局配置文件中定義的 `SteamOwnerID` 用戶（擁有最高許可權）。
 
@@ -104,10 +114,6 @@ ASF 會將命令末尾超出規定範圍的多餘參數“連接”到符合語�
 
 如上所述，空白字元被用於分隔命令參數，所以參數內部無法再使用空白字元。 但同樣如上所述，ASF 可以連接超出範圍的參數，這意味著您可以在指令的最後一個參數中使用空白字元。 例如，`nickname bob Great Bob` 指令能夠正確地將機器人 `bob` 的暱稱更改為“Great Bob”。 與此類似，您也可以使用 `owns` 指令檢查含有空格的名稱。
 
-請注意，向群組交談發送指令類似於一個中繼器——如果您向一個含有 3 個機器人的群組交談發送 `redeem X` ，其效果等同於分別在私人交談中向每個機器人發送 `redeem X`。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機器人交談**時一樣，使用`特定機器人`名稱的指令形式。 ASF 支持群組交談，是因為在多數情況下它是一種有效的通信方式，但如果您的群組中有多個 ASF 機器人，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有的機器人執行相同的指令。
-
-*即使在這種情況下, 您也應該使用 `<Bots>` 私人交談向機器人發送指令。*
-
 * * *
 
 一些指令有較短的別名可用，便於輸入。
@@ -118,10 +124,6 @@ ASF 會將命令末尾超出規定範圍的多餘參數“連接”到符合語�
 | `status ASF` | `sa` |
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
-
-* * *
-
-通過 Steam 交談發送指令不需要任何額外的帳戶——您可以創建一個群組，將 `SteamMasterClanID` 屬性設置為這個新群組，然後通過 `SteamOwnerID` 屬性或者機器人的 `SteamUserPermissions` 屬性為您自己授予足夠的許可權。 這樣，ASF 機器人（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 實例將會收到指令，即使界面上顯示只有您自己在聊天室內）。 除此之外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**，但聊天室的方法更簡單，並且如果您有多個帳戶，這種方法就更簡單了。
 
 * * *
 

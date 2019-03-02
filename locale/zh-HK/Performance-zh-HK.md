@@ -2,17 +2,17 @@
 
 ASF的主要目標是盡可能有效地進行掛卡，它基于兩種類型的數據——ASF無法自行猜測/檢查，需要用戶提供的一小部分數據，以及可以由ASF自動檢查的更大數據集 。
 
-在自動模式下，ASF不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
+在自動模式下，ASF 不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 ** ASF 比您更理解它自己應該做什麼以及應該盡快做出哪些決定以加速掛卡**。 Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
 
 * * *
 
-Some time ago Valve changed the algorithm for card drops. From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+早些時候，Steam 改變了掉卡算法。 From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
 
 * * *
 
-ASF currently includes two farming algorithms:
+ASF目前擁有兩種掛卡算法：
 
-**Simple** algorithm works best for accounts that have unrestricted card drops. This is primary algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
+**Simple** 算法適用於具有掉卡不受限制的帳戶。 這是 ASF 使用的主要算法。 機械人檢測可用的遊戲，並逐個遊玩它們直到掛卡完成。 This is because card drops rate when farming more than one game is close to zero and totally ineffective.
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
@@ -20,7 +20,7 @@ Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDr
 
 * * *
 
-### **There is no obvious answer which algorithm is better for you**.
+### **對於哪種算法更適合您，沒有明顯的答案。**
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
@@ -28,7 +28,7 @@ Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do t
 
 * * *
 
-### What is the best way to find out if your account is restricted?
+### 了解您的帳戶是否受限的最佳方法是什麼？
 
 Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 
@@ -40,7 +40,7 @@ Remember that games can have different drop rate, this is why you should test if
 
 It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
 
-In the end, of course, decision is up to you.
+當然，最終決定取決於你。
 
 And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you feel like previously set value is no longer appropriate, you can always do a re-test and update it accordingly.
 
@@ -54,7 +54,7 @@ It's nice to note that ASF also includes `Manual` farming mode that can be activ
 
 * * *
 
-## Steam glitches
+## Steam 故障
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 

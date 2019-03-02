@@ -1,6 +1,6 @@
-# 本土化
+# 當地語系化:
 
-ASF 由 Crowdin 服務提供支援，這使得每個人都能幫助將 ASF 翻譯成世界各地的語言。 有關 Crowdin 工作原理的詳細說明，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
+ASF 由 Crowdin 服務提供支援，這使得每個人都可以幫助將 ASF 翻譯成世界各地的語言。 有關 Crowdin 工作原理的詳細說明，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
 
 如果您想了解當前本土化工作的進程，可以關注 **[ASF Crowdin 動態](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
@@ -8,13 +8,13 @@ ASF 由 Crowdin 服務提供支援，這使得每個人都能幫助將 ASF 翻�
 
 ## 範圍
 
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. 這主要包括我們的ASF網頁設置檔生成器、ASF-ui 以及我們的wiki。 所有這些都可以輕鬆地通過Crowdin介面進行轉換。
+我們的平臺支援我們的主要 ASF項目的當地語系化，以及我們與之一起提供的完整的可當地語系化內容。 這主要包括我們的ASF網頁設置檔生成器、ASF-ui 以及我們的wiki。 所有這些都可以輕鬆地通過Crowdin介面進行轉換。
 
 * * *
 
 ## 註冊
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. 註冊是簡單和完全免費的！ After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+如果您想幫助對ASF的翻譯、審閱或批准翻譯，請註冊我們的 **[Crowdin 項目](https://crowdin.com/project/archisteamfarm)**。 註冊是簡單和完全免費的！ After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
 * * *
 

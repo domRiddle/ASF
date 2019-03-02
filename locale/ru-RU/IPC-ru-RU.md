@@ -32,7 +32,7 @@ ASF-ui это проект сообщества, цель которого со�
 
 Как сказано выше, ASF-ui это проект разрабатываемый нашим сообществом, и поэтому он не поддерживается основными разработчиками ASF. У него свой собственный путь развития в **[репозитории ASF-ui](https://github.com/JustArchiNET/ASF-ui)**, и именно туда вам следует адресовать все вопросы, проблемы, сообщения об ошибках и предложения.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 * * *
 
@@ -102,10 +102,10 @@ ASF по умолчанию ожидает соединений только п�
 
 ```nginx
 server {
-        listen *:443 ssl;
-        server_name asf.mydomain.com;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
+    listen *:443 ssl;
+    server_name asf.mydomain.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/certificate.key;
 
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;

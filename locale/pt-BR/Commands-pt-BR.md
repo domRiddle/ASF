@@ -2,29 +2,39 @@
 
 O ASF suporta uma variedade de comandos, que podem ser usados para controlar o comportamento do processo e dos bots.
 
-Os comandos abaixo podem ser enviados para o bot de três formas diferentes:
+Os comandos abaixo podem ser enviados para o bot várias maneiras:
 
-- Através do chat privado do Steam
-- Através do chat em grupo do Steam
-- Através do **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
+- Através do console interativo do ASF
+- Através do chat privado/em grupo do Steam
+- Através da nossa interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
 
 Tenha em mente que a interação com o ASF requer que você tenha permissão para utilizar os comandos de acordo com as configurações do ASF. Confira os parâmetros de configuração `SteamUserPermissions` e `SteamOwnerID` para obter mais detalhes.
 
-Todos os comandos abaixo são afetados pela **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)** `CommandPrefix`, que é, por padrão, `!`. Isto significa que para executar, por exemplo, o comando `status`, você deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha).
+Os comandos executados através do chat Steam são afetados pela **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#commandprefix)** `CommandPrefix`, que é `!` por padrão. Isto significa que para executar, por exemplo, o comando `status`, você deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha). O `CommandPrefix` não é obrigatório ao usar o console ou o IPC e pode ser omitido.
 
 * * *
 
-### Chat privado do Steam
+### Console interativo
 
-Definitivamente o método mais fácil de interagir com o ASF: basta executar o comando para o bot ASF que está sendo executado no processo do ASF. Obviamente, você não pode fazer isso se você estiver executando o ASF com uma única conta bot que seja a sua própria conta.
+À partir da versão V4.0.0.9, o ASF oferece suporte a um console interativo que pode ser habilitado configurando a propriedade [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#steamownerid). Depois, simplesmente pressione o botão `c` para ativar o modo de comando, digite seu comando e confirme com enter.
 
-![Captura da tela](https://i.imgur.com/PPxx7qV.png)
+![Captura da tela](https://i.imgur.com/bH5Gtjq.png)
+
+O console interativo não está disponível no modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless) `(não-interativo)`.
 
 * * *
 
-### Chat em grupo do Steam
+### Chat Steam
 
-Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada. Você provavelmente não vai querer usar esse método para mais de 1 bot.
+Você também pode executar o comando para o bot ASF através do chat Steam. Obviamente que você não pode falar diretamente consigo mesmo, então você precisará de pelo menos outra conta bot se você quiser executar comandos para a sua conta principal.
+
+![Captura da tela](https://i.imgur.com/IvFRJ5S.png)
+
+Da mesma forma, você também pode usar o chat em grupo de um determinado grupo Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada, ao contrário do chat privado. Você pode simplesmente configurar a propriedade `SteamMasterClanID` com o id do seu grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de bate-papo e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá).
+
+Note que enviar um comando para o chat do grupo atua como uma retransmissão. Se você enviar `redeem X` para 3 de seus bots que estejam no chat junto com você, você terá o mesmo resultado que enviar `redeem X` para cada um deles em particular. Na maioria casos, **não é isso que você quer** e, em vez disso, você deve usar um comando que `indica um bot` para **um único bot em uma janela particular**. O ASF suporta chat em grupo, já que em muitos casos isso pode ser uma fonte útil de comunicação com seu único bot, mas você quase nunca deve executar qualquer comando no chat em grupo se tiverem 2 ou mais bots nele, a não ser que você entenda completamente o comportamento do ASF descrito aqui e você, de fato, queira repetir o mesmo comando para todo bot que esteja na mesma conversa.
+
+*E mesmo nesse caso você deve usar o chat privado com a sintaxe `<Bots>`.*
 
 * * *
 
@@ -32,7 +42,7 @@ Muito similar ao anterior, mas desta vez no chat em grupo do Steam. Tenha em men
 
 A forma mais avançada e flexível de executar comandos, perfeito para interação do usuário (ASF-ui), bem como para ferramentas de terceiros ou scripts (API do ASF), requer que o ASF seja executado em modo `IPC` e que um cliente execute os comandos através da interface **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-pt-BR)**.
 
-![Captura da tela](https://i.imgur.com/pzKE4EJ.png)
+![Captura da tela](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 
 Todos os comandos não diferenciam maiúsculas de minúsculas, mas seus argumentos (tais como nomes dos bots) geralmente sim.
 
-O argumento `<Bots>` é opcional em todos os comandos. Quando especificado, o comando é executado nesse bot. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`.
+O argumento `<Bots>` é opcional em todos os comandos. Quando especificado, o comando é executado nesse bot. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy.
 
 O **acesso** aos comandos se define com, no **mínimo**, `EPermission` em `SteamUserPermissions`, com exceção do `Owner` que tem a `SteamOwnerID` definida no arquivo de configuração global (e é a maior permissão possível).
 
@@ -103,10 +113,6 @@ O ASF usa todos os caracteres em branco, como espaço e quebras de linha, como p
 O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último argumento válido. Isso significa que `redeem bot key1 key2 key3` para `redeem <Bots> <Keys>` funcionará exatamente da mesma forma que `redeem bot key1,key2,key3`. Junto com o fato de aceitar a quebra de linha como comando delimitador, isso torna possível que você escreva `redeem bot` e então cole uma lista de keys separadas por qualquer caractere delimitador aceitável (tal qual a quebra de linha), ou o delimitador padrão do ASF `,`. Tenha em mente que esse truque só pode ser usado nas variantes de comando que usam um grande número de argumentos (então especificar os `<Bots>` é obrigatório nesse caso).
 
 Como você leu acima, um caractere de espaço está sendo usado como um delimitador para um comando, portanto não pode ser usado nos argumentos. No entanto, também como mencionado acima, o ASF pode combinar parâmetros redundantes, o que significa que você pode usar um espaço nos últimos parâmetros definidos para esse comando. Por exemplo, `nickname bob Great Bob` irá definir corretamente o apelido do bot `bob` como "Great Bob". De forma semelhante, você pode verificar nomes que contenham espaços no comando `owns`.
-
-Por favor, note que enviar comandos para o chat em grupo funciona como uma repetidora: se você enviar `redeem X` para 3 de seus bots que estejam no chat junto com você, você terá o mesmo resultado que enviar `redeem X` para cada um deles em particular. Na maioria casos, **não é isso que você quer** e, em vez disso, você deve usar um comando que `indica um bot` para **um único bot em uma janela particular**. O ASF suporta chat em grupo, já que em muitos casos isso pode ser uma fonte útil de comunicação, mas você quase nunca deve executar qualquer comando no chat em grupo se tiverem 2 ou mais bots nele, a não ser que você entenda completamente o comportamento do ASF descrito aqui e você, de fato, queira repetir o mesmo comando para todo bot que esteja na mesma conversa.
-
-*E mesmo nesse caso você deve usar o chat privado com a sintaxe `<Bots>`.*
 
 * * *
 
@@ -121,19 +127,15 @@ Alguns comandos também estão disponíveis com seus pseudônimos, para facilita
 
 * * *
 
-Não é necessário ter qualquer conta extra para executar comandos através do chat Steam; você pode criar um grupo, definir o parâmetro `SteamMasterClanID` paraa esse grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de bate-papo e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá). Além disso, você também pode usar o **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**, mas usar a sala de chat é muito mais fácil, e se você tem acesso a uma conta alternativa, então usá-lo ao invés do outro é mais fácil ainda.
-
-* * *
-
 ### Argumento `<Bots>`
 
 O argumento `<Bots>` é uma variante especial de múltiplos argumentos, além de aceitar diversos valores ele também oferece funcionalidades extras.
 
-Primeiro e acima de tudo, há a palavra-chave especial `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots aos quais você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará na resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
+Primeiro e acima de tudo, há uma palavra-chave especial do `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots que você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará em resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
 
-O argumento `<Bots>` suporta uma sintaxe de "classe" especial, o que te permite escolher uma série de bots mais facilmente. A sintaxe geral para `<Bots>`, nesse caso, é `PrimeiroBot...ÚltimoBot`. Por exemplo, se você tem bots chamados `A, B, C, D, E, F`, você pode executar `status B..E`, que é igual a `status B, C, D, E`. Ao usar essa sintaxe, o ASF usará a ordem alfabética a fim de determinar quais bots estão na classe especificada. Tanto o `PrimeiroBot` quanto o `ÚltimoBot` devem ser nomes válidos de bots reconhecidos pelo ASF, caso contrário a sintaxe é totalmente ignorada.
+O argumento `<Bots>` suporta uma sintaxe de "classe" especial, o que te permite escolher uma série de bots mais facilmente. A sintaxe geral para `<Bots>`, nesse caso, é `PrimeiroBot...ÚltimoBot`. Por exemplo, se você tem bots chamados `A, B, C, D, E, F`, você pode executar `status B..E`, que é igual a `status B, C, D, E`, neste caso. Ao usar essa sintaxe, o ASF usará a ordem alfabética a fim de determinar quais bots estão na classe especificada. Tanto o `PrimeiroBot` quanto o `ÚltimoBot` devem ser nomes válidos de bots reconhecidos por ASF, caso contrário a sintaxe é totalmente ignorada.
 
-Além de sintaxe de classe descrita acima, o argumento `<Bots>` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo, `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
+Além de sintaxe de classe descrita acima, o argumento `<Bots>` também suporta correspondência de **[expressão regular](https://en.wikipedia.org/wiki/Regular_expression)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo, `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
 
 * * *
 
@@ -165,13 +167,13 @@ Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, qua
 
 ### Exemplo
 
-Se você deseja definir **todas as** configurações de privacidade do seu bot chamado `Main` para `Privado`, você pode usar quaisquer um dos comandos abaixo:
+Se você deseja definir **todas as** configurações de privacidade do seu bot chamado `Main` para `Privado`, você pode usar qualquer um comandos abaixo:
 
     privacy Main 1
     privacy Main Private
     
 
-Isso acontece porque o ASF assumirá automaticamente todas as outras configurações como sendo `Private` (privadas), então não há nenhuma necessidade de defini-las. Por outro lado, se você gostaria de definir todas as configurações de privacidade para `Public` (públicas), então você deve usar qualquer um dos comandos abaixo:
+Isso acontece porque o ASF assumirá automaticamente todas as outras configurações como sendo `Privada`, então não há nenhuma necessidade de defini-las. Por outro lado, se você gostaria de definir todas as configurações de privacidade para `Público`, então você deve usar qualquer um dos comandos abaixo:
 
     privacy Main 3,3,3,3,3,3,3
     privacy Main Public,Public,Public,Public,Public,Public,Public
@@ -190,7 +192,7 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 ## Métodos `redeem^`
 
-O comando `redeem^` permite que você ajuste os métodos que serão usados em um cenário individual de ativação de keys. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
+O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -234,7 +236,7 @@ A sintaxe geral é `input <Bots> <Type> <Value>`.
 
 ### Exemplo
 
-Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Queremos iniciar esse bot com `Não-interativo` definido como true.
+Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Queremos iniciar esse bot com `Headless` ativo.
 
 Para fazer isso, precisamos executar o seguintes comandos:
 

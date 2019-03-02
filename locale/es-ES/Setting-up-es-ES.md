@@ -182,7 +182,7 @@ Puedes cambiar ajustes existentes de la misma forma - generando un nuevo archivo
 
 Empecemos, si ejecutas ASF y empieza a "idlear", en ajustes predeterminados verás que tu cuenta de Steam está jugando:
 
-![Steam](https://i.imgur.com/sCdSMZj.png)
+![Steam](https://i.imgur.com/1VCDrGC.png)
 
 Cambiemos eso. Cambia a configuración avanzada en el generador de configuración web y busca `CustomGamePlayedWhileFarming`. Una vez que hagas eso, pon el texto personalizado que quieras que se muestre, tal como "idleando cromos":
 
@@ -192,7 +192,7 @@ Ahora descarga el nuevo archivo de configuración exactamente de la misma manera
 
 Una vez que hagas eso y ejecutes ASF de nuevo, notarás que ASF ahora muestra tu texto personalizado:
 
-![Steam 2](https://i.imgur.com/NeFYrdU.png)
+![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
 This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
@@ -224,7 +224,7 @@ Ahora puedes descargar tu configuración de ASF y ponerla en el directorio `conf
 
 Si hiciste todo correctamente, ahora serás capaz de acceder a la interfaz IPC de ASF en **[este](http://127.0.0.1:1242)** enlace, siempre que ASF se esté ejecutando. Puedes usar la interfaz de usuario de ASF para diversos propósitos, por ejemplo, enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 Ten en cuenta que la interfaz de usuario de ASF está actualmente en estado anticipado y no todo está disponible/funcionando aún, pero es más que suficiente para un uso simple de ASF.
 

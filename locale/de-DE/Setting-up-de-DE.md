@@ -182,7 +182,7 @@ Du kannst bestehende Einstellungen auf die gleiche Weise ändern, indem du eine 
 
 Also lass uns das tun, wenn du ASF ausführst und das Sammeln beginnst, wirst du in den Standardeinstellungen sehen, dass dein Steam-Konto jetzt im Spiel ist:
 
-![Steam](https://i.imgur.com/sCdSMZj.png)
+![Steam](https://i.imgur.com/1VCDrGC.png)
 
 Lass uns das jetzt ändern. Aktiviere die erweiterten Einstellungen im Webkonfigurationsgenerator und suche `CustomGamePlayedWhileFarming`. Sobald du das getan hast, füge dort deinen eigenen benutzerdefinierten Text ein, den du anzeigen möchtest, wie zum Beispiel "Idling cards":
 
@@ -192,7 +192,7 @@ Nun kannst du die neue Konfigurationsdatei auf genau die gleiche Weise herunterl
 
 Sobald du das getan hast und ASF erneut startest, wirst du feststellen, dass ASF nun deinen benutzerdefinierten Text an der vorherigen Stelle anzeigt:
 
-![Steam 2](https://i.imgur.com/NeFYrdU.png)
+![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
 Dies bestätigt, dass du deine Konfiguration erfolgreich bearbeitet hast. Auf genau die gleiche Weise kannst du globale ASF-Eigenschaften ändern, indem du vom Bot-Tab zum "ASF"-Tab wechselst, die generierte `ASF.json` Konfigurationsdatei herunterlädst und sie in dein `config` Verzeichnis legst.
 
@@ -224,7 +224,7 @@ Jetzt kannst du deine ASF-Konfiguration herunterladen und wie gewohnt in dein `c
 
 Wenn du alles richtig gemacht hast, kannst du nun unter **[diesem](http://127.0.0.1:1242)** Link auf die IPC-Schnittstelle von ASF zugreifen, solange ASF läuft. Du kannst ASF-ui für verschiedene Zwecke verwenden, z.B. um **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** zu senden. Wirf einfach einen Blick darauf, um alle Funktionalitäten von ASF-ui kennenzulernen.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 Bitte bedenke, dass sich ASF-ui derzeit im Preview-Zustand befindet und noch nicht alles verfügbar/funktionsfähig ist, aber es ist mehr als genug für eine simple ASF-Nutzung.
 

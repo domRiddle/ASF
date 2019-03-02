@@ -158,7 +158,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `Headless`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在無頭模式下，ASF假定它在伺服器或其他非互動式環境中運行，因此它不會嘗試讀取關鍵帳戶憑據，如2FA代碼、SteamGuard 代碼、密碼或ASF操作所需的任何其他變數。 這等於使ASF主控台為唯讀。 `Headless` 模式主要適用于在其伺服器上運行ASF的用戶，因為ASF在需要交互（如請求2FA代碼）時，將通過停止帳戶來中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 如果您在伺服器上運行ASF，可能需要將此屬性與`--process-required`**[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**配合使用。
 
@@ -369,7 +369,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 ### `AutoSteamSaleEvent`
 
-預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值` false `。
+預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 請注意，由於持續性的Valve漏洞，變更和問題，**我們無法保證此功能是否能正常運行**，因此完全有可能此選項**根本不起作用**。 我們不接受 **任何** 漏洞報告，也不支援關於此選項的請求。 它是在絕對沒有保證的情況下提供的, 一切風險將由您自行承擔。
 
@@ -550,7 +550,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 重要的是要注意，在`Offline`模式下運行的ASF將**不能**以常規的Steam聊天方式接收命令，因為聊天以及整個社區的存在實際上是完全離線的。 解決此問題的方法是使用 `invisible` 模式，它以類似的方式工作（不公開狀態），但保持接收和回應訊息的能力（因此也可關閉通知和未讀消息，如上文所述）。 ` Invisible `模式對您不希望公開（狀態方面）但仍能發送命令的備用帳戶最有意義。
 
-但是，` Invisible `模式有一個問題——它不適用於主帳戶。 這是因為當前在線的**任何** Steam會話都將**公開**狀態，即使ASF並無此意。 這是當前在ASF端無法修復的Steam網絡限制/錯誤造成的，因此如果您想使用` Invisible `模式，您還需要確保** 所有**同一帳戶的其他會話也使用` Invisible `模式。 This will be the case on alt accounts where ASF is hopefully the only active session, but on primary accounts you'll almost always prefer to show as `Online` to your friends, hiding only ASF activity, and in this case `Invisible` mode will be entirely useless for you (we recommend to use `Offline` mode instead). 希望Valve將在未來解決這個限制/錯誤，但我覺得這是有生之年系列……
+但是，` Invisible `模式有一個問題——它不適用於主帳戶。 這是因為當前在線的**任何** Steam會話都將**公開**狀態，即使ASF並無此意。 這是當前在ASF端無法修復的Steam網絡限制/錯誤造成的，因此如果您想使用` Invisible `模式，您還需要確保** 所有**同一帳戶的其他會話也使用` Invisible `模式。 這种情況適用於ASF為唯一活動會話的備用帳戶，但在主帳戶上，您大概會希望將` Online `狀態顯示給您的朋友，僅隱藏ASF活動，在這種情況下` Invisible `模式對你來說毫無幫助（我們建議使用` Offline `模式）。 希望Valve將在未來解決這個限制/錯誤，但我覺得這是有生之年系列……
 
 如果您不確定如何設置此屬性，建議對主帳戶使用 `0` (`Offline`)，並為其他帳戶使用預設值 `1` (`Online`)。
 
@@ -558,13 +558,13 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 ### `PasswordFormat`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. 除非你知道自己在做什麼，否則你應該保留預設值` 0 `。
+這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義` SteamPassword `屬性的格式，`0`，`PlainText`，`1`用於` AES `；` 2 `用於` ProtectedDataForCurrentUser `。 如果您想了解更多，請參閱** [安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security) **部分，因為您需要確保` SteamPassword `屬性中確實設置了匹配` PasswordFormat `的密碼。 換句話說，當您更改` PasswordFormat `后，您的` SteamPassword `格式**已經變更**。 除非你知道自己在做什麼，否則你應該保留預設值` 0 `。
 
 * * *
 
 ### `Paused`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義 `CardsFarmer` 模組的初始狀態。 預設值為` false `，機械人會在啟動時自動啟動，因為` Enabled `或` start `命令。 Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. 如果您不確定是否要啟用此功能，請將其保留為預設值` false `。
+預設值為 `false` 的 `bool` 類型。 此屬性定義 `CardsFarmer` 模組的初始狀態。 預設值為` false `，機械人會在啟動時自動啟動，因為` Enabled `或` start `命令。 只有當您想手動` resume `自動掛卡過程時，才應將此屬性切換為` true `，例如當您想一直使用` play `時，就不要啓用自動` CardsFarmer `模塊——這等同于使用` pause `**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 * * *
 
@@ -585,11 +585,11 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 `Distributing` 命令將導致機械人在自身和其他機械人之間分發所有接收到的金鑰。 這意味著每個機械人都會從批處理中獲得一個密鑰。 通常，只有當您為同一遊戲兌換多個金鑰時，才會使用此功能，並且您希望將它們均勻地分佈在您的機械人中，而不是為各種不同的遊戲兌換金鑰。 如果您只兌換單個 `兌換` 操作中的一個金鑰，則此功能毫無意義（因為沒有要分發的額外金鑰）。
 
-當我們無法確定被兌換的密鑰是否實際上由我們的機械人擁有時，` KeepMissingGames `將導致機械人跳過` Forwarding `。 This basically means that `Forwarding` will apply **only** to `AlreadyPurchased` keys, instead of covering also other cases such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`. 通常，您可能希望在主帳戶上使用此選項，以確保當您的機械人狀態暫時為` RateLimited `時，不會進一步轉發在其上兌換的密鑰。 As you can guess from the description, this field has absolutely no effect if `Forwarding` is not enabled.
+當我們無法確定被兌換的密鑰是否實際上由我們的機械人擁有時，` KeepMissingGames `將導致機械人跳過` Forwarding `。 這意味著` Forwarding `將**僅**應用於` AlreadyPurchased `遊戲密鑰，而不覆蓋其他情況，例如` DoesNotOwnRequiredApp `， ` RateLimited `或` RestrictedCountry `。 通常，您可能希望在主帳戶上使用此選項，以確保當您的機械人狀態暫時為` RateLimited `時，不會進一步轉發在其上兌換的密鑰。 正如您從描述中猜測的那樣，如果未啟用` Forwarding `，則此字段絕無效果。
 
-同時啟用` Forwarding `和` Distributing `將在轉發功能之上添加分發功能，這使得ASF首先嘗試在所有機械人上兌換一個密鑰（轉發），然後再轉移到下一個（分發）。 Typically you want to use this option only when you want `Forwarding`, but with altered behaviour of switching the bot on key being used, instead of always going in-order with every key (which would be `Forwarding` alone). This behaviour can be beneficial if you know that majority or even all of your keys are tied to the same game, because in this situation `Forwarding` alone would try to redeem everything on one bot firstly (which makes sense if your keys are for unique games), and `Forwarding` + `Distributing` will switch the bot on the next key, "distributing" the task of redeeming new key onto another bot than the initial one (which makes sense if keys are for the same game, skipping one pointless attempt per key).
+同時啟用` Forwarding `和` Distributing `將在轉發功能之上添加分發功能，這使得ASF首先嘗試在所有機械人上兌換一個密鑰（轉發），然後再轉移到下一個（分發）。 通常，您只希望在需要` Forwarding `時使用此選項，它改變了使用密鑰的機器人的行為，而不是始終按順序使用每個密鑰（這將是` Forwarding（僅轉發）`）。 如果您知道大多數甚至所有密鑰都綁定到同一個遊戲，這種行為會很有用，因為在這種情況下，` Forwarding `會首先嘗試在一個機械人上兌換所有密鑰（如果每個密鑰用於不同的遊戲），` Forwarding ` + ` Distributing `將在下一個密鑰上切換機械人，將新密鑰的兌換任務“分發”到另一個機械人上（如果鍵是針對同一個遊戲，那麼這是有意義的，每個密鑰將跳過一次毫無意義的嘗試）。
 
-所有兌換方案的實際順序是按機械人名稱字母順序排列的，不包括不可用的機械人 （未連接，停止或類似情況）。 Please keep in mind that there is per-IP and per-account hourly limit of redeeming tries, and every redeem try that didn't end with `OK` contributes to failed tries. ASF將盡最大努力減少` AlreadyPurchased `失敗的次數，例如通過嘗試避免將密鑰轉發給已經擁有該特定遊戲的另一個機械人，但由於Steam處理許可證的方式，它並不總能保證工作。 Using redeeming flags such as `Forwarding` or `Distributing` will always increase your likelyhood to hit `RateLimited`.
+所有兌換方案的實際順序是按機械人名稱字母順序排列的，不包括不可用的機械人 （未連接，停止或類似情況）。 請記住，每個IP和每個帳戶在一小時内存在兌換次數的限制，並且每次以` OK `結尾的兌換嘗試都會導致失敗。 ASF將盡最大努力減少` AlreadyPurchased `失敗的次數，例如通過嘗試避免將密鑰轉發給已經擁有該特定遊戲的另一個機械人，但由於Steam處理許可證的方式，它並不總能保證工作。 使用兌換標誌（例如` Forwarding `或` Distributing `）將始終增加您觸發` RateLimited `的可能性。
 
 還要記住，您不能將金鑰轉發或分發給您無權訪問的機械人。 這應該是顯而易見的，但請確保您至少要對兌換過程中包含所有的機器人擁有` Operator `訪問權限，例如可以執行` status ASF ` ** <a href =“https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands”>命令</a> **。
 
@@ -597,23 +597,23 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 ### `SendOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you might also require valid `SteamTradeToken`, including using an account that is actually eligible for trading. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 此選項與` loot `命令的作用相同，因此請謹記，只有` Master `權限集的用戶才能執行，您可能還需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶。 In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 * * *
 
 ### `SendTradePeriod`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. 預設值 `0` 將禁用此功能，如果您想讓您的機器人向您發送交易，例如每天，您應該將此值設置為` 24 `。
+這是一個預設值為`0` 的 `byte flags` 類型。 這個屬性與` SendOnFarmingFinished `屬性非常相似，只有一個區別——當掛卡完成時，我們也可以每隔` SendTradePeriod `小時發送一次交易提案，而考慮我們有多少尚未完成掛卡的遊戲。 如果您想隨時從您的小號處 `拾取` 掛卡所得，而不必等待它完成掛卡，這將會很有幫助。 預設值 `0` 將禁用此功能，如果您想讓您的機器人向您發送交易，例如每天，您應該將此值設置為` 24 `。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
 
 * * *
 
 ### `ShutdownOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 當所有帳戶都停止並且進程未在 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**下運行時，ASF 也將關閉，讓您的機器處於休眠狀態，並允許您安排其他操作，例如在獲得最後一張掉落卡片之後進入睡眠或關機狀態。
 
 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
@@ -621,25 +621,25 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SteamLogin`
 
-預設值為 `null` 的 `string` 類型。 This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+預設值為 `null` 的 `string` 類型。 此屬性定義您的 Steam 帳號——用於登錄 Steam 的帳號。 除了在此定義 Steam 登錄名之外，如果要在每次 ASF 啟動時輸入 Steam 登錄名而不是將其放入配置中，您還可以保留` null `的預設值。 如果您不想在配置檔中保存敏感數據，這可能對您有用。
 
 * * *
 
 ### `SteamMasterClanID`
 
-預設值 為`0` 的 `ulong` 類型。 此屬性定義機械人應自動加入的Steam群組（包括其聊天室）的steamID。 You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. 除了嘗試在啟動時加入給定的組，機械人還會自動接受該組的組邀請，這使您可以在您的組啟用私人會員資格時手動邀請您的機械人 。 如果您沒有專門用於您的機器人的任何群組，則應保留此屬性預設值為 `0`。
+預設值 為`0` 的 `ulong` 類型。 此屬性定義機械人應自動加入的Steam群組（包括其聊天室）的steamID。 You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. 然後，您可以從 `<groupID64>` 標籤處獲取您群組的 SteamID。 在上面的例子中，它將是 `103581414460998`。 除了嘗試在啟動時加入給定的組，機械人還會自動接受該組的組邀請，這使您可以在您的組啟用私人會員資格時手動邀請您的機械人 。 如果您沒有專門用於您的機器人的任何群組，則應保留此屬性預設值為 `0`。
 
 * * *
 
 ### `SteamParentalCode`
 
-預設值為 `null` 的 `string` 類型。 This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+預設值為 `null` 的 `string` 類型。 此屬性定義您的 Steam 家庭監護 PIN 碼。 ASF 需要訪問由 Steam 家庭監護限制的資源，因此如果您使用該功能，則需要為 ASF 提供家長解鎖 PIN 碼，以便它正常運行。 預設值 `null` 意味著無需 Steam 家庭監護 PIN 碼即可解鎖此帳戶，如果您不使用Steam 家庭監護功能，這可能就是您想要的。 除了在此定義 Steam 家庭監護 PIN 之外，如果要在每次 ASF 啟動時輸入您的Steam家庭監護PIN而不是將其放入配置中，您還可以使用` 0 `值。 如果您不想在配置檔中保存敏感數據，這可能對您有用。
 
 * * *
 
 ### `SteamPassword`
 
-預設值為 `null` 的 `string` 類型。 This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+預設值為 `null` 的 `string` 類型。 此屬性定義您的 Steam 密碼——用於登錄 Steam 的密碼。 除了在此定義Steam密碼外，如果要在每次 ASF 啟動時輸入Steam 密碼而不是將其放入配置中，您還可以保留` null `的默認值。 如果您不想在配置檔中保存敏感數據，這可能對您有用。
 
 * * *
 
@@ -647,13 +647,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 預設值為 `null` 的 `string` 類型。 當您的機械人在您的好友列表中時，機械人無需代碼即可以立即向您發送交易，因此您可以將此屬性保留為預設值 ` null `。 但是，如果您決定不將您的機械人放在您的朋友列表中，而您又期望此機械人向您發送交易，那麼您將需要生成並填充交易代碼。 In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
 
-In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only the token itself (8 characters).
+In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. 我們要尋找的代碼是位於您的交易連結中 `&token=` 部分之後的 8 個字元。 您應該複製並粘貼這 8 個字元於`steamtradetoken`處。 並不包含整個交易連接，亦無需 `&token=` 部分，僅僅需要代碼本身（8個字元）。
 
 * * *
 
 ### `SteamUserPermissions`
 
-`ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. ASF中當前可用的機械人權限定義為：
+預設值為空的`ImmutableDictionary<ulong, byte>` 類型。 This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. ASF中當前可用的機械人權限定義為：
 
 | 值 | 名稱            | 描述                                                              |
 | - | ------------- | --------------------------------------------------------------- |
@@ -662,11 +662,11 @@ In order to find your token, as logged in user with `Master` permission, navigat
 | 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                 |
 | 3 | Master        | 提供對給定機械人實例的完全訪問權限                                               |
 
-In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
+簡而言之，此屬性允許您自訂給定使用者的許可權。 Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
 
 We recommend to set exactly one user as `Master`, and any amount you wish as `Operators` and below. While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme - multiple masters scheme is discouraged setup that is not supported.
 
-It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process. For bot-related tasks, `SteamOwnerID` is treated the same as `Master`, so defining your `SteamOwnerID` here is not necessary.
+It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. 您不能為這裡的任何人分配 `Owner` 許可權，因為 `SteamUserPermissions` 屬性僅定義與機械人實例相關的許可權，而不是定義整個 ASF 進程。 For bot-related tasks, `SteamOwnerID` is treated the same as `Master`, so defining your `SteamOwnerID` here is not necessary.
 
 * * *
 
@@ -708,7 +708,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
 
 * * *
 
@@ -716,9 +716,9 @@ ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片�
 
 預設值為 `true` 的 `bool` 類型。 This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. 登錄密鑰存儲在` BotName.db `文件中並會自動更新。 因此在使用ASF成功登錄一次後不需要再提供密碼/ SteamGuard / 2FA代碼。
 
-Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
-However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+However, some people might be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. 禁用此選項的工作原理與在官方 Steam 用戶端不勾選「記住我」完全相同。 除非您知道自己在做什麼，否則應將其保留為預設值 `true`。
 
 * * *
 
@@ -743,33 +743,33 @@ ASF 使用的檔結構相當簡單。
 
 In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups", since you can always download the remaining (program) part from the GitHub, while not risking corrupting internal ASF files, e.g. through a faulty backup.
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. 如果您遇到問題或錯誤，我們會經常詢問此檔案。 ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+`logt 123. txt` 檔保存您上一次運行 ASF 生成的日誌。 此檔案不包含任何敏感信息，在涉及問題、崩潰或僅作為上次 ASF 運行中的信息日誌時非常有用。 如果您遇到問題或錯誤，我們會經常詢問此檔案。 ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
 
 ASF及其所有機械人配置保存於` config `目錄中。
 
-`ASF.json` is a global ASF configuration file. 此配置用於定義ASF如何作為進程運行，這會影響程序本身和所有機械人。 您可以在那裡找到全域屬性，例如ASF進程所有者，自動更新或調試。
+`ASF.json` 是 ASF 全域配置檔。 此配置用於定義ASF如何作為進程運行，這會影響程序本身和所有機械人。 您可以在那裡找到全域屬性，例如ASF進程所有者，自動更新或調試。
 
 ` BotName.json `是給定機械人實例的配置。 此配置用於指定給定機械人實例的行為方式，因此這些設置僅適用於該機械人，而不是與其他機械人共享。 這允許您配置具有各種不同設置的機械人，而無需要求所有機械人都以完全相同的方式工作。 每個機器人都由您在` BotName `中選擇的唯一標識符命名。
 
 除了設定檔外，ASF還使用 `config` 目錄來存儲數據庫。
 
-`ASF.db` 是一個全域ASF數據庫檔。 It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **您不應對此檔進行任何改變**。
+`ASF.db` 是一個全域ASF數據庫檔。 它充當全域持久存儲，用於保存與 ASF 進程相關的各種信息，例如本地 Steam 伺服器的IP地址。 **您不應對此檔進行任何改變**。
 
-` BotName.db `是給定機械人實例的數據庫。 This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **您不應對此檔進行任何改變**。
+` BotName.db `是給定機械人實例的數據庫。 此檔用於在持久存儲有關給定機械人實例的關鍵數據，如登錄金鑰或 ASF 2FA 代碼。 **您不應對此檔進行任何改變**。
 
 `BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **您不應對此檔進行任何改變**。
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
+`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. 成功導入金鑰後，此檔將自動被刪除。
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. 成功導入 ASF 2FA 後，此檔將自動被刪除。
 
 * * *
 
 ## JSON 映射
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+每個配置屬性都有相應的類型。 屬性的類型定義了有效值。 只能使用對給定類型有效的值——如果使用無效值，ASF 將無法分析您的配置。
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
+**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. 本節主要用於手動生成/編輯配置的用戶，使得他們知道可以使用哪些值。
 
 ASF 使用的類型是本機 C＃類型，如下所示：
 
@@ -809,7 +809,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF uses `HashSet` to indicate that given property makes sense only for unique values, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 `ImmutableHashSet<uint>`的範例：`"Blacklist": [267420, 303700, 335590]`
 
@@ -849,7 +849,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 ## 兼容性映射
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
+Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF 包含自動處理此字符串映射的正確邏輯，因此配置中的` s _ `條目實際上是正確生成且有效的。 If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
 * * *
 
@@ -863,11 +863,11 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 
-- Create (and start, if needed) new bot instance, when you create its config
-- Stop (if needed) and remove old bot instance, when you delete its config
-- Stop (and start, if needed) any bot instance, when you edit its config
-- Restart (if needed) the bot under new name, when you rename its config
+- 創建配置時，新增（並在需要時啟動）新的機械人實例
+- 刪除其配置時停止（如果需要）並刪除舊的機械人實例
+- 編輯其配置時，停止（並在需要時啟動）任何機械人實例
+- 重命名機械人的配置時，以新名稱重新啟動（如果需要的話）該機械人
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+以上所有內容都是透明的，無需重新啟動程序或殺死其他（未受影響的）機械人程序實例即可自動完成。
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.

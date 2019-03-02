@@ -182,7 +182,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 我们现在开始，如果您运行了 ASF 并且开始挂卡，在默认情况下您将会看到您的 Steam 帐户正在游戏中：
 
-![Steam](https://i.imgur.com/sCdSMZj.png)
+![Steam](https://i.imgur.com/1VCDrGC.png)
 
 我们可以改变它。 在配置文件生成器中启用高级设置，找到 `CustomGamePlayedWhileFarming`。 找到之后，在这里填写您想要显示的文本，例如“Idling cards”（挂卡中）。
 
@@ -192,7 +192,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 完成之后，重新启动 ASF，您会看到 ASF 将会在之前的地方显示您的自定义文本：
 
-![Steam 2](https://i.imgur.com/NeFYrdU.png)
+![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
 这证明您已经成功更改了配置文件。您也可以用同样的方式更改全局 ASF 属性，只需要切换到“ASF”标签，下载生成的 `ASF.json` 配置文件，将其放到 `config` 文件夹内。
 
@@ -224,7 +224,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 如果一切正常，只要 ASF 还在运行，您就可以通过&#8203;**[这个链接](http://127.0.0.1:1242)**&#8203;访问 ASF 的 IPC 接口。 您可以使用 ASF-ui 进行各种操作，例如发送&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以随意浏览一下，了解 ASF-ui 的所有功能。
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 请注意，ASF-ui 目前还在预览状态，不保证所有功能都可用或者正常工作，但是对于简单的 ASF 操作来说已经足够了。
 

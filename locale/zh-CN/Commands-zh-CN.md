@@ -2,29 +2,39 @@
 
 ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
-您可以通过下面三种不同的方式发送命令：
+您可以通过不同的方式发送命令：
 
-- 通过 Steam 私人聊天
-- 通过 Steam 群组聊天
-- 通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**
+- 通过 ASF 交互式控制台
+- 通过 Steam 私人/群组聊天
+- 通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口
 
 请注意，与 ASF 交互需要您拥有执行相关命令的权限。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 配置文件属性了解更多。
 
-下面的所有命令都受 `CommandPrefix` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#commandprefix)**&#8203;影响，该属性的默认值为 `!`。 这意味着，当您要执行 `status` 命令时，实际应该发送 `!status`（或者使用您自定义的 `CommandPrefix`）。
+通过 Steam 聊天发送的命令都受 `CommandPrefix` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#commandprefix)**&#8203;影响，该属性的默认值为 `!`。 这意味着，当您要执行 `status` 命令时，实际应该发送 `!status`（或者使用您自定义的 `CommandPrefix`）。 而通过控制台或 IPC 发送的命令则无需加上 `CommandPrefix`，可以省略。
 
 * * *
 
-### Steam 私人聊天
+### 交互式控制台
 
-与 ASF 交互的最简单方式——只需要向正在运行于 ASF 的机器人发送命令。 显然，如果您只在 ASF 中运行您自己的帐户，就无法使用这个方法。
+自 V4.0.0.9 版本开始，只要您正确设置了 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#steamownerid) 属性，就可以在 ASF 中启用交互式控制台。 随后，只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+
+交互式控制台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下不可用。
 
 * * *
 
-### Steam 群组聊天
+### Steam 聊天
 
-与上述方法非常相似，但这次需要向指定 Steam 群组的聊天室发送消息。 请注意，此选项需要您正确设置 `SteamMasterClanID` 属性，使机器人同样监听（并加入）指定的群组聊天。 因为这种方法不需要额外的帐户，所以可以用来“与自己交谈”。 如果您有多个机器人，可能就不希望使用此方法。
+您也可以通过 Steam 聊天对给定的 ASF 机器人执行命令。 显然，您无法直接与自己聊天，因此如果您希望为您的主帐户执行命令，就至少还需要另一个机器人帐户。
+
+![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+
+类似地，您也可以使用指定 Steam 群组的群组聊天。 请注意，此选项需要您正确设置 `SteamMasterClanID` 属性，使机器人同样监听（并加入）指定的群组聊天。 与私人聊天不同，因为这种方法不需要额外的帐户，所以可以用来“与自己交谈”。 您可以直接将 `SteamMasterClanID` 属性设置为您新创建的群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己的帐户授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。
+
+请注意，向群组聊天发送命令类似于接力赛跑。 如果您向一个含有 3 个机器人的群组聊天室发送 `redeem X` 命令，其效果等价于分别在私聊中向每个机器人发送 `redeem X`。 在大多数情况下，**这不是您想要的效果**，您应该像之前**与单个机器人私聊时**一样，使用指定机器人名称的命令形式。 ASF 支持群组聊天，是因为在很多情况下它是一种有用的、与您自己的机器人通信的方式，但如果您的群组中有多个 ASF 机器人，就最好不要在这里执行命令，除非您完全理解 ASF 的相关行为，并且您确实想要让所有的机器人转发执行相同的命令。
+
+*但即使是在这种情况下，您也应该用私人聊天代替，并在命令中指定机器人 `<Bots>`。*
 
 * * *
 
@@ -32,7 +42,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 这是执行命令最先进、灵活的方式，非常适合用户集成（ASF-ui）或者第三方工具脚本（ASF API）。这种方式需要 ASF 运行在 `IPC` 模式下，并且客户端需要通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口来执行命令。
 
-![Screenshot](https://i.imgur.com/pzKE4EJ.png)
+![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 所有的命令都不区分大小写，但它们的参数（例如机器人名称）通常是区分大小写的。
 
-`<Bots>` 参数对所有命令都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令。
+`<Bots>` 参数对所有命令都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令，此时机器人 `B` 仅仅充当一个代理人的角色。
 
 命令的**权限**定义了需要执行此命令所需的**最低**权限，即 `SteamUserPermissions` 中定义的 `EPermission`，例外情况是 `Owner` 指全局配置文件中定义的 `SteamOwnerID` 用户（拥有最高权限）。
 
@@ -104,10 +114,6 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 如上所述，空白字符被用于分隔命令参数，所以参数内部无法再使用空白字符。 但同样如上所述，ASF 可以连接超出范围的参数，这意味着您可以在命令的最后一个参数中使用空白字符。 例如，`nickname bob Great Bob` 命令能够正确地将机器人 `bob` 的昵称更改为“Great Bob”。 类似地，您也可以使用 `owns` 命令检查含有空格的名称。
 
-请注意，向群组聊天发送命令就像是接力赛跑——如果您向一个含有 3 个机器人的群组聊天室发送 `redeem X` 命令，其效果等价于分别在私聊中向每个机器人发送 `redeem X`。 在大多数情况下，**这不是您想要的效果**，您应该像之前**与单个机器人私聊时**一样，使用指定机器人名称的命令形式。 ASF 支持群组聊天，是因为在很多情况下它是一种有用的通信方式，但如果您的群组中有多个 ASF 机器人，就最好不要在这里执行命令，除非您完全理解 ASF 的相关行为，并且您确实想要让所有的机器人转发执行相同的命令。
-
-*但即使是在这种情况下，您也应该用私人聊天代替，并在命令中指定机器人 `<Bots>`。*
-
 * * *
 
 一些命令有较短的别名可用，用来减少键入的次数：
@@ -118,10 +124,6 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 | `status ASF` | `sa` |
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
-
-* * *
-
-通过 Steam 聊天执行命令不需要任何额外的帐户——您可以创建一个群组，将 `SteamMasterClanID` 属性设置为这个新群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。 另外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**，但聊天室的方法更简单，并且如果您有多个帐户，这种方法就更简单了。
 
 * * *
 

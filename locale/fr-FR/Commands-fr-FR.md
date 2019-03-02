@@ -2,29 +2,39 @@
 
 ASF prend en charge diverses commandes pouvant être utilisées pour contrôler le comportement du processus et des instances de bot.
 
-Les commandes ci-dessous peuvent être envoyées au bot de trois manières différentes:
+Below commands can be sent to the bot through various different ways:
 
-- Par le chat privé steam
-- Par le chat groupe steam
-- Par l’intermédiaire de l' **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- Through interactive ASF console
+- Through Steam private/group chat
+- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
 N'oubliez pas que l'interaction ASF nécessite que vous soyez éligible pour la commande conformément aux autorisations ASF. Consultez les propriétés de configuration `SteamUserPermissions` et `SteamOwnerID` pour plus de détails.
 
-Toutes les commandes ci-dessous sont affectées par ` CommandPrefix` **[ propriété de configuration globale](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, qui est `!` par défaut. Cela signifie que pour exécuter par exemple `status`, vous devez écrire `!Status` (ou un ` préfixe de commande personnalisé` de votre choix que vous avez défini à la place).
+Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. Cela signifie que pour exécuter par exemple `status`, vous devez écrire `!Status` (ou un ` préfixe de commande personnalisé` de votre choix que vous avez défini à la place). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
 
 * * *
 
-### Chat privé steam
+### Interactive console
 
-La méthode la plus simple pour interagir avec ASF - Il suffit d'exécuter la commande sur le bot ASF en cours d'exécution dans le processus ASF. Évidemment, vous ne pouvez pas faire cela si vous utilisez ASF avec un seul compte bot qui vous est propre.
+Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![Capture d"écran](https://i.imgur.com/PPxx7qV.png)
+![Capture d"écran](https://i.imgur.com/bH5Gtjq.png)
+
+Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
 
 * * *
 
-### Chat groupe steam
+### Steam chat
 
-Très similaire à ci-dessus, mais cette fois sur le chat d'un groupe Steam donné. N'oubliez pas que cette option nécessite de définir correctement la propriété `SteamMasterClanID`, auquel cas le bot écoutera les commandes également sur le chat du groupe (et le rejoindra si nécessaire). Cela peut également être utilisé pour "parler à vous-même" puisqu'il ne nécessite pas de compte bot dédié. Vous ne voudrez probablement pas utiliser cette méthode pour plus de bots que 1.
+You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+
+![Capture d"écran](https://i.imgur.com/IvFRJ5S.png)
+
+In similar way you can also use group chat of given Steam group. N'oubliez pas que cette option nécessite de définir correctement la propriété `SteamMasterClanID`, auquel cas le bot écoutera les commandes également sur le chat du groupe (et le rejoindra si nécessaire). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. De cette façon, ASF bot (vous) rejoindra le groupe et le chat de votre groupe sélectionné, et écoutera les commandes de votre propre compte. Vous pouvez rejoindre le même groupe de discussion afin de vous envoyer des commandes (car vous enverrez des commandes à la salle de discussion, et l'instance ASF siégeant dans la même salle de discussion les recevra, même si cela ne s'affiche que lorsque votre compte est présent).
+
+Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. Dans la plupart des cas, ** ce n’est pas ce que vous souhaitez**. Vous devez plutôt utiliser` la commande de bot donnée` qui est envoyée à ** un seul bot dans une fenêtre privée**. . ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+
+*Et même dans ce cas, vous devriez plutôt utiliser le chat privé avec la syntaxe `<Bots>`.*
 
 * * *
 
@@ -32,7 +42,7 @@ Très similaire à ci-dessus, mais cette fois sur le chat d'un groupe Steam donn
 
 La manière la plus avancée et la plus souple d’exécution de commandes, idéale pour les interactions utilisateur (ASF-ui) ainsi que pour les outils tiers ou les scripts (API ASF), requiert que ASF soit exécuté en mode ` IPC `. une commande d'exécution client via l'interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
-![Capture d"écran](https://i.imgur.com/pzKE4EJ.png)
+![Capture d"écran](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -98,7 +108,7 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 
 Toutes les commandes sont sensibles à la case, mais leurs arguments (tels que les noms de bot) sont généralement sensibles à la case.
 
-L'argument `<Bots>` est facultatif dans toutes les commandes. Lorsque spécifié, la commande est exécutée sur des bots. Lorsqu'elle est omise, la commande est exécutée sur le bot actuel qui reçoit la commande. En d'autres termes, ` statut A ` envoyé au bot ` B ` correspond à l'envoi de ` statut ` au bot ` A `.
+L'argument `<Bots>` est facultatif dans toutes les commandes. Lorsque spécifié, la commande est exécutée sur des bots. Lorsqu'elle est omise, la commande est exécutée sur le bot actuel qui reçoit la commande. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy.
 
 **Access** de la commande définit ** minimum** ` EPermission` sur `SteamUserPermissions` requis pour utiliser la commande, à l'exception de `Owner` qui est `SteamOwnerID` défini dans le fichier de configuration global (et la permission la plus élevée disponible).
 
@@ -109,10 +119,6 @@ Des arguments multiples, tels que `<Bots>`, `<Keys>` ou `<AppIDs>`, signifient q
 <p>ASF "joindra" des arguments supplémentaires hors de la plage au type pluriel du dernier argument de la gamme. Cela signifie que <code>redeem bot clé1 clé2 clé3` pour `échanger de <Bots> <Keys>` fonctionnera exactement de la même façon que `redeem bot clé1,clé2,clé3` . En même temps que l’acceptation de newline en tant que délimiteur de commande, cela vous permet d’écrire `redeem bot`, puis de coller une liste de clés séparées par tout caractère séparateur acceptable (tel que newline) ou standard `,` délimiteur ASF. Gardez à l'esprit que cette astuce ne peut être utilisée que pour la variante de commande qui utilise le plus grand nombre d'arguments (par conséquent, spécifier `<Bots>` est obligatoire dans ce cas).</p> 
 
 Comme vous l'avez lu plus haut, un caractère d'espacement est utilisé comme délimiteur pour une commande. Par conséquent, il ne peut pas être utilisé dans les arguments. Toutefois, comme indiqué ci-dessus, ASF peut également joindre des arguments hors de portée, ce qui signifie que vous pouvez réellement utiliser un caractère d'espacement dans un argument défini comme dernier pour une commande donnée. Par exemple, `nickname bob Great Bob` définit correctement le surnom de ` bob` à "Great Bob". De la même manière, vous pouvez vérifier les noms contenant des espaces dans `owns`.
-
-Notez que l'envoi d'une commande à la discussion de groupe agit comme un relais: si vous dites `redeem X` à 3 de vos robots assis avec vous sur la discussion de groupe, le résultat sera le même. comme vous le dites `redeem X` à chacun d’entre eux en privé. Dans la plupart des cas, ** ce n’est pas ce que vous souhaitez**. Vous devez plutôt utiliser` la commande de bot donnée` qui est envoyée à ** un seul bot dans une fenêtre privée**. . ASF prend en charge les discussions de groupe, car dans de nombreux cas, cela peut être une source de communication utile, mais vous ne devriez presque jamais exécuter d’aucune commande sur la discussion de groupe s’il ya au moins 2 robots ASF assis, sauf si vous comprenez parfaitement le comportement d’ASF écrit ici. et vous voulez en fait relayer la même commande à tous les robots qui vous écoutent.
-
-*Et même dans ce cas, vous devriez plutôt utiliser le chat privé avec la syntaxe `<Bots>`.*
 
 * * *
 
@@ -127,11 +133,7 @@ Certaines commandes sont également disponibles avec leurs alias, pour vous évi
 
 * * *
 
-Il n’est pas nécessaire d’avoir un compte supplémentaire pour exécuter des commandes avec le chat Steam - vous pouvez créer un groupe, définir `SteamMasterClanID` correctement à ce groupe nouvellement créé, puis donnez-vous accès soit par `SteamOwnerID` ou ` SteamUserPermissions </ 0> de votre propre bot. De cette façon, ASF bot (vous) rejoindra le groupe et le chat de votre groupe sélectionné, et écoutera les commandes de votre propre compte. Vous pouvez rejoindre le même groupe de discussion afin de vous envoyer des commandes (car vous enverrez des commandes à la salle de discussion, et l'instance ASF siégeant dans la même salle de discussion les recevra, même si cela ne s'affiche que lorsque votre compte est présent). En dehors de cela, vous pouvez également utiliser <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC"> IPC </a></strong>, mais le mode de discussion en ligne est beaucoup plus simple. Si vous avez accès à un compte alternatif, son utilisation est encore plus simple.</p>
-
-<hr />
-
-<h3><code><Bots>` argument</h3> 
+### `<Bots>` argument
 
 `<Bots>` argument est une variante de l’argument du pluriel, car en plus d’accepter plusieurs valeurs, il offre également des fonctionnalités supplémentaires.
 

@@ -2,29 +2,39 @@
 
 ASF unterstützt eine Vielzahl von Befehlen, mit denen das Verhalten der Prozess- und Bot-Instanzen gesteuert werden kann.
 
-Die unten angeführten Befehle können über drei verschiedene Wege an einen Bot gesendet werden:
+Die folgenden Befehle können auf verschiedene Weise an den Bot gesendet werden:
 
-- Über den privaten Steam-Chat
-- Über den Steam-Gruppen-Chat
-- Über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
+- Durch die interaktive ASF-Konsole
+- Durch den privaten Steam-Chat / Gruppen-Chat
+- Durch unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle
 
 Bedenke, dass die ASF-Interaktion von dir verlangt, dass du für den Befehl gemäß den ASF-Berechtigungen berechtigt bist. Weitere Informationen findest du in den Konfigurationseigenschaften `SteamUserPermissions` und `SteamOwnerID`.
 
-Alle unten aufgeführten Befehle werden durch das **[globale Konfigurationsfeld](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` beeinflusst, welches standardmäsig `!` ist. Das bedeutet, dass du beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` deiner Wahl) verwenden musst.
+Befehle die über den Steam-Chat ausgeführt werden, sind von der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` betroffen, welche standardmäßig `!` ist. Das bedeutet, dass du beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` deiner Wahl) verwenden musst. `CommandPrefix` ist bei Verwendung von IPC oder der Konsole nicht zwingend erforderlich und kann weggelassen werden.
 
 * * *
 
-### Privater Steam-Chat
+### Interaktive Konsole
 
-Definitiv die einfachste Methode um mit ASF zu interagieren - man muss nur den Befehl an einen ASF-Bot senden, der gerade im ASF-Prozess läuft. Logischerweise kannst du das nicht machen, wenn du ASF mit nur einem einzigen Bot laufen lässt.
+Beginnend mit V4.0.0.0.9 unterstützt ASF eine interaktive Konsole, die durch die Einrichtung der [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#steamownerid) Eigenschaft aktiviert werden kann. Anschließend drückst du einfach die `c` Taste um den Befehlsmodus zu aktivieren, gibst deinen Befehl ein und bestätigst mit der Eingabetaste.
 
-![Screenshot](https://i.imgur.com/PPxx7qV.png)
+![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+
+Die interaktive Konsole ist nicht im [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless) Modus verfügbar.
 
 * * *
 
-### Steam-Gruppen-Chat
+### Steam-Chat
 
-Sehr ähnlich wie die oben genannte Möglichkeit, aber diesmal im Gruppen-Chat der gegebenen Steam-Gruppe. Beachte, dass diese Option die korrekt eingestellte Eigenschaft `SteamMasterClanID` erfordert. In diesem Fall wird der Bot auch im Gruppen-Chat auf Befehle warten (und sich bei Bedarf diesem anschließen). Dies kann auch für "Selbstgespräche" genutzt werden, da diese Variante kein dediziertes Bot-Konto erfordert. Du willst diese Methode höchstwahrscheinlich nicht für mehr als einen Bot verwenden.
+Du kannst den Befehl zum angegebenen ASF-Bot auch über den Steam-Chat ausführen. Natürlich kannst du nicht direkt mit dir selbst schreiben, deshalb brauchst du mindestens ein weiteres Bot-Konto, wenn du Befehle ausführen willst, die auf dein Haupt-Konto abzielen.
+
+![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+
+In ähnlicher Weise kannst du auch den Gruppen-Chat einer bestimmten Steam-Gruppe verwenden. Beachte, dass diese Option die korrekt eingestellte Eigenschaft `SteamMasterClanID` erfordert. In diesem Fall wird der Bot auch im Gruppen-Chat auf Befehle warten (und sich bei Bedarf diesem anschließen). Dies kann auch für "Selbstgespräche" genutzt werden, da diese Variante kein dediziertes Bot-Konto erfordert, im Gegensatz zum privaten Chat. Du kannst einfach die `SteamMasterClanID`-Eigenschaft auf deine neu erstellte Gruppe setzen und dir dann entweder über `SteamOwnerID` oder `SteamUserPermissions` Zugriff auf deinen eigenen Bot gewähren. Auf diese Weise tritt der ASF-Bot (Du) der Gruppe bei und chattet mit der ausgewählten Gruppe und hört auf die Befehle von deinem eigenen Konto. Du kannst dem gleichen Gruppen-Chatroom beitreten, um dir selbst Befehle zu erteilen (Achtung: Wenn eine ASF-Instanz diesem Chatroom beigetreten ist wird diese ebenfalls sämtliche Befehle empfangen, die an diesen Chat gesendet werden, selbst wenn dieser anzeigt, dass nur dein Konto im Chat ist).
+
+Bitte bedenke, dass das Senden eines Befehls an den Gruppen-Chat wie ein Relais funktioniert. Wenn du `redeem X` zu drei deiner Bots sendest, die zusammen mit dir im Gruppen-Chat sind, wird es das gleiche Ergebnis haben, wie wenn du `redeem X` an jeden einzelnen von ihnen privat senden würdest. In den meisten Fällen ist **dies nicht das, was du willst**, und stattdessen solltest du den Befehl `given bot` verwenden, der an **einen einzelnen Bot im privaten Fenster** gesendet wird. ASF unterstützt den Gruppen-Chat, da es in vielen Fällen eine nützliche Quelle für die Kommunikation mit deinem einzigen Bot sein kann, aber du solltest fast nie einen Befehl im Gruppen-Chat ausführen, wenn dort zwei oder mehr ASF-Bots sitzen, es sei denn, du verstehst das hier beschriebene ASF-Verhalten vollständig und du willst tatsächlich den gleichen Befehl an jeden einzelnen Bot weitergeben, der auf dich hört.
+
+*Und selbst in diesem Fall solltest du stattdessen den privaten Chat mit der Syntax `<Bots>` verwenden.*
 
 * * *
 
@@ -32,7 +42,7 @@ Sehr ähnlich wie die oben genannte Möglichkeit, aber diesmal im Gruppen-Chat d
 
 Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeignet für die Benutzerinteraktion (ASF-ui), für Drittanbieter-Programme oder Skripte (ASF-API). Diese Variante erfordert, dass ASF im `IPC` Modus ausgeführt wird und einen Client der Befehle über die **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle ausführt.
 
-![Screenshot](https://i.imgur.com/pzKE4EJ.png)
+![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 
 Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei deren Argumenten (wie zum Beispiel Bot-Namen) muss die Groß- und Kleinschreibung beachtet werden.
 
-Das Argument `<Bots>` ist in allen Befehlen optional. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird.
+Das Argument `<Bots>` ist in allen Befehlen optional. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird. Bot `B` dient in diesem Fall nur als Proxy.
 
 **Zugriff** eines Befehls definiert die **minimale** `EPermission` von `SteamUserPermissions`, die für die Verwendung des Befehls erforderlich ist - mit Ausnahme von `Owner` der als `SteamOwnerID` in der globalen Konfigurationsdatei (und damit höchste verfügbare Berechtigung) definiert ist.
 
@@ -104,10 +114,6 @@ ASF wird zusätzliche "Out-of-Range"-Argumente mit dem Plural-Typ des letzten "I
 
 Wie du oben gelesen hast, wird ein Leerzeichen als Trennzeichen für einen Befehl verwendet, daher kann es nicht in Argumenten verwendet werden. Allerdings kann ASF auch, wie oben erwähnt, "Out-of-Range"-Argumente verbinden, was bedeutet, dass du tatsächlich ein Leerzeichen in Argumenten verwenden kannst, das als letztes für den angegebenen Befehl definiert ist. Zum Beispiel, `nickname bob Great Bob` wird den Benutzernamen des Bots `bob` richtig auf "Great Bob" setzen. Auf die gleiche Weise kannst du Namen, die Leerzeichen enthalten, im Befehl `owns` überprüfen.
 
-Bitte bedenke, dass das Senden eines Befehls an den Gruppen-Chat wie ein Relais funktioniert - wenn du `redeem X` zu drei deiner Bots sendest, die zusammen mit dir im Gruppen-Chat sind, wird es das gleiche Ergebnis haben, wie wenn du `redeem X` an jeden einzelnen von ihnen privat senden würdest. In den meisten Fällen ist **dies nicht das, was du willst**, und stattdessen solltest du den Befehl `given bot` verwenden, der an **einen einzelnen Bot im privaten Fenster** gesendet wird. ASF unterstützt den Gruppen-Chat, da es in vielen Fällen eine nützliche Kommunikationsquelle sein kann, aber du solltest fast nie einen Befehl im Gruppen-Chat ausführen, wenn dort zwei oder mehr ASF-Bots aktiv sind, es sei denn, du verstehst das hier beschriebene ASF-Verhalten vollständig und du willst tatsächlich den gleichen Befehl an jeden einzelnen Bot weitergeben, der auf dich hört.
-
-*Und selbst in diesem Fall solltest du stattdessen den privaten Chat mit der Syntax `<Bots>` verwenden.*
-
 * * *
 
 Für einige Befehle sind auch Aliase verfügbar, um dir Zeit beim tippen zu sparen:
@@ -118,10 +124,6 @@ Für einige Befehle sind auch Aliase verfügbar, um dir Zeit beim tippen zu spar
 | `status ASF` | `sa`  |
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
-
-* * *
-
-Es ist nicht erforderlich, ein zusätzliches Konto für die Ausführung von Befehlen über den Steam-Chat zu haben - Du kannst eine Gruppe erstellen, `SteamMasterClanID` richtig auf diese neu erstellte Gruppe einstellen und dir dann entweder über `SteamOwnerID` oder `SteamUserPermissions` deines eigenen Bots Zugriff geben. Auf diese Weise tritt der ASF-Bot (Du) der Gruppe bei und chattet mit der ausgewählten Gruppe und hört auf die Befehle von deinem eigenen Konto. Du kannst dem gleichen Gruppen-Chatroom beitreten, um dir selbst Befehle zu erteilen (Achtung: Wenn eine ASF-Instanz diesem Chatroom beigetreten ist wird diese ebenfalls sämtliche Befehle empfangen, die an diesen Chat gesendet werden, selbst wenn dieser anzeigt, dass nur dein Konto im Chat ist). Abgesehen davon kannst du auch **[IPC](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** verwenden, aber die Lösung mittels Chatroom ist viel einfacher. Wenn du Zugang zu einem anderen Konto hast, dann ist die Verwendung dieses Kontos stattdessen noch einfacher.
 
 * * *
 
@@ -234,14 +236,14 @@ Die allgemeine Syntax ist `input <Bots> <Type> <Value>`.
 
 ### Beispiel
 
-Angenommen wir haben einen Bot der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot, mit `Headless` auf wahr gesetzt, starten.
+Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
 
-Um das zu tun müssen wir folgende Befehle ausführen:
+Um das zu tun, müssen wir folgende Befehle ausführen:
 
-`start MeinSteamGuardBot` -> Der Bot wird versuchen sich anzumelden. Dies wird fehlschlagen weil ein Authentifizierungscode benötigt wird. Nun wird sich der Bot selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
+`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 
-`input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Wert für `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
+`input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
 
-`start MeinSteamGuardBot` -> Wir starten unseren (gestoppten) Bot wieder. Diesmal wird der Code benutzt, den wir im vorherigen Befehl gesetzt haben und der Bot meldet sich an und löscht den Code aus seinem internen Speicher.
+`start MeinSteamGuardBot` -> wir starten unseren (gestoppten) Bot wieder. Diesmal wird der Code benutzt, den wir im vorherigen Befehl gesetzt haben und der Bot loggt sich ein und löscht den Code aus seinem internen Speicher.
 
-Auf die gleiche Weise können wir auf 2FA-geschützte Bots zugreifen (wenn diese ASF 2FA nicht verwenden), sowie andere erforderliche Eigenschaften während der Laufzeit festlegen.
+Auf dem selben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.

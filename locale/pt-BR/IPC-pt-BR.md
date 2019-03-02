@@ -32,7 +32,7 @@ A ASF-ui é um projeto da comunidade que busca criar uma interface gráfica web 
 
 Como mencionado acima, a ASF-ui é um projeto da comunidade que não é mantido pelos principais desenvolvedores do ASF. Ela segue seu próprio fluxo de desenvolvimento no **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)** que deve ser usado para todas as questões relacionadas a ela, tais como problemas, relatórios de bugs e sugestões.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 * * *
 
@@ -102,21 +102,21 @@ Segue abaixo um exemplo de configuração Nginx. Incluímos um bloco `server` co
 
 ```nginx
 server {
-        listen *:443 ssl;
-        server_name asf.mydomain.com;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
+    listen *:443 ssl;
+    server_name asf.mydomain.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/certificate.key;
 
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir o host padrão
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # Adicionamos essas 3 opções extras para websockets proxying, veja https://nginx.org/en/docs/http/websocket.html
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -124,7 +124,7 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar substituir o host padrão
+#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

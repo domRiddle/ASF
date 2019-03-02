@@ -32,7 +32,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 如上所述，ASF-ui 是一个社区项目，并非由 ASF 核心开发者维护。 它遵循自己的开发流程，所有相关的问题、讨论、漏洞报告和建议都应该发表于 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**。
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/preview.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 * * *
 
@@ -102,14 +102,14 @@ ASF 默认只会监听 `localhost` 地址，这意味着从本机以外的设备
 
 ```nginx
 server {
-        listen *:443 ssl;
-        server_name asf.mydomain.com;
-        ssl_certificate /path/to/your/certificate.crt;
-        ssl_certificate_key /path/to/your/certificate.key;
+    listen *:443 ssl;
+    server_name asf.mydomain.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/certificate.key;
 
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # 只有在您需要覆盖默认 Host 时启用
+#       proxy_set_header Host 127.0.0.1; # 只需在您需要覆盖默认 Host 时启用
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -124,7 +124,7 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # 只有在您需要覆盖默认 Host 时启用
+#       proxy_set_header Host 127.0.0.1; # 只需在您需要覆盖默认 Host 时启用
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

@@ -1,6 +1,6 @@
 # Docker
 
-從版本3.0.3.2 開始, ASF 現在也可使用 **[ docker container](https://www.docker.com/what-container)**。 在 docker 容器中運行 ASF 通常對於臨時使用者沒有任何好處, 但它可能是在伺服器上使用 ASF 的絕佳方式, 確保 ASF在沙盒環境中運行, 與其他所有應用程式分離。 我們的 docker repo 可以在 **[ 此處 ](https://hub.docker.com/r/justarchi/archisteamfarm)** 找到。
+從版本3.0.3.2 開始, ASF 現在也可使用 **[ docker container](https://www.docker.com/what-container)**。 在 Docker 容器中運行ASF通常對臨時用戶沒有任何好處，但它可能是在服務器上使用ASF的絕佳方式，確保ASF在與所有其他應用程序分離的沙盒環境中運行。 我們的docker repo位于** [此處](https://hub.docker.com/r/justarchi/archisteamfarm) **。
 
 * * *
 
@@ -14,7 +14,7 @@ ASF 支援4種主要類型的**[ 標籤 ](https://hub.docker.com/r/justarchi/arc
 
 ### `released`
 
-與上面類似的是，此標記始終指向**[最新發佈的ASF版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**，包括預發佈版本。 Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. 如果您不想使用 `最新` 標記，我們建議您使用此選項。 請注意，使用此標籤等於使用我們的 **[預發佈版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。
+與上面類似的是，此標記始終指向**[最新發佈的ASF版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**，包括預發佈版本。 與` master `標記相比，每次按下新的GitHub標記時此圖像都會更新。 Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. 如果您不想使用 `最新` 標記，我們建議您使用此選項。 請注意，使用此標籤等於使用我們的 **[預發佈版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。
 
 ### `latest`
 
@@ -70,7 +70,7 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 ## Using a volume
 
-If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
+顯而易見，如果您在docker容器中使用ASF，您需要自己配置程序。 You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
 例如，我們假設您的ASF配置資料夾位於 `/home/archi/ASF/config`目錄中。 This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 

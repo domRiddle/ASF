@@ -2,29 +2,39 @@
 
 ASF支援各種命令，這些命令可用於控制進程和機械人實例的行為。
 
-您可以通過以下三種不同的方式發送命令：
+以下命令可以通過各種不同的方式發送到機械人：
 
-- 通過Steam私人聊天
-- 通過Steam群組聊天
-- 通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+- 通過互動式 ASF 主控台
+- 通過 Steam 私人聊天/群組聊天
+- 通過我們的 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面
 
 請注意，與 ASF 交互需要您擁有相關命令的許可權。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 配置屬性了解更多。
 
-以下的所有命令都受 `CommandPrefix`**[ 全域配置屬性​影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**，該屬性的預設值為`!`。 這意味著，當您要執行 `status` 命令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。
+所有通過 Steam 聊天發送的命令都受 `CommandPrefix`**[ 全域配置屬性​影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**，該屬性的預設值為`!`。 這意味著，當您要執行 `status` 命令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 `CommandPrefix` 不是強制性的，當您使用主控台或 IPC 時可以省略。
 
 * * *
 
-### Steam 私人聊天
+### 互動式主控台
 
-與 ASF 交互的最簡單方式──向當前正運行於 ASF 進程中的機械人發送命令。 顯然，如果您只在 ASF 中運行您自己的帳戶，就無法使用這個方法。
+從 V4.0.0.9 開始，ASF 支援互動式主控台，可通過設置 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) 屬性來啟用。 之後，只需按 `c` 按鈕，即可啟用命令模式，鍵入命令並使用 Enter 按鈕進行確認。
 
-![截圖](https://i.imgur.com/PPxx7qV.png)
+![截圖](https://i.imgur.com/bH5Gtjq.png)
+
+互動式主控台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) 模式中不可用。
 
 * * *
 
-### Steam 群組聊天
+### Steam 聊天
 
-與上述方法非常相似，但這次需要向指定 Steam 群組的聊天室發送消息。 請注意，此選項需要您正確設置 `SteamMasterClanID` 屬性，使機械人同樣監聽（並加入）指定的群組聊天。 因為這種方法不需要額外的帳戶，所以可以用來「與自己交談」。 如果您有多個機械人，可能就不希望使用此方法。
+您也可以通過 Steam 聊天向給定的 ASF 機械人發送命令。 顯然，您不能自言自語，因此，如果您想執行針對自己的命令，您至少需要另一個機械人帳戶。
+
+![截圖](https://i.imgur.com/IvFRJ5S.png)
+
+同樣，您也可以使用給定Steam組的群聊。 請注意，此選項需要您正確設置 `SteamMasterClanID` 屬性，使機械人同樣監聽（並加入）指定的群組聊天。 這也可以用於「與自己交談」，因為它與私人聊天相反，不需要專用的機械人帳戶。 您只需將` SteamMasterClanID `屬性設置為新創建的群組，然後通過機械人的` SteamOwnerID `或` SteamUserPermissions `為您自己授予訪問權限。 這樣，ASF 機械人（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的命令。 您可以加入同一個群組聊天室，以便向自己發送命令（因為在您向聊天室發送命令時，同樣在聊天室內的 ASF 實例將會收到命令，即使界面上顯示只有您自己在聊天室內）。
+
+請注意，向群聊發送命令的行為類似于中繼。 如果您向一個含有 3 個機械人的群組聊天發送 `redeem X` ，其效果等同於分別在私人聊天中向每個機械人發送 `redeem X`。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機械人交談**時一樣，向`特定機械人`發送命令。 ASF 支持群組聊天，當且僅當您有唯一的機械人時，它是一種有效的通信方式，但如果您的群組中有多個 ASF 機械人，就最好不要在這裏執行命令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有的機械人執行相同的命令。
+
+*即使在這種情況下，您也應該使用 `<Bots>` 私人聊天向機械人發送命令。*
 
 * * *
 
@@ -32,7 +42,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 這是最先進、靈活的執行命令方式，非常適合用戶集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行命令。
 
-![截圖](https://i.imgur.com/pzKE4EJ.png)
+![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -92,7 +102,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 所有的命令都不區分大小寫，但它們的參數（例如機械人名稱）通常是區分大小寫的。
 
-`<Bots>` 參數對所有命令都是可選的。 當指定該參數時，指令會在指定的機械人上執行。 但省略時，指令會在當前接收指令的機械人上執行。 換句話說，向機械人 `B` 發送 `status A`命令等於向機械人 `A` 發送 `status` 命令。
+`<Bots>` 參數對所有命令都是可選的。 當指定該參數時，指令會在指定的機械人上執行。 但省略時，指令會在當前接收指令的機械人上執行。 換句話說，發送到機械人 ` B `的` status A `，其結果與將` status `發送到機械人 ` A `相同，在這種情況下，機械人` B `僅作為代理。
 
 命令的**Access**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全域配置檔案中的 `SteamOwnerID` 用戶（擁有最高許可權）。
 
@@ -104,10 +114,6 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 如上所述，空白字元被用作命令的分隔符號，因此它不能在參數中使用。 但是，如上所述，ASF可以聯接超出範圍的參數, 這意味著您實際上能夠在參數中使用空白字元，該字元被定義為給定命令的最後一個字元。 例如，`nickname bob Great Bob` 將正確地將機械人 `bob` 的昵稱設置為「Great Bob」。 與此類似，您可以使用`owns` 命令檢查含有空格的名稱。
 
-請注意，向群組交談發送命令類似於一個中繼器──如果您向一個含有 3 個機械人的群組聊天發送 `redeem X` ，其效果等同於分別在私人聊天中向每個機械人發送 `redeem X`。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機械人交談**時一樣，向`特定機械人`發送命令。 ASF 支持群組聊天，是因為在多數情況下它是一種有效的通信方式，但如果您的群組中有多個 ASF 機械人，就最好不要在這裏執行命令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有的機械人執行相同的命令。
-
-*即使在這種情況下，您也應該使用 `<Bots>` 私人聊天向機械人發送命令。*
-
 * * *
 
 一些命令有較短的別名可用，以便節省鍵入耗時。
@@ -118,10 +124,6 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 | `status ASF` | `sa` |
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
-
-* * *
-
-通過 Steam 聊天發送命令不需要任何額外的帳戶──您可以創建一個群組，將 `SteamMasterClanID` 屬性設置為這個新群組，然後通過 `SteamOwnerID` 屬性或者機械人的 `SteamUserPermissions` 屬性為您自己授予足夠的許可權。 這樣，ASF 機械人（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的命令。 您可以加入同一個群組聊天室，以便向自己發送命令（因為在您向聊天室發送命令時，同樣在聊天室內的 ASF 實例將會收到命令，即使界面上顯示只有您自己在聊天室內）。 除此之外，您也可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**，但聊天室的方法更簡單，並且如果您有多個帳戶，這種方法就更簡單了。
 
 * * *
 

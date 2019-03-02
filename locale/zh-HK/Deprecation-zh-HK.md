@@ -38,12 +38,12 @@ ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 ## 範例
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+我們將V3.1.2.2之前的 `--server` **[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**轉移到` IPC ` ** [全域配置屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config) **。
 
 ### 第1階段
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+第1階段發生在版本 V3.1.2.2 中，我們對 `--server` 的使用添加了適當的警告。 現在過時的`--server`參數自動映射到` IPC: true `全域配置屬性，實際上與舊的`--server`開關完全相同。 這使得每個人都可以在 ASF 停止使用舊的參數之前進行適當的切換。
 
 ### 第2階段
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+第2階段發生在版本V3.1.3.0中，緊接在V3.1.2.9穩定之後，第1階段已在上面解釋。 階段2導致 ASF 完全停止識別`--server `參數，將其視為所有其他無效參數，這對程序不再有任何影響。 對於仍未由`--server `改為使用` IPC: true `的人，由於 ASF 不再進行適當的映射，這將導致 IPC 完全停止運行。
