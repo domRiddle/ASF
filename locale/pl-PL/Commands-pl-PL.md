@@ -4,8 +4,8 @@ ASF obsługuje wiele poleceń, które mogą być użyte do kontrolowania zachowa
 
 Below commands can be sent to the bot through various different ways:
 
-- Through interactive ASF console
-- Through Steam private/group chat
+- Za pośrednictwem interaktywnej konsoli ASF
+- Przez prywatną/grupową wiadomość na Steam
 - Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
 Pamiętaj że interakcja z ASF wymaga od Ciebie posiadania odpowiednich uprawnień. Sprawdź atrybuty `SteamUserPermissions` i `SteamOwnerID` pliku konfiguracyjnego aby dowiedzieć się więcej.
@@ -14,23 +14,23 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### Interaktywna konsola
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+Od wersji V4.0.0.9, ASF ma wsparcie interaktywnej konsoli która może zostać włączona poprzez prawidłowe ustawienie [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid). Potem naciśnij klawisz `c` aby włączyć tryb komend. Wpisz swoją komendę i potwierdź enterem.
 
 ![Zrzut ekranu](https://i.imgur.com/bH5Gtjq.png)
 
-Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
+Interaktywna konsola nie jest dostępna w trybie [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless).
 
 * * *
 
-### Steam chat
+### Czat Steam
 
-You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+Możesz również wydać polecenie botowi ASF wysyłając mu wiadomość na Steamie. Nie możesz gadać ze sobą dlatego też musisz ustawić co najmniej jednego, innego bota jeżeli będziesz chciał używać komend związanych z twoim głównym kontem.
 
 ![Zrzut ekranu](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
+W podobny sposób możesz również użyć czatu grupowego danej grupy Steam. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
 Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
 
@@ -50,11 +50,12 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 | Komenda                                                                    | Dostęp          | Opis                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                            |
+| `Weryfikacja dwuetapowa <Bots>`                                      | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                            |
 | `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                     |
 | `2faok <Bots>`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
 | `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                           |
-| `balance <Bots>`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                           |
+| `saldo <Bots>`                                                       | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                           |
+| `bgr <Bots>`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                        |
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                    |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                                |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                      |
@@ -98,7 +99,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 * * *
 
-### Notes
+### Notatki
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -143,25 +144,25 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Nazwa          | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Argument | Nazwa           | Child of      |
+| -------- | --------------- | ------------- |
+| 1        | Profil          |               |
+| 2        | Posiadane gry   | Profil        |
+| 3        | Czas gry        | Posiadane gry |
+| 4        | Lista znajomych | Profil        |
+| 5        | Ekwipunek       | Profil        |
+| 6        | InventoryGifts  | Ekwipunek     |
+| 7        | Komentarz       | Profil        |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | Nazwa         |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Wartość | Nazwa           |
+| ------- | --------------- |
+| 1       | `Prywatny`      |
+| 2       | `Tylko znajomi` |
+| 3       | `Publiczne`     |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -196,16 +197,16 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Nazwa                 | Opis                                                                  |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Wartość | Nazwa                 | Opis                                                                  |
+| ------- | --------------------- | --------------------------------------------------------------------- |
+| FD      | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF      | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG    | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD      | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF      | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI      | Pomiń początkowe      | Skips key redemption on initial bot                                   |
+| SKMG    | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V       | Potwierdź             | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -225,7 +226,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 | Typ                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
+| ID Urządzenia           | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Hasło                   | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |

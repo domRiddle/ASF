@@ -14,7 +14,7 @@ ASF 由 Crowdin 服務提供支援，這使得每個人都可以幫助將 ASF �
 
 ## 註冊
 
-如果您想幫助對ASF的翻譯、審閱或批准翻譯，請註冊我們的 **[Crowdin 項目](https://crowdin.com/project/archisteamfarm)**。 註冊是簡單和完全免費的！ After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+如果您想幫助對ASF的翻譯、審閱或批准翻譯，請註冊我們的 **[Crowdin 項目](https://crowdin.com/project/archisteamfarm)**。 註冊是簡單和完全免費的！ 登錄後，您可以選擇您想參與翻譯的語言，然後開始翻譯 ASF 字串，並協助其他社區成員將 ASF 翻譯成所有當下最流行的語言！
 
 * * *
 
@@ -42,7 +42,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 如果您選取的字串已由其他人翻譯，您可以投票以贊成或反對。 投票可以選擇最佳的翻譯，而不是堅持最初的建議──這進一步提高了整體翻譯品質。 你可以為已經可以提交的翻譯建議投票，也可以提交自己的翻譯建議，這將經歷同樣的過程。 Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
-**您已翻譯的字串不需批准即可在ASF中查看**。 Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. 只要翻譯完成，萬事大吉！ And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself.
+**您已翻譯的字串不需批准即可在ASF中查看**。 批准只是意味著有值得我們信任的人士審查了翻譯內容，並選擇了翻譯的最終版本。 It's totally fine to have not-approved community-driven translations, where you vote for the best one. 只要翻譯完成，萬事大吉！ 如果您認為現在的翻譯不好，您總是可以為您更欣賞的翻譯投票，或者自己提交一個。
 
 * * *
 

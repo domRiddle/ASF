@@ -1,12 +1,12 @@
 # Argumenty wiersza poleceń
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF zawiera obsługę kilku argumentów wiersza poleceń, które mogą wpływać na środowisko wykonawcze programu. Te mogą być używane przez zaawansowanych użytkowników, aby określić, jak program powinien działać. W porównaniu z domyślnym plikiem konfiguracyjnym `ASF.json`, argumenty wiersza polecenia są używane do inicjalizacji rdzenia (np. `--path`), ustawienia specyficzne dla platformy (np. `--system-required`) lub wrażliwe dane (np. `--cryptkey`).
 
 * * *
 
 ## Stosowanie
 
-Usage depends on your OS and ASF flavour.
+Stosowanie zależy od twojego systemu operacyjnego i ASF.
 
 Natywny:
 
@@ -26,16 +26,16 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Argumenty wiersza polecenia są również obsługiwane w ogólnych skryptach pomocniczych, takich jak `ArchiSteamFarm.cmd` lub `ArchiSteamFarm.sh`. Oprócz tego, gdy używasz skryptów pomocniczych, możesz również użyć własność środowiska `ASF_ARGS`, jak podano w naszej sekcji **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Jeśli argument zawiera spacje, nie zapomnij go uwzględnić. Te dwa są złe:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+Jednak te dwa są całkowicie w porządku:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
@@ -44,7 +44,7 @@ However, those two are completely fine:
 
 ## Argumenty
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` lub `--cryptkey=<key>` - uruchomi ASF z niestandardowym kluczem kryptograficznym `<key>`. Ta opcja wpływa na **[bezpieczeństwo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** i spowoduje, że ASF użyje niestandardowego klucza `<key>` zamiast domyślnego klucza zapisanego na stałe w pliku wykonywalnym. Zapamiętaj, że hasła zaszyfrowane tym kluczem będą wymagane przy każdym uruchomieniu ASF.
 
 * * *
 

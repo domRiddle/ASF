@@ -1,6 +1,6 @@
 # 자주 묻는 질문(FAQ)
 
-기본 FAQ에서는 물어볼만한 일반적인 질문과 답변을 담고 있습니다. 덜 일반적인 문제에 대해서는 **[확장된 자주 묻는 질문(FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ko-KR)**을 이용하시기 바랍니다.
+기본 FAQ에서는 물어볼만한 일반적인 질문과 답변을 담고 있습니다. 덜 일반적인 문제에 대해서는 **[확장된 자주 묻는 질문(FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ko-KR)** 을 이용하시기 바랍니다.
 
 # 목차
 
@@ -101,7 +101,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF가 Idle Master와 비슷한 건가요?
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -169,19 +169,19 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### ASF로 여러 게임을 동시에 농사지을 수 있나요?
 
-**예**, ASF는 선택된 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 기초해서 해당 기능을 언제 사용할지를 더 잘 압니다. Card drops rate when idling multiple games is close to zero, this is why ASF is using multiple games idling exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, idling multiple games at once will not provide you with any card drops.
+**예**, ASF는 선택된 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 기초해서 해당 기능을 언제 사용할지를 더 잘 압니다. Card drops rate when idling multiple games is close to zero, this is why ASF is using multiple games idling exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, idling multiple games at once will not provide you with any card drops.
 
 * * *
 
 ### ASF가 게임을 빠르게 넘길 수 있나요?
 
-**아니오**, ASF는 **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR#steam-glitches)**의 사용을 지원하지도, 권장하지도 않습니다..
+**아니오**, ASF는 **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR#steam-glitches)** 의 사용을 지원하지도, 권장하지도 않습니다..
 
 * * *
 
 ### ASF가 카드가 추가되기 전에 각 게임을 자동으로 X시간만큼 농사지을 수 있나요?
 
-**아니오**, 스팀 카드 시스템의 전체적 변화점은 가짜 통계와 유령 플레이어와 싸우도록 되어있는 것입니다. ASF는 필요한 것보다 더 기여하지는 않을 것이며, 그러한 기능을 추가하는 것은 계획되어있지 않고 일어나지 않을 것입니다. If your game receives card drops in usual way, ASF will idle them as soon as possible.
+**아니오**, 스팀 카드 시스템의 전체적 변화점은 가짜 통계와 유령 플레이어와 싸우도록 되어있는 것입니다. ASF는 필요한 것보다 더 기여하지는 않을 것이며, 그러한 기능을 추가하는 것은 계획되어있지 않고 일어나지 않을 것입니다. 만약 당신의 게임에 일반적인 방법으로 카드가 추가된다면 ASF는 가능한한 빠르게 농사를 지을 것입니다.
 
 * * *
 
@@ -215,7 +215,7 @@ However, keep in mind that Valve might still add ASF to the blacklist at some po
 
 ### 안전한가요?
 
-If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes above the one that configured the program to do yourself.
+If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
 Our code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code. If you for whatever reason don't trust our builds, you can always compile and use ASF from source, including all libraries that ASF is using (such as SteamKit2), which are open-source too.
 
@@ -299,7 +299,7 @@ Yes, and that version is not unsupported in any way, just not officially built. 
 
 * * *
 
-### ASF is great! Can I make a donation?
+### ASF는 대단합니다! 기부를 할 수 있나요?
 
 Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchiNET/ArchiSteamFarm)**. It's nice to note that in addition to generic money donations we also accept Steam items, so nothing is stopping you from donating skins, keys or a small part of the cards that you've idled with ASF if you'd like to. Thank you in advance for your generosity!
 
@@ -313,7 +313,11 @@ Yes, you must set it in `SteamParentalCode` bot config property. This is mainly 
 
 ### I don't want ASF to farm any games by default, yet I want to use extra ASF features. Is this possible?
 
-Yes, you can set `Paused` bot config property to `true` in order to launch ASF with paused cards farming module, then you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
+Yes, if you just want to start ASF with paused cards farming module, you can set `Paused` bot config property to `true` in order to achieve that. This will allow you to `resume` it during runtime.
+
+If you want to completely disable cards farming module and ensure that it'll never run without you explicitly telling it otherwise, then we recommend to set `IdlePriorityQueueOnly` to `true`, which instead of just pausing it, will disable the idling completely until you add the games to idle priority queue yourself.
+
+With cards farming module paused/disabled, you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
 
 * * *
 

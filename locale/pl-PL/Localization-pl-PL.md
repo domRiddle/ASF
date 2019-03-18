@@ -6,13 +6,13 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 * * *
 
-## Scope
+## Zakres
 
 Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 * * *
 
-## Signing up
+## Logowanie
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
@@ -30,7 +30,7 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
-Or:
+Lub:
 
 > {0} is the number of games to idle.
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 * * *
 
-### Reviewing
+### Recenzowanie
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -46,7 +46,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 * * *
 
-### Proof-reading
+### Korekta
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad might get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -91,7 +91,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 * * *
 
-## Pluralization
+## Pluralizacja
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -119,7 +119,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### Global links
+### Linki globalne
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -202,7 +202,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Linki lokalne
 
 Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
@@ -228,7 +228,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 * * *
 
-### Code blocks
+### Bloki kodu
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Na przykład:
 

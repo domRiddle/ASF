@@ -8,7 +8,7 @@ Tuttavia ciò non significa che tu non possa usarlo sul tuo PC o che farlo funzi
 
 * * *
 
-## Setup specifico per ogni OS
+## Installazione per ogni OS
 
 Il linea generale, ecco cosa faremo nei prossimi minuti:
 
@@ -22,95 +22,95 @@ Suona piuttosto semplice, vero? Allora iniziamo.
 
 * * *
 
-### .NET Core prerequisites
+### Prerequisiti per .NET Core
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and might require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+Il primo passo consiste nell'assicurarsi che il proprio OS possa eseguire ASF correttamente. ASF è scritto in C# ed è basato su .NET Core, quindi potrebbe richiedere librerie native che non sono ancora disponibili sulla tua piattaforma. In base al tuo OS (Windows, Linux o OS X) ci saranno requisiti differenti, elencati nel documento **[Prerequisiti per .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** che dovresti proprio leggere. È la guida di riferimento che dovresti usare, ma per rendere le cose più semplici ed evitare di farti leggere troppo, sono anche riassunte in dettaglio qui sotto.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+È perfettamente normale che alcuni, o anche tutti i prerequisiti siano già presenti nel tuo sistema, magari perché installati da applicazioni di terze parti che stai usando. Nonostante ciò, devi assicurarti che sia davvero questo il caso eseguendo l'installazione di ogni requisito per il tuo OS - senza di essi, ASF non funzionerà.
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+Tieni a mente che non hai bisogno di fare altro per le build specifiche per il vostro OS, come installare il .NET Core SDK, dacché i pacchetti specifici per ogni OS includono tutto ciò di cui si ha bisogno. Hai solo bisogno dei prerequisiti (o dipendenze) per .NET Core per far funzionare il runtime .NET Core incluso in ASF.
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates might be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 per Windows a 64 bit, x86 per Windows a 32 bit)
+- È fortemente consigliato assicurarsi gli aggiornamenti di Windows siano tutti installati. Hai assolutamente bisogno degli aggiornamenti **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, ma potrebbero esserne richiesti anche degli altri. Se mantieni il tuo Windows aggiornato, saranno già installati. Assicurati di soddisfare tali requisiti prima di installare il pacchetto Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando, ma elencheremo quelli che sono i più comuni. Li puoi ottenere dal tuo gestore di pacchetti nativo in base all'OS che usi (come `apt` per Debian, o `yum` per CentOS).
 
 - libcurl3 (libcurl)
-- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu (la versione più recente disponibile per la tua distribuzione, ad esempio `libicu57` per Debian 9)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, la versione 1.0.X più recente la tua distribuzione)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
+Almeno qualcuno di questi dovrebbe essere già presente nativamente sul tuo sistema (come il zlib1g, che ormai è richiesto per quasi ogni distro di Linux).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now
+- Per ora nessuno.
 
 * * *
 
-### Downloading
+### Download
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+Ora che abbiamo i requisiti necessari, il prossimo passo sarà scaricare **[l'ultima versione di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF è disponibile in molte varianti, ma tu sei interessato al pacchetto corrispondente al tuo sistema sperativo ed architettura. Ad esempio, se stai usando `Win`dows a `64` bit, allora ti servirà il pacchetto `ASF-win-x64`. Per maggiori informazioni sulle versioni disponibili, consulta la sezione **[compatibilità](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**. ASF è anche in grado di funzionare su sistemi operativi per i quali non è disponibile un pacchetto specifico, come **Windows a 32 bit**; se questo è il tuo caso, vai direttamente alla sezione **[setup generico](#generic-setup)**.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Once you get your package and extract the zip file (we recommend using **[7-zip](https://www.7-zip.org)**), you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
+Una volta scaricato il pacchetto giusto per te ed avendolo estratto (possibilmente usando **[7-zip](https://www.7-zip.org)**), avrai un gran miscuglio di file e cartelle. Non temere, puliremo tutto a breve.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
+Se stai usando Linux od OS X, non dimenticare di usare il comando `chmod +x ArchiSteamFarm`, dato che i permessi non vengono impostati nel file zip. Ciò va fatto solo dopo aver estratto l'archivio per la prima volta.
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which might lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
+Assicurati di estrarre ASF **in una cartella ad esso destinata** e non in una che stai già usando per qualcos'altro - gli aggiornamenti automatici di ASF elimineranno ogni altro file già presente e non necessario al programma, il che significa perdere ogni file salvato nella cartella di ASF. Se hai script aggiuntivi o file che vuoi usare con ASF, mettili in una cartella superiore.
 
-An example structure would look like this:
+Una struttura ideale è simile a questa:
 
-    C:\ASF (where you put your own things)
-        ├── ASF shortcut.lnk (optional)
-        ├── Config shortcut.lnk (optional)
-        ├── Commands.txt (optional)
-        ├── MyExtraScript.bat (optional)
-        ├── ... (any other files of your choice, optional)
-        └── Core (dedicated to ASF only, where you extract the archive)
+    C:\ASF (dove metterai le tue cose)
+        ├── Collegamento ad ASF.lnk (opzionale)
+        ├── Collegamento a Config.lnk (opzionale)
+        ├── Comandi.txt (opzionale)
+        ├── IlMioScript.bat (opzionale)
+        ├── ... (opzionalmente, ogni altro file di cui hai bisogno)
+        └── Core (chiamala come preferisci, estrarrai l'archivio qui)
              ├── ArchiSteamFarm.dll
              ├── config
              └── (...)
     
 
-This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
+Tale è la struttura che raccomandiamo, così che tu non debba passare attraverso lo sproposito di file e sottocartelle inclusi in ASF, dacché per utilizzarlo hai bisogno giusto di un collegamento al file eseguibile e alla cartella config.
 
-Okay, we'll now prepare ASF folder for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required, but it will make your life a bit easier.
+Bene, ora prepareremo la cartella di ASF per l'utilizzo. Se lo preferisci, puoi anche passare saltare questa parte, poiché organizzare come si deve la struttura di cartelle e file per ASF non è necessario, ma ti faciliterebbe la vita.
 
-Open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
+Apri la cartella di ASF e trova il file eseguibile principale, che su Windows sarà `ArchiSteamFarm.exe`, mentre su Linux/OS X sarà `ArchiSteamFarm`. Fai click destro su di esso e seleziona "Copia". Ora vai nella cartella in cui vorresti avere il collegamento ad ASF (come il tuo Desktop), fai click destro in un punto vuoto e seleziona "Incolla collegamento". Puoi anche rinominare il collegamento se lo vuoi, chiamandolo ad esempio "ASF". Ora fai anche la stessa cosa con la cartella `config` che trovi sempre nella cartella dell'eseguibile di ASF.
 
-After a small cleanup, you'll now have a very convenient structure similar to the one below:
+Dopo aver messo un po' d'ordine, avrai una comoda struttura di file e cartelle come la seguente:
 
 ![Structure](https://i.imgur.com/k85csaZ.png)
 
-This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
+Ciò ti permetterà di accedere con facilità all'eseguibile di ASF oltre che ai file di configurazione. Nel mio caso ho deciso di usare la struttura menzionata all'inizio, cosicché i file di ASF risiedono direttamente nella cartella "Core". Puoi adattare tale struttura come meglio preferisci, avendo per esempio i collegamenti ad ASF e config sul Desktop, e la cartella dell'applicazione in `C:\ASF`.
 
-Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
+Gli utenti Linux/OS X dovrebbero fare la stessa cosa, usando magari l'eccellente sistema di link simbolici con `ln -s`.
 
 * * *
 
 ### Configurazione
 
-We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
+Siamo ora pronti per affrontare l'ultima tappa, la configurazione. È di gran lunga la fase più complessa, poiché involve un gran numero di informazioni con le quali non hai ancora familiarità. Per questo ti forniremo diversi esempi e spiegazioni semplici da seguire.
 
-First and foremost, there is **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
+Innanzitutto, è presente la pagina **[configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** che spiega **tutto quel che c'è da sapere** sul processo di configurazione; tuttavia offre molte più informazioni di cui al momento abbiamo bisogno. Perciò, ti spiegheremo come ottenere le informazioni che stai cercando.
 
-ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
+La configurazione di ASF può essere eseguita in due modi - sia con il nostro generatore web, sia manualmente. Ciò è spiegato nel dettaglio nella sezione **[configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, quindi fai riferimento ad essa se vuoi informazioni più dettagliate. Essendo molto più semplice, utilizzeremo il configuratore web.
 
-Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebConfigGenerator)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
+Apri la pagina del nostro **[generatore di configurazioni web](https://justarchinet.github.io/ASF-WebConfigGenerator)** con il browser che preferisci, avrai bisogno di abilitare javascript in caso tu lo abbia disabilitato manualmente. Raccomandiamo Chrome o Firefox, ma dovrebbe funzionare con i browser più usati.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+Una volta caricata la pagina, clicca su "Bot". Dovresti avere davanti una pagina simile a questa:
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
+Se per qualche motivo la versione di ASF che hai appena scaricato è più vecchia di quella preselezionata dal generatore di configurazioni, seleziona la versione corretta dal menu a discesa. Ciò può accadere dacché il configuratore può essere usato anche per versioni più recenti di ASF, le "pre-release", che però non sono ancora ritenute stabili. Tu hai invece scaricato la versione stabile più recente di ASF, la cui affidabilità è stata comprovata.
 
 Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
 

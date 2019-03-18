@@ -10,7 +10,7 @@ However, regardless of where you run ASF, you must ensure that your target platf
 
 * * *
 
-## ASF packaging
+## Wersje ASF
 
 ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
 
@@ -32,7 +32,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 * * *
 
-### OS-specific
+### Specyficzne dla systemu operacyjnego
 
 OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
 

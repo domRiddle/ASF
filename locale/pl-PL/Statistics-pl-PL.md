@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-# Usage of data
+# Wykorzystanie danych
 
 All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 
@@ -59,7 +59,7 @@ ASF STM listing only accepts ASF bots for time being. There is no way to list th
 
 If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
 
-### Notice
+### Powiadomienie
 
 *The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
 
@@ -69,4 +69,4 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
 
-Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `SteamTradeMatcher` or `MatchActively` without having `Statistics` enabled.
+Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.

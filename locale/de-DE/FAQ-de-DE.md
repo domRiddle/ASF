@@ -215,11 +215,11 @@ Bedenke jedoch, dass Valve irgendwann immer noch ASF zur schwarzen Liste hinzuf�
 
 ### Ist es sicher?
 
-Wenn du fragst, ob ASF als Software sicher ist, was bedeutet, dass es deinem Computer keinen Schaden zufügt, deine privaten Daten nicht stiehlt, Viren oder ähnliches installiert - ist es sicher. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes above the one that configured the program to do yourself.
+Wenn du fragst, ob ASF als Software sicher ist, was bedeutet, dass es deinem Computer keinen Schaden zufügt, deine privaten Daten nicht stiehlt, Viren oder ähnliches installiert - ist es sicher. ASF ist frei von Malware, Datendiebstahl, Kryptowährungsminern und jedem (und allen) anderen zweifelhaften Verhalten, das vom Benutzer als bösartig oder unerwünscht angesehen werden kann. Darüber hinaus haben wir einen speziellen Abschnitt **[Statistik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**, der unsere Datenschutzerklärung und das ASF-Verhalten behandelt, das über das hinausgeht, was Sie mit dem Programm selbst konfiguriert haben.
 
-Our code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Jeder Build ist reproduzierbar, indem er unserem Build-Skript folgt, und wird genau dasselbe ergeben, **[deterministisch](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binärer) Code. Wenn du aus irgendeinem Grund unseren Builds nicht vertraust, kannst du ASF jederzeit aus dem Quelltext kompilieren und verwenden, einschließlich aller Bibliotheken, die ASF verwendet (wie SteamKit2), die ebenfalls Open-Source sind.
+Unser Quelltext ist Open-Source, und verteilte Binärdateien werden immer aus **[öffentlich verfügbaren Quellen](https://en.wikipedia.org/wiki/Open-source_software)** von **[automatisierten und vertrauenswürdigen kontinuierlichen Integrationssystemen](https://en.wikipedia.org/wiki/Build_automation)** und nicht einmal von Entwicklern selbst erstellt. Jeder Build ist reproduzierbar, indem er unserem Build-Skript folgt, und wird genau dasselbe ergeben, **[deterministisch](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binärer) Code. Wenn du aus irgendeinem Grund unseren Builds nicht vertraust, kannst du ASF jederzeit aus dem Quelltext kompilieren und verwenden, einschließlich aller Bibliotheken, die ASF verwendet (wie SteamKit2), die ebenfalls Open-Source sind.
 
-In the end however, it's always a matter of trust to the developer(s) of your application, so you should decide yourself if you consider ASF safe or not, potentially supporting your decision with technical arguments specified above. Glaube nicht blind an etwas, nur weil ich es gesagt habe - überprüfe es selbst, denn das ist der einzige Weg, um sicher zu gehen.
+Am Ende ist es jedoch immer eine Frage des Vertrauens zu den Entwicklern deiner Anwendung, also solltest du selbst entscheiden, ob du ASF für sicher hältst oder nicht und deine Entscheidung möglicherweise mit den oben genannten technischen Argumenten unterstützen. Glaube nicht blind an etwas, nur weil ich es gesagt habe - überprüfe es selbst, denn das ist der einzige Weg, um sicher zu gehen.
 
 * * *
 
@@ -313,7 +313,11 @@ Ja, du musst ihn in der `SteamParentalCode` Bot-Konfigurationseigenschaft setzen
 
 ### Ich möchte nicht, dass ASF standardmäßig irgendwelche Spiele sammelt, aber ich möchte zusätzliche ASF-Funktionen verwenden. Ist das möglich?
 
-Ja, du kannst die `Paused` Bot-Konfigurationseigenschaft auf `true` setzen um ASF mit angehaltenem Karten-Sammel-Modul zu starten, dann kannst du zusätzliche ASF-Funktionen nutzen, wie z.B. `GamesPlayedWhileIdle`.
+Ja, wenn Sie ASF nur mit dem pausierten Karten-Farming-Modul starten wollen, können Sie die Bot-Konfigurationseigenschaft `Paused` auf `true` setzen, um dies zu erreichen. Dies ermöglicht es Ihnen, es während der Laufzeit `fortzusetzen`.
+
+Wenn Sie das Karten-Farming-Modul vollständig deaktivieren und sicherstellen möchten, dass es nie ausgeführt wird, ohne dass Sie es explizit anders angeben, dann empfehlen wir, `IdlePriorityQueueOnly` auf `true` zu setzen, was den Leerlauf komplett deaktiviert, anstatt es nur anzuhalten, bis Sie die Spiele selbst in die Warteschlange für ungenutzte Prioritäten aufnehmen.
+
+Wenn das Karten-Farming-Modul angehalten/deaktiviert ist, können Sie zusätzliche ASF-Funktionen nutzen, wie z. B. `GamesPlayedWhileIdle`.
 
 * * *
 

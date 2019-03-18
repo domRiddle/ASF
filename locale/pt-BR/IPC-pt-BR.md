@@ -109,14 +109,14 @@ server {
 
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar sobrepor o host padrão
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # Adicionamos essas 3 opções extras para proxy de websocktes, veja https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -124,7 +124,7 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:1242;
-#       proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+#       proxy_set_header Host 127.0.0.1; # Apenas se você precisar sobrepor o host padrão
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

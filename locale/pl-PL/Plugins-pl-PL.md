@@ -4,7 +4,7 @@ Starting with ASF V4, the program includes support for custom plugins that can b
 
 * * *
 
-## For users
+## Dla użytkowników
 
 ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
 

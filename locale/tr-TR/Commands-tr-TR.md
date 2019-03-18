@@ -4,9 +4,9 @@ ASF, bot örneklerinin ve sürecin davranışlarını kontrol etmek için kullan
 
 Below commands can be sent to the bot through various different ways:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Etkileşimli ASF konsolu aracılığıyla
+- Steam özel/grup chati aracılığıyla
+- **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** arayüzümüz aracılığıyla
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
@@ -14,7 +14,7 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### Etkileşimli konsol
 
 Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
@@ -24,7 +24,7 @@ Interactive console is not available in [**`Headless`**](https://github.com/Just
 
 * * *
 
-### Steam chat
+### Steam chati
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
@@ -55,12 +55,13 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `2faok <Bots>`                                                       | `Usta`          | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
 | `addlicense <Bots> <GameIDs>`                                  | `Operatör`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
 | `balance <Bots>`                                                     | `Usta`          | Shows wallet balance of given bot instances.                                                                                                                                                          |
+| `bgr <Bots>`                                                         | `Usta`          | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                       |
 | `bl <Bots>`                                                          | `Usta`          | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`                                    | `Usta`          | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`                                     | `Usta`          | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `çık`                                                                      | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
+| `çık`                                                                      | `Owner`         | Tüm ASF işlemini durdurur.                                                                                                                                                                            |
 | `farm <Bots>`                                                        | `Usta`          | Restarts cards farming module for given bot instances.                                                                                                                                                |
-| `help`                                                                     | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
+| `yardım`                                                                   | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
 | `input <Bots> <Type> <Value>`                            | `Usta`          | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
 | `ib <Bots>`                                                          | `Usta`          | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
 | `ibadd <Bots> <AppIDs>`                                        | `Usta`          | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |

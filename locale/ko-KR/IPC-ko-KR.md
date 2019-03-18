@@ -1,36 +1,36 @@
 # IPC
 
-ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF는 유일한 자체 IPC 인터페이스를 가지고 있으며, 이로 인해 프로세스와 더 상호작용할 수 있습니다. IPC **[프로세스 간 통신(inter-process communication)](https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4_%EA%B0%84_%ED%86%B5%EC%8B%A0)** 을 뜻하며, 가장 간단한 정의로 **[Kestrel HTTP 서버](https://github.com/aspnet/KestrelHttpServer)** 기반의 "ASF 웹 인터페이스" 입니다. 이는 최종사용자용 프론트엔드(ASF-ui)와 서드파티 통합용 백엔드(ASF API)로써 프로세스와 더 통합될 수 있습니다.
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+IPC는 우리의 필요와 능력에 따라 수많은 다른 것들로 사용될 수 있습니다. 예를 들어, ASF와 모든 봇의 상태를 가져오고, ASF에 명령어를 보내고, 일반/봇 환경설정을 가져와서 수정하고, 새로운 봇을 추가하고, 기존의 봇을 삭제하고, **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 에 키를 보내고, ASF의 로그파일에 접근할 수 있습니다. 이 모든 작업은 API로 제공됩니다. 즉, 당신이 자신의 도구와 스크립트를 짜서 ASF 실행중에 ASF와 통신하고 영향을 미칠수 있다는 뜻입니다. 추가로, 명령어 전송같은 선택된 작업은 ASF-ui에 구현되어 있으며 친숙한 웹 인터페이스로 쉽게 접근할 수 있습니다.
 
 * * *
 
 # 사용법
 
-You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+IPC 인터페이스를 사용하려면 `IPC` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#일반-환경설정)** 을 활성화해야 합니다. ASF는 IPC의 실행을 로그에서 표시하여 IPC 인터페이스가 제대로 시작되었는지 확인할 수 있습니다.
 
     INFO|ASF|Start() Starting IPC server...
     INFO|ASF|Start() IPC server ready!
     
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+ASF의 http 서버가 이제 선택한 단말에서 수신중입니다. IPC에 사용자 지정 환경설정 파일을 넣지 않았다면, 이는 IPv4-기반의 **[127.0.0.1](http://127.0.0.1:1242)** 와 IPv6-기반의 **[[::1]](http://[::1]:1242)** 이며 포트 기본값은 `1242` 입니다. ASF 프로세스가 실행중인 동일한 기기에서 위의 링크로 IPC에 접속할 수 있습니다.
 
-ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+ASF의 IPC 인터페이스는 사용계획에 따라 세가지의 다른 접근방법을 제공합니다.
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
+가장 낮은 단계로 IPC 인터페이스의 핵심이며 다른 모든 것이 동작하도록 하는 **[ASF API](#asf-api)** 가 있습니다. 자신만의 도구나 유틸리티, 프로젝트에서 ASF와 직접적으로 통신하기 위해 이를 사용해야 합니다.
 
-On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+중간 단계로 ASF API의 프론트엔드 역할을 하는 **[Swagger documentation](#swagger-documentation)** 이 있습니다. 이것은 ASF API의 완전한 문서를 제공하고 더 쉽게 접근할 수 있게 해줍니다. 만약 API를 통해 ASF와 통신하려는 도구, 유틸리티 혹은 다른 프로젝트를 작성하려면 Swagger 문서를 확인해보는 것이 좋습니다.
 
-On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
+가장 높은 단계로 ASF API에 기반한 **[ASF-ui](#asf-ui)** 가 있으며, ASF 작업을 수행가능한 사용자 친화적인 방법을 제공합니다. 이것은 최종사용자를 위한 기본 IPC 인터페이스이며, ASF API로 만들수 있는 완벽한 예제입니다. 원한다면 `--path` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR#인자)** 를 지정하고, 그곳에 위치한 사용자 지정 `www` 디렉토리를 사용하여 자신만의 사용자 지정 웹 UI를 사용할 수도 있습니다.
 
 * * *
 
 # ASF-ui
 
-ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
+ASF-ui는 최종사용자에게 사용자 친화적인 그래픽 웹 인터페이스를 만들어주는 것을 목표로 하는 커뮤니티 프로젝트입니다. 이를 달성하기 위해 **[ASF API](#asf-api)** 의 프론트엔드로 동작하여 사용자가 다양한 작업을 쉽게 할 수 있습니다. 이것은 ASF와 함께 제공되는 기본 UI 입니다.
 
-As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
+위에서 설명했듯이 ASF-ui는 ASF 핵심 개발자들이 유지관리하지 않는 커뮤니티 프로젝트입니다. **[ASF-ui 리포](https://github.com/JustArchiNET/ASF-ui)** 에 있는 자체 흐름을 따라가며, 이곳에서 모든 관련된 질문, 이슈, 버그 보고 및 제안이 이루어집니다.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
@@ -38,67 +38,67 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 # ASF API
 
-Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+ASF API는 기본 데이터 형식인 JSON에 기반한 전형적인 **[REST 원리를 따르는](https://ko.wikipedia.org/wiki/REST)** 웹 API 입니다. 위리는 HTTP 상태코드(해당하는 경우)와, 직접 파싱해서 요청이 성공했는지 혹은 왜 실패했는지를 알 수 있는 응답을 모두 사용하여 응답을 정확하게 설명하기 위해 최선을 다하고 있습니다.
 
-Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
+ASF API는 적절한 `/Api` 단말에 적절한 요청을 보내서 접근이 가능합니다. 이 API 단말을 사용해서 자신만의 도우미 스크립트, 도구, GUI 등등을 만들수 있습니다. 이것이 바로 ASF-ui의 비결이고, 다른 모든 도구도 동일합니다. ASF API는 공식적으로 지원되며 ASF 핵심 팀이 유지관리합니다.
 
-For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
+이용가능한 단말, 설명, 요청, 응답, http 상태코드와 ASF API에 대한 다른 모든 것에 대한 완전한 문서는**[swagger 문서](#swagger-documentation)**를 참고하시기 바랍니다.
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
 * * *
 
-## Authentication
+## 인증
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
+ASF IPC 인터페이스는 기본적으로 `IPCPassword`가 `null`로 설정되어 있으므로 어떠한 종류의 인증도 요구하지 않습니다. 하지만 `IPCPassword`가 빈 값이 아닌것으로 설정되어 활성화되면, 모든 ASF API 호출은 `IPCPassword`에 맞는 암호를 요구할 것입니다. 인증을 생략하거나 잘못된 암호를 입력하면 `401 - Unauthorized` 오류가 발생합니다. 인증 없이 요청을 계속 보내면 결국 `403 - Forbidden` 오류와 함께 당신은 일시적으로 차단됩니다.
 
-Authentication can be done through two separate ways.
+인증은 두가지 다른 방법으로 가능합니다.
 
-### `Authentication` header
+### `Authentication` 헤더
 
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+일반적으로는 `Authentication` 항목에 암호를 값으로 넣어서 HTTP 요청 헤더를 사용해야 합니다. 이 방법은 ASF IPC 인터페이스에 접근하는 실제 도구에 따라 다릅니다. 예를 들어 `curl`을 사용한다면 `-H 'Authentication: MyPassword'` 를 인자로 넣어야 합니다. 이 방법으로 실제 인증이 일어나야 하는 요청의 헤더 부분에서 인증이 통과됩니다.
 
-### `password` parameter in query string
+### 쿼리문 내의 `password` 매개변수
 
-Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
-
-* * *
-
-Both ways are supported and it's totally up to you which one you want to choose. We recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string as well, mainly because of various limitations related to request headers. A good example includes lack of custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC). In this situation query string is the only way to authenticate.
+또는 `password` 매개변수를 호출하려는 URL의 마지막에 추가할 수도 있습니다. 예를 들어 `/Api/ASF` 대신에 `/Api/ASF?password=MyPassword`로 호출합니다. 이 접근방법도 충분히 좋지만 명백하게 암호를 열린 곳에 노출하므로 항상 적절하지는 않습니다. 게다가 쿼리문의 추가 인수이므로 URL이 복잡해보이고, 암호가 ASF API 통신 전체에 적용되는데도 마치 그 URL 전용인 것 같은 느낌을 줍니다.
 
 * * *
 
-## Swagger documentation
+두 방법 모두 지원되며 어느 것을 사용할지는 당신의 선택입니다. 우리는 가능한 모든 곳에 HTTP 헤더를 사용할 것을 권장합니다. 예를 들었듯이 HTTP 헤더가 쿼리문보다 더 적합합니다. 하지만 헤더 요청과 관련된 다양한 제한이 있기 때문에 우리는 쿼리문도 지원을 합니다. RFC에 따르면 완전히 유효합니다만, 자바스크립트에서 웹소켓 연결 시작시 사용자 지정 헤더의 부재는 좋은 예시 입니다. 이 경우 쿼리문은 유일한 인증방법입니다.
 
-Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://127.0.0.1:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
+* * *
 
-Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
+## Swagger 문서
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+IPC 인터페이스에는 ASF API, ASF-ui와 더불어 swagger 문서가 있으며 `/swagger` **[URL](http://127.0.0.1:1242/swagger)** 로 접근이 가능합니다. Swagger 문서는 API 구현과 이를 사용하는 ASF-ui 등 다른 도구간의 중간다리 역할을 합니다. 이것은 **[OpenAPI](https://swagger.io/resources/open-api)** 사양의 모든 API 단말의 완전한 문서이며 가능성입니다. 다른 프로젝트는 이를 쉽게 소비할 수 있으며 ASF API를 쉽게 작성하고 테스트할 수 있습니다.
+
+Swagger 문서를 ASF API의 완전한 사양으로 사용하는 것과 별개로 주로 ASF-ui에 구현되지 않은 다양한 API 단말을 실행하는 사용자 친화적인 방법으로 사용할 수도 있습니다. Swagger 문서는 ASF 코드에서 자동으로 생성되므로 사용중인 ASF가 포함하는 API 단말과 문서가 항상 최신임을 보장합니다.
+
+![Swagger 문서](https://i.imgur.com/mLpd5e4.png)
 
 * * *
 
 # 자주 묻는 질문(FAQ)
 
-### Is ASF's IPC interface secure and safe to use?
+### ASF IPC 인터페이스는 안전합니까?
 
-ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
+ASF는 기본적으로 `localhost` 주소를 수신합니다. 즉 당신 자신의 기기가 아닌 다른 기기는 ASF IPC에 접속하는 것은 **불가능합니다**. 당신이 기본 단말을 변경하지 않는 한, 공격자는 ASF IPC에 접근하려면 당신의 기기에 직접접근할 필요가 있습니다. 따라서 가장 안전하며 LAN에 접속된 이를 포함한 다른 누군가의 접근 가능성은 없습니다.
 
-However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+하지만 기본 `localhost` 할당 주소를 다른 무언가로 바꾸기로 했다면 공인된 IP만 ASF IPC 인터페이스에 접근하도록 적절한 방화벽 규칙을**직접** 설정해야 합니다. 이와 더불어 추가로 보안계층을 더해줄 `IPCPassword`를 설정할 것을 강력하게 권장합니다. 이 경우 ASF IPC 인터페이스를 역방향 프록시 뒤에서 실행하고 싶을수도 있습니다. 이는 아래에서 추가로 설명합니다.
 
-### Can I access ASF API through my own tools or userscripts?
+### 내 자신의 도구나 사용자스크립트로 ASF API에 접근할 수 있습니까?
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+예. 이것은 ASF API가 설계된 이유이며 접근을 위한 HTTP 요청을 보내는 것으로 무엇이든 할 수 있습니다. 로컬 사용자스크립트는 **[교차 출처 리소스 공유(CORS, Cross-origin resource sharing)](https://ko.wikipedia.org/wiki/%EA%B5%90%EC%B0%A8_%EC%B6%9C%EC%B2%98_%EB%A6%AC%EC%86%8C%EC%8A%A4_%EA%B3%B5%EC%9C%A0)** 논리 구조를 따르므로, 추가 보안 조치로 `IPCPassword`가 설정되어 있다면 우리는 이를 위해 모든 곳(`*`)에서의 접근을 허용합니다. 이렇게 해서 잠재적으로 악의적인 스크립트가 자동으로 요청을 실행하는 것을 막으면서 다양한 인증받은 ASF API 요청을 실행할수 있습니다.(악의적인 스크립트는 요청 실행을 위해 `IPCPassword`를 알아야만 합니다.)
 
-### Can I access ASF's IPC remotely, e.g. from another machine?
+### 다른 기기 등에서 원격으로 ASF IPC에 접근할 수 있습니까?
 
-Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+예. 이를 위해 아래에서 설명하는 역방향 프록시의 사용을 권장합니다. 이렇게 해서 웹서버에 전형적인 방법으로 접근할 수 있고 ASF IPC를 동일한 기기에서 접근할 수 있습니다. 또는, 역방향 프록시를 실행하지 않으려면 적절한 URL을 가진 **[사용자 지정 환경설정](#사용자-지정-환경설정)** 을 사용할 수도 있습니다. 예를 들어, 당신의 기기가 `10.8.0.1` 주소를 가진 사설 VPN에 있다면 IPC 환경설정에서 수신 URL을 `http://10.8.0.1:1242`로 설정할 수 있습니다. 이렇게 해서 다른 어느 곳에서도 안되지만 당신의 사설 VPN에서는 IPC 접근이 가능해집니다.
 
-### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
+### ASF IPC를 Apache나 Nginx 같은 역방향 프록시 뒤에서 사용할 수 있습니까?
 
-**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**예**. IPC는 그런 설치와 완전히 호환되므로 원한다면 추가 보안과 호환성을 위해 당신의 도구 앞에서 호스팅해도 좋습니다. 일반적으로 ASF의 Kestrel http 서버는 인터넷에 직접 연결되었을 때 매우 안전하고 위험이 없습니다. 하지만 Apache나 Nginx 같은 역방향 프록시 뒤에 놓으면 다른 방법으로는 할 수 없는 추가 기능들, 예를 들면 ASF 인터페이스를 **[기초 인증(Basic auth)](https://en.wikipedia.org/wiki/Basic_access_authentication)** 으로 안전하게 하는 것 같은 기능들을 제공할지도 모릅니다.
 
-Example Nginx configuration can be found below. We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
+Nginx 환경설정의 예시는 아래에 있습니다. 당신은 주로 `location` 블럭에 관심이 있겠지만 우리는 전체 `server` 블럭을 넣었습니다. 더 자세한 설명이 필요하면 **[nginx 문서(영문)](https://nginx.org/en/docs)** 를 참고하십시오.
 
 ```nginx
 server {
@@ -134,21 +134,21 @@ server {
 }
 ```
 
-### Can I access IPC interface through HTTPS protocol?
+### HTTPS 프로토콜로 IPC 인터페이스에 접근할 수 있습니까?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**예**. 두가지 방법으로 가능합니다. 추천하는 방법은 위에서 설명한 역방향 프록시를 사용하여 웹서버에 http로 평소처럼 접근한 뒤, 그 기기에서 ASF IPC 인터페이스에 접속하는 것입니다. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+두번째 방법은 ASF IPC 인터페이스의 **[사용자 지정 환경설정](#사용자-지정-환경설정)** 에 명시하는 것으로, https 단말을 활성화 하고 Kestrel http 서버에 적절한 인증을 직접 제공하는 것입니다. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
 
 * * *
 
-## Custom configuration
+## 사용자 지정 환경설정
 
-Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+IPC 인터페이스는 추가 환경설정 파일을 지원합니다.`IPC.config` 파일을 표준 ASF `config` 디렉토리에 넣으십시오.
 
-When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+사용가능한 경우 이 파일은 ASF Kestrel http 서버의 고급 환경설정과 다른 IPC 관련 조정사항을 정의합니다. 특정한 필요가 없다면 이 파일을 사용할 이유는 없습니다. ASF는 이 경우 합리적인 기본값을 사용합니다.
 
-The configuration file is based on following JSON structure:
+환경설정 파일은 다음의 JSON 구조를 기반으로 합니다.
 
 ```json
 {
@@ -180,19 +180,19 @@ The configuration file is based on following JSON structure:
 }
 ```
 
-There are 2 properties worth explanation/editing, those are `Endpoints` and `PathBase`.
+설명하고 수정할만한 가치가 있는 2개의 속성값이 있습니다. `Endpoints`와 `PathBase` 입니다.
 
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+`Endpoints` - 이것은 단말의 집합입니다. 모든 단말은 `example-http4`와 같은 유일한 이름을 가지고 있어야 하며, `Url` 속성값은 `Protocol://Host:Port` 수신주소를 특정합니다. 기본적으로 ASF는 IPv4와 IPv6 http 주소를 수신하지만, 필요할지 몰라 사용할 수 있는 https 예시를 추가해 두었습니다. 필요한 단말 만을 선언해야 합니다. 당신이 수정하기 쉽도록 위에 4개의 예시를 들어놓았습니다.
 
-`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which might pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) at a minimum in this case.
+`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. 이 경우 최소한 `IPCPassword`, 그리고 방화벽의 사용을 강력하게 권장합니다.
 
-`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
+`PathBase` - IPC 인터페이스가 사용될 기본 경로입니다. 이 속성값은 선택사항입니다. 기본값은 `/`인데 대부분의 사용례에서 수정할 필요가 없습니다. 이 속성값을 변경하면 전체 IPC 인터페이스를 사용자 지정 접두사에서 호스팅하게 됩니다. 예를 들어 `http://127.0.0.1:1242` 가 아니라 `http://127.0.0.1:1242/MyPrefix` 가 됩니다. 사용자 지정 `PathBase` 는 특정한 URL만 프록시하기 원하는 역방향 프록시의 특정 설치와의 조합으로 사용할 수 있습니다. 예를 들어 전체 `mydomain.com` 도메인이 아닌`mydomain.com/ASF` 를 사용할 수 있습니다. 이 경우 보통 `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`로 매핑하도록 웹서버 규칙을 다시 작성해야 하지만, 대신 사용자 지정 `PathBase` 를 `/ASF`로 하면 `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`로 설치하는 것이 쉬워집니다.
 
-Unless you truly need to specify a custom base path, it's best to leave it at default.
+당신이 사용자 지정 기본 경로를 지정할 필요가 있다고 진심으로 믿지 않는 한, 기본값으로 두는 것이 최선입니다.
 
-### Example config
+### 환경설정 예시
 
-The following config will allow remote access from all sources, therefore you should ensure that you read and understood our notice about that, available above.
+아래의 환경설정은 모든 곳에서의 원격접속을 허락하므로, 위에서 설명한 내용을 읽고 이해하였는지 확인하시기 바랍니다.
 
 ```json
 {

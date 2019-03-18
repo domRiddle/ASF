@@ -2,11 +2,11 @@
 
 ASF的主要目標是盡可能有效地進行掛卡，它基于兩種類型的數據——ASF無法自行猜測/檢查，需要用戶提供的一小部分數據，以及可以由ASF自動檢查的更大數據集 。
 
-在自動模式下，ASF 不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 ** ASF 比您更理解它自己應該做什麼以及應該盡快做出哪些決定以加速掛卡**。 Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
+在自動模式下，ASF 不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 ** ASF 比您更理解它自己應該做什麼以及應該盡快做出哪些決定以加速掛卡**。 您的目標是正確設置配置屬性，因為ASF無法自己猜測所有的東西。
 
 * * *
 
-早些時候，Steam 改變了掉卡算法。 From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+早些時候，Steam 改變了掉卡算法。 從那時起，我們可以將Steam帳戶分為兩類：卡片掉落**受限**的帳戶，卡片掉落**不受限**的帳戶。 這兩種賬戶之間的唯一區別在於，卡片掉落受限的賬戶在玩給定遊戲至少` X `小時之前，無法獲得任何卡片， It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
 
 * * *
 

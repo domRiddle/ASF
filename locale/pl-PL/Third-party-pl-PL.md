@@ -6,21 +6,21 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## ASF plugins
+## Wtyczki ASF
 
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
 
 * * *
 
-## Integrations
+## Integracje
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
 
 * * *
 
-## Libraries
+## Biblioteki
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
@@ -33,7 +33,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## Tools
+## Narzędzia
 
 - **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.

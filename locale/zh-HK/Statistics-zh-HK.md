@@ -18,7 +18,7 @@ ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本�
 
 我們認為 Steam 群組是 ASF 社區的關鍵部分。 這是我們在所有 ASF 相關的重要問題上使用的主要溝通途徑，特別是讓您瞭解開發、潛在問題、最終警告以及您作為使用者應該訪問的所有其他事項。 我們不會從該群組的維護中受益，它是專門支援 ASF 用戶的地方，我們認為您是我們社區的一部分。 由於該組的成員資格絕不表明您是 ASF 使用者，因此我們不認為這是隱私方面的問題。
 
-2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
+2. 如果您的帳戶**[未受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**，啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**，**[物品庫隱私為公開](https://steamcommunity.com/my/edit/settings)**且擁有大於100個符合`MatchableTypes`類型的物品，並在`TradingPreferences`中啓用了`SteamTradeMatcher`，那麽ASF將定期與我們的**[伺服器](https://asf.justarchi.net)**通信以實現此功能。 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
 
 * 您的Steam身份驗證器（64位形式，用於生成連結）
 * 您的昵稱（用於顯示）
@@ -29,7 +29,7 @@ ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本�
 * 您庫存里符合`MatchableTypes`的 Steam 物品總數量（用於顯示和匹配）
 * 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和匹配）
 
-ASF **不會**收集任何其他上述清單之外的數據，因此這一點不會在更改日誌中另行通知。 We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
+ASF **不會**收集任何其他上述清單之外的數據，因此這一點不會在更改日誌中另行通知。 我們不認為上述任何事情應該被嚴肅地看待，我們提到它是為了讓您知道ASF在您自己配置的內容中做了什麼，因此人們可以更好地理解我們的觀點。
 
 * * *
 
@@ -41,7 +41,7 @@ ASF **不會**收集任何其他上述清單之外的數據，因此這一點不
 
 ## 公開 ASF STM 清單
 
-Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
+我們的公開 ASF STM 清單位于**[此處](https://asf.justarchi.net/STM)**，它被用作使用` MatchActively `的ASF用戶的公共服務，以及幫助ASF和非ASF用戶進行手動匹配。
 
 ### 工作原理
 
@@ -49,7 +49,7 @@ Our public ASF STM listing is located on **[our website](https://asf.justarchi.n
 
 這允許我們的網站記錄哪些帳戶可用於匹配，以及它們是否仍處於活動狀態。 多虧了這一點，我們的網站可以顯示在**過去15分鐘**中活躍的所有啟用 ASF 2FA 和 STM 的帳戶。
 
-Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
+用戶按照他們的庫存（按降序排序）——首先是` MatchEverything `機械人，`Any`橫幅意味著它接受所有1：1交易，然後是符合` MatchableTypes `的遊戲計數，最後是符合` MatchableTypes `的物品計數。
 
 請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 此外，公開清單僅與兼容最新的ASF穩定版，並且可能拒絕顯示過時的機械人，特別是如果它們缺少只能在較新版本中找到的核心功能。
 
@@ -69,4 +69,4 @@ ASF STM 清單暫時只接受 ASF 機械人。 目前無法在我們的清單中
 
 儘管我們高度鼓勵未來的計劃，但參與統計資訊**並非強制性的**。 如果您希望不為人知地使用ASF，我們不予置評，您可以將全域配置中的` Statistics `屬性切換為 `false`來**完全**禁用統計。 禁用統計資訊將使整個模組無法運行，且不會執行上述隱私政策中指定的任何操作。
 
-Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `SteamTradeMatcher` or `MatchActively` without having `Statistics` enabled.
+禁用統計資訊可能會影響**我們的技術支持，ASF功能以及免費提供給您的其他內容**。 例如，您未啓用 `Statistics` 的話，將無法使用 `MatchActively` 功能。

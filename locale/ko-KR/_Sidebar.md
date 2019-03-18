@@ -36,10 +36,10 @@
 * **[현지화](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-ko-KR)**
 * **[로그](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ko-KR)**
 * **[낮은 메모리 설치](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ko-KR)**
-* **[플러그인](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[제 3자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[플러그인](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-ko-KR)**
+* **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)**
+* **[서드 파티](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-ko-KR)**
+* **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)**
 
 ## 개발자
 

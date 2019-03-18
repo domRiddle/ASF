@@ -1,26 +1,26 @@
-# Third-party
+# 서드 파티
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
+이 항목에는 독점적 혹은 주로 ASF와 함께 사용하도록 작성된 여러 서드 파티 애드온이 있습니다. 통합을 위한 내부 라이브러리와 간단한 웹 어플리케이션 같은 ASF 플러그인부터 다른 플랫폼을 위한 완전한 기능을 가진 봇 까지 범위가 넓습니다. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
 
-Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. 이 목록은 참조용으로만 유지됩니다. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
-
-* * *
-
-## ASF plugins
-
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
+아래의 프로그램들은 ASF 개발자들이 유지보수하지 **않으므로** 보안, 안전, 스팀 서비스약관 준수 측면에서 어떠한 것도 보장하지 않음을 유의하시기 바랍니다. 이 목록은 참조용으로만 유지됩니다. 사용하려는 도구가 충분히 합법적인지 항상 확인하시고, 스스로의 책임하에 사용하십시오.
 
 * * *
 
-## Integrations
+## ASF 플러그인
+
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, ASF가 봇 이름을 대소문자 구분없이 사용하도록 하는 플러그인입니다.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF가 명령어 없이 키를 등록하도록 구현하는 플러그인입니다.
+
+* * *
+
+## 통합
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF와 통합되는 python으로 작성한 텔레그램 봇입니다.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
 
 * * *
 
-## Libraries
+## 라이브러리
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, ASF의 IPC 인터페이스와 더욱 통합되는 python 라이브러리입니다.
 

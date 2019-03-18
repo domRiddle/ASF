@@ -42,7 +42,7 @@ ASF는 모든 사람들이 ASF를 전세계의 모든 언어로 번역할 수 �
 
 다른 사람이 이미 번역한 문자열을 선택했다면 투표를 할 수 있습니다. 투표를 통해 제일 처음 제안된 내용에 붙잡혀있지 않고 다양한 번역중 제일 좋은 것을 선택할 수 있습니다. 이렇게 해서 전체적인 번역의 품질이 훨씬 더 개선됩니다. 기 번역된 제안에 투표할 수도 있고, 동일한 절차를 따라 새로 번역을 하여 제안할 수도 있습니다. 결국 최종적인 문자열은 가장 많은 투표를 받은 제안이나 혹은 해당 언어에 대해 개인적으로 번역 승인을 받은 교정자의 선택으로 결정됩니다. (이경우에도 투표에 기초합니다)
 
-**ASF에서 당신이 번역한 문자열을 보는데는 승인이 필요하지 않습니다.** Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. 승인되지 않은, 커뮤니티에서 만든 번역이어도 최고라고 투표한다면 아무 문제 없습니다. 번역이 되어있기만 하면 모든게 문제 없습니다! 그리고 현재의 번역이 안좋다고 생각한다면 더 나은 번역에 투표하던지 직접 번역하여 제안할 수 있습니다.
+**ASF에서 당신이 번역한 문자열을 보는데는 승인이 필요하지 않습니다.** 승인이란 간단히 말해 우리가 믿는 누군가가 번역의 최종버전을 선택하듯이 내용을 리뷰했다는 뜻입니다. 승인되지 않은, 커뮤니티에서 만든 번역이어도 최고라고 투표한다면 아무 문제 없습니다. 번역이 되어있기만 하면 모든게 문제 없습니다! 그리고 현재의 번역이 안좋다고 생각한다면 더 나은 번역에 투표하던지 직접 번역하여 제안할 수 있습니다.
 
 * * *
 
@@ -85,7 +85,7 @@ ASF는 해당 언어를 **가능한 한 빨리** 추가할 것입니다. 즉, �
 
 ## 언어가 없는 경우
 
-ASF 프로젝트는 세계적으로 사용되는 상위 30개의 언어에 대해서만 번역이 가능합니다. 만약 다른 언어, 혹은 이미 있는 언어의 지역 방언을 추가하고 싶다면 **[우리에게 알려주시기 바랍니다](https://crowdin.com/messages/create/13177432/240376)**. 가능한 한 빨리 추가하겠습니다. 아무도 번역하는 사람이 없는 몇백개의 서로 다른 언어를 번역가능 상태로만 두고 싶지 않기 때문에 일정 숫자로 제한하였습니다. 목록에 없는 언어로 번역하고 싶다면 바로 알려주십시오. 사실 언어를 추가하는 것은 매우 쉽습니다. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
+ASF 프로젝트는 세계적으로 사용되는 상위 30개의 언어에 대해서만 번역이 가능합니다. 만약 다른 언어, 혹은 이미 있는 언어의 지역 방언을 추가하고 싶다면 **[우리에게 알려주시기 바랍니다](https://crowdin.com/messages/create/13177432/240376)**. 가능한 한 빨리 추가하겠습니다. 아무도 번역하는 사람이 없는 몇백개의 서로 다른 언어를 번역가능 상태로만 두고 싶지 않기 때문에 일정 숫자로 제한하였습니다. 목록에 없는 언어로 번역하고 싶다면 바로 알려주십시오. 사실 언어를 추가하는 것은 매우 쉽습니다. 우리에게 연락하기 전에, 단지 ASF를 당신의 언어로 번역할 실제 의지와 결심을 가지십시오.
 
 ASF 프로젝트의 번역 가능한 전체 언어 목록은 **[여기를 참고하십시오](https://support.crowdin.com/api/language-codes)**.
 
@@ -156,7 +156,7 @@ Crowdin에서 처음 할 일은 편집기 설정으로 가서 HTML 태그가 "Sh
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. 다음은 폴란드어의 번역 예제입니다:
+어떤 경우건 상관없이 먼저 원본 문자열을 복사하고, 평소처럼 번역을 하거나 HTML이 있다면 전체 HTML을 그대로 둡니다. 다음은 폴란드어의 번역 예제입니다:
 
 * * *
 
@@ -204,7 +204,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ### 내부 링크
 
-위키에서 문서의 특정 항목을 가리키는 내부 링크를 찾을 수 있습니다. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
+위키에서 문서의 특정 항목을 가리키는 내부 링크를 찾을 수 있습니다. 이러한 링크는 `#` 문자를 포함하는데, 이는 문서의 그 항목으로 이동하라고 웹브라우저에게 알려줍니다.
 
 이것은 특별한 경우로, 이 링크들은 현재 문서 중 해당 항목의 이름을 기반으로 합니다. URL에 `-locale`을 추가하는 일반적 관례를 가진 URL들은 어디에서나 동작하지만, 해당 항목의 이름은 당신과 다른 사람들이 번역을 하므로 링크가 정확한 위치를 가리키도록 할 필요가 있습니다.
 
@@ -242,7 +242,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 위에서 볼수 있듯이, 상태를 친절한 방법으로 번역하기 위해서 "너무 많은 등록"이라는 뜻의 "zbyt częstej aktywacji"를 `RateLimited` 옆에 추가했습니다. 동시에 프로그램을 사용하면서 사용자가 볼 수 있는 원본 ASF의 의미를 유지했습니다. 같은 방식으로 다른 비슷한 여러 단어와 문장을 번역하거나 설명할 수 있습니다.
 
-만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다. This also serves as a practical example of using a local link.
+만약 뭔가 부적절한 것이 코드 블록에 포함되었거나, 코드 블록 안에 있어야 하는 텍스트가 밖에 있다면 적절한 **[이슈](#이슈)**를 생성해서 Crowdin으로 문의해주시기 바랍니다. 위의 문장도 로컬 링크 사용의 실용적 예제입니다.
 
 * * *
 

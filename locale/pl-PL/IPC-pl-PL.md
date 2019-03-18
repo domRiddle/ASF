@@ -26,17 +26,17 @@ On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF AP
 
 * * *
 
-# ASF-ui
+# Interfejs-ASF
 
 ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
 
 As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![Interfejs-ASF](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
 * * *
 
-# ASF API
+# API ASF
 
 Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
@@ -44,7 +44,7 @@ Our ASF API can be accessed by sending appropriate requests to appropriate `/Api
 
 For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
 
-![ASF API](https://i.imgur.com/yggjf5v.png)
+![API ASF](https://i.imgur.com/yggjf5v.png)
 
 * * *
 

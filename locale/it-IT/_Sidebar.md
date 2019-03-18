@@ -15,7 +15,7 @@
 * **[Domande frequenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[Installazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 
-## Core
+## Principali
 
 * **[Riscatto giochi in background](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
@@ -31,19 +31,19 @@
 * **[Deprecazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Domande frequenti aggiuntive](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Setup ad alte prestazioni](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Configurazione ad alte prestazioni](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Localizzazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Registrazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Setup a bassa memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Configurazione a bassa memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sicurezza](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Autenticazione due fattori](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Terze parti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Autenticazione a due fattori](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Sviluppatori
 
 * **[Compilazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Linee guida contributive](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Linee guida per contribuire](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licenza](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Ciclo di rilascio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

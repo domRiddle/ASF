@@ -59,7 +59,7 @@ docker run -it --name asf justarchi/archisteamfarm
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
 
-如果您仔細查看該命令，那麼您會注意到我們沒有聲明任何標記，該標記自動預設為` latest `。 If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+如果您仔細查看該命令，那麼您會注意到我們沒有聲明任何標記，該標記自動預設為` latest `。 如果您想使用` latest `之外的其他標記，例如` latest-arm `，那麼您應該明確聲明它：
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
@@ -68,7 +68,7 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 * * *
 
-## Using a volume
+## 使用 Volume
 
 顯而易見，如果您在docker容器中使用ASF，您需要自己配置程序。 You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
@@ -81,20 +81,20 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archis
 
 And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF.
 
-Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
+Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. 此指南僅涵蓋基本用法。
 
-### Volume permissions
+### Volume 權限
 
-ASF is by default run with default `root` user inside a container. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which might not be desired situation when using a shared volume.
+預設情況下，ASF在容器內使用` root `用戶運行。 This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which might not be desired situation when using a shared volume.
 
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
+Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. 例如，如果目標用戶的` uid `和` gid `為1000：
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
+請記住，預設情況下，ASF使用的` / app `目錄仍歸` root `所有。 如果您在自訂用戶下運行ASF，則ASF進程將無權對其自己的檔案進行寫訪問。 這種存取權限對於操作不是強制性的，但它是至關重要的，例如用於自動更新功能。 為了解決這個問題，只需將所有ASF文件的所有權從默認的` root `更改為新的自訂用戶即可。
 
 ```shell
 docker exec -u root asf chown -hR 1000:1000 /app
@@ -139,20 +139,20 @@ For doing the above you should use **[custom IPC config](https://github.com/Just
 
 Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
 
-For example, this command would expose ASF IPC interface to host machine (only):
+例如，此命令（僅）會將ASF IPC接口暴露給主機：
 
 ```shell
 docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure.
+If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. 值得注意的是，我們不會進一步公開此路由，因此只能在docker主機中進行連接，從而保證其安全。
 
 * * *
 
-### Complete example
+### 完整範例
 
-Combining whole knowledge above, an example of a complete setup would look like this:
+綜上所述，完整設置的範例如下所示：
 
 ```shell
 docker pull justarchi/archisteamfarm

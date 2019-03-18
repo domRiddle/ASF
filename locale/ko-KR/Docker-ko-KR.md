@@ -22,7 +22,7 @@ ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/ar
 
 ### `A.B.C.D`
 
-위의 태그와 비교하자면, 이 태그는 완전히 동결되었습니다. 즉, 한번 릴리스되면 업데이트 되지 않습니다. 최초 릴리스 후 한번도 건드리지 않은 GitHub 릴리스와 유사하게 동작하고, 안정적이고 동결된 환경을 보장합니다. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
+위의 태그와 비교하자면, 이 태그는 완전히 동결되었습니다. 즉, 한번 릴리스되면 업데이트 되지 않습니다. 최초 릴리스 후 한번도 건드리지 않은 GitHub 릴리스와 유사하게 동작하고, 안정적이고 동결된 환경을 보장합니다. `latest`보다 오래된 특정한 ASF 릴리스를 사용하고 싶지만 예를들어 `latest` 태그에서 제공하는 것과 같은 모든 종류의 자동업데이트를 사용하고 싶지 않은 경우 이 태그를 사용합니다.
 
 * * *
 

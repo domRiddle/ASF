@@ -240,9 +240,9 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Parametreler
 
-##### General Options
+##### Genel Ayarlar
 
 *name* - Name of the target.
 
@@ -256,11 +256,11 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### SteamTarget Options
 
-*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
+*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Gerekli değil. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
 
 *steamID* - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to 0 which disables logging target entirely.
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
+*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. Gerekli değil. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
 
 * * *
 
@@ -318,9 +318,9 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Parametreler
 
-##### General Options
+##### Genel Ayarlar
 
 *name* - Name of the target.
 
@@ -334,7 +334,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### HistoryTarget Options
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount* - Maximum amount of stored logs for on-demand history. Gerekli değil. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 

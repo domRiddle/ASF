@@ -55,6 +55,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `2faok <Bots>`                                                       | `Master`        | 为指定机器人接受所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
 | `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人激活给定的 `AppIDs`（Steam 网络）或 `SubIDs`（Steam 商店），仅免费游戏有效。                                                                       |
 | `balance <Bots>`                                                     | `Master`        | 显示指定机器人的 Steam 钱包余额。                                                                                                              |
+| `bgr <Bots>`                                                         | `Master`        | 显示指定机器人的 **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**（后台游戏激活器）队列信息。             |
 | `bl <Bots>`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                  |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | 将给定的 `SteamIDs` 加入指定机器人的交易黑名单。                                                                                                    |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | 将给定的 `SteamIDs` 从指定机器人的交易黑名单中移除。                                                                                                  |
@@ -79,7 +80,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
 | `pause& <Bots> <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `Seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                       |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切换到手动挂卡——使指定机器人运行给定的 `AppIDs`，并且可选自定义 `GameName` 为游戏名称。 使用 `resume` 以返回自动挂卡模式。                                                    |
-| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                         |
+| `privacy <Bots> <Settings>`                                    | `Master`        | 更改指定机器人实例的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                       |
 | `redeem <Bots> <Keys>`                                         | `Operator`      | 为指定机器人激活给定的游戏序列号或钱包充值码。                                                                                                           |
 | `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人激活给定的游戏序列号或钱包充值码，模式详见下文的&#8203;**[解释](#redeem-模式)**。                                                            |
 | `rejoinchat <Bots>`                                                  | `Operator`      | 强制指定机器人重新加入 `SteamMasterClanID` 设置的群组聊天。                                                                                          |

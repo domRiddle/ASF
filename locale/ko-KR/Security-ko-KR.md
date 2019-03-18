@@ -4,7 +4,7 @@
 
 ASF는 현재 4가지 종류의 암호를 지원합니다. 평문(`PlainText`), `AES`, `ProtectedDataForCurrentUser` 그리고 없음(None, `null` / `""`)입니다.
 
-암호화된(encrypted) 암호(password)를 사용하기 위해서 처음에는 평문(`PlainText`)를 사용해서 평소처럼 로그인하고 `password` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)**를 이용해서 암호화된 암호를 생성해야 합니다. 좋아하는 암호화 방법을 선택하고 봇 환경설정의 `SteamPassword`에 암호화된 암호를 입력하십시오. 마지막으로 선택한 암호화 방법과 맞도록 `PasswordFormat`를 변경하는 것을 잊지 마십시오.
+암호화된(encrypted) 암호(password)를 사용하기 위해서 처음에는 평문(`PlainText`)를 사용해서 평소처럼 로그인하고 `password` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 이용해서 암호화된 암호를 생성해야 합니다. 좋아하는 암호화 방법을 선택하고 봇 환경설정의 `SteamPassword`에 암호화된 암호를 입력하십시오. 마지막으로 선택한 암호화 방법과 맞도록 `PasswordFormat`를 변경하는 것을 잊지 마십시오.
 
 * * *
 
@@ -16,9 +16,9 @@ ASF는 현재 4가지 종류의 암호를 지원합니다. 평문(`PlainText`), 
 
 ### 고급 암호화 표준(AES)
 
-오늘날의 기준으로 보안성이 있다고 간주되는 **[고급 암호화 표준(AES)](https://ko.wikipedia.org/wiki/%EA%B3%A0%EA%B8%89_%EC%95%94%ED%98%B8%ED%99%94_%ED%91%9C%EC%A4%80)**은 `PasswordFormat`이 `1`로 정의되어 있습니다. ASF는 `SteamPassword` 항목이 번역후에는 AES-암호화된 바이트 배열이 되는 **[베이스64로 인코딩된](https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%8A%A464)** 문자열이라고 생각합니다. 이 문자열은 포함된 **[초기화 벡터](https://ko.wikipedia.org/wiki/%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B2%A1%ED%84%B0)**와 ASF 암호화 키를 이용해서 복호화되어야 합니다.
+오늘날의 기준으로 보안성이 있다고 간주되는 **[고급 암호화 표준(AES)](https://ko.wikipedia.org/wiki/%EA%B3%A0%EA%B8%89_%EC%95%94%ED%98%B8%ED%99%94_%ED%91%9C%EC%A4%80)** 은 `PasswordFormat`이 `1`로 정의되어 있습니다. ASF는 `SteamPassword` 항목이 번역후에는 AES-암호화된 바이트 배열이 되는 **[베이스64로 인코딩된](https://ko.wikipedia.org/wiki/%EB%B2%A0%EC%9D%B4%EC%8A%A464)** 문자열이라고 생각합니다. 이 문자열은 포함된 **[초기화 벡터](https://ko.wikipedia.org/wiki/%EC%B4%88%EA%B8%B0%ED%99%94_%EB%B2%A1%ED%84%B0)** 와 ASF 암호화 키를 이용해서 복호화되어야 합니다.
 
-위의 방식은 공격자가 암호의 복호화와 암호화에 사용되는 내장된 ASF 암호화 키를 알지 못하는 한 보안을 보장합니다. ASF는 `--cryptkey` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)**를 통해 최대한의 보안을 위해서 특정 키의 사용을 허락합니다. 이를 생략하기로 했다면 ASF는 **알려져있고** 어플리케이션에 하드코딩된 자체 키를 사용할 것입니다. 이는 누구나 ASF 암호화를 뒤집어서 복호화된 암호를 얻을 수 있다는 뜻힙니다. 여전히 약간 노력이 필요하고 하기 쉽지는 않지만, 가능한 일입니다. 이것이 `AES` 암호화는 비밀리에 보관하고 있는 자신만의 `--cryptkey`를 사용해야 하는 이유입니다. ASF에서 사용하는 AES 방법은 만족스러운 보안성을 제공하고 평문(`PlainText`)의 단순함과 `ProtectedDataForCurrentUser`의 복잡성 간의 균형점입니다. 하지만 사용자의 `--cryptkey`와 함께 사용하는 것을 강력하게 권장합니다.
+위의 방식은 공격자가 암호의 복호화와 암호화에 사용되는 내장된 ASF 암호화 키를 알지 못하는 한 보안을 보장합니다. ASF는 `--cryptkey` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 를 통해 최대한의 보안을 위해서 특정 키의 사용을 허락합니다. 이를 생략하기로 했다면 ASF는 **알려져있고** 어플리케이션에 하드코딩된 자체 키를 사용할 것입니다. 이는 누구나 ASF 암호화를 뒤집어서 복호화된 암호를 얻을 수 있다는 뜻힙니다. 여전히 약간 노력이 필요하고 하기 쉽지는 않지만, 가능한 일입니다. 이것이 `AES` 암호화는 비밀리에 보관하고 있는 자신만의 `--cryptkey`를 사용해야 하는 이유입니다. ASF에서 사용하는 AES 방법은 만족스러운 보안성을 제공하고 평문(`PlainText`)의 단순함과 `ProtectedDataForCurrentUser`의 복잡성 간의 균형점입니다. 하지만 사용자의 `--cryptkey`와 함께 사용하는 것을 강력하게 권장합니다.
 
 * * *
 

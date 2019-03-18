@@ -215,7 +215,7 @@ No entanto, tenha em mente que a Valve ainda pode adicionar o ASF a sua lista de
 
 ### Ele é seguro?
 
-Se você pergunta se o ASF é seguro como um software, que ele não vai causar qualquer dano ao seu computador, não vai roubar seus dados privados, instalar vírus ou qualquer outra coisa nesse sentido - a resposta é sim. ASF é livre de malware, roubo de dados, mineradores de criptomoeda e quaisquer outros comportamentos duvidosos que possam ser considerados maliciosos ou indesejados pelo usuário. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes above the one that configured the program to do yourself.
+Se você pergunta se o ASF é seguro como um software, que ele não vai causar qualquer dano ao seu computador, não vai roubar seus dados privados, instalar vírus ou qualquer outra coisa nesse sentido - a resposta é sim. ASF é livre de malware, roubo de dados, mineradores de criptomoeda e quaisquer outros comportamentos duvidosos que possam ser considerados maliciosos ou indesejados pelo usuário. Além disso, temos uma seção dedicada às **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-pt-BR)** que cobre nossa política de privacidade e comportamento do ASF que vai além da configuração que você fez no programa.
 
 Nosso código é aberto e os executáveis distribuídos são sempre compilados por **[ ferramentas de integração contínua automáticas e confiáveis](https://pt.wikipedia.org/wiki/Automa%C3%A7%C3%A3o_de_compila%C3%A7%C3%A3o)** de **[ fontes disponíveis publicamente](https://pt.wikipedia.org/wiki/Software_de_c%C3%B3digo_aberto)** e não pelos próprios desenvolvedores. Cada compilação pode ser reproduzida seguindo nosso script de compilação e terá resultado exatamente igual, um executável de código IL (binário) **[determinístico](https://en.wikipedia.org/wiki/Deterministic_system)**. Se por algum motivo você não acredita em nossas compilações você pode compilar e usar o ASF pela fonte, incluindo todas as bibliotecas que o ASF usa (como o SteamKit2), que também são de código aberto.
 
@@ -313,7 +313,11 @@ Sim, você deve colocá-lo no parâmetro `SteamParentalCode` na configuração d
 
 ### Eu não quero que o ASF colete de nenhum jogo por padrão, mas ainda quero usar os recursos extras dele. É possível?
 
-Sim, você pode definir o parâmetro `Paused` na configuração do bot para `true` para que o ASF seja iniciado com o módulo de coleta de cartas parado, então você pode usar os recursos extras normalmente, tal como `GamesPlayedWhileIdle`.
+Yes, if you just want to start ASF with paused cards farming module, you can set `Paused` bot config property to `true` in order to achieve that. This will allow you to `resume` it during runtime.
+
+If you want to completely disable cards farming module and ensure that it'll never run without you explicitly telling it otherwise, then we recommend to set `IdlePriorityQueueOnly` to `true`, which instead of just pausing it, will disable the idling completely until you add the games to idle priority queue yourself.
+
+With cards farming module paused/disabled, you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
 
 * * *
 
