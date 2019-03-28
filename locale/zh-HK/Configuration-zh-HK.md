@@ -716,7 +716,7 @@ ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片�
 
 預設值為 `true` 的 `bool` 類型。 此屬性定義ASF是否應使用此Steam帳戶的登錄密鑰機制。 登錄密鑰機制與官方Steam客戶端的“記住我”選項非常相似，這使得ASF可以存儲和使用臨時一次性登錄密鑰進行下一次登錄嘗試，只要我們的登錄密鑰有效，這就可以避免提供密碼、Steam Guard 或 2FA 代碼的需求。 登錄密鑰存儲在` BotName.db `文件中並會自動更新。 因此在使用ASF成功登錄一次後不需要再提供密碼/ SteamGuard / 2FA代碼。
 
-Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+為方便起見，預設情況下使用已保存的登錄密鑰，因此您無需在每次登錄時輸入` SteamPassword `，SteamGuard或2FA代碼（未啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**的話）。 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 但是，有些人甚至可能在意這個小節，因此如果您想確保ASF不會存儲任何類型的代碼以允許其在關閉後恢復上一個會話，這裡可以啓用此選項，這將導致每次登錄嘗試都必須進行完全身份驗證。 禁用此選項的工作原理與在官方 Steam 用戶端不勾選「記住我」完全相同。 除非您知道自己在做什麼，否則應將其保留為預設值 `true`。
 
@@ -759,9 +759,9 @@ ASF及其所有機械人配置保存於` config `目錄中。
 
 ` BotName.bin `是給定機械人實例的特殊檔案，其中包含有關Steam sentry的哈希信息。 Sentry哈希用於使用` SteamGuard `機制進行身份驗證，非常類似於Steam ` ssfn `檔案。 **您不應對此檔進行任何改變**。
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. 成功導入金鑰後，此檔將自動被刪除。
+`BotName.keys` 是一個用於將序號導入 **[後台序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**的特殊檔。 It's not mandatory and not generated, but recognized by ASF. 成功導入金鑰後，此檔將自動被刪除。
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. 成功導入 ASF 2FA 後，此檔將自動被刪除。
+`BotName.maFile` 是一個用於導入 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**的特殊檔。 It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. 成功導入 ASF 2FA 後，此檔將自動被刪除。
 
 * * *
 

@@ -313,11 +313,11 @@ Sim, você deve colocá-lo no parâmetro `SteamParentalCode` na configuração d
 
 ### Eu não quero que o ASF colete de nenhum jogo por padrão, mas ainda quero usar os recursos extras dele. É possível?
 
-Yes, if you just want to start ASF with paused cards farming module, you can set `Paused` bot config property to `true` in order to achieve that. This will allow you to `resume` it during runtime.
+Sim, se você quiser iniciar o ASF com o módulo de coleta pausado, você pode setar a propriedade de configuração do bot `Paused` para `true`. Isso permitirá que você `retome` a coleta durante o tempo de execução.
 
-If you want to completely disable cards farming module and ensure that it'll never run without you explicitly telling it otherwise, then we recommend to set `IdlePriorityQueueOnly` to `true`, which instead of just pausing it, will disable the idling completely until you add the games to idle priority queue yourself.
+Se você deseja desabilitar completamente o módulo de coleta e garantir que ele nunca seja executado sem que você diga explicitamente o contrário, então recomendamos definir `IdlePriorityQueueOnly` como `verdadeiro`, que em vez de apenas pausá-lo, desativará a coleta completamente até que você adicione os jogos na fila de prioridade.
 
-With cards farming module paused/disabled, you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
+Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais funcionalidades do ASF normalmente, tais como `GamesPlayedWhileIdle`.
 
 * * *
 

@@ -46,11 +46,11 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 - libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
-이 중 적어도 몇개는 이미 설치되어 있을 것입니다. (오늘날 거의 모든 리눅스 배포판의 필수요소인 zlib1g 같은 것들)
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
 
 #### **[OS X](https://docs.microsoft.com/ko-kr/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- 지금은 없습니다.
+- None for now, but you should have latest version of OS X installed, at least 10.12+
 
 * * *
 
@@ -60,7 +60,7 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-패키지를 받았다면 zip파일을 압축을 풉니다.(**[7-zip](https://www.7-zip.org)**을 권장합니다.). 엄청나게 많은 폴더와 파일이 보일것입니다. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
+After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
 
 리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일에 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
 

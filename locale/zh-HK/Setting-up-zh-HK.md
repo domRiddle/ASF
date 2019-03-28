@@ -46,11 +46,11 @@
 - libssl1.0.2 (libssl, openssl-libs, compat-openssl10, 適用於您操作系統的最新版 1.0.X)
 - zlib1g (zlib)
 
-至少其中一些應該已經在您的系統上可用（例如今天幾乎每個Linux發行版都需要的zlib1g）。
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- 暫無
+- None for now, but you should have latest version of OS X installed, at least 10.12+
 
 * * *
 
@@ -60,7 +60,7 @@
 
 ![資產](https://i.imgur.com/Ym2xPE5.png)
 
-獲得包並解壓縮zip後（我們建議使用** [ 7-zip ](https://www.7-zip.org) **）， 您會得到大量的資料夾和檔案。 別擔心，我們會迅速清理它。
+After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. 別擔心，我們會迅速清理它。
 
 如果您使用的是Linux / OS X，請不要忘記執行` chmod + x ArchiSteamFarm `命令，因為權限不會自動設置在zip檔案中。 這在解壓縮後只需進行一次。
 

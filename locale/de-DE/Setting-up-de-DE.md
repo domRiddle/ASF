@@ -46,11 +46,11 @@ Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen
 - libssl1.0.2 (libssl, openssl-libs, compat-openssl10, neueste 1.0.X Version für deine Distribution)
 - zlib1g (zlib)
 
-Zumindest einige von diesen sollten bereits nativ auf deinem System verfügbar sein (wie zum Beispiel zlib1g, welches heute in fast jeder Linux Distribution verwendet wird).
+Zumindest einige von diesen sollten bereits nativ auf deinem System verfügbar sein (wie zum Beispiel zlib1g, welches heutzutage in fast jeder Linux Distribution verwendet wird).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- Bisher keine
+- Keine vorerst, aber Sie sollten die neueste Version von OS X installiert haben, mindestens 10.12+
 
 * * *
 
@@ -60,7 +60,7 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Wenn du dein Paket heruntergeladen und das zip-Archiv extrahiert hast (wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**), hast du ein riesiges Durcheinander von Ordnern und Dateien. Keine Angst, wir werden das gleich aufräumen.
+Beginnen Sie nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**; Standard-Dienstprogramme wie `unzip` von Linux/OS X sollten ebenfalls problemlos funktionieren. Danach wirst du ein riesiges Durcheinander von Ordnern und Dateien haben. Keine Angst, wir werden das gleich aufräumen.
 
 Wenn du Linux oder OS X verwendest, vergiss nicht mit `chmod +x ArchiSteamFarm`, die Berechtigungen zu setzen, da diese in einem zip-Archiv nicht gesetzt sind. Dies muss nur nach dem initialen Entpacken gemacht werden.
 

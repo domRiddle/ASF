@@ -46,11 +46,11 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro today).
+At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now
+- None for now, but you should have latest version of OS X installed, at least 10.12+
 
 * * *
 
@@ -60,7 +60,7 @@ Maintenant que nous avons toutes les dépendances requises, la prochaine étape 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Une fois que vous avez eu votre archive et extrait le fichier zip (nous vous recommandons d'utiliser **[7-zip](https://www.7-zip.org)**), vous aurez une énorme masse de dossiers et de fichiers mélangés. Ne vous inquiétez pas, on va nettoyer tout ça dans une petite seconde.
+After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. Ne vous inquiétez pas, on va nettoyer tout ça dans une petite seconde.
 
 Si vous utilisez Linux / OS X, n'ouvliez pas de `chmod +x ArchiSteamFarm`, vu que les permissions ne sont pas mises automatiquement dans le fichier zip. Cette étape doit être faite une seule fois après la décompression du zip.
 

@@ -1,4 +1,4 @@
-# 發佈週期
+# 發布週期
 
 ASF使用常見的C＃版本控制，即A.B.C.D. ，在**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**上發布當前版本後，版本號即會遞進。 到目前為止發布的每個版本都可以在 GitHub 上以凍結狀態獲得，並且不會隨著時間消失，因此它總是可以回滾到其中任何一個版本，而無需進行備份。
 
@@ -8,22 +8,22 @@ ASF版本分為兩類——穩定版和預發布版本。
 
 與之前版本相比，穩定版本應該正常工作，沒有任何已知的功能倒退（在發佈時）。 我們傾向於在較長時間的預發布測試之後，或為修復先前版本的錯誤而發布穩定版本，而不引入新版本。 在非常罕見的情況下（例如 Steam 搞了個大新聞），如果需要，我們也可能決定盡快發布新的穩定版本。 In general though, those versions should usually work very decent, as we do not mark a version as stable if it results in worse overall health condition compared to previous stable release. Of course, such "overall health" is based on reports and feedback that we're receiving during pre-release development, so sadly it's still possible that some bugs can slip through and will be discovered after stable release, simply because nobody of us ran into it during development phase. 對我們來說幸運的是，很少發生類似這樣的事情，我們傾向於在另一個後續穩定版本中盡快修復它。
 
-預發布版本的更新更頻繁，通常會引入正在進行中的更改，建議或新實現。 Pre-release is not guaranteed to be stable, although we're always trying to do some bare tests before pushing it to GitHub, so it should never be a version that is completely broken in terms of practical usage. 預發布的主要目的是從更高級的用戶那裏獲得反饋，並在發佈穩定版本之前捕獲新引入的錯誤（如果有的話）。 這項工作的質量很大程度上取決於測試人員的數量，GitHub上報告的錯誤和常規反饋。
+預發布版本的更新更頻繁，通常會引入正在進行中的更改，建議或新實現。 Pre-release is not guaranteed to be stable, although we're always trying to do some bare tests before pushing it to GitHub, so it should never be a version that is completely broken in terms of practical usage. 預發布的主要目的是從更高級的用戶那裏獲得反饋，並在發布穩定版本之前捕獲新引入的錯誤（如果有的話）。 這項工作的質量很大程度上取決於測試人員的數量，GitHub上報告的錯誤和常規反饋。
 
 預發布應該**通常**與穩定版本一樣好，並且這兩者之間的唯一區別僅僅是參與測試的用戶數目。 這是因為ASF是一個滾動項目，這意味著它應該可以在**任何**給定的時間點構建和使用，並且版本控制是為了您的方便——作為一個版本之間的變化的里程碑 和另一個。 Still, if you decide to use pre-releases, you should typically be a bit more advanced user, as pre-releases are usually work-in-progress smaller ASF milestones, and it's totally possible that even if something seems to be working decent, it might have stuff that isn't necessarily working or tested yet - tracking ASF development on GitHub and carefully reading changelogs is the minimum that you must do if you want to use pre-releases (for your own good). 除此之外，有時我們會主動測試特定的內容，例如配置更改、給定事物的新重寫代碼或核心更改。 在這種情況下，請務必閱讀更新日誌，因為這樣的預發布版本可能比其他版本更不穩定。
 
-請注意，新引入的功能和更改可能會在一段時間之內沒有記錄（例如在wiki上），因為文檔通常在給定功能的最終代碼準備就緒後編寫（為了在我們當前正努力修改功能時節省重寫文檔的時間 ）。 Due to the fact that pre-release might contain work-in-progress code that doesn't have a final form yet, documentation might arrive at later stage of the development. 同樣的事情也適用於常規更改日誌，這些日誌可能在給定的預發布版本更新一段時間後才可用。 Therefore if you decide to use pre-release then be prepared for looking inside ASF **[commits](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master)** from time to time.
+請注意，新引入的功能和更改可能會在一段時間之內沒有記錄（例如在wiki上），因為文檔通常在給定功能的最終代碼準備就緒後編寫（為了在我們當前正努力修改功能時節省重寫文檔的時間 ）。 由於預發布可能包含尚未包含最終形式的正在進行中的代碼，因此文檔可能會在開發的後期階段發布。 同樣的事情也適用於常規更改日誌，這些日誌可能在給定的預發布版本更新一段時間後才可用。 因此，如果您決定使用預發布版本，那麼請時常查看ASF** [commits](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master) ** 。
 
-當然，缺少文檔**僅會影響**預發布版本——每個穩定版本始終在發佈時必須擁有完整的更改日誌和wiki文檔。
+當然，缺少文檔**僅會影響**預發布版本——每個穩定版本始終在發布時必須擁有完整的更改日誌和wiki文檔。
 
 一段時間後，預發布版本可能會被認為是穩定的。 This is especially true if there are no changes done in the meantime, and there is no point in version bump just for the sake of stable release. It's also done very often when pre-release is considered "stable release candidate", as it allows advanced users to test it before it gets marked as stable, so the risk of introducing bugs is much lower, therefore this is the most common pattern when it comes to ASF releases:
 
     Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
     
 
-In general though, ASF releases are being released when they're ready, which results in non-predictable release schedule. Usually there is a pre-release at the end of any major feature or change being done, and a stable release if no bugs are found after some time (a few days) since pre-release became available. We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise. Pre-releases are happening on as-needed basis when we feel like there is enough of stuff that needs to be tested since the release of the last one. Depending on how busy ASF development is in given moment, this can be from a few to a dozen of pre-releases between each stable release.
+總體而言，ASF版本會在準備就緒時發布，發布時間不可預測。 通常在任何主要功能或更改結束時都會發布預發布版本，如果在預發布可用之後的一段時間（幾天）內沒有發現錯誤，則會發布穩定版本。 We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise. Pre-releases are happening on as-needed basis when we feel like there is enough of stuff that needs to be tested since the release of the last one. Depending on how busy ASF development is in given moment, this can be from a few to a dozen of pre-releases between each stable release.
 
-The precise changelog that compares one version to another is always available on GitHub - through commits and code changes. 在發佈中，我們傾向於僅記錄我們認為在上次穩定版本和當前版本之間重要的更改。 Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another - please use GitHub for that.
+The precise changelog that compares one version to another is always available on GitHub - through commits and code changes. 在發布中，我們傾向於僅記錄我們認為在上次穩定版本和當前版本之間重要的更改。 Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another - please use GitHub for that.
 
 ASF project is powered by continuous integration process and tested by two independent services - **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** which tests ASF on Windows, and **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** which tests ASF on Linux and OS X. Every build is supposed to be reproducible, therefore it should not be a problem to grab source (included in release) of given version and compile yourself receiving the same result as the one available through a binary.
 

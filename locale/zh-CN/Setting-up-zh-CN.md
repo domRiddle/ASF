@@ -50,7 +50,7 @@
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**：
 
-- 暂无
+- 目前没有，但您应该安装最新版本的 OS X，至少应为 10.12+
 
 * * *
 
@@ -60,7 +60,7 @@
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-在下载压缩包并解压之后（我们推荐用 **[7-zip](https://www.7-zip.org)** 解压），您会得到一堆乱七八糟的文件夹和文件。 不要担心，我们马上就能把它们清理干净。
+下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，Linux/OS X 提供的 `unzip` 等标准工具也应该没有任何问题。 之后，您应该看见大量的文件夹和文件。 不要担心，我们马上就能把它们清理干净。
 
 如果您正在使用 Linux/OS X，不要忘记执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包无法提供权限信息。 您只需要在解压之后执行一次。
 

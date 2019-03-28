@@ -16,32 +16,32 @@ Enquanto a propriedade `Statistics` está ativada, acontecerá o seguinte:
 * Isso permite que **você** use nosso suporte técnico, fazendo perguntas, resolvendo problemas, relatando erros ou sugerindo melhorias
 * Isso permite que nós vejamos quantas contas Steam estão sendo usadas pelo ASF
 
-Consideramos o grupo Steam como uma parte crucial no que diz respeito a comunidade do ASF. Este é o nosso principal canal de comunicação, o qual utilizamos para todos os assuntos importantes no que se refere ao ASF, especialmente mantendo-o à par do desenvolvimento, de potenciais erros, avisos eventuais e todas as outras questões as quais você deve ter acesso como usuário. We do not benefit from maintenance of that group in any way, it's the place dedicated to ASF users and we consider you part of our community. Since membership of the group in no way identifies you as ASF user, we do not consider this to be a problem in terms of privacy.
+Consideramos o grupo Steam como uma parte crucial no que diz respeito a comunidade do ASF. Este é o nosso principal canal de comunicação, o qual utilizamos para todos os assuntos importantes no que se refere ao ASF, especialmente mantendo-o à par do desenvolvimento, de potenciais erros, avisos eventuais e todas as outras questões as quais você deve ter acesso como usuário. Não nos beneficiamos de manutenção desse grupo de forma alguma, é um lugar dedicado aos usuários do ASF e nós consideramos você parte da nossa comunidade. Uma vez que a adesão ao grupo não te identifica de forma alguma como usuário do ASF, não consideramos que este seja um problema em termos de privacidade.
 
-2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. Os dados reais consistem no ID exclusivo do ASF (gerado por ele) e as seguintes informações relacionadas à conta:
+2. Se sua conta **[não tiver restrições](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR#asf-2fa)**, tiver um **[inventório público](https://steamcommunity.com/my/edit/settings)** com pelo menos 100 itens correspondentes a `MatchableTypes` e você tiver ativado o `SteamTradeMatcher` em sua `TradingPreferences`, então o ASF vai se conectar periodicamente com nosso **[servidor](https://asf.justarchi.net)** para cumprir com a funcionalidade ativa. Os dados reais consistem no ID exclusivo do ASF (gerado por ele) e as seguintes informações relacionadas à conta:
 
 * Seu identificador Steam (na forma de 64-bit, para gerar ligações)
 * Seu apelido (para fins de exibição)
 * Seu avatar (hash, para fins de exibição)
 * Seu **[token de trocas](https://steamcommunity.com/my/tradeoffers/privacy)** (para que pessoas fora da sua lista de amigos possam te enviar propostas de trocas)
-* Your `MatchableTypes` (for display purposes and matching)
-* Value of `MatchEverything` in your `TradingPreferences` (for display purposes and matching)
-* Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
-* Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
+* Seu `MatchableTypes` (para fins de exibição e combinação)
+* O valor de `MatchEverything` em seu `TradingPreferences` (para fins de exibição e combinação)
+* O número total de itens Steam correspondentes a `MatchableTypes` em seu inventário (para fins de exibição e combinação)
+* O número total de jogos exclusivos dos quais os itens Steam acima correspondem aos tipos `MatchableTypes` foram obtidos (para fins de exibição e combinação)
 
-O ASF **não** vai coletar quaisquer outros dados não listados acima sem um aviso prévio importante no changelog e sem uma razão prática e muito boa em primeiro lugar. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
+O ASF **não** vai coletar quaisquer outros dados não listados acima sem um aviso prévio importante no changelog e sem uma razão prática e muito boa em primeiro lugar. Não consideramos nada do que foi descrito acima como dados sensíveis, e mencionamos tudo para lhe informar o que o ASF faz exatamente, além do que você configurou para ser feito, para que as pessoas possam compreender melhor o nosso ponto de vista.
 
 * * *
 
 # Uso dos dados
 
-All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
+Todos os valores especificados no segundo ponto são usados por nossa **Listagem publica do ASF STM**, melhor explicado abaixo. Não usamos quaisquer outros dados para qualquer outro fim.
 
 * * *
 
 ## Listagem pública do ASF STM
 
-Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
+Nossa listagem pública do ASF STM está localizada em **[nosso site](https://asf.justarchi.net/STM)** e é usada como um serviço público tanto para os usuários do ASF que usam o `MatchActively`, bem como usuários e não-usuários do ASF para correspondência manual.
 
 ### Como exatamente isso funciona
 
@@ -49,15 +49,15 @@ O ASF envia os dados iniciais uma vez após o login, que contém todas as propri
 
 Isso permite que o nosso site registre quais contas podem ser usadas para correspondência, bem como se ainda estão ativas. Graças a isso, nosso site pode mostrar todos as contas com ASF 2FA + STM que estavam ativas nos **últimos 15 minutos**.
 
-Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
+Os usuários são classificados de acordo com seus inventários (em ordem decrescente) - bots `MatchEverything` configurados como `Any` que aceitam todas as trocas 1:1, depois pelo número de jogos exclusivos à partir dos quais são recebidos itens `MatchableTypes` e, por último, a contagem de itens `MatchableTypes`.
 
-Note que você **não** vai ser exibido no site se você não cumprir todos os requisitos. ASF won't even bother communicating with our server in this case, so second point is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. A listagem pública é compatível somente com a última versão estável do ASF e pode se recusar a mostrar bots desatualizados, especialmente se faltar neles funcionalidades cruciais que só podem ser encontradas em novas versões.
+Note que você **não** vai ser exibido no site se você não cumprir todos os requisitos. O ASF nem se comunica com nossos servidores nesse caso, então o segundo ponto será inteiramente ignorado caso você não habilite o `SteamTradeMatcher` para te ajudar a trocar cartas duplicadas. A listagem pública é compatível somente com a última versão estável do ASF e pode se recusar a mostrar bots desatualizados, especialmente se faltar neles funcionalidades cruciais que só podem ser encontradas em novas versões.
 
 ### API
 
 A listagem API do STM só aceita bots ASF no momento. Não há como inserir bots de terceiros em nossa listagem por enquanto (já que não podemos rever seus códigos facilmente e assegurar que eles satisfazem nossa lógica de trocas).
 
-Se você está procurando por uma maneira fácil de acessar nossa lista de forma programática nós temos o endpoint **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** muito simples que você pode usar. This is also the endpoint that ASF uses internally for `MatchActively` users.
+Se você está procurando por uma maneira fácil de acessar nossa lista de forma programática nós temos o endpoint **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** muito simples que você pode usar. Este é também o endpoint que o ASF usa internamente para os usuários com `MatchActively` habilitado.
 
 ### Aviso
 
@@ -69,4 +69,4 @@ Se você está procurando por uma maneira fácil de acessar nossa lista de forma
 
 Participar das estatísticas **não é obrigatório**, embora altamente incentivado para o futuro do programa. Nós não te julgamos, e se você tem uma necessidade muito grande de esconder o fato de que você está usando o ASF, então você pode desabilitar as estatísticas **totalmente** mudando o parâmetro de configuração global `Statistics` para `false`. Desabilitar as estatísticas torna todo o módulo não-operacional, e ele não fará nenhuma das ações especificadas em nossa política de privacidade acima.
 
-Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.
+Desabilitar as estatísticas pode influenciar **nosso suporte técnico, funcionalidades do ASF e outras coisas que são oferecidas para você gratuitamente**. Por exemplo, você não pode usar `MatchActively` sem habilitar `Statistics`.
