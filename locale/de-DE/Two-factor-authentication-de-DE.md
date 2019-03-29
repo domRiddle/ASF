@@ -89,7 +89,7 @@ Wenn du deinen Authentifikator bereits in SDA laufen hast, solltest du beachten,
 
 Du solltest nun `steamID.maFile` in `BotName.maFile` im ASF-Konfigurationsverzeichnis umbenennen, wobei `BotName` der Name deines Bot ist, dem du ASF 2FA hinzufügst. Alternativ kannst du es so lassen wie es ist, ASF wird es dann nach dem Einloggen automatisch auswählen. ASF zu helfen macht es möglich, ASF 2FA vor dem Einloggen zu verwenden, wenn du ASF nicht helfen willst, dann kann die Datei erst ausgewählt werden, wenn ASF sich erfolgreich einloggt hat (da ASF `steamID` deines Kontos nicht kennt, bevor du dich tatsächlich einloggst).
 
-Wenn du alles richtig gemacht hast, starte ASF und du solltest es merken:
+Wenn du alles richtig gemacht hast, starte ASF und du solltest folgendes sehen:
 
     [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
     [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
@@ -105,7 +105,7 @@ Erstelle zunächst eine neue leere `BotName.maFile` Datei im ASF-Konfigurationsv
 
 Nun starte WinAuth wie gewohnt. Nach einem Rechtsklick auf das Steam-Symbol wähle "Show SteamGuard and Recovery Code". Dann setze einen Haken bei "Allow copy". Du solltest bemerken, dass dir die JSON-Struktur am unteren Rand des Fensters vertraut ist, beginnend mit `{`. Kopiere den gesamten Text in die `BotName.maFile` Datei, die du im vorherigen Schritt erstellt hast.
 
-Wenn du alles richtig gemacht hast, starte ASF und du solltest es merken:
+Wenn du alles richtig gemacht hast, starte ASF und du solltest folgendes sehen:
 
     [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
     <1> Bitte trage die Gerätekennung deines mobilen Authentifikators ein (einschließlich "android:"):
@@ -148,7 +148,7 @@ Du benötigst einen 2FA-Code, um auf das 2FA-geschützte Konto zuzugreifen, das 
 
 ### Kann ich nach dem Import zu ASF 2FA meinen Original-Authentifikator verwenden?
 
-Ja, dein Original-Authentifikator bleibt funktionsfähig und du kannst ihn zusammen mit ASF 2FA verwenden. Das ist der springende Punkt des Verfahrens - wir importieren deine Authentifikationsinformationen in ASF damit ASF sie nutzen und ausgewählte Bestätigungen in deinem Namen akzeptieren kann.
+Ja, dein Original-Authentifikator bleibt funktionsfähig und du kannst ihn zusammen mit ASF 2FA verwenden. Das ist der Sinn des Verfahrens - wir importieren deine Authentifikationsinformationen in ASF damit ASF sie nutzen und ausgewählte Bestätigungen in deinem Namen akzeptieren kann.
 
 * * *
 
