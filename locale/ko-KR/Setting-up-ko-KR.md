@@ -40,17 +40,17 @@ It's perfectly normal that some (or even all) dependencies already exist on your
 리눅스 배포판에 따라 패키지 이름이 다릅니다. 아래에 공통적인 것들을 나열했습니다. 데비안에서는 `apt`, CentOS에서는 `yum` 등 OS에서 사용하는 자체 패키지 관리자를 통해 전부를 설치할 수 있습니다.
 
 - libcurl3 (libcurl)
-- libicu (latest version for your distribution, for example `libicu57` for Debian 9)
+- libicu (사용하는 배포판의 최신버전, 예를들어 데비안9에서는 `libicu57`)
 - libkrb5-3 (krb5-libs)
 - liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, latest 1.0.X version for your distribution)
+- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, 배포판의 최신 1.0.X 버전)
 - zlib1g (zlib)
 
-At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
+이 중 적어도 몇개는 이미 설치되어 있을 것입니다. (요즘 거의 모든 리눅스 배포판의 필수요소인 zlib1g 같은 것들)
 
 #### **[OS X](https://docs.microsoft.com/ko-kr/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- None for now, but you should have latest version of OS X installed, at least 10.12+
+- 현재는 없습니다만, 적어도 10.12 이상의 OS X 최신버전이 설치되어 있어야 합니다.
 
 * * *
 
@@ -60,9 +60,9 @@ At least a few of those should be already natively available on your system (suc
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
+다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. 리눅스/OS X에서 문제없이 동작하는 `unzip`같은 표준 유틸리티인 **[7-zip](https://www.7-zip.org)** 의 사용을 권장합니다. 그러면 이제 폴더와 파일이 잔뜩 생길 것입니다. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
 
-리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일에 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
+리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일안에서는 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
 
 ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
@@ -96,9 +96,9 @@ ASF 폴더를 열어서 핵심 실행 파일을 찾으십시오. 윈도우는 `A
 
 * * *
 
-### 설정
+### 환경설정
 
-We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
+마지막 단계인 환경설정을 할 준비가 되었습니다. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 
 First and foremost, there is **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
 
@@ -133,17 +133,17 @@ After the decision and optional details, your web page will now look similar to 
 
 You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
 
-Your `config` directory will now look like this:
+`config` 디렉토리는 다음과 같은 모습이 됩니다.
 
 ![Structure 2](https://i.imgur.com/crWdjcp.png)
 
-Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+축하합니다! 기본적인 ASF 봇 환경설정을 끝마쳤습니다. 잠시 후에 추가적으로 더 하겠지만, 지금으로선 여기까지만 있으면 됩니다.
 
 * * *
 
-### Running ASF
+### ASF 실행
 
-You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
+이제 프로그램을 처음 실행할 준비가 되었습니다. ASF 바로가기나 ASF 디렉토리의 `ArchiSteamFarm(.exe)` 실행파일을 를 더블클릭하십시오.
 
 After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 
@@ -176,7 +176,7 @@ In other words, simply jump to configuration again and do exactly the same, just
 
 * * *
 
-#### Changing settings
+#### 설정 변경
 
 You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
@@ -184,7 +184,7 @@ So let's do that, if you run ASF and start idling, in default settings you'll se
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 
-Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
+이제 이것을 변경해봅시다. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
 
 ![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
@@ -254,7 +254,7 @@ With extra steps:
 
 - **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 설치
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
+- 일반적인 **[최신 버전 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** 다운로드
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
 - **[ASF 환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
