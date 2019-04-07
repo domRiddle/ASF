@@ -653,7 +653,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 ### `SteamUserPermissions`
 
-預設值為空的`ImmutableDictionary<ulong, byte>` 類型。 This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. ASF中當前可用的機械人權限定義為：
+預設值為空的`ImmutableDictionary<ulong, byte>` 類型。 此屬性是一個字典屬性，它將由64位SteamID標識的給定Steam用戶映射到` byte `編號，該編號定義此用戶在ASF實例中的權限。 ASF中當前可用的機械人權限定義為：
 
 | 值 | 名稱            | 描述                                                              |
 | - | ------------- | --------------------------------------------------------------- |
