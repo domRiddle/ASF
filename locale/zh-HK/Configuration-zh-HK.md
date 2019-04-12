@@ -662,9 +662,9 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 | 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                 |
 | 3 | Master        | 提供對給定機械人實例的完全訪問權限                                               |
 
-簡而言之，此屬性允許您自訂給定使用者的許可權。 權限主要用於訪問ASF ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands) **，但也用於啟用許多ASF功能 ，如接受交易。 For example you might want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
+簡而言之，此屬性允許您自訂給定使用者的許可權。 權限主要用於訪問ASF ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands) **，但也用於啟用許多ASF功能 ，如接受交易。 例如，您可能希望將自己的帳戶設置為` Master `，並為您的2-3位朋友提供` Operator `訪問權限，以便他們可以使用ASF輕鬆為您的機械人兌換密鑰， 但卻**不能**停止它。 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
 
-我們建議您只設置一位 `master` 用戶，至於權限為 `Operators` 及以下的用戶，您可以儘管設置您希望的任意數量。 While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme - multiple masters scheme is discouraged setup that is not supported.
+我們建議您只設置一位 `master` 用戶，至於權限為 `Operators` 及以下的用戶，您可以儘管設置您希望的任意數量。 雖然技術上可以讓ASF在設置多個` Masters `時正常運行，例如接受他們發送到機器人的所有交易，但對於每個需要指定單個目標的操作，ASF將僅使用其中一個（具有最小的Steam ID的Master） ，例如` loot `請求，以及` SendOnFarmingFinished `或` SendTradePeriod `等屬性。 如果您完全理解這些限制，特別是無論實際執行` loot `命令的是哪個` Master `，機械人將始終將物品發送到具有最小steam ID的` Master `，雖然您可以在此處使用` Master `權限定義多個用戶，但我們仍然建議使用單個master方案——不鼓勵使用不受支援的多個master方案設置。
 
 值得注意的是，還有一個額外的` Owner `權限，它被定義於` SteamOwnerID `全域配置屬性。 您不能為這裡的任何人分配 `Owner` 許可權，因為 `SteamUserPermissions` 屬性僅定義與機械人實例相關的許可權，而不是定義整個 ASF 進程。 對於與機械人相關的任務，` SteamOwnerID `與` Master `的處理方式相同，因此不需要在此處定義` SteamOwnerID `。
 
@@ -741,7 +741,7 @@ ASF 使用的檔結構相當簡單。
     └── ...
     
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups", since you can always download the remaining (program) part from the GitHub, while not risking corrupting internal ASF files, e.g. through a faulty backup.
+為了將ASF移動到新位置，例如另一台PC，只需移動/複製` config `目錄就足夠了，這是執行任何形式的“ASF備份”的推薦方式，因為您始終可以從GitHub下載剩餘的（程序）部分，同時不存在破壞內部ASF檔案的風險，例如錯誤備份。
 
 `logt 123. txt` 檔保存您上一次運行 ASF 生成的日誌。 此檔案不包含任何敏感信息，在涉及問題、崩潰或僅作為上次 ASF 運行中的信息日誌時非常有用。 如果您遇到問題或錯誤，我們會經常詢問此檔案。 ASF會自動為您管理此檔案，但如果您是進堦用戶，您可以進一步調整ASF ** [記錄](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging) **模組。
 
@@ -769,7 +769,7 @@ ASF及其所有機械人配置保存於` config `目錄中。
 
 每個配置屬性都有相應的類型。 屬性的類型定義了有效值。 只能使用對給定類型有效的值——如果使用無效值，ASF 將無法分析您的配置。
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. 本節主要用於手動生成/編輯配置的用戶，使得他們知道可以使用哪些值。
+**我們強烈建議您使用ConfigGenerator生成配置檔** ——它會為您處理大多數初級內容（例如類型驗證），因此您只需要輸入正確的值，而不需要了解下面指定的變量類型。 本節主要用於手動生成/編輯配置的用戶，使得他們知道可以使用哪些值。
 
 ASF 使用的類型是本機 C＃類型，如下所示：
 
@@ -809,19 +809,19 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF uses `HashSet` to indicate that given property makes sense only for unique values, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF使用` HashSet `來指示給定屬性僅對唯一值有意義，因此它會在解析期間故意忽略任何可能的重複（如果您碰巧提供它們）。
 
 `ImmutableHashSet<uint>`的範例：`"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. 在JSON中，它被定義為具有鍵值對的對象。 Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`. JSON本身強制執行在匹配時嚴格要求密鑰是唯一的。
+`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. 在JSON中，它被定義為具有鍵值對的對象。 請記住，在這種情況下始終引用` keyType `，即使它是例如` ulong `的值類型。 JSON本身強制執行在匹配時嚴格要求密鑰是唯一的。
 
 `ImmutableDictionary<ulong, byte>`的範例： `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 * * *
 
-`flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. 這允許您同時選擇各種不同允許值的任何可能組合。 最終值為所有已啟用選項的值的總和。
+` flags `——Flags屬性通過應用按位運算將幾個不同的屬性組合成一個最終值。 這允許您同時選擇各種不同允許值的任何可能組合。 最終值為所有已啟用選項的值的總和。
 
 舉例來說，給出以下的值：
 
@@ -832,9 +832,9 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 | 2 | B    |
 | 4 | C    |
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. 另請注意，按定義，值為` 0 `的標誌在所有其他可用組合中都啟用，因此通常它是一個不能啟用任何內容的標誌（例如` None `）。
+使用` B + C `會得到` 6 `的值，使用` A + C `會得到` 5 `的值， 使用` C `會得到` 4 `的值，依此類推。 這允許您創建任何可能的啟用值組合——如果您決定啟用所有這些值，` None + A + B + C `，您將獲得` 7 `。 另請注意，按定義，值為` 0 `的標誌在所有其他可用組合中都啟用，因此通常它是一個不能啟用任何內容的標誌（例如` None `）。
 
-So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and `8` possible values overall:
+如您所見，在上面的示例中，我們有3個可用的標誌來啓用/停用（` A `，` B `，` C `），以及< code> 8 </code>种整體可能的值：
 
 - `None -> 0`
 - `A -> 1`
