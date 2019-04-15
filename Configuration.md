@@ -574,7 +574,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 Value | Name | Description
 --- | --- | ---
-0 | None | No redeeming preferences, typical
+0 | None | No special redeeming preferences, default
 1 | Forwarding | Forward keys unavailable to redeem to other bots
 2 | Distributing | Distribute all keys among itself and other bots
 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused
@@ -657,7 +657,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 Value | Name | Description
 --- | --- | ---
-0 | None | No permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission
+0 | None | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission
 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library
 2 | Operator | Provides basic access to given bot instances, mainly adding licenses and redeeming keys
 3 | Master | Provides full access to given bot instance
@@ -676,7 +676,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 Value | Name | Description
 --- | --- | ---
-0 | None | No trading preferences - accepts only `Master` trades
+0 | None | No special trading preferences, default
 1 | AcceptDonations | Accepts trades in which we're not losing anything
 2 | SteamTradeMatcher | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info
 4 | MatchEverything | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones
