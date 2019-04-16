@@ -18,4 +18,4 @@ ASF中包括適當的邏輯, 當它監測到庫被親友同享用戶鎖定時，
 
 ## 限制
 
-Steam 網絡時常廣播虛假狀態更新，這可能會誤導ASF相信可以恢復掛卡過程，導致會過早將您的朋友踢出遊戲會話。 為了解決這個問題，建議您確保的朋友在您的Steam 好友名單上——這樣ASF除了Steam網絡事件外, 還可以檢查您朋友的Steam狀態, 以猜測他是否已退出遊戲。 這不是強制性的, 但因為 Steam 有時就會出這種故障, 所以建議您這樣做, 特別是當您遇到這樣的問題的時候。
+Steam 網絡時常廣播虛假狀態更新，這可能會誤導ASF相信可以恢復掛卡過程，導致會過早將您的朋友踢出遊戲會話。 This is exactly the same issue as the one already explained by us in **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.

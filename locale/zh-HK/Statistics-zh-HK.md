@@ -16,7 +16,7 @@ ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本�
 * 它允許**您**使用我們的技術支援，您可以提問、回答、報告漏洞或提交建議。
 * 它可以讓我們看到 ASF 實際上有多少 Steam 用戶。
 
-我們認為 Steam 群組是 ASF 社區的關鍵部分。 這是我們在所有 ASF 相關的重要問題上使用的主要溝通途徑，特別是讓您瞭解開發、潛在問題、最終警告以及您作為使用者應該訪問的所有其他事項。 我們不會從該群組的維護中受益，它是專門支援 ASF 用戶的地方，我們認為您是我們社區的一部分。 由於該組的成員資格絕不表明您是 ASF 使用者，因此我們不認為這是隱私方面的問題。
+我們認為 Steam 群組是 ASF 社區的關鍵部分。 This is our main communication channel which we use for all important matters in regards to ASF, especially keeping you up-to-date with the development, potential issues, eventual warnings and all other matters that you should have access to as an user. 我們不會從該群組的維護中受益，它是專門支援 ASF 用戶的地方，我們認為您是我們社區的一部分。 由於該組的成員資格絕不表明您是 ASF 使用者，因此我們不認為這是隱私方面的問題。
 
 2. 如果您的帳戶**[未受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**，啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**，**[物品庫隱私為公開](https://steamcommunity.com/my/edit/settings)**且擁有大於100個符合`MatchableTypes`類型的物品，並在`TradingPreferences`中啓用了`SteamTradeMatcher`，那麽ASF將定期與我們的**[伺服器](https://asf.justarchi.net)**通信以實現此功能。 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
 

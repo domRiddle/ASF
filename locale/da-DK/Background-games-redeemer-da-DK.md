@@ -12,7 +12,7 @@ Importeringsprocessen kan gøres på to måder - enten ved brug af en fil eller 
 
 ### Fil
 
-ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Hvis der bruges flere tabulatortegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
+ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tabulatortegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tabulatortegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB

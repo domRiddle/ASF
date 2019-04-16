@@ -500,7 +500,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
-ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 루팅하는 대부분의 봇 사용례에 기반합니다. 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 루팅하고 싶더라도 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
+Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 루팅하고 싶더라도 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
 
 * * *
 
@@ -574,7 +574,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 | 값 | 이름               | 설명                                                                             |
 | - | ---------------- | ------------------------------------------------------------------------------ |
-| 0 | 없음(None)         | No redeeming preferences, typical                                              |
+| 0 | 없음(None)         | No special redeeming preferences, default                                      |
 | 1 | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2 | Distributing     | Distribute all keys among itself and other bots                                |
 | 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -655,12 +655,12 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 `ImmutableDictionary<ulong, byte>` 타입으로 기본값은 비어있습니다. 이 속성값은 64비트 Steam ID로 인식되는 Steam 사용자와 ASF 인스턴스에서의 권한을 특정하는 `byte` 숫자로 매칭되는 사전 속성값입니다. ASF에서 현재 가능한 봇 권한은 다음과 같습니다.
 
-| 값 | 이름                   | 설명                                                                                      |
-| - | -------------------- | --------------------------------------------------------------------------------------- |
-| 0 | 없음(None)             | 권한 없음. 이 사전에 없는 Steam ID에 부여되는 참조용 값입니다. 이 권한으로 특정 사용자를 지정할 필요는 없습니다.                   |
-| 1 | 가족 공유(FamilySharing) | 가족 공유 사용자에 대한 최소한의 접근만 제공합니다. 이 또한 참조용 값입니다. ASF는 라이브러리를 허용한 Steam ID를 자동으로 발견할 수 있습니다. |
-| 2 | 운영자(Operator)        | 주로 라이선스 추가와 키 등록과 같은 봇 인스턴스에 대한 기본적인 권한을 제공합니다.                                         |
-| 3 | 주인(Master)           | 봇 인스턴스에 대한 전체 권한을 제공합니다.                                                                |
+| 값 | 이름                   | 설명                                                                                                                                                                         |
+| - | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 없음(None)             | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
+| 1 | 가족 공유(FamilySharing) | 가족 공유 사용자에 대한 최소한의 접근만 제공합니다. 이 또한 참조용 값입니다. ASF는 라이브러리를 허용한 Steam ID를 자동으로 발견할 수 있습니다.                                                                                    |
+| 2 | 운영자(Operator)        | 주로 라이선스 추가와 키 등록과 같은 봇 인스턴스에 대한 기본적인 권한을 제공합니다.                                                                                                                            |
+| 3 | 주인(Master)           | 봇 인스턴스에 대한 전체 권한을 제공합니다.                                                                                                                                                   |
 
 간단하게 말하면 주어진 사용자에 대해 권한을 부여하는 속성값입니다. 권한은 ASF **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 에 접근할 때 중요하지만, 거래를 수락하는 것 같은 많은 ASF 기능을 활성화하는데도 중요합니다. 예를 들어 자신의 계정을 `주인(Master)` 으로 설정하고, `운영자(Operator)` 접근권한을 친구중 두세명에게 주어서 ASF를 멈추거나 하지는 **못하게** 하면서 키를 쉽게 추가하도록 할 수 있습니다. 사용자에게 권한을 쉽게 줄수 있으므로 당신의 봇을 특정행동을 하도록 허용할 수 있습니다.
 
@@ -676,7 +676,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 | 값  | 이름                           | 설명                                                                                                                                                                                 |
 | -- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | 없음(None)                     | 거래 선호값 없음 - `주인(Master)`의 거래만 수락합니다.                                                                                                                                               |
+| 0  | 없음(None)                     | No special trading preferences, default                                                                                                                                            |
 | 1  | 기부 수락(AcceptDonations)       | 잃는 것이 없다면 거래를 수락합니다.                                                                                                                                                               |
 | 2  | SteamTradeMatcher            | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 수동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#steamtradematcher)** 를 참고하십시오. |
 | 4  | 전부 매칭(MatchEverything)       | `SteamTradeMatcher` 가 설정되어 있어야 합니다. 좋음, 중립, 나쁨 거래를 수락합니다.                                                                                                                          |
@@ -708,7 +708,7 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
-ASF 기본설정은 부스터팩, 트레이딩 카드(은박 포함)만 전송하는 대부분의 봇 사용례에 기반합니다. 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 아이템을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 아이템을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
 
 * * *
 
@@ -803,7 +803,7 @@ ASF가 사용하는 타입은 네이티브 C# 타입으로, 아래에 설명되�
 
 * * *
 
-`string` - `""`의 빈 문자열과 `null` 값을 포함하는 어떠한 일련의 문자를 받는 문자열 타입입니다. 빈 문자열과 `null` 값은 ASF에서 동일하게 취급됩니다. 어느 것을 사용할지는 당신의 선택입니다.
+`string` - `""`의 빈 문자열과 `null` 값을 포함하는 어떠한 일련의 문자를 받는 문자열 타입입니다. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 예: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
@@ -815,7 +815,7 @@ ASF가 사용하는 타입은 네이티브 C# 타입으로, 아래에 설명되�
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - `keyType`에 특정된 유일한 키와 `valueType`에 특정된 값을 매핑하는 불변 사전입니다. JSON에서는 키-값 쌍으로 된 오브젝트로 정의됩니다. 이 경우 `keyType`는 심지어 `ulong`같은 타입이더라도 항상 따옴표로 표시함을 명심하십시오. 키가 매핑 전체에서 유일해야한다는 엄격한 요구사항이 있으며, 이는 JSON 자체에서 강제되는 것입니다.
+`ImmutableDictionary<keyType, valueType>` - `keyType`에 특정된 유일한 키와 `valueType`에 특정된 값을 매핑하는 불변 사전입니다. JSON에서는 키-값 쌍으로 된 오브젝트로 정의됩니다. 이 경우 `keyType`는 심지어 `ulong`같은 타입이더라도 항상 따옴표로 표시함을 명심하십시오. There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
 `ImmutableDictionary<ulong, byte>`의 예: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

@@ -500,7 +500,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 我強烈建議不要在` LootableTypes `中啟用` Unknown `類型，即使您希望拾取一切物品。
+Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 我強烈建議不要在` LootableTypes `中啟用` Unknown `類型，即使您希望拾取一切物品。
 
 * * *
 
@@ -572,12 +572,12 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 這是一個預設值為`0` 的 `byte flags` 屬性。 此屬性定義ASF在兌換cd-keys時的行為，定義如下：
 
-| 值 | 名稱               | 描述                     |
-| - | ---------------- | ---------------------- |
-| 0 | None             | 無特殊兌換偏好                |
-| 1 | Forwarding       | 將無法兌換的金鑰转發給其他機械人       |
-| 2 | Distributing     | 在自己和其他機械人之間分配所有密鑰      |
-| 4 | KeepMissingGames | 轉發時保留（可能）缺少游戲的密鑰，不去激活它 |
+| 值 | 名稱               | 描述                                        |
+| - | ---------------- | ----------------------------------------- |
+| 0 | None             | No special redeeming preferences, default |
+| 1 | Forwarding       | 將無法兌換的金鑰转發給其他機械人                          |
+| 2 | Distributing     | 在自己和其他機械人之間分配所有密鑰                         |
+| 4 | KeepMissingGames | 轉發時保留（可能）缺少游戲的密鑰，不去激活它                    |
 
 請注意，此屬性是 `flag` 類型字段，因此可以選擇可用值的任意組合。 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
@@ -655,12 +655,12 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 預設值為空的`ImmutableDictionary<ulong, byte>` 類型。 此屬性是一個字典屬性，它將由64位SteamID標識的給定Steam用戶映射到` byte `編號，該編號定義此用戶在ASF實例中的權限。 ASF中當前可用的機械人權限定義為：
 
-| 值 | 名稱            | 描述                                                              |
-| - | ------------- | --------------------------------------------------------------- |
-| 0 | None          | 無權限，這主要是分配給SteamID不在設置中的用戶——無需定義具有此權限的任何人                       |
-| 1 | FamilySharing | 提供親友同享用戶的最低訪問權限。 再一次，這主要是一個參考值，因為ASF能夠自動發現我們允許使用我們的庫的用户的SteamID |
-| 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                 |
-| 3 | Master        | 提供對給定機械人實例的完全訪問權限                                               |
+| 值 | 名稱            | 描述                                                                                                                                                                         |
+| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
+| 1 | FamilySharing | 提供親友同享用戶的最低訪問權限。 再一次，這主要是一個參考值，因為ASF能夠自動發現我們允許使用我們的庫的用户的SteamID                                                                                                            |
+| 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                                                                                                                            |
+| 3 | Master        | 提供對給定機械人實例的完全訪問權限                                                                                                                                                          |
 
 簡而言之，此屬性允許您自訂給定使用者的許可權。 權限主要用於訪問ASF ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands) **，但也用於啟用許多ASF功能 ，如接受交易。 例如，您可能希望將自己的帳戶設置為` Master `，並為您的2-3位朋友提供` Operator `訪問權限，以便他們可以使用ASF輕鬆為您的機械人兌換密鑰， 但卻**不能**停止它。 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
 
@@ -676,7 +676,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 | 值  | 名稱                  | 描述                                                                                                                                                     |
 | -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0  | None                | 無交易偏好 - 只接受來自`Master` 的交易                                                                                                                              |
+| 0  | None                | No special trading preferences, default                                                                                                                |
 | 1  | AcceptDonations     | 接受對我們無任何損失的交易                                                                                                                                          |
 | 2  | SteamTradeMatcher   | 被動參與 **[STM](https://www.steamtradematcher.com)**交易。 訪問 **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** 了解更多資訊 |
 | 4  | 匹配所有物品              | 需要設置 `SteamTradeMatcher`, 並與其同時使用--除了對我們有利的和無損的交易外, 還接受不利交易                                                                                            |
@@ -708,7 +708,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
 
 * * *
 
@@ -803,7 +803,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`string`——字串類型，接受任何字元序列，包括空值 `""` 和 `null`。 ASF將對值和` null `值一視同仁，因此您可以根據自己的喜好選擇使用哪個值。
+`string`——字串類型，接受任何字元序列，包括空值 `""` 和 `null`。 Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 範例：`"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
@@ -815,7 +815,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. 在JSON中，它被定義為具有鍵值對的對象。 請記住，在這種情況下始終引用` keyType `，即使它是例如` ulong `的值類型。 JSON本身強制執行在匹配時嚴格要求密鑰是唯一的。
+`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. 在JSON中，它被定義為具有鍵值對的對象。 請記住，在這種情況下始終引用` keyType `，即使它是例如` ulong `的值類型。 There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
 `ImmutableDictionary<ulong, byte>`的範例： `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

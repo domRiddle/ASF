@@ -500,7 +500,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
-A configuração padrão do ASF baseia-se no uso mais comum do bot, transferindo apenas pacotes de cartas e cartas colecionáveis (incluindo as brilhantes). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Por favor, tenha em mente que todos os tipos não definidos acima serão classificados como `Unknown`, o que é especialmente importante quando a Valve libera um novo item da Steam, que será marcado como `Unknown` pelo ASF também, até que seja adicionado aqui (em uma versão futura). É por isso que, em geral, não é recomendado incluir o tipo `Unknown` em seu `LootableTypes`, a menos que você saiba o que está fazendo, e compreende também que o ASF enviará seu inventário inteiro em uma oferta de troca se a rede Steam der algum problema novamente e reportar todos os seus itens como `Unknown`. Minha sugestão é não incluir tipo `Unknown` em `LootableTypes`, mesmo que você espere transferir tudo.
+A configuração padrão do ASF baseia-se no uso mais comum do bot, coletando apenas pacotes de cartas e cartas colecionáveis (incluindo as brilhantes). A propriedade definida aqui permite que você mude esse comportamento da forma que te satisfaça. Por favor, tenha em mente que todos os tipos não definidos acima serão classificados como `Unknown`, o que é especialmente importante quando a Valve libera um novo item da Steam, que será marcado como `Unknown` pelo ASF também, até que seja adicionado aqui (em uma versão futura). É por isso que, em geral, não é recomendado incluir o tipo `Unknown` em seu `LootableTypes`, a menos que você saiba o que está fazendo, e compreende também que o ASF enviará seu inventário inteiro em uma oferta de troca se a rede Steam der algum problema novamente e reportar todos os seus itens como `Unknown`. Minha sugestão é não incluir tipo `Unknown` em `LootableTypes`, mesmo que você espere transferir tudo.
 
 * * *
 
@@ -574,7 +574,7 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 
 | Valor | Nome             | Descrição                                                                                 |
 | ----- | ---------------- | ----------------------------------------------------------------------------------------- |
-| 0     | None             | Sem preferências de resgate, situação padrão                                              |
+| 0     | None             | Sem preferências especiais de resgate, padrão                                             |
 | 1     | Forwarding       | Encaminha keys indisponíveis para serem resgatadas por outros bots                        |
 | 2     | Distributing     | Distribui todas as keys entre si e os outros bots                                         |
 | 4     | KeepMissingGames | Guarda as keys de jogos que (possivelmente) não estejam em sua conta, deixando-as sem uso |
@@ -657,7 +657,7 @@ Tipo `ImmutableDictionary<ulong, byte>` com o valor padrão vazio. Esta propried
 
 | Valor | Nome          | Descrição                                                                                                                                                                                                               |
 | ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | Sem permissão, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                                   |
+| 0     | None          | Sem permissões especiais, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                        |
 | 1     | FamilySharing | Fornece acesso mínimo para usuários do modo família. Novamente, esse é apenas um valor de referência, uma vez que o ASF é capaz de descobrir automaticamente os IDs Steam que estão autorizados a usar nossa biblioteca |
 | 2     | Operator      | Fornece acesso básico a determinadas contas bot, principalmente adicionar licenças e resgatar keys                                                                                                                      |
 | 3     | Master        | Fornece acesso completo a determinada conta bot                                                                                                                                                                         |
@@ -676,7 +676,7 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 
 | Valor | Nome                | Descrição                                                                                                                                                                                                                     |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | Sem preferências de troca - aceita somente trocas do `Master`                                                                                                                                                                 |
+| 0     | None                | Sem preferências especiais de troca, padrão                                                                                                                                                                                   |
 | 1     | AcceptDonations     | Aceita trocas em que não estamos perdendo nada                                                                                                                                                                                |
 | 2     | SteamTradeMatcher   | Participa passivamente de trocas do tipo **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR#steamtradematcher)** para mais informações |
 | 4     | MatchEverything     | Requer que `SteamTradeMatcher` seja definido, e em combinação com ele - também aceita trocas ruins além de boas e neutras                                                                                                     |
@@ -803,7 +803,7 @@ Exemplo: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
-`string` - Cadeia de caracteres, aceita qualquer sequência de caracteres, incluindo sequência vazia `""` e `null`. Tanto uma sequencia vazia quanto o valor `null` são tratados da mesma forma pelo ASF, então fica a seu critério decidir qual usar.
+`string` - Cadeia de caracteres, aceita qualquer sequência de caracteres, incluindo sequência vazia `""` e `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 Exemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeuNomeDeUsuário"`
 
@@ -815,7 +815,7 @@ Exemplo de `ImmutableHashSet <uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Dicionário (mapa) imutável que mapeia uma chave única especificada em `keyType`, para o valor especificado em `valueType`. Em JSON, é definida como um objeto com pares de valor chave. Tenha em mente que o `keyType` deve estar sempre entre aspas, mesmo se for um valor do tipo `ulong`. Há também uma exigência rigorosa de a chave ser exclusiva através do mapeamento, desta vez imposta pelo JSON em si.
+`ImmutableDictionary<keyType, valueType>` - Dicionário (mapa) imutável que mapeia uma chave única especificada em `keyType`, para o valor especificado em `valueType`. Em JSON, é definida como um objeto com pares de valor chave. Tenha em mente que o `keyType` deve estar sempre entre aspas, mesmo se for um valor do tipo `ulong`. There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
 Exemplo de `ImmutableDictionary<ulong, byte>`:`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

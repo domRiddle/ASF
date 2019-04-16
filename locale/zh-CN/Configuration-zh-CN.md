@@ -500,7 +500,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
-默认值的设定基于机器人的最常见用法，即仅仅拾取补充包和集换式卡牌（包括闪亮卡牌）。 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `LootableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望拾取所有类型的物品，也不要在 `LootableTypes` 中包含 `Unknown`。
+Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `LootableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望拾取所有类型的物品，也不要在 `LootableTypes` 中包含 `Unknown`。
 
 * * *
 
@@ -572,12 +572,12 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为 `0` 的 `byte flags` 类型属性。 该属性定义 ASF 在激活游戏序列号时的行为，可选项如下：
 
-| 值 | 名称               | 描述                          |
-| - | ---------------- | --------------------------- |
-| 0 | None             | 无激活偏好                       |
-| 1 | Forwarding       | 将无法激活的序列号转发给其他机器人           |
-| 2 | Distributing     | 将序列号分配给自身和其他机器人             |
-| 4 | KeepMissingGames | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用 |
+| 值 | 名称               | 描述                                        |
+| - | ---------------- | ----------------------------------------- |
+| 0 | None             | No special redeeming preferences, default |
+| 1 | Forwarding       | 将无法激活的序列号转发给其他机器人                         |
+| 2 | Distributing     | 将序列号分配给自身和其他机器人                           |
+| 4 | KeepMissingGames | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用               |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
@@ -655,12 +655,12 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为空的 `ImmutableDictionary<ulong, byte>` 类型属性。 该属性是一个字典属性，将 Steam 用户的 64 位 ID 映射到一个表示此用户在 ASF 实例内权限的 `byte` 类型的数字。 目前 ASF 支持的机器人权限有：
 
-| 值 | 名称            | 描述                                                                 |
-| - | ------------- | ------------------------------------------------------------------ |
-| 0 | None          | 无权限，这是分配给不在字典内的 SteamID 的参考值——您不需要为任何人定义此权限                        |
-| 1 | FamilySharing | 为家庭共享用户提供的最低权限。 同样，这也是一个参考值，因为 ASF 能够自动发现有权使用我们游戏库的家庭共享帐户的 SteamID |
-| 2 | Operator      | 提供操作指定机器人的基本权限，主要包括添加游戏许可与激活序列号                                    |
-| 3 | Master        | 提供操作指定机器人的完整权限                                                     |
+| 值 | 名称            | 描述                                                                                                                                                                         |
+| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
+| 1 | FamilySharing | 为家庭共享用户提供的最低权限。 同样，这也是一个参考值，因为 ASF 能够自动发现有权使用我们游戏库的家庭共享帐户的 SteamID                                                                                                         |
+| 2 | Operator      | 提供操作指定机器人的基本权限，主要包括添加游戏许可与激活序列号                                                                                                                                            |
+| 3 | Master        | 提供操作指定机器人的完整权限                                                                                                                                                             |
 
 简而言之，此属性允许您设定指定用户操作此机器人的权限。 权限主要用于访问 ASF **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，但也用于启用很多其他 ASF 功能，例如接受交易报价。 例如，您可能希望将自己的帐户设置为 `Master`，然后为您的两三位朋友设置 `Operator` 权限，使他们可以简单地通过 ASF 为您的机器人激活游戏序列号，但又**无法**执行停止机器人等操作。 因此，您可以轻松将权限分配给指定的用户，使他们能够在您设定的限制下操作您的机器人。
 
@@ -676,7 +676,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 | 值  | 名称                  | 描述                                                                                                                                                                           |
 | -- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | None                | 没有交易偏好——仅接受来自 `Master` 的交易                                                                                                                                                   |
+| 0  | None                | No special trading preferences, default                                                                                                                                      |
 | 1  | AcceptDonations     | 接受我们不付出任何物品的交易                                                                                                                                                               |
 | 2  | SteamTradeMatcher   | 以被动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#steamtradematcher)**&#8203;获得更多信息 |
 | 4  | MatchEverything     | 需要先设置 `SteamTradeMatcher`，将二者结合使用——除了有利交易和平衡交易，还接受不利交易                                                                                                                       |
@@ -708,7 +708,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
-默认值的设定基于机器人的最常见用法，即仅仅转移补充包和集换式卡牌（包括闪亮卡牌）。 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
 
 * * *
 
@@ -803,7 +803,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`string`——字符串类型，接受任何字符序列，包括空序列 `""` 和 `null`。 ASF 对空序列和 `null` 的处理方式是相同的，所以您可以在二者之间任意选择。
+`string`——字符串类型，接受任何字符序列，包括空序列 `""` 和 `null`。 Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 示例：`"SteamLogin": null`、`"SteamLogin": ""`、`"SteamLogin": "MyAccountName"`
 
@@ -815,7 +815,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>`——从给定 `keyType` 类型唯一键指向给定 `valueType` 类型值的不可变映射（字典）。 在 JSON 中，这被定义为一个包含键-值对的对象。 请注意，在这种情况下，`keyType` 总需要写在引号里，即使它的类型是 `ulong` 等非字符串。 还有一个严格的要求，映射中的键必须是唯一的，这是由 JSON 本身强制规定的。
+`ImmutableDictionary<keyType, valueType>`——从给定 `keyType` 类型唯一键指向给定 `valueType` 类型值的不可变映射（字典）。 在 JSON 中，这被定义为一个包含键-值对的对象。 请注意，在这种情况下，`keyType` 总需要写在引号里，即使它的类型是 `ulong` 等非字符串。 There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
 `ImmutableDictionary<ulong, byte>` 的示例：`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

@@ -33,7 +33,7 @@
 * **[Perguntas Frequentes Adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**
 * **[Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pt-BR)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
-* **[Idiomas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)**
+* **[Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)**
 * **[Registros do sistema](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-pt-BR)**
 * **[Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pt-BR)**

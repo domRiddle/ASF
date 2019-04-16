@@ -16,7 +16,7 @@ ASF 默认启用了 `Statistics` 全局配置属性。 如果您希望看到发�
 * 使**您**可以使用我们的技术支持，即提出问题、解决问题、报告问题或建议改进。
 * 让我们了解使用 ASF 的实际 Steam 用户数量。
 
-我们认为，对于 ASF 社区来说，Steam 群组是一个关键部分。 这是我们的主要交流渠道，我们利用这个渠道来处理关于 ASF 的所有重要事项，特别是使您随时了解开发进程、潜在问题、最终警告以及所有您作为用户应该了解的其他事项。 我们不以任何方式从维护此群组中获利，这是致力于 ASF 用户的地方，并且我们认为您是我们社区的一部分。 因为属于该群组无法代表您是一名 ASF 用户，我们认为这不是一个隐私方面的问题。
+我们认为，对于 ASF 社区来说，Steam 群组是一个关键部分。 这是我们的主要交流渠道，我们利用这个渠道来处理关于 ASF 的所有重要事项，特别是使您随时了解最新的开发进程、潜在问题、最终警告以及所有您作为用户应该了解的其他事项。 我们不以任何方式从维护此群组中获利，这是致力于 ASF 用户的地方，并且我们认为您是我们社区的一部分。 因为属于该群组无法代表您是一名 ASF 用户，我们认为这不是一个隐私方面的问题。
 
 2. 如果您的帐户&#8203;**[没有受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;内有至少 100 件 `MatchableTypes` 物品并且您有意在 `TradingPreferences` 中启用了 `SteamTradeMatcher` 选项，那么 ASF 将会定期与我们的&#8203;**[服务器](https://asf.justarchi.net)**&#8203;通信以实现被启用的功能。 实际数据由唯一的 ASF ID（由 ASF 生成）和以下与帐户相关的信息组成：
 

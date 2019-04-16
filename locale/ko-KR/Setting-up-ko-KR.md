@@ -24,9 +24,9 @@
 
 ### .NET Core 필수 구성 요소
 
-첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다.다 This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 중 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다. 이 참조자료를 사용해야 하지만, 편의를 위해 아래에 필요한 모든 패키지를 설명했으므로 문서 전체를 읽을 필요는 없습니다.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+당신의 시스템에 일부(혹은 전체) 종속성이 이미 존재하는 것은 사용하고 있는 제3자 소프트웨어가 설치했을 수 있으므로 완벽하게 정상입니다. 하지만 당신의 OS에 맞는 설치관리자가 실행중인지를 확인해야 합니다. 이 종속성 없이는 ASF가 전혀 실해되지 않습니다.
 
 특정 OS용 빌드는 이미 모든 것을 포함하고 있으므로 .NET Core SDK나 런타임의 설치 등 다른 어떤 것도 할 필요가 없다는 것을 명심하십시오. ASF에 포함된 .NET Core 런타임을 실행하기 위해서는 .NET Core 필수 구성 요소(종속 프로그램)만 필요합니다.
 
@@ -98,21 +98,21 @@ ASF 폴더를 열어서 핵심 실행 파일을 찾으십시오. 윈도우는 `A
 
 ### 환경설정
 
-마지막 단계인 환경설정을 할 준비가 되었습니다. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
+마지막 단계인 환경설정을 할 준비가 되었습니다. 아직 익숙하지 않은 많은 새로운 정보가 잔뜩 생기므로 지금까지 중에서 가장 복잡한 단계입니다. 그래서 이해하기 쉬운 예제와 간략한 설명을 여기에서 제공하려고 합니다.
 
-First and foremost, there is **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
+가장 먼저, 환경설정과 관련된 **모든 것** 을 설명하는 **[환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)** 페이지가 있지만 엄청난 양의 새로운 정보이고, 상당량은 당장 알 필요는 없습니다. 그 대신, 실제로 찾는 정보를 얻는 방법을 알려드리겠습니다.
 
-ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
+ASF 환경설정은 웹 환경설정 생성기 또는 수동의 두가지 방법으로 할 수 있습니다. 이에 대해 **[환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)** 항목에서 깊게 설명하고 있으므로 더 자세한 정보를 원한다면 참고하십시오. 여기서는 훨씬 쉽기 때문에 웹 환경설정 생성기를 사용하겠습니다.
 
-Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebConfigGenerator)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
+사용하는 웹 브라우저로 **[웹 환경설정 생성기](https://justarchinet.github.io/ASF-WebConfigGenerator)** 페이지에 갑니다. 자바스크립트를 수동으로 비활성화 했다면 활성화 해두어야 합니다. 크롬이나 파이어폭스를 권장하지만, 거의 대부분의 유명한 브라우저에서 작동합니다.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+페이지를 연 후 "Bot" 탭으로 전환합니다. 아래와 비슷한 페이지를 볼 수 있습니다.
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
+혹시라도 방금 다운로드한 ASF의 버전이 환경설정 생성기가 기본으로 사용하도록 설정된 버전보다 오래되었다면, 드롭다운 메뉴에서 사용중인 ASF 버전을 선택합니다. 환경설정 생성기는 사전릴리스 등 아직 안정버전이 아닌 새로운 ASF 버전용으로도 사용할 수 있어서 이런 일이 발생합니다. ASF의 최신 안정 릴리스를 다운로드했다면 안정적으로 동작할 것입니다.
 
-Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
+빨간색으로 강조된 필드에 봇 이름을 넣는 것부터 시작하십시오. 이것은 별명, 계정명, 숫자 등등 당신이 사용하고 싶은 어떤 이름이라도 가능합니다. 사용할 수 없는 단 하나의 단어가 있습니다. `ASF` 는 일반 환경설정 파일로 예약된 키워드입니다. 추가로, 봇 이름은 마침표로 시작할 수 없습니다.(ASF는 이 파일을 내부적으로 무시합니다.) We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
 
 After you decided about your name, change `Enabled` switch to be on, this defines whether your bot is supposed to be started by ASF automatically after launch (of the program).
 

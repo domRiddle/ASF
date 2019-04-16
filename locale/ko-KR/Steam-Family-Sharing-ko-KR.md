@@ -18,4 +18,4 @@ ASF는 가족 공유 이용자가 라이브러리를 사용하고 있는지 판�
 
 ## 한계
 
-Steam 네트워크는 잘못된 상태 업데이트를 보내서 ASF가 오해하는 것을 좋아합니다. ASF는 농사를 재개해도 좋다고 믿을 것이고, 그 결과 당신의 친구를 너무 빨리 쫓아낼 것입니다. 이런 이슈를 해결하기 위해 당신의 친구를 Steam 친구 리스트에 추가하기를 권장합니다. 이렇게 하여 ASF는 Steam 네트워크 활동과 함께 당신의 친구의 Steam 상태를 확인하여 그가 플레이를 끝냈는지 아닌지 상황을 추측합니다. 이것은 필수사항은 아닙니다. 하지만 Steam이 가끔 오작동는 경우가 있기때문에 이러한 이슈를 경험했다면 특히 추천합니다.
+Steam 네트워크는 잘못된 상태 업데이트를 보내서 ASF가 오해하는 것을 좋아합니다. ASF는 농사를 재개해도 좋다고 믿을 것이고, 그 결과 당신의 친구를 너무 빨리 쫓아낼 것입니다. This is exactly the same issue as the one already explained by us in **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.
