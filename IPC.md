@@ -207,4 +207,4 @@ The following config will allow remote access from all sources, therefore you sh
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.0` instead of `*`, where the address matches your local network address.
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.0` instead of `*`. Adapt the network address appropriately if you use a different one.
