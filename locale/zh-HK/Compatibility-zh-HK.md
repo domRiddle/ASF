@@ -34,7 +34,7 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 
 ### OS-specific
 
-除了 Generic 包中包含的託管代碼之外，OS-specific 包還包括指定平台的本機代碼。 換句話說，OS-specific 包內部**已經包含了可用的 .NET Core 運行時環境**，使您可以跳過煩瑣的安裝過程，直接啟動 ASF。 OS-specific 包，顧名思義，是針對不同操作系統的，每種操作系統都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe`二進位檔案，而 Linux 則需要 Unix ELF `ArchiSteamFarm`二進位檔案。 您可能已經知道，這兩種類型之間是完全不相容的。
+除了 Generic 包中包含的託管代碼之外，OS-specific 包還包括指定平台的本機代碼。 換句話說，OS-specific 包內部**已經包含了可用的 .NET Core 運行時環境**，使您可以跳過煩瑣的安裝過程，直接啟動 ASF。 OS-specific 包，顧名思義，是針對不同操作系統的，每種操作系統都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe`二進位檔案，而 Linux 則需要 Unix ELF `ArchiSteamFarm`二進位檔案。 As you may know, those two types are not compatible with each other.
 
 ASF當前可用於以下操作系統 ：
 
@@ -55,7 +55,7 @@ ASF當前可用於以下操作系統 ：
 
 但是，如果您尝試運行 **Generic** ASF包，則必須確保 ASF 所需的對應平台的 .NET Core 運行時環境已經安裝。
 
-目前ASF 的目標是 **.NET Core 2.2**（`netcoreapp2.2`），但未來可能會指向更高版本。 `netcoreapp2.2` 自 2.2.100 SDK（2.2.0 運行時環境）以來就受到支援，但 ASF 以**編譯時最新版本的運行時環境**為目標，所以您應該確保您的電腦上有​**[最新版 SDK](https://www.microsoft.com/net/download)**可用。 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包可能會拒絕啟動。
+ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it may target newer platform in the future. `netcoreapp2.2` 自 2.2.100 SDK（2.2.0 運行時環境）以來就受到支援，但 ASF 以**編譯時最新版本的運行時環境**為目標，所以您應該確保您的電腦上有​**[最新版 SDK](https://www.microsoft.com/net/download)**可用。 Generic ASF variant may refuse to launch if your runtime is older than the minimum (target) one known during compilation.
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署ASF版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個生成的頂部找到`dotnet--info` 輸出。
 
@@ -65,4 +65,4 @@ ASF當前可用於以下操作系統 ：
 
 ### Debian Jessie 更新
 
-如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 顧名思義，這個套裝軟件已過時並從軟件源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級──如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果有一些其他套裝軟件依賴於那個過時的 libssl 版本，那麼您應該升級或者卸載它們──不僅是因為這個問題，而是因為過時的庫本來就應該被摒棄。
+如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 Otherwise, you may run into a segfault. 顧名思義，這個套裝軟件已過時並從軟件源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級──如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果有一些其他套裝軟件依賴於那個過時的 libssl 版本，那麼您應該升級或者卸載它們──不僅是因為這個問題，而是因為過時的庫本來就應該被摒棄。

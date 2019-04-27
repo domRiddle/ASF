@@ -46,13 +46,15 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 `--cryptkey <key>` 혹은 `--cryptkey=<key>` - `<key>`값의 자체 암호화 키를 가지고 ASF를 시작합니다. 이 옵션은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)**에 영향을 주고 ASF가 실행파일에 하드코딩된 기본 키 대신 제공된 자체 `<key>`키를 사용하도록 합니다. ASF가 실행될 때마다 이 키로 암호화된 암호가 그 키를 필요로함을 명심하십시오.
 
-* * *
-
-`--no-restart` - 이 스위치는 주로 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR)** 컨테이너에서 사용하며 `AutoRestart` 값을 `false`로 강제합니다. 특별한 필요가 없다면 환경설정에서 `AutoRestart` 항목을 직접 설정하여야 합니다. 이 스위치는 도커 스크립트가 자체 환경설정을 적용할때 일반 환경설정을 건드리지 않아도 되도록 합니다. 물론 ASF를 스크립트 내부에서 실행하고 있다면 이 스위치를 활용할 수 있습니다. (그렇지 않다면 일반 환경설정 항목이 낫습니다)
+Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 * * *
 
-`--path <path>` 혹은 `--path=<path>` - ASF는 설치시에 자체 디렉토리를 탐색합니다. 이 인자를 지정하면 ASF는 설치 후에 주어진 디렉토리를 탐색하고, 바이너리를 동일한 장소에 복제할 필요 없이 `config`디렉토리나 `plugins` 혹은 `www` 같은 다른 디렉토리를 사용자 지정경로로 사용할 수 있습니다. 리눅스형태의 패키징에서 그런 것 처럼 바이너리와 실제 환경설정을 분리하고자 할때 특히 유용합니다. 이 방식으로 여러 다른 설치본을 하나의 (최신) 바이너리만으로 사용할 수 있습니다. 경로는 ASF 바이너리의 현재 위치에서 상대경로 또는 절대경로로 지정할 수 있습니다. 동일한 바이너리를 다중 인스턴스로 실행할 때는 인스턴스 간 동기화가 되지 않으므로 자동 업데이트를 비활성화해야 함을 명심하십시오. 또한 이 명령어는 원본 ASF와 동일한 구조를 가지고 있고, `config` 디렉토리가 내부에 있는 새로운 "ASF home"을 가리킴을 명심하십시오.
+`--no-restart` - 이 스위치는 주로 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR)** 컨테이너에서 사용하며 `AutoRestart` 값을 `false`로 강제합니다. 특별한 필요가 없다면 환경설정에서 `AutoRestart` 항목을 직접 설정하여야 합니다. 이 스위치는 도커 스크립트가 자체 환경설정을 적용할때 일반 환경설정을 건드리지 않아도 되도록 합니다. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+
+* * *
+
+`--path <path>` 혹은 `--path=<path>` - ASF는 설치시에 자체 디렉토리를 탐색합니다. 이 인자를 지정하면 ASF는 설치 후에 주어진 디렉토리를 탐색하고, 바이너리를 동일한 장소에 복제할 필요 없이 `config`디렉토리나 `plugins` 혹은 `www` 같은 다른 디렉토리를 사용자 지정경로로 사용할 수 있습니다. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. 경로는 ASF 바이너리의 현재 위치에서 상대경로 또는 절대경로로 지정할 수 있습니다. 동일한 바이너리를 다중 인스턴스로 실행할 때는 인스턴스 간 동기화가 되지 않으므로 자동 업데이트를 비활성화해야 함을 명심하십시오. 또한 이 명령어는 원본 ASF와 동일한 구조를 가지고 있고, `config` 디렉토리가 내부에 있는 새로운 "ASF home"을 가리킴을 명심하십시오.
 
 예시:
 

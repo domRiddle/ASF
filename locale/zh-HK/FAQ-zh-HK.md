@@ -1,6 +1,6 @@
 # 常見問題
 
-我們的基本常見問題解答涵蓋了您可能會问的問題和它们的標準答案。 對於不太常見的問題，請訪問我們的**[常見問題擴展](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**。
+Our basic FAQ covers standard questions and answers that you may have. 對於不太常見的問題，請訪問我們的**[常見問題擴展](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**。
 
 # 目錄
 
@@ -53,7 +53,7 @@ ASF 使用您提供的憑據，通過內置自訂 Steam 用戶端實現登錄到
 
 ### 我需要等待多久才會獲得掉落的卡片？
 
-講真，**這取決於它需要多久。** 每款遊戲的掛卡難度由開發商/出版商設定, 掉卡速度完全取決於他們。 大多數遊戲是每 3 0分鐘就會掉落1張卡片, 但也有遊戲需要在遊玩幾個小時後才會有卡片掉落。 除此之外, 您的帳戶可能會被限制接收您沒有玩足夠時間的遊戲中的卡片, 如 **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** 部分所述。 不要試圖猜測ASF可能的掛卡時間，這不是由您決定的，甚至也不是ASF可以決定的。 沒有什麼辦法可以讓它更快，並且沒有與未及時獲得掉落卡片相關的“錯誤”——您無法控制卡片掉落過程，ASF亦然。 在最好的情況下, 您平均每30分鐘可獲得1張掉落的卡片。 在最壞的情況下, 啟動ASF 4小時後您也有可能顆粒無收。 這兩種情況都是正常的, 並會在我們的 **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** 部分仲介紹。
+講真，**這取決於它需要多久。** 每款遊戲的掛卡難度由開發商/出版商設定, 掉卡速度完全取決於他們。 大多數遊戲是每 3 0分鐘就會掉落1張卡片, 但也有遊戲需要在遊玩幾個小時後才會有卡片掉落。 In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. 不要試圖猜測ASF可能的掛卡時間，這不是由您決定的，甚至也不是ASF可以決定的。 沒有什麼辦法可以讓它更快，並且沒有與未及時獲得掉落卡片相關的“錯誤”——您無法控制卡片掉落過程，ASF亦然。 在最好的情況下, 您平均每30分鐘可獲得1張掉落的卡片。 在最壞的情況下, 啟動ASF 4小時後您也有可能顆粒無收。 這兩種情況都是正常的, 並會在我們的 **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** 部分仲介紹。
 
 * * *
 
@@ -119,9 +119,9 @@ ASF also has proper logic of **series** videos. There are many videos on Steam t
 
 In addition to that, ASF is **much more stable and reliable** when it comes to network problems and Steam quirks - it works most of the time and doesn't require your attention at all once configured, while IM often breaks for many people, requires extra fixes or simply doesn't work regardless. 它也完全依賴於您的Steam客戶端，這意味著當您的Steam客戶端遇到任何嚴重問題時它無法運行。 只要可以連接到Steam網絡，ASF就會正常工作，這不需要運行甚至安裝Steam客戶端。
 
-Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. 在其餘常見問題解答中，您可能會了解到十幾個差不多的原因。 簡而言之，**是的**，即使您不需要與IM相比可用的額外ASF功能，也應使用ASF。
+Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. There are dozen of extra less and more important reasons which you may learn about in the rest of the FAQ. 簡而言之，**是的**，即使您不需要與IM相比可用的額外ASF功能，也應使用ASF。
 
-In addition to that, IM is officially discontinued and might break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM已經不適用於很多人，而且這個數字只多不少。 您應該首先避免使用過時的軟件，不僅僅是IM，而是所有其他已棄用的程序。 No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security.
+In addition to that, IM is officially discontinued and can break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM已經不適用於很多人，而且這個數字只多不少。 您應該首先避免使用過時的軟件，不僅僅是IM，而是所有其他已棄用的程序。 No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security.
 
 * * *
 
@@ -209,7 +209,7 @@ No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere
 
 根據用戶和我所知，現在就是這種情況，因為在使用ASF時沒有人報告上述鏈接中所述的任何問題。 我們也無法使用ASF重現上述問題，但卻可以使用Idle Master清楚地再現它。
 
-However, keep in mind that Valve might still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason. Still, in the worst case you'll be unable to play, like stated above, because VAC-free guarantee of ASF is still here regardless if Steam blacklists ASF binary, or not (and you can still launch ASF on any other machine without Steam client being installed at all). 現在沒有必要做任何這樣的事情，讓我們希望它保持這樣。
+However, keep in mind that Valve could still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason. Still, in the worst case you'll be unable to play, like stated above, because VAC-free guarantee of ASF is still here regardless if Steam blacklists ASF binary, or not (and you can still launch ASF on any other machine without Steam client being installed at all). 現在沒有必要做任何這樣的事情，讓我們希望它保持這樣。
 
 * * *
 
@@ -245,7 +245,7 @@ Especially because:
 
 > In regard to all Subscriptions, Contents and Services that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
 
-However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they might cause problems VAC-wise. The key word here is **Steam** idlers, for example ASF, and not **game** idlers.
+However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they could cause problems VAC-wise. The key word here is **Steam** idlers, for example ASF, and not **game** idlers.
 
 Please note that above is only our interpretation of Steam ToS and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
@@ -347,7 +347,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### I have only one (main) account added to ASF, can I still issue commands through steam chat?
 
-**是的**，這在** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes) **部分進行了解釋。 You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** might be easier for you.
+**是的**，這在** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes) **部分進行了解釋。 You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** could be easier for you.
 
 * * *
 
@@ -410,7 +410,7 @@ In addition to that, official Steam ToS clearly states that:
 
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
 
-It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with Steam ToS evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates Steam ToS** and might result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
+It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with Steam ToS evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates Steam ToS** and may result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
 
 * * *
 
@@ -448,9 +448,11 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 * * *
 
-### ASF can't start, the program window immediately closes after being launched!
+### ASF doesn't start, the program window closes immediately!
 
-If even `log.txt` is not being generated then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems might include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. 例如，在Windows上，打開ASF目錄，按住` Shift `，右鍵單擊資料夾內部並選擇“打開命令窗口”（或powershell），在控制台鍵入`.\ArchiSteamFarm.exe` 後按回車鍵。 This way you'll get precise message why ASF is not starting properly.
+In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that.
+
+However, if even .NET Core runtime isn't able to boot on your machine, then `log.txt` will not be generated. If that happens to you then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and confirm with enter. This way you'll get precise message why ASF is not starting properly.
 
 * * *
 
@@ -460,7 +462,7 @@ This shows up as a message in Steam overlay that the account is being used somew
 
 One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
 
-Second reason might come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
+Second reason could come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
 
 Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
 
@@ -476,7 +478,7 @@ ASF will do its best to establish connection, which includes not only asking abo
 
 It's also possible that your machine is not able to establish connection with Steam servers using default protocol in ASF. You can alter protocols that ASF is permitted to use by modifying `SteamProtocols` global configuration property. For example, if you have problems reaching Steam with `UDP` protocol (e.g. due to firewalls), perhaps you'll have more luck with `TCP` or `WebSocket`.
 
-服務器緩存異常是一個非常不可能的情況，例如將ASF ` config `資料夾從一台機器移動到位於完全不同國家的另一台機器，在此情況下，刪除` ASF.db ` 以在下次啟動時刷新Steam服務器可能會有所幫助。 Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
+In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to another machine located in entirely different country, deleting `ASF.db` in order to refresh Steam servers on the next launch may help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
 
 * * *
 
@@ -484,7 +486,7 @@ It's also possible that your machine is not able to establish connection with St
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
-Other reasons might include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
+Other reasons include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
 
 * * *
 
@@ -496,7 +498,7 @@ If parental PIN is not the reason, then this is a most common error, and you sho
 
 How to check if Steam is being down? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties, either leave ASF alone and let it do its job after a short while, or wait yourself.
 
-That's however not always the case, as in some situations Steam issues might not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
+That's however not always the case, as in some situations Steam issues may not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
 
 In addition to that, Steam includes various rate-limiting measures which will temporarily ban your IP if you make excessive number of requests at once. ASF is aware of that and offers you several different limiters in the config, which you should make use of. Default settings were tweaked based on **sane** amount of bots, if you're using so huge amount that even Steam is telling you to go away, then you either tweak them until it no longer tells you to, or you do as you're told. I assume second way is not an option to you, so go read on that topic and pay special attention to `WebLimiterDelay` which is a general limiter that applies to all web requests.
 
@@ -508,9 +510,9 @@ If nothing helps and you have no clue what is broken, you can always enable `Deb
     InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
     
 
-See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There might be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and the same error doesn't go away after a day or two, it might be worth investigating and reporting.
+See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There could be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and the same error doesn't go away after a day or two, it may be worth investigating and reporting.
 
-Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this might be worth asking about.
+Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this may be worth asking about.
 
 * * *
 
@@ -528,11 +530,11 @@ Next, if you do not use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFa
 
 Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate Bot->Master trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster. Likewise, you might get similar lock for removing/changing various Steam security-related settings, such as 2FA, SteamGuard, password, e-mail and likewise. In general, check if you can send a trade from that account yourself, if yes, very likely it's classic 7-days lock from new device.
+Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster. Likewise, you may get similar lock for removing/changing various Steam security-related settings, such as 2FA, SteamGuard, password, e-mail and likewise. In general, check if you can send a trade from that account yourself, if yes, very likely it's classic 7-days lock from new device.
 
 And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarely a problem, but it's also worth mentioning, especially if you set ASF to auto-send trades, yet you're not using ASF 2FA and forgot to actually confirm them.
 
-If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason might not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
+If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason may not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
 
 In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself.
 
@@ -557,11 +559,11 @@ This error can mean a lot of things, some of them include:
 - Too many failed login attempts in short period of time (anti-bruteforce)
 - Too many login attempts in short period of time (rate-limiting)
 - Requirement of captcha to log in (very likely to be caused by two reasons above)
-- Any other reason Steam Network might have preventing you from logging in.
+- Any other reason Steam Network may have preventing you from logging in.
 
 In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You might avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
+In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You can avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 
@@ -587,7 +589,7 @@ In almost all cases this error is caused by **wrong date/time on your machine**.
 
 Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as native synchronization available on Windows, or `ntpd` on Linux.
 
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts might be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
+If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts could be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
 
 * * *
 
@@ -599,7 +601,7 @@ This warning means that Steam did not answer to ASF request in given time. Usual
 
 ### ASF is being detected as a malware by my AntiVirus! What's going on?
 
-**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and might contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
+**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 
 If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
 

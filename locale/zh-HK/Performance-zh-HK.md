@@ -6,7 +6,7 @@ ASF的主要目標是盡可能有效地進行掛卡，它基于兩種類型的�
 
 * * *
 
-早些時候，Steam 改變了掉卡算法。 從那時起，我們可以將Steam帳戶分為兩類：卡片掉落**受限**的帳戶，卡片掉落**不受限**的帳戶。 這兩種賬戶之間的唯一區別在於，卡片掉落受限的賬戶在玩給定遊戲至少` X `小時之前，無法獲得任何卡片， It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+早些時候，Steam 改變了掉卡算法。 從那時起，我們可以將Steam帳戶分為兩類：卡片掉落**受限**的帳戶，卡片掉落**不受限**的帳戶。 這兩種賬戶之間的唯一區別在於，卡片掉落受限的賬戶在玩給定遊戲至少` X `小時之前，無法獲得任何卡片， It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. 然而，這只是理論，不應作為一條定理。 That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
 
 * * *
 
@@ -68,7 +68,7 @@ A good example of what is considered as a **Steam glitch** is not that uncommon 
 - **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
 - **Undocumented** - it's clearly documented on Steam website how cards are being obtained, and **in every single place** it's clearly stated that it's obtained through **playing**, NOT closing games, getting achievements, games switching or launching 32 games concurrently.
 - **Considered as a logic flaw** - closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
-- **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it might no longer work for the second time.
+- **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it could no longer work for the second time.
 
 Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](https://store.steampowered.com/online_conduct/?l=english)**.
 

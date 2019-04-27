@@ -6,7 +6,7 @@ Giấy phép ASF rất dễ dãi và bạn được phép làm nhiều thứ hơ
 
 > Bạn có thể làm bất kì điều gì bạn thích với phần mềm, miễn là bạn bao gồm các thông báo yêu cầu. Giấy phép dễ dãi này chứa một giấy phép bằng sáng chế từ những người đóng góp cho mã nguồn.
 
-Xin lưu ý các **[thành phần ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** đính kèm với `PackageReference` có thể được cấp phép dưới điều kiện khác, như **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Điều tương tự đối với tất cả các dự án bên thứ ba mà ASF sử dụng, đặc biệt tất cả các `công cụ` có giấy phép riêng của nó.
+Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Điều tương tự đối với tất cả các dự án bên thứ ba mà ASF sử dụng, đặc biệt tất cả các `công cụ` có giấy phép riêng của nó.
 
 * * *
 

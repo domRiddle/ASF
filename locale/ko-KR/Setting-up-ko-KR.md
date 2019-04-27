@@ -24,7 +24,7 @@
 
 ### .NET Core 필수 구성 요소
 
-첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 중 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다. 이 참조자료를 사용해야 하지만, 편의를 위해 아래에 필요한 모든 패키지를 설명했으므로 문서 전체를 읽을 필요는 없습니다.
+첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. 윈도우, 리눅스, OS X 중 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다. 이 참조자료를 사용해야 하지만, 편의를 위해 아래에 필요한 모든 패키지를 설명했으므로 문서 전체를 읽을 필요는 없습니다.
 
 당신의 시스템에 일부(혹은 전체) 종속성이 이미 존재하는 것은 사용하고 있는 제3자 소프트웨어가 설치했을 수 있으므로 완벽하게 정상입니다. 하지만 당신의 OS에 맞는 설치관리자가 실행중인지를 확인해야 합니다. 이 종속성 없이는 ASF가 전혀 실해되지 않습니다.
 
@@ -33,7 +33,7 @@
 #### **[윈도우](https://docs.microsoft.com/ko-kr/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 재배포 가능 패키지 Update 3 RC](https://www.microsoft.com/ko-kr/download/details.aspx?id=52685)** (64비트 윈도우는 x64를, 32비트 윈도우는 x86을 선택하십시오.)
-- 모든 윈도우 업데이트를 미리 설치해 놓는 것을 매우 권장합니다. 적어도 **[KB2533623](https://support.microsoft.com/ko-kr/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**과 **[KB2999226](https://support.microsoft.com/ko-kr/help/2999226/update-for-universal-c-runtime-in-windows)**은 필수이고 더 많은 업데이트가 필요할 수 있습니다. 윈도우가 최신 상태라면 모든 것이 설치되어 있을 것입니다. Visual C++ 패키지를 설치하기 전에 요구사항을 충족하는지 확인하십시오.
+- 모든 윈도우 업데이트를 미리 설치해 놓는 것을 매우 권장합니다. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. 윈도우가 최신 상태라면 모든 것이 설치되어 있을 것입니다. Visual C++ 패키지를 설치하기 전에 요구사항을 충족하는지 확인하십시오.
 
 #### **[리눅스](https://docs.microsoft.com/ko-kr/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
@@ -64,7 +64,7 @@
 
 리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일안에서는 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
 
-ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
+Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
 다음은 구조도 예시입니다:
 
@@ -232,7 +232,7 @@ Please note that ASF-ui is currently in preview state and not everything is avai
 
 ### 요약
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 

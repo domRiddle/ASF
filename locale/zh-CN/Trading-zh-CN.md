@@ -45,7 +45,7 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 
 无论您的 `TradingPreferences` 如何设置，ASF 驳回交易不意味着您不能自己接受它。 如果您保留了 `BotBehaviour` 的默认值，不含 `RejectInvalidTrades`，ASF 仅会忽略这些交易——使您可以自行决定是否接受交易。 同样的情况适用于 `MatchableTypes` 以外的物品——这个模块仅仅用于自动化 STM 交易，而不是代替您判断交易的优劣。 此规则的唯一例外是通过 `bladd` 命令添加进交易黑名单的用户——无论您的 `BotBehaviour` 如何设置，来自这些用户的交易都会被立即驳回。
 
-启用此选项时，强烈建议您使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为如果您还需要手动确认每次交易，这一功能也就失去了它的潜力。 即使没有确认交易的能力，`SteamTradeMatcher` 也可以正常工作，但是如果您没有及时手动确认，就可能留下积压的确认请求。
+启用此选项时，强烈建议您使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为如果您还需要手动确认每次交易，这一功能也就失去了它的潜力。 即使没有确认交易的能力，`SteamTradeMatcher` 也可以正常工作，但是如果您没有及时手动确认，就会留下积压的确认请求。
 
 * * *
 

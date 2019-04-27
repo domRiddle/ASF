@@ -46,13 +46,15 @@ Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 
 `--cryptkey <key>` arba `--cryptkey=<key>` - paleis ASF su nustatytais kriptografiniais raktais `<key>` verte. Šie nustatymai peveiks **[Saugumą](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** ir privers ASF naudoti pateiktą `<key>` raktą vietoj įprastinio, kuris yra koduotas paleidžiamoje programoje. Tiesa, slaptažodžiai užšifruoti šiuo raktus turės praeiti kiekvieną ASF paleidimą.
 
-* * *
-
-`--no-restart` - dažniausiai naudojamas **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** konteinerio ir priverčia `AutoRestart` `false`. Jei neturite ypatingo poreikio, vietoj to turėtumėte sukonfigūruoti ` AutoRestart ` savybę. Šis jungiklis yra čia, todėl mūsų konteinerio skriptas nepakeistų globalinės struktųros, kad prisitaikytų ją prie savo aplinkos. Jei ASF naudote skripte, tuomet taip pat naukite ši jungiklį (kitaip geriau palikite global config).
+Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. It might come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--no-restart` - dažniausiai naudojamas **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** konteinerio ir priverčia `AutoRestart` `false`. Jei neturite ypatingo poreikio, vietoj to turėtumėte sukonfigūruoti ` AutoRestart ` savybę. Šis jungiklis yra čia, todėl mūsų konteinerio skriptas nepakeistų globalinės struktųros, kad prisitaikytų ją prie savo aplinkos. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+
+* * *
+
+`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
 
 Pavyzdys:
 

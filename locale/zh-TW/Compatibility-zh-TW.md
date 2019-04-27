@@ -34,7 +34,7 @@ Generic 包與平臺無關，所以它不包含任何特定於電腦的代碼。
 
 ### OS-specific
 
-除了 Generic 包中包含的託管代碼之外，OS-specific 包還包括指定平臺的本機代碼。 換句話說，OS-specific 包內部**已經包含了可用的 .NET Core 運行時環境**，使您可以跳過麻煩的安裝過程，直接啟動 ASF。 OS-specific 包，顧名思義，是針對不同作業系統的，每種作業系統都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe`二進位檔案，而 Linux 則需要 Unix ELF `ArchiSteamFarm`二進位檔案。 您可能已經知道，這兩種類型之間是完全不相容的。
+除了 Generic 包中包含的託管代碼之外，OS-specific 包還包括指定平臺的本機代碼。 換句話說，OS-specific 包內部**已經包含了可用的 .NET Core 運行時環境**，使您可以跳過麻煩的安裝過程，直接啟動 ASF。 OS-specific 包，顧名思義，是針對不同作業系統的，每種作業系統都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe`二進位檔案，而 Linux 則需要 Unix ELF `ArchiSteamFarm`二進位檔案。 As you may know, those two types are not compatible with each other.
 
 ASF目前可用於以下作業系統 ：
 
@@ -55,7 +55,7 @@ ASF目前可用於以下作業系統 ：
 
 但如果您使用 **Generic** 包，則必須保證已安裝 ASF 所需的對應平臺的 .NET Core 運行時環境。
 
-ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it might target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
+ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it may target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the minimum (target) one known during compilation.
 
 如有疑問，您可以訪問我們用於編譯併在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個構建的頂端找到 `dotnet --info` 的輸出。
 
@@ -65,4 +65,4 @@ ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but
 
 ### Debian Jessie 更新
 
-如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 Otherwise, you may run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.

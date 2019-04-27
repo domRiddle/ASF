@@ -119,7 +119,7 @@ O ASF também trata corretamente vídeos de qualquer **espécie**. Há muitos vi
 
 Além disso, o ASF é **muito mais estável e confiável** quando se trata de problemas de rede e peculiaridades da Steam - ele funciona na maioria das vezes e, uma vez configurado, não requer a sua atenção em tudo, enquanto o IM trava muitas vezes, requer correções extras ou simplesmente não funciona. Ele também é totalmente dependente do seu cliente Steam, o que significa que ele pode não funcionar se você estiver com problemas no cliente. O ASF funcionará corretamente enquanto puder se conectar à rede Steam e não necessita que o cliente Steam esteja sendo executado, nem mesmo instalado.
 
-Essas são 3 razões **muito importantes** pelas quais você deve considerar usar o ASF, já que elas afetam diretamente todos que coletam cartas Steam e não há como alguém dizer "isso não me preocupa", pois as manutenções do Steam e suas falhas acontecem com todos. Há outras dezenas de razão mais e menos importantes que você verá no resto desse FAQ. Então resumindo, **sim**, você deve usar o ASF mesmo se não precisar de nenhuma função extra do ASF que não exista no IM.
+Essas são 3 razões **muito importantes** pelas quais você deve considerar usar o ASF, já que elas afetam diretamente todos que coletam cartas Steam e não há como alguém dizer "isso não me preocupa", pois as manutenções do Steam e suas falhas acontecem com todos. Há outras dezenas de motivos mais ou menos importantes que você verá no resto desse FAQ. Então resumindo, **sim**, você deve usar o ASF mesmo se não precisar de nenhuma função extra do ASF que não exista no IM.
 
 Ainda, o IM está oficialmente descontinuado e pode parar de funcionar completamente no futuro, sem ninguém se preocupando em consertá-lo, considerando a existência de soluções muito mais poderosas (não apenas o ASF). O IM já não funciona mais para um monte de gente, e esse número só está aumentando, não diminuindo. Você sempre deve evitar usar softwares obsoletos, não apenas o IM, mas qualquer outro programa descontinuado. Não ter manutenção ativa significa que ninguém se importa se ele funciona ou não, ninguém verifica isso e **ninguém se responsabiliza pela sua funcionalidade**, o que é uma questão crucial em termos de segurança.
 
@@ -347,7 +347,7 @@ Obrigado pelo seu interesse! Você pode encontrar todos os detalhes na seção *
 
 ### Tenho apenas uma conta (principal) adicionada ao ASF, eu posso emitir comandos através do chat Steam?
 
-**Sim**, e isso é explicado na seção **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR#notas)comandos**. Você pode enviá-los através do chat em grupo do Steam, embora usar o **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** seja a maneira mais fácil.
+**Sim**, e isso é explicado na seção **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR#notas)comandos**. Você pode enviá-los através do chat em grupo do Steam, embora usar o **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** possa ser a maneira mais fácil.
 
 * * *
 
@@ -448,9 +448,11 @@ Em suma - informe erros, não informe avisos. Porém você ainda perguntar sobre
 
 * * *
 
-### O ASF não inicia, a janela do programa fecha imediatamente após ser lançado!
+### O ASF não funciona, a janela do programa fecha imediatamente!
 
-Se nem mesmo o `log.txt` estiver sendo gerado é provável que você tenha esquecido de instalar o .NET Core, como consta no guia de **[instalação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)**. Outros problemas comuns podem incluir tentar rodar a variante errada do ASF para seu SO, ou de alguma outra forma a falta de dependências nativas do .NET Core. Se a janela de console facha rápido demais para você conseguir ler a mensagem, então abra um console independente e rode o executável do ASF por lá. Por exemplo, no Windows, abra a pasta do ASF, segure `Shift`, clique com o botão direito dentro da pasta e escolha "Abrir janela de comando (ou powershell) aqui", digite no console `.\ArchiSteamFarm.exe` e tecle enter. Desta forma você obterá a mensagem correta do motivo do ASF é não iniciar corretamente.
+Em condições normais, qualquer falha ou fechamento do ASF vai gerar um arquivo `log.txt` na pasta do programa que pode ser usado para encontrar a causa.
+
+No entanto, se nem mesmo o tempo de execução .NET Core for capaz de inicializar no seu computador, então o arquivo `log.txt` não será gerado. Se isso acontecer com você, é provável que você tenha esquecido de instalar o .NET Core, como consta no guia de **[instalação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR#instalador-para-sistemas-operacionais-espec%C3%ADficos)**. Outros problemas comuns incluem tentar rodar a variante errada do ASF para seu SO, ou de alguma outra forma a falta de dependências nativas do .NET Core. Se a janela de console facha rápido demais para você conseguir ler a mensagem, então abra um console independente e rode o executável do ASF por lá. Por exemplo, no Windows, abra a pasta do ASF, segure `Shift`, clique com o botão direito dentro da pasta e escolha "Abrir janela de comando (ou powershell) aqui", digite no console `.\ArchiSteamFarm.exe` e confirme com enter. Desta forma você obterá a mensagem correta do motivo do ASF é não iniciar corretamente.
 
 * * *
 
@@ -484,7 +486,7 @@ No caso improvável de você ter armazenado em cache os endereços incorretos do
 
 Normalmente isso significa que você está usando o PIN do modo familia para acessar sua conta e esqueceu de colocá-lo na configuração do ASF. Voce deve colocar um PIN válido no parâmetro de configuração do bot `SteamParentalCode`, caso contrário o ASF não conseguirá acessar a maioria do conteúdo web, por isso não conseguirá trabalhar corretamente. Vá até **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para saber mais sobre o `SteamParentalCode`.
 
-Outras razões podem incluir um problema temporário do Steam, um problema de rede ou coisas assim. Se o problema não se resolver depois de várias horas e você tem certeza de que configurou o ASF corretamente, sinta-se livre para nos informar.
+Outras razões incluem: um problema temporário do Steam, um problema de rede ou coisas assim. Se o problema não se resolver depois de várias horas e você tem certeza de que configurou o ASF corretamente, sinta-se livre para nos informar.
 
 * * *
 
@@ -508,9 +510,9 @@ Se nada ajudar e você não tiver idéia do que possa estar errado, você pode h
     InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
     
 
-Vê esse código `Forbidden` (`Proibido`)? Isso significa que você foi banido temporariamente por excesso de solicitações, porque você ainda não configurou o `WebLimiterDelay` corretamente (assumindo que você obteve o mesmo código de erro para todas as outras solicitações). Pode haver também outros motivos listados aqui, tais como `InternalServerError` e `ServiceUnavailable` e limites de tempo excedidos que indicam manutenção/problemas no Steam. Você sempre pode tentar visitar o link mencionado pelo ASF e verificar se ele funciona; se não funcionar, então você sabe por que o ASF também não pode acessá-lo. Se funcionar e o mesmo erro não desaparecer depois de um dia ou dois, valeria a pena investigar e reportar.
+Vê esse código `Forbidden` (`Proibido`)? Isso significa que você foi banido temporariamente por excesso de solicitações, porque você ainda não configurou o `WebLimiterDelay` corretamente (assumindo que você obteve o mesmo código de erro para todas as outras solicitações). Podem haver também outros motivos listados aqui, tais como `InternalServerError` e `ServiceUnavailable` e limites de tempo excedidos que indicam manutenção/problemas no Steam. Você sempre pode tentar visitar o link mencionado pelo ASF e verificar se ele funciona; se não funcionar, então você sabe por que o ASF também não pode acessá-lo. Se funcionar e o mesmo erro não desaparecer depois de um dia ou dois, pode valer a pena investigar e reportar.
 
-Antes de fazer isso você deve **certificar-se de que vale a pena relatar o erro**. Se ele estiver mencionado nesse FAQ, uma questão relacionada a troca por exemplo, então não. Se for problema temporário que aconteceu uma ou duas vezes, principalmente quando sua rede estava instável ou o Steam offline - então, não. No entanto, se você teve esse problema várias vezes seguidas no espaço de 2 dias, reiniciou tanto ASF quanto seu computador e certificou-se que não há nenhuma resposta pra ele no FAQ, então vale a pena pedir suporte.
+Antes de fazer isso você deve **certificar-se de que vale a pena relatar o erro**. Se ele estiver mencionado nesse FAQ, uma questão relacionada a troca por exemplo, então não. Se for problema temporário que aconteceu uma ou duas vezes, principalmente quando sua rede estava instável ou o Steam offline - então, não. No entanto, se você teve esse problema várias vezes seguidas no espaço de 2 dias, reiniciou tanto ASF quanto seu computador e certificou-se que não há nenhuma resposta pra ele no FAQ, então pode valer a pena pedir suporte.
 
 * * *
 

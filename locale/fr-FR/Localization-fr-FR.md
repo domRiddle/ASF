@@ -54,9 +54,9 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <h3>Relecture</h3>
 
-<p>C'est une bonne idée d'avoir une traduction cohérente, même si elle pourrait potentiellement être libérée du processus de révision / vote de la communauté expliqué ci-dessus. Cela est principalement dû au fait que les traductions incorrectes qui ne sont pas nécessairement mauvaises risquent d’avoir tellement de votes positifs qu’il n’est plus possible de suggérer une meilleure traduction, même si quelqu'un en a une.</p>
+<p>C'est une bonne idée d'avoir une traduction cohérente, même si elle pourrait potentiellement être libérée du processus de révision / vote de la communauté expliqué ci-dessus. This is mainly because incorrect translations that are not necessarily bad may get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.</p>
 
-<p>If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, <strong><a href="https://crowdin.com/messages/create/13177432/240376">let us know</a></strong>, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We might also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.</p>
+<p>If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, <strong><a href="https://crowdin.com/messages/create/13177432/240376">let us know</a></strong>, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We may also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.</p>
 
 <p>General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.</p>
 
@@ -85,7 +85,7 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <p>Language is considered <strong>translated</strong> when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.</p>
 
-<p>Selected languages might have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.</p>
+<p>Selected languages may have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.</p>
 
 <p>ASF will include given language <strong>as soon as possible</strong>, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.</p>
 
@@ -117,7 +117,7 @@ However, our Polish language actually includes 4 of them - "one", "few", "many" 
 
 This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms might be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms could be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
 
 * * *
 
@@ -250,7 +250,7 @@ However, just because those words should not be translated, doesn't mean that yo
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user might see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user may see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
 If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**. This also serves as a practical example of using a local link.
 

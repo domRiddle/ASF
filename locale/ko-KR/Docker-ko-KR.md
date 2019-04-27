@@ -1,6 +1,6 @@
 # 도커
 
-ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. ASF를 도커 컨테이너로 실행하는 것은 일반적인 사용자에게는 보통 장점이 없습니다. 하지만 ASF가 다른 모든 앱으로부터 분리된 샌드박스 환경에서 실행을 보장해주는, 서버에서 ASF 사용시에는 훌륭한 방법일 수 있습니다. 도커 repo는 **[여기에](https://hub.docker.com/r/justarchi/archisteamfarm)** 있습니다.
+ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. 도커 repo는 **[여기에](https://hub.docker.com/r/justarchi/archisteamfarm)** 있습니다.
 
 * * *
 
@@ -85,7 +85,7 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archis
 
 ### 볼륨 권한
 
-ASF는 기본적으로 컨테이너 내부에서 기본값인 `root` 사용자로 실행됩니다. 우리는 이미 도커 컨테이너 안에 있으므로 보안측면에서 문제가 되지는 않습니다. 하지만 새로 생성된 공유 볼륨은 보통 `root`의 소유가 되고 이는 공유 볼륨을 사용할 때 원하는 상황은 아닙니다.
+ASF는 기본적으로 컨테이너 내부에서 기본값인 `root` 사용자로 실행됩니다. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which may not be desired situation when using a shared volume.
 
 도커는 `docker run` 명령어에 `--user` **[플래그](https://docs.docker.com/engine/reference/run/#user)** 를 전달하여 ASF를 실행할 기본 사용자를 정의할 수 있습니다. 예를 들어 `id` 명령어를 통해 `uid`와 `gid`를 확인하고 이를 명령어의 일부로 줄 수 있습니다. 예를 들어, 해당 사용자의 `uid`와 `gid`가 1000 인 경우,
 
@@ -177,7 +177,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 ## 프로 팁
 
-ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. `latest` 태그를 사용하고 있지 않다면 ASF를 업데이트 하는 경우 `docker stop`, `docker rm`, `docker pull`, `docker run` 을 다시 한번 실행해야 함을 명심하십시오. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. `latest` 태그에서는 ASF가 스스로 자동 업데이트할 수 있으며, 최신 ASF를 사용하는데 이미지를 다시 빌드할 필요가 없습니다. 물론 새로운 .NET Core 런타임과 그 밑의 OS를 사용하기 위해 때때로 다시 빌드하는 것도 좋은 생각입니다.
+ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. `latest` 태그를 사용하고 있지 않다면 ASF를 업데이트 하는 경우 `docker stop`, `docker rm`, `docker pull`, `docker run` 을 다시 한번 실행해야 함을 명심하십시오. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
 
 위에서 암시하였듯이, `latest` 가 아닌 ASF 태그는 스스로 자동 업데이트하지 않습니다. 즉, **당신이** 최신의 `justarchi/archisteamfarm` 저장소를 사용할 주체입니다. 보통 앱이 실행중에는 코드를 건드려서는 안되기 때문에 많은 장점을 갖지만, 도커 컨테이너에 있는 ASF는 걱정할 필요가 없다는 편리함도 있습니다. 좋은 사례와 정확한 도커 사용례를 잘 살핀다면 우리가 추천하는 것은 `latest` 태그가 아닌 `released` 태그입니다. 하지만 그게 귀찮고 ASF가 동작도 잘하고 자동 업데이트도 하길 원하면 `latest` 태그가 그 답입니다.
 

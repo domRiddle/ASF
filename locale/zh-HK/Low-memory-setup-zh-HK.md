@@ -6,7 +6,7 @@
 
 根據您的使用情況，ASF在資源上非常輕量級，即使是使用128 MB VPS也可以在Linux上運行它，儘管不推薦這麼低的配置，因爲可能會導致各種問題。 在輕裝上陣的同時，ASF 並不害怕要求操作系統提供更多的記憶體以支援其以最佳速度運行。
 
-作為應用程序，ASF 試圖盡可能地優化和高效，這也考慮了在執行期間使用的資源。 當涉及到記憶體時，ASF 更喜歡提升性能而不是節省記憶體，這會導致臨時記憶體“峰值”，例如，您將會注意到，ASF將從具有3個以上徽章頁面的帳戶獲取並解析第一頁，從中讀取總頁數，然後為每個額外頁面啟動獲取任務，這導致並發獲取和解析剩餘頁面。 “額外”記憶體使用（與操作的最小值相比）可以顯著加快執行和整體性能，同時增加並行執行所有這些操作所需的記憶體使用成本。 類似的事情發生在可以並行運行的所有其他常規ASF任務上，例如解析活躍交易報價，ASF可以立即解析所有這些報價，因為它們彼此獨立。 最重要的是，ASF（C＃運行時）將**不會**立即將未使用的記憶體釋放給操作系統，您可以通過ASF進程的形式注意到ASF只佔用越來越多的記憶體，但從不將記憶體釋放到操作系統。 有些人可能已經覺得有問題了，甚至可能懷疑記憶體洩漏，但不要擔心，一切盡在掌握之中。
+作為應用程序，ASF 試圖盡可能地優化和高效，這也考慮了在執行期間使用的資源。 當涉及到記憶體時，ASF 更喜歡提升性能而不是節省記憶體，這會導致臨時記憶體“峰值”，例如，您將會注意到，ASF將從具有3個以上徽章頁面的帳戶獲取並解析第一頁，從中讀取總頁數，然後為每個額外頁面啟動獲取任務，這導致並發獲取和解析剩餘頁面。 “額外”記憶體使用（與操作的最小值相比）可以顯著加快執行和整體性能，同時增加並行執行所有這些操作所需的記憶體使用成本。 類似的事情發生在可以並行運行的所有其他常規ASF任務上，例如解析活躍交易報價，ASF可以立即解析所有這些報價，因為它們彼此獨立。 最重要的是，ASF（C＃運行時）將**不會**立即將未使用的記憶體釋放給操作系統，您可以通過ASF進程的形式注意到ASF只佔用越來越多的記憶體，但從不將記憶體釋放到操作系統。 Some people may already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
 
 ASF 經過了非常好的優化，並會盡可能地利用可用的資源。 ASF的高內存使用率並不意味著ASF主動**使用**該記憶體並**需要它**。 ASF通常會將分配的記憶體作為未來操作的“空間”，因為如果我們不需要為我們即將使用的每個記憶體塊詢問操作系統，我們就可以大幅提高性能。 當操作系統**真正**需要它時，運行時應自動將未使用的ASF記憶體釋放回操作系統。 **[於記憶體而言，未使用即浪費](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**。 當您**需要**的內存高於可用的內存時，您可能會遇到問題，這並不是因爲ASF保留一些額外的分配以加速稍後將執行的功能。 You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
 
@@ -16,7 +16,7 @@ This is also why ASF process memory varies from setup to setup, as ASF will do i
 
 * * *
 
-Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you might be interested in further tuning, and therefore reading this page.
+Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you could be interested in further tuning, and therefore reading this page.
 
 Below suggestions are divided into a few categories, with varied difficulty.
 
@@ -66,7 +66,7 @@ This works exceptionally well by limiting size of GC generations and in result m
 
 > When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
 
-This offers little improvement, but might make GC even more aggressive when system will be low on memory.
+This offers little improvement, but may make GC even more aggressive when system will be low on memory.
 
 * * *
 

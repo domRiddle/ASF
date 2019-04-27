@@ -52,7 +52,7 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
     
     Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
     
-    Veuillez noter que vous ne serez **pas** affiché sur le site si vous ne remplissez pas toutes les exigences. ASF won't even bother communicating with our server in this case, so second point is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. De plus, les listes publiques sont compatibles uniquement avec la dernière version stable d'ASF et peuvent refuser d'afficher les robots obsolètes, en particulier s'ils ne disposent pas des fonctionnalités essentielles qui ne peuvent être trouvées que dans les versions les plus récentes.
+    Veuillez noter que vous ne serez **pas** affiché sur le site si vous ne remplissez pas toutes les exigences. ASF won't even bother communicating with our server in this case, so second point is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
     
     ### API
     
@@ -70,4 +70,4 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
     
     La participation dans les statistiques n’est **pas obligatoire**, mais fortement recommandé pour l’avenir du programme. Nous ne vous jugeons pas, et si vous avez l'envie de cacher le fait que vous êtes un utilisateur ASF, vous pouvez désactiver complètement les statistiques en changeant `Statistics`de la configuration global par `false`. Les statistiques désactivées rendent tout le module non opérationnel, et ne feront aucune des actions spécifiées dans notre politique de confidentialité ci-dessus.
     
-    Disabling statistics might influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.
+    Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.

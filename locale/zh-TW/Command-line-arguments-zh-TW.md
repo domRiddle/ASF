@@ -46,13 +46,15 @@ Linux/OS X
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
 
-* * *
-
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. 除非有特殊的需要，否則您應直接在描述檔中配置 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全局配置即可適應環境。 當然，如果是在腳本中運行 ASF，您也可以使用此開關（否則您最好使用全局配置屬性）。
+Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用, 正如Linux 打包機制——這樣您就可以在多個配置中使用一個（最新的）二進位檔案。 此路徑既可以是基於 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 請注意，當使用同一份二進位檔案運行不同實例時應禁用自動更新功能，因為它們之間不會進行同步。 Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. 除非有特殊的需要，否則您應直接在描述檔中配置 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全局配置即可適應環境。 Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+
+* * *
+
+`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. 此路徑既可以是基於 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 請注意，當使用同一份二進位檔案運行不同實例時應禁用自動更新功能，因為它們之間不會進行同步。 Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
 
 範例:
 

@@ -16,7 +16,7 @@ Também é por esse motivo que a memória utilizada no processo do ASF varia de 
 
 * * *
 
-Claro, existem muitas formas de apontar o ASF na direção certa em termos de quantidade de memória que pretende usar. No geral, se você não precisa disso, é melhor deixar o coletor de lixo trabalhar em paz e fazer o que ele achar melhor. Mas nem sempre isso é possível, por exemplo, se seu servidor Linux também está hospedando vários sites, bancos de dados MySQL e manipuladores PHP, então você realmente não pode permitir que o ASF diminua o uso de memória apenas quando você estiver perto de ficar sem ela, pois geralmente é tarde demais e leva a queda de desempenho. Normalmente é nesse caso que você pode estar interessado em uma configuração mais detalhada e, portanto, em ler essa página.
+Claro, existem muitas formas de apontar o ASF na direção certa em termos de quantidade de memória que pretende usar. No geral, se você não precisa disso, é melhor deixar o coletor de lixo trabalhar em paz e fazer o que ele achar melhor. Mas nem sempre isso é possível, por exemplo, se seu servidor Linux também está hospedando vários sites, bancos de dados MySQL e manipuladores PHP, então você realmente não pode permitir que o ASF diminua o uso de memória apenas quando você estiver perto de ficar sem ela, pois geralmente é tarde demais e leva a queda de desempenho. É normalmente nesse caso que você pode estar interessado em uma configuração mais detalhada e, portanto, em ler essa página.
 
 As sugestões abaixo estão divididas em algumas categorias, com dificuldade variada.
 

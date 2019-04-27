@@ -6,7 +6,7 @@ La licence ASF est permissive et vous permet beaucoup plus de possibilités que 
 
 > Vous pouvez faire ce que vous voulez avec le logiciel, à condition d'inclure les avis requis. Cette licence permissive contient une licence de brevet des contributeurs du code.
 
-Veuillez noter que divers **[composants ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclus avec `PackageReference` peuvent être sous licence dans des conditions différentes, telles que **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Les même conditions s'applique à tous les autres projets tiers utilisés par ASF, en particulier à tous les outils dotés de leurs propres licences.
+Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Les même conditions s'applique à tous les autres projets tiers utilisés par ASF, en particulier à tous les outils dotés de leurs propres licences.
 
 * * *
 

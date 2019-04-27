@@ -51,7 +51,7 @@ ASF **不會**收集任何其他上述清單之外的數據，因此這一點不
 
 用戶按照他們的庫存（按降序排序）——首先是` MatchEverything `機械人，`Any`橫幅意味著它接受所有1：1交易，然後是符合` MatchableTypes `的遊戲計數，最後是符合` MatchableTypes `的物品計數。
 
-請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 此外，公開清單僅與兼容最新的ASF穩定版，並且可能拒絕顯示過時的機械人，特別是如果它們缺少只能在較新版本中找到的核心功能。
+請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
 ### API
 
@@ -69,4 +69,4 @@ ASF STM 清單暫時只接受 ASF 機械人。 目前無法在我們的清單中
 
 儘管我們高度鼓勵未來的計劃，但參與統計資訊**並非強制性的**。 如果您希望不為人知地使用ASF，我們不予置評，您可以將全域配置中的` Statistics `屬性切換為 `false`來**完全**禁用統計。 禁用統計資訊將使整個模組無法運行，且不會執行上述隱私政策中指定的任何操作。
 
-禁用統計資訊可能會影響**我們的技術支持，ASF功能以及免費提供給您的其他內容**。 例如，您未啓用 `Statistics` 的話，將無法使用 `MatchActively` 功能。
+Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. 例如，您未啓用 `Statistics` 的話，將無法使用 `MatchActively` 功能。

@@ -192,7 +192,7 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 ### Exemplo de configuração
 
-A configuração à seguir permite acesso remoto de todas as fontes, portanto você deve se certificar que leu e entendeu nosso aviso prévio sobre isso, disponível acima.
+A configuração à seguir permite acesso remoto de todas as fontes, portanto você deve se certificar que leu e entendeu nosso aviso de segurança sobre isso, disponível acima.
 
 ```json
 {
@@ -205,3 +205,5 @@ A configuração à seguir permite acesso remoto de todas as fontes, portanto vo
     }
 }
 ```
+
+Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da sua LAN, então é muito melhor usar algo como `192.168.0.0.0` ao invés de `*`. Adapte o endereço de rede adequadamente caso você use um diferente.

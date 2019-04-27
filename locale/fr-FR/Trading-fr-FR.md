@@ -51,11 +51,11 @@ Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez c
 
 <p>Quels que soient les <code> TradingPreferences que vous avez choisies </ 0>, une transaction rejetée par ASF ne signifie pas que vous ne pouvez l’accepter vous-même. If you kept default value of <code>BotBehaviour`, which doesn't include `RejectInvalidTrades`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Il en va de même pour les transactions avec des éléments en dehors de ` MatchableTypes </ 0>, ainsi que pour tout le reste - le module est censé vous aider à automatiser les transactions STM, sans décider de ce qui est une bonne transaction ou non. La seule exception à cette règle concerne les utilisateurs que vous avez inscrits sur la liste noire du module d'échange à l'aide de la commande <code> bladd </ 0>. Les transactions de ces utilisateurs sont immédiatement rejetées, quels que soient les paramètres <code> BotBehaviour </ 0>.</p>
 
-<p>Il est vivement recommandé d'utiliser <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication"> ASF 2FA </ 0> lorsque vous activez cette option, car cette fonction perd tout son potentiel si vous décidez de confirmer manuellement chaque transaction. <code> SteamTradeMatcher </ 0> fonctionnera correctement même si vous ne pouvez pas confirmer les transactions, mais cela pourrait générer un retard de confirmations si vous ne les acceptez pas à temps.</p>
-
-<hr />
-
-<h3><code>MatchActively`</h3> 
+<p>Il est vivement recommandé d'utiliser <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication"> ASF 2FA </ 0> lorsque vous activez cette option, car cette fonction perd tout son potentiel si vous décidez de confirmer manuellement chaque transaction. <code>SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.</p> 
+    * * *
+    
+    ### `MatchActively`
+    
     `MatchActively` setting is extended version of `SteamTradeMatcher` which in addition to passive matching offered by that option, also includes active matching in which the bot will send trades to other people.
     
     In order to make use of that option, you have a set of requirements to meet. Firstly, you need to enable `SteamTradeMatcher` (as this feature is extension of that), and ensure that you have `MatchEverything` **disabled** (as trading bots never match actively). Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, without a requirement of 100 items. This means that, at the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active, **[public inventory](https://steamcommunity.com/my/edit/settings)** and at least one valid type in `MatchableTypes`, such as trading cards.

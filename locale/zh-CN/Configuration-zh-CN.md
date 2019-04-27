@@ -138,7 +138,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 这是一个默认值为 `false` 的 `bool` 类型属性。 该属性定义是否要在调试模式下运行进程。 当启用调试模式时，ASF 会在 `config` 所在的目录创建一个特殊的 `debug` 目录，用于跟踪 ASF 与 Steam 服务器之间的所有通信。 调试信息可以帮助找出与网络相关的或者 ASF 的一般问题。 此外，这还会增加程序中某些协程的显示细节，例如 `WebBrowser` 将会显示请求失败的具体原因——这些条目将会被写入 ASF 的日志。 **您应该只在开发者告知您启用调试模式时启用它**。 以调试模式启用 ASF 将会**降低性能**、**降低稳定性**并且**输出过多信息**，所以**仅**应该在需要时才临时启用，以调试并重现特定问题，或者获取请求失败的详情等，**不应该**在正常情况下启用。 您将会看到**很多**新的错误、问题和异常——如果您决定自己分析这些信息，请确保您对 ASF、Steam 及其特点非常了解，因为不是所有信息都会与问题有关。
 
-**警告：**&#8203;启用此模式会在日志中记录**可能敏感**的信息，例如您登录到 Steam 的用户名或密码（为了调试网络问题）。 这些数据会被写入 `debug` 目录和标准的 `log.txt` 文件（此时该文件中的日志会比平时多很多）。 您不应该公开发布 ASF 生成的调试内容，ASF 的开发者始终会提醒您通过电子邮件或者其他安全的方式发送它们。 我们既不会存储。也不会利用这些敏感信息，它们只是调试协程的一部分，并且可能与您遇到的问题有关。 我们希望您提供的 ASF 日志未经任何修改，但如果您担心，可以将这些敏感信息编辑掉。
+**警告：**&#8203;启用此模式会在日志中记录**可能敏感**的信息，例如您登录到 Steam 的用户名或密码（为了调试网络问题）。 这些数据会被写入 `debug` 目录和标准的 `log.txt` 文件（此时该文件中的日志会比平时多很多）。 您不应该公开发布 ASF 生成的调试内容，ASF 的开发者始终会提醒您通过电子邮件或者其他安全的方式发送它们。 我们既不会存储。也不会利用这些敏感信息，它们只是调试协程的一部分，并且会与您遇到的问题有关。 我们希望您提供的 ASF 日志未经任何修改，但如果您担心，可以将这些敏感信息编辑掉。
 
 > 您可以使用星号等标记替换掉敏感的细节。 但您需要避免完全删除包含敏感信息的行，因为“它们存在”这一情况本身也可能与问题有关，应该予以保留。
 
@@ -261,7 +261,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 这是一个默认值为 `24` 的 `byte` 类型属性。 该属性定义了 ASF 每隔多久自动检查一次更新。 保持更新是非常重要的，更新不仅包括新特性和关键的安全补丁，还有漏洞修复、性能提升、稳定性增强等等。 当该属性的值大于 `0` 时，ASF 将会在新版本可用时自动下载、替换并重新启动自身（如果 `AutoRestart` 属性允许）。 为了实现这一目标，ASF 将会每隔 `UpdatePeriod` 小时检查 GitHub 仓库上是否有新版本。 该值为 `0` 则表示禁用自动更新，但您仍然可以手动执行 `update` 命令。 您可能还需要为 `UpdatePeriod` 设置合适的 `UpdateChannel` 属性。
 
-ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您存放在 `config` 文件夹中的配置文件和数据库——这意味着在 ASF 文件夹中的任何无关文件都可能会在更新过程中丢失。 默认值 `24` 足以保证 ASF 始终是新版本，但又不会进行过多不必要的更新检查。
+ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您存放在 `config` 文件夹中的配置文件和数据库——这意味着在 ASF 文件夹中的任何无关文件都会在更新过程中丢失。 默认值 `24` 足以保证 ASF 始终是新版本，但又不会进行过多不必要的更新检查。
 
 除非您有**充分的**理由禁用该功能，否则应该保持自动更新功能启用，并且 `UpdatePeriod` 的值**符合您的需求**。 这不仅因为我们只会对最新稳定版 ASF 提供支持，还因为我们也**只保证最新版本是安全的**。 如果您使用过时版本的 ASF，就会将自己暴露在各种问题下，例如小漏洞、功能失效，甚至 **[Steam 帐户永久停用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#曾经有人因此被封禁吗)**，所以我们**强烈建议**，为了您自己的利益，始终确保使用 ASF 的最新版本。 自动更新使我们能够快速反应，在造成严重后果之前禁用或修复有问题的代码——如果您禁用了自动更新，将会失去我们的一切安全保证，并且需要自己承担可能运行有害代码的风险，这些有害代码既有可能对 Steam 网络有害，也可能对您的 Steam 帐户有害。
 
@@ -500,7 +500,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
-Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `LootableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望拾取所有类型的物品，也不要在 `LootableTypes` 中包含 `Unknown`。
+默认值的设定基于机器人的最常见用法，即仅仅拾取补充包和集换式卡牌（包括闪亮卡牌）。 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `LootableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望拾取所有类型的物品，也不要在 `LootableTypes` 中包含 `Unknown`。
 
 * * *
 
@@ -572,12 +572,12 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 这是一个默认值为 `0` 的 `byte flags` 类型属性。 该属性定义 ASF 在激活游戏序列号时的行为，可选项如下：
 
-| 值 | 名称               | 描述                                        |
-| - | ---------------- | ----------------------------------------- |
-| 0 | None             | No special redeeming preferences, default |
-| 1 | Forwarding       | 将无法激活的序列号转发给其他机器人                         |
-| 2 | Distributing     | 将序列号分配给自身和其他机器人                           |
-| 4 | KeepMissingGames | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用               |
+| 值 | 名称               | 描述                          |
+| - | ---------------- | --------------------------- |
+| 0 | None             | 无特殊激活偏好，默认值                 |
+| 1 | Forwarding       | 将无法激活的序列号转发给其他机器人           |
+| 2 | Distributing     | 将序列号分配给自身和其他机器人             |
+| 4 | KeepMissingGames | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用 |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
@@ -585,7 +585,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `Distributing` 会使机器人在自己和其他机器人之间分配所有序列号。 这意味着每个机器人都会从一批序列号中获得一个。 通常，这个功能仅适用于激活大量同一个游戏的序列号。并且您希望在所有机器人中均匀分配，而激活各种不同游戏的情况则不适合该选项。 如果您仅在 `redeem` 命令中提供一个序列号，则此功能就没有意义，因为没有可供分配的额外序列号。
 
-`KeepMissingGames` 会使机器人在无法确定自己是否拥有序列号所激活的游戏时，跳过 `Forwarding` 操作。 这基本上意味着 `Forwarding` 操作将**只会**针对 `AlreadyPurchased` 的序列号生效，而不再转发 `DoesNotOwnRequiredApp`、`RateLimited` 或 `RestrictedCountry` 状态的序列号。 通常情况下，您可能希望为主帐户设置这一选项，以确保在临时触发频率限制 `RateLimited` 等情况下，不再继续转发为此帐户激活的序列号。 从描述中可以猜到，如果未启用 `Forwarding`，则此字段就完全没有任何效果。
+`KeepMissingGames` 会使机器人在无法确定自己是否拥有序列号所激活的游戏时，跳过 `Forwarding` 操作。 这基本上意味着 `Forwarding` 操作将**只会**针对 `AlreadyPurchased` 的序列号生效，而不再转发 `DoesNotOwnRequiredApp`、`RateLimited` 或 `RestrictedCountry` 状态的序列号。 通常情况下，您会希望为主帐户设置这一选项，以确保在临时触发频率限制 `RateLimited` 等情况下，不再继续转发为此帐户激活的序列号。 从描述中可以猜到，如果未启用 `Forwarding`，则此字段就完全没有任何效果。
 
 同时启用 `Forwarding` 和 `Distributing` 将会在转发的基础上增加分配的功能，即 ASF 会首先尝试在所有机器人上激活一个序列号（转发），然后再切换到下一个（分配）。 通常，如果您这样设置，就表示您希望启用 `Forwarding` 功能，同时在序列号被使用时切换机器人，而不是始终按机器人顺序激活每个序列号（仅启用 `Forwarding` 的行为）。 这种行为在您知道大多数甚至全部序列号都被绑定到同一款游戏的情况下非常有用，因为这种情况下仅启用 `Forwarding` 将会使机器人首先尝试在一个机器人上激活所有序列号（适合序列号属于不同游戏的情况），而启用 `Forwarding` + `Distributing` 将会在激活下一个序列号时切换机器人，将激活新序列号的任务“分配”到另一个机器人上，不再由初始机器人负责（适合所有序列号都是同一款游戏的情况，每次激活都会跳过一次无意义的尝试）。
 
@@ -597,7 +597,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 ### `SendOnFarmingFinished`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 当 ASF 完成给定帐户的挂卡任务时，它可以通过交易报价将全部挂卡所得发送给拥有 `Master` 权限的用户，免去您手动发送交易报价的麻烦。 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户能够进行交易。 启用此选项时，除了在挂卡完成之后激发 `loot` 命令，ASF 也会在每次获得新物品时（未挂卡时）以及每次在交易中获得新物品时激发 `loot` 命令。 这可以方便地将来自其他人的物品“转发”到我们的帐户中。
+这是一个默认值为 `false` 的 `bool` 类型属性。 当 ASF 完成给定帐户的挂卡任务时，它可以通过交易报价将全部挂卡所得发送给拥有 `Master` 权限的用户，免去您手动发送交易报价的麻烦。 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确为用户设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户原本就能够进行交易。 启用此选项时，除了在挂卡完成之后激发 `loot` 命令，ASF 也会在每次获得新物品时（未挂卡时）以及每次在交易中获得新物品时激发 `loot` 命令。 这可以方便地将来自其他人的物品“转发”到我们的帐户中。
 
 通常您需要同时启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** 以更好地使用此功能，但如果您愿意及时手动确认交易，也可以跳过这一步。 如果您不确定应该如何设置这个属性，请保留默认值 `false`。
 
@@ -655,12 +655,12 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 这是一个默认值为空的 `ImmutableDictionary<ulong, byte>` 类型属性。 该属性是一个字典属性，将 Steam 用户的 64 位 ID 映射到一个表示此用户在 ASF 实例内权限的 `byte` 类型的数字。 目前 ASF 支持的机器人权限有：
 
-| 值 | 名称            | 描述                                                                                                                                                                         |
-| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
-| 1 | FamilySharing | 为家庭共享用户提供的最低权限。 同样，这也是一个参考值，因为 ASF 能够自动发现有权使用我们游戏库的家庭共享帐户的 SteamID                                                                                                         |
-| 2 | Operator      | 提供操作指定机器人的基本权限，主要包括添加游戏许可与激活序列号                                                                                                                                            |
-| 3 | Master        | 提供操作指定机器人的完整权限                                                                                                                                                             |
+| 值 | 名称            | 描述                                                                 |
+| - | ------------- | ------------------------------------------------------------------ |
+| 0 | None          | 无特殊权限，这是分配给不在字典内的 SteamID 的参考值——您不需要为任何人定义此权限                      |
+| 1 | FamilySharing | 为家庭共享用户提供的最低权限。 同样，这也是一个参考值，因为 ASF 能够自动发现有权使用我们游戏库的家庭共享帐户的 SteamID |
+| 2 | Operator      | 提供操作指定机器人的基本权限，主要包括添加游戏许可与激活序列号                                    |
+| 3 | Master        | 提供操作指定机器人的完整权限                                                     |
 
 简而言之，此属性允许您设定指定用户操作此机器人的权限。 权限主要用于访问 ASF **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，但也用于启用很多其他 ASF 功能，例如接受交易报价。 例如，您可能希望将自己的帐户设置为 `Master`，然后为您的两三位朋友设置 `Operator` 权限，使他们可以简单地通过 ASF 为您的机器人激活游戏序列号，但又**无法**执行停止机器人等操作。 因此，您可以轻松将权限分配给指定的用户，使他们能够在您设定的限制下操作您的机器人。
 
@@ -676,7 +676,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 | 值  | 名称                  | 描述                                                                                                                                                                           |
 | -- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | None                | No special trading preferences, default                                                                                                                                      |
+| 0  | None                | 无特殊交易偏好，默认值                                                                                                                                                                  |
 | 1  | AcceptDonations     | 接受我们不付出任何物品的交易                                                                                                                                                               |
 | 2  | SteamTradeMatcher   | 以被动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#steamtradematcher)**&#8203;获得更多信息 |
 | 4  | MatchEverything     | 需要先设置 `SteamTradeMatcher`，将二者结合使用——除了有利交易和平衡交易，还接受不利交易                                                                                                                       |
@@ -708,7 +708,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
+默认值的设定基于机器人的最常见用法，即仅仅转移补充包和集换式卡牌（包括闪亮卡牌）。 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
 
 * * *
 
@@ -718,7 +718,7 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 登录密钥主要用来为您提供方便，使您无需每次登录都要输入 `SteamPassword`、Steam 令牌或者两步验证代码（当没有启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** 时）。 这也是一种先进的替代方法，因为登录密钥是一次性的，并且无法从中获得您的密码原文。 您的原版 Steam 客户端也在使用完全相同的方法，即为您的下一次登录保留用户名和登录密钥，效果等同于在 ASF 中设置 `SteamLogin` 和 `UseLoginKeys` 两个属性，并留空 `SteamPassword`。
 
-但是，仍然可能有人会担心这个小细节，因此，如果您希望确保 ASF 不存储任何形式的、用于在关闭程序后恢复上次会话的令牌，每次登录时都进行身份验证，那么您可以修改此属性。 禁用此选项与在官方 Steam 客户端中不勾选“记住我的密码”的效果是完全相同的。 除非您明确了解自己在做什么，否则请将其保留为默认值 `true`。
+但是，仍然有人会担心这个小细节，因此，如果您希望确保 ASF 不存储任何形式的、用于在关闭程序后恢复上次会话的令牌，每次登录时都进行身份验证，那么您可以修改此属性。 禁用此选项与在官方 Steam 客户端中不勾选“记住我的密码”的效果是完全相同的。 除非您明确了解自己在做什么，否则请将其保留为默认值 `true`。
 
 * * *
 
@@ -803,7 +803,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`string`——字符串类型，接受任何字符序列，包括空序列 `""` 和 `null`。 Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
+`string`——字符串类型，接受任何字符序列，包括空序列 `""` 和 `null`。 ASF 对空序列和 `null` 的处理方式是相同的，所以您可以在二者之间任意选择（我们始终使用 `null`）。
 
 示例：`"SteamLogin": null`、`"SteamLogin": ""`、`"SteamLogin": "MyAccountName"`
 
@@ -815,7 +815,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>`——从给定 `keyType` 类型唯一键指向给定 `valueType` 类型值的不可变映射（字典）。 在 JSON 中，这被定义为一个包含键-值对的对象。 请注意，在这种情况下，`keyType` 总需要写在引号里，即使它的类型是 `ulong` 等非字符串。 There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
+`ImmutableDictionary<keyType, valueType>`——从给定 `keyType` 类型唯一键指向给定 `valueType` 类型值的不可变映射（字典）。 在 JSON 中，这被定义为一个包含键-值对的对象。 请注意，在这种情况下，`keyType` 总需要写在引号里，即使它的类型是 `ulong` 等非字符串。 还有一个严格的要求，映射中的键必须是唯一的，这也是由 JSON 强制规定的。
 
 `ImmutableDictionary<ulong, byte>` 的示例：`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

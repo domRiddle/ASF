@@ -36,7 +36,7 @@
 * **[Localisation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Journalisation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Configuration pour faible mémoire](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Extensions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sécurité](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Authentification à deux facteurs](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**

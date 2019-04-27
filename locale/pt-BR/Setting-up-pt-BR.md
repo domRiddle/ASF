@@ -24,7 +24,7 @@ Parece simples o bastante, certo? Então, vamos ver.
 
 ### Pré-requisitos .NET Core
 
-O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** que você deve seguir Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
+O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** que você deve seguir Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
 
 É perfeitamente normal que algumas dependências (ou mesmo todas) já tenham sido instaladas no seu sistema por algum outro software que você use. Ainda assim, você deve garantir executando o instalador apropriado para seu sistema operacional - sem essas dependências o ASF não vai nem iniciar.
 

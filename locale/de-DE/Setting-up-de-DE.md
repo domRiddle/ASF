@@ -64,7 +64,7 @@ Beginnen Sie nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu e
 
 Wenn du Linux oder OS X verwendest, vergiss nicht mit `chmod +x ArchiSteamFarm`, die Berechtigungen zu setzen, da diese in einem zip-Archiv nicht gesetzt sind. Dies muss nur nach dem initialen Entpacken gemacht werden.
 
-Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
+Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Updates werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 

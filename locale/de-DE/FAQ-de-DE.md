@@ -448,9 +448,11 @@ In einem Satz: Fehler melden und Warnungen nicht melden. Du kannst nach wie vor 
 
 * * *
 
-### ASF kann nicht gestartet werden, das Programmfenster schließt sich sofort nach dem Start!
+### ASF startet nicht, das Programmfenster schließt sich sofort!
 
-Wenn sogar `log.txt` nicht generiert wird, dann hast du höchstwahrscheinlich vergessen, .NET Core Voraussetzungen zu installieren, wie in der **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE#betriebssystemspezifisches-setup)**s-Anleitung beschrieben. Andere häufige Probleme können der Versuch sein, eine falsche ASF-Variante für dein Betriebssystem zu starten, oder auf andere Weise fehlende native .NET Core Laufzeitabhängigkeiten. Wenn sich das Konsolenfenster zu früh schließt, als dass du die Nachricht lesen könntest, dann öffne die unabhängige Konsole und starte von dort aus die ASF-Binärdatei. Unter Windows beispielsweise, öffne das ASF-Verzeichnis, halte `Shift` gedrückt, klicke mit der rechten Maustaste in den Ordner und wähle "Befehlsfenster hier öffnen" (oder PowerShell), dann tippe in die Konsole `.\ArchiSteamFarm.exe` und klicke auf Enter. Auf diese Weise erhältst du eine genaue Meldung, warum ASF nicht richtig startet.
+Unter normalen Bedingungen erzeugt jeder ASF-Crash oder -Ausgang eine `log.txt` im Verzeichnis des Programms, die Sie sich ansehen können, um die Ursache dafür zu finden.
+
+Wenn jedoch selbst die.NET Core Runtime nicht in der Lage ist, auf Ihrer Maschine zu booten, dann wird `log.txt` nicht erstellt. Wenn Ihnen das passiert, haben Sie höchstwahrscheinlich vergessen, die Voraussetzungen für die Installation von.NET Core zu erfüllen, wie in der Anleitung **[Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** beschrieben. Andere häufige Probleme können der Versuch sein, eine falsche ASF-Variante für dein Betriebssystem zu starten, oder auf andere Weise fehlende native .NET Core Laufzeitabhängigkeiten. Wenn sich das Konsolenfenster zu früh schließt, als dass du die Nachricht lesen könntest, dann öffne die unabhängige Konsole und starte von dort aus die ASF-Binärdatei. Öffnen Sie beispielsweise unter Windows das ASF-Verzeichnis, halten Sie `Shift` gedrückt, klicken Sie mit der rechten Maustaste in den Ordner und wählen Sie "Befehlsfenster hier öffnen" (oder powershell), geben Sie dann in die Konsole `.\ArchiSteamFarm.exe` ein und bestätigen Sie mit Enter. Auf diese Weise erhältst du eine genaue Meldung, warum ASF nicht richtig startet.
 
 * * *
 

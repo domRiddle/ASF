@@ -54,7 +54,7 @@ Assuming that you've successfully rooted your phone, you should afterwards downl
 
 打開根瀏覽器後，導航到`/data/data`資料夾。 請記住，` /data/data `目錄受到保護，如果沒有root訪問權限，您將無法訪問它。 在那找到` com.valvesoftware.android.steam.community `資料夾並將其複製到` /sdcard `，它指向您的內置內部存儲。 之後，您應該可以將手機連接到PC並像往常一樣從內部存儲器中復製資料夾。 如果您確定已將資料夾複製到正確的位置可該資料夾無法顯示，請嘗試重新啟動手機。
 
-在將驗證器導入ASF前，您可以選擇是否先將身份驗證器導入到WinAuth。 先將驗證器導入WinAuth的選項更友好，它允許您在您的PC上備份身份驗證器，這樣您就可以從3個不同的地方生成代碼並確認交易──您的手機，您的PC以及ASF。 如果您想這樣做，只需打開WinAuth，添加新的Steam身份驗證器並從Android選項中選擇導入，然後遵循指南，訪問您之前獲得的檔案。 完成後，您可以將此驗證器從WinAuth導入ASF，這將在下面的WinAuth部分中專門進行說明。
+Now, you can choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. 先將驗證器導入WinAuth的選項更友好，它允許您在您的PC上備份身份驗證器，這樣您就可以從3個不同的地方生成代碼並確認交易──您的手機，您的PC以及ASF。 如果您想這樣做，只需打開WinAuth，添加新的Steam身份驗證器並從Android選項中選擇導入，然後遵循指南，訪問您之前獲得的檔案。 完成後，您可以將此驗證器從WinAuth導入ASF，這將在下面的WinAuth部分中專門進行說明。
 
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). 您需要將該檔放入ASF` config `目錄中。 Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 

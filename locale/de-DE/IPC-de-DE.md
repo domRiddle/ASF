@@ -192,7 +192,7 @@ Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es
 
 ### Beispielhafte Konfiguration
 
-Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher solltest du sicherstellen, dass du unseren Hinweis dazu, der oben verfügbar ist, gelesen und verstanden hast.
+Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher solltest du sicherstellen, dass du unseren Sicherheitshinweis dazu, der oben verfügbar ist, gelesen und verstanden hast.
 
 ```json
 {
@@ -205,3 +205,5 @@ Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher 
     }
 }
 ```
+
+Wenn Sie nicht von allen Quellen Zugriff benötigen, sondern z.B. nur von Ihrem LAN, dann ist es viel besser, so etwas wie `192.168.0.0.0` statt `*` zu verwenden. Passen Sie die Netzwerkadresse entsprechend an, wenn Sie eine andere verwenden.

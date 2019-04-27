@@ -6,7 +6,7 @@
 
 > You can do what you like with the software, as long as you include the required notices (Вы можете делать что угодно с программным обеспечением, если вы прикладываете к нему необходимое уведомление). This permissive license contains a patent license from the contributors of the code (Эта либеральная лицензия содержит патентную лицензию от соавторов кода).
 
-Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, могут лицензироваться с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
+Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, зачастую лицензируются с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
 
 * * *
 

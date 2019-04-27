@@ -8,7 +8,7 @@
 
 棄用是重大更改（增刪）的過程，這些更改使以前使用的一些選項、參數、功能或使用方式過時。 棄用通常意味著給定的內容被簡單地重寫為另一個（類似）表單, 您應該及時確保您對其進行適當的切換。 在這種情況下，它只是將給定的功能移動到更合適的位置。
 
-ASF 版本迭代迅速，總是追求卓越。 遺憾的是，這意味著我們可能會更改或將一些現有功能移動到程式的另一個部分，以便它從新功能、兼容性或穩定性中受益。 正因如此，我們不需要堅持我們多年前做出的過時或錯誤的發展決定。 我們一直在努力提供合理的替換方案，以兼容以前可用的功能，這就是為什麼棄用大多是無害的，僅需要對以前的邏輯進行小的修復。
+ASF 版本迭代迅速，總是追求卓越。 This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. 正因如此，我們不需要堅持我們多年前做出的過時或錯誤的發展決定。 我們一直在努力提供合理的替換方案，以兼容以前可用的功能，這就是為什麼棄用大多是無害的，僅需要對以前的邏輯進行小的修復。
 
 * * *
 
@@ -32,7 +32,7 @@ ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 您有至少**一個月** 來切換並適應，這對於一個普通的 ASF 用戶來說應足夠了。 在這段時間之後，ASF 不再保證舊設置將產生任何效果（第2階段），在您察覺不到的情況下使某些功能完全停止運行。 如果您在一個多月離線後啟動 ASF，建議您**[從頭來過](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**以啟動 ASF，或者再次閱讀您錯過的所有更改，並手動調整您的使用方式以適應當前的更改。
 
-在大多數情況下，無視棄用警告並不會使 ASF 的常規功能不可用，僅會退回到預設行為（這可能與您的個人偏好相符合，也可能不符合）。
+In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
 
 * * *
 

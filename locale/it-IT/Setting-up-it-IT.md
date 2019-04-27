@@ -24,7 +24,7 @@ Suona piuttosto semplice, vero? Allora iniziamo.
 
 ### Prerequisiti per .NET Core
 
-Il primo passo consiste nell'assicurarsi che il proprio OS possa eseguire ASF correttamente. ASF è scritto in C# ed è basato su .NET Core, quindi potrebbe richiedere librerie native che non sono ancora disponibili sulla tua piattaforma. In base al tuo OS (Windows, Linux o OS X) ci saranno requisiti differenti, elencati nel documento **[Prerequisiti per .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** che dovresti proprio leggere. È la guida di riferimento che dovresti usare, ma per rendere le cose più semplici ed evitare di farti leggere troppo, sono anche riassunte in dettaglio qui sotto.
+Il primo passo consiste nell'assicurarsi che il proprio OS possa eseguire ASF correttamente. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. In base al tuo OS (Windows, Linux o OS X) ci saranno requisiti differenti, elencati nel documento **[Prerequisiti per .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** che dovresti proprio leggere. È la guida di riferimento che dovresti usare, ma per rendere le cose più semplici ed evitare di farti leggere troppo, sono anche riassunte in dettaglio qui sotto.
 
 È perfettamente normale che alcuni, o anche tutti i prerequisiti siano già presenti nel tuo sistema, magari perché installati da applicazioni di terze parti che stai usando. Nonostante ciò, devi assicurarti che sia davvero questo il caso eseguendo l'installazione di ogni requisito per il tuo OS - senza di essi, ASF non funzionerà.
 
@@ -33,7 +33,7 @@ Tieni a mente che non hai bisogno di fare altro per le build specifiche per il v
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 per Windows a 64 bit, x86 per Windows a 32 bit)
-- È fortemente consigliato assicurarsi gli aggiornamenti di Windows siano tutti installati. Hai assolutamente bisogno degli aggiornamenti **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, ma potrebbero esserne richiesti anche degli altri. Se mantieni il tuo Windows aggiornato, saranno già installati. Assicurati di soddisfare tali requisiti prima di installare il pacchetto Visual C++.
+- È fortemente consigliato assicurarsi gli aggiornamenti di Windows siano tutti installati. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. Se mantieni il tuo Windows aggiornato, saranno già installati. Assicurati di soddisfare tali requisiti prima di installare il pacchetto Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
 
@@ -64,7 +64,7 @@ After download, start from extracting the zip file into its own folder. We recom
 
 Se stai usando Linux od OS X, non dimenticare di usare il comando `chmod +x ArchiSteamFarm`, dato che i permessi non vengono impostati nel file zip. Ciò va fatto solo dopo aver estratto l'archivio per la prima volta.
 
-Assicurati di estrarre ASF **in una cartella ad esso destinata** e non in una che stai già usando per qualcos'altro - gli aggiornamenti automatici di ASF elimineranno ogni altro file già presente e non necessario al programma, il che significa perdere ogni file salvato nella cartella di ASF. Se hai script aggiuntivi o file che vuoi usare con ASF, mettili in una cartella superiore.
+Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. Se hai script aggiuntivi o file che vuoi usare con ASF, mettili in una cartella superiore.
 
 Una struttura ideale è simile a questa:
 
@@ -232,7 +232,7 @@ Please note that ASF-ui is currently in preview state and not everything is avai
 
 ### Summary
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you might have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 

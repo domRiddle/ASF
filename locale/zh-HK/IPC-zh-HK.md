@@ -84,7 +84,7 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
 
-However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You might also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
 ### 我可以通過自己的工具或用戶腳本訪問 ASF API 嗎？
 
@@ -96,7 +96,7 @@ However, if you decide to change default `localhost` bind addresses to something
 
 ### 我可以在反向代理（例如 Apache 或 Nginx）後使用 ASF IPC 嗎？
 
-**是的**，我們的 IPC 與此類設置完全兼容，因此如果您願意的話，您可以在使用自己的工具前自由託管它，以獲得額外的安全性和兼容性。 In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx might provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**是的**，我們的 IPC 與此類設置完全兼容，因此如果您願意的話，您可以在使用自己的工具前自由託管它，以獲得額外的安全性和兼容性。 In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx could provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
 示例 Nginx 配置可以在下面找到。 We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
 
@@ -184,15 +184,15 @@ When available, this file specifies advanced configuration of ASF's Kestrel http
 
 `Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
 
-`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which might pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) at a minimum in this case.
+`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which may pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) at a minimum in this case.
 
-`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` might be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you might define custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
+`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://127.0.0.1:1242/MyPrefix` instead of `http://127.0.0.1:1242` alone. Using custom `PathBase` may be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `127.0.0.1:1242/ASF/Api/X`.
 
 除非您確實需要指定自訂基本路徑，否則最好將其保留為預設路徑。
 
 ### 配置範例
 
-如上所述，此配置允許從所有來源進行遠程訪問，因此您應該確保閱讀並理解我們的相關通知。
+The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
 
 ```json
 {
@@ -205,3 +205,5 @@ When available, this file specifies advanced configuration of ASF's Kestrel http
     }
 }
 ```
+
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.0` instead of `*`. Adapt the network address appropriately if you use a different one.

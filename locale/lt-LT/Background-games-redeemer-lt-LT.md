@@ -20,7 +20,7 @@ ASF pats atpažins savo `config` direktorijoje failą, pavadintą `BotName.keys`
     Terraria    TaiIgnoruojama  TaIgnoruojamaTaipPat   ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you might see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -32,7 +32,7 @@ Regardless which format you've decided to stick with, ASF will import your `keys
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC might be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
 * * *
 
@@ -54,7 +54,7 @@ Dabar jau galima pervadinti šį failą iš `BotName.keys.new` į `BotName.keys`
 
 Vietoj `BotName.keys` failo galima naudoti IPC API arba netgi sujungti abu procesus kartu.
 
-Po kiek laiko failai `BotName.keys.used` ir `BotName.keys.unused` gali būti sugeneruoti. Šia failai - mūsų žaidimų panaudojimo rezultatas. Pavyzdžiui, galima pervadinti `BotName.keys.unused` į `BotName2.keys` ir tuomet nepanaudoti raktai bus naudojami kitų botų. Arba nepanaudotus raktus tiesiog galima perkelti į kitą failą ir panaudoti kažkam kitam. Tiesa, geriausia palaukti, kol eilė bus baigta ir `used` ir `unused` failai bus sugeneruoti, taip žinosite, jog visi raktai buvo patikrinti. Jeigu jum labai reikia patikrinti šiuos failus prieš eilės užbaigimą, pirmiausiai reikėtų **perkelti** rezultato failus į kitą direktoriją, tik **tada** juos tikrinti. Taip yra todėl, jog ASF gali pridėti naujų rezultatų kol jūs juos peržiūrite ir taip keli raktai gali būti prarasti, pvz., galite faile pamatyti 3 raktus, failą ištrinti, kai ASF tuo metu pridės ketvirtą raktą - taip jis bus prarastas. Jei nori pasiekti šiuos failus, tuomet perkelkite juos iš ASF `config` direktorijos prieš juos peržiūrint, ar pvz., pervadinant.
+After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Šia failai - mūsų žaidimų panaudojimo rezultatas. Pavyzdžiui, galima pervadinti `BotName.keys.unused` į `BotName2.keys` ir tuomet nepanaudoti raktai bus naudojami kitų botų. Arba nepanaudotus raktus tiesiog galima perkelti į kitą failą ir panaudoti kažkam kitam. Tiesa, geriausia palaukti, kol eilė bus baigta ir `used` ir `unused` failai bus sugeneruoti, taip žinosite, jog visi raktai buvo patikrinti. Jeigu jum labai reikia patikrinti šiuos failus prieš eilės užbaigimą, pirmiausiai reikėtų **perkelti** rezultato failus į kitą direktoriją, tik **tada** juos tikrinti. Taip yra todėl, jog ASF gali pridėti naujų rezultatų kol jūs juos peržiūrite ir taip keli raktai gali būti prarasti, pvz., galite faile pamatyti 3 raktus, failą ištrinti, kai ASF tuo metu pridės ketvirtą raktą - taip jis bus prarastas. Jei nori pasiekti šiuos failus, tuomet perkelkite juos iš ASF `config` direktorijos prieš juos peržiūrint, ar pvz., pervadinant.
 
 Taip pat įmanoma pridėti papildomų žaidimų pakartojant visus žingsnius viršuje, kol yra kitų žaidimų eilėje. ASF tinkamai pridės papildomų įrašų į jau veikiančią eilę ir galiausiai ją panaudos.
 

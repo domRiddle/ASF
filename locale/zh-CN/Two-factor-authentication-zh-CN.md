@@ -85,7 +85,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ### SteamDesktopAuthenticator
 
-如果您已有运行于 SDA 中的验证器，您应该已经注意到 `maFiles` 文件夹下有 `steamID.maFile` 文件。 将该文件复制到 ASF 的`config` 文件夹。 确保 `.maFile` 是未加密形式，因为 ASF 无法解密 SDA 文件——未加密的文件内容应该以一个 `{` 符号开头。
+如果您已有运行于 SDA 中的验证器，您应该已经注意到 `maFiles` 文件夹下有 `steamID.maFile` 文件。 将该文件复制到 ASF 的 `config` 文件夹。 确保 `.maFile` 是未加密形式，因为 ASF 无法解密 SDA 文件——未加密的文件内容应该以一个 `{` 符号开头。
 
 现在您应该将 `steamID.maFile` 文件重命名为 `BotName.maFile` 并将其放入 ASF 配置文件夹，其中 `BotName` 是您需要导入 ASF 2FA 的机器人名称。 或者，您可以将其保持原样，ASF 将会在登录帐户后自动选择此文件。 如果您在这一步帮助 ASF 重命名，ASF 就可以在登录之前使用 ASF 2FA，否则，ASF 就只能在成功登录之后导入文件（因为 ASF 在登录之前无法获取您帐户的 `steamID`）。
 

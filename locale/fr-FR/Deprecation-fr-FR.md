@@ -8,7 +8,7 @@ Depuis ASF V3.1.2.2, nous suivons une politique de désapprobation cohérente af
 
 La désapprobation est un processus consistant à effectuer des modifications majeures plus ou moins importantes rendant obsolètes les options, arguments, fonctionnalités ou fonctions précédemment utilisés. Une désapprobation signifie généralement que quelque chose a été simplement réécrit d'une autre manière, et vous devez vous assurer que vous y passerez dans les meilleurs délais. Dans ce cas, il s'agit simplement de déplacer une fonctionnalité vers un emplacement plus approprié.
 
-ASF change rapidement et cherche toujours à devenir meilleur. Cela signifie malheureusement que nous pourrions changer ou déplacer certaines fonctionnalités existantes dans un autre endroit du programme afin qu'il bénéficie de nouvelles fonctionnalités, de compatibilité ou de stabilité. Grâce à cela, nous n’avons pas besoin de nous en tenir aux décisions de développement obsolètes ou tout simplement douloureusement erronées que nous avons prises il y a des années. Nous essayons toujours de fournir un remplacement raisonnable qui corresponde à l'utilisation attendue des fonctionnalités précédemment disponibles. C'est pourquoi la désapprobation est généralement sans danger et nécessite de petites corrections par rapport à l'utilisation précédente.
+ASF change rapidement et cherche toujours à devenir meilleur. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Grâce à cela, nous n’avons pas besoin de nous en tenir aux décisions de développement obsolètes ou tout simplement douloureusement erronées que nous avons prises il y a des années. Nous essayons toujours de fournir un remplacement raisonnable qui corresponde à l'utilisation attendue des fonctionnalités précédemment disponibles. C'est pourquoi la désapprobation est généralement sans danger et nécessite de petites corrections par rapport à l'utilisation précédente.
 
 * * *
 
@@ -32,7 +32,7 @@ le stage 2 est planifié après la phase 1 expliquée ci-dessus et est publiée 
 
 Vous avez plus ou moins un ** mois complet </ 0> pour pouvoir effectuer le basculement approprié, ce qui devrait être amplement suffisant même si vous êtes un utilisateur occasionnel de ASF. Après cette période, ASF ne garantit plus que les anciens paramètres n’auront aucun effet (stage 2), faisant en sorte que certaines fonctions cesseront de fonctionner sans que vous le remarquiez. Si vous lancez ASF après plus d'un mois d'inactivité, il est recommandé de ** recommencer à zéro </ 0> ou de lire tous les journaux des modifications manqués et d'adapter manuellement votre utilisation à la version actuelle.</p> 
 
-Dans la plupart des cas, le fait de ne pas tenir compte de l'avertissement relatif à la désapprobation ne rendra pas les fonctionnalités ASF générales inutilisables, mais affectera le comportement par défaut (qui peut correspondre ou non à vos préférences personnelles).
+In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
 
 * * *
 

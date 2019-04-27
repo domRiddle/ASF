@@ -34,7 +34,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 ### OS 특화
 
-OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you might know, those two types are not compatible with each other.
+OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you may know, those two types are not compatible with each other.
 
 ASF is currently available in following OS-specific variants:
 
@@ -55,7 +55,7 @@ If you're using OS-specific package then you don't need to worry about runtime r
 
 However, if you're trying to run **generic** ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
 
-ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it might target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant might refuse to launch if your runtime is older than the minimum (target) one known during compilation.
+ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it may target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://www.microsoft.com/net/download)** available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the minimum (target) one known during compilation.
 
 If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
 
@@ -65,4 +65,4 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 ### Debian Jessie upgrade
 
-If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you might run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you may run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.

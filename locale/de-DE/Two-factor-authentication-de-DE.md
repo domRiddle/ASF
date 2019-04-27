@@ -132,7 +132,7 @@ Wenn du einen Authentifikator auf deinem Handy hast, kannst du optional SteamDes
 
 * * *
 
-## FAQ
+## FAQ (oft gestellte Fragen)
 
 ### Wie nutzt ASF das 2FA-Modul?
 
@@ -176,7 +176,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 * * *
 
-## Erweitert
+## Erweiterte Einstellungen
 
 Wenn du ein fortgeschrittener Benutzer bist, kannst du die maFile-Datei auch manuell generieren. Sie sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 
