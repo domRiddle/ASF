@@ -20,7 +20,7 @@ ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`�
     Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
     
 
-或者，您還可以只使用遊戲序號格式（每個條目之間仍須有一個分行符號）。 在這種情況下，ASF 將使用 Steam 的應答（如果可能的話）來填充正確的遊戲名稱。 For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+或者，您還可以只使用遊戲序號格式（每個條目之間仍須有一個分行符號）。 在這種情況下，ASF 將使用 Steam 的應答（如果可能的話）來填充正確的遊戲名稱。 對於任何類型的金鑰標記，我們建議您使用自訂名稱，因為在 Steam 上兌換的包名稱不一定與包中的遊戲名稱一致，因此根據開發者填寫的內容，您可能會看到正確的遊戲名稱、自訂包名稱（例如 Humble Indie Bundle 18）或完全錯誤甚至是惡意的名稱（例如 Half-Life 4）。
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -32,7 +32,7 @@ ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`�
 
 ### IPC
 
-除了使用上面提到的產品序號檔案外，ASF還開放了 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)**，它能以任何IPC 工具（包括我們的 ASF-ui）執行。 Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+除了使用上面提到的產品序號檔案外，ASF還開放了 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)**，它能以任何IPC 工具（包括我們的 ASF-ui）執行。 IPC 可提供更完善的功能，因為您可以使用您覺得合適的方式進行解析。例如使用自訂分隔符號，而非強制使用 Tab，甚至可以完全自訂序號格式。
 
 * * *
 
@@ -54,7 +54,7 @@ ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`�
 
 除了 `BotName.keys` 檔案，您還可以使用 IPC API 端點，甚至也可以根據需要將兩種方式配合使用。
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. 這些檔案包含了我們兌換過程的結果。 例如，您可以將 `BotName.keys.unused` 重命名為 `BotName2.keys`，以便向其他機械人派發我們未使用的金鑰，因為前一個機械人並未使用這些金鑰。 或者您也可以簡單地將未使用的金鑰複製粘貼到其他檔案中，留作他用。 請謹記，當 ASF 處理佇列時，新的條目將被添加入 `used` 和 `unused` 等輸出檔，因此建議等待佇列完全清空後再使用這些檔。 如果在佇列完全清空之前需要訪問這些檔，應首先將欲訪問的檔 **移動** 至其他目錄，**之後** 再對其進行處理。 這是因為 ASF 可能會在你處理這些檔案的時候寫入新的結果而導致某些序號遺失。例如，你讀取了一個包含 3 個序號的檔案，然後將其刪除，這可能會導致 ASF 在此期間寫入的4 個新序號遺失。 如果要訪問這些檔，請確保在讀取這些檔之前將它們移出 ASF `config` 目錄，例如通過重命名方式。
+一段時間後，會生成 `BotName.keys.used` 和 `BotName.keys.unused` 等檔案。 這些檔案包含了我們兌換過程的結果。 例如，您可以將 `BotName.keys.unused` 重命名為 `BotName2.keys`，以便向其他機械人派發我們未使用的金鑰，因為前一個機械人並未使用這些金鑰。 或者您也可以簡單地將未使用的金鑰複製粘貼到其他檔案中，留作他用。 請謹記，當 ASF 處理佇列時，新的條目將被添加入 `used` 和 `unused` 等輸出檔，因此建議等待佇列完全清空後再使用這些檔。 如果在佇列完全清空之前需要訪問這些檔，應首先將欲訪問的檔 **移動** 至其他目錄，**之後** 再對其進行處理。 這是因為 ASF 可能會在你處理這些檔案的時候寫入新的結果而導致某些序號遺失。例如，你讀取了一個包含 3 個序號的檔案，然後將其刪除，這可能會導致 ASF 在此期間寫入的4 個新序號遺失。 如果要訪問這些檔，請確保在讀取這些檔之前將它們移出 ASF `config` 目錄，例如通過重命名方式。
 
 您還可以通過重複上述所有步驟，在佇列中已有一些遊戲的情況下，添加額外的遊戲。 ASF 會正確地將我們的額外條目加入正在進行的佇列中並最終處理之。
 

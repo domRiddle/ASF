@@ -2,21 +2,21 @@
 
 ASF 는 A.B.C.D. 버전으로 된 일반적인 C# 버전관리를 사용합니다. 이는 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 의 현재 버전이 릴리스 된 후 하나씩 증가합니다. 현재까지의 모든 버전은 얼려진 상태로 GitHub에 있고 시간이 지나도 사라지지 않습니다. 따라서 자가 복제를 할 필요 없이 그중 어느 것으로라도 항상 롤백이 가능합니다.
 
-일반적으로 ASF 버전관리는 매우 단순합니다. A, B, C, D의 자리에 0에서 9의 숫자를 사용합니다. 버전이 올라가면 D자리 숫자가 하나씩 증가합니다. D의 숫자가 10이 된다면 C를 하나 증가시키고 D는 0으로 만듭니다. 이를 반복합니다. 새 버전의 릴리스는 ASF 마일스톤으로 취급합니다. 이는 이전 버전과 비교하여 퇴보한 것이 없고, 테스트와 이용 준비가 된 기능의 집합이 구현된 버전을 뜻합니다. Sometimes we may decide that introduced changes are very important and bump C, B or even A instead, although that is quite rare (and usually indicates some breaking changes).
+일반적으로 ASF 버전관리는 매우 단순합니다. A, B, C, D의 자리에 0에서 9의 숫자를 사용합니다. 버전이 올라가면 D자리 숫자가 하나씩 증가합니다. D의 숫자가 10이 된다면 C를 하나 증가시키고 D는 0으로 만듭니다. 이를 반복합니다. 새 버전의 릴리스는 ASF 마일스톤으로 취급합니다. 이는 이전 버전과 비교하여 퇴보한 것이 없고, 테스트와 이용 준비가 된 기능의 집합이 구현된 버전을 뜻합니다. 가끔 매우 중요한 변경사항을 소개하기로 결정하고 C나 B, 심지어 A를 증가시킬 때도 있습니다. 이는 매우 드물고 보통 몇몇 주요 변경사항이 있는 경우입니다.
 
 ASF의 릴리스는 두개의 범주로 나뉩니다. 안정 릴리스와 사전 릴리스입니다.
 
-안정 릴리스는 제대로 동작하고 릴리스 시점에서 이전 버전과 비교하여 퇴보한 사항이 없습니다. 오랜 기간동안 사전 릴리스 테스트를 한 후에 안정 버전을 릴리스 하거나, 새로운 버그 없이 이전 안정 릴리스의 버그를 수정하는 버전을 릴리스하는 경향이 있습니다. In very rare scenario (e.g. Steam breaking change) we may also decide to release new stable version ASAP, if needed. 하지만 일반적으로 그러한 버전도 보통 매우 잘 작동해야 합니다. 우리는 이전 안정 릴리스에 비해 전반적 건강상태가 나빠진다면 안정으로 표시하지 않습니다. 물론 그 "전반적 건강"은 사전 릴리스 개발기간 동안 받는 보고와 피드백에 기초합니다. 단순히 개발단계에서 우리중 누구도 오류를 발생하지 않는다면 안정 릴리스 이후에 버그가 새어나와 발견될 수도 있습니다. 다행히도 그런 일이 일어나는 것은 매우 드물고 후속 안정 릴리스에서 가능한한 빨리 수정하려고 합니다.
+안정 릴리스는 제대로 동작하고 릴리스 시점에서 이전 버전과 비교하여 퇴보한 사항이 없습니다. 오랜 기간동안 사전 릴리스 테스트를 한 후에 안정 버전을 릴리스 하거나, 새로운 버그 없이 이전 안정 릴리스의 버그를 수정하는 버전을 릴리스하는 경향이 있습니다. 매우 드문 경우지만 Steam 주요 변경사항 등의 경우 필요하다면 가능한한 빨리 새로운 안정 버전을 릴리스하기로 결정하기도 합니다. 하지만 일반적으로 그러한 버전도 보통 매우 잘 작동해야 합니다. 우리는 이전 안정 릴리스에 비해 전반적 건강상태가 나빠진다면 안정으로 표시하지 않습니다. 물론 그 "전반적 건강"은 사전 릴리스 개발기간 동안 받는 보고와 피드백에 기초합니다. 단순히 개발단계에서 우리중 누구도 오류를 발생하지 않는다면 안정 릴리스 이후에 버그가 새어나와 발견될 수도 있습니다. 다행히도 그런 일이 일어나는 것은 매우 드물고 후속 안정 릴리스에서 가능한한 빨리 수정하려고 합니다.
 
 사전 릴리스는 더 자주 있고 보통 개발중인 변경사항이나 제안, 새로운 구현을 소개합니다. 사전 릴리스가 안정을 보장하지는 않습니다. GitHub에 올리기 전에 테스트하려 노력하므로 실제 사용 측면에서 완전히 깨진 버전은 절대 아닙니다. 사전 릴리스의 주안점은 더욱 고급 사용자로부터 피드백을 받고 안정 릴리스에서 나오기 전에 새로 생긴 버그를 잡는 것입니다. 이 작업의 품질은 테스터와 GitHub에 보고된 버그, 그리고 일반 피드백의 숫자에 달려있습니다.
 
-사전 릴리스는 **보통** 안정 릴리스처럼 잘 동작해야 하며, 유일한 차이점은 더 많은 사용자가 테스트 했는지 여부입니다. 이는 ASF가 단계적 프로젝트이기 때문입니다. 즉 **어느** 시점에서라도 빌드하고 사용할 수 있어야 한다는 것이며, 버전관리는 한 버전과 다른 버전의 변경사항의 마일스톤으로서 편의에 따라 정해집니다. Still, if you decide to use pre-releases, you should typically be a bit more advanced user, as pre-releases are usually work-in-progress smaller ASF milestones, and it's totally possible that even if something seems to be working decent, it may have stuff that isn't necessarily working or tested yet - tracking ASF development on GitHub and carefully reading changelogs is the minimum that you must do if you want to use pre-releases (for your own good). 게다가 우리가 환경설정 변경, 새로 작성한 코드, 코드 변화 등 뭔가 특정한 것을 적극적으로 테스트하는 때가 있습니다. Always read changelog in this case, as such pre-release version could be more unstable than other ones.
+사전 릴리스는 **보통** 안정 릴리스처럼 잘 동작해야 하며, 유일한 차이점은 더 많은 사용자가 테스트 했는지 여부입니다. 이는 ASF가 단계적 프로젝트이기 때문입니다. 즉 **어느** 시점에서라도 빌드하고 사용할 수 있어야 한다는 것이며, 버전관리는 한 버전과 다른 버전의 변경사항의 마일스톤으로서 편의에 따라 정해집니다. 사전 릴리스를 사용하기로 결정했다면 당신은 조금 더 고급 사용자여야 합니다. 사전 릴리스는 보통 개발중인 작은 ASF 마일스톤이기 때문이고, 뭔가 잘 작동할 때에도 작동하거나 테스트되지 않은 것들이 있을 가능성이 있습니다. GitHub에서 ASF 개발사항을 추적하고 변경사항을 주의깊게 읽는 것은 사전 릴리스를 사용하려면 자신을 위해 반드시 해야할 최소한입니다. 게다가 우리가 환경설정 변경, 새로 작성한 코드, 코드 변화 등 뭔가 특정한 것을 적극적으로 테스트하는 때가 있습니다. 이 경우 항상 변경사항을 읽으십시오. 이러한 사전 릴리스는 다른 것 보다 훨씬 불안정할 수 있습니다.
 
-Please note that newly introduced features and changes may be undocumented (e.g. on the wiki) until some time later, as documentation is usually written once final code of given feature is ready (to save us time rewriting documentation each time we decide to modify the feature we're currently working on). Due to the fact that pre-release may contain work-in-progress code that doesn't have a final form yet, documentation will arrive at later stage of the development. Same thing applies to general changelog that may be unavailable for given pre-release until some time later. 따라서 사전 릴리스를 사용하기로 결정했다면 ASF **[커밋](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master)** 을 시시때때로 들여다볼 준비를 하십시오.
+새로 도입되는 기능과 변경은 시간이 지난 후에도 위키 등에 문서화되지 않을 수도 있음을 양지하십시오. 작업중인 기능을 수정하기로 결정할 때마다 문서를 다시 작성하는 시간을 절약하기 위해 문서는 해당 기능의 최종 코드가 준비된 후에 작성됩니다. 사전 릴리스가 최종 형태가 아닌 개발중인 코드를 포함할 수 있다는 사실 때문에 문서화는 개발의 마지막 단계에서 이루어집니다. 일반 변경사항도 동일하게 적용되어 사전 릴리스의 변경사항이 시간이 지난 후에도 없을 수 있습니다. 따라서 사전 릴리스를 사용하기로 결정했다면 ASF **[커밋](https://github.com/JustArchiNET/ArchiSteamFarm/commits/master)** 을 시시때때로 들여다볼 준비를 하십시오.
 
 물론, 문서가 없다는 것은 **오직** 사전 릴리스에만 해당합니다. 모든 안정 버전은 릴리스되는 때에 완전한 변경사항과 위키 문서를 가지고 있습니다.
 
-A pre-release version may be considered stable after some time. 그 사이에 변화가 없다면, 그리고 안정 릴리스로 올라갈 버전에 초점이 없다면 특히 맞는 이야기입니다. 사전 릴리스가 "안정 릴리스 후보"로 간주될때 매우 자주 안정버전이 됩니다. 안정적으로 표시되기 전에 고급 사용자들이 테스트할수 있게 하여 버그가 나올 위험을 낮춥니다. 따라서 이것이 ASF 릴리스의 가장 일반적 패턴입니다.
+사전 릴리스 버전은 시간이 지나면 안정 버전이 될 수도 있습니다. 그 사이에 변화가 없다면, 그리고 안정 릴리스로 올라갈 버전에 초점이 없다면 특히 맞는 이야기입니다. 사전 릴리스가 "안정 릴리스 후보"로 간주될때 매우 자주 안정버전이 됩니다. 안정적으로 표시되기 전에 고급 사용자들이 테스트할수 있게 하여 버그가 나올 위험을 낮춥니다. 따라서 이것이 ASF 릴리스의 가장 일반적 패턴입니다.
 
     안정 1.0 -> 사전 1.1 -> 사전 1.2 -> ... -> 사전 1.7 (RC)(안정 후보) -> 안정 1.7 (사전 1.7과 동일)
     

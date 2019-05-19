@@ -1,4 +1,4 @@
-# IPC
+# プロセス間通信
 
 ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
 
@@ -206,4 +206,4 @@ The following config will allow remote access from all sources, therefore you sh
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.0` instead of `*`. Adapt the network address appropriately if you use a different one.
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.*` instead of `*`. Adapt the network address appropriately if you use a different one.

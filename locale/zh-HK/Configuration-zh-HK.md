@@ -88,7 +88,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `AutoRestart`
 
-預設值為 `true` 的 `bool` 類型。 此屬性定義是否允許 ASF 在需要時自行重啟。 有一些事件需要 ASF 自行重啟，例如 ASF 更新（通過 `UpdatePeriod` 或 `update` 命令完成），以及 `ASF.json` 配置的編輯、`restart` 命令等。 通常情況下，重啟包括兩個部分──創建新流程和完成當前流程。 Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. 考慮到新的流程將不再是您原有流程的直接分支，這一點尤其重要，這將使您無法使用標準的主控台輸入。
+預設值為 `true` 的 `bool` 類型。 此屬性定義是否允許 ASF 在需要時自行重啟。 有一些事件需要 ASF 自行重啟，例如 ASF 更新（通過 `UpdatePeriod` 或 `update` 命令完成），以及 `ASF.json` 配置的編輯、`restart` 命令等。 通常情況下，重啟包括兩個部分──創建新流程和完成當前流程。 但是，大多數使用者應該可以使用它並保留屬性預設值為 `true`──如果您正在通過自己的腳本運行 ASF，或者使用 `dotnet` 運行 ASF，則可能希望完全控制進程的啟動，並避免以下情況：使新的（重啟）ASF進程在後台靜默運行，而不是在腳本的前景中運行，這些進程與舊的ASF進程一起退出。 考慮到新的流程將不再是您原有流程的直接分支，這一點尤其重要，這將使您無法使用標準的主控台輸入。
 
 在此屬性僅為您服務的情況下，您可以將其設置為 `false`。 但是，請記住，在這種情況下 **您** 負責重啟進程。 這在某種程度上很重要，因為ASF將僅退出，而非生成新的進程（例如更新後），因此，如果您沒有添加邏輯，它將停止工作，直到您再次啟動它。 ASF總是使用指示成功（零）或非成功（非零）的錯誤代碼退出，這樣您就可以在腳本中添加合適的邏輯，從而避免在出現故障時自動重啟ASF，或者至少製作 `log.txt` 的本機複本以獲得進一步的應用分析。 還要記住，無論此屬性設置的方式如何，`restart` 命令都將始終重啟 ASF，因為此屬性定義預設行為，而 `restart` 命令始終會重新啟動進程。 除非您有理由禁用此功能，否則應保持啟用它。
 
@@ -118,19 +118,19 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `ConnectionTimeout`
 
-這是一個預設值為`90` 的 `byte flags` 類型屬性。 此屬性定義 ASF執行的各種網絡操作的超時（以秒為單位）。 簡而言之，`ConnectionTimeout` 定義了 HTTP 和 IPC 請求的超時（秒數），`ConnectionTimeout ` 定義了失敗活動訊號的最大數量，而 `ConnectionTimeout/30 ` 定義了我們允許初始 Steam 網絡連接請求的分鐘數。 Default value of `90` should be fine for majority of people, however, if you have rather slow network connection or PC, you may want to increase this number to something higher (like `120`). 請記住，即使是更大的值亦無法神奇地修復緩慢甚至無法訪問的 Steam 伺服器，因此我們不應該無限等待不會發生的事情，只需稍後再試。 如果將此值設置得過高，將導致捕獲網絡問題的過度延遲，並降低整體性能。 將此值設置得過低也會降低整體穩定性和性能，因為ASF將中止仍在分析的有效請求。 Therefore setting this value lower than default has no advantage in general, as Steam servers tend to be super slow from time to time, and could require more time for parsing ASF requests. 預設值是在相信我們的網絡連接運行穩定和懷疑Steam網絡能否在給定的超時下處理我們的請求之間的平衡點。 如果您想更早地發現問題並使ASF的重新連接/回應速度更快，應該保持預設值（或略微降低，如 ` 60 `，從而減少ASF 的等待時間）。 If you instead notice that ASF is running into network issues, such as failing requests, heartbeats being lost or connection to Steam interrupted, it probably makes sense to increase this value if you're sure that it's **not** caused by your network, but by Steam itself, as increasing timeouts makes ASF more "patient" and not deciding to reconnect right away.
+這是一個預設值為`90` 的 `byte flags` 類型屬性。 此屬性定義 ASF執行的各種網絡操作的超時（以秒為單位）。 簡而言之，`ConnectionTimeout` 定義了 HTTP 和 IPC 請求的超時（秒數），`ConnectionTimeout ` 定義了失敗活動訊號的最大數量，而 `ConnectionTimeout/30 ` 定義了我們允許初始 Steam 網絡連接請求的分鐘數。 ` 90 ` 的預設值對大多數人來說應該是合適的，但是，如果您的網路連接或PC速度相當慢，您可能希望稍微增大此值（如 ` 120 `）。 請記住，即使是更大的值亦無法神奇地修復緩慢甚至無法訪問的 Steam 伺服器，因此我們不應該無限等待不會發生的事情，只需稍後再試。 如果將此值設置得過高，將導致捕獲網絡問題的過度延遲，並降低整體性能。 將此值設置得過低也會降低整體穩定性和性能，因為ASF將中止仍在分析的有效請求。 因此，將此值設置為低於預設值通常沒有優勢，因為 Steam伺服器往往有時會非常慢，並且可能需要更多的時間來分析ASF請求。 預設值是在相信我們的網絡連接運行穩定和懷疑Steam網絡能否在給定的超時下處理我們的請求之間的平衡點。 如果您想更早地發現問題並使ASF的重新連接/回應速度更快，應該保持預設值（或略微降低，如 ` 60 `，從而減少ASF 的等待時間）。 如果您注意到 ASF 遇到了網絡問題，例如失敗的請求、失去心跳或與 Steam 的連接中斷，那麼如果您確定此問題是由您的網絡，而**非**Steam本身造成，則增加此值可能是有意義的，因為增加超時使ASF 更“有耐心”，而不是決定立即重新連接。
 
-An example situation that may require increase of this property is letting ASF to deal with a very huge trade offers that can take good 2+ minutes to be fully accepted and handled by Steam. 通過增加超時的預設值，在決定放棄交易之前，ASF 將更有耐心，等待更長的時間。
+一個可能需要增加此屬性的示例情況是讓ASF處理一個非常巨大的交易提案，可能需要大于2分鐘的時間才能被Steam完全接受並處理。 通過增加超時的預設值，在決定放棄交易之前，ASF 將更有耐心，等待更長的時間。
 
 另一種情況可能是由於機器或互聯網連接非常慢，需要更多的時間來處理正在傳輸的資料。 這是非常罕見的情況，因為CPU/網絡頻寬幾乎從來都不是瓶頸，但這仍然是一個值得提及的可能性。
 
-In short, default value should be decent for most cases, but you may want to increase it if needed. 不過，遠遠高於預設值也沒有多大意義，因為更大的超時亦無修復無法訪問的Steam 伺服器的魔法。 除非您有充分的修改理由，否則應保持它為預設值。
+簡而言之, 預設值在大多數情況下應該是合適的, 但若需要，您可能要增加預設值。 不過，遠遠高於預設值也沒有多大意義，因為更大的超時亦無修復無法訪問的Steam 伺服器的魔法。 除非您有充分的修改理由，否則應保持它為預設值。
 
 * * *
 
 ### `CurrentCulture`
 
-預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 很高興告訴您，ASF支援兩種語言代碼格式，特定區域的`en-GB`和廣泛區域的`en`。 Specifying current culture will also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you may need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. 通常，如果您更喜歡讓ASF使用英語而不是您的母語，則需使用此配置屬性。
+預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 很高興告訴您，ASF支援兩種語言代碼格式，特定區域的`en-GB`和廣泛區域的`en`。 指定當前語系還可能會影響其他依賴於語系的行為，如貨幣/日期格式等。 請注意，如果您選擇非本機語言，則可能需要額外的字體/語言包來正確顯示所選語言的字元。 通常，如果您更喜歡讓ASF使用英語而不是您的母語，則需使用此配置屬性。
 
 * * *
 
@@ -138,15 +138,15 @@ In short, default value should be decent for most cases, but you may want to inc
 
 預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在偵錯模式下，ASF會在 `config` 旁邊創建一個特殊的 `debug` 目錄，用於跟蹤ASF和 Steam 伺服器之間的整體通信。 調試資訊有助於發現與網絡和一般ASF工作流相關的棘手問題。 除此之外，某些程式常式將更加詳細，例如 `WebBrowser` 將會說明請求失敗的確切原因──這些條目將被寫入正常的ASF日誌中。 **除非開發人員提出要求，否則您不應在偵錯模式下運行ASF。** 在偵錯模式 **下運行ASF會降低性能**，**不利於穩定性**，並且是 **生成過多訊息**，因此建議 **僅需要時**使用，以用於調試特定問題、重現錯誤或獲取有關失敗請求的更多資訊，但 **不應**在正常情況下運行此模式。 您將看到**一堆**新的錯誤、問題和異常──如果您決定自己分析所有這些內容，請確保您對ASF及Steam有充分的瞭解，因為並非所有內容都與問題相關。
 
-**警告：** 啟用此模式將記錄 **潜在的敏感**資訊，如登錄名和用於登錄到Steam的密碼（以作網絡日誌記錄）。 這些資料既寫入 `debug` 目錄，也寫入標準 `log.txt` (此資訊將被詳細地記錄)。 您不應該在任何公共位置發佈 ASF生成的調試內容，ASF 開發人員始終提醒您應將其發送到他的電子郵件或其他安全位置。 We're not storing, neither making use of those sensitive details, they're written as part of debug routines since their presence could be relevant to the issue that is affecting you. 我們更希望您不以任何方式改變ASF日誌記錄，但如果您擔心，您可以編輯這些敏感的細節。
+**警告：** 啟用此模式將記錄 **潜在的敏感**資訊，如登錄名和用於登錄到Steam的密碼（以作網絡日誌記錄）。 這些資料既寫入 `debug` 目錄，也寫入標準 `log.txt` (此資訊將被詳細地記錄)。 您不應該在任何公共位置發佈 ASF生成的調試內容，ASF 開發人員始終提醒您應將其發送到他的電子郵件或其他安全位置。 我們不會儲存或利用這些敏感資訊，他們只是作為可能的錯誤因素被記錄於調試內容中。 我們更希望您不以任何方式改變ASF日誌記錄，但如果您擔心，您可以編輯這些敏感的細節。
 
-> 您可以用特殊符號替換敏感的細節，例如**。 You should refrain from removing sensitive lines entirely, as their pure existence could be relevant and should be preserved.
+> 您可以用特殊符號替換敏感的細節，例如**。 你應該避免完全刪除敏感的數據，因為它們的存在可能與問題相關，應該予以保留。
 
 * * *
 
 ### `FarmingDelay`
 
-這是一個預設值為`15` 的 `byte flags` 類型屬性。 ASF會在工作時每`FarmingDelay`分鐘檢查當前掛卡的遊戲是否已經掉落了所有的卡片。 將此屬性設置得過低可能會導致發送過多的Steam請求，而設置過高可能會導致ASF在掛卡完成之後仍然「工作」達`farmingdelay` 分鐘。 Default value should be excellent for most users, but if you have many bots running, you may consider increasing it to something like `30` minutes in order to limit steam requests being sent. 值得一提的是，ASF使用基於事件的機制，會在收到每個掉落的Steam物品時檢查遊戲徽章頁面，所以通常**我們甚至不需要每隔一定時間檢查**，但由於我們不能完全信任Steam網絡──我們仍然需要手動檢查遊戲徽章頁面，如果我們未能在`FarmingDelay` 分鐘內檢查卡片掉落事件（萬一Steam網路沒有通知我們有關物品掉落或類似的資訊）。 假設Steam網絡工作正常，降低此值 **不會以任何方式提高掛卡效率**，而 **只會顯著增加網絡開銷**──建議保持`15`分鐘的預設值（並僅在需要時才增加它）。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`15` 的 `byte flags` 類型屬性。 ASF會在工作時每`FarmingDelay`分鐘檢查當前掛卡的遊戲是否已經掉落了所有的卡片。 將此屬性設置得過低可能會導致發送過多的Steam請求，而設置過高可能會導致ASF在掛卡完成之後仍然「工作」達`farmingdelay` 分鐘。 預設值應該是適合大多數用戶的，如果您有許多機械人在運行，則可以考慮將其增加至類似 `30` 分鐘，以限制發送Steam請求。 值得一提的是，ASF使用基於事件的機制，會在收到每個掉落的Steam物品時檢查遊戲徽章頁面，所以通常**我們甚至不需要每隔一定時間檢查**，但由於我們不能完全信任Steam網絡──我們仍然需要手動檢查遊戲徽章頁面，如果我們未能在`FarmingDelay` 分鐘內檢查卡片掉落事件（萬一Steam網路沒有通知我們有關物品掉落或類似的資訊）。 假設Steam網絡工作正常，降低此值 **不會以任何方式提高掛卡效率**，而 **只會顯著增加網絡開銷**──建議保持`15`分鐘的預設值（並僅在需要時才增加它）。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 * * *
 
@@ -160,7 +160,7 @@ In short, default value should be decent for most cases, but you may want to inc
 
 預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
-If you're running ASF on the server, you probably want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
+如果您在伺服器上運行ASF，可能需要將此屬性與`--process-required`**[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**配合使用。
 
 * * *
 
@@ -172,7 +172,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `InventoryLimiterDelay`
 
-這是一個預設值為`3`的`byte`類型屬性。 ASF將確保每兩次連續的物品庫請求之間至少間隔`InventoryLimiterDelay`秒，以避免觸發頻率限制──在請求Steam物品庫資訊時，尤其是您使用`transfer`等命令，或啟用了`MatchActively`功能。 預設值`3`基於連續獲取100多個機械人實例清單的數據設定，應該能滿足大多數 (如果不是全部) 用戶的需求。 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`3`的`byte`類型屬性。 ASF將確保每兩次連續的物品庫請求之間至少間隔`InventoryLimiterDelay`秒，以避免觸發頻率限制──在請求Steam物品庫資訊時，尤其是您使用`transfer`等命令，或啟用了`MatchActively`功能。 預設值`3`基於連續獲取100多個機械人實例清單的數據設定，應該能滿足大多數 (如果不是全部) 用戶的需求。 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 如果您運行大量的的機械人並有大量庫存請求，則可能還需要增加此值，不過在這種情況下，您可能更應該嘗試限制這些請求的數量。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 * * *
 
@@ -210,7 +210,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `OptimizationMode`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 例如，ASF在檢查可掛卡遊戲時將請求您的第一個徽章頁面，在請求到達後，ASF 將從中讀取您實際擁有多少徽章頁面，然後同時向每個徽章頁發送請求。 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. 只有當您讀過 **[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**，並且您有意犧牲巨大的性能提升以減少非常小的記憶體開銷時，才應考慮切換此屬性。 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為默認值。
+這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 例如，ASF在檢查可掛卡遊戲時將請求您的第一個徽章頁面，在請求到達後，ASF 將從中讀取您實際擁有多少徽章頁面，然後同時向每個徽章頁發送請求。 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 只有當您讀過 **[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**，並且您有意犧牲巨大的性能提升以減少非常小的記憶體開銷時，才應考慮切換此屬性。 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為默認值。
 
 * * *
 
@@ -228,7 +228,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `SteamOwnerID`
 
-預設值 為`0` 的 `ulong` 類型。 此屬性以64位形式的Steam ID定義 ASF 進程擁有者，類似于給定機械人實例的 `master` 許可權（但作用於全域）。 通常您應該會希望將屬性設置為您的Steam主帳戶ID。 `Master` 許可權包括對其機器人實例的完全控制， 僅`SteamOwnerID`中指定的用戶才能發佈全域命令，如 `exit``restart` 或 `update`。 This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. 預設值 `0` 表示當前ASF進程無擁有者，這意味著沒有人能夠發出全域 ASF 命令。 請記住，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 命令必須和`SteamOwnerID`配合使用才能工作，因此，如果您想要使用它們，那麼您必須在此處提供一個有效的值。
+預設值 為`0` 的 `ulong` 類型。 此屬性以64位形式的Steam ID定義 ASF 進程擁有者，類似于給定機械人實例的 `master` 許可權（但作用於全域）。 通常您應該會希望將屬性設置為您的Steam主帳戶ID。 `Master` 許可權包括對其機器人實例的完全控制， 僅`SteamOwnerID`中指定的用戶才能發佈全域命令，如 `exit``restart` 或 `update`。 這很方便，因為你可能想為你的朋友運行機械人，同時不允許他們通過 `exit` 之類的命令控制 ASF 進程。 預設值 `0` 表示當前ASF進程無擁有者，這意味著沒有人能夠發出全域 ASF 命令。 請記住，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 命令必須和`SteamOwnerID`配合使用才能工作，因此，如果您想要使用它們，那麼您必須在此處提供一個有效的值。
 
 * * *
 
@@ -259,9 +259,9 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `UpdatePeriod`
 
-這是一個預設值為`24` 的 `byte flags` 屬性。 此屬性定義 ASF 檢查自動更新的頻率。 更新不僅對於接收新功能和關鍵安全修補程式至關重要, 而且對於接收錯誤修復、性能增強、穩定性改進等也至關重要。 當設置大於` 0 `的值時，ASF 將在新版本可用時自動下載，替換並重新啟動（如果` AutoRestart `被啟用）。 為了實現這一目標, ASF將每 `UpdatePeriod` 小時檢查一次我們的GitHub 存儲庫上是否有新的更新。 此值為 `0` 時禁用自動更新，但您仍可手動執行 `update` 命令。 You may also be interested in setting appropriate `UpdateChannel` that `UpdatePeriod` should follow.
+這是一個預設值為`24` 的 `byte flags` 屬性。 此屬性定義 ASF 檢查自動更新的頻率。 更新不僅對於接收新功能和關鍵安全修補程式至關重要, 而且對於接收錯誤修復、性能增強、穩定性改進等也至關重要。 當設置大於` 0 `的值時，ASF 將在新版本可用時自動下載，替換並重新啟動（如果` AutoRestart `被啟用）。 為了實現這一目標, ASF將每 `UpdatePeriod` 小時檢查一次我們的GitHub 存儲庫上是否有新的更新。 此值為 `0` 時禁用自動更新，但您仍可手動執行 `update` 命令。 您可能還有興趣了解設置 `UpdatePeriod` 應遵循的適當 `UpdateChannel`。
 
-Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory - this means that any extra files unrelated to ASF in its directory can be lost during update. ` 24 `的默認值是不必要的檢查和維持 ASF 更新之間的良好平衡。
+ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，但不涉及位於` config `目錄中您自己的配置或數據庫——意味著在其目錄中與 ASF 無關的任何額外檔可能會在更新期間丟失。 ` 24 `的默認值是不必要的檢查和維持 ASF 更新之間的良好平衡。
 
 除非您有**強烈的**理由要禁用此功能，否則您應該在合理的` UpdatePeriod ` **中啟用自動更新，這是出於為您自己利益的考慮**。 這不僅是因為我們不支援最新的穩定 ASF 版本範圍之外的事情，還因為**我們僅為最新版本提供安全保障**。 如果您使用的是過時的ASF版本，那麼您可能將自己暴露於各種問題，從小錯誤到功能損壞，以**[Steam 帳戶永久封鎖](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#did-somebody-get-banned-for-it)**告終，所以為了您自己的利益，我們**強烈推薦**確保您的 ASF 版本是最新的。 自動更新允許我們能夠在升級之前禁用或修補有問題的代碼，從而快速應對所有類型的問題——如果您選擇退出它，您將失去我們的所有安全保障，並且需要自行承擔運行可能有害的代碼所帶來的風險後果， 不僅是來自 Steam 網絡的威脅，還（顧名思義）您自己的 Steam 帳戶。
 
@@ -273,7 +273,7 @@ Update process of ASF involves update of entire folder structure that ASF is usi
 
 預設值是基於 ASF 是訪問各種 Steam Web 服務的唯一工具來設定的，特別是 `steamcommunity.com`，`api.steampowered.com` 和`store.steampowered.com`。 如果您正在使用其他工具向同一 Web 服務發送請求，那麼您應該確保您的工具包含類似` WebLimiterDelay `的功能，並將兩者都設置為預設值的兩倍，即`600`。 這保證了在任何情況下，您都不會每 `300` 毫秒發送超過1個的請求。
 
-In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it could lead to various IP-related blocks, some of which are possible to be permanent. 預設值足以在伺服器上運行單個 ASF 實例，以及在正常情況下與原始 Steam 用戶端一起使用 ASF。 It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that may send excessive number of requests to the same web-services that ASF is making use of. 簡而言之，從單個 IP 發送到單個 Steam 域的所有全域請求的數量不應超過每 `300` 毫秒1個。
+通常，我們**強烈反對**降低` WebLimiterDelay `的預設值，因為它可能會導致各種與 IP 相關的封鎖，其中一些封鎖可能是永久性的。 預設值足以在伺服器上運行單個 ASF 實例，以及在正常情況下與原始 Steam 用戶端一起使用 ASF。 對於大多數用法來說它應該是正確的，你應該只增加它（永不降低它），除非——你在 ASF 之外還使用另一個可能會向ASF正在利用的 Web 服務發送相同請求的工具 。 簡而言之，從單個 IP 發送到單個 Steam 域的所有全域請求的數量不應超過每 `300` 毫秒1個。
 
 除非您有充分的修改理由，否則應保持它為預設值。
 
@@ -500,7 +500,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 我強烈建議不要在` LootableTypes `中啟用` Unknown `類型，即使您希望拾取一切物品。
+ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 我強烈建議不要在` LootableTypes `中啟用` Unknown `類型，即使您希望拾取一切物品。
 
 * * *
 
@@ -572,12 +572,12 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 這是一個預設值為`0` 的 `byte flags` 屬性。 此屬性定義ASF在兌換cd-keys時的行為，定義如下：
 
-| 值 | 名稱               | 描述                                        |
-| - | ---------------- | ----------------------------------------- |
-| 0 | None             | No special redeeming preferences, default |
-| 1 | Forwarding       | 將無法兌換的金鑰转發給其他機械人                          |
-| 2 | Distributing     | 在自己和其他機械人之間分配所有密鑰                         |
-| 4 | KeepMissingGames | 轉發時保留（可能）缺少游戲的密鑰，不去激活它                    |
+| 值 | 名稱               | 描述                     |
+| - | ---------------- | ---------------------- |
+| 0 | None             | 預設值，無特殊激活偏好            |
+| 1 | Forwarding       | 將無法兌換的金鑰转發給其他機械人       |
+| 2 | Distributing     | 在自己和其他機械人之間分配所有密鑰      |
+| 4 | KeepMissingGames | 轉發時保留（可能）缺少游戲的密鑰，不去激活它 |
 
 請注意，此屬性是 `flag` 類型字段，因此可以選擇可用值的任意組合。 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
@@ -585,7 +585,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `Distributing` 命令將導致機械人在自身和其他機械人之間分發所有接收到的金鑰。 這意味著每個機械人都會從批處理中獲得一個密鑰。 通常，只有當您為同一遊戲兌換多個金鑰時，才會使用此功能，並且您希望將它們均勻地分佈在您的機械人中，而不是為各種不同的遊戲兌換金鑰。 如果您只兌換單個 `兌換` 操作中的一個金鑰，則此功能毫無意義（因為沒有要分發的額外金鑰）。
 
-當我們無法確定被兌換的密鑰是否實際上由我們的機械人擁有時，` KeepMissingGames `將導致機械人跳過` Forwarding `。 這意味著` Forwarding `將**僅**應用於` AlreadyPurchased `遊戲密鑰，而不覆蓋其他情況，例如` DoesNotOwnRequiredApp `， ` RateLimited `或` RestrictedCountry `。 Typically you want to use this option on primary account, to ensure that keys being redeemed on it won't be forwarded further if your bot for example becomes temporarily `RateLimited`. 正如您從描述中猜測的那樣，如果未啟用` Forwarding `，則此字段絕無效果。
+當我們無法確定被兌換的密鑰是否實際上由我們的機械人擁有時，` KeepMissingGames `將導致機械人跳過` Forwarding `。 這意味著` Forwarding `將**僅**應用於` AlreadyPurchased `遊戲密鑰，而不覆蓋其他情況，例如` DoesNotOwnRequiredApp `， ` RateLimited `或` RestrictedCountry `。 通常，您可能希望在主帳戶上使用此選項，以確保當您的機械人狀態暫時為` RateLimited `時，不會進一步轉發在其上兌換的密鑰。 正如您從描述中猜測的那樣，如果未啟用` Forwarding `，則此字段絕無效果。
 
 同時啟用` Forwarding `和` Distributing `將在轉發功能之上添加分發功能，這使得ASF首先嘗試在所有機械人上兌換一個密鑰（轉發），然後再轉移到下一個（分發）。 通常，您只希望在需要` Forwarding `時使用此選項，它改變了使用密鑰的機器人的行為，而不是始終按順序使用每個密鑰（這將是` Forwarding（僅轉發）`）。 如果您知道大多數甚至所有密鑰都綁定到同一個遊戲，這種行為會很有用，因為在這種情況下，` Forwarding `會首先嘗試在一個機械人上兌換所有密鑰（如果每個密鑰用於不同的遊戲），` Forwarding ` + ` Distributing `將在下一個密鑰上切換機械人，將新密鑰的兌換任務“分發”到另一個機械人上（如果鍵是針對同一個遊戲，那麼這是有意義的，每個密鑰將跳過一次毫無意義的嘗試）。
 
@@ -597,7 +597,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 ### `SendOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 此選項處於活動狀態時，ASF除了在完成掛卡後執行` loot `之外，還（ 總是）會在收到每個新物品通知（不掛卡時）或完成每次交易之後執行` loot `。 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
+預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。 此選項處於活動狀態時，ASF除了在完成掛卡後執行` loot `之外，還（ 總是）會在收到每個新物品通知（不掛卡時）或完成每次交易之後執行` loot `。 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
 
 通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
@@ -655,14 +655,14 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 預設值為空的`ImmutableDictionary<ulong, byte>` 類型。 此屬性是一個字典屬性，它將由64位SteamID標識的給定Steam用戶映射到` byte `編號，該編號定義此用戶在ASF實例中的權限。 ASF中當前可用的機械人權限定義為：
 
-| 值 | 名稱            | 描述                                                                                                                                                                         |
-| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
-| 1 | FamilySharing | 提供親友同享用戶的最低訪問權限。 再一次，這主要是一個參考值，因為ASF能夠自動發現我們允許使用我們的庫的用户的SteamID                                                                                                            |
-| 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                                                                                                                            |
-| 3 | Master        | 提供對給定機械人實例的完全訪問權限                                                                                                                                                          |
+| 值 | 名稱            | 描述                                                              |
+| - | ------------- | --------------------------------------------------------------- |
+| 0 | None          | 無特殊權限，這主要是分配給SteamID不在設置中的用戶——無需定義具有此權限的任何人                     |
+| 1 | FamilySharing | 提供親友同享用戶的最低訪問權限。 再一次，這主要是一個參考值，因為ASF能夠自動發現我們允許使用我們的庫的用户的SteamID |
+| 2 | Operator      | 提供對給定機械人實例的基本訪問權限，主要是添加許可證和兌換密鑰                                 |
+| 3 | Master        | 提供對給定機械人實例的完全訪問權限                                               |
 
-簡而言之，此屬性允許您自訂給定使用者的許可權。 權限主要用於訪問ASF ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands) **，但也用於啟用許多ASF功能 ，如接受交易。 For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
+簡而言之，此屬性允許您自訂給定使用者的許可權。 權限主要用於訪問ASF ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands) **，但也用於啟用許多ASF功能 ，如接受交易。 例如，您可能希望將自己的帳戶設置為` Master `，並為您的2-3位朋友提供` Operator `訪問權限，以便他們可以使用ASF輕鬆為您的機械人兌換密鑰， 但卻**不能**停止它。 因此，您可以輕鬆地將許可權分配給給定的用戶，並讓他們在您指定的範圍內使用您的機械人。
 
 我們建議您只設置一位 `master` 用戶，至於權限為 `Operators` 及以下的用戶，您可以儘管設置您希望的任意數量。 雖然技術上可以讓ASF在設置多個` Masters `時正常運行，例如接受他們發送到機器人的所有交易，但對於每個需要指定單個目標的操作，ASF將僅使用其中一個（具有最小的Steam ID的Master） ，例如` loot `請求，以及` SendOnFarmingFinished `或` SendTradePeriod `等屬性。 如果您完全理解這些限制，特別是無論實際執行` loot `命令的是哪個` Master `，機械人將始終將物品發送到具有最小steam ID的` Master `，雖然您可以在此處使用` Master `權限定義多個用戶，但我們仍然建議使用單個master方案——不鼓勵使用不受支援的多個master方案設置。
 
@@ -676,7 +676,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 | 值  | 名稱                  | 描述                                                                                                                                                     |
 | -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0  | None                | No special trading preferences, default                                                                                                                |
+| 0  | None                | 預設值，無特殊交易偏好                                                                                                                                            |
 | 1  | AcceptDonations     | 接受對我們無任何損失的交易                                                                                                                                          |
 | 2  | SteamTradeMatcher   | 被動參與 **[STM](https://www.steamtradematcher.com)**交易。 訪問 **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** 了解更多資訊 |
 | 4  | 匹配所有物品              | 需要設置 `SteamTradeMatcher`, 並與其同時使用--除了對我們有利的和無損的交易外, 還接受不利交易                                                                                            |
@@ -708,7 +708,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
+ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
 
 * * *
 
@@ -716,9 +716,9 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 預設值為 `true` 的 `bool` 類型。 此屬性定義ASF是否應使用此Steam帳戶的登錄密鑰機制。 登錄密鑰機制與官方Steam客戶端的“記住我”選項非常相似，這使得ASF可以存儲和使用臨時一次性登錄密鑰進行下一次登錄嘗試，只要我們的登錄密鑰有效，這就可以避免提供密碼、Steam Guard 或 2FA 代碼的需求。 登錄密鑰存儲在` BotName.db `文件中並會自動更新。 因此在使用ASF成功登錄一次後不需要再提供密碼/ SteamGuard / 2FA代碼。
 
-為方便起見，預設情況下使用已保存的登錄密鑰，因此您無需在每次登錄時輸入` SteamPassword `，SteamGuard或2FA代碼（未啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**的話）。 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+為方便起見，預設情況下使用已保存的登錄密鑰，因此您無需在每次登錄時輸入` SteamPassword `，SteamGuard或2FA代碼（未啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**的話）。 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 它與您的Steam客戶端完全相同的方法，會保存您的帳戶名和登錄密鑰以用於下次登錄嘗試，與使用` UseLoginKeys `和` SteamLogin `並在ASF中清空` SteamPassword `的方式別無二致。
 
-However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. 禁用此選項的工作原理與在官方 Steam 用戶端不勾選「記住我」完全相同。 除非您知道自己在做什麼，否則應將其保留為預設值 `true`。
+但是，有些人可能在意這個細節，因此如果您想確保ASF不會存儲任何類型的代碼以允許其在關閉後恢復上一個會話，這裡可以啓用此選項，這將導致每次登錄嘗試都必須進行完全身份驗證。 禁用此選項的工作原理與在官方 Steam 用戶端不勾選「記住我」完全相同。 除非您知道自己在做什麼，否則應將其保留為預設值 `true`。
 
 * * *
 
@@ -803,7 +803,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`string`——字串類型，接受任何字元序列，包括空值 `""` 和 `null`。 Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
+`string`——字串類型，接受任何字元序列，包括空值 `""` 和 `null`。 ASF將空序列和` null `值視為相同，因此您可以根據自己的喜好選擇使用哪一個（我們推薦使用` null `）。
 
 範例：`"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 

@@ -84,7 +84,7 @@ Neben der Verwendung unserer Swagger-Dokumentation als komplette Spezifikation d
 
 ASF hört standardmäßig nur auf `localhost` Adressen, was bedeutet, dass der Zugriff auf ASF IPC von jedem anderen Rechner als deinem eigenen **nicht möglich ist**. Wenn du keine Standard-Endpunkte änderst, bräuchte der Angreifer einen direkten Zugriff auf deinen eigenen Computer, um auf ASF IPC zugreifen zu können, daher ist er so sicher wie möglich und es besteht keine Möglichkeit, dass andere Personen auf ihn zugreifen, auch nicht aus deinem eigenen LAN.
 
-Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localhost` Adressen an etwas anderes zu binden, dann solltest du die richtigen Firewall-Regeln **selbst** festlegen, um nur autorisierten IPs den Zugriff auf die IPC-Schnittstelle von ASF zu ermöglichen. Zusätzlich dazu empfehlen wir dringend, `IPCPassword` einzurichten, was eine weitere Ebene der zusätzlichen Sicherheit bietet. Es ist auch sinnvoll, die IPC-Schnittstelle von ASF in diesem Fall hinter einem Reverse-Proxy auszuführen, was im Folgenden näher erläutert wird.
+Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localhost` Adressen an etwas anderes zu binden, dann solltest du die richtigen Firewall-Regeln **selbst** festlegen, um nur autorisierten IPs den Zugriff auf die IPC-Schnittstelle von ASF zu ermöglichen. Zusätzlich dazu empfehlen wir dringend, `IPCPassword` einzurichten, was eine weitere Ebene der zusätzlichen Sicherheit bietet. Möglicherweise möchtest du in diesem Fall auch die IPC-Schnittstelle von ASF hinter einem Reverse-Proxy ausführen, was im Folgenden näher erläutert wird.
 
 ### Kann ich mit eigenen Programmen oder Benutzerskripten auf die ASF-API zugreifen?
 
@@ -206,4 +206,4 @@ Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher 
 }
 ```
 
-Wenn Sie nicht von allen Quellen Zugriff benötigen, sondern z.B. nur von Ihrem LAN, dann ist es viel besser, so etwas wie `192.168.0.0.0` statt `*` zu verwenden. Passen Sie die Netzwerkadresse entsprechend an, wenn Sie eine andere verwenden.
+Wenn du nicht von allen Quellen Zugriff benötigst, aber zum Beispiel nur von deinem Netzwerk, dann ist es viel besser, so etwas wie `192.168.0.*` anstelle von `*` zu verwenden. Passe die Netzwerkadresse entsprechend an, wenn du eine andere verwendest.

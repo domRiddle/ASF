@@ -1,6 +1,6 @@
 # 常見問題
 
-Our basic FAQ covers standard questions and answers that you may have. 對於不太常見的問題，請訪問我們的**[常見問題擴展](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**。
+我們的基本常見問題解答涵蓋了您可能會问的問題和它们的標準答案。 對於不太常見的問題，請訪問我們的**[常見問題擴展](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**。
 
 # 目錄
 
@@ -16,7 +16,7 @@ Our basic FAQ covers standard questions and answers that you may have. 對於不
 
 ### 它究竟是如何工作的？
 
-在嘗試了解 ASF 之前，您應該先了解什麼是交換卡片以及如何得到它們，這在官方 **[常見問題](https://steamcommunity.com/tradingcards/faq)** 中有很好的說明。
+在嘗試了解 ASF 之前，您應該先了解什麼是交換卡片以及如何得到它們，這在官方**[常見問題](https://steamcommunity.com/tradingcards/faq)**中有很好的說明。
 
 簡而言之，Steam 卡牌是您在擁有特定遊戲時有資格獲得的收藏物品，可用於製作徽章、在 Steam 市集上銷售或您選擇的任何其他目的。
 
