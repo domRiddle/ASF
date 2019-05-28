@@ -809,7 +809,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF使用` HashSet `來指示給定屬性僅對唯一值有意義，因此它會在解析期間故意忽略任何可能的重複（如果您碰巧提供它們）。
+`ImmutableHashSet<valueType>` —— 給定 `valueType`中唯一值的集合。 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF使用` HashSet `來指示給定屬性僅對唯一值有意義，因此它會在解析期間故意忽略任何可能的重複（如果您碰巧提供它們）。
 
 `ImmutableHashSet<uint>`的範例：`"Blacklist": [267420, 303700, 335590]`
 
@@ -849,7 +849,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 ## 兼容性映射
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF 包含自動處理此字符串映射的正確邏輯，因此配置中的` s _ `條目實際上是正確生成且有效的。 If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. 我們希望這個JavaScript限制能最終被解決。
+Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF 包含自動處理此字符串映射的正確邏輯，因此配置中的` s _ `條目實際上是正確生成且有效的。 如果您打算自己生成配置，我們建議盡可能堅持使用原始` ulong `字段，但如果您不能這樣做，您也可以遵循此規則並使用將它們編碼為以`s_`為前綴的字符串 。 我們希望這個JavaScript限制能最終被解決。
 
 * * *
 
@@ -870,4 +870,4 @@ ASF與舊配置保持兼容是其首要任務。 正如您應該已經知道的�
 
 以上所有內容都是透明的，無需重新啟動程序或殺死其他（未受影響的）機械人程序實例即可自動完成。
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+除此之外，如果您修改ASF核心配置 ` ASF.json `，ASF也將自行重啟（如果啓用` AutoRestart `）。 同樣，如果刪除或重命名程序，程序將退出。

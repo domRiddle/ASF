@@ -1,6 +1,6 @@
 # 常見問題擴展
 
-Our extended FAQ covers a bit less common questions and answers that you may have. 有關更常見的事項，請訪問我們的**[常見問題基礎](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**。
+我們的常見問題擴展涵蓋了您可能遇到的一些不常見的問題和答案。 有關更常見的事項，請訪問我們的**[常見問題基礎](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**。
 
 * * *
 

@@ -1,66 +1,66 @@
 # Parancssori argumentumok
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+Az ASF számos paranacssori argumentumot támogat, amikkel a program futását lehet befolyásolni. Haladó felhasználók számára ajánlott, akik finomítani szeretnék a program futását. Az alapértelmezett `ASF.json` konfigurációs fájlhoz képest a parancssori argumentumokkal az inicializációt (pl.: `--path`), platform specifikus beállításokat (pl.: `--system-required`), valamint érzékeny adatokat (pl.: `--cryptkey`) lehet beállítani.
 
 * * *
 
 ## Használat
 
-Usage depends on your OS and ASF flavour.
+A használat függ az operációs rendszeredtől és az ASF verziódtól.
 
-Generic:
+Általános használat:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --argumentum --másikArgumentum
 ```
 
-Windows:
+Windows esetén:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --argumentum --másikArgumentum
 ```
 
-Linux/OS X
+Linux/OS X esetén:
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --argumentum --másikArgumentum
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+A parancsori argumentumok az általános segítő szkriptekben is támogatottak, mint például `ArchiSteamFarm.cmd`, vagy `ArchiSteamFarm.sh`. A segítő szkriptekkel egyidejűleg az `ASF_ARGS` környezeti változót is használhatod, ahogy az a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** szekcióban le van írva.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Ha az argumentumod szóközt is tartalmaz, ne felejts el idézőjelet használni. Ez a két sor hibás:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/Saját letöltések/ASF # Rossz!
+./ArchiSteamFarm --path=/home/archi/Saját letöltések/ASF # Rossz!
 ```
 
-However, those two are completely fine:
+Viszont ez a két sor jó:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm --path "/home/archi/Saját letöltések/ASF" # OK 
+./ArchiSteamFarm "--path=/home/archi/Saját letöltések/ASF" # OK
 ```
 
-## Arguments
+## Argumentumok
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` vagy `--cryptkey=<key>` - az ASF-t egyedi titkosító kulccsal fogja elindítani, melynek értéke `<key>`. Ez a beállítás a **[biztonságot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** befolyásolja, és kényszeríteni fogja az ASF-t, hogy az általad megadott `<key>` kulcsot használja az alapértelmezett helyett, ami a futtatható állományba van beleégetve. Tartsd észben, hogy azokat a jelszavakat, amik ezzel a kulccsal vannak titkosítva, minden ASF futtatás során meg kell adni.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKEY` környezeti változót használod, ami azon emberek számára lehet hasznos, akik nem szeretnének érzékeny adatokat argumentumokon keresztül átadni.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - ezt a kapcsolót főként a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** tárolóink használják és kikényszerítik, hogy az `AutoRestart` értéke `false` legyen. Hacsak nincs valami speciális igényed, akkor érdemesebb lehet az `AutoRestart` tulajdonságot beállítani a konfigurációdban. Ez a kapcsoló azért van itt, hogy a docker szkriptünknek ne kelljen hozzányúlnia a globális konfigurációdhoz azért, hogy átállítsa a saját környezetének megfelelően. Természetesen ha az ASF-t egy szkripten belül futtatod, akkor lehet még ennek a kapcsolónak létjogosultsága (de egyébként jobban jársz a globális konfigurációs tulajdonsággal).
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for `config` directory (and optionally also other, such as `plugins` or `www`) without a need of duplicating binary in the same place. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. When running multiple instances of the same binary, keep in mind that you should typically disable auto-updates, as there is no synchronization between them. Also keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with `config` directory inside.
+`--path <path>` or `--path=<path>` - alapértelmezetten az ASF mindig a saját könyvtárába fog navigálni induláskor. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. Jól jöhet, ha szeretnéd külön választani a binárist a konfigurációtól, ahogy az a linux-szerű csomagokban megszokott dolog - így egy binárist több különféle beállítással is használhatsz. Az útvonal lehet relatív az ASF bináris helyéhez képest, vagy abszolút. Ha több példányt is futtatnál ugyanabból a binárisból, akkor tartsd észben, hogy kapcsold ki az automatikus frissítést, mivel nincsen köztük szinkronizálás. Azt is jegyezd meg, hogy ez a parancs egy új "ASF home" könyvtárra mutat, aminek a felépítése ugyanolyan kell legyen, mint az eredeti esetében, vagyis kell lennie benne egy `config` könyvtárnak.
 
 Példa:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/CélKönyvtár # Abszolút elérési út 
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../CélKönyvtár # Relatív elérési út is ugyanúgy működik
 ```
 
     ├── /opt
@@ -70,18 +70,19 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
     │     └── TargetDirectory
     │           ├── config
     │           ├── plugins (optional)
-    │           └── www (optional)
+    │           ├── www (optional)
+    │           └── NLog.config (optional)
     └── ...
     
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` - ha megadod ezt a kapcsolót, akkor az alapértelmezett viselkedésével ellentétben, az ASF nem fog leállni, ha egyetlen bot sem fut már. Ez a nem leálló viselkedés akkor lehet hasznos, ha az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**-vel együtt használod, mivel a felhasználók nagy része elvárja, hogy a web szolgáltatásuk mindig fusson a futó botok számától függetlenül. Ha IPC-t használsz, vagy más okból szeretnéd, ha az ASF processz addig fusson amíg te magad be nem zárod, akkor ezt az opciót neked találták ki.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+Ha nem akarsz IPC-t futtatni, akkor ez az opció elég felesleges, mivel egyszerűen újraindíthatod a processzt, amikor szükség van rá (az ASF web szerverrel ellentétben, ahol folyamatosan futnia kell, ha parancsokat akarsz küldeni).
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required` - ha beállítod ezt a kapcsolót, akkor az ASF jelezni fog az operációs rendszer számára, hogy a szüksége van arra, hogy az fusson a teljes élettartama alatt. Jelenleg ennek a kapcsolónak csak windowsos gépeken van értelme, mivel ott meg lehet tiltani, hogy a rendszer alvó módba menjen, amíg a processz futna. Ez akkor lehet hasznos, ha a gépeden, vagy laptopodon este farmolnál, így az ASF ébren fogja tartani a géped a farmolás ideje alatt, majd miután végzett, le fogja állítani magát, így a rendszered képes lesz alvó módba lépni, ezzel is áramot spórolva a farmolás befejeztével.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+Tartsd észben, hogy ahhoz, hogy az ASF rendesen le tudjon állni más beállításokra is szükséged lesz: kerüld a `--process-required` használatát, valamint bizonyosodj meg róla, hogy a botjaidban be van állítva a `ShutdownOnFarmingFinished`. Természetesen az automatikus leállást csupán lehetővé teszi ez a funkció, de nem teszi kötelezővé, mivel például a `--process-required` argumentummal együtt is használható, így a rendszered gyakorlatilag sosem fog leállni, miután az ASF-t elindítottad.

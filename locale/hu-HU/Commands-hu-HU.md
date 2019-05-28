@@ -1,71 +1,71 @@
 # Parancsok
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+Az ASF számos parancsot támogat, amivel a program és a botok viselkedését lehet befolyásolni.
 
-Below commands can be sent to the bot through various different ways:
+A parancsokat számos módon lehet elküldeni a bot számára:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Az interaktív ASF konzolon keresztül
+- Privát, vagy csoportos Steam chaten keresztül
+- Az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interfészünkön keresztül
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Tartsd észben, hogy az ASF interakciókhoz szükséges, hogy legyen megfelelő hozzáférésed a parancshoz az ASF engedélyek alapján. Nézd meg a `SteamUserPermissions` és a `SteamOwnerID` konfigurációs beállításokat, ha többet szeretnél erről tudni.
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+A Steam chaten keresztül kiadott parancsokra befolyással van a `CommandPrefix` **[globális konfigurációs beállítás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, ami alapértelmezetten a `!` karakter. Ez azt jelenti, hogy például a `status` parancs kiadásához azt kell beírnod, hogy `!status` (vagy a `CommandPrefix` által meghatározott karakter(eke)t). A `CommandPrefix` használata nem kötelező konzol, vagy IPC esetén, ki lehet hagyni.
 
 * * *
 
-### Interactive console
+### Interaktív konzol
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+A V4.0.0.9-es verziótól kezdődően az ASF támogatja az interakítv konzolt, amit a [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) beállításával lehet engedélyezni. Utána egyszerűen a `c` gomb megnyomásával engedélyezni lehet a parancs módot, beírhatod a parancsot és enterrel el lehet azt küldeni.
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![Képernyőmentés](https://i.imgur.com/bH5Gtjq.png)
 
-Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
+Az interaktív konzol nem elérhető a [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) módban.
 
 * * *
 
 ### Steam chat
 
-You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+A Steam chaten keresztül is futtathatsz parancsokat egy ASF bot számára. Természetesen önmagaddal nem beszélgethetsz, ezért szükséged lesz minimum egy másik bot accountra, ha a fő accountodra szeretnél parancsokat kiadni.
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![Képernyőmentés](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
+Ugyanígy egy Steam csoport csoportos chatjét is használhatod. Tudd, hogy ha ezt szeretnéd használni, akkor a `SteamMasterClanID`-t be kell állítani, így a bot a csoport chatjén is figyelni fogja a kiadott parancsokat (és be fog lépni, ha szükséges). Ezt arra is fel tudod használni, hogy "magaddal beszélgess", mivel így nincs szükség egy külön bot accountra a privát chattel ellentétben. Egyszerűen be tudod állítani a `SteamMasterClanID`-t az újonnan létrehozott csoportodra, majd hozzáférést adhatsz magadnak vagy a `SteamOwnerID`, vagy a `SteamUserPermissions` használatával a botodon keresztül. Így az ASF bot (te) be fog lépni a csoportba, majd a csoport chatjébe, ahol is várni fogja az általad kiadott parancsokat. Ezután beléphetsz ugyanabba a csoportos chat szobába, hogy magadnak adj ki parancsokat (mivel a parancsokat a chat szobában fogod kiadni és az ASF példány ugyanabban a chat szobában fogja fogadni őket, még akkor is ha csak a te accountod van ott).
 
-Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+A csoportos chat számára kiadott parancsokat mindenki megkapja. Ha azt írtod be, hogy `redeem X` és 3 botod van a chat szobában, akkor az olyan lesz, mintha mind a háromnak kiadnád a `redeem X` parancsot külön-külön. A legtöbb esetben **nem ezt szeretnéd**, ezért a `given bot` parancsot használd, ami **csak egy bot számára lesz elküldve privát ablakban**. Az ASF ugyan támogatja a csoportos chateket, mivel számos esetben hasznos lehet, ha az egyetlen bot példányoddal szeretnél kommunikálni, de szinte sosem ajánlott egy parancs kiadása, ha a csoportos chatben 2 vagy több ASF bot van egyszerre, kivéve, ha tisztában vagy az ASF viselkedésével és valóban szeretnéd ugyanazt a parancsot kiadni az összes bot számára.
 
-*And even in this case you should use private chat with `<Bots>` syntax instead.*
+*És még akkor is inkább privát chatet használj a `<Bots>` szintaxissal.*
 
 * * *
 
 ### IPC
 
-The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes a felhasználói interakciókhoz (ASF-ui), valamint a harmadik féltől származó programokhoz, vagy szkriptekhez (ASF API), használatához az ASF-t `IPC` módban kell futtatni, valamint a kliensnek az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interfészen keresztül kell parancsot kiadnia.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Képernyőmentés](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
 ## Parancsok
 
-| Command                                                                    | Hozzáférés      | Description                                                                                                                                                                                           |
+| Parancs                                                                    | Hozzáférés      | Leírás                                                                                                                                                                                                |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
-| `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
-| `2faok <Bots>`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
-| `balance <Bots>`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                          |
-| `bgr <Bots>`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                       |
-| `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
-| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
-| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `kilépés`                                                                  | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
-| `farm <Bots>`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
-| `help`                                                                     | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
-| `input <Bots> <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
-| `ib <Bots>`                                                          | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                  |
-| `ibadd <Bots> <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                 |
-| `ibrm <Bots> <AppIDs>`                                         | `Master`        | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                            |
+| `2fa <Bots>`                                                         | `Master`        | Ideiglenes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** tokent generál a megadott bot példányokhoz.                                                       |
+| `2fano <Bots>`                                                       | `Master`        | Megtagadja az összes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** megerősítést a megadott példányoktól.                                                   |
+| `2faok <Bots>`                                                       | `Master`        | Elfogadja az összes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** megerősítést a megadott bot példányoknak.                                                |
+| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Aktiválja a megadott `appIDs`-t (Steam hálózat), vagy `subIDs`-t (Steam bolt) a megadott bot példányokon (csakis ingyenes játékokkal működik).                                                        |
+| `balance <Bots>`                                                     | `Master`        | Visszaadja a megadott bot példányok pénztárca egyenlegét.                                                                                                                                             |
+| `bgr <Bots>`                                                         | `Master`        | Információt ad a **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** várólistáról a megadott botok számára.                                                      |
+| `bl <Bots>`                                                          | `Master`        | Listázza a tiltólistán lévő felhasználókat, melyek így nem tudnak csereajánlást küldeni a megadott bot példányok számára.                                                                             |
+| `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Tiltólistára rakja a megadott `steamIDs`-t, így a megadott bot példányoknak nem tud csereajánlatot küldeni.                                                                                           |
+| `blrm <Bots> <SteamIDs64>`                                     | `Master`        | A megadott `steamIDs`-t törli a tiltólistáról, így azok tudnak csereajánlást küldeni a megadott bot példányok számára.                                                                                |
+| `exit`                                                                     | `Owner`         | Leállítja a teljes ASF processzt.                                                                                                                                                                     |
+| `farm <Bots>`                                                        | `Master`        | Újraindítja a kártya farmoló modult a megadott bot példányokon.                                                                                                                                       |
+| `help`                                                                     | `FamilySharing` | Megmutatja a súgót (egy linket erre az oldalra).                                                                                                                                                      |
+| `input <Bots> <Type> <Value>`                            | `Master`        | Megadott input típust beállítja a megadott értékre a megadott bot példányok számára, kizárólag a `Headless` módban működik - **[lentebb](#input-command)** jobban el van magyarázva.                  |
+| `ib <Bots>`                                                          | `Master`        | Listázza mely alkalmazások vannak tiltva a farmolástól a megadott bot példányok számára.                                                                                                              |
+| `ibadd <Bots> <AppIDs>`                                        | `Master`        | A megadott `appIDs`-t tiltólistára teszi, így azokat nem fogják farmolni a megadott bot példányok.                                                                                                    |
+| `ibrm <Bots> <AppIDs>`                                         | `Master`        | A megadott `appIDs`-t törli a tiltólistáról, így a megadott bot példányok farmolhatnak vele.                                                                                                          |
 | `iq <Bots>`                                                          | `Master`        | Lists priority idling queue of given bot instances.                                                                                                                                                   |
 | `iqadd <Bots> <AppIDs>`                                        | `Master`        | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                  |
 | `iqrm <Bots> <AppIDs>`                                         | `Master`        | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                             |
@@ -84,7 +84,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `redeem <Bots> <Keys>`                                         | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                         |
 | `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                               |
 | `rejoinchat <Bots>`                                                  | `Operator`      | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `újraindítás`                                                              | `Owner`         | Restarts ASF process.                                                                                                                                                                                 |
+| `restart`                                                                  | `Owner`         | Restarts ASF process.                                                                                                                                                                                 |
 | `resume <Bots>`                                                      | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
 | `start <Bots>`                                                       | `Master`        | Starts given bot instances.                                                                                                                                                                           |
 | `stats`                                                                    | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                              |
@@ -94,12 +94,12 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.                                                                               |
 | `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
-| `frissítés`                                                                | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
-| `verzió`                                                                   | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
+| `update`                                                                   | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
+| `version`                                                                  | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *
 
-### Notes
+### Megjegyzések
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -117,18 +117,18 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Néhány parancsot alternatív módon is meg lehet adni, így nem kell annyit gépelned:
 
-| Command      | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Parancs      | Alternatív parancs |
+| ------------ | ------------------ |
+| `owns ASF`   | `oa`               |
+| `status ASF` | `sa`               |
+| `redeem`     | `r`                |
+| `redeem^`    | `r^`               |
 
 * * *
 
-### `<Bots>` argument
+### `<Bots>` argumentum
 
 `<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -140,25 +140,25 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `privacy` beállítások
 
-`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+A `<Settings>` argumentum **akár 7** különböző opciót is elfogad, a szokásos ASF elválasztóval, a vesszővel, elválasztva egymástól. Ez sorrendben a következők:
 
-| Argument | Név            | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Argumentum | Név            | Gyermeke   |
+| ---------- | -------------- | ---------- |
+| 1          | Profile        |            |
+| 2          | OwnedGames     | Profile    |
+| 3          | Playtime       | OwnedGames |
+| 4          | FriendsList    | Profile    |
+| 5          | Inventory      | Profile    |
+| 6          | InventoryGifts | Inventory  |
+| 7          | Comments       | Profile    |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+Ha szeretnél egy leírást a fentebbi mezőkről, akkor kérlek látogasd meg a **[Steam privacy beállításokat](https://steamcommunity.com/my/edit/settings)**.
 
-While valid values for all of them are:
+A következő értékeket vehetik fel:
 
-| Value | Név           |
+| Érték | Név           |
 | ----- | ------------- |
 | 1     | `Private`     |
 | 2     | `FriendsOnly` |
@@ -191,13 +191,13 @@ Remember that child can never have more open permission than its parent. Refer t
 
 * * *
 
-## `redeem^` modes
+## `redeem^` módok
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Név                   | Description                                                           |
+| Érték | Név                   | Leírás                                                                |
 | ----- | --------------------- | --------------------------------------------------------------------- |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
 | FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
@@ -216,35 +216,35 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
-## `input` command
+## `input` parancs
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+Az input parancs kizárólag a `Headless` módban használható, hogy általa **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**-n, vagy Steam chaten keresztül lehessen adatot átadni az ASF-nek, amikor a felhasználói interakciók nem támogatottak.
 
-General syntax is `input <Bots> <Type> <Value>`.
+Az általános szintaxis az `input <Bots> <Type> <Value>`.
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, amit az ASF felismer. Jelenleg az ASF az alábbi típusokat ismeri:
 
-| Type                    | Description                                                                |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Jelszó                  | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| Típus                   | Leírás                                                                           |
+| ----------------------- | -------------------------------------------------------------------------------- |
+| DeviceID                | 2FA eszköz azonosító, ha hiányozna a `.maFile`-ból.                              |
+| Login                   | `SteamLogin` bot konfigurációs beállítás, ha hiányozna a konfigurációból.        |
+| Password                | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
+| SteamGuard              | Engedélyező kód, amit az e-mail címedre küldenek, ha nem használsz 2FA-t.        |
+| SteamParentalCode       | `SteamParentalCode` bot konfigurációs beállítás, ha hiányozna a konfigurációból. |
+| TwoFactorAuthentication | 2FA token, amit a telefonod generált, ha használod a 2FA-t, de nem az ASF 2FA-t. |
 
-`<Value>` is value set for given type. Currently all values are strings.
+A `<Value>` a megadott típushoz lesz beállítva. Jelenleg minden érték string.
 
 ### Példa
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Mondjuk, hogy van egy botunk, ami SteamGuarddal van védve, de nem 2FA módban. El szeretnénk indítani azt a botot úgy, hogy a `Headless` be van állítva.
 
-In order to do that, we need to execute following commands:
+Ehhez az alábbi parancsokat kell kiadnunk:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
+`start AzÉnSteamGuardBotom` -> A bot be akar jelentkezni, de nem sikerül neki, mert szüksége van az engedélyező kódra, ezután leáll, mert `Headless` módban van. Erre azért van szükség, mert a Steam hálózat el fogja küldeni az engedélyező kódot az e-mailünkre - ha nem lenne erre szükség, akkor átugorhatnánk ezt a részt.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input AzÉnSteamGuardBotom ABCDE` -> Beállítjuk a `SteamGuard` inputját a `AzÉnSteamGuardBotom` botnak `ABCDE`-re. Természetesen az `ABCDE`-t helyettesítsd be azzal az engedélyező kóddal, amit az e-mailben kaptál.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start AzÉnSteamGuardBotom` -> Újra elindítjuk a (leállított) botunkat, de ezúttal az már automatikusan azt az engedélyező kódot fogja használni, amit az előbb beállítottunk, bejelentkezik, majd kitörli az értéket.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+Ehhez hasonlóan hozzáférhetünk a 2FA által védett botokhoz is (ha nem használják az ASF 2FA-t), valamint a többi szükséges beállítást is beállíthatjuk futásidőben.

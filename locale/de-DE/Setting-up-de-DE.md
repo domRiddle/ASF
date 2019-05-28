@@ -50,7 +50,7 @@ Zumindest einige von diesen sollten bereits nativ auf deinem System verfügbar s
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
 
-- Keine vorerst, aber Sie sollten die neueste Version von OS X installiert haben, mindestens 10.12+
+- Keine vorerst, aber du solltest die neueste Version von OS X installiert haben, mindestens 10.12+.
 
 * * *
 
@@ -60,11 +60,11 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Beginnen Sie nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**; Standard-Dienstprogramme wie `unzip` von Linux/OS X sollten ebenfalls problemlos funktionieren. Danach wirst du ein riesiges Durcheinander von Ordnern und Dateien haben. Keine Angst, wir werden das gleich aufräumen.
+Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)** oder die Standard-Dienstprogramme wie `unzip` unter Linux/OS X sollten ebenfalls problemlos funktionieren. Danach wirst du ein riesiges Durcheinander an Ordnern und Dateien vorfinden. Keine Angst, wir werden das gleich aufräumen.
 
 Wenn du Linux oder OS X verwendest, vergiss nicht mit `chmod +x ArchiSteamFarm`, die Berechtigungen zu setzen, da diese in einem zip-Archiv nicht gesetzt sind. Dies muss nur nach dem initialen Entpacken gemacht werden.
 
-Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Updates werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
+Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 

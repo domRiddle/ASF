@@ -164,7 +164,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Event properties
 
-| Név         | Description                                                                                                                                                                                                  |
+| Név         | Leírás                                                                                                                                                                                                       |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
 | Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
@@ -291,7 +291,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 #### Screenshots
 
-![Screenshot](https://i.imgur.com/5juKHMt.png)
+![Képernyőmentés](https://i.imgur.com/5juKHMt.png)
 
 * * *
 

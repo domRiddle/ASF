@@ -2,7 +2,7 @@
 
 Die ASF-Entwicklung wird durch 3 wichtige Dinge unterstützt: Spenden, Benutzer-Rückmeldungen und Statistiken. Spenden beeinflussen direkt unsere Bereitschaft an dem Projekt zu arbeiten, die Rückmeldungen der Benutzer sind immer schön zu lesen (besonders positive), und Statistiken liefern uns die Informationen, wie und von wie vielen Personen unsere Software verwendet wird - auf diese Weise können wir erfahren, was wir verbessern, was wir beheben und worauf wir uns konzentrieren können.
 
-ASF hat in den Standardeinstellungen `Statistics` globale Konfigurationseigenschaft aktiviert. Wenn du neue Versionen, Fehlerbehebungen und die Implementierung neuer Funktionen sehen möchtest, solltest du in Betracht ziehen, diese Einstellung beizubehalten, damit wir diese Daten nutzen können, um dir eine bessere Software (aber nicht nur) zu bieten. Dies ist besonders wichtig da ASF dir **kostenlos** zur Verfügung gestellt wird, und das ist das Mindeste, was du tun kannst um Danke zu sagen - **teil uns mit, dass du ASF benutzt**, da dies das ist, was unsere aktuellen Statistiken hauptsächlich tun. ASF sammelt oder verwendet keine Daten, die als privat angesehen und/oder gegen Sie verwendet werden könnten. Wir halten die Verwendung von Statistiken auf ein Minimum beschränkt, und jede einzelne gesammelte Information erfordert von uns, dass wir sie hier genau angeben, zusammen mit praktischen Erklärungen. So erhalten Sie einen vollständigen Überblick darüber, was wir sammeln, zu welchem Zweck und wie es uns helfen soll. Alle diese Informationen findest du weiter unten.
+ASF hat in den Standardeinstellungen `Statistics` globale Konfigurationseigenschaft aktiviert. Wenn du neue Versionen, Fehlerbehebungen und die Implementierung neuer Funktionen sehen möchtest, solltest du in Betracht ziehen, diese Einstellung beizubehalten, damit wir diese Daten nutzen können, um dir eine bessere Software (aber nicht nur) zu bieten. Dies ist besonders wichtig da ASF dir **kostenlos** zur Verfügung gestellt wird, und das ist das Mindeste, was du tun kannst um Danke zu sagen - **teil uns mit, dass du ASF benutzt**, da dies das ist, was unsere aktuellen Statistiken hauptsächlich tun. ASF sammelt oder verwendet keine Daten, die als privat angesehen und/oder gegen dich verwendet werden könnten. Wir reduzieren die Verwendung von Statistiken auf ein Minimum und jede einzelne gesammelte Information erfordert von uns, dass wir sie hier genau angeben, zusammen mit einer praxisnahen Erklärung. So erhältst du einen vollständigen Überblick darüber, was wir sammeln, zu welchem Zweck und wie es helfen soll. Alle diese Informationen findest du weiter unten.
 
 * * *
 
@@ -18,24 +18,24 @@ Wenn `Statistics` aktiv ist passiert Folgendes:
 
 Wir betrachten die Steam Group als einen entscheidenden Teil der ASF-Community. Dies ist unser wichtigster Kommunikationskanal, den wir für alle wichtigen Angelegenheiten im Zusammenhang mit ASF nutzen, insbesondere um Sie über die Entwicklung, mögliche Probleme, eventuelle Warnungen und alle anderen Angelegenheiten auf dem Laufenden zu halten, auf die Sie als Benutzer Zugriff haben sollten. Wir profitieren in keiner Weise von der Pflege dieser Gruppe, es ist der Ort, der ASF-Anwendern gewidmet ist, und wir betrachten Sie als Teil unserer Community. Da die Mitgliedschaft in der Gruppe Sie in keiner Weise als ASF-Benutzer identifiziert, betrachten wir dies nicht als ein Problem in Bezug auf die Privatsphäre.
 
-2. Wenn Ihr Konto **[unbeschränkt](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** ist, unter Verwendung von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, **[öffentliches Inventar](https://steamcommunity.com/my/edit/settings)** mit mindestens 100 `MatchableTypes` Elementen darin hat und Sie absichtlich `SteamTradeMatcher` in Ihren `TradingPreferences` aktiviert haben, dann wird ASF regelmäßig mit unserem **[Server](https://asf.justarchi.net)** kommunizieren, um die aktivierte Funktionalität zu erfüllen. Tatsächliche Daten bestehen aus einer eindeutigen ASF-ID (die von ASF generiert wird) und folgenden kontobezogenen Informationen:
+2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. Tatsächliche Daten bestehen aus einer eindeutigen ASF-ID (die von ASF generiert wird) und folgenden kontobezogenen Informationen:
 
 * Deine Steam-ID (in 64-Bit-Form, zur Generierung von Links)
 * Dein Nickname (zu Anzeigezwecken)
 * Dein Avatar (hash, zu Anzeigezwecken)
 * Dein **[Handels-Code](https://steamcommunity.com/my/tradeoffers/privacy)** (damit Leute außerhalb deiner Freundesliste dir Handelsangebote schicken können)
 * Deine `MatchableTypes` (zum Anzeigen und Abgleichen)
-* Wert von `MatchEverything` in Ihren `TradingPreferences` (für Anzeigezwecke und Matching)
-* Gesamtzahl der `MatchableTypes` Dampfartikel in Ihrem Bestand (für Anzeigezwecke und Matching)
-* Gesamtzahl der einzigartigen Spiele, die über `MatchableTypes` Steam Gegenstände hergestellt werden (für Anzeigezwecke und Matching)
+* Wert von `MatchEverything` in deinen `TradingPreferences` (für Anzeigezwecke und Zusammenführung)
+* Gesamtzahl der `MatchableTypes` Steam-Gegenständen in deinem Inventar (für Anzeigezwecke und Zusammenführung)
+* Gesamtzahl der einzigartigen Spiele, die über `MatchableTypes` Steam Gegenstände bestehen (für Anzeigezwecke und Zusammenführung)
 
-ASF wird **keine** weiteren Daten (außer die aufgezählten) ohne vorherige wichtige Mitteilung im Änderungsprotokoll und aus einem sehr guten praktischen Grund sammeln. Wir betrachten alles oben genannte nicht als ernsthafte Angelegenheit, und wir erwähnen es, um Sie wissen zu lassen, was genau ASF neben dem, was Sie selbst konfiguriert haben, tut, damit die Menschen unseren Standpunkt besser verstehen können.
+ASF wird **keine** weiteren Daten (außer die aufgezählten) ohne vorherige wichtige Mitteilung im Änderungsprotokoll und aus einem sehr guten praktischen Grund sammeln. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
 
 * * *
 
 # Nutzung der Daten
 
-Alle im zweiten Punkt angegebenen Werte werden für unser **Public ASF STM Listing** verwendet, das im Folgenden erläutert wird. Wir verwenden keine weiteren Daten für andere Zwecke.
+Alle im zweiten Punkt angegebenen Werte werden für unser **öffentliches ASF STM Inserat** verwendet, das im Folgenden erläutert wird. Wir verwenden keine weiteren Daten für andere Zwecke.
 
 * * *
 

@@ -1,4 +1,4 @@
-# Erweiterte FAQ
+# Erweitertes FAQ
 
 In unserem erweiterten FAQ findest du Antworten auf die etwas weniger häufig gestellten Fragen die du eventuell hast. Für häufiger gestellte Fragen besuche bitte stattdessen unser **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**.
 

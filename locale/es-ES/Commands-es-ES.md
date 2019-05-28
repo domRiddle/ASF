@@ -14,7 +14,7 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### Consola interactiva
 
 Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
@@ -24,7 +24,7 @@ Interactive console is not available in [**`Headless`**](https://github.com/Just
 
 * * *
 
-### Steam chat
+### Chat de Steam
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
@@ -48,18 +48,18 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Comandos
 
-| Command                                                                    | Acceso             | Descripción                                                                                                                                                                                           |
+| Comando                                                                    | Acceso             | Descripción                                                                                                                                                                                           |
 | -------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                                         | `Master`           | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                                       | `Master`           | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
 | `2faok <Bots>`                                                       | `Master`           | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`         | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
+| `addlicense <Bots> <GameIDs>`                                  | `Operador`         | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
 | `balance <Bots>`                                                     | `Master`           | Shows wallet balance of given bot instances.                                                                                                                                                          |
 | `bgr <Bots>`                                                         | `Master`           | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                       |
 | `bl <Bots>`                                                          | `Master`           | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`           | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`           | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `salir`                                                                    | `Owner`            | Stops whole ASF process.                                                                                                                                                                              |
+| `exit`                                                                     | `Propietario`      | Stops whole ASF process.                                                                                                                                                                              |
 | `farm <Bots>`                                                        | `Master`           | Restarts cards farming module for given bot instances.                                                                                                                                                |
 | `help`                                                                     | `PréstamoFamiliar` | Shows help (link to this page).                                                                                                                                                                       |
 | `input <Bots> <Type> <Value>`                            | `Master`           | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
@@ -74,32 +74,32 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`           | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).   |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`           | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                       |
 | `nickname <Bots> <Nickname>`                                   | `Master`           | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                    |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`         | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.                                         |
+| `owns <Bots> <AppIDsOrGameNames>`                              | `Operador`         | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.                                         |
 | `password <Bots>`                                                    | `Master`           | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                      |
-| `pause <Bots>`                                                       | `Operator`         | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.      |
+| `pause <Bots>`                                                       | `Operador`         | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.      |
 | `pause~ <Bots>`                                                      | `PréstamoFamiliar` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it. |
-| `pause& <Bots> <Seconds>`                                  | `Operator`         | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                   |
+| `pause& <Bots> <Seconds>`                                  | `Operador`         | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                   |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`           | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. Use `resume` for returning to automatic farming.                                 |
 | `privacy <Bots> <Settings>`                                    | `Master`           | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                 |
-| `redeem <Bots> <Keys>`                                         | `Operator`         | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                         |
-| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`         | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                               |
-| `rejoinchat <Bots>`                                                  | `Operator`         | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
-| `reiniciar`                                                                | `Owner`            | Restarts ASF process.                                                                                                                                                                                 |
+| `redeem <Bots> <Keys>`                                         | `Operador`         | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                         |
+| `redeem^ <Bots> <Modes> <Keys>`                          | `Operador`         | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                               |
+| `rejoinchat <Bots>`                                                  | `Operador`         | Forces given bot instances to rejoin their `SteamMasterClanID` group chat.                                                                                                                            |
+| `restart`                                                                  | `Propietario`      | Restarts ASF process.                                                                                                                                                                                 |
 | `resume <Bots>`                                                      | `PréstamoFamiliar` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                           |
 | `start <Bots>`                                                       | `Master`           | Starts given bot instances.                                                                                                                                                                           |
-| `stats`                                                                    | `Owner`            | Prints process statistics, such as managed memory usage.                                                                                                                                              |
+| `stats`                                                                    | `Propietario`      | Prints process statistics, such as managed memory usage.                                                                                                                                              |
 | `status <Bots>`                                                      | `PréstamoFamiliar` | Prints status of given bot instances.                                                                                                                                                                 |
 | `stop <Bots>`                                                        | `Master`           | Stops given bot instances.                                                                                                                                                                            |
 | `transfer <Bots> <TargetBot>`                                  | `Master`           | Sends all `TransferableTypes` Steam community items from given bot instances to target bot.                                                                                                           |
 | `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`           | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot.                                                                               |
 | `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`           | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot.                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`           | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                             |
-| `actualizar`                                                               | `Owner`            | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
-| `versión`                                                                  | `PréstamoFamiliar` | Prints version of ASF.                                                                                                                                                                                |
+| `update`                                                                   | `Propietario`      | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                      |
+| `version`                                                                  | `PréstamoFamiliar` | Prints version of ASF.                                                                                                                                                                                |
 
 * * *
 
-### Notes
+### Notas
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -119,7 +119,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Comando      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -128,7 +128,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-### `<Bots>` argument
+### Argumento `<Bots>`
 
 `<Bots>` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -140,19 +140,19 @@ In addition to range syntax above, `<Bots>` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## Ajustes `privacy`
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Nombre         | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Argumento | Nombre         | Hijo de    |
+| --------- | -------------- | ---------- |
+| 1         | Profile        |            |
+| 2         | OwnedGames     | Profile    |
+| 3         | Playtime       | OwnedGames |
+| 4         | FriendsList    | Profile    |
+| 5         | Inventory      | Profile    |
+| 6         | InventoryGifts | Inventory  |
+| 7         | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
@@ -191,7 +191,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 * * *
 
-## `redeem^` modes
+## Modos `redeem^`
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
@@ -216,7 +216,7 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
-## `input` command
+## Comando `input`
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 

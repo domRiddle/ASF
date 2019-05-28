@@ -134,7 +134,7 @@ In short, default value should be decent for most cases, but you may want to inc
 
 * * *
 
-### `Hibakeresés`
+### `Debug`
 
 `bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
@@ -214,7 +214,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statisztikák`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -236,9 +236,9 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | Név       | Description                                                                                      |
+| Érték | Név       | Leírás                                                                                           |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | Egyik sem | No protocol                                                                                      |
+| 0     | None      | Nincs protocol                                                                                   |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -379,9 +379,9 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | Név                           | Description                                                           |
+| Érték | Név                           | Leírás                                                                |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | Egyik sem                     | No special bot behaviour, the least invasive mode, default            |
+| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -430,7 +430,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | Név                       | Description                                                                      |
+| Érték | Név                       | Leírás                                                                           |
 | ----- | ------------------------- | -------------------------------------------------------------------------------- |
 | 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
 | 1     | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
@@ -485,7 +485,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | Név               | Description                                                   |
+| Érték | Név               | Leírás                                                        |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
@@ -508,7 +508,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | Név               | Description                                                   |
+| Érték | Név               | Leírás                                                        |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
@@ -533,7 +533,7 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Value | Név            |
+| Érték | Név            |
 | ----- | -------------- |
 | 0     | Offline        |
 | 1     | Online         |
@@ -572,9 +572,9 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | Név              | Description                                                                    |
+| Érték | Név              | Leírás                                                                         |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | Egyik sem        | No special redeeming preferences, default                                      |
+| 0     | None             | No special redeeming preferences, default                                      |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -655,9 +655,9 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | Név           | Description                                                                                                                                                                                        |
+| Érték | Név           | Leírás                                                                                                                                                                                             |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Egyik sem     | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -674,9 +674,9 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Név                 | Description                                                                                                                                                                                          |
+| Érték | Név                 | Leírás                                                                                                                                                                                               |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Egyik sem           | No special trading preferences, default                                                                                                                                                              |
+| 0     | None                | No special trading preferences, default                                                                                                                                                              |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -693,7 +693,7 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | Név               | Description                                                   |
+| Érték | Név               | Leírás                                                        |
 | ----- | ----------------- | ------------------------------------------------------------- |
 | 0     | Unknown           | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack       | Booster pack containing 3 random cards from a game            |
@@ -825,12 +825,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Név       |
-| ----- | --------- |
-| 0     | Egyik sem |
-| 1     | A         |
-| 2     | B         |
-| 4     | C         |
+| Érték | Név  |
+| ----- | ---- |
+| 0     | None |
+| 1     | A    |
+| 2     | B    |
+| 4     | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
