@@ -80,8 +80,6 @@ Global config is located in `ASF.json` file and has following structure:
 }
 ```
 
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
-
 ---
 
 All options are explained below:
@@ -352,8 +350,6 @@ The bot config has following structure:
 	"UseLoginKeys": true
 }
 ```
-
-**Tip:** In order for bot to work properly, you should edit at least `Enabled`, `SteamLogin` and `SteamPassword` properties. I also suggest to take a look at some fine-tuning such as `HoursUntilCardDrops`, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
 
 ---
 
