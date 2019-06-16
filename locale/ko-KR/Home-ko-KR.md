@@ -8,6 +8,6 @@ ASF 위키에 오신 것을 환영합니다. 위키는 자주 묻는 질문들(F
 
 처음 오셨다면 **[설치하기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ko-KR)** 가이드부터 시작하는 것을 추천합니다. 다른 모든 연관 위키페이지는 화면 오른쪽에 있는 사이드바에서 찾을 수 있습니다. 제일 위에서부터 시작하는것을 추천하지만, 흥미가 있는 어떠한 개별 항목을 읽는 것도 좋습니다. ASF의 지식에 제한은 없습니다.
 
-더 많은 도움이 필요하면 **[디스코드 서버](https://discord.gg/hSQgt8j)**나 **[Steam 그룹 토론장](https://steamcommunity.com/groups/archiasf/discussions/1)**에서 문의할 수 있습니다. 사소한 질문이나 ASF에 대한 일반적인 것에 대한 토론, 일반적 이슈와 버그 보고 관련 그룹 글타래는 디스코드 채팅방을 이용해주십시오.
+If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 
-GitHub **[이슈](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 페이지는 ASF의 기능과 버그를 위한 "todo" 리스트로 사용되고 있습니다. GitHub는 상당히 엄격한 정책이 적용됩니다. GitHub는 기술 지원을 하는 곳이 아니며, 제안이나 버그 보고가 아닌 모든 케이스는 게시하여서는 안됩니다. 일반 토론, 질문, 기술 이슈는 ASF 디스코드와 Steam 그룹을 이용하십시오. 정말로 버그를 보고하거나 개선을 제안하는 것이 아니면 GitHub 이슈를 사용하지 마십시오. 그리고 이슈를 등록하기 전에 디스코드/Steam그룹에 먼저 물어보는 등 진짜로 버그나 제안이 현실성이 있는지 확인하시기 바랍니다. 잘못된 이슈는 즉시 종결되며 답변하지 않습니다.
+GitHub **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** page is being used for ASF development, especially in regards to bugs and enhancements. We have a very strict policy regarding that, as GitHub is **not** a general support channel, it's dedicated exclusively to ASF development and we're not answering common ASF matters there, as we have appropriate **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)** for that. If you're not sure whether your matter relates to ASF development or not, we recommend to use a support channel instead. Invalid GitHub issues will be closed immediately and won't be answered.

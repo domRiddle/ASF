@@ -111,7 +111,7 @@ In addition to managing automatic cards farming module which was described above
 
 ### 如果我目前使用的是IM，它對我來說很好，那麼換成ASF值得嗎？
 
-**是的**。 ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**是的**。 ASF更為可靠，包括許多**至關重要的**內置功能（IM並不會提供）。
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. 當然，在發佈日期之前不可能對那些遊戲進行掛卡，所以您的掛卡進程會被擱置。 這將要求您將其添加到黑名單、等待發佈或手動跳過。 Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 

@@ -80,8 +80,6 @@ Global config is located in `ASF.json` file and has following structure:
 }
 ```
 
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
-
 * * *
 
 All options are explained below:
@@ -289,7 +287,7 @@ This property is defined as uri string:
 
 If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property alone is sufficient.
 
-Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit)** functionality. If you need/want it to happen, I'd suggest starting from there.
+Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. If you need/want it to happen, I'd suggest starting from there.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
@@ -352,8 +350,6 @@ The bot config has following structure:
     "UseLoginKeys": true
 }
 ```
-
-**Tip:** In order for bot to work properly, you should edit at least `Enabled`, `SteamLogin` and `SteamPassword` properties. I also suggest to take a look at some fine-tuning such as `HoursUntilCardDrops`, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
 
 * * *
 
@@ -483,7 +479,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
 | Value | Namn              | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |

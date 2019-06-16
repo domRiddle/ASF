@@ -22,7 +22,7 @@
 * **[Compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Modo familiar de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Préstamo familiar de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Avanzado
@@ -33,13 +33,13 @@
 * **[Preguntas frecuentes extendido](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Configuración de alto rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Ubicación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logueo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Localización](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Registro](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Configuación de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Segundo factor de autenticación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Autenticación de dos factores](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Desarrolladores
 

@@ -46,7 +46,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
-### Hello ASF!
+### Bonjour ASF!
 
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
@@ -150,7 +150,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 * * *
 
-### Complete example
+### Exemple complet
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 
@@ -175,7 +175,7 @@ This assumes that you have all ASF config files in `/home/archi/asf`, if not, yo
 
 * * *
 
-## Pro tips
+## Conseils
 
 When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
 

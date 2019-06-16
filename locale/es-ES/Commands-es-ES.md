@@ -18,7 +18,7 @@ Los comandos ejecutados por medio del chat de Steam son afectados por la **[prop
 
 A partir de V4.0.0.9, ASF tiene soporte para una consola interactiva que puede ser activada configurando la propiedad [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid). Después, simplemente pulsa la tecla `c` para activar el modo comando, escribe tu comando y confirma con Enter.
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![Captura de pantalla](https://i.imgur.com/bH5Gtjq.png)
 
 La consola interactiva no está disponible en el modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless).
 
@@ -28,7 +28,7 @@ La consola interactiva no está disponible en el modo [**`Headless`**](https://g
 
 También puedes ejecutar comandos a un bot dado a través del chat de Steam. Obviamente no puedes hablar contigo mismo directamente, por lo tanto necesitarás al menos una cuenta bot más para ejecutar comandos dirigidos a tu cuenta principal.
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![Captura de pantalla](https://i.imgur.com/IvFRJ5S.png)
 
 De la misma manera, también puedes usar el chat grupal de un grupo de Steam. Ten en cuenta que esta opción requiere establecer correctamente la propiedad `SteamMasterClanID`, en cuyo caso el bot también escuchará comandos en el chat grupal (y se unirá si es necesario). Esto también puede usarse para "hablar contigo mismo" ya que no quiere una cuenta bot dedicada, contrario al chat privado. Puedes simplemente establecer la propiedad `SteamMasterClanID` a tu recién creado grupo, luego darte acceso a ti mismo ya sea con `SteamOwnerID` o `SteamUserPermissions` de tu bot. De esta manera, el bot (tú) se unirá al grupo y a su chat, y escuchará comandos de tu propia cuenta. Puedes unirte al mismo chat de grupo para enviarte comandos a ti mismo (ya que estarás enviando comandos a un chat de grupo, y la instancia de ASF en ese mismo chat los recibirá, incluso si se muestra como si solo tu cuenta estuviese ahí).
 
@@ -42,7 +42,7 @@ Por favor, ten en cuenta que enviar un comando al chat de grupo funciona como un
 
 La forma más avanzada y flexible de ejecutar comandos, perfecta para la interacción con el usuario (ASF-ui) así como con herramientas de terceros o con scripting (ASF API), requiere que ASF se ejecute en modo `IPC`, y un cliente que ejecute comandos a través de la interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Captura de pantalla](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
@@ -111,13 +111,13 @@ Los argumentos plurales, como `<Bots>`, `<Keys>` o `<AppIDs>` significan que el 
 
 ASF usa todos los caracteres en blanco como posibles delimitadores para un comando, como espacio y caracteres de línea nueva. Esto significa que no tienes que usar espacio para delimitar tus argumentos, puedes usar cualquier otro caracter en blanco (como tabulador o línea nueva).
 
-ASF "unirá" argumentos adicionales fuera de rango a tipo plural del último argumento en rango. Esto significa que `redeem bot key1 key2 key3` para `redeem <Bots><Keys>` funcionará exactamente igual que `redeem bot key1,key2,key3`. Together with accepting newline as command delimiter, this makes it possible for you to write `redeem bot` then paste a list of keys separated by any acceptable delimiter character (such as newline), or standard `,` ASF delimiter. Ten en cuenta que este truco solo puede ser usado para variantes de comandos que usan la mayor cantidad de argumentos (así que especificar `<Bots>` es obligatorio en este caso).
+ASF "unirá" argumentos adicionales fuera de rango a tipo plural del último argumento en rango. Esto significa que `redeem bot key1 key2 key3` para `redeem <Bots><Keys>` funcionará exactamente igual que `redeem bot key1,key2,key3`. Junto con aceptar nueva línea como delimitador de comandos, esto hace posible que escribas `redeem bot` y luego pegues una lista de claves separadas por cualquier delimitador aceptable (tal como nueva línea), o el delimitador estándar `,` de ASF. Ten en cuenta que este truco solo puede ser usado para variantes de comandos que usan la mayor cantidad de argumentos (así que especificar `<Bots>` es obligatorio en este caso).
 
-As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
+Como leíste arriba, se usa un caracter de espacio como delimitador para un comando, por lo tanto no puede ser usado en los argumentos. Sin embargo, como se ha dicho anteriormente, ASF puede unir argumentos fuera de rango, esto significa que realmente puedes usar un caracter de espacio en un argumento que se define como el último para un comando dado. Por ejemplo, `nickname bob Great Bob` establecerá correctamente el nickname del bot `bob` a "Great Bob". De la misma manera puedes comprobar nombres que contengan espacios en el comando `owns`.
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Algunos comandos también están disponibles con sus alias, para ahorrarte la escritura:
 
 | Comando      | Alias |
 | ------------ | ----- |
@@ -142,21 +142,21 @@ Además de la sintaxis de rango, el argumento `<Bots>` también soporta empareja
 
 ## Ajustes `privacy`
 
-`<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
+Los argumentos `<Settings>` aceptan **hasta 7** diferentes opciones, separadas como es habitual por una coma, que es el delimitador estándar de ASF. Esas son, en orden:
 
-| Argumento | Nombre         | Hijo de    |
-| --------- | -------------- | ---------- |
-| 1         | Profile        |            |
-| 2         | OwnedGames     | Profile    |
-| 3         | Playtime       | OwnedGames |
-| 4         | FriendsList    | Profile    |
-| 5         | Inventory      | Profile    |
-| 6         | InventoryGifts | Inventory  |
-| 7         | Comments       | Profile    |
+| Argumento | Nombre              | Hijo de        |
+| --------- | ------------------- | -------------- |
+| 1         | Perfil              |                |
+| 2         | JuegosPoseídos      | Perfil         |
+| 3         | TiempoDeJuego       | JuegosPoseídos |
+| 4         | ListaDeAmigos       | Perfil         |
+| 5         | Inventario          | Perfil         |
+| 6         | InventarioDeRegalos | Inventario     |
+| 7         | Comentarios         | Perfil         |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+Para la descripción de los campos anteriores, por favor, visita la **[configuración de privacidad de Steam](https://steamcommunity.com/my/edit/settings)**.
 
-While valid values for all of them are:
+Mientras que los valores válidos para todos ellos son:
 
 | Valor | Nombre        |
 | ----- | ------------- |
@@ -164,87 +164,87 @@ While valid values for all of them are:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Puedes usar un nombre, que no distingue mayúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private`. Es importante señalar la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca pueda tener permisos más abiertos que su padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` teniendo el perfil en `Private`.
 
 ### Ejemplo
 
-If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+Si quieres establecer **todos** los ajustes de privacidad de tu bot llamado `Principal` a `Private`, puedes usar cualquiera de los siguientes:
 
-    privacy Main 1
-    privacy Main Private
+    privacy Principal 1
+    privacy Principal Private
     
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+Esto es porque ASF asumirá automáticamente que todos los demás ajustes son `Private`, así que no hay necesidad de introducirlos. Por otra parte, si quieres establecer todos los ajustes de privacidad a `Public`, entonces deberías usar cualquiera de los siguientes:
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
+    privacy Principal 3,3,3,3,3,3,3
+    privacy Principal Public,Public,Public,Public,Public,Public,Public
     
 
-This way you can also set independent options however you like:
+De esta manera también puedes establecer opciones independientes de la forma que quieras:
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+    privacy Principal Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+Lo anterior establecerá el perfil a público, los juegos poseídos a solo amigos, el tiempo de juego a privado, la lista de amigos a público, el inventario a público, el inventario de regalos a privado y los comentarios en el perfil a público. Puedes lograr lo mismo con valores numéricos si así lo quieres.
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+Recuerda que el hijo nunca puede tener permisos más abiertos que su padre. Consulta la relación de los argumentos para las opciones disponibles.
 
 * * *
 
 ## Modos `redeem^`
 
-`redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `RedeemingPreferences`.
 
-`<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
+El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de modo disponibles se especifican a continuación:
 
-| Valor | Nombre                | Descripción                                                           |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Valor | Nombre                | Descripción                                                                            |
+| ----- | --------------------- | -------------------------------------------------------------------------------------- |
+| FD    | ForceDistributing     | Fuerza que la preferencia de activación `Distributing` esté habilitada                 |
+| FF    | ForceForwarding       | Fuerza que la preferencia de activación `Forwarding` esté habilitada                   |
+| FKMG  | ForceKeepMissingGames | Fuerza que la preferencia de activación `KeepMissingGames` esté habilitada             |
+| SD    | SkipDistributing      | Fuerza que la preferencia de activación `Distributing` esté deshabilitada              |
+| SF    | SkipForwarding        | Fuerza que la preferencia de activación `Forwarding` esté deshabilitada                |
+| SI    | SkipInitial           | Omite la activación de claves en el bot inicial                                        |
+| SKMG  | SkipKeepMissingGames  | Fuerza que la preferencia de activación `KeepMissingGames` esté deshabilitada          |
+| V     | Validate              | Valida que las claves tengan el formato correcto y automáticamente omite las inválidas |
 
-For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
+Por ejemplo, si quisieramos activar 3 claves en cualquiera de nuestros bots que aún no poseen juegos, pero no en nuestro bot `principal`. Para lograrlo podemos utilizar:
 
-`redeem^ primary FF,SI key1,key2,key3`
+`redeem^ principal FF,SI clave1,clave2,clave3`
 
-It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
+Es importante notar que la activación avanzada solo anula las `RedeemingPreferences` que **especifiques en el comando**. Por ejemplo, si tienes habilitado `Distributing` en tus `RedeemingPreferences` entonces no habrá diferencia si usas o no el modo `FD`, porque la distribución ya estará activa, debido a las `RedeemingPreferences` que usas. Por eso cada anulación para habilitar a la fuerza tiene una para deshabilitar a la fuerza, puedes decidir si prefieres anular deshabilitada con habilitada, o viceversa.
 
 * * *
 
 ## Comando `input`
 
-Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+El comando input solo puede utilizarse en el modo `Headless`, para introducir datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
 
-General syntax is `input <Bots> <Type> <Value>`.
+La sintaxis general es `input <Bots> <Type> <Value>`.
 
-`<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
+`<Type>` no distingue mayúsculas y define el tipo de entrada reconocido por ASF. Actualmente ASF reconoce los siguientes tipos:
 
-| Tipo                    | Descripción                                                                |
-| ----------------------- | -------------------------------------------------------------------------- |
-| DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Contraseña              | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
-| SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
-| TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| Tipo                    | Descripción                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------- |
+| DeviceID                | Identificador del dispositivo 2FA, si está ausente en `.maFile`.                             |
+| Login                   | Propiedad de configuración del bot `SteamLogin`, si está ausente en la configuración.        |
+| Password                | Propiedad de configuración del bot `SteamPassword`, si está ausente en la configuración.     |
+| SteamGuard              | Código de autenticación enviado a tu correo electrónico si no usas 2FA.                      |
+| SteamParentalCode       | Propiedad de configuración del bot `SteamParentalCode`, si está ausente en la configuración. |
+| TwoFactorAuthentication | Código 2FA generado desde tu móvil, si usas 2FA pero no ASF 2FA.                             |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` es el valor establecido para cada tipo. Actualmente todos los valores son cadenas.
 
 ### Ejemplo
 
-Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
+Digamos que tenemos un bot protegido por SteamGuard en modo no-2FA. Queremos ejecutar ese bot con `Headless` establecido a "true".
 
-In order to do that, we need to execute following commands:
+Para ello, necesitamos ejecutar los siguientes comandos:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
+`start MySteamGuardBot` -> El bot intentará iniciar sesión, fallará debido a que se requiere el código de autenticación, luego se detendrá debido a que se ejecuta en modo `Headless`. Necesitamos esto para que la red de Steam nos envíe un código de autenticación a nuestro correo electrónico - si no hubiera necesidad de eso, omitiríamos por completo este paso.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Of course, `ABCDE` in this case is auth code that we got on our e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> Se establece la entrada de `SteamGuard` del bot `MySteamGuardBot` a `ABCDE`. Por supuesto, `ABCDE` en este caso es el código de autenticación que recibimos en nuestro correo electrónico.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> Se inicia nuestro (detenido) bot de nuevo, esta vez automáticamente usa el código de autenticación que establecimos en el comando anterior, iniciando sesión correctamente, y luego lo borra.
 
-In the same way we can access 2FA-protected bots (if they're not using ASF 2FA), as well as setting other required properties during runtime.
+De la misma manera podemos acceder a bots protegidos por 2FA (si no están usando ASF 2FA), así como establecer otras propiedades requeridas durante el tiempo de ejecución.

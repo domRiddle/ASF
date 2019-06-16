@@ -217,7 +217,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     Si vous vous demandez si ASF est un logiciel sûr, cela signifie qu'il ne causera aucun dommage à votre ordinateur, ne volera pas vos données personnelles, n'installera pas de virus ou autre chose du genre - c'est sûr. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
     
-    Our code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Chaque génération est reproductible en suivant notre script de génération et donnera exactement le même code **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binaire). Si, pour une raison quelconque, vous ne faites pas confiance à nos versions, vous pouvez toujours compiler et utiliser ASF depuis la source, y compris toutes les bibliothèques utilisées par ASF (telles que SteamKit2), qui sont également à code source ouvert.
+    Le code est open-source et les fichiers binaires distribués sont toujours compilés à partir de **[sources accessibles au public](https://en.wikipedia.org/wiki/Open-source_software)** par **[systèmes d'intégration continue automatisés et sécurisés](https://en.wikipedia.org/wiki/Build_automation)**, et même par les développeurs eux-mêmes. Chaque génération est reproductible en suivant notre script de génération et donnera exactement le même code **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binaire). Si, pour une raison quelconque, vous ne faites pas confiance à nos versions, vous pouvez toujours compiler et utiliser ASF depuis la source, y compris toutes les bibliothèques utilisées par ASF (telles que SteamKit2), qui sont également à code source ouvert.
     
     In the end however, it's always a matter of trust to the developer(s) of your application, so you should decide yourself if you consider ASF safe or not, potentially supporting your decision with technical arguments specified above. Ne croyez pas stupidement quelque chose uniquement parce que je l'ai dit - vérifiez-vous, car c'est le seul moyen de vous en assurer.
     
@@ -259,11 +259,11 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     **Oui**, nous avons eu au moins quelques incidents jusqu'à présent qui ont entraîné une sorte de suspension Steam. Que ASF en soit ou non la cause fondamentale est une tout autre histoire que nous ne connaîtrons probablement jamais.
     
-    One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in a very short time.
+    Un cas concernait un gars avec plus de 1 000 robots ou plus faisant l'objet d'une interdiction de commerce (avec tous les robots), probablement en raison d'une utilisation excessive de `ASF` exécuté sur tous les robots en même temps, ou d'un autre côté suspect, une grosse quantité de transactions en très peu de temps.
     
     > Bonjour XXX, Merci d'avoir contacté le support Steam. Il semble que ce compte ait été utilisé pour gérer un réseau de comptes bot. L'utilisation de bots est une violation du contrat Steam.
     
-    S'il vous plaît, faites preuve de bon sens et ne présumez pas que vous pouvez faire de telles choses folles uniquement parce qu'ASF vous permet de le faire. Faire `loot ASF` sur plus de 1 000 bots peut facilement être considéré comme une attaque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, et personnellement, je ne suis pas choqué que quelqu'un ait été banni pour une telle chose. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and *most likely* you'll be fine.
+    S'il vous plaît, faites preuve de bon sens et ne présumez pas que vous pouvez faire de telles choses folles uniquement parce qu'ASF vous permet de le faire. Faire `loot ASF` sur plus de 1 000 bots peut facilement être considéré comme une attaque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, et personnellement, je ne suis pas choqué que quelqu'un ait été banni pour une telle chose. Veuillez garder à l’esprit le bon sens et le minimum d’utilisation équitable concernant le service Steam, et *probablement* tous ira bien.
     
     Un autre cas concerne un type de 170 bots qui a été banni lors des soldes d'hiver 2017 de Steam.
     
@@ -293,7 +293,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     * * *
     
-    ### I'm using unsupported OS such as 32-bit Windows, can I still use the latest version of ASF?
+    ### J'utilise un système d'exploitation non pris en charge tel que Windows 32 bits. Puis-je quand même utiliser la dernière version d'ASF ?
     
     Oui, et cette version n’est en aucun cas prise en charge, mais n’est pas officiellement construite. Consultez la section ** compatibilité </ 0> pour la variante générique. ASF doesn't have any strong dependency upon the OS, and it can work anywhere where you can get a working .NET Core runtime, which includes 32-bit Windows, even if there is no `win-x86` OS-specific package from us.</p> 
     
@@ -512,7 +512,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There could be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. Vous pouvez toujours essayer de visiter vous-même le lien mentionné par ASF et vérifier si cela fonctionne. Sinon, vous saurez pourquoi ASF ne peut pas y accéder. If it does, and the same error doesn't go away after a day or two, it may be worth investigating and reporting.
     
-    Avant de le faire, vous devez **vous assurer que l’erreur vaut la peine d’être signalée**. Si cela est mentionné dans cette FAQ, comme un problème lié au trading, alors c'est fini. S'il s'agit d'un problème temporaire qui s'est produit une ou deux fois, en particulier lorsque votre réseau était instable ou que Steam était en panne, le problème est résolu. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this may be worth asking about.
+    Avant de le faire, vous devez **vous assurer que l’erreur vaut la peine d’être signalée**. Si cela est mentionné dans cette FAQ, comme un problème lié au trading, alors c'est fini. S'il s'agit d'un problème temporaire qui s'est produit une ou deux fois, en particulier lorsque votre réseau était instable ou que Steam était en panne, le problème est résolu. Toutefois, si vous pouviez reproduire votre problème plusieurs fois de suite, pendant 2 jours, redémarrez ASF et votre machine au cours du processus et assurez-vous qu'il n'y a aucune entrée de FAQ dans cette section pour aider à le résoudre. Demander à propos de ce problème.
     
     * * *
     
@@ -524,9 +524,9 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### ASF ne peut accepter ou envoyer de trades!
     
-    Ce qui est évident en premier - les nouveaux comptes commencent de manière limitée. Until you unlock account by loading its wallet or spending $5 in the store, ASF can't accept neither send trades using this account. Dans ce cas, ASF indiquera que l'inventaire semble vide, car chaque carte qu'il contient est non échangeable. En outre, il ne sera pas possible de recevoir d'opération, car cette partie nécessite qu'ASF soit en mesure de récupérer la clé d'API, et la fonctionnalité de clé d'API est désactivée pour les comptes limités. En bref, la négociation est désactivée pour tous les comptes limités, sans exception.
+    Ce qui est évident en premier - les nouveaux comptes commencent de manière limitée. Tant que vous n'avez pas déverrouillé le compte en chargeant son portefeuille ou en dépensant $5 dans le magasin, ASF ne peut accepter ni envoyer de transactions via ce compte. Dans ce cas, ASF indiquera que l'inventaire semble vide, car chaque carte qu'il contient est non échangeable. En outre, il ne sera pas possible de recevoir d'opération, car cette partie nécessite qu'ASF soit en mesure de récupérer la clé d'API, et la fonctionnalité de clé d'API est désactivée pour les comptes limités. En bref, la négociation est désactivée pour tous les comptes limités, sans exception.
     
-    Ensuite, si vous n'utilisez pas **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, il est possible qu'ASF ait effectivement accepté / envoyé un échange, mais vous devez le confirmer via votre adresse électronique. De même, si vous utilisez 2FA classique, vous devez confirmer le commerce via votre authentificateur. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider importing your authenticator into ASF 2FA.
+    Ensuite, si vous n'utilisez pas **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, il est possible qu'ASF ait effectivement accepté / envoyé un échange, mais vous devez le confirmer via votre adresse électronique. De même, si vous utilisez 2FA classique, vous devez confirmer le commerce via votre authentificateur. Les confirmations sont **obligatoires** maintenant. Si vous ne souhaitez pas les accepter par vous-même, envisagez d'importer votre authentificateur dans ASF 2FA.
     
     Notez également que vous ne pouvez échanger qu'avec vos amis et les personnes ayant un lien commercial connu. Si vous essayez d'initier un échange Bot-> Master, tel qu'un `loot`, vous devez alors avoir votre bot sur votre liste d'amis ou votre `SteamTradeToken` déclaré dans la configuration de Bot. . Assurez-vous que le jeton est valide - sinon, vous ne pourrez pas envoyer de transaction.
     
@@ -589,7 +589,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     La solution évidente consiste à régler correctement la date sur votre machine. Il est vivement recommandé d'utiliser la synchronisation automatique des dates, telle que la synchronisation native disponible sous Windows, ou `ntpd` sous Linux.
     
-    If you made sure that the date on your machine is appropriate and the error doesn't want to go away, then assuming it's not a temporary issue that should go away soon, SSL certificates that your system trusts could be out-of-date or invalid. Dans ce cas, vous devez vous assurer que votre ordinateur peut établir des connexions sécurisées, par exemple en vérifiant si vous pouvez accéder à `https://github.com` avec le navigateur de votre choix ou à un outil CLI tel que `curl`. Si vous avez confirmé que cela fonctionne correctement, n'hésitez pas à publier un numéro sur notre groupe Steam.
+    Si vous vous êtes assuré que la date indiquée sur votre ordinateur est appropriée et que l'erreur ne veut pas disparaître, alors, en supposant qu'il ne s'agisse pas d'un problème temporaire qui devrait disparaître rapidement, les certificats SSL sur lesquels votre système a confiance peuvent être périmés ou invalide. Dans ce cas, vous devez vous assurer que votre ordinateur peut établir des connexions sécurisées, par exemple en vérifiant si vous pouvez accéder à `https://github.com` avec le navigateur de votre choix ou à un outil CLI tel que `curl`. Si vous avez confirmé que cela fonctionne correctement, n'hésitez pas à publier un numéro sur notre groupe Steam.
     
     * * *
     

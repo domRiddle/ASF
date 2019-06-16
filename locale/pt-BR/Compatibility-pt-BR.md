@@ -55,7 +55,7 @@ Se você estiver usando um pacote para Sistema Operacional específico você nã
 
 No entanto, se você está tentando executar o pacote **genérico** do ASF, você deve garantir o que o seu tempo de execução .NET Core ofereça suporte a plataforma requerida pelo ASF.
 
-O ASF, como programa, utiliza o **.NET Core 2.2** (`netcoreapp2.2`) agora, mas ele deve utilizar plataformas mais novas no futuro. O `netcoreapp2.2` é suportado desde o SDK 2.2.100 (tempo de execução 2.2.0), porém o ASF é configurado para buscar o **tempo de execução mais recente na hora da compilação**, então você deve garantir que você tem a **[SDK mais recente](https://www.microsoft.com/net/download)** disponível para o seu computador. A variante genéria do ASF pode se recusar a iniciar se o seu tempo de execução for mais antigo que o utilizado durante a compilação.
+O ASF, como programa, utiliza o **.NET Core 2.2** (`netcoreapp2.2`) agora, mas ele deve utilizar plataformas mais novas no futuro. O `netcoreapp2.2` é suportado desde o SDK 2.2.100 (tempo de execução 2.2.0), porém o ASF é configurado para buscar o **tempo de execução mais recente na hora da compilação**, então você deve garantir que você tem a **[SDK mais recente](https://dotnet.microsoft.com/download)** (ou ao menos o tempo de execução) disponível para o seu computador. A variante genéria do ASF pode se recusar a iniciar se o seu tempo de execução for mais antigo que o utilizado durante a compilação.
 
 Em caso de dúvida, verifique o que nossa **[integração contínua usa](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar e implantar as versões do ASF liberadas no GitHub. Você pode encontrar a saída `dotnet --info` no topo de cada compilação.
 

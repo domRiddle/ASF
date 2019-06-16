@@ -1,8 +1,8 @@
 # Activador de juegos en segundo plano
 
-El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de Steam keys(junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de keys para activar y te garantiza llegar a tu `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** antes de que termines con tu lote entero.
+El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de que termines con tu lote entero.
 
-El activador de juegos en segundo plano esta hecho para tener un solo bot de único propósito, por lo que este no hace uso de las `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** de ser necesario.
+El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, de ser necesario.
 
 * * *
 
@@ -12,7 +12,7 @@ El proceso de importación puede hacerse de dos maneras - ya sea a través de un
 
 ### Archivo
 
-ASF reconocerá en su directorio de `config` un archivo llamado `BotName.keys` donde `BotName` es el nombre de tu bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Si varios tabs son usados, entonces el primer espacio se considera el nombre del juego y el último espacio es la key y todo lo que esté en medio sera ignorado. Por ejemplo:
+ASF reconocerá en su directorio `config` un archivo llamado `NombreDeBot.keys` donde `NombreDeBot` es el nombre de tu bot. Se espera que el archivo tenga una estructura definida de nombre de juego con clave de producto, separados entre sí por una carácter de tabulación y que termine con una nueva línea para indicar la siguiente entrada. Si se utilizan varias tabulaciones, entonces la primera entrada es considerada nombre del juego, la última entrada es considerada clave de producto, y todo lo intermedio es ignorado. Por ejemplo:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,7 +20,7 @@ ASF reconocerá en su directorio de `config` un archivo llamado `BotName.keys` d
     Terraria    EstoSeIgnora   EstoSeIgnoraTambién    ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternativamente, también puedes usar el formato de solo claves (aún con nueva línea entre cada entrada). En este caso ASF utilizará la respuesta de Steam (si es posible) para rellenar el nombre correcto. Para cualquier tipo de etiquetado, recomendamos que nombres las claves tú mismo, ya que los paquetes activados en Steam no tienen que seguir la lógica de los juegos que están activado, así que dependiendo de lo que el desarrollador haya puesto, puedes ver nombres de juegos correctos, nombres de paquetes personalizados (por ejemplo, Humble Indie Bundle 18) o incorrectos y potencialmente maliciosos (por ejemplo, Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,11 +28,11 @@ Alternatively, you're also able to use keys only format (still with a newline be
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Después de revisar el archivo y eventualmente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será removido del directorio de `config`.
+Independientemente del formato que hayas decidido mantener, ASF importará tu archivo de `keys`, ya sea al iniciar el bot, o luego durante la ejecución. Después de revisar el archivo y eventualmente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será removido del directorio de `config`.
 
 ### IPC
 
-Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves personalizada.
 
 * * *
 
@@ -46,22 +46,22 @@ Si durante el proceso la cuenta llega a su `RateLimited`, la cola sera temporalm
 
 ## Ejemplo
 
-Supongamos que tienes una lista de 100 keys. Primeramente debes crear un nuevo archivo `BotName.keys.new` en el directorio `config` de ASF. Le agregamos la extensión `.new` para que ASF no intente usar este archivo de inmediato en el momento que es creado (ya que el mismo está en blanco y no esta listo para ser importado aún).
+Supongamos que tienes una lista de 100 claves. Primeramente debes crear un nuevo archivo `NombreDeBot.keys.new` en el directorio `config` de ASF. Le agregamos la extensión `.new` para que ASF no intente usar este archivo de inmediato en el momento que es creado (ya que el mismo está en blanco y no está listo para ser importado aún).
 
-Ahora puedes abrir el archivo y pegar las 100 keys dentro del mismo, arreglando el formato de la lista si es necesario. Después de arreglar nuestro archivo `BotName.keys.new` tendremos exactamente 100 (o 101, incluyendo el último salto de linea) lineas, cada uno con un estructura de `GameName\tcd-key\n` donde `\t` es un tab y `\n` es un salto de linea.
+Ahora puedes abrir el archivo y pegar las 100 claves dentro del mismo, arreglando el formato de la lista si es necesario. Después de arreglar nuestro archivo `NombreDeBot.keys.new` tendremos exactamente 100 (o 101, incluyendo el último salto de línea) líneas, cada uno con un estructura de `NombreDeJuego\tclave\n` donde `\t` es un carácter de tabulación y `\n` es un salto de línea.
 
-Ahora puedes cambiarle el nombre al archivo de `BotName.keys.new` a `BotName.keys` para que ASF sepa que está listo para ser leído. En el momento en que hagas esto, ASF automáticamente importará el archivo (sin necesidad de reiniciar) y posteriormente lo borrará, confirmado que todos los juegos fueron leidos y agregados a la cola.
+Ahora puedes cambiarle el nombre al archivo de `NombreDeBot.keys.new` a `NombreDeBot.keys` para que ASF sepa que está listo para ser leído. En el momento en que hagas esto, ASF automáticamente importará el archivo (sin necesidad de reiniciar) y posteriormente lo borrará, confirmado que todos los juegos fueron leídos y agregados a la cola.
 
-En vez de usar el archivo `BotName.keys`, también puedes usar la función del IPC, o incluso combinar ambas si así lo desea.
+En vez de usar el archivo `NombreDeBot.keys`, también puedes usar el endpoint de la API de ASF, o incluso combinar ambas si así lo desea.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Esos archivos contienen el resultado del proceso de activación de las keys. Por ejemplo, puedes cambiar el nombre del archivo `BotName.keys.unused` a `BotName2.keys` y pasarle las keys que no fueron usadas a otro bot, ya que el anterior no las utilizó. O simplemente puedes copiar y pegar las keys sin usar a algún otro archivo y guardarlas para después, como gustes. Recuerda que ASF recorre la lista y aquellas keys que se agreguen durante el proceso serán añadidas a las archivos `used` y `unused`, aún asi se recomienda esperar a que la lista quede completamente vacía antes de querer agregar más. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+Después de un rato, los archivos `NombreDeBot.keys.used` y `NombreDeBot.keys.unused` serán generados. Esos archivos contienen el resultado del proceso de activación. Por ejemplo, podrías cambiar el nombre del archivo `NombreDeBot.keys.unused` a `NombreDeBot2.keys` y pasarle las claves que no fueron usadas a otro bot, ya que el anterior no las utilizó. O simplemente puedes copiar y pegar las claves sin usar a algún otro archivo y guardarlas para después, como gustes. Ten en cuenta, puesto que ASF recorre la lista, las nuevas entradas se añadirán a nuestros archivos `used` y `unused`, por lo tanto se recomienda esperar a que la lista quede completamente vacía antes de hacer uso de los archivos. Si debes acceder a estos archivos antes de que la lista esté completamente vacía, primero debes **mover** el archivo a otro directorio, **luego** leerlo. Esto es porque ASF puede añadir nuevos resultados mientras estás usándolos, y eso podría ocasionar la pérdida potencial de algunas claves si abres un archivo que tenga, por ejemplo, 3 claves, lo eliminas, ignorando el hecho de que mientras tanto ASF añadido 4 claves más a tu archivo eliminado. Si quieres acceder a esos archivos, asegúrate de moverlos fuera del directorio `config` antes de abrirlos, por ejemplo, al renombrarlos.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+También es posible añadir juegos adicionales para importar aun ya teniendo juegos en cola, repitiendo todos los pasos anteriores. ASF añadirá correctamente nuestras entradas adicionales a una cola ya en curso y las tratará eventualmente.
 
 * * *
 
-## Remarks
+## Observaciones
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+El activador de juegos en segundo plano usa `OrderedDictionary` bajo el capó, lo que significa que tus claves conservarán el orden especificado en el archivo (o en la llamada IPC API). Esto significa que puedes (y debes) proporcionar una lista en la que una clave dada solo puede tener dependencia directa con claves listadas arriba de ella, pero no debajo. Por ejemplo, esto significa que si tienes el DLC `D` que requiere que primero se active el juego `G`, entonces la clave para el juego `G` **siempre** debe ser incluida antes de la clave para el DLC `D`. De la misma manera, si el DLC `D` depende de `A`, `B` y `C`, entonces los 3 deben ser incluidos antes (en cualquier orden, a menos que tengan dependencia entre ellos).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+No seguir el esquema anterior dará como resultado que tu DLC no sea activado con el mensaje `DoesNotOwnRequiredApp`, incluso si tu cuenta fuese elegible para activarlo después de pasar por toda la lista. Si quieres evitar eso, debes asegurarte que tu DLC siempre esté incluido después del juego base en tu lista.

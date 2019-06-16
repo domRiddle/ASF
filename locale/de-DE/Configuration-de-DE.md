@@ -80,15 +80,13 @@ Die globale Konfiguration befindet sich in der Datei `ASF.json` und hat folgende
 }
 ```
 
-**Tipp:** Sofern du keine dieser Optionen ändern möchtest, solltest du alles auf den Standardwerten belassen. Deshalb kannst du `ASF.json` schließen und zur Bot-Konfiguration übergehen.
-
 * * *
 
 Alle Optionen werden nachfolgend erklärt:
 
 ### `AutoRestart`
 
-`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF bei Bedarf einen Selbst-Neustart durchführen darf. Es gibt ein paar Fälle, die von ASF einen Neustart erfordern, wie z.B. die ASF-Aktualisierung (durchgeführt mit `UpdatePeriod` oder dem Befehl `update`), sowie das Verändern der `ASF.json` Konfiguration, dem `restart` Befehl und ähnlich. Normalerweise beinhaltet der Neustart zwei Teile - das Erstellen eines neuen Prozesses und das Beenden des aktuellen Prozesses. Die meisten Benutzer sollten damit einverstanden sein und diese Eigenschaft auf dem Standardwert `true` behalten - wenn du ASF durch dein eigenes Skript und/oder mit `dotnet` ausführst, solltest du vielleicht die volle Kontrolle über den Start des Prozesses haben und eine Situation vermeiden, in der ein neuer (neu gestarteter) ASF-Prozess irgendwo im Hintergrund und nicht im Vordergrund des Skripts läuft, der zusammen mit dem alten ASF-Prozess beendet wurde. Dies ist besonders wichtig, wenn man bedenkt, dass der neue Prozess nicht mehr dein direktes "Kind" ist, was dich z.B. nicht in die Lage versetzen würde, die Standardkonsolen-Eingabe dafür zu verwenden.
+`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF bei Bedarf einen Selbst-Neustart durchführen darf. Es gibt ein paar Fälle, die von ASF einen Neustart erfordern, wie z.B. die ASF-Aktualisierung (durchgeführt mit `UpdatePeriod` oder dem Befehl `update`), sowie das Verändern der `ASF.json` Konfiguration, dem `restart` Befehl und ähnlich. Normalerweise beinhaltet der Neustart zwei Teile - das Erstellen eines neuen Prozesses und das Beenden des aktuellen Prozesses. Die meisten Benutzer sollten damit einverstanden sein und diese Eigenschaft auf dem Standardwert `true` behalten - wenn du ASF durch dein eigenes Skript und/oder mit `dotnet` ausführst, solltest du vielleicht die volle Kontrolle über den Start des Prozesses haben und eine Situation vermeiden, in der ein neuer (neu gestarteter) ASF-Prozess irgendwo im Hintergrund und nicht im Vordergrund des Skripts läuft, der zusammen mit dem alten ASF-Prozess beendet wurde. Dies ist besonders wichtig, wenn man bedenkt, dass der neue Prozess nicht mehr dein direktes "Kind" ist, was dich z.B. nicht in die Lage versetzen würde, die Standardkonsolen-Eingabe dafür zu verwenden.
 
 Wenn das der Fall ist, ist diese Eigenschaft speziell für dich und du kannst sie auf `false` setzen. Bedenke jedoch, dass **du** in diesem Fall für den Neustart des Prozesses verantwortlich bist. Dies ist einigermaßen wichtig, da ASF sich nur beendet, anstatt einen neuen Prozess zu starten (z.B. nach der Aktualisierung), so dass, wenn du keine Logik hinzugefügt hast, ASF einfach aufhört zu laufen, bis du es wieder startest. ASF beendet sich immer mit einem korrekten Fehlercode, der Erfolg (Null) oder Misserfolg (ungleich Null) anzeigt. Auf diese Weise kannst du in deinem Skript eine entsprechende Logik hinzufügen, die einen automatischen Neustart von ASF im Fehlerfall vermeiden sollte oder zumindest zur weiteren Analyse eine lokale Kopie von `log.txt` erstellt. Bedenke auch, dass der Befehl `restart` ASF immer neu startet, unabhängig davon, wie diese Eigenschaft eingestellt ist, da diese Eigenschaft das Standardverhalten definiert, während der Befehl `restart` den Prozess immer neu startet. Wenn du keinen Grund hast, diese Funktion zu deaktivieren, solltest du sie aktiviert lassen.
 
@@ -289,7 +287,7 @@ Diese Eigenschaft ist als uri Zeichenfolge definiert:
 
 Wenn dein Proxy eine Benutzer-Authentifizierung erfordert, musst du auch `WebProxyUsername` und/oder `WebProxyPassword` einrichten. Wenn es keinen solchen Bedarf gibt, genügt die Errichtung dieser Eigenschaft allein.
 
-Im Moment verwendet ASF den Web-Proxy nur für `http` und `https` Anfragen, was **nicht** die interne Steam-Netzwerk-Kommunikation innerhalb des internen Steam-Clients von ASF beinhaltet. Es gibt derzeit keine Pläne, dies zu unterstützen, hauptsächlich wegen fehlender **[SK2](https://github.com/SteamRE/SteamKit)** Funktionalität. Wenn du es brauchst/willst, würde ich vorschlagen, da anzufangen.
+Im Moment verwendet ASF den Web-Proxy nur für `http` und `https` Anfragen, was **nicht** die interne Steam-Netzwerk-Kommunikation innerhalb des internen Steam-Clients von ASF beinhaltet. Es gibt derzeit keine Pläne dies zu unterstützen, hauptsächlich wegen der fehlenden **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** Funktionalität. Wenn du es brauchst/willst, würde ich vorschlagen, da anzufangen.
 
 Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
@@ -353,8 +351,6 @@ Die Bot-Konfiguration hat folgende Struktur:
 }
 ```
 
-**Tipp:** Damit der Bot richtig funktioniert, solltest du mindestens die Eigenschaften `Enabled`, `SteamLogin` und `SteamPassword` bearbeiten. Ich schlage auch vor, einen Blick auf einige Feinabstimmungen wie `HoursUntilCardDrops` zu werfen, aber all das ist optional. ASF-Konfigurationen sind ziemlich fortschrittlich, um es dir zu ermöglichen, deine Bots und ASF so einzustellen, wie du willst. Wenn du ein solches fortgeschrittenes Setup nicht "benötigst", musst du nicht wirklich detailliert in jede Konfigurationseigenschaft schauen. Es liegt an dir, wie einfach oder wie komplex ASF sein sollte.
-
 * * *
 
 Alle Optionen werden nachfolgend erklärt:
@@ -369,7 +365,7 @@ Diese Option wird nur für Alternativkonten empfohlen, da es sehr wahrscheinlich
 
 ### `AutoSteamSaleEvent`
 
-`bool` Typ mit einem Standardwert von `false`. Während der Steam Sommer/Winter-Verkaufsveranstaltungen ist Steam dafür bekannt, dass es dir zusätzliche Karten zur Verfügung stellt, um jeden Tag die Entdeckungsliste zu durchsuchen, sowie durch andere ereignisspezifische Aktivitäten. Wenn diese Option aktiviert ist, überprüft ASF automatisch die Steam Entdeckungsliste alle `8` Stunden (beginnend bei einer Stunde seit Programmstart) und durchläuft sie bei Bedarf. Diese Option wird nicht empfohlen, wenn du diese Aktion selbst durchführen möchtest, und normalerweise sollte sie nur bei Bot-Konten sinnvoll sein. Außerdem musst du sicherstellen, dass dein Konto mindestens das Level `8` hat, wenn du erwartest, diese Karten überhaupt zu erhalten, was direkt mit einer Steam-Anforderung zusammenhängt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
+`bool` Typ mit einem Standardwert von `false`. Während der Steam Sommer/Winter-Verkaufsveranstaltungen ist Steam dafür bekannt, dass es dir zusätzliche Karten zur Verfügung stellt, um jeden Tag die Entdeckungsliste zu durchsuchen, sowie durch andere ereignisspezifische Aktivitäten. Wenn diese Option aktiviert ist, überprüft ASF automatisch die Steam Entdeckungsliste alle `8` Stunden (beginnend bei einer Stunde seit Programmstart) und durchläuft sie bei Bedarf. Diese Option wird nicht empfohlen, wenn du diese Aktion selbst durchführen möchtest, und normalerweise sollte sie nur bei Bot-Konten sinnvoll sein. Außerdem musst du sicherstellen, dass dein Konto mindestens das Level `8` hat, wenn du erwartest, diese Karten überhaupt zu erhalten, was direkt mit einer Steam-Anforderung zusammenhängt. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
 
 Bitte bedenke, dass wir aufgrund von ständigen Steam-Problemen, Änderungen und Problemen **keine Garantie geben, ob diese Funktion ordnungsgemäß funktioniert**, daher ist es durchaus möglich, dass diese Option **überhaupt nicht funktioniert**. Wir akzeptieren **keine** Fehlermeldungen, auch keine Unterstützungsanfragen für diese Option. Es wird ohne jegliche Garantie angeboten, die Nutzung erfolgt auf eigene Gefahr.
 
@@ -377,7 +373,7 @@ Bitte bedenke, dass wir aufgrund von ständigen Steam-Problemen, Änderungen und
 
 ### `BotBehaviour`
 
-`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
+`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
 
 | Wert | Name                          | Beschreibung                                                                                |
 | ---- | ----------------------------- | ------------------------------------------------------------------------------------------- |
@@ -483,7 +479,7 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell als auch automatisch. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
+`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
 
 | Wert | Name              | Beschreibung                                                                                           |
 | ---- | ----------------- | ------------------------------------------------------------------------------------------------------ |
@@ -506,7 +502,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `MatchableTypes`
 
-`ImmutableHashSet<byte>` Typ mit einem Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Typen angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Typen sind wie folgt definiert:
+`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Typen angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Typen sind wie folgt definiert:
 
 | Wert | Name              | Beschreibung                                                                                  |
 | ---- | ----------------- | --------------------------------------------------------------------------------------------- |
@@ -718,13 +714,13 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 Die Anmelde-Schlüssel werden standardmäßig für deine Bequemlichkeit verwendet, so dass du nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code (wenn du nicht **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendest) eingeben musst. Es ist auch eine überlegene Alternative, da der Anmelde-Schlüssel nur einmalig verwendet werden kann und dein ursprüngliches Passwort in keiner Weise offenbart. Genau die gleiche Methode wird von deinem ursprünglichen Steam-Client verwendet, der deinen Konto-Namen und Anmelde-Schlüssel für deinen nächsten Anmeldeversuch speichert, was praktisch die gleiche ist wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
 
-Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht dir diese Option hier zur Verfügung, wenn du sicherstellen möchtest, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn du "Remember me" im offiziellen Steam-Client nicht aktivierst. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `true` belassen.
+Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht dir diese Option hier zur Verfügung, wenn du sicherstellen möchtest, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn du "Remember me" im offiziellen Steam-Client nicht aktivierst. Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `true` belassen.
 
 * * *
 
 ## Dateistruktur
 
-ASF benutzt eine recht einfache Dateistruktur.
+ASF benutzt eine einfache Dateistruktur.
 
     ├── config
     │     ├── ASF.json
@@ -775,13 +771,13 @@ Die von ASF verwendeten Typen sind native C#-Typen, die im Folgenden aufgeführt
 
 * * *
 
-`bool` - Boolean-Typ der nur die Werte `true` und `false` akzeptiert.
+`bool` - Boolescher Typ, der nur `true` und `false` Werte akzeptiert.
 
 Beispiel: `"Enabled": true`
 
 * * *
 
-`byte` - Unsignierter Byte-Typ der nur ganze Zahlen von `0` bis `255` (einschließlich) akzeptiert.
+`byte` - Unsignierter Byte-Typ, der nur ganze Zahlen von `0` bis `255` (einschließlich) akzeptiert.
 
 Beispiel: `"ConnectionTimeout": 60`
 
@@ -793,23 +789,23 @@ Beispiel: `"WebLimiterDelay": 300`
 
 * * *
 
-`uint` - Unsignierter Integer-Typ der nur ganze Zahlen von `0` bis `4294967295` (einschließlich) akzeptiert.
+`uint` - Unsignierter Ganzzahl-Typ, der nur ganze Zahlen von `0` bis `4294967295` (einschließlich) akzeptiert.
 
 * * *
 
-`ulong` - Unsignierter Long-Integer-Typ der nur ganze Zahlen von `0` bis `18446744073709551615` (einschließlich) akzeptiert.
+`ulong` - Unsignierter long integer Typ, der nur ganze Zahlen von `0` bis `18446744073709551615` (einschließlich) akzeptiert.
 
 Beispiel: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
-`string` - String-Typ der jede beliebige Zeichenfolge akzeptiert, einschließlich einer leeren Zeichenfolge wie `""` und `null`. Leere Sequenz und `null` Wert werden von ASF gleich behandelt, so dass du es dir aussuchen kannst, welche du verwenden möchtest (wir bleiben bei `null`).
+`string` - Zeichenketten-Typ, der jede beliebige Zeichenfolge akzeptiert, einschließlich der leeren Folge `""` und `null`. Leere Sequenz und `null` Wert werden von ASF gleich behandelt, so dass du es dir aussuchen kannst, welche du verwenden möchtest (wir bleiben bei `null`).
 
 Beispiele: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeinLogin"`
 
 * * *
 
-`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Set) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft nur für eindeutige Werte Sinn macht, daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls du sie trotzdem angegeben hast).
+`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Satz) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft nur für eindeutige Werte Sinn macht, daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls du sie trotzdem angegeben hast).
 
 Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
@@ -849,7 +845,7 @@ Wie du sehen kannst, haben wir im obigen Beispiel 3 verfügbare Flags zum Ein- u
 
 ## Kompatibilitätsmapping
 
-Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die entsprechende Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deinen Konfigurationen tatsächlich gültig sind und korrekt generiert wurden. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist kannst du auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, dass wir diese JavaScript-Einschränkung irgendwann aufheben können.
+Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die richtige Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deine Konfigurationen tatsächlich gültig und korrekt generiert sind. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist, kannst du auch diesem Schema folgen und sie als Zeichenketten mit `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
 
 * * *
 
@@ -870,4 +866,4 @@ Ab ASF V2.1.6.2+ ist es möglich, dass Konfigurationen "on-the-fly" geändert we
 
 All dies ist transparent und wird automatisch durchgeführt, ohne dass das Programm neu gestartet oder andere (nicht betroffene) Bot-Instanzen beendet werden müssen.
 
-Darüber hinaus wird sich ASF auch selbst neu starten (wenn `AutoRestart` es erlaubt), wenn du die ASF-Kern-Konfiguration `ASF.json` änderst. Ebenso wird das Programm beendet, wenn du sie löschst oder umbenennst.
+Darüber hinaus wird sich ASF auch selbst neu starten (wenn `AutoRestart` es erlaubt), wenn du die ASF-Kern-Konfiguration `ASF.json` änderst. Ebenso wird das Programm beendet, wenn du es löschst oder umbenennst.

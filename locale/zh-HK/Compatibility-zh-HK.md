@@ -55,7 +55,7 @@ ASF當前可用於以下操作系統 ：
 
 但是，如果您尝試運行 **Generic** ASF包，則必須確保 ASF 所需的對應平台的 .NET Core 運行時環境已經安裝。
 
-目前ASF 的目標是 **.NET Core 2.2**（`netcoreapp2.2`），但未來會指向更高版本。 `netcoreapp2.2` 自 2.2.100 SDK（2.2.0 運行時環境）以來就受到支援，但 ASF 以**編譯時最新版本的運行時環境**為目標，所以您應該確保您的電腦上有​**[最新版 SDK](https://www.microsoft.com/net/download)**可用。 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
+目前ASF 的目標是 **.NET Core 2.2**（`netcoreapp2.2`），但未來會指向更高版本。 `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署ASF版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個生成的頂部找到`dotnet--info` 輸出。
 

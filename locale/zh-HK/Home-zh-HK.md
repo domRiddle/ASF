@@ -8,6 +8,6 @@
 
 如果您是新用戶，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。 您可以在螢幕右邊的側邊欄上找到其他所有相關的wiki頁面。 我們建議從頭開始，雖然您可以隨意閱讀任何您感有趣的東西，但ASF的知識是無限的。
 
-如果您需要更多幫助，可以訪問我們的**[Discord伺服器](https://discord.gg/hSQgt8j)**，或**[Steam群組](https://steamcommunity.com/groups/archiasf/discussions/1)** 您可以使用Discord討論常見ASF事務及閒聊，而在Steam群組中發表主題諮詢問題或報告錯誤。
+If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 
-GitHub **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 僅用於ASF的待辦事項，包括錯誤修複和功能迭代。 它有相當嚴格的規定──GitHub 不是技術支援平台，所有建議或錯誤之外的案例都不應該發佈在那裏。 您可以使用ASF Discord和Steam群組進行一般性討論，諮詢錯誤或技術問題。 請避免使用 GitHub諮詢問題，除非您確實希望報告错误或建議增強功能。 即使在這種情況下，最好是先在Discord/Steam群組中詢問，以確保您確實發現了一個新的錯誤，或者您的建議是有意義的。 不合規範問題將立即被關閉，並且不會得到答覆。
+GitHub **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** page is being used for ASF development, especially in regards to bugs and enhancements. We have a very strict policy regarding that, as GitHub is **not** a general support channel, it's dedicated exclusively to ASF development and we're not answering common ASF matters there, as we have appropriate **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)** for that. If you're not sure whether your matter relates to ASF development or not, we recommend to use a support channel instead. Invalid GitHub issues will be closed immediately and won't be answered.

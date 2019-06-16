@@ -18,7 +18,7 @@ Wenn `Statistics` aktiv ist passiert Folgendes:
 
 Wir betrachten die Steam Group als einen entscheidenden Teil der ASF-Community. Dies ist unser wichtigster Kommunikationskanal, den wir für alle wichtigen Angelegenheiten im Zusammenhang mit ASF nutzen, insbesondere um Sie über die Entwicklung, mögliche Probleme, eventuelle Warnungen und alle anderen Angelegenheiten auf dem Laufenden zu halten, auf die Sie als Benutzer Zugriff haben sollten. Wir profitieren in keiner Weise von der Pflege dieser Gruppe, es ist der Ort, der ASF-Anwendern gewidmet ist, und wir betrachten Sie als Teil unserer Community. Da die Mitgliedschaft in der Gruppe Sie in keiner Weise als ASF-Benutzer identifiziert, betrachten wir dies nicht als ein Problem in Bezug auf die Privatsphäre.
 
-2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. Tatsächliche Daten bestehen aus einer eindeutigen ASF-ID (die von ASF generiert wird) und folgenden kontobezogenen Informationen:
+2. Wenn dein Konto **[uneingeschränkt](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** ist, unter Verwendung von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE#asf-2fa)**, dein **[öffentliches Inventar](https://steamcommunity.com/my/edit/settings)** mit mindestens 100 `MatchableTypes` Elementen darin hat und du absichtlich `SteamTradeMatcher` in deinen `TradingPreferences` aktiviert hast, dann wird ASF regelmäßig mit unserem **[Server](https://asf.justarchi.net)** kommunizieren um die aktivierte Funktionalität zu erfüllen. Tatsächliche Daten bestehen aus einer eindeutigen ASF-ID (die von ASF generiert wird) und folgenden kontobezogenen Informationen:
 
 * Deine Steam-ID (in 64-Bit-Form, zur Generierung von Links)
 * Dein Nickname (zu Anzeigezwecken)
@@ -29,7 +29,7 @@ Wir betrachten die Steam Group als einen entscheidenden Teil der ASF-Community. 
 * Gesamtzahl der `MatchableTypes` Steam-Gegenständen in deinem Inventar (für Anzeigezwecke und Zusammenführung)
 * Gesamtzahl der einzigartigen Spiele, die über `MatchableTypes` Steam Gegenstände bestehen (für Anzeigezwecke und Zusammenführung)
 
-ASF wird **keine** weiteren Daten (außer die aufgezählten) ohne vorherige wichtige Mitteilung im Änderungsprotokoll und aus einem sehr guten praktischen Grund sammeln. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
+ASF wird **keine** weiteren Daten (außer die aufgezählten) ohne vorherige wichtige Mitteilung im Änderungsprotokoll und aus einem sehr guten praktischen Grund sammeln. Wir erachten das Obige nicht als eine ernste Angelegenheit, und wir erwähnen es, um dich wissen zu lassen, was genau ASF neben dem, was du selbst konfiguriert hast, macht, damit die Leute unseren Standpunkt besser verstehen können.
 
 * * *
 

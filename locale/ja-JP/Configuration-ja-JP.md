@@ -1,4 +1,4 @@
-# Configuration
+# 設定
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
@@ -79,8 +79,6 @@ Global config is located in `ASF.json` file and has following structure:
     "WebProxyUsername": null
 }
 ```
-
-**Tip:** Unless you want to change any of those options, you're good to go with leaving everything at default values, therefore you can close `ASF.json` and proceed to bot config.
 
 * * *
 
@@ -176,7 +174,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 * * *
 
-### `IPC`
+### `プロセス間通信`
 
 `bool` type with default value of `false`. This property defines if ASF's **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting a local HTTP server. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
 
@@ -214,7 +212,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `統計`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -238,7 +236,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Value | 名前        | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None      | No protocol                                                                                      |
+| 0     | 無し        | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -289,7 +287,7 @@ This property is defined as uri string:
 
 If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property alone is sufficient.
 
-Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit)** functionality. If you need/want it to happen, I'd suggest starting from there.
+Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. If you need/want it to happen, I'd suggest starting from there.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
@@ -353,8 +351,6 @@ The bot config has following structure:
 }
 ```
 
-**Tip:** In order for bot to work properly, you should edit at least `Enabled`, `SteamLogin` and `SteamPassword` properties. I also suggest to take a look at some fine-tuning such as `HoursUntilCardDrops`, but all of that is optional. ASF configs are quite advanced to allow you tune your bots and ASF however you want, if you don't "require" such advanced setup, you don't really have to go deep into each config property. It's up to you how simple or how complex ASF should be.
-
 * * *
 
 All options are explained below:
@@ -381,7 +377,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Value | 名前                            | Description                                                           |
 | ----- | ----------------------------- | --------------------------------------------------------------------- |
-| 0     | None                          | No special bot behaviour, the least invasive mode, default            |
+| 0     | 無し                            | No special bot behaviour, the least invasive mode, default            |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites |
 | 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers   |
 | 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites  |
@@ -483,7 +479,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual and automatic. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
 | Value | 名前                | Description                                                   |
 | ----- | ----------------- | ------------------------------------------------------------- |
@@ -574,7 +570,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Value | 名前               | Description                                                                    |
 | ----- | ---------------- | ------------------------------------------------------------------------------ |
-| 0     | None             | No special redeeming preferences, default                                      |
+| 0     | 無し               | No special redeeming preferences, default                                      |
 | 1     | Forwarding       | Forward keys unavailable to redeem to other bots                               |
 | 2     | Distributing     | Distribute all keys among itself and other bots                                |
 | 4     | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
@@ -657,7 +653,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Value | 名前            | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 0     | 無し            | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -676,7 +672,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Value | 名前                  | Description                                                                                                                                                                                          |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | No special trading preferences, default                                                                                                                                                              |
+| 0     | 無し                  | No special trading preferences, default                                                                                                                                                              |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -825,12 +821,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | 名前   |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| Value | 名前 |
+| ----- | -- |
+| 0     | 無し |
+| 1     | A  |
+| 2     | B  |
+| 4     | C  |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

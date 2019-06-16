@@ -1,71 +1,71 @@
 # Intercambios
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF incluye soporte para intercambios de Steam no interactivos (offline). Tanto recibir (aceptar/rechazar) como enviar intercambios está disponible inmediatamente y no requieres una configuración especial, pero obviamente se requiere una cuenta de Steam sin restricciones (aquella que ya ha gastado 5$ en la tienda). El módulo de intercambios no está disponible para cuentas limitadas.
 
 * * *
 
-## Logic
+## Lógica
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
+ASF siempre aceptará todos los intercambios, independientemente de los artículos, enviados por el usuario con acceso `Master` (o superior) al bot. Esto permite no solo "lootear" fácilmente los cromos recolectados por el bot, sino también administrar fácilmente los artículos que el bot almacena en el inventario.
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF rechazará ofertas de intercambio, independientemente del contenido, de cualquier usuario (no master) que esté bloqueado del módulo de intercambios. La lista negra de usuarios bloqueados se almacena en la base de datos estándar `BotName.db`, y puede ser administrada por medio de los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `bl`, `bladd` y `blrm`. Esto debería funcionar como una alternativa al bloqueo de usuarios que ofrece Steam - usar con precaución.
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+ASF aceptará todos los intercambios de `loot` enviados entre bots, a menos que `DontAcceptBotTrades` se especifique en `TradingPreferences`. En resumen, las `TradingPreferences` por defecto de `None` hará que ASF acepte automáticamente intercambios del usuario con acceso `Master` al bot (explicado arriba), así como todos los intercambios de donación de otros bots que formen parte del proceso de ASF. Si quieres deshabilitar los intercambios de donación de otros bots, entonces para eso es `DontAcceptBotTrades` en tus `TradingPreferences`.
 
-When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
+Cuando habilitas `AcceptDonations` en tus `TradingPreferences`, ASF también aceptará cualquier intercambio de donación - un intercambio en el que la cuenta bot no pierde ningún artículo. Esta propiedad solo afecta cuentas no bot, ya que las cuentas bot son afectadas por `DontAcceptBotTrades`. `AcceptDonations` te permite aceptar fácilmente donaciones de otras personas, y también de bots que no formen parte del proceso de ASF.
 
-It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, as there is no confirmation needed if we're not losing any items.
+Es agradable notar que `AcceptDonations` no requiere **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, puesto que no se requiere confirmación si no estamos perdiendo ningún artículo.
 
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
+También puedes personalizar aún más las capacidades de intercambio de ASF modificando `TradingPreferences` como corresponde. Una de las características principales de `TradingPreferences` es la opción `SteamTradeMatcher` que hará que ASF use su lógica integrada para aceptar intercambios que te ayuden a completar insignias faltantes, lo que es especialmente útil en cooperación con la lista pública de **[SteamTradeMatcher](https://www.steamtradematcher.com)**, pero también puede funcionar sin ella. Se describe con detalle abajo.
 
 * * *
 
 ## `SteamTradeMatcher`
 
-When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+Cuando `SteamTradeMatcher` está activo, ASF usará un algoritmo bastante complejo para comprobar si el intercambio pasa las reglas de STM y que al menos sea neutral para nosotros. La lógica es la siguiente:
 
-- Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game and per-type basis.
-- Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
-- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
-- Accept the trade if we didn't reject it through any of the points above.
+- Rechazará el intercambio si estamos perdiendo cualquier cosa además de los tipos de artículo especificados en `MatchableTypes`.
+- Rechazará el intercambio si no estamos recibiendo al menos el mismo número de artículos por juego y por tipo.
+- Rechazará el intercambio si el usuario solicita cromos especiales de las ofertas de verano/invierno, y tiene una retención de intercambio.
+- Rechazará el intercambio si la duración de la retención de intercambio excede lo establecido en la propiedad de configuración global `MaxTradeHoldDuration`.
+- Rechazará el intercambio si no tenemos establecido `MatchEverything`, y es peor que neutral para nosotros.
+- Aceptará el intercambio si no lo rechazamos por ninguno de los puntos anteriores.
 
-It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+Es agradable notar que ASF también soporta sobrepagos - la lógica funcionará correctamente cuando el usuario añada algo extra al intercambio, siempre y cuando se cumplan todas las condiciones anteriores.
 
-First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+Los primeros 4 predicados de rechazo deberían ser obvios para todos. El último incluye lógica de duplicados que comprueba el estado actual de nuestro inventario y decide cuál es el estatus del intercambio.
 
-- Trade is **good** if our progress towards set completion advances. A A (before) <-> A B (after)
-- Trade is **neutral** if our progress towards set completion stays in-tact. A B (before) <-> A C (after)
-- Trade is **bad** if our progress towards set completion declines. A C (before) <-> A A (after)
+- Un intercambio es **bueno** si nuestro progreso hacia completar el set avanza. A A (antes) <-> A B (después)
+- Un intercambio es **neutral** si nuestro progreso hacia completar el set se mantiene intacto. A B (antes) <-> A C (después)
+- Un intercambio es **malo** si nuestro progreso hacia completar el set retrocede. A C (antes) <-> A A (después)
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason to decline them. This is especially useful for your friends, since they can swap your excessive cards without using STM at all, as long as you're not losing any set progress.
+STM solo opera con intercambios buenos, lo que significa que un usuario utilizando STM para emparejar duplicados siempre debería sugerirnos intercambios buenos. Sin embargo, ASF es liberal, y también acepta intercambios neutrales, porque en esos intercambios realmente no estamos perdiendo nada, así que hay una razón real para rechazarlos. Esto es especialmente útil para tus amigos, ya que pueden cambiar tus cromos excesivos sin usar STM en absoluto, siempre y cuando no pierdas tu progreso hacia el set.
 
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including **bad ones**. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that **ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card**. Unless you intentionally want to run a trade bot that is **never** supposed to finish any set, you don't want to enable this option.
+Por defecto ASF rechazará intercambios malos - como usuario, esto es lo que querrás casi siempre. Sin embargo, puedes habilitar opcionalmente `MatchEverything` en tus `TradingPreferences` para hacer que ASF acepte todos los intercambios de duplicados, incluyendo los **malos**. Esto es útil si quieres manejar un bot de intercambio 1:1 en tu cuenta, por lo que entiendes que **ASF ya no te ayudará en el progreso para completar las insignias, y que podrías perder sets completos por N cantidad de duplicados del mismo cromo**. A menos que intencionalmente quieras manejar un bot de intercambio que **nunca** se supone que termine ningún set, no quieres habilitar esta opción.
 
-Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `BotBehaviour`, which doesn't include `RejectInvalidTrades`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for trades with items outside of `MatchableTypes`, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not. The only exception from this rule is when talking about users you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
+Independientemente de tus `TradingPreferences` seleccionadas, que un intercambio sea rechazado por ASF no significa que tú no puedas aceptarlo. Si dejaste el valor predeterminado de `BotBehaviour`, el cual no incluye `RejectInvalidTrades`, ASF simplemente ignorará esos intercambios - permitiéndote decidir si estás interesado en ellos o no. Lo mismo ocurre con los intercambios con artículos fuera de `MatchableTypes`, así como con todo lo demás - se supone que el módulo te ayude a automatizar intercambios de STM, no decidir cuál es un intercambio bueno y cuál no. La única excepción a esta regla es cuando se trata de usuarios que pusiste en la lista negra del módulo de intercambios usando el comando `bladd` - los intercambios de esos usuarios son rechazados inmediatamente, independientemente de la configuración de `BotBehaviour`.
 
-It's highly recommended to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.
+Es altamente recomendable usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** cuando habilitas esta opción, ya que esta función pierde todo su potencial si decides confirmar manualmente cada intercambio. `SteamTradeMatcher` funcionará correctamente incluso sin la capacidad de confirmar intercambios, pero puede generar un atraso en las confirmaciones si no las aceptas a tiempo.
 
 * * *
 
 ### `MatchActively`
 
-`MatchActively` setting is extended version of `SteamTradeMatcher` which in addition to passive matching offered by that option, also includes active matching in which the bot will send trades to other people.
+El ajuste `MatchActively` es una versión extendida de `SteamTradeMatcher` que además del emparejamiento pasivo de esa opción, también incluye emparejamiento activo en el que el bot enviará intercambios a otras personas.
 
-In order to make use of that option, you have a set of requirements to meet. Firstly, you need to enable `SteamTradeMatcher` (as this feature is extension of that), and ensure that you have `MatchEverything` **disabled** (as trading bots never match actively). Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, without a requirement of 100 items. This means that, at the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active, **[public inventory](https://steamcommunity.com/my/edit/settings)** and at least one valid type in `MatchableTypes`, such as trading cards.
+Para hacer uso de esa opción, tienes que cumplir ciertos requisitos. Primero, necesitas habilitar `SteamTradeMatcher` (puesto que esta característica es una extensión de aquella), y asegurarte que tienes `MatchEverything` **deshabilitado** (ya que los bots de intercambio nunca emparejan activamente). Después, debes ser elegible para nuestra **[lista ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, sin el requisito de 100 artículos. Esto significa que, al menos, debes tener `Statistics` habilitado, una cuenta **[ilimitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** activo, el **[inventario público](https://steamcommunity.com/my/edit/settings)** y por lo menos un tipo válido en `MatchableTypes`, como los cromos.
 
-If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** in order to actively match `Any` (`MatchEverything`) bots currently available.
+Si cumples todos los requisitos anteriores, ASF se comunicará periódicamente con nuestra **[lista pública de ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** para emparejar activamente con `Cualquier` (`MatchEverything`) bot que esté disponible.
 
-- Each matching is composed of "rounds", with up to `10` being maximum at once.
-- In each round ASF will fetch our inventory and inventory of selected bots that are listed in order to find `MatchableTypes` items that can be matched. If match is found, ASF will send and confirm trade offer automatically.
-- Each set (composition of item type and appID it's from) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades.
-- ASF will send no more than `255` items in a single trade, and no more than `5` trades to a single user in a single round. This is imposed by Steam limits, as well as our own load-balancing.
-- Matching round ends the moment we try to match a total of `40` bots, or when we hit no items to match with consecutive `20` different bots.
-- If last round resulted in at least a single trade being sent, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching ends and repeats itself in `8` hours.
+- Cada emparejamiento se compone de "rondas", con hasta `10` siendo el máximo a la vez.
+- En cada ronda ASF analizará nuestro inventario y el inventario de los bots seleccionados que estén listados para encontrar artículos `MatchableTypes` que pueden ser emparejados. Si se encuentra una coincidencia, ASF enviará y confirmará automáticamente la oferta de intercambio.
+- Cada set (composición de tipo de artículo y appID) puede ser emparejado en una ronda solo una vez. Esto se implementa para minimizar "los artículos ya no están disponibles para intercambiar" y evitar la necesidad de esperar a que cada bot reaccione antes de enviar todos los intercambios.
+- ASF no enviará más de `255` en un solo intercambio, y no más de `5` intercambios al mismo usuario en una sola ronda. Esto es impuesto por los límites de Steam, así como por nuestro propio equilibrio de carga.
+- La ronda de emparejamiento termina al momento en que intentamos emparejar con un total de `40` bots, o cuando no tengamos artículos para emparejar con `20` bots diferentes consecutivamente.
+- Si la última ronda termina con al menos un intercambio enviado, la siguiente ronda comienza dentro de `5` minutos desde la última (para añadir un tiempo de espera y permitir que todos los bots reaccionen a nuestros intercambios), de lo contrario el emparejamiento termina y se repite en `8` horas.
 
-This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat each `8` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered as a command. The target users of this module are primary accounts and "stash" alt accounts, although it can be used on any bot that is not set to `MatchEverything`.
+Se supone que este módulo sea transparente. El emparejamiento comenzará en aproximadamente `1` hora desde el inicio de ASF, y se repetirá cada `8` horas (si es necesario). La función `MatchActively` está diseñada para ser usada como una medida periódica a largo plazo, para asegurar que avanzamos activamente hacia completar sets, pero la sin presión a corto plazo de tiempo y recursos que sucedería si esto se ofreciera como un comando. Los usuarios objetivo de este módulo son cuentas principales y cuentas alternas para "almacenar", aunque puede ser usado en cualquier bot que no esté configurado a `MatchEverything`.
 
-ASF will do its best to minimize the amount of requests and pressure generated by using this option, while at the same time maximizing efficiency of matching to the upper limit. Exact algorithm of choosing bots to match is ASF's implementation detail, but right now ASF will tend to favor bots with better diversity of games that their items are from.
+ASF hará todo lo posible para minimizar la cantidad de solicitudes y presión generada por usar esta opción, al mismo tiempo que maximizará la eficiencia del emparejamiento al límite superior. El algoritmo exacto para elegir bots para emparejar es el detalle de implementación de ASF, pero ahora mismo ASF tiende a favorecer bots con mejor diversidad de juegos de los que provienen sus artículos.
 
-`MatchActively` takes into account bots that you blacklisted from trading through `bladd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.
+`MatchActively` toma en cuenta los bots que bloqueaste del intercambio a través del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `bladd` y no intentará emparejar activamente con ellos. Esto puede ser usado para decirle a ASF con qué bots nunca debería emparejar, incluso si tienen posibles duplicados que nos pudieran servir.

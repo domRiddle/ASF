@@ -291,7 +291,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 #### Screenshots
 
-![Screenshot](https://i.imgur.com/5juKHMt.png)
+![Captura de pantalla](https://i.imgur.com/5juKHMt.png)
 
 * * *
 

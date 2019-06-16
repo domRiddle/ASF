@@ -80,8 +80,6 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 }
 ```
 
-**提示：**&#8203;除非您想要修改其中的选项，否则可以保持所有选项为默认，关闭 `ASF.json` 然后开始配置机器人选项。
-
 * * *
 
 下面是对所有选项的解释：
@@ -228,7 +226,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `SteamOwnerID`
 
-这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
+这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者（Owner）权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
 
 * * *
 
@@ -289,7 +287,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 如果您的代理服务器需要身份验证，您还需要设置 `WebProxyUsername` 和/或 `WebProxyPassword` 属性。 如果不需要验证，就只需要设置此属性。
 
-目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内部 Steam 客户端进行的内部 Steam 网络通信。 目前没有计划对这些通信进行支持，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
+目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内置 Steam 客户端进行的内部 Steam 网络通信。 目前我们没有计划支持这类通信，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
 
 除非您有理由编辑此属性，否则应将其保留为默认值。
 
@@ -352,8 +350,6 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "UseLoginKeys": true
 }
 ```
-
-**提示：**&#8203;为了机器人能够正常工作，您至少应该编辑 `Enabled`、`SteamLogin` 和 `SteamPassword` 三个属性。 我还建议调整一些优化属性，例如 `HoursUntilCardDrops`，但您也可以选择不做。 ASF 的配置文件是相当完善的，您可以通过配置文件细致调整机器人的行为，但如果您不需要这么高级的设置，也就不需要深入研究每个配置属性。 使 ASF 是简单还是复杂，完全取决于您自己。
 
 * * *
 
@@ -453,7 +449,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
 
-此外，您可以通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受优先挂卡队列影响，最后才是 `FarmingOrders`。
+此外，您可以通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受挂卡优先级队列影响，最后才是 ` FarmingOrders`。
 
 * * *
 
@@ -483,7 +479,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `LootableTypes`
 
-这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 该属性定义了 ASF 的拾取行为——包括手动和自动拾取。 ASF 会确保交易报价内只包含 `LootableTypes` 类型的物品，因此，这个属性使您可以选择您希望从交易报价中获得何种物品。
+这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义 ASF 拾取操作的行为——这既包括通过&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;触发的手动拾取，也包括通过各种配置属性设置的自动拾取。 ASF 会确保交易报价内只包含 `LootableTypes` 类型的物品，因此，这个属性使您可以选择您希望从交易报价中获得何种物品。
 
 | 值 | 名称                | 描述                        |
 | - | ----------------- | ------------------------- |

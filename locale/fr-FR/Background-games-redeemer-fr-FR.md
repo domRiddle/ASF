@@ -12,7 +12,7 @@ Le processus d'importation peut être effectué de deux façons - par fichier, o
 
 ### Fichier
 
-ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
+ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Le formatage de ce fichier est important, et consiste du nom du jeu suivi de la clé Cd, séparés par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -20,7 +20,7 @@ ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.k
     Terraria    Ceciestignoré   Ceciestaussiignoré    ZXCVB-ASDFG-QWERT
     
 
-Alternativement, vous pouvez aussi utiliser le format s clés seulement (toujours avec une nouvelle ligne entre chaque entrée). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternativement, vous pouvez aussi utiliser le format s clés seulement (toujours avec une nouvelle ligne entre chaque entrée). ASF dans ce cas utilisera la réponse de Steam (si possible) pour trouver le nom correct. Pour toute association de nom de jeu aux clés Steam, nous vous recommandons de nommer vos clés vous-même, puisque les paquets activés sur Steam ne contiennent pas cette information de façon certaine. Suivant l'information que le développeur a renseignée, vous pouvez voir les noms de jeu corrects, les noms de paquets personnalisés (par exemple Humble Indie Bundle 18) ou bien des noms faux et même potentiellement malveillants (par exemple Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,11 +28,11 @@ Alternativement, vous pouvez aussi utiliser le format s clés seulement (toujour
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
+Quel que soit le format que vous avez choisi, ASF importera votre fichier de `keys` soit au démarrage du bot, soit plus tard lors de l'exécution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
 
 ### IPC
 
-En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égalementle`GamesToRedeemInBackground` **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** pouvant être exécuté par n'importe quel outil IPC, y compris notre ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égalementle`GamesToRedeemInBackground` **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** pouvant être exécuté par n'importe quel outil IPC, y compris notre ASF-ui. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
 
 * * *
 
@@ -54,7 +54,7 @@ Vous êtes maintenant prêt à renommer ce fichier de `BotName.keys.new` à `Bot
 
 Au lieu d'utiliser le fichier `BotName.keys`, vous pouvez également utiliser le point de terminaison de l'API IPC, ou même combiner les deux si vous le souhaitez.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Ces fichiers contiennent les résultats de notre processus. Par exemple, vous pouvez renommer `BotName.keys.unused` en `fichier BotName2.keys` et donc soumettre nos clés inutilisées à un autre bot, car le bot précédent ne l'utilisait pas ces clés lui-même. Ou vous pouvez simplement copier-coller les clés inutilisées dans un autre fichier et le conserver pour plus tard. Gardez à l'esprit qu'au fur et à mesure que ASF traverse la file d'attente, de nouvelles entrées seront ajoutées à nos fichiers de sortie `used` et `unused`. Il est donc recommandé d'attendre que la file d'attente soit entièrement vidée. avant de les utiliser. Si vous devez absolument accéder à ces fichiers avant que la file d’attente ne soit complètement vidée, vous devez d’abord **déplacer** le fichier de sortie auquel vous souhaitez accéder dans un autre répertoire, **puis** l’analyser. En effet, ASF peut ajouter de nouveaux résultats pendant que vous faites votre travail, ce qui pourrait éventuellement entraîner la perte de certaines clés si vous lisiez un fichier contenant, par exemple, des fichiers. 3 clés à l’intérieur, puis supprimez-le, en omettant totalement le fait que ASF a ajouté 4 autres clés à votre fichier supprimé entre-temps. Si vous souhaitez accéder à ces fichiers, veillez à les éloigner du répertoire ASF `config` avant de les lire, par exemple en les renommant.
+Après un certain temps, les fichiers `BotName.keys.used` et `BotName.keys.unused` seront créés. Ces fichiers contiennent les résultats de notre processus. Par exemple, vous pouvez renommer `BotName.keys.unused` en `fichier BotName2.keys` et donc soumettre nos clés inutilisées à un autre bot, car le bot précédent ne l'utilisait pas ces clés lui-même. Ou vous pouvez simplement copier-coller les clés inutilisées dans un autre fichier et le conserver pour plus tard. Gardez à l'esprit qu'au fur et à mesure que ASF traverse la file d'attente, de nouvelles entrées seront ajoutées à nos fichiers de sortie `used` et `unused`. Il est donc recommandé d'attendre que la file d'attente soit entièrement vidée. avant de les utiliser. Si vous devez absolument accéder à ces fichiers avant que la file d’attente ne soit complètement vidée, vous devez d’abord **déplacer** le fichier de sortie auquel vous souhaitez accéder dans un autre répertoire, **puis** l’analyser. En effet, ASF peut ajouter de nouveaux résultats pendant que vous faites votre travail, ce qui pourrait éventuellement entraîner la perte de certaines clés si vous lisiez un fichier contenant, par exemple, des fichiers. 3 clés à l’intérieur, puis supprimez-le, en omettant totalement le fait que ASF a ajouté 4 autres clés à votre fichier supprimé entre-temps. Si vous souhaitez accéder à ces fichiers, veillez à les éloigner du répertoire ASF `config` avant de les lire, par exemple en les renommant.
 
 Il est également possible d'ajouter des jeux supplémentaires à importer tout en ayant certains jeux déjà dans notre file d'attente, en répétant toutes les étapes ci-dessus. ASF ajoutera correctement nos entrées supplémentaires à la file d'attente déjà en cours et en traitera éventuellement.
 

@@ -80,8 +80,6 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
 }
 ```
 
-**팁:** 저 옵션을 바꾸길 원하지 않는 한, 모든 것을 기본값으로 놔두어도 괜찮습니다. 그러면 이제 `ASF.json` 파일을 닫고 봇 환경설정으로 넘어갈 수 있습니다.
-
 * * *
 
 모든 옵션은 다음과 같습니다.
@@ -289,7 +287,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 
 프록시가 인증을 필요로 하면, `WebProxyUsername`과 `WebProxyPassword`를 설정해야 합니다. 그럴 필요가 없다면 이 속성값을 설정하는 것만으로 충분합니다.
 
-지금 ASF는 `http`와 `https` 요청만을 위해 웹 프록시를 사용합니다. 이는 ASF의 내부 Steam 클라이언트에서 이루어지는 내부 Steam 네트워크 통신을 **포함하지 않습니다**. **[SK2](https://github.com/SteamRE/SteamKit)** 기능이 없으므로 이를 지원할 계획은 현재로써는 없습니다. 만약 당신이 이를 할 필요가 있거나 하기를 원한다면 거기서부터 시작하기를 권합니다.
+지금 ASF는 `http`와 `https` 요청만을 위해 웹 프록시를 사용합니다. 이는 ASF의 내부 Steam 클라이언트에서 이루어지는 내부 Steam 네트워크 통신을 **포함하지 않습니다**. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. 만약 당신이 이를 할 필요가 있거나 하기를 원한다면 거기서부터 시작하기를 권합니다.
 
 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
@@ -353,8 +351,6 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 }
 ```
 
-**팁:** 봇이 잘 작동하려면 적어도 `Enabled`, `SteamLogin`, `SteamPassword` 속성값을 수정해야 합니다. 몇몇 `HoursUntilCardDrops` 같은 좋은 수정사항도 확인하기를 권장하지만 모두 선택사항입니다. ASF 환경설정은 원하는대로 ASF와 봇을 조절할 수 있을만큼 고급입니다. 만약 그런 고급 설정이 "필요하지 않다면" 각 환경설정 속성값을 일일이 들여다볼 필요는 없습니다. ASF가 간단하고 복잡하고는 당신의 선택입니다.
-
 * * *
 
 모든 옵션은 다음과 같습니다.
@@ -410,7 +406,7 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 ### `CustomGamePlayedWhileFarming`
 
-문자열(`string`) 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
+`string` 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
@@ -483,7 +479,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 아이템 타입입니다. 이 속성값은 ASF가 수동 및 자동으로 루팅할때 행동을 정의합니다. ASF는 `LootableTypes`에 있는 아이템만 거래 제안에 포함할 것이므로, 이 속성값은 당신에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
+`ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 아이템 타입입니다. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF는 `LootableTypes`에 있는 아이템만 거래 제안에 포함할 것이므로, 이 속성값은 당신에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
 
 | 값 | 이름                          | 설명                                |
 | - | --------------------------- | --------------------------------- |
@@ -597,7 +593,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 아이템의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 아이템을 "전달"하는데 매우 유용합니다.
+`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
 시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 

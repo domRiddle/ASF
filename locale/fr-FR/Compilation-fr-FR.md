@@ -14,7 +14,7 @@ Quelle que soit la plate-forme, vous avez besoin du SDK .NET Core complet (pas s
 
 <h2>Compilation</h2>
 
-<p>Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:</p>
+<p>En supposant que vous avez un SDK .NET Core opérationnel dans sa version appropriée, il vous suffit de naviguer vers le répertoire source ASF (cloné ou téléchargé et dés-archivé) et d'exécuter :</p>
 
 <pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
 `</pre> 
@@ -30,17 +30,17 @@ Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui 
 <pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
 `</pre> 
 
-Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. Cette mise à jour aura également des mises à jour désactivées.
+Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation que vous souhaitez cibler, tel que ` win-x64 `. Cette mise à jour aura également des mises à jour désactivées.
 
 ### .NET Framework 
 
-Dans de très rares cas où vous souhaitez créer le package ` generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. Keep in mind that you'll need appropriate <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks">.NET Framework</a></strong> developer pack for compiling <code>netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
+Dans de très rares cas où vous souhaitez créer le package ` generic-netf </ 0>, vous pouvez modifier le cadre cible de <code> netcoreapp2.2 </ 0> à <code> net472 </ 0>. N'oubliez pas que vous aurez besoin du pack de développeurs <strong><a href="https://dotnet.microsoft.com/download/visual-studio-sdks"> .NET Framework </a></strong> approprié pour la compilation de la variante <code> netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
 ```
 
-In case of being unable to install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables netf build on non-Windows platforms:
+Dans des cas encore plus rares, si vous ne pouvez pas installer .NET Framework ou même .NET Core SDK lui-même (par exemple, en raison de la construction sur ` linux-x86 ` avec ` mono `), vous pouvez appeler ` msbuild ` directement. Vous devrez également spécifier `ASFNetFramework` manuellement, car ASF désactive par défaut la construction netf sur les plates-formes non Windows :
 
 ```shell
 msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
@@ -50,7 +50,7 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## Développement
 
-Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE compatible avec .NET Core à cette fin, même si cela reste facultatif. Vous pouvez également éditer avec un bloc-notes et compiler avec la commande  dotnet </ 0>. décrit ci-dessus. Néanmoins, pour Windows, nous recommandons la <strong><a href="https://visualstudio.microsoft.com/downloads"> dernière version de Visual Studio </ 0> (la version communautaire gratuite est largement suffisante). We also suggest to use it together with <strong><a href="https://www.jetbrains.com/resharper">ReSharper</a></strong> (optionally), although it's not a free product.</p>
+Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE compatible avec .NET Core à cette fin, même si cela reste facultatif. Vous pouvez également éditer avec un bloc-notes et compiler avec la commande  dotnet </ 0>. décrit ci-dessus. Néanmoins, pour Windows, nous recommandons la <strong><a href="https://visualstudio.microsoft.com/downloads"> dernière version de Visual Studio </ 0> (la version communautaire gratuite est largement suffisante). Nous vous suggérons également de l’utiliser avec <strong><a href="https://www.jetbrains.com/resharper"> ReSharper </a></strong> (facultatif), bien qu’il ne s’agisse pas d’un produit gratuit.</p>
 
 <p>Si vous souhaitez plutôt utiliser du code ASF sous Linux / OS X, nous vous recommandons <strong><a href="https://code.visualstudio.com/download"> le dernier Visual Studio Code</ 0>. Ce n'est pas aussi complet que le classique Visual Studio, mais c'est suffisant.</p>
 
@@ -66,4 +66,4 @@ Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE 
 
 <h2>Versions Officielles</h2>
 
-<p>Les versions officielles ASF sont compilées par <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm"> AppVeyor </ 0> sous Windows, avec le dernier SDK .NET Core correspondant aux  <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements">exigences d'exécution</ 1> ASF Une fois les tests passés, tous les packages sont déployés sur GitHub. Cela garantit également la transparence, car AppVeyor utilise toujours des sources publiques officielles pour toutes les versions, et vous pouvez comparer les taux de contrôle de AppVeyor avec les actifs GitHub. ASF developers do not compile or publish builds themselves, except for private development process and debugging.</p>
+<p>Les versions officielles ASF sont compilées par <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm"> AppVeyor </ 0> sous Windows, avec le dernier SDK .NET Core correspondant aux  <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements">exigences d'exécution</ 1> ASF Une fois les tests passés, tous les packages sont déployés sur GitHub. Cela garantit également la transparence, car AppVeyor utilise toujours des sources publiques officielles pour toutes les versions, et vous pouvez comparer les taux de contrôle de AppVeyor avec les actifs GitHub. Les développeurs ASF ne compilent, ni ne publient les versions manuellement, sauf pour les processus de développement privés, y compris le débogage.</p>

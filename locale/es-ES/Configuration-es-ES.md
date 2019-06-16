@@ -80,8 +80,6 @@ La configuración global se encuentra en el archivo `ASF.json` y tiene la siguie
 }
 ```
 
-**Consejo:** A menos que quieras cambiar alguna de esas opciones, estás listo para seguir dejando todo en sus valores predeterminados, por lo tanto puedes cerrar `ASF.json` y proceder a la configuración del bot.
-
 * * *
 
 Todas las opciones se explican a continuación:
@@ -289,7 +287,7 @@ Esta propiedad está definida como una cadena uri:
 
 Si tu proxy requiere autenticación de usuario, también necesitarás configurar `WebProxyUsername` y/o `WebProxyPassword`. Si no hay tal necesidad, configurar solo esta propiedad es suficiente.
 
-Ahora mismo ASF usa un proxy web solo para solicitudes `http` y `https`, las cuales **no** incluyen la comunicación interna de la red de Steam hecha en el cliente de Steam integrado a ASF. Actualmente no hay planes para dar soporte a eso, principalmente debido a la falta de la funcionalidad **[SK2](https://github.com/SteamRE/SteamKit)**. Si necesitas/quieres que ocurra, te sugeriría empezar desde ahí.
+Ahora mismo ASF usa un proxy web solo para solicitudes `http` y `https`, las cuales **no** incluyen la comunicación interna de la red de Steam hecha en el cliente de Steam integrado a ASF. Actualmente no hay planes para soportar eso, principalmente debido a la falta de la funcionalidad **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)**. Si necesitas/quieres que ocurra, te sugeriría empezar desde ahí.
 
 A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -352,8 +350,6 @@ La configuración del bot tiene la siguiente estructura:
     "UseLoginKeys": true
 }
 ```
-
-**Consejo:** Para que un bot funcione correctamente, debes editar al menos las propiedades `Enabled`, `SteamLogin` y `SteamPassword`. También te recomiendo que le des un vistazo a configuraciones afinadas tal como `HoursUntilCardDrops`, pero todo eso es opcional. Las configuraciones de ASF son bastante avanzadas como para permitirte afinar tus bots y ASF como tú quieras, si no "requieres" una configuración tan avanzada, no necesitas profundizar en cada propiedad de configuración. Depende de ti qué tan simple o complejo debe ser ASF.
 
 * * *
 
@@ -483,7 +479,7 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF tie
 
 ### `LootableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF al "lootear" - tanto manual como automáticamente. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
 
 | Valor | Nombre            | Descripción                                                                         |
 | ----- | ----------------- | ----------------------------------------------------------------------------------- |
@@ -544,7 +540,7 @@ Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estado
 | 6     | Deseando jugar        |
 | 7     | Invisible             |
 
-El estado `Desconectado` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estado de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Offline` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estado desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
+El estado `Desconectado` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estado de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Desconectado` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estado desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
 
 Además, está característica también es importante si quieres recibir notificaciones y mensaje no leídos cuando ASF se esté ejecutando, sin mantener abierto el cliente de Steam al mismo tiempo. Esto se debe a que ASF actúa como un cliente de Steam en sí, y ya sea que ASF quiera o no, Steam le envía todos esos mensajes y otros eventos. Esto no es problema si tienes ASF y el cliente de Steam ejecutándose al mismo tiempo, ya que ambos clientes reciben exactamente los mismos eventos. Sin embargo, si solo se está ejecutando ASF, la red de Steam podría marcar ciertos eventos y mensajes como "entregados", a pesar de que el cliente tradicional de Steam no los reciba debido a que no está presente. El estado desconectado también soluciona este problema, ya que ASF nunca es considerado en este caso para ningún evento de la comunidad, así que todos los mensajes no leídos y otros eventos serán marcados apropiadamente como no leídos cuando regreses.
 
@@ -633,7 +629,7 @@ Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el steamID d
 
 ### `SteamParentalCode`
 
-Tipo `string` con valor predeterminado de `null`. Esta propiedad define el PIN del modo familiar. ASF requiere acceso a recursos protegidos por el modo familiar, por lo tanto si usas esa función, necesitas proporcionar el PIN del modo familiar, para que pueda funcionar normalmente. El valor por defecto de `null` significa que no se requiere un PIN del modo familiar para desbloquear esta cuenta, y esto es probablemente lo que quieres si no usas la funcionalidad del modo familiar. Además de definir el nombre de usuario, también puedes mantener el valor predeterminado de `null` si quieres introducir tu nombre de usuario en cada inicio de ASF en vez de ponerlo en la configuración. Esto puede ser útil si no quieres guardar datos sensibles en el archivo de configuración.
+Tipo `string` con valor predeterminado de `null`. Esta propiedad define el PIN del modo familiar. ASF requiere acceso a recursos protegidos por el modo familiar, por lo tanto si usas esa función, necesitas proporcionar el PIN del modo familiar, para que pueda funcionar normalmente. El valor por defecto de `null` significa que no se requiere un PIN del modo familiar para desbloquear esta cuenta, y esto es probablemente lo que quieres si no usas la funcionalidad del modo familiar. Además de definir el PIN del modo familiar, también puedes mantener el valor predeterminado de `0` si quieres introducir tu PIN del modo familiar en cada inicio de ASF en vez de ponerlo en la configuración. Esto puede ser útil si no quieres guardar datos sensibles en el archivo de configuración.
 
 * * *
 

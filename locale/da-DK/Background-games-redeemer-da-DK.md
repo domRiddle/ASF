@@ -20,7 +20,7 @@ ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `Bo
     Terraria    DetteErIgnoreret   DetteErOgsåIgnoreret    ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Som et alternativ kan du også bruge "keys only format" (stadig med en ny linje mellem hver indtastning). ASF vil i dette tilfælde bruge Steam's svar (hvis muligt) til at udfylde det rigtige navn. For alle typer af nøgletagging anbefaler vi at du navngiver nøglerne selv, fordi pakker der indløses på Steam ikke skal følge den samme logik som det spil de aktiverer, så afhængigt af hvad udvikleren har indtastet kan du risikere at se det rigtige spilnavn, "Bundle"-navn (f.eks. Humble Indie Bundle 18) eller direkte forkert og potentielt skadelige navne (f.eks. Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,11 +28,11 @@ Alternatively, you're also able to use keys only format (still with a newline be
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
+Uanset hvilket format du vælger at bruge vil ASF importere din `nøgle` fil, enten ved botstart eller senere ved udførsel. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** som kan køres af alle IPC værktøjer, inklusiv vores ASF-ui. Brug af IPC kan være lettere da du selv kan analysere det nødvendige, som brugen af en brugerdefineret delimiter i stedet for at blive tvunget til at bruge tab-karakter eller endda at introducere din helt egen brugerdefinerede nøglestruktur.
 
 * * *
 
