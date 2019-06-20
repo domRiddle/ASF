@@ -222,7 +222,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-如果一切正常，只要 ASF 还在运行，您就可以通过&#8203;**[这个链接](http://127.0.0.1:1242)**&#8203;访问 ASF 的 IPC 接口。 您可以使用 ASF-ui 进行各种操作，例如发送&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以随意浏览一下，了解 ASF-ui 的所有功能。
+如果一切正常，只要 ASF 还在运行，您就可以通过&#8203;**[这个链接](http://localhost:1242)**&#8203;访问 ASF 的 IPC 接口。 您可以使用 ASF-ui 进行各种操作，例如发送&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以随意浏览一下，了解 ASF-ui 的所有功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 

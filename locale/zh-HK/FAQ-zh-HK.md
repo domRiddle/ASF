@@ -137,7 +137,7 @@ First and foremost, you have some built-in features mentioned **[above](#is-it-w
 
 - **您可以自動將新物品消息標記為已讀**（在` BotBehaviour `中啓用` DismissInventoryNotifications `功能）。 ASF掛卡以讓您獲得新的卡片。 You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. 當然，只有你想。
 
-- **您可以自動從Steam活動中**獲取卡片（` AutoSteamSaleEvent `功能）。 ASF允許您在Steam特賣期間自動執行Steam Awards中的發現隊列和投票，當然只有在您想要使用它時。 這可以在Steam特賣期間為您節省大量的時間，並確保您再也不會錯過每日可獲得的卡片。
+- **您可以自動從Steam活動中**獲取卡片（` AutoSteamSaleEvent `功能）。 ASF allows you to automate going through discovery queue during Steam sale, of course only if you'd like to make use of that. 這可以在Steam特賣期間為您節省大量的時間，並確保您再也不會錯過每日可獲得的卡片。
 
 - **You can customize preferred farming order with more available options** (`FarmingOrders` feature). 也許您想先對最新購買的遊戲進行掛卡？ 還是最舊的？ 根據可掉落的卡片數？ 您已經獲得的徽章級別？ 遊戲時間？ 字母順序？ 按照AppIDs? 或者完全隨機？ 這都完全取決於你。
 

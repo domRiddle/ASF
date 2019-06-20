@@ -137,7 +137,7 @@ Primeiro e mais importante, você tem algumas funcionalidades embutidas menciona
 
 - **Itens podem ser marcados automaticamente como recebidos** (função `DismissInventoryNotifications` de `BotBehaviour`). Rodar um jogo automaticamente com o ASF fará que sua conta receba cartas. Você já sabe que isso vai acontecer, então você pode deixar que o ASF limpe essas notificações inúteis, certificando-se que apenas notificações importantes chamem sua atenção. É claro, isso apenas se você quiser.
 
-- **Você pode receber cartas dos eventos Steam automaticamente** (função `AutoSteamSaleEvent`). O ASF proporciona automação da lista de descobrimento e das votações nos Prêmios Steam durante as promoções do Steam, claro, se você quiser que ele faça isso. Isso poupa muito tempo durante os dias em que a promoção estiver ativa, e garante que você nunca perca as cartas diárias.
+- **Você pode receber cartas dos eventos Steam automaticamente** (função `AutoSteamSaleEvent`). ASF allows you to automate going through discovery queue during Steam sale, of course only if you'd like to make use of that. Isso poupa muito tempo durante os dias em que a promoção estiver ativa, e garante que você nunca perca as cartas diárias.
 
 - **Você pode personalizar a ordem de coleta com diversas opções** (função `FarmingOrders`). Talvez você queira rodar seus jogos mais novos primeiro? Ou os mais velhos? De acordo com a quantidade de cartas disponíveis? Pelo nível das insígnias que você já fabricou? Horas jogadas? Em Ordem Alfabética? De acordo com os AppIDs? Ou talvez em ordem totalmente aleatória? Isto é inteiramente uma escolha sua.
 

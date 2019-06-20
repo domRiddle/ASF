@@ -1,10 +1,10 @@
-# Logueo
+# Registro
 
 ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
 * * *
 
-## Default logging
+## Registro por defecto
 
 Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
@@ -31,7 +31,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## Integración de ASF
 
 ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 
@@ -49,7 +49,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Ejemplos
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
@@ -146,19 +146,19 @@ You can see how we used ASF integration above and easily distinguished source of
 
 * * *
 
-## Advanced usage
+## Uso avanzado
 
 The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
 
 * * *
 
-## Limitations
+## Limitaciones
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
 * * *
 
-## Chat logging
+## Registro de chat
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
@@ -207,7 +207,7 @@ Of course this is just a working example with a few nice layout tricks showed in
 
 * * *
 
-## ASF targets
+## Destinos de ASF
 
 In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
 
@@ -289,7 +289,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 * * *
 
-#### Screenshots
+#### Capturas de pantalla
 
 ![Captura de pantalla](https://i.imgur.com/5juKHMt.png)
 
@@ -338,7 +338,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-## Caveats
+## Advertencias
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

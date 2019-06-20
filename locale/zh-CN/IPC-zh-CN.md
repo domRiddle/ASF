@@ -70,7 +70,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ## Swagger 文档
 
-我们的 IPC 接口，除了 ASF API 和 ASF-ui，还包括 Swagger 文档，您可以访问 `/swagger` **[URL](http://127.0.0.1:1242/swagger)** 来查看。 Swagger 文档的角色是我们的 API 实现与使用 API 的工具之间的一个中间人。 它在 **[OpenAPI](https://swagger.io/resources/open-api)** 部分包含了所有 API 端点的完整文档与功能说明，您可以在此为其他项目轻松编写与测试 ASF API。
+我们的 IPC 接口，除了 ASF API 和 ASF-ui，还包括 Swagger 文档，您可以访问 `/swagger` **[URL](http://localhost:1242/swagger)** 来查看。 Swagger 文档的角色是我们的 API 实现与使用 API 的工具之间的一个中间人。 它在 **[OpenAPI](https://swagger.io/resources/open-api)** 部分包含了所有 API 端点的完整文档与功能说明，您可以在此为其他项目轻松编写与测试 ASF API。
 
 除了查阅 Swagger 文档获取 ASF API 的完整格式以外，您还可以将其作为一种执行各种 API 端点的友好方式，尤其是那些尚未由 ASF-ui 实现的端点。 由于 Swagger 文档是由 ASF 代码自动生成的，因此文档会始终与您所使用的 ASF 版本提供的 API 端点保持一致。
 
@@ -186,7 +186,7 @@ server {
 
 `Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您至少设置 `IPCPassword`（并且启用防火墙）。
 
-`PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://127.0.0.1:1242/MyPrefix` 代替 `http://127.0.0.1:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `127.0.0.1:1242/Api/X`，但通过将 `PathBase` 设置为 `/ASF`，您可以更简单地实现 `mydomain.com/ASF/Api/X` 到 `127.0.0.1:1242/ASF/Api/X` 的映射。
+`PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `localhost:1242/Api/X`，但通过将 `PathBase` 设置为 `/ASF`，您可以更简单地实现从 `mydomain.com/ASF/Api/X` 到 `localhost:1242/ASF/Api/X` 的映射。
 
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 

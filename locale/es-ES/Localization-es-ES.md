@@ -1,141 +1,141 @@
-# Ubicación
+# Localización
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF es impulsado por el servicio Crowdin, lo que permite a todos ayudar a traducir ASF a todos los idiomas hablados mundialmente. Para más información sobre cómo funciona Crowdin, por favor, revisa nuestra **[introducción a Crowdin](https://support.crowdin.com/crowdin-intro)**.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+Si te interesa lo que está ocurriendo actualmente, puedes revisar la **[actividad de ASF en Crowdin](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
 * * *
 
-## Signing up
+## Alcance
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
-
-* * *
-
-### Translating
-
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
-
-For example, you could have a string like:
-
-> We have {0} games to idle.
-
-But based on your language, following sentence could make more sense:
-
-> The number of games to idle is equal to {0}.
-
-Or:
-
-> {0} is the number of games to idle.
-
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+Nuestra plataforma soporta la localización de nuestro programa principal ASF, así como el contenido localizable que ofrecemos junto con él. Esto incluye especialmente nuestro ASF-WebConfigGenerator, ASF-ui, así como nuestra wiki. Todo eso es posible traducirlo a través de la conveniente interfaz de Crowdin.
 
 * * *
 
-### Reviewing
+## Registrándose
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
+Si quieres ayudar con ASF, ya sea traduciendo, revisando o aprobando traducciones, por favor, regístrate en nuestra **[página de proyecto en Crowdin](https://crowdin.com/project/archisteamfarm)**. ¡El registro es fácil y totalmente gratuito! ¡Después de iniciar sesión puedes elegir los idiomas que te gustaría tener asignados, luego proceder a las cadenas de ASF y ayudar al resto de la comunidad con la traducción de ASF a los idiomas más populares!
 
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself.
+* * *
+
+### Traducción
+
+Si el idioma de tu elección todavía tiene algunas cadenas faltantes, puedes seleccionarlas y empezar a trabajar en la traducción. Hemos intentado hacer lo mejor en términos de flexibilidad de las traducciones, por lo tanto muchas cadenas incluyen variables adicionales que ASF proporcionará durante el tiempo de ejecución - esas están encerradas en corchetes con un número, como `{0}`. Esto permite que modifiques el formato predeterminado de la cadena, por ejemplo, moviendo una variable proporcionada por ASF a un lugar que satisfaga tu idioma y tu traducción, en lugar de estar obligado a un contexto y formato estrictos. Esto es especialmente importante en idiomas con escritura de derecha a izquierda, como el hebreo.
+
+Por ejemplo, podrías tener una cadena como:
+
+> Tenemos {0} juegos para recolectar.
+
+Pero basado en tu idioma, la siguiente frase podría tener más sentido:
+
+> El número de juegos para recolectar es {0}.
+
+O:
+
+> {0} es el número de juegos para recolectar.
+
+La flexibilidad se proporciona especialmente para ti, para que puedas expresar en otras palabras una frase de ASF para que encaje mejor en tu idioma y mover el número proporcionado por ASF u otra información en un lugar que encaje con tu traducción (en lugar de traducir cada parte de forma independiente). Esto mejora la calidad de la traducción general.
+
+* * *
+
+### Revisión
+
+Si tu cadena ya fue traducida por alguien más, puedes votarla. Votar hace posible elegir la mejor variante de la traducción, en lugar de apegarse a la sugerencia inicial - esto mejora aún más la calidad de traducción general. Puedes votar sugerencias ya disponibles, o sugerir tu propia traducción, que pasará por el mismo proceso. Al final, la cadena definitiva será elegida con base en la sugerencia con más votos, o como una elección del revisor seleccionado para ese idioma quien personalmente apruebe una traducción dada (también basado en tus votos).
+
+**No necesitas aprobación para ver tus cadenas traducidas en ASF**. La aprobación simplemente significa que alguien de confianza para nosotros ha revisado el contenido, como en - seleccionó la versión final de la traducción. Está totalmente bien tener traducciones apoyadas por la comunidad no aprobadas, donde tú votas por la mejor. ¡Mientras esté traducido, todo está bien! Y si crees que la traducción actual es mala, siempre puedes votar por la mejor, o sugerir una tú mismo.
 
 * * *
 
 ### Proof-reading
 
-It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad may get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
+Es buena idea tener una traducción consistente, incluso si puede tomar la libertad del proceso de revisión/votación de la comunidad explicado anteriormente. Esto es principalmente porque traducciones incorrectas que no necesariamente son malas pueden obtener tantos votos positivos que ya no es posible sugerir una traducción mejor, incluso si alguien la tiene.
 
-If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432/240376)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We may also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
+Si tienes un historial de contribuciones en Crowdin o alguna otra plataforma/servicio de localización que podamos verificar y asumir que es confiable, con gusto te daremos acceso de revisor (proof-reader) para el idioma al que estás contribuyendo, así serás capaz de aprobar una traducción dada y hacerla consistente. El "proof-reading" no es una tarea fácil, especialmente porque ASF puede ser muy "técnico" de vez en cuando y realmente difícil de traducir, pero entendemos que a menudo es necesario para una traducción perfecta. Por lo tanto, si puedes ayudar "revisando" un lenguaje dado, **[haznoslo saber](https://crowdin.com/messages/create/13177432/240376)**, pero ten en cuenta que necesitarás respaldar tu solicitud con contribuciones de localización anteriores que podamos verificar (por ejemplo, trabajando con la localización de ASF en Crowdin, o con cualquier otro proyecto). También es posible que permitamos que usuarios más avanzados elijan el "proof-reading" inicial, si los conocemos personalmente y si son capaces de cooperar con el resto de la comunidad para localizar mejor ASF en ese lenguaje.
 
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
+Aplican reglas generales para el proof-reading - no te apresures, trabaja como administrador de proyecto, resuelve problemas, asegúrate de que estás haciendo las cosas mejor y no peor.
 
 * * *
 
 ### Problemas
 
-If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
+Si tienes un problema con una traducción en particular, por ejemplo, si no sabes cómo traducirla, la traducción aprobada es incorrecta, necesitas contexto más específico, y demás, por favor, publica un comentario en la cadena específica, y márcala [X] con problema.
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
+**Por favor, evita usar la marca de problema si no necesitas una explicación técnica/de desarrollo o la acción del administrador**. Eres libre de usar los comentarios para discutir la traducción de una cadena dada, pero la marca de problema solo debe ser usada cuando necesitas una mayor explicación técnica o una corrección del administrador, y normalmente involucrará a alguien que no habla el idioma al que estás traduciendo, así que por favor, apégate al inglés cuando escribas un comentario de problema (para que podamos entender cuál es el problema).
 
-There are currently 4 supported type of issues:
+Actualmente hay 4 tipos soportados de problema:
 
-* General question - for everything else that doesn't fit any issue below. In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
-* Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.
-* Lack of contextual information - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
-* Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved.
-
-* * *
-
-### Translation progress
-
-Every language has two states of completion - translation, and proof-reading.
-
-Language is considered **translated** when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.
-
-Selected languages may have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
-
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.
+* Pregunta general - para todo aquello que no encaje en ninguno de los siguientes problemas. En general, este tipo **debe ser evitado**, si tu problema no encaja, probablemente **no** es un problema de traducción. Sin embargo, esta opción está disponible para todos los demás casos.
+* La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un "proof-reader", y crees que está mal, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión.
+* Falta de información contextual - este es el que debes usar si no estás seguro qué parte de ASF estás traduciendo, cuál es el contexto de una cadena dada, o su propósito. Este tipo debe ser usado solo para el desarrollo de ASF, significa que necesitas asistencia técnica ya que no estás seguro de cómo debes traducir una determinada cadena.
+* Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar.
 
 * * *
 
-## Missing languages
+### Progreso de la traducción
 
-By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
+Cada idioma tiene dos estados de terminación - traducción, y proof-reading.
 
-For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
+El idioma se considera **traducido** cuando su progreso de traducción alcanza el 100%. En este punto, cada cadena localizable usada por ASF tiene un significado adecuado, lo que es genial. Sin embargo, eso no significa que haya lugar para mejorar - la votación de la comunidad está habilitada todo el tiempo y aún puedes sugerir una mejor traducción para partes ya traducidas, así como votar por las existentes. Por favor, ten en cuenta que los idiomas traducidos al completo pueden caer por debajo del 100% cuando cambiamos cadenas existentes o añadimos nuevas durante el desarrollo. Puedes configurar notificaciones de Crowdin si quieres recibir un correo electrónico cuando esto suceda.
+
+Algunos idiomas seleccionados pueden tener "proof-readers" que validen las traducciones y aprueben las versiones finales. Este es el paso final después de la traducción y permite mejorar aún más la localización.
+
+ASF incluirá un idioma determinado **tan pronto como sea posible**, esto significa que no tiene que estar aprobado, o traducido al 100%. Las cadenas actuales que serán usadas siempre son las más populares en términos de votos, a menos que el "proofreader" elegido decida lo contrario (rara vez). Por lo tanto, puedes ver tus esfuerzos incluidos en la próxima versión de ASF, tan pronto como la traducción sea llevada a Crowdin - normalmente fusionamos las actualizaciones de localización cuando estamos a punto de publicar una nueva versión de ASF.
 
 * * *
 
-## Pluralization
+## Idiomas faltantes
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+Por defecto el proyecto de ASF tiene la traducción abierta solo para los 30 idiomas más hablados en el mundo. Si quieres añadir otro (o el dialecto local de alguno ya disponible), por favor, **[háznoslo saber](https://crowdin.com/messages/create/13177432/240376)** y lo añadiremos tan pronto como sea posible. No queremos abrir varias cientos de idiomas si nadie va a traducirlos, por eso lo limitamos a un número justo. Por favor, no dudes en contactarnos si quieres traducir un idioma no listado, es muy fácil para nosotros añadir otro. Solo asegúrate de tener la voluntad y determinación para traducir ASF a tu idioma, antes de contactar con nosotros.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+Para una lista completa de todos los idiomas disponibles a los que ASF puede ser traducirse, haz **[clic aquí](https://support.crowdin.com/api/language-codes)**.
+
+* * *
+
+## Pluralización
+
+Cada idioma tiene sus propias reglas en lo que se refiere a la pluralización. Esas reglas se pueden encontrar en **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** que especifica su número y condiciones exactas del idioma.
+
+Hacemos todo lo posible para ofrecerte una localización flexible, y mientras sea posible, esto también incluye las reglas del plural. Por ejemplo, traduciremos la siguiente cadena al polaco:
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+La palabra clave `PLURAL` aquí es tratada de forma especial ya que permite incluir todas las formas del plural que soporte tu idioma. Si echas un vistazo a CLDR, verás que en inglés solo hay 2 formas cardinales - "one", y "other". Y como puedes ver arriba, tenemos ambos definidos - `{n} month` y `{n} months`.
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+Sin embargo, nuestro idioma polaco en realidad incluye 4 de ellos - "one", "few", "many" y "other". Esto significa que debemos definirlos para su finalización. Nuestras herramientas de localización ya son lo bastante inteligentes para elegir la forma correcta del plural basado en las reglas del idioma, por lo tanto solo tienes que definir todas en la traducción:
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+De esta manera hemos definido las 4 formas del plural para el idioma polaco, y ya que nuestra biblioteca de localización ya conoce las reglas exactas, usará la forma correcta proporcionada para el número `{n}`.
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms could be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+No es obligatorio definir todas las forma de plural de tu idioma. Si falta, nuestra biblioteca de localización usará en su lugar la última forma definida. Es buena idea definir todas las formas del plural usadas por tu idioma, pero en algunos casos las formas de plural restantes podrían ser iguales a la última, en cuyo caso no es necesario repetirlas. En nuestro ejemplo anterior era obligatorio, ya que en polaco la forma "other" para meses es "miesiąca", y no "miesięcy" como en "many".
 
 * * *
 
 ## Wiki
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
+Nuestra plataforma crowdin también te permite localizar la wiki. Esta es una herramienta muy potente, ya que permite crear una documentación completa de ASF en tu idioma nativo, resolviendo eficazmente el problema anterior en lo que respecta a la localización de ASF. Junto con la traducción del programa y todas sus partes, esto hace que la localización sea completa.
 
-Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
+La wiki es un poco especial en este sentido, ya que es una ayuda en línea donde no necesitas apegarte demasiado a la frase original. Esto significa que quieres ser lo más natural posible con tu idioma como sea posible, y ofrecer significado y ayuda originales - no necesariamente apegándose a la cadena original, palabras usadas y la puntuación real. No tengas miedo de reescribir la cadena en algo mucho más natural para tu idioma, siempre que mantengas la dirección y ayuda generales incluidas en la frase.
 
 * * *
 
-### Global links
+### Enlaces globales
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+Nuestra plataforma Crowdin también permite adaptar el texto original para que dirija a nuevas ubicaciones (localizadas).
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+ASF incluye enlaces en casi todas las páginas para una navegación más fácil, así como la barra lateral del lado derecho. El hecho increíble es que puedes editar todo eso, "arreglar" enlaces para dirigir a páginas localizadas en tu idioma. Requiere ser un poco más cuidadoso al hacerlo, pero es posible.
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+Por ejemplo, la **[página de inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** de ASF incluye un texto como:
 
 > Si eres un usuario nuevo, recomendamos comenzar con la guía **[iniciando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**.
 
-Which is originally written as:
+Que originalmente está escrito como:
 
 ```markdown
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+En Crowdin, lo primero que debes hacer es ir a tus ajustes de edición y asegurarte de que las etiquetas HTML estén establecidas en "Mostrar". Estoy es muy importante si decides localizar la wiki.
 
 * * *
 
@@ -143,12 +143,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los enlaces de ASF en el texto ya sea como:
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* Cadena para traducir junto con etiquetas HTML (la mayoría de las cadenas, donde solo parte de la frase es un enlace)
+* Cadena a traducir, con enlace incluido en `Hidden texts` -> `Link addresses` (raro, donde toda la cadena es un enlace, el caso más común es la barra lateral)
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+En nuestro ejemplo anterior, es el primer caso (ya que solo "iniciando" es un enlace), así que en Crowdin lo veremos como:
 
 * * *
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
+Independientemente del caso, primero debes copiar la cadena original y traducirla como de costumbre, dejando intacto el HTML (si está presente). Esta sería un ejemplo de traducción para el idioma polaco:
 
 * * *
 
@@ -164,9 +164,9 @@ Regardless of case, firstly you should copy the source string and translate it a
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+Ahora, si el enlace es uno genérico que dirige fuera de la wiki (por ejemplo, a la última versión de ASF), puedes dejarlo como está ya que no quieres editar eso. Puedes guardarlo y seguir adelante.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+Sin embargo, si el enlace **sí** dirige hacia la propia wiki, como el de arriba, puedes corregirlo para que dirija a una nueva ubicación (localizada). Se hace añadiendo `-locale` a la URL destino en la etiqueta `<a>`, como a continuación:
 
 * * *
 
@@ -174,19 +174,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+Ten mucho cuidado con esto, y asegúrate que tu URL realmente existe, ya que si cometes un error, ese enlace dejará de funcionar. Si lo haces bien, ahora tendrás una traducción totalmente funcional con un enlace dirigiendo a una página traducida (en nuestro caso `Setting-up-pl-PL`).
 
-Doing the steps above will properly translate our HTML back to markdown:
+Llevar a cabo los pasos anteriores traducirá correctamente nuestro HTML:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+Y finalmente al texto en la wiki:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+Cuando no hay HTML presente (segundo caso), es incluso más fácil ya que puedes simplemente a `Hidden texts` -> `Link addresses`.
 
 * * *
 
@@ -194,7 +194,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+Desde ahí puedes corregir fácilmente el enlace para que dirija a una nueva ubicación, sin siquiera molestarte con HTML:
 
 * * *
 
@@ -202,13 +202,13 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### Enlaces locales
 
-Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
+A través de la wiki también encontrarás enlaces locales que dirigen a una sección particular del documento. Esos enlaces incluyen el carácter `#`, indicando al navegador web que debe moverse hacia esa sección del documento.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+Esos son casos especiales, ya que esos enlaces están basados en los nombres de las secciones del documento actual. Mientras que para las URL tenemos la convención general de añadir `-locale` a la URL, y funciona en todas partes, los nombres de sección serán traducidos por ti y otras personas, por lo que necesitas asegurarte que dirijan a la ubicación correcta.
 
-For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
+Por ejemplo, puedes encontrar el enlace `#introduction` en nuestra sección **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)**:
 
 * * *
 
@@ -216,7 +216,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+Como vamos a traducir la palabra "Introduction" a "Wprowadzenie" para nuestro idioma polaco, tendremos que corregir este enlace ya que dejará de funcionar el momento en que hagamos esto.
 
 * * *
 
@@ -224,26 +224,26 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+De esta manera nuestro enlace local seguirá funcionando, ya que ahora dirigirá al nombre de la sección que estamos usando. Puedes corregir enlaces dentro de etiquetas HTML de la misma forma.
 
 * * *
 
-### Code blocks
+### Bloques de código
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Por ejemplo:
+Ten mucho cuidado cuando traduzcas frases que contengan los bloques `<code></code>`. Un bloque de código indica nombres o términos fijo del código de ASF que no deben ser traducidos. Por ejemplo:
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el estatus `RateLimited` antes de que termines con tu lote entero.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+Como puedes ver, la palabra `RateLimited` está dentro de un bloque de código e indica un código de estado interno de ASF que no debe ser traducido. De la misma manera, no debería traducir otros bloques de código, tal como nombres de propiedades de configuración (por ejemplo, `TradingPreferences`), miembros de enumeración (por ejemplo, las opciones `Stable` y `Experimental` de `UpdateChannel`) y demás.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+Sin embargo, solo porque esas palabras no deban traducción, no significa que no puedas añadir la traducción adecuada junto a ellas, por ejemplo entre corchetes.
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user may see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+Como puedes ver arriba, hemos añadido "zbyt częstej aktywacji", literalmente "activación muy frecuente" junto a `RateLimited` para traducir ese estado de manera amigable, mientras al mismo tiempo mantenemos el significado original que los usuarios pueden ver durante el uso del programa. De la misma manera, puedes traducir/explicar otros casos similares de varias palabras y frases.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**. This also serves as a practical example of using a local link.
+Si crees que algo inapropiado está incluido en un bloque de código, o que hay un texto que no está en un bloque de código pero debería estarlo, siéntete libre de preguntar en nuestro Crowdin creando el reporte de **[problema](#issues)**. correspondiente. Esto también sirve como un ejemplo práctico de cómo usar un enlace local.
 
 * * *
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+¡Gracias por ayudarnos a traducir ASF en todos los idiomas hablados en el mundo!

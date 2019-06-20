@@ -1,21 +1,21 @@
 # Préstamo familiar de Steam
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF soporta el Préstamo Familiar de Steam desde la versión 2.1.5.5+. Para entender cómo funciona ASF con eso, primero debes leer cómo **[funciona el Préstamo Familiar de Steam](https://store.steampowered.com/promotion/familysharing)**, que está disponible en la tienda de Steam.
 
 * * *
 
 ## ASF
 
-Support for Steam Family Sharing feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it works out of the box as an extra built-in functionality.
+El soporte para el Préstamo Familiar de Steam en ASF es transparente, esto significa que no introduce ninguna propiedad de configuración nueva para el bot/proceso - funciona inmediatamente como una funcionalidad integrada.
 
-ASF includes appropriate logic in order to be aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
+ASF incluye la lógica apropiada para estar consciente de la biblioteca bloqueada por usuarios del préstamo familiar, por lo tanto no los "expulsará" de su sesión de juego por debido a ejecutar un juego. ASF actuará exactamente igual como si la cuenta primaria estuviese jugando, por lo tanto si el estado de jugando es fijado por tu cliente de Steam, o por uno de los usuarios de tu préstamo familiar, ASF no intentará recolectar, en cambio, esperará a que se libera esa fijación.
 
-In addition to above, after logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
+Además de lo anterior, después de iniciar sesión, ASF accederá a tu **[configuración del préstamo familiar](https://store.steampowered.com/account/managedevices)**, de donde extraerá hasta 5 `steamIDs` permitidas para usar tu biblioteca. A esos usuarios se les asignan permisos `FamilySharing` para usar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**, especialmente permitiéndoles usar el comando `pause~` en la cuenta bot que les está compartiendo juegos, lo que permite pausar el módulo de recolección automática de cromos para ejecutar un juego que puede ser compartido.
 
-Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
+Conectar ambas funcionalidades descritas arriba permite a tus amigos `pause~` pausar tu proceso de recolección de cromos, iniciar un juego, jugar siempre que lo deseen, cuando hayan terminado de jugar, el proceso de recolección de cromos será reanudado automáticamente por ASF. Por supuesto, enviar el comando `pause~` no es necesario si ASF no está recolectando nada activamente, porque tus amigos pueden ejecutar el juego directamente, y la lógica descrita antes asegura que no serán expulsados de la sesión.
 
 * * *
 
-## Limitations
+## Limitaciones
 
-Steam network loves to mislead ASF by broadcasting false status updates, which may lead to ASF believing it's fine to resume process, and in result kick your friend too soon. This is exactly the same issue as the one already explained by us in **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.
+A la red de Steam le gusta engañar a ASF transmitiendo actualizaciones de estado falsas, lo que puede conducir a que ASF crea que está bien reanudar el proceso, y en consecuencia expulsar a tu amigo demasiado pronto. Este es exactamente el mismo problema que el ya explicado en **[esta entrada de las preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#asf-est%C3%A1-expulsando-mi-sesi%C3%B3n-en-el-cliente-de-steam-mientras-estoy-jugando--esta-cuenta-tiene-iniciada-una-sesi%C3%B3n-en-otro-equipo)**. Recomendamos exactamente las mismas soluciones, principalmente ascender a tu amigo al permiso `Operator` (o superior) y decirle que use los comandos `pause` y `resume`.

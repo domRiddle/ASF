@@ -222,7 +222,7 @@ Ahora puedes descargar tu configuración de ASF y ponerla en el directorio `conf
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-Si hiciste todo correctamente, ahora serás capaz de acceder a la interfaz IPC de ASF en **[este](http://127.0.0.1:1242)** enlace, siempre que ASF se esté ejecutando. Puedes usar la interfaz de usuario de ASF para diversos propósitos, por ejemplo, enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
+Si hiciste todo correctamente, ahora serás capaz de acceder a la interfaz IPC de ASF en **[este](http://localhost:1242)** enlace, siempre que ASF se esté ejecutando. Puedes usar la interfaz de usuario de ASF para diversos propósitos, por ejemplo, enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 

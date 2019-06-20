@@ -222,7 +222,7 @@ ASF це консольна програма, і не включає в себе
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-Якщо ви зробили усе вірно, тепер ви зможете дістатися до інтерфейсу IPC вашого ASF за **[цим](http://127.0.0.1:1242)** посиланням, у той час коли ASF запущено. Ви можете користуватися ASF-ui для різноманітних цілей, наприклад щоб надсилати **[команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)**. Ви вільні вивчати цей інтерфейс з метою дізнатися про усі можливості ASF-ui.
+Якщо ви зробили усе вірно, тепер ви зможете дістатися до інтерфейсу IPC вашого ASF за **[цим](http://localhost:1242)** посиланням, у той час коли ASF запущено. Ви можете користуватися ASF-ui для різноманітних цілей, наприклад щоб надсилати **[команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)**. Ви вільні вивчати цей інтерфейс з метою дізнатися про усі можливості ASF-ui.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
