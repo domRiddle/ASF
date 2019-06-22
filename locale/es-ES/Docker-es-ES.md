@@ -4,15 +4,15 @@ Starting with version 3.0.3.2, ASF is now also available as **[docker container]
 
 * * *
 
-## Tags
+## Etiquetas
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF está disponible mediante 4 tipos principales de **[etiquetas](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
 ### `master`
 
 This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the master GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
 
-### `lanzado el`
+### `released`
 
 Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
 
@@ -26,7 +26,7 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 * * *
 
-## Which tag is the best for me?
+## ¿Qué etiqueta es mejor para mí?
 
 That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
@@ -34,7 +34,7 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 * * *
 
-## Architectures
+## Arquitecturas
 
 ASF docker image is currently available for 2 architectures - `x64` and `arm`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
@@ -46,7 +46,7 @@ Since multi-arch docker tags are still work-in-progress, builds for other archit
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
-### Hello ASF!
+### ¡Hola ASF!
 
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
@@ -68,7 +68,7 @@ docker run -it --name asf justarchi/archisteamfarm:latest-arm
 
 * * *
 
-## Using a volume
+## Usando un volumen
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
@@ -83,7 +83,7 @@ And that's it, now your ASF docker container will use shared directory with your
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
 
-### Volume permissions
+### Permisos del volumen
 
 ASF is by default run with default `root` user inside a container. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which may not be desired situation when using a shared volume.
 
@@ -150,7 +150,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 * * *
 
-### Complete example
+### Ejemplo completo
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 
@@ -175,7 +175,7 @@ This assumes that you have all ASF config files in `/home/archi/asf`, if not, yo
 
 * * *
 
-## Pro tips
+## Consejos avanzados
 
 When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
 

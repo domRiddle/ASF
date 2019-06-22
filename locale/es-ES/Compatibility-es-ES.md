@@ -1,68 +1,68 @@
 # Compatibilidad
 
-ASF is a C# application that is running on .NET Core platform. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
+ASF es una aplicación C# que se ejecuta en la plataforma .NET Core. Esto significa que ASF no se compila directamente en e **[código de máquina](https://es.wikipedia.org/wiki/Lenguaje_de_m%C3%A1quina)** que se ejecuta en tu PC, sino en **[CIL](https://es.wikipedia.org/wiki/Common_Intermediate_Language)** que requiere tiempo de ejecución compatile con CIL para ejecutarse.
 
-This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and OS X. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. Thanks to that, ASF can achieve superior performance and optimization, while still offering a perfect compatibility and reliability.
+Este enfoque tiene una enorme cantidad de ventajas, ya que CIL es independiente de las plataformas, por lo que ASF puede ejecutarse nativamente en muchos sistemas operativos, especialmente Windows, Linux y OS X. No solo no es necesaria la emulación, sino también hay soporte para todas las optimizaciones relacionadas con plataformas y hardware, tal como instrucciones CPU SSE. Gracias a eso, ASF puede lograr rendimiento y optimización superiores, mientras que ofrece una perfecta compatibilidad y fiabilidad.
 
-This also means that ASF has **no specific OS requirement**, because it requires working **runtime** on that OS and not OS itself. As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET Core for it](https://github.com/dotnet/core-setup#daily-builds)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
+Esto también significa que ASF **no tiene requisitos específicos de sistema operativo**, porque requiere **runtime** funcionando en ese sistema operativo y no el sistema operativo en sí. Siempre que runtime ejecute correctamente el código de ASF, no importa si el sistema operativo subyacente es Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii o tu tostadora - siempre que exista **[.NET Core para él](https://github.com/dotnet/core-setup#daily-builds)**, también hay **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** para él.
 
-However, regardless of where you run ASF, you must ensure that your target platform has **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed. Those are low-level libraries required for proper runtime functionality and absolutely core for ASF to work in the first place. Very likely you can have some of them (or even all) already installed.
-
-* * *
-
-## ASF packaging
-
-ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
+Sin embargo, independientemente de dónde ejecutes ASF, debes asegurarte que tu plataforma objetivo tiene los **[prerrequisitos .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados. Estas son bibliotecas de bajo nivel requeridas para la correcta funcionalidad de runtime y absolutamente necesarias para que ASF funcione en primer lugar. Muy probablemente puedes tener algunas (o incluso todas) ya instaladas.
 
 * * *
 
-### Generic
+## Paquetes de ASF
 
-Generic package is platform-agnostic build that doesn't include any machine-specific code. This setup requires from you to have .NET Core runtime already installed on your OS **in appropriate version**. We all know how troublesome it is to keep dependencies up-to-date, therefore this package is here mainly for people that **already use** .NET Core and don't want to duplicate their runtime solely for ASF if they can make use of what they have installed already. Generic package also allows you to run ASF **anywhere where you can obtain working implementation of .NET Core runtime**, regardless if there exists OS-specific ASF build for it, or not.
-
-It's not recommended to use generic flavour if you're casual or even advanced user that just wants to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, you can use it, otherwise it's much better to use OS-specific package explained below.
-
-#### .NET Framework package
-
-In addition to generic package mentioned above, there is also `generic-netf` package which is built on top of .NET Framework (and not .NET Core). This package is a legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package can't as of today.
-
-In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. An example of such platform would be `linux-x86` that didn't receive working .NET Core runtime as of today.
-
-As the time goes on with more platforms being supported by .NET Core and less compatibility between .NET Framework and .NET Core, `generic-netf` package will be entirely replaced with `generic` one in the future. Please refrain from using it if you can use any .NET Core package instead, as `generic-netf` is missing a lot of functionality and compatibility compared to .NET Core versions, and it'll be only less functional as the time goes on. We offer support for this package only on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
+ASF viene en 2 sabores principales - paquete genérico y específico de SO. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF también viene con runtime **específico de SO** para impulsarlo.
 
 * * *
 
-### OS-specific
+### Genérico
 
-OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you may know, those two types are not compatible with each other.
+El paquete genérico es compilación que no depende de plataformas y no incluye ningún código específico de máquina. Esta configuración requiere que tengas .NET Core runtime instalado en su sistema operativo **en su versión apropiada**. Todos sabemos lo problemático que es mantener las dependencias actualizadas, por lo tanto este paquete está aquí principalmente para las personas que **ya usan** .Net Core y no quiere duplicar su runtime solo por ASF si pueden hacer uso de lo que ya tienen instalado. El paquete genérico también te permite ejecutar ASF **en cualquier lugar donde puedas obtener una implementación funcional de .NET Core runtime**, independientemente de si existe o no una compilación de ASF específica para el sistema operativo.
 
-ASF is currently available in following OS-specific variants:
+No se recomienda usar el sabor genérico si eres un usuario casual o incluso avanzado que solo quiere hacer funcionar ASF y no entrar en detalles técnicos de .NET Core. En otras palabras - si sabes que es esto, lo puedes usar, de lo contrario es mucho mejor usar un paquete específico de SO.
 
-- `win-x64` works on 64-bit Windows OSes. This includes Windows 7 (SP1+), 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016, as well as future versions.
-- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes especially Raspberry Pi 2 & 3 with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment, such as Android.
-- `linux-x64` works on 64-bit GNU/Linux OSes. This includes Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES and many other ones, including their derivatives, in current and future versions.
-- `osx-x64` works on 64-bit OS X OSes. This includes 10.12, as well as future versions.
+#### Paquete .NET Framework
 
-Of course, even if you don't have OS-specific package available for your OS-architecture combination, you can always install appropriate .NET Core runtime yourself and run generic ASF flavour, which is also the main reason why it exists in the first place. Generic ASF build is platform-agnostic and will run on any platform that has a working .NET Core runtime. This is important to note - ASF requires .NET Core runtime, not some specific OS or architecture. For example, if you're running 32-bit Windows then despite of no dedicated `win-x86` ASF version, you can still install .NET Core SDK in `win-x86` version and run generic ASF just fine. We simply can't target every OS-architecture combination that exists and is used by somebody, so we have to draw a line somewhere. x86 is a good example of that line, as it's obsolete architecture since at least 2004.
+Además del paquete genérico mencionado antes, también hay un paquete `generic-netf` construido en .NET Framework (no .NET Core). Este paquete es una variante legacy que proporciona compatibilidad faltante conocida de los tiempos de ASF V2, y puede ejecutarse, por ejemplo, con **[Mono](https://www.mono-project.com)**, mientras que el paquete `generic` de .NET Core no puede hacer eso al día de hoy.
 
-For a complete list of all supported platforms and OSes by .NET Core 2.2, visit **[release notes](https://github.com/dotnet/core/blob/master/release-notes/2.2/2.2-supported-os.md)**.
+En general, deberías **evitar este paquete como sea posible**, ya que la mayoría de los sistemas operativos y configuraciones están perfectamente (y mucho mejor) soportados con el paquete `generic` mencionado antes. De hecho, este paquete tiene sentido usarlo solo en plataformas que no tienen .NET Core runtime funcional, mientras que tienen implementación Mono funcional. Un ejemplo de dicha plataforma sería `linux-x86` que hasta hoy no ha recibido .NET Core runtime funcional.
 
-* * *
-
-## Runtime requirements
-
-If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed and up-to-date. In other words, **you don't need to install .NET Core runtime or SDK**, as OS-specific builds require only native OS dependencies (prerequisites) and nothing else.
-
-However, if you're trying to run **generic** ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
-
-ASF as a program is targeting **.NET Core 2.2** (`netcoreapp2.2`) right now, but it may target newer platform in the future. `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the minimum (target) one known during compilation.
-
-If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
+A medida que el tiempo pasa más plataformas son soportadas por .NET Core y hay menos compatibilidad entre .NET Framework y .NET Core, el paquete `generic-netf` será totalmente reemplazado por `generic` en el futuro. Por favor, absténte de usarlo si en su lugar puedes usar cualquier paquete .NET Core, ya que `generic-netf` carece de mucha funcionalidad y compatibilidad en comparación con las versiones .NET Core, y solo será menos funcional mientras pasa el tiempo. Ofrecemos soporte para este paquete solo en máquinas que no pueden usar la variante `generic` antes mencionada (por ejemplo, `linux-x86`), y solo con runtime actualizado (por ejemplo, el más reciente Mono).
 
 * * *
 
-## Issues and solutions
+### Sistema operativo específico
 
-### Debian Jessie upgrade
+El paquete específico de SO, aparte del código incluido en el paquete genérico, también incluye código nativo para una plataforma dada. En otras palabras, el paquete de SO específico **ya incluye dentro el adecuado .NET Core runtime**, lo que permite omitir todo el desastre de la instalación y ejecutar ASF directamente. El paquete de SO específico, como puedes adivinar por el nombre, es específico del SO y cada SO requiere su propia versión - por ejemplo, Windows requiere el binario PE32+ `ArchiSteamFarm.exe` mientras que Linux funciona con el binario ELF `ArchiSteamFarm`. Como debes saber, esos dos tipos no son compatibles entre sí.
 
-If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you may run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+ASF actualmente está disponible en las siguientes variantes específicas de SO:
+
+- `win-x64` funciona con sistemas operativos Windows de 64 bits. Esto incluye Windows 7 (SP1+), 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016, así como las futuras versiones.
+- `linux-arm` funciona en sistemas operativos ARM-based (ARMv7+) GNU/Linux de 32 bits. Esto incluye especialmente Raspberry Pi 2 & 3 con todos los sistemas operativos GNU/Linux disponibles para ellos (tal como Raspbian), en presentes y futuras versiones. Esta variante no funcionará con arquitecturas ARM antiguas, tal como ARMv6 encontrada en Raspberry Pi 0 & 1, tampoco funcionará con sistemas operativos que no implementen el entorno GNU/Linux requerido, tal como Android.
+- `linux-x64` funciona en sistemas operativos GNU/Linux de 64 bits. Esto incluye Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES y muchos otros, incluyendo sus derivados, en versiones actuales y futuras.
+- `osx-x64` funciona en sistemas operativos OS X de 64 bits. Esto incluye 10.12, así como futuras versiones.
+
+Por supuesto, incluso si no tienes un paquete de SO específico disponible para tu combinación SO-arquitectura, siempre puedes instalar el .NET Core runtime adecuado y ejecutar el sabor genérico de ASF, que también es la razón principal por la que existe en primer lugar. La compilación genérica de ASF no depende de la plataforma y se ejecutará en cualquier plataforma que tenga .NET Core runtime funcional. Es importante notar esto - ASF requiere .NET Core runtime, no un sistema operativo específico o arquitectura. Por ejemplo, si estás ejecutando Windows de 32 bits a pesar no haber una versión `win-x86` de ASF, simplemente puedes instalar .NET Core SDK en la versión `win-x86` y ejecutar ASF genérico sin problemas. Simplemente no podemos apuntar a cada combinación de SO-arquitectura que exista y sea usada por alguien, así que tenemos que trazar la línea en algún punto. x86 es un buen ejemplo de esa línea, ya que es una arquitectura obsoleta al menos desde 2004.
+
+Para una lista completa de todas las plataformas y sistemas operativos soportados por .NET Core 2.2, visita **[notas de lanzamiento](https://github.com/dotnet/core/blob/master/release-notes/2.2/2.2-supported-os.md)**.
+
+* * *
+
+## Requisitos de runtime
+
+Si estás usando un paquete de SO específico entonces no necesitas preocuparte por los requisitos de runtime, porque ASF siempre se publica con el runtime requerido y actualizado que funcionará correctamente siempre que tengas los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados y actualizados. En otras palabras, **no necesitas instalar .NET Core runtime o SDK**, ya que las compilaciones de SO específico solo requieren las dependencias nativas del SO (prerrequisitos) y nada más.
+
+Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF entonces debes asegurarte de que tu .NET Core runtime soporta la plataforma requerida por ASF.
+
+ASF como programa actualmente tiene como objetivo **.NET Core 2.2** (`netcoreapp2.2`), pero podría apuntar a una plataforma más nueva en el futuro. `netcoreapp2.2` es soportado desde 2.2.100 SDK (2.2.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
+
+En caso de duda, revisa nuestros **[usos de integración continua](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar y publicar versiones de ASF en GitHub. Puedes encontrar `dotnet --info` en la parte de arriba de cada compilación.
+
+* * *
+
+## Problemas y soluciones
+
+### Actualización de Debian Jessie
+
+Si actualizaste desde Debian 8 Jessie (o anterior) a Debian 9 Stretch, asegúrate de que **no** tienes el paquete `libssl1.0.0`, por ejemplo con `apt-get purge libssl1.0.0`. De lo contrario, podrías caer en una violación de acceso. Este paquete está obsoleto y no existe por definición, tampoco es posible instalarlo en configuraciones limpias de Debian 9, la única forma de toparse con este problema es actualizando desde Debian 8 o anterior - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. Si tienes otros paquetes dependiendo de esa versión obsoleta de libssl entonces debes actualizarlos, o deshacerte de ellos - no solo por este problema, sino también porque se basan en una biblioteca obsoleta en primer lugar.

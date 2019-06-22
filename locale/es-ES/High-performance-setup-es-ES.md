@@ -1,36 +1,36 @@
 # Configuración de alto rendimiento
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
+Esto es exactamente lo contrario de la **[configuración de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-es)** y normalmente quieres seguir esos consejos si quieres aumentar el rendimiento de ASF (en términos de velocidad de CPU), por el potencial costo de mayor uso de memoria.
 
 * * *
 
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+ASF ya intenta preferir el rendimiento cuando se trata de un ajuste general equilibrado, por lo tanto no hay mucho que puedas hacer para aumentar su rendimiento, aunque tampoco estás completamente fuera de opciones. Sin embargo, ten en cuenta que esas opciones no están habilitadas por defecto, lo que significa que no son lo suficientemente buenas para considerarlas equilibradas para la mayoría de los usos, por lo tanto debes decidir si el uso aumentado de memoria que ofrecen es aceptable para ti.
 
 * * *
 
-## Runtime tuning (advanced)
+## Ajustes de runtime (avanzado)
 
-Below tricks **involve serious memory increase** and should be used with caution.
+Lo siguientes trucos **involucran un serio aumento de uso de memoria** y deben ser usados con precaución.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` te permite ajustar el runtime de ASF, especialmente permitiéndote cambiar entre server GC y workstation GC.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection: - Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the `<gcServer>` element in the runtime configuration schema. - Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> El recolector de basura es autoajustable y puede trabajar en una amplia variedad de escenarios. Puedes usar un archivo de configuración para establecer el tipo recolector de basura basado en las características de la carga de trabajo. El CLR proporciona los siguientes tipos de recolección de basura: - Recolección de basura de estación de trabajo, que es para todas las estaciones de trabajo y PC independientes. Esta es la configuración predeterminada para el elemento `<gcServer>` en el esquema de configuración de runtime. - Recolección de basura de servidor, que está destinada para aplicaciones de servidor que necesitan alto rendimiento y escalabilidad. La recolección de basura de servidor puede ser no concurrente o en segundo plano.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+Puedes leer más en **[fundamentos de la recolección de basura](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
+ASF usa la recolección de basura de estación de trabajo por defecto. Esto se debe principalmente a un buen equilibrio entre uso de memoria y rendimiento, lo que es más que suficiente para solo unos bots, y normalmente un solo hilo GC concurrente en segundo plano es lo suficientemente rápido para manejar toda la memoria asignada por ASF.
 
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
+Sin embargo, hoy tenemos muchos núcleos de CPU de los que ASF se puede beneficiarse en gran medida, teniendo un hilo GC dedicado por cada CPU vCore que esté disponible. Esto puede mejorar enormemente el rendimiento durante tareas pesadas de ASF tal como analizar las páginas de inventario o el inventario, ya que cada CPU vCore puede ayudar, en lugar de solo 2 (principal y GC). Servidor GC se recomienda para máquinas con 3 CPU vCores y más, estación de trabajo GC es forzado automáticamente si tu máquina solo tiene 1 CPU vCore, si tienes exactamente 2 entonces puedes considerar probar ambos (los resultados pueden variar).
 
-You can enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. Keep in mind that you may need to do it more than once, as ASF will still use `false` by default after auto-update.
+Puedes activar el recolector de basura de servidor cambiando la propiedad `System.GC.Server` de `ArchiSteamFarm.runtimeconfig.json` de `false` a `true`. Ten en cuenta que podrías necesitar hacerlo más de una vez, ya que ASF seguirá usando `false` por defecto después de la actualización automática.
 
-Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You may find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[GC latency level](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory.
+El servidor GC en sí no da como resultado un aumento de la memoria muy grande solo por estar activo, pero tiene tamaños de generación mucho más grandes, y por lo tanto es mucho más perezoso cuando se trata de devolver memoria al sistema operativo. Puede que te encuentres en un buen lugar donde el servidor GC aumenta su rendimiento significativamente y te gustaría seguir usándolo, pero al mismo tiempo no puedes permitirte ese gran aumento de memoria que viene con su uso. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[GC latency level](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory.
 
 However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's much better to not change `GCLatencyLevel` at all, achieving superior performance in result.
 
 * * *
 
-## Recommended optimization
+## Optimización recomendada
 
 - Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - Enable server GC by switching `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` from `false` to `true`. This will enable server GC which can be immediately seen as being active by memory increase compared to workstation GC.

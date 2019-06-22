@@ -35,7 +35,7 @@
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)**
 * **[Localización](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-es-es)**
 * **[Registro](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-es-es)**
-* **[Configuación de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-es)**
+* **[Configuración de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-es)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-es)**
 * **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**
 * **[Aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-es-es)**

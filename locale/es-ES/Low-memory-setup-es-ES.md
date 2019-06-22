@@ -1,4 +1,4 @@
-# Configuación de bajo uso de memoria
+# Configuración de bajo uso de memoria
 
 This is exact opposite of **[high-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
 
@@ -42,15 +42,15 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 * * *
 
-## Runtime tuning (advanced)
+## Ajustes de runtime (avanzado)
 
 Below tricks **involve performance degradation** and should be used with caution.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+`ArchiSteamFarm.runtimeconfig.json` te permite ajustar el runtime de ASF, especialmente permitiéndote cambiar entre server GC y workstation GC.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection: - Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the `<gcServer>` element in the runtime configuration schema. - Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+> El recolector de basura es autoajustable y puede trabajar en una amplia variedad de escenarios. Puedes usar un archivo de configuración para establecer el tipo recolector de basura basado en las características de la carga de trabajo. El CLR proporciona los siguientes tipos de recolección de basura: - Recolección de basura de estación de trabajo, que es para todas las estaciones de trabajo y PC independientes. Esta es la configuración predeterminada para el elemento `<gcServer>` en el esquema de configuración de runtime. - Recolección de basura de servidor, que está destinada para aplicaciones de servidor que necesitan alto rendimiento y escalabilidad. La recolección de basura de servidor puede ser no concurrente o en segundo plano.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
+Puedes leer más en **[fundamentos de la recolección de basura](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
@@ -98,7 +98,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 * * *
 
-## Recommended optimization
+## Optimización recomendada
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.

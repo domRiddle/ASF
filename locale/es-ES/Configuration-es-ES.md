@@ -2,16 +2,16 @@
 
 Esta página está dedicada a la configuración de ASF. Sirve como documentación completa del directorio `config`, permitiéndote ajustar ASF a tus necesidades.
 
-- **[Introducción](#introduction)**
-- **[ConfigGenerator basado en la Web](#web-based-configgenerator)**
-- **[Configuración manual](#manual-configuration)**
-- **[Configuración global](#global-config)**
-- **[Configuración de bot](#bot-config)**
-- **[Estructura de archivos](#file-structure)**
-- **[Mapeo JSON](#json-mapping)**
-- **[Compatibilidad de mapeo](#compatibility-mapping)**
-- **[Compatibilidad de configuraciones](#configs-compatibility)**
-- **[Autorrecarga](#auto-reload)**
+- **[Introducción](#introducción)**
+- **[ConfigGenerator basado en la Web](#configgenerator-basado-en-la-web)**
+- **[Configuración manual](#configuración-manual)**
+- **[Configuración global](#configuración-global)**
+- **[Configuración de bot](#configuración-de-bot)**
+- **[Estructura de archivos](#estructura-de-archivos)**
+- **[Mapeo JSON](#mapeo-json)**
+- **[Compatibilidad de mapeo](#compatibilidad-de-mapeo)**
+- **[Compatibilidad de configuraciones](#compatibilidad-de-configuraciones)**
+- **[Autorrecarga](#autorrecarga)**
 
 * * *
 
@@ -234,12 +234,12 @@ Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el Steam ID 
 
 Tipo `byte flags` con valor predeterminado de `7`. Esta propiedad define los protocolos de Steam que ASF usará cuando se conecte a los servidores de Steam, los cuales se definen a continuación:
 
-| Valor | Nombre    | Descripción                                                                                            |
-| ----- | --------- | ------------------------------------------------------------------------------------------------------ |
-| 0     | Ninguno   | Sin protocolo                                                                                          |
-| 1     | TCP       | **[Protocolo de Control de Transmisión](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[Protocolo de Datagramas de Usuario](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**         |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                               |
+| Valor | Nombre    | Descripción                                                                                                       |
+| ----- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| 0     | Ninguno   | Sin protocolo                                                                                                     |
+| 1     | TCP       | **[Protocolo de Control de Transmisión](https://es.wikipedia.org/wiki/Protocolo_de_control_de_transmisi%C3%B3n)** |
+| 2     | UDP       | **[Protocolo de Datagramas de Usuario](https://es.wikipedia.org/wiki/Protocolo_de_datagramas_de_usuario)**        |
+| 4     | WebSocket | **[WebSocket](https://es.wikipedia.org/wiki/WebSocket)**                                                          |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`, y esa opción es inválida por sí misma.
 

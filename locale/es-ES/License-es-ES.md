@@ -1,35 +1,35 @@
 # Licencia
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+A menos que se indique lo contrario, ASF está licenciado bajo **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Para una visión general de lo que puedes y no puedes hacer, puedes usar **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+La licencia de ASF es muy permisiva y tienes permitido hacer mucho más que con la licencia GPL estándar, incluyendo usar ASF en proyectos comerciales sin necesidad de hacer el código abierto. En resumen, como se menciona en tl;dr Legal:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> Puede hacer lo que desee con el software, siempre que incluya los avisos requeridos. Esta licencia permisiva contiene un licencia de patente de los colaboradores del código.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Por favor, ten en cuenta que varios **[componentes de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluidos con `PackageReference` a menudo son licenciados bajo condiciones diferentes, tal como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo mismo aplica para todos los proyectos de terceros de los que ASF hace uso, especialmente todas las `herramientas` que tienen sus propias licencias.
 
 * * *
 
 ## Observaciones
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Si estás creando tu propio software/servicio basado en ASF o parte de su código, por favor revisa el punto 6 de la licencia:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Marcas registradas. Esta Licencia no concede permiso para usar nombres comerciales, marcas registradas, marcas de servicio, o nombres de productos del Licenciador, excepto cuando sea requerido para un uso razonable y habitual al describir el origen del Trabajo y la reproducción del contenido del archivo AVISO.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+No te concedemos permiso directo para usar el nombre de producto ASF/ArchiSteamFarm en tu propio software, pero permitimos usarlo en algunos escenarios de sentido común:
 
-You **can**:
+**Puedes**:
 
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- Declarar que tu software/servicio **está basado en** ASF (o su código)
+- Referirte a tu software/servicio como un **derivado de ASF**
+- Declarar que tu software/servicio es alimentado por ASF, si **no hiciste** cambios en el código fuente
+- Usar ASF para varios propósitos de referencia, como vincular el origen del software/servicio, nuestra wiki, o *"cuando sea requerido para un uso razonable y habitual al describir el origen del Trabajo"*
 
-You **can't**:
+**No puedes**:
 
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+- Declarar que tu software/servicio **es** ASF
+- Referirte a tu software/servicio como **ASF**
+- Declarar que tu software/servicio es alimentado por ASF, si **hiciste** cambios al código fuente
+- Usar publicidad falsa, como indicar que ASF o sus desarrolladores están afiliados con tu software/servicio
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+En caso de duda, por favor contacta con nosotros, y estaremos encantados de responder tus preguntas legales/de licencia.
