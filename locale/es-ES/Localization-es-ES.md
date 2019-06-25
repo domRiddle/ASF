@@ -24,7 +24,7 @@ Si el idioma de tu elección todavía tiene algunas cadenas faltantes, puedes se
 
 Por ejemplo, podrías tener una cadena como:
 
-> Tenemos {0} juegos para recolectar.
+> We have {0} games to idle.
 
 Pero basado en tu idioma, la siguiente frase podría tener más sentido:
 
@@ -75,7 +75,7 @@ Actualmente hay 4 tipos soportados de problema:
 
 Cada idioma tiene dos estados de terminación - traducción, y proof-reading.
 
-El idioma se considera **traducido** cuando su progreso de traducción alcanza el 100%. En este punto, cada cadena localizable usada por ASF tiene un significado adecuado, lo que es genial. Sin embargo, eso no significa que haya lugar para mejorar - la votación de la comunidad está habilitada todo el tiempo y aún puedes sugerir una mejor traducción para partes ya traducidas, así como votar por las existentes. Por favor, ten en cuenta que los idiomas traducidos al completo pueden caer por debajo del 100% cuando cambiamos cadenas existentes o añadimos nuevas durante el desarrollo. Puedes configurar notificaciones de Crowdin si quieres recibir un correo electrónico cuando esto suceda.
+El idioma se considera **traducido** cuando su progreso de traducción alcanza el 100%. En este punto, cada cadena localizable usada por ASF tiene un significado adecuado, lo que es genial. Sin embargo, eso no significa que no haya lugar para mejorar - la votación de la comunidad está habilitada todo el tiempo y aún puedes sugerir una mejor traducción para partes ya traducidas, así como votar por las existentes. Por favor, ten en cuenta que los idiomas traducidos al completo pueden caer por debajo del 100% cuando cambiamos cadenas existentes o añadimos nuevas durante el desarrollo. Puedes configurar notificaciones de Crowdin si quieres recibir un correo electrónico cuando esto suceda.
 
 Algunos idiomas seleccionados pueden tener "proof-readers" que validen las traducciones y aprueben las versiones finales. Este es el paso final después de la traducción y permite mejorar aún más la localización.
 
@@ -85,7 +85,7 @@ ASF incluirá un idioma determinado **tan pronto como sea posible**, esto signif
 
 ## Idiomas faltantes
 
-Por defecto el proyecto de ASF tiene la traducción abierta solo para los 30 idiomas más hablados en el mundo. Si quieres añadir otro (o el dialecto local de alguno ya disponible), por favor, **[háznoslo saber](https://crowdin.com/messages/create/13177432/240376)** y lo añadiremos tan pronto como sea posible. No queremos abrir varias cientos de idiomas si nadie va a traducirlos, por eso lo limitamos a un número justo. Por favor, no dudes en contactarnos si quieres traducir un idioma no listado, es muy fácil para nosotros añadir otro. Solo asegúrate de tener la voluntad y determinación para traducir ASF a tu idioma, antes de contactar con nosotros.
+Por defecto el proyecto de ASF tiene la traducción abierta solo para los 30 idiomas más hablados en el mundo. Si quieres añadir otro (o el dialecto local de alguno ya disponible), por favor, **[háznoslo saber](https://crowdin.com/messages/create/13177432/240376)** y lo añadiremos tan pronto como sea posible. No queremos abrir varios cientos de idiomas si nadie va a traducirlos, por eso lo limitamos a un número justo. Por favor, no dudes en contactarnos si quieres traducir un idioma no listado, es muy fácil para nosotros añadir otro. Solo asegúrate de tener la voluntad y determinación para traducir ASF a tu idioma, antes de contactar con nosotros.
 
 Para una lista completa de todos los idiomas disponibles a los que ASF puede ser traducirse, haz **[clic aquí](https://support.crowdin.com/api/language-codes)**.
 
@@ -127,7 +127,7 @@ ASF incluye enlaces en casi todas las páginas para una navegación más fácil,
 
 Por ejemplo, la **[página de inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** de ASF incluye un texto como:
 
-> Si eres un usuario nuevo, recomendamos comenzar con la guía **[iniciando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 Que originalmente está escrito como:
 
@@ -135,7 +135,7 @@ Que originalmente está escrito como:
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-En Crowdin, lo primero que debes hacer es ir a tus ajustes de edición y asegurarte de que las etiquetas HTML estén establecidas en "Mostrar". Estoy es muy importante si decides localizar la wiki.
+En Crowdin, lo primero que debes hacer es ir a tus ajustes de edición y asegurarte de que las etiquetas HTML estén establecidas en "Mostrar". Esto es muy importante si decides localizar la wiki.
 
 * * *
 
@@ -156,7 +156,7 @@ En nuestro ejemplo anterior, es el primer caso (ya que solo "iniciando" es un en
 
 * * *
 
-Independientemente del caso, primero debes copiar la cadena original y traducirla como de costumbre, dejando intacto el HTML (si está presente). Esta sería un ejemplo de traducción para el idioma polaco:
+Independientemente del caso, primero debes copiar la cadena original y traducirla como de costumbre, dejando intacto el HTML (si está presente). Este sería un ejemplo de traducción para el idioma polaco:
 
 * * *
 
@@ -186,7 +186,7 @@ Y finalmente al texto en la wiki:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-Cuando no hay HTML presente (segundo caso), es incluso más fácil ya que puedes simplemente a `Hidden texts` -> `Link addresses`.
+Cuando no hay HTML presente (segundo caso), es incluso más fácil ya que puedes simplemente ir a `Hidden texts` -> `Link addresses`.
 
 * * *
 
@@ -230,19 +230,19 @@ De esta manera nuestro enlace local seguirá funcionando, ya que ahora dirigirá
 
 ### Bloques de código
 
-Ten mucho cuidado cuando traduzcas frases que contengan los bloques `<code></code>`. Un bloque de código indica nombres o términos fijo del código de ASF que no deben ser traducidos. Por ejemplo:
+Ten mucho cuidado cuando traduzcas frases que contengan los bloques `<code></code>`. Un bloque de código indica nombres o términos fijos del código de ASF que no deben ser traducidos. Por ejemplo:
 
 > Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el estatus `RateLimited` antes de que termines con tu lote entero.
 
-Como puedes ver, la palabra `RateLimited` está dentro de un bloque de código e indica un código de estado interno de ASF que no debe ser traducido. De la misma manera, no debería traducir otros bloques de código, tal como nombres de propiedades de configuración (por ejemplo, `TradingPreferences`), miembros de enumeración (por ejemplo, las opciones `Stable` y `Experimental` de `UpdateChannel`) y demás.
+Como puedes ver, la palabra `RateLimited` está dentro de un bloque de código e indica un código de estado interno de ASF que no debe ser traducido. De la misma manera, no deberías traducir otros bloques de código, tal como nombres de propiedades de configuración (por ejemplo, `TradingPreferences`), miembros de enumeración (por ejemplo, las opciones `Stable` y `Experimental` de `UpdateChannel`) y demás.
 
-Sin embargo, solo porque esas palabras no deban traducción, no significa que no puedas añadir la traducción adecuada junto a ellas, por ejemplo entre corchetes.
+Sin embargo, solo porque esas palabras no deban traducirse, no significa que no puedas añadir la traducción adecuada junto a ellas, por ejemplo entre corchetes.
 
 > Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
 Como puedes ver arriba, hemos añadido "zbyt częstej aktywacji", literalmente "activación muy frecuente" junto a `RateLimited` para traducir ese estado de manera amigable, mientras al mismo tiempo mantenemos el significado original que los usuarios pueden ver durante el uso del programa. De la misma manera, puedes traducir/explicar otros casos similares de varias palabras y frases.
 
-Si crees que algo inapropiado está incluido en un bloque de código, o que hay un texto que no está en un bloque de código pero debería estarlo, siéntete libre de preguntar en nuestro Crowdin creando el reporte de **[problema](#issues)**. correspondiente. Esto también sirve como un ejemplo práctico de cómo usar un enlace local.
+Si crees que algo inapropiado está incluido en un bloque de código, o que hay un texto que no está en un bloque de código pero debería estarlo, siéntete libre de preguntar en nuestro Crowdin creando el reporte de **[problema](#problemas)** correspondiente. Esto también sirve como un ejemplo práctico de cómo usar un enlace local.
 
 * * *
 
