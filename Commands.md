@@ -201,7 +201,7 @@ Type | Example | Description
 --- | --- | ---
 `app` | `app/292030` | Game determined by its unique `appID`.
 `sub` | `sub/47807` | Package containing one or more games, determined by its unique `subID`.
-`regex` | `regex/^\d{4}:` | Regex applying to the game's name, case-sensitive.
+`regex` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples.
 `name` | `name/Witcher` | Part of the game's name, case-insensitive.
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
