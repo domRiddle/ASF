@@ -73,7 +73,7 @@ Command | Access | Description
 `loot@ <Bots> <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `loot^ <Bots> <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `nickname <Bots> <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
-`owns <Bots> <AppIDsOrGameNames>` | `Operator` | Checks if given bot instances already own given `appIDs` and/or `gameNames` (can be part of the game's name). It can also be `*` to show all games available.
+`owns <Bots> <Games>` | `Operator` | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.
 `password <Bots>` | `Master` | Prints encrypted password of given bot instances (in use with `PasswordFormat`).
 `pause <Bots>` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.
 `pause~ <Bots>` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.
@@ -190,6 +190,27 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+---
+
+## `owns` games
+
+`owns` command supports several different game types for `<games>` argument that can be used, those are:
+
+Type | Example | Description
+--- | --- | ---
+`app` | `app/292030` | Game determined by its unique `appID`.
+`sub` | `sub/47807` | Package containing one or more games, determined by its unique `subID`.
+`regex` | `regex/^\d{4}:` | Regex applying to the game's name, case-sensitive.
+`name` | `name/Witcher` | Part of the game's name, case-insensitive.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+```
+owns ASF app/292030,name/Witcher
+```
 
 ---
 
