@@ -52,7 +52,7 @@ Command | Access | Description
 `2fa <Bots>` | `Master` | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.
 `2fano <Bots>` | `Master` | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.
 `2faok <Bots>` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.
-`addlicense <Bots> <GameIDs>` | `Operator` | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).
+`addlicense <Bots> <Licenses>` | `Operator` | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).
 `balance <Bots>` | `Master` | Shows wallet balance of given bot instances.
 `bgr <Bots>` | `Master` | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.
 `bl <Bots>` | `Master` | Lists blacklisted users from trading module of given bot instances.
@@ -190,6 +190,27 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+---
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license typesm those are:
+
+Type | Alias | Example | Description
+--- | --- | --- | ---
+`app` | `a` | `app/292030` | Game determined by its unique `appID`.
+`sub` | `s` | `sub/47807` | Package containing one or more games, determined by its unique `subID`.
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+```
+addlicense ASF app/292030,sub/47807
+```
 
 ---
 
