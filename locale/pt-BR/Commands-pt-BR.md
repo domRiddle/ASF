@@ -74,7 +74,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, e cujo `RealAppIDs` corresponda ao determinado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (com o steamID mais baixo caso haja mais de um). |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`            | Envia todos itens Steam do `AppID` de `ContextID` indicados dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um).                                                              |
 | `nickname <Bots> <Nickname>`                                   | `Master`            | Muda o apelido Steam dos bots indicados para o informado em `nickname`.                                                                                                                                                                                          |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`          | Verifica se os bots indicados já possuem os `appIDs` e/ou `NomeDoJogo` citados (pode ser apenas parte do nome do jogo). Também pode ser `*` para mostrar todos os jogos disponíveis.                                                                             |
+| `owns <Bots> <Games>`                                          | `Operator`          | Verifica se os bots definidos já possuem os jogos (`games`) indicados, conforme explicado **[abaixo](#owns-jogos)**.                                                                                                                                             |
 | `password <Bots>`                                                    | `Master`            | Mostra a senha criptografada dos bots indicados (de acordo com `PasswordFormat`).                                                                                                                                                                                |
 | `pause <Bots>`                                                       | `Operator`          | Para permanentemente o módulo de coleta automática de cartas dos bots indicados. ASF não tentará coletar nessa conta durante essa sessão, a menos que você retome manualmente por meio do comando `resume` ou reinicie o processo.                               |
 | `pause~ <Bots>`                                                      | `FamilySharing`     | Para temporariamente o módulo de coleta automática de cartas dos bots indicados. A coleta será retomada automaticamente na próxima vez que você jogar algum jogo ou quando o bot desconectar. Você pode usar o comando `resume` para voltar a coletar.           |
@@ -90,9 +90,9 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `stats`                                                                    | `Owner`             | Mostra estatísticas do processo, tais como uso de memória gerenciada.                                                                                                                                                                                            |
 | `status <Bots>`                                                      | `FamilySharing`     | Mostra o status dos bots indicados.                                                                                                                                                                                                                              |
 | `stop <Bots>`                                                        | `Master`            | Para os bots indicados.                                                                                                                                                                                                                                          |
-| `transfer <Bots> <TargetBot>`                                  | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) do bot indicado para o bot de destino (Target).                                                                                                                |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) cujos `RealAppIDs` coincidam com o indicado, do bot indicado para o bot de destino (Target).                                                                   |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`            | Envia todos itens Steam do `AppID` determinado com `ContextID` dos bots indicados para o bot de destino (Target).                                                                                                                                                |
+| `transfer <Bots> <TargetBot>`                                  | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) do bot indicado para o bot de destino.                                                                                                                         |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) cujos `RealAppIDs` coincidam com o indicado, do bot indicado para o bot de destino.                                                                            |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`            | Envia todos itens Steam do `AppID` determinado com `ContextID` dos bots indicados para o bot de destino.                                                                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`            | Abre todos os pacotes de cartas armazenados no inventario dos bots indicados.                                                                                                                                                                                    |
 | `update`                                                                   | `Owner`             | Verifica atualizações para o ASF no GitHub (isso é feito automaticamente a cada `UpdatePeriod`).                                                                                                                                                                 |
 | `version`                                                                  | `FamilySharing`     | Mostra a versão do ASF.                                                                                                                                                                                                                                          |
@@ -103,7 +103,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 
 Todos os comandos não diferenciam maiúsculas de minúsculas, mas seus argumentos (tais como nomes dos bots) geralmente sim.
 
-O argumento `<Bots>` é opcional em todos os comandos. Quando especificado, o comando é executado nesse bot. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy.
+O argumento `<Bots>` é opcional em todos os comandos. Quando especificado, o comando é executado no bot indicado. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy. Isso também pode ser usado para enviar comandos para bots que estejam indisponíveis de outra forma, por exempo, para iniciar bots parados, ou executar ações na sua conta principal (que você está utilizando para executar os comandos).
 
 O **acesso** aos comandos se define com, no **mínimo**, `EPermission` em `SteamUserPermissions`, com exceção do `Owner` que tem a `SteamOwnerID` definida no arquivo de configuração global (e é a maior permissão possível).
 
@@ -191,6 +191,26 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 * * *
 
+## `owns` jogos
+
+O comando `owns` suporta diversos tipos de argumentos para definir os jogos em `<games>`, tais como:
+
+| Tipo    | Pseudônimo | Exemplo          | Descrição                                                                                                                                                                                                                                                                                                                  |
+| ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`        | `app/292030`     | `appID` do jogo desejado.                                                                                                                                                                                                                                                                                                  |
+| `sub`   | `s`        | `sub/47807`      | Pacote contendo um ou mais jogos, determinado por sua `subID`.                                                                                                                                                                                                                                                             |
+| `regex` | `r`        | `regex/^\d{4}:` | **[Regex](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)** aplicada ao nome do jogo, diferenciando maíusculas de minúsculas. Veja essa **[documentação](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para entender a sintaxe completa e ver exemplos. |
+| `nome`  | `n`        | `name/Witcher`   | Parte do nome do jogo, sem diferenciação entre maiúsculas e minúsculas.                                                                                                                                                                                                                                                    |
+
+Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou o `app` caso sua entrada seja um número ou `name` caso contrário. Você também pode consultar um ou mais dos jogos ao mesmo tempo, usando o delimitador padrão do ASF `,`.
+
+Exemplo de comando completo:
+
+    owns ASF app/292030,name/Witcher
+    
+
+* * *
+
 ## Métodos `redeem^`
 
 O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
@@ -224,14 +244,14 @@ A sintaxe geral é `input <Bots> <Type> <Value>`.
 
 `<Type>` diferencia maiúsculas de minúsculas e define o tipo de entrada reconhecida pelo ASF. Atualmente, o ASF reconhece os seguintes tipos:
 
-| Tipo                    | Descrição                                                                                       |
-| ----------------------- | ----------------------------------------------------------------------------------------------- |
-| DeviceID                | Identificador do dispositivo 2FA, caso esteja faltando no `.maFile`.                            |
-| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando no arquivo config.        |
-| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando no arquivo config.     |
-| SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.               |
-| SteamParentalCode       | Propriedade de configuração do bot `SteamParentalCode`, caso esteja faltando no arquivo config. |
-| TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA.    |
+| Tipo                    | Descrição                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------- |
+| DeviceID                | Identificador de dispositivo 2FA, caso esteja faltando no `.maFile`.                         |
+| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
+| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
+| SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
+| SteamParentalCode       | Propriedade de configuração do bot `SteamParentalCode`, caso esteja faltando na config.      |
+| TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA. |
 
 `<Value>` é o valor definido para o tipo indicado. Atualmente, todos os valores são strings.
 

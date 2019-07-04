@@ -74,7 +74,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `loot@ <Bots> <RealAppIDs>`                                    | `마스터`           | 해당 봇 인스턴스들의 주어진 `RealAppIDs`와 일치하는 모든 `LootableTypes`의 스팀 커뮤니티 아이템들을 `SteamUserPermissions`에서 사용자 설정한 `Master` (하나보다 많은 경우에는 가장 낮은 steamID) 에게 모두 전달합니다.                              |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `마스터`           | 해당 봇 인스턴스들의 지정된 `ContextID` 에 있는 주어진 `AppID`의 스팀 아이템들을 `SteamUserPermissions`에서 사용자 설정한 `Master` (하나보다 많은 경우에는 가장 낮은 steamID) 에게 모두 전달합니다.                                            |
 | `nickname <Bots> <Nickname>`                                   | `주인(Master)`    | 해당 봇 인스턴스들의 스팀 닉네임을 주어진 `nickname`으로 변경합니다.                                                                                                                                           |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `운영자(Operator)` | 해당 봇 인스턴스들이 주어진 `appIDs` 그리고/또는 `gameNames` (게임 이름의 일부가 될 수 있음) 를 이미 가지고 있는지 확인합니다. 모든 가능한 게임들을 보기 위해서 `*`를 사용할 수도 있습니다.                                                              |
+| `owns <Bots> <Games>`                                          | `운영자(Operator)` | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                                                          |
 | `password <Bots>`                                                    | `주인(Master)`    | 해당 봇 인스턴스들의 암호화된 비밀번호를 출력합니다 (`PasswordFormat`과 함께 쓰고 있음).                                                                                                                            |
 | `pause <Bots>`                                                       | `운영자(Operator)` | 해당 봇 인스턴스들의 자동 카드 농사 모듈을 영구적으로 정지합니다. 수동으로 `resume` 하거나 프로세스를 재시작하기 전까지 ASF는 이 세션에서 해당 계정의 농사를 시도하지 않을 것입니다.                                                                          |
 | `pause~ <Bots>`                                                      | `가족 공유`         | 해당 봇 인스턴스들의 자동 카드 농사 모듈을 일시 정지합니다. 농사는 다음 실행 이벤트 또는 봇 연결 해제시에 자동으로 재개됩니다. 일시 정지를 해제하기 위해서 `resume` 할 수 있습니다.                                                                          |
@@ -90,9 +90,9 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `stats`                                                                    | `소유자`           | 관리되는 메모리 사용량과 같은 프로세스 통계를 출력합니다.                                                                                                                                                      |
 | `status <Bots>`                                                      | `가족 공유`         | 해당 봇 인스턴스들의 상태를 출력합니다.                                                                                                                                                                |
 | `stop <Bots>`                                                        | `주인(Master)`    | 해당 봇 인스턴스들을 중지합니다.                                                                                                                                                                    |
-| `transfer <Bots> <TargetBot>`                                  | `주인(Master)`    | 해당 봇 인스턴스들의 모든 `TransferableTypes` 스팀 커뮤니티 아이템들을 타겟 봇으로 전달합니다.                                                                                                                        |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `주인(Master)`    | 해당 봇 인스턴스들의 주어진 `RealAppIDs`와 일치하는 모든 `TransferableTypes`의 스팀 커뮤니티 아이템들을 타겟 봇으로 전달합니다.                                                                                                |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `주인(Master)`    | 해당 봇 인스턴스들의 지정된 `ContextID` 에 있는 주어진 `AppID`의 스팀 아이템들을 타겟 봇으로 전달합니다.                                                                                                                  |
+| `transfer <Bots> <TargetBot>`                                  | `주인(Master)`    | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                  |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `주인(Master)`    | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.                                                      |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `주인(Master)`    | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                |
 | `unpack <Bots>`                                                      | `주인(Master)`    | 해당 봇 인스턴스들의 보관함에 있는 모든 부스터팩을 뜯습니다.                                                                                                                                                    |
 | `update`                                                                   | `소유자`           | ASF의 업데이트를 위해서 GitHub를 확인합니다 (이것은 매 `UpdatePeriod` 마다 자동으로 실행됨).                                                                                                                      |
 | `version`                                                                  | `가족 공유`         | ASF의 버전을 출력합니다.                                                                                                                                                                       |
@@ -103,7 +103,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 모든 명령어들은 대소문자 구별이 없지만, 그것들의 요소들(예를 들어 봇 이름들) 은 일반적으로 대소분자를 구별합니다.
 
-`<Bots>` 요소는 모든 명령어들에서 선택적입니다. 지정된 경우, 명령어는 주어진 봇들에게서 실행됩니다. 지정되지 않은 경우, 명령어는 명령어를 받는 현재 봇에서 실행됩니다. 다시 말해서, 봇 `B`에게 전송된 `status A`는 봇 `A`에게 `status`를 보내는 것과 동일합니다. 여기에서 봇 `B`는 대리인 역할만 합니다.
+`<Bots>` 요소는 모든 명령어들에서 선택적입니다. 지정된 경우, 명령어는 주어진 봇들에게서 실행됩니다. 지정되지 않은 경우, 명령어는 명령어를 받는 현재 봇에서 실행됩니다. 다시 말해서, 봇 `B`에게 전송된 `status A`는 봇 `A`에게 `status`를 보내는 것과 동일합니다. 여기에서 봇 `B`는 대리인 역할만 합니다. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
 **Access** of the command defines **minimum** `EPermission` of `SteamUserPermissions` that is required to use the command, with an exception of `Owner` which is `SteamOwnerID` defined in global configuration file (and highest permission available).
 
@@ -188,6 +188,26 @@ This way you can also set independent options however you like:
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+* * *
+
+## `owns` games
+
+`owns` command supports several different game types for `<games>` argument that can be used, those are:
+
+| Type    | 별칭  | 예시               | 설명                                                                                                                                                                                                                                                                            |
+| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
+| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
+| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `이름`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    owns ASF app/292030,name/Witcher
+    
 
 * * *
 

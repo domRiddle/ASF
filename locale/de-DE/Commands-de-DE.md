@@ -74,7 +74,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | Sendet alle `LootableTypes` Steam-Community-Gegenstände, die mit den angegebenen `RealAppIDs` der angegebenen Bot-Instanzen übereinstimmen, an `Master` welcher in den `SteamUserPermissions` (mit der niedrigsten SteamID, wenn mehr als eine eingetragen ist) definiert ist. |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der gegebenen Bot-Instanzen an `Master` welcher in den `SteamUserPermissions` (mit niedrigster SteamID wenn mehr als eine) definiert ist.                                                                   |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | Ändert den Steam-Namen der angegebenen Bot-Instanzen auf den angegeben `nickname`.                                                                                                                                                                                             |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | Prüft, ob die angegebenen Bot-Instanzen bereits die angegebenen `appIDs` und/oder `gameNames` besitzen (kann auch nur ein Teil des Spielnamens sein). Es kann auch `*` sein, um alle verfügbaren Spiele anzuzeigen.                                                            |
+| `owns <Bots> <Games>`                                          | `Operator`      | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                                                                                                                                                   |
 | `password <Bots>`                                                    | `Master`        | Zeigt das verschlüsselte Passwort der angegebenen Bot-Instanzen an (in Verwendung mit `PasswordFormat`).                                                                                                                                                                       |
 | `pause <Bots>`                                                       | `Operator`      | Pausiert permanent das automatische Karten-Sammel-Modul der angegebenen Bot-Instanzen. ASF wird in der aktuellen Sitzung nicht versuchen auf den angegebenen Bots zu Sammeln, es sei denn du verwendest selbst `resume` oder startest den Prozess neu.                         |
 | `pause~ <Bots>`                                                      | `FamilySharing` | Pausiert vorübergehend das automatische Karten-Sammel-Modul der angegebenen Bot-Instanzen. Das Sammeln wird automatisch beim nächsten Spiele-Ereignis oder beim Trennen der Bot-Verbindung fortgesetzt. Du kannst `resume` verwenden um die Pause zu beenden.                  |
@@ -90,9 +90,9 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `stats`                                                                    | `Besitzer`      | Zeigt Prozessstatistiken, wie z.B. die Nutzung des verwalteten Speichers an.                                                                                                                                                                                                   |
 | `status <Bots>`                                                      | `FamilySharing` | Zeigt den Status der angegebenen Bot-Instanzen an.                                                                                                                                                                                                                             |
 | `stop <Bots>`                                                        | `Master`        | Stoppt die angegebenen Bot-Instanzen.                                                                                                                                                                                                                                          |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sendet alle `TransferableTypes` Steam Community-Gegenstände von gegebenen Bot-Instanzen an den Ziel-Bot.                                                                                                                                                                       |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, die mit den gegebenen `RealAppIDs` übereinstimmen, von gegebenen Bot-Instanzen an den Ziel-Bot.                                                                                                                   |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der gegebenen Bot-Instanzen an den Ziel-Bot.                                                                                                                                                                |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                           |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.                                                                                                                                               |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                         |
 | `unpack <Bots>`                                                      | `Master`        | Entpackt alle Booster Packs, die im Inventar der angegebenen Bot-Instanzen vorhanden sind.                                                                                                                                                                                     |
 | `update`                                                                   | `Besitzer`      | Überprüft GitHub auf ASF-Aktualisierungen (dies geschieht automatisch alle `UpdatePeriod`).                                                                                                                                                                                    |
 | `version`                                                                  | `FamilySharing` | Gibt die ASF-Version an.                                                                                                                                                                                                                                                       |
@@ -103,7 +103,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 
 Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei deren Argumenten (wie zum Beispiel Bot-Namen) muss die Groß- und Kleinschreibung beachtet werden.
 
-Das Argument `<Bots>` ist in allen Befehlen optional. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird. Bot `B` dient in diesem Fall nur als Proxy.
+Das Argument `<Bots>` ist in allen Befehlen optional. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird. Bot `B` dient in diesem Fall nur als Proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
 **Zugriff** eines Befehls definiert die **minimale** `EPermission` von `SteamUserPermissions`, die für die Verwendung des Befehls erforderlich ist - mit Ausnahme von `Owner` der als `SteamOwnerID` in der globalen Konfigurationsdatei (und damit höchste verfügbare Berechtigung) definiert ist.
 
@@ -191,6 +191,26 @@ Bedenke, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Eltern
 
 * * *
 
+## `owns` games
+
+`owns` command supports several different game types for `<games>` argument that can be used, those are:
+
+| Typ     | Alias | Beispiel         | Beschreibung                                                                                                                                                                                                                                                                  |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
+| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `name`  | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    owns ASF app/292030,name/Witcher
+    
+
+* * *
+
 ## `redeem^` Modi
 
 Der Befehl `redeem^` ermöglicht es dir, die Modi zu optimieren, die für ein einzelnes Einlöse-Szenario verwendet werden. Dazu wird temporär die `RedeemingPreferences` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#redeemingpreferences)** überschrieben.
@@ -239,7 +259,7 @@ Die allgemeine Syntax ist `input <Bots> <Type> <Value>`.
 
 Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
 
-Um das zu tun, müssen wir folgende Befehle ausführen:
+Um das zu tun müssen wir folgende Befehle ausführen:
 
 `start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 

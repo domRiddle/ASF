@@ -74,7 +74,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 將指定機器人的所有符合特定 `RealAppIDs` 的 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。                           |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 將指定機器人的` ContextID` 庫存分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。                                   |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 檢查指定機器人是否已擁有某遊戲，支持查詢欄位： `appIDs` 和/或 `gameNames`（遊戲名稱的一部分）。 也可以使用 `*` 顯示所有已擁有的遊戲。                                                               |
+| `owns <Bots> <Games>`                                          | `Operator`      | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                    |
 | `password <Bots>`                                                    | `Master`        | 顯示指定機器人加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                          |
 | `pause <Bots>`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                               |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                             |
@@ -90,9 +90,9 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `stats`                                                                    | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                             |
 | `status <Bots>`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                     |
 | `stop <Bots>`                                                        | `Master`        | 停止指定機器人的進程。                                                                                                                                     |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | 將指定機器人的所有 `TransferableTypes` 社區物品交易至目標機器人。                                                                                                     |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 將指定機器人的所有符合特定 `RealAppIDs` 的 `TransferableTypes` 社區物品交易至目標機器人。                                                                                  |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定機器人的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標機器人。                                                                                              |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                            |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.                |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                          |
 | `unpack <Bots>`                                                      | `Master`        | 拆開指定機器人庫存中的所有補充包。                                                                                                                               |
 | `update`                                                                   | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                   |
 | `版本`                                                                       | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                    |
@@ -103,7 +103,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 所有的指令都不區分大小寫，但它們的參數（例如機器人名稱）通常是區分大小寫的。
 
-`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的機器人上執行。 但省略時，指令會在當前接收指令的機器人上執行。 In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy.
+`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的機器人上執行。 但省略時，指令會在當前接收指令的機器人上執行。 In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
 指令的**許可權**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全局配置文件中定義的 `SteamOwnerID` 用戶（擁有最高許可權）。
 
@@ -188,6 +188,26 @@ ASF 會將命令末尾超出規定範圍的多餘參數“連接”到符合語�
 上述命令將會設置個人資料為公開、遊戲詳情為僅限好友、遊戲時間為私密、好友列表為公開、庫存為公開、庫存禮物為私密、留言為公開。 若有需要，您也可以使用數字值來實現相同效果。
 
 請記住子選項的許可權無法比父選項更高。 有關可用選項, 請參閱參數關係。
+
+* * *
+
+## `owns` games
+
+`owns` command supports several different game types for `<games>` argument that can be used, those are:
+
+| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                                                            |
+| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
+| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
+| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `名稱`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    owns ASF app/292030,name/Witcher
+    
 
 * * *
 

@@ -74,7 +74,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `loot@ <Bots> <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。             |
 | `loot^ <Bots> <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                     |
 | `nickname <Bots> <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `Nickname`。                                                                                                          |
-| `owns <Bots> <AppIDsOrGameNames>`                              | `Operator`      | 检查指定机器人是否已拥有 `AppIDs` 和/或 `GameNames`（可以是游戏名称的一部分）。 也可以写 `*` 以显示所有可用的游戏。                                                          |
+| `owns <Bots> <Games>`                                          | `Operator`      | 检查指定机器人是否已拥有 `Games`，该参数解释详见&#8203;**[下文](#owns-命令的-games-参数)**。                                                                  |
 | `password <Bots>`                                                    | `Master`        | 显示指定机器人加密后的密码（配合 `PasswordFormat` 使用）。                                                                                            |
 | `pause <Bots>`                                                       | `Operator`      | 永久暂停指定机器人的自动挂卡模块。 ASF 在本次会话中将不会再尝试对此帐户进行挂卡，除非您手动 `resume` 或者重启 ASF。                                                               |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                |
@@ -90,9 +90,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `stats`                                                                    | `Owner`         | 显示进程统计信息，例如托管内存用量。                                                                                                                |
 | `status <Bots>`                                                      | `FamilySharing` | 显示指定机器人的状态。                                                                                                                       |
 | `stop <Bots>`                                                        | `Master`        | 停止指定机器人。                                                                                                                          |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品转移到目标机器人。                                                                                       |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品转移到目标机器人。                                                                    |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品转移到目标机器人。                                                                                |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品转移到一个目标机器人。                                                                                     |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。                                                                  |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品转移到一个目标机器人。                                                                              |
 | `unpack <Bots>`                                                      | `Master`        | 拆开指定机器人库存中的所有补充包。                                                                                                                 |
 | `update`                                                                   | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                  |
 | `version`                                                                  | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                      |
@@ -103,7 +103,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 所有的命令都不区分大小写，但它们的参数（例如机器人名称）通常是区分大小写的。
 
-`<Bots>` 参数对所有命令都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令，此时机器人 `B` 仅仅充当一个代理人的角色。
+`<Bots>` 参数对所有命令都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令，此时机器人 `B` 仅仅充当一个代理人的角色。 这也可以用于向无法使用的机器人发送命令，例如启动已停止的机器人，或者在主帐户（您发送命令的帐户）上执行操作。
 
 命令的**权限**定义了需要执行此命令所需的**最低**权限，即 `SteamUserPermissions` 中定义的 `EPermission`，例外情况是 `Owner` 指全局配置文件中定义的 `SteamOwnerID` 用户（拥有最高权限）。
 
@@ -188,6 +188,26 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 该命令将会设置个人资料为公开、游戏详情为仅限好友、游戏时间为私密、好友列表为公开、库存为公开、库存礼物为私密、留言为公开。 如果您改用数字值，效果是一样的。
 
 请记住子选项的权限无法比父选项更高。 您可以参考上述选项的从属关系。
+
+* * *
+
+## `owns` 命令的 Games 参数
+
+`owns` 命令支持几种不同的 `<games>` 参数类型，包括：
+
+| 类型      | 别名  | 示例               | 描述                                                                                                                                                                                                                        |
+| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
+| `sub`   | `s` | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
+| `regex` | `r` | `regex/^\d{4}:` | 用于模式匹配游戏名称的&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**，区分大小写。 完整的语法与示例见&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**。 |
+| `name`  | `n` | `name/Witcher`   | 游戏名称的一部分，不区分大小写。                                                                                                                                                                                                          |
+
+我们建议您明确指定每一项的类型，以避免模糊不清的结果，但为了与之前的行为兼容，如果您提供的类型无效或者完全没有提供类型，ASF 会将您输入的数字视为 `app` 类型，将其他内容视为 `name` 类型。 您也可以同时查询多款游戏，即使用标准的 ASF 逗号分隔符（`,`）。
+
+一个完整命令的示例：
+
+    owns ASF app/292030,name/Witcher
+    
 
 * * *
 

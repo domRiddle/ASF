@@ -63,6 +63,14 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 ## Issues and solutions
 
-### Debian Jessie upgrade
+### Debian Stretch upgrade
 
-If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you may run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated libssl version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that you **don't** have `libssl1.0.0` package, for example with `apt-get purge libssl1.0.0`. Otherwise, you may run into a segfault. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 9 setups, the only way to run into this issue is upgrading from Debian 8 or older - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated `libssl` version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+
+### Debian Buster upgrade
+
+Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists).
+
+The most appropriate way to do that is specifying `CLR_OPENSSL_VERSION_OVERRIDE=1.1` environment property, which will do the trick, without a need of downgrading your OS-wide `libssl` settings, or removing `libssl` 1.0 entirely. You can specify environment properties in at least several different ways, but unless you know better we recommend adding it to `/etc/environment` file (and restarting your machine).
+
+Alternatively, like above, you can ensure that you **don't** have `libssl1.0.2` package, for example with `apt-get purge libssl1.0.2`. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 10 setups, the only way to run into this issue is upgrading from Debian 9 or older - **[dotnet/corefx #33179](https://github.com/dotnet/corefx/issues/33179)**. However, at least several packages still depend on that package (for example, `dotnet-runtime-2.2` which is required for running ASF in generic variant), so it might not be possible depending on your environment. Once .NET Core 3.0 is released and ASF upgraded to it, this issue will no longer be relevant.

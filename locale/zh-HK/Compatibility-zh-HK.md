@@ -63,6 +63,14 @@ ASF當前可用於以下操作系統 ：
 
 ## 問題與解決方案
 
-### Debian Jessie 更新
+### Debian Stretch upgrade
 
-如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 顧名思義，這個套裝軟件已過時並從軟件源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級──如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果有一些其他套裝軟件依賴於那個過時的 libssl 版本，那麼您應該升級或者卸載它們──不僅是因為這個問題，而是因為過時的庫本來就應該被摒棄。
+如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 顧名思義，這個套裝軟件已過時並從軟件源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級──如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 If you have some other packages depending on that outdated `libssl` version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
+
+### Debian Buster upgrade
+
+Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists).
+
+The most appropriate way to do that is specifying `CLR_OPENSSL_VERSION_OVERRIDE=1.1` environment property, which will do the trick, without a need of downgrading your OS-wide `libssl` settings, or removing `libssl` 1.0 entirely. You can specify environment properties in at least several different ways, but unless you know better we recommend adding it to `/etc/environment` file (and restarting your machine).
+
+Alternatively, like above, you can ensure that you **don't** have `libssl1.0.2` package, for example with `apt-get purge libssl1.0.2`. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 10 setups, the only way to run into this issue is upgrading from Debian 9 or older - **[dotnet/corefx #33179](https://github.com/dotnet/corefx/issues/33179)**. However, at least several packages still depend on that package (for example, `dotnet-runtime-2.2` which is required for running ASF in generic variant), so it might not be possible depending on your environment. Once .NET Core 3.0 is released and ASF upgraded to it, this issue will no longer be relevant.

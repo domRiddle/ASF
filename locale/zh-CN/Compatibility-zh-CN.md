@@ -63,6 +63,14 @@ ASF 目前指向的构建目标是 **.NET Core 2.2**（`netcoreapp2.2`），但�
 
 ## 问题与解决方案
 
-### Debian Jessie 升级问题
+### Debian Stretch 升级问题
 
-如果您从 Debian 8 Jessie（或更旧版本）升级到 Debian 9 Stretch，请确保您**没有** `libssl1.0.0` 包，清除方法之一是执行命令 `apt-get purge libssl1.0.0`。 否则，您可能会遇到段错误。 这个软件包已过时，已经从软件源中被移除，也无法在全新安装的 Debian 9 上安装，触发此问题的唯一途径是从 Debian 8 或更早版本升级——**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果一些其他软件包依赖于那个过时的 libssl 版本，那么您也应该升级或者卸载它们——不仅仅是因为这一个问题，而是因为过时的库本来就应该被抛弃。
+如果您从 Debian 8 Jessie（或更旧版本）升级到 Debian 9 Stretch，请确保您**没有** `libssl1.0.0` 包，清除方法之一是执行命令 `apt-get purge libssl1.0.0`。 否则，您可能会遇到段错误。 这个软件包已过时，已经从软件源中被移除，也无法在全新安装的 Debian 9 上安装，触发此问题的唯一途径是从 Debian 8 或更早版本升级——**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 如果一些其他软件包依赖于那个过时的 `libssl` 版本，那么您也应该升级或者卸载它们——不仅仅是因为这一个问题，而是因为过时的库本来就应该被抛弃。
+
+### Debian Buster 升级问题
+
+从 Debian 9 Stretch（或更旧版本）升级到 Debian 10 Buster 会将您的默认系统级 `libssl` 设置为 1.1。在 .NET Core 3.0 发布之前（以及 ASF 升级至此版本之前），您需要手动指定 .NET Core 运行时环境加载 `libssl` 版本 1.1，而不是 1.0（如果存在，.NET Core 会优先选择此版本）。
+
+最合适的设置方法是指定 `CLR_OPENSSL_VERSION_OVERRIDE=1.1` 环境变量，这样您就无需降级您的系统级 `libssl` 设置，也无需完全删除 `libssl` 1.0。 设置环境变量的方法有很多种，但我们建议您将其添加至 `/etc/environment` 文件中（并重新启动机器），除非您有更合适的方法。
+
+另一种方法如上文所述，您可以确保计算机中**不存在** `libssl1.0.2` 包，您可以执行 `apt-get purge libssl1.0.2` 或类似的命令删除它。 这个软件包已过时，已经从软件源中被移除，也无法在全新安装的 Debian 10 上安装，触发此问题的唯一途径是从 Debian 9 或更早版本升级——**[dotnet/corefx #33179](https://github.com/dotnet/corefx/issues/33179)**。 然而，有一部分软件包仍然依赖于此包（例如，运行 ASF Generic 版本所需的 `dotnet-runtime-2.2`），所以，您的系统环境也许无法删除这个包。 一旦 .NET Core 3.0 发布，并且 ASF 升级到此版本，这个问题将不再存在。
