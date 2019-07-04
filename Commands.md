@@ -195,7 +195,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 ## `addlicense` licenses
 
-`addlicense` command supports two different license types those are:
+`addlicense` command supports two different license types, those are:
 
 Type | Alias | Example | Description
 --- | --- | --- | ---
