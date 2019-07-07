@@ -1,10 +1,10 @@
-# Configuration
+# Παραμετροποίηση
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-- **[Introduction](#introduction)**
+- **[Εισαγωγή](#introduction)**
 - **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
+- **[Χειροκίνητη ρύθμιση](#manual-configuration)**
 - **[Global config](#global-config)**
 - **[Bot config](#bot-config)**
 - **[File structure](#file-structure)**
@@ -15,7 +15,7 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 * * *
 
-## Introduction
+## Εισαγωγή
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -37,7 +37,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Χειροκίνητη ρύθμιση
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -212,7 +212,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `Στατιστικά`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 

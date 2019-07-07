@@ -1,6 +1,6 @@
 # IPC
 
-ASF incluye su propia interfaz IPC que puede utilizarse para mayor interacción con el proceso. IPC significa **[comunicación entre procesos](https://en.wikipedia.org/wiki/Inter-process_communication)** (por sus siglas en inglés) y en la definición más simple esto es "interfaz web de ASF" basada en **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** que puede utilizarse para mayor integración con el proceso, tanto como un "frontend" para el usuario final (ASF-ui), como un "backend" para integración de aplicaciones de terceros.
+ASF incluye su propia interfaz IPC que puede utilizarse para mayor interacción con el proceso. IPC significa **[comunicación entre procesos](https://es.wikipedia.org/wiki/Comunicaci%C3%B3n_entre_procesos)** (por sus siglas en inglés) y en la definición más simple esto es "interfaz web de ASF" basada en **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** que puede utilizarse para mayor integración con el proceso, tanto como un "frontend" para el usuario final (ASF-ui), como un "backend" para integración de aplicaciones de terceros.
 
 El IPC puede ser utilizado para muchas cosas diferentes, dependiendo de tus necesidades y habilidades. Por ejemplo, puedes usarlo para obtener el estatus de ASF y de todos los bots, enviar comandos de ASF, obtener y editar configuraciones globales/de bot, añadir nuevos bots, eliminar bots existentes, enviar claves para **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** o acceder al archivo de registro de ASF. Todas esas acciones están expuestas por nuestra API, lo que significa que puedes codificar tus propias herramientas y scripts que sean capaces de comunicarse con ASF e influenciarlo durante el tiempo de ejecución. Además, algunas acciones selectas (como enviar comandos) también son implementadas por nuestro ASF-ui que te permite acceder a ellas fácilmente a través de una interfaz web amigable.
 
@@ -8,7 +8,7 @@ El IPC puede ser utilizado para muchas cosas diferentes, dependiendo de tus nece
 
 # Utilización
 
-Puedes habilitar nuestra interfaz IPC habilitando la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `IPC`. ASF declarará la ejecución de IPC en su registro, lo que puedes usar para verificar que la interfaz IPC inició correctamente:
+Puedes habilitar nuestra interfaz IPC habilitando la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-global)** `IPC`. ASF declarará la ejecución de IPC en su registro, lo que puedes usar para verificar que la interfaz IPC inició correctamente:
 
     INFO|ASF|Start() Iniciando servidor IPC...
     INFO|ASF|Start() ¡Servidor IPC listo!
@@ -22,7 +22,7 @@ En el nivel inferior está **[ASF API](#asf-api)** que es el núcleo de nuestra 
 
 En el terreno medio está nuestra **[documentación Swagger](#swagger-documentation)** que actúa como un frontend para la ASF API. Contiene documentación completa de la ASF API y también te permite acceder a ella más fácilmente. Esto es lo que quieres revisar si planeas escribir una herramienta, utilidad u otro proyecto que deba comunicarse con ASF a través de su API.
 
-En el nivel más alto está **[ASF-ui](#asf-ui)** que se basa en nuestra ASF API y proporciona una forma amigable de ejecutar varias acciones en ASF. Esta es una interfaz IPC predeterminada diseñada para los usuarios finales, y es un perfecto ejemplo de lo que puedes construir con la API de ASF. Si quieres, puedes usar tu UI web personalizada para utilizar con ASF, especificando el **[argumento de línea de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** `--path`.
+En el nivel más alto está **[ASF-ui](#asf-ui)** que se basa en nuestra ASF API y proporciona una forma amigable de ejecutar varias acciones en ASF. Esta es una interfaz IPC predeterminada diseñada para los usuarios finales, y es un perfecto ejemplo de lo que puedes construir con la API de ASF. Si quieres, puedes usar tu UI web personalizada para utilizar con ASF, especificando el **[argumento de línea de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es#argumentos)** `--path` y usando el directorio personalizado `www` ubicado allí.
 
 * * *
 
@@ -38,11 +38,11 @@ Como se dijo antes, ASF-ui es un proyecto comunitario que no es mantenido por lo
 
 # ASF API
 
-Nuestra ASF API es una típica API web **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** que se basa en JSON para su formato de datos principal. Hacemos todo lo posible para describir la respuesta con precisión, usando tanto códigos de estatus HTTP (donde sea apropiado), así como una respuesta que tú mismo puedas analizar para saber si la solicitud tuvo éxito, y si no, por qué.
+Nuestra ASF API es una típica API web **[RESTful](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional)** que se basa en JSON para su formato de datos principal. Hacemos todo lo posible para describir la respuesta con precisión, usando tanto códigos de estatus HTTP (donde sea apropiado), así como una respuesta que tú mismo puedas analizar para saber si la solicitud tuvo éxito, y si no, por qué.
 
 Nuestra ASF API puede ser accedida enviando las solicitudes correctas a los endpoints `/Api` apropiados. Puedes usar esos endpoints API para hacer tus propios scripts de ayuda, herramientas, interfaces gráficas de usuario y así por el estilo. Esto es exactamente lo que logra nuestra ASF-ui bajo el capó, y cualquier otra herramienta puede lograr lo mismo. ASF API es soportada oficialmente y mantenida por el equipo de ASF.
 
-Para una documentación completa de endpoints disponibles, descripciones, solicitudes, respuestas, códigos de estatus http y todo lo demás considerando ASF API, por favor, consulta nuestra **[documentación swagger](#swagger-documentation)**.
+Para una documentación completa de endpoints disponibles, descripciones, solicitudes, respuestas, códigos de estatus http y todo lo demás considerando ASF API, por favor, consulta nuestra **[documentación swagger](#documentación-swagger)**.
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
@@ -92,11 +92,11 @@ Sí, para eso fue diseñada la API de ASF y puedes usar cualquier cosa capaz de 
 
 ### ¿Puedo acceder remotamente a la IPC de ASF, por ejemplo, desde otra máquina?
 
-Si, recomendamos usar un proxy inverso para eso (explicado a abajo). De esta manera puedes acceder a tu servidor web de forma usual, que luego accederá a la IPC de ASF en la misma máquina. Alternativamente, si no quieres correrlo con un proxy inverso, puedes usar una **[configuración personalizada](#custom-configuration)** con la URL apropiada para ello. Por ejemplo, si tu máquina está en una VPN privada con la dirección `10.8.0.1`, puedes establecer la URL `http://10.8.0.1:1242` en configuración IPC, lo que permitiría el acceso IPC desde tu VPN privada, pero no desde cualquier otro lugar.
+Si, recomendamos usar un proxy inverso para eso (explicado a abajo). De esta manera puedes acceder a tu servidor web de forma usual, que luego accederá a la IPC de ASF en la misma máquina. Alternativamente, si no quieres correrlo con un proxy inverso, puedes usar una **[configuración personalizada](#configuración-personalizada)** con la URL apropiada para ello. Por ejemplo, si tu máquina está en una VPN privada con la dirección `10.8.0.1`, puedes establecer la URL `http://10.8.0.1:1242` en configuración IPC, lo que permitiría el acceso IPC desde tu VPN privada, pero no desde cualquier otro lugar.
 
 ### ¿Puedo usar la IPC de ASF tras un proxy inverso como Apache o Nginx?
 
-**Sí**, nuestra IPC es totalmente compatible con tal configuración, por lo que eres libre de alojarlo frente a tus herramientas para seguridad adicional y compatibilidad, si es lo que quieres. En general, el servidor Kestrel http de ASF es muy seguro y no hay riesgo cuando se conecta directamente a Internet, pero ponerlo tras un proxy inverso como Apache o Nginx podría proporcionar funcionalidad adicional que no sería podría lograr de otra forma, como asegurar la interfaz de ASF con **[autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**Sí**, nuestra IPC es totalmente compatible con tal configuración, por lo que eres libre de alojarlo frente a tus herramientas para seguridad adicional y compatibilidad, si es lo que quieres. En general, el servidor Kestrel http de ASF es muy seguro y no hay riesgo cuando se conecta directamente a Internet, pero ponerlo tras un proxy inverso como Apache o Nginx podría proporcionar funcionalidad adicional que no sería podría lograr de otra forma, como asegurar la interfaz de ASF con **[autenticación básica](https://es.wikipedia.org/wiki/Autenticación_de_acceso_básica)**.
 
 A continuación puedes encontrar un ejemplo de configuración Nginx. Incluimos el bloque `server` completo, aunque te interesan principalmente los `location`. Por favor, consulta la **[documentación nginx](https://nginx.org/en/docs)** si necesitas más detalles.
 
@@ -138,7 +138,7 @@ server {
 
 **Sí**, puedes conseguirlo a través de dos formas diferentes. Una forma recomendada sería usar un proxy inverso (descrito arriba) donde puedas acceder a tu servidor a través de https como de costumbre, y conectarte a través de él con la interfaz IPC de ASF en la misma máquina. De esta manera tu tráfico está totalmente cifrado y no necesitas modificar IPC de ninguna manera para soportar dicha configuración.
 
-La segunda forma incluye especificar una **[configuración personalizada](#custom-configuration)** para la interfaz IPC de ASF donde puedas habilitar un endpoint https y proporcionar un certificado apropiado directamente a nuestro servidor Kestrel http. Esta forma se recomienda si no estás ejecutando ningún otro servidor web y no quieres ejecutar uno más exclusivamente para ASF. De otro modo, es mucho más fácil lograr una configuración satisfactoria usando un mecanismo de proxy inverso.
+La segunda forma incluye especificar una **[configuración personalizada](#configuración-personalizada)** para la interfaz IPC de ASF donde puedas habilitar un endpoint https y proporcionar un certificado apropiado directamente a nuestro servidor Kestrel http. Esta forma se recomienda si no estás ejecutando ningún otro servidor web y no quieres ejecutar uno más exclusivamente para ASF. De otro modo, es mucho más fácil lograr una configuración satisfactoria usando un mecanismo de proxy inverso.
 
 * * *
 

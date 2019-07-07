@@ -53,7 +53,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.     |
 | `2fano <Bots>`                                                       | `Master`        | 為指定機器人拒絕所有待處理的​**[​兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**​交易確認。                                |
 | `2faok <Bots>`                                                       | `Master`        | 為指定機器人接受所有待處理的​**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**​交易確認。                                 |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 為指定機器人激活給定的 `appIDs`（Steam Network）或 `subIDs`（Steam 商店），僅適用於免費游戲。                                                                               |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                              |
 | `balance <Bots>`                                                     | `Master`        | 顯示指定機器人的 Steam 錢包餘額。                                                                                                                            |
 | `bgr <Bots>`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances. |
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                             |
@@ -188,6 +188,26 @@ ASF 會將命令末尾超出規定範圍的多餘參數“連接”到符合語�
 上述命令將會設置個人資料為公開、遊戲詳情為僅限好友、遊戲時間為私密、好友列表為公開、庫存為公開、庫存禮物為私密、留言為公開。 若有需要，您也可以使用數字值來實現相同效果。
 
 請記住子選項的許可權無法比父選項更高。 有關可用選項, 請參閱參數關係。
+
+* * *
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| 類型    | 別名  | 範例           | 描述                                                                      |
+| ----- | --- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 

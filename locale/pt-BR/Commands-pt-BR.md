@@ -53,7 +53,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `2Fa <Bots>`                                                         | `Master`            | Gera um código **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** temporário para os bot indicados.                                                                                                                  |
 | `2Fano <Bots>`                                                       | `Master`            | Nega todas as confirmações **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** pendentes para os bots indicados.                                                                                                      |
 | `2faok <Bots>`                                                       | `Master`            | Aceita todas as confirmações **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pendentes para os bots indicados.                                                                                                          |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`          | Ativa as `appIDs` (Rede Steam) ou `subIDs` (Loja Steam) indicadas nas contas bots indicadas (apenas jogos gratuitos).                                                                                                                                            |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`          | Ativa as licenças indicadas em `licenses`, conforme explicado **[abaixo](#addlicense-adicionar-licenças)**, nos bots indicados (apenas jogos gratuitos).                                                                                                         |
 | `balance <Bots>`                                                     | `Master`            | Mostra o saldo da carteira do bot indicado.                                                                                                                                                                                                                      |
 | `bgr <Bots>`                                                         | `Master`            | Mostra a lista do **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** (ativador de jogos em segundo plano) do bot indicado.                                                                                                 |
 | `bl <Bots>`                                                          | `Master`            | Lista os usuários bloqueados no módulo de trocas dos bots indicados.                                                                                                                                                                                             |
@@ -191,6 +191,26 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 * * *
 
+## `addlicense` Adicionar licenças
+
+O comando `addlicense` suporte dois tipos diferentes de licenças:
+
+| Tipo  | Pseudônimo | Exemplo      | Descrição                                                      |
+| ----- | ---------- | ------------ | -------------------------------------------------------------- |
+| `app` | `a`        | `app/292030` | `appID` do jogo desejado.                                      |
+| `sub` | `s`        | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
+
+A diferenciação é importante pois o ASF vai usar a rede Steam para ativar apps, e a loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
+
+Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou pelo `sub`. Você também pode consultar uma ou mais licenças ao mesmo tempo, usando o delimitador padrão do ASF `,`.
+
+Exemplo de comando completo:
+
+    addlicense ASF app/292030,sub/47807
+    
+
+* * *
+
 ## `owns` jogos
 
 O comando `owns` suporta diversos tipos de argumentos para definir os jogos em `<games>`, tais como:
@@ -213,7 +233,7 @@ Exemplo de comando completo:
 
 ## Métodos `redeem^`
 
-O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
+O comando `redeem^` permite que você ajuste os métodos que serão usados em um cenário individual de ativação de keys. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -247,7 +267,7 @@ A sintaxe geral é `input <Bots> <Type> <Value>`.
 | Tipo                    | Descrição                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
 | DeviceID                | Identificador de dispositivo 2FA, caso esteja faltando no `.maFile`.                         |
-| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
+| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando no arquivo config.     |
 | Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
 | SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
 | SteamParentalCode       | Propriedade de configuração do bot `SteamParentalCode`, caso esteja faltando na config.      |

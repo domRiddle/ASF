@@ -1,4 +1,4 @@
-# ΑΣΦΑΛΕΙΑ
+# Ασφάλεια
 
 ## SteamPassword
 
@@ -46,6 +46,6 @@ For people launching ASF rarely or those who are not bothered with entering the 
 
 * * *
 
-# Decryption
+# Αποκρυπτογράφηση
 
 ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `0` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.

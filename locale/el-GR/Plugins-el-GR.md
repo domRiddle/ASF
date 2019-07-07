@@ -1,10 +1,10 @@
-# Plugins
+# Πρόσθετα
 
 Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
 
 * * *
 
-## For users
+## Για χρήστες
 
 ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
 
@@ -18,13 +18,13 @@ You can find some featured plugins in our **[third-party](https://github.com/Jus
 
 * * *
 
-## For developers
+## Για προγραμματιστές
 
 Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
 * * *
 
-### Getting started
+### Ξεκινώντας
 
 Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. We recommend you to target .NET Core, but .NET Framework plugins are also available.
 
@@ -90,7 +90,7 @@ This is only the most basic scenario to get you started, we have **[`ExamplePlug
 
 * * *
 
-### API availability
+### Διαθεσιμότητα API
 
 ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use of, in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the issues we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you.
 
@@ -100,7 +100,7 @@ In fact, internal ASF's API is the only real limitation in terms of what your pl
 
 * * *
 
-### API compatibility
+### Συμβατότητα API
 
 It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. This should be logical for you, but it's important to highlight that fact.
 

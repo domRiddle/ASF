@@ -53,7 +53,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `2fa <Bots>`                                                         | `Master`        | 为指定机器人生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。       |
 | `2fano <Bots>`                                                       | `Master`        | 为指定机器人拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
 | `2faok <Bots>`                                                       | `Master`        | 为指定机器人接受所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。 |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | 为指定机器人激活给定的 `AppIDs`（Steam 网络）或 `SubIDs`（Steam 商店），仅免费游戏有效。                                                                       |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`      | 为指定机器人激活给定的 `Licenses `（许可），该参数解释详见&#8203;**[下文](#addlicense-命令的-licenses-参数)**。                                                  |
 | `balance <Bots>`                                                     | `Master`        | 显示指定机器人的 Steam 钱包余额。                                                                                                              |
 | `bgr <Bots>`                                                         | `Master`        | 显示指定机器人的 **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**（后台游戏激活器）队列信息。             |
 | `bl <Bots>`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                  |
@@ -188,6 +188,26 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 该命令将会设置个人资料为公开、游戏详情为仅限好友、游戏时间为私密、好友列表为公开、库存为公开、库存礼物为私密、留言为公开。 如果您改用数字值，效果是一样的。
 
 请记住子选项的权限无法比父选项更高。 您可以参考上述选项的从属关系。
+
+* * *
+
+## `addlicense` 命令的 Licenses 参数
+
+`addlicense` 命令支持两种不同的许可类型，包括：
+
+| 类型    | 别名  | 示例           | 描述                        |
+| ----- | --- | ------------ | ------------------------- |
+| `app` | `a` | `app/292030` | 游戏的唯一 `appID`。            |
+| `sub` | `s` | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
+
+二者的区别很重要，因为 ASF 需要向 Steam 网络激活 App，向 Steam 商店激活 Sub。 二者互不兼容，通常您会为周末免费或永久免费游戏使用 App，为其他情况使用 Sub。
+
+我们建议您明确指定每一项的类型，以避免模糊不清的结果，但为了与之前的行为兼容，如果您提供的类型无效或者完全没有提供类型，ASF 会将您输入的数字视为 sub 类型。 您也可以同时激活多条许可，即使用标准的 ASF 逗号分隔符（`,`）。
+
+一个完整命令的示例：
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 

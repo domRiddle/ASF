@@ -53,7 +53,7 @@ A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes 
 | `2fa <Bots>`                                                         | `Master`        | Ideiglenes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** tokent generál a megadott bot példányokhoz.                                                       |
 | `2fano <Bots>`                                                       | `Master`        | Megtagadja az összes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** megerősítést a megadott példányoktól.                                                   |
 | `2faok <Bots>`                                                       | `Master`        | Elfogadja az összes **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** megerősítést a megadott bot példányoknak.                                                |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Aktiválja a megadott `appIDs`-t (Steam hálózat), vagy `subIDs`-t (Steam bolt) a megadott bot példányokon (csakis ingyenes játékokkal működik).                                                        |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                    |
 | `balance <Bots>`                                                     | `Master`        | Visszaadja a megadott bot példányok pénztárca egyenlegét.                                                                                                                                             |
 | `bgr <Bots>`                                                         | `Master`        | Információt ad a **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** várólistáról a megadott botok számára.                                                      |
 | `bl <Bots>`                                                          | `Master`        | Listázza a tiltólistán lévő felhasználókat, melyek így nem tudnak csereajánlást küldeni a megadott bot példányok számára.                                                                             |
@@ -188,6 +188,26 @@ This way you can also set independent options however you like:
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+* * *
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| Típus | Alternatív parancs | Példa        | Leírás                                                                  |
+| ----- | ------------------ | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`                | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`                | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 

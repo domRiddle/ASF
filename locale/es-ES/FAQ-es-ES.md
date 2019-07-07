@@ -385,16 +385,16 @@ No ganarás nada al ejecutar más de 1 una instancia por cada IP/interfaz. Steam
 
 El estado indica cómo resultó un intento de activación. Hay diferentes estados posibles, los más comunes incluyen:
 
-| Estado                  | Descripción                                                                                                                                                                                                      |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NoDetail                | El estado "OK" indica éxito - la clave fue activada exitósamente.                                                                                                                                                |
-| Timeout                 | La red de Steam no respondió en un tiempo dado, no sabemos si la clave fue activada, o no (lo más probable es que sí, pero lo puedes intentar de nuevo).                                                         |
-| BadActivationCode       | La clave proporcionada no es válida (no se reconoce como una clave válida por la red de Steam).                                                                                                                  |
-| DuplicateActivationCode | La clave proporcionada ya fue activada por otra cuenta, o revocada por el desarrollador/editor.                                                                                                                  |
-| AlreadyPurchased        | Tu cuenta ya tiene el `packageID` asociado a esta clave. Ten en cuenta que no esto no indica si la clave tiene el estado `DuplicateActivationCode` o no - solo que es válida y que no fue usada en este intento. |
-| RestrictedCountry       | Esta es una clave con bloque regional y tu cuenta no está en la región válida permitida para activarla.                                                                                                          |
-| DoesNotOwnRequiredApp   | No puedes activar esa clave porque te falta alguna otra aplicación - principalmente el juego base cuando estás intentando activar un paquete DLC.                                                                |
-| RateLimited             | Has hecho demasiados intentos de activación y tu cuenta fue bloqueada temporalmente. Intenta de nuevo en una hora.                                                                                               |
+| Estado                  | Descripción                                                                                                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NoDetail                | El estado "OK" indica éxito - la clave fue activada exitósamente.                                                                                                                                             |
+| Timeout                 | La red de Steam no respondió en un tiempo dado, no sabemos si la clave fue activada, o no (lo más probable es que sí, pero lo puedes intentar de nuevo).                                                      |
+| BadActivationCode       | La clave proporcionada no es válida (no se reconoce como una clave válida por la red de Steam).                                                                                                               |
+| DuplicateActivationCode | La clave proporcionada ya fue activada por otra cuenta, o revocada por el desarrollador/editor.                                                                                                               |
+| AlreadyPurchased        | Tu cuenta ya tiene el `packageID` asociado a esta clave. Ten en cuenta que esto no indica si la clave tiene el estado `DuplicateActivationCode` o no - solo que es válida y que no fue usada en este intento. |
+| RestrictedCountry       | Esta es una clave con bloque regional y tu cuenta no está en la región válida permitida para activarla.                                                                                                       |
+| DoesNotOwnRequiredApp   | No puedes activar esa clave porque te falta alguna otra aplicación - principalmente el juego base cuando estás intentando activar un paquete DLC.                                                             |
+| RateLimited             | Has hecho demasiados intentos de activación y tu cuenta fue bloqueada temporalmente. Intenta de nuevo en una hora.                                                                                            |
 
 * * *
 

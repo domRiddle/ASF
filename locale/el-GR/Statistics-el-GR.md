@@ -1,4 +1,4 @@
-# Statistics
+# Στατιστικά
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
@@ -6,7 +6,7 @@ ASF in default settings has `Statistics` global config property enabled. If you 
 
 * * *
 
-## Current privacy policy
+## Τρέχουσα πολιτική απορρήτου
 
 When `Statistics` are active, following things will happen:
 
@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-# Usage of data
+# Χρήση των δεδομένων
 
 All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 
@@ -43,7 +43,7 @@ All values specified in second point are being used for our **Public ASF STM lis
 
 Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
-### How it exactly works
+### Πως ακριβώς λειτουργεί
 
 ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
 
@@ -59,7 +59,7 @@ ASF STM listing only accepts ASF bots for time being. There is no way to list th
 
 If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
 
-### Notice
+### Σημείωση
 
 *The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
 

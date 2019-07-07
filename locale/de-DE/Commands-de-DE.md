@@ -53,7 +53,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `2fa <Bots>`                                                         | `Master`        | Generiert temporäre **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**-Codes der angegebenen Bot-Instanzen.                                                                                                                        |
 | `2fano <Bots>`                                                       | `Master`        | Lehnt alle ausstehenden **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**-Bestätigungen der angegebenen Bot-Instanzen ab.                                                                                                         |
 | `2faok <Bots>`                                                       | `Master`        | Akzeptiert alle ausstehenden **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**-Bestätigungen der angegebenen Bot-Instanzen.                                                                                                       |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Aktiviert die angegebenen `appIDs` (Steam-Netzwerk) oder `subIDs` (Steam-Shop) auf den angegebenen Bot-Instanzen (nur kostenlose Spiele).                                                                                                                                      |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                                                                                             |
 | `balance <Bots>`                                                     | `Master`        | Zeigt das Guthaben der angegebenen Bot-Instanzen an.                                                                                                                                                                                                                           |
 | `bgr <Bots>`                                                         | `Master`        | Gibt Informationen über **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** Warteschlange der angegebenen Bot-Instanzen aus.                                                                                                              |
 | `bl <Bots>`                                                          | `Master`        | Listet Benutzer aus dem Handelsmodul der gegebenen Bot-Instanzen auf, die auf der schwarzen Liste stehen.                                                                                                                                                                      |
@@ -188,6 +188,26 @@ Auf diese Weise kannst du auch einzelne Einstellungen so vornehmen, wie du wills
 Das oben genannte wird das Profil auf öffentlich setzen, eigene Spiele auf nur für Freunde, Spielzeit auf privat, Freundesliste auf öffentlich, Inventar auf öffentlich, Inventar Geschenke auf privat und Profil-Kommentare auf öffentlich. Das Gleiche kann man mit numerischen Werten erreichen, wenn man dies möchte.
 
 Bedenke, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Elternteil. Siehe hierzu die Argumentationsbeziehung für die verfügbaren Optionen.
+
+* * *
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| Typ   | Alias | Beispiel     | Beschreibung                                                            |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 

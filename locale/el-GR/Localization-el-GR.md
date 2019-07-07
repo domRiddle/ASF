@@ -1,4 +1,4 @@
-# Localization
+# Μετάφραση
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
@@ -12,7 +12,7 @@ Our platform supports localization of our main ASF program, as well as whole loc
 
 * * *
 
-## Signing up
+## Εγγραφή
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 * * *
 
-### Reviewing
+### Έλεγχος
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Issues
+### Προβλήματα
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
@@ -71,7 +71,7 @@ There are currently 4 supported type of issues:
 
 * * *
 
-### Translation progress
+### Εξέλιξη μετάφρασης
 
 Every language has two states of completion - translation, and proof-reading.
 
@@ -91,7 +91,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 * * *
 
-## Pluralization
+## Πληθυντικός
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -230,7 +230,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Για παράδειγμα:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 

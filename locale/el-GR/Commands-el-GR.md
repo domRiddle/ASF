@@ -48,12 +48,12 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Εντολές
 
-| Command                                                                    | Πρόσβαση        | Description                                                                                                                                                                                           |
+| Εντολή                                                                     | Πρόσβαση        | Περιγραφή                                                                                                                                                                                             |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                           |
 | `2fano <Bots>`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                    |
 | `2faok <Bots>`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operator`      | Activates given `appIDs` (Steam Network) or `subIDs` (Steam Store) on given bot instances (free games only).                                                                                          |
+| `addlicense <Bots> <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                    |
 | `balance <Bots>`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                          |
 | `bgr <Bots>`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                       |
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
@@ -99,7 +99,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 * * *
 
-### Notes
+### Σημειώσεις
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -119,7 +119,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Εντολή       | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -158,15 +158,15 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | Όνομα         |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Τιμή | Όνομα         |
+| ---- | ------------- |
+| 1    | `Private`     |
+| 2    | `FriendsOnly` |
+| 3    | `Public`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### Παράδειγμα
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -191,11 +191,31 @@ Remember that child can never have more open permission than its parent. Refer t
 
 * * *
 
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| Τύπος | Alias | Παράδειγμα   | Περιγραφή                                                               |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
+
+* * *
+
 ## `owns` games
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                                   |
+| Τύπος   | Alias | Παράδειγμα       | Περιγραφή                                                                                                                                                                                                                                                                     |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
 | `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
@@ -217,16 +237,16 @@ Complete command example:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Όνομα                 | Description                                                           |
-| ----- | --------------------- | --------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Τιμή | Όνομα                 | Περιγραφή                                                             |
+| ---- | --------------------- | --------------------------------------------------------------------- |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -244,7 +264,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Τύπος                   | Περιγραφή                                                                  |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
@@ -255,7 +275,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Παράδειγμα
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

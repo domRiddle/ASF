@@ -1,8 +1,8 @@
 # Activador de juegos en segundo plano
 
-El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` antes de que termines con tu lote entero.
+El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#cu%C3%A1l-es-el-significado-de-estatus-al-activar-una-clave)** `RateLimited` antes de que termines con tu lote entero.
 
-El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, de ser necesario.
+El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `redeem`, de ser necesario.
 
 * * *
 
@@ -32,7 +32,7 @@ Independientemente del formato que hayas decidido mantener, ASF importará tu ar
 
 ### IPC
 
-Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves personalizada.
+Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves personalizada.
 
 * * *
 

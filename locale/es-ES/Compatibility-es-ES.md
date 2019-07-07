@@ -1,6 +1,6 @@
 # Compatibilidad
 
-ASF es una aplicación C# que se ejecuta en la plataforma .NET Core. Esto significa que ASF no se compila directamente en e **[código de máquina](https://es.wikipedia.org/wiki/Lenguaje_de_m%C3%A1quina)** que se ejecuta en tu PC, sino en **[CIL](https://es.wikipedia.org/wiki/Common_Intermediate_Language)** que requiere tiempo de ejecución compatile con CIL para ejecutarse.
+ASF es una aplicación C# que se ejecuta en la plataforma .NET Core. Esto significa que ASF no se compila directamente en el **[código de máquina](https://es.wikipedia.org/wiki/Lenguaje_de_m%C3%A1quina)** que se ejecuta en tu PC, sino en **[CIL](https://es.wikipedia.org/wiki/Common_Intermediate_Language)** que requiere tiempo de ejecución compatile con CIL para ejecutarse.
 
 Este enfoque tiene una enorme cantidad de ventajas, ya que CIL es independiente de las plataformas, por lo que ASF puede ejecutarse nativamente en muchos sistemas operativos, especialmente Windows, Linux y OS X. No solo no es necesaria la emulación, sino también hay soporte para todas las optimizaciones relacionadas con plataformas y hardware, tal como instrucciones CPU SSE. Gracias a eso, ASF puede lograr rendimiento y optimización superiores, mientras que ofrece una perfecta compatibilidad y fiabilidad.
 

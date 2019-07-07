@@ -53,7 +53,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 | `2fa <Bots>`                                                         | `Master`           | Genera un código **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es)** temporal para determinadas instancias de bot.                                                                                                                    |
 | `2fano <Bots>`                                                       | `Master`           | Rechaza todas las confirmaciones **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es)** pendientes para determinadas instancias de bot.                                                                                                  |
 | `2faok <Bots>`                                                       | `Master`           | Acepta todas las confirmaciones **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es)** pendientes para determinadas instancias de bot.                                                                                                   |
-| `addlicense <Bots> <GameIDs>`                                  | `Operador`         | Activa ciertas `appIDs` (Red de Steam) o `subIDs` (Tienda de Steam) en determinadas instancias de bot (solo juegos gratis).                                                                                                                                                      |
+| `addlicense <Bots> <Licenses>`                                 | `Operador`         | Activa `licenses` dadas, explicado **[abajo](#addlicense-añadir-licencias)**, en instancias de bot determinadas (solo juegos gratis).                                                                                                                                            |
 | `balance <Bots>`                                                     | `Master`           | Muestra el saldo de la cartera de instancias de bot determinadas.                                                                                                                                                                                                                |
 | `bgr <Bots>`                                                         | `Master`           | Muestra información sobre la cola del **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-es)** de instancias de bot determinadas.                                                                         |
 | `bl <Bots>`                                                          | `Master`           | Enlista los usuarios bloqueados del módulo de intercambio de instancias de bot determinadas.                                                                                                                                                                                     |
@@ -191,6 +191,26 @@ Recuerda que el hijo nunca puede tener permisos más abiertos que su padre. Cons
 
 * * *
 
+## `addlicense` añadir licencias
+
+El comando `addlicense` soporta dos tipos de licencia diferentes, estos son:
+
+| Tipo  | Alias | Ejemplo      | Descripción                                                              |
+| ----- | ----- | ------------ | ------------------------------------------------------------------------ |
+| `app` | `a`   | `app/292030` | Juego determinado por su `appID` única.                                  |
+| `sub` | `s`   | `sub/47807`  | Paquete que contiene uno o más juegos, determinado por su `subID` único. |
+
+La distinción es importante, ya que ASF usará la activación de la red de Steam para las apps, y la activación de la tienda de Steam para los paquetes. Estos dos no son compatibles entre sí, normalmente usarías apps para fines de sema gratis y juegos permanentemente F2P, y paquetes en los demás casos.
+
+Recomendamos definir explícitamente el tipo de cada entrada para evitar resultados ambiguo, pero por la retrocompatibilidad, si proporcionas un tipo no válido o lo omites por completo, ASF asumirá que estás pidiendo `sub` en este caso. También puedes consultar una o más de las licencias al mismo tiempo, usando la coma `,` que es el el delimitador estándar de ASF.
+
+Ejemplo de comando completo:
+
+    addlicense ASF app/292030,sub/47807
+    
+
+* * *
+
 ## `owns` juegos
 
 El comando `owns` soporta varios tipos de juegos diferentes para el argumento `<games>`, estos son:
@@ -213,7 +233,7 @@ Ejemplo de comando completo:
 
 ## Modos `redeem^`
 
-El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuración-de-bot)** `RedeemingPreferences`.
+El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `RedeemingPreferences`.
 
 El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de modo disponibles se especifican a continuación:
 
@@ -238,7 +258,7 @@ Es importante notar que la activación avanzada solo anula las `RedeemingPrefere
 
 ## Comando `input`
 
-El comando input solo puede utilizarse en el modo `Headless`, para introducir datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
+El comando input solo puede utilizarse en el modo `Headless`, para introducir datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
 
 La sintaxis general es `input <Bots> <Type> <Value>`.
 

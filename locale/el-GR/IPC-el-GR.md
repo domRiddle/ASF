@@ -6,7 +6,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 * * *
 
-# Usage
+# Χρήση
 
 You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
@@ -48,7 +48,7 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 * * *
 
-## Authentication
+## Πιστοποίηση
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 
@@ -142,7 +142,7 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 * * *
 
-## Custom configuration
+## Προσαρμοσμένη ρύθμιση παραμέτρων
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 

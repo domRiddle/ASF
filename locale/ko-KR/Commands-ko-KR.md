@@ -53,7 +53,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `2fa <Bots>`                                                         | `주인(Master)`    | 해당 봇 인스턴스에 대한 임시 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 토큰을 생성합니다.                                                         |
 | `2fano <Bots>`                                                       | `주인(Master)`    | 해당 봇 인스턴스에 대해 대기중인 모든 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 확인을 거부합니다.                                                    |
 | `2faok <Bots>`                                                       | `주인(Master)`    | 해당 봇 인스턴스에 대해 대기중인 모든 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 확인을 승인합니다.                                                    |
-| `addlicense <Bots> <GameIDs>`                                  | `운영자(Operator)` | 해당 봇 인스턴스들에서 주어진 `appIDs` (스팀 네트워크) 또는 `subIDs` (스팀 상점) 를 활성화 합니다 (무료 게임만).                                                                                                           |
+| `addlicense <Bots> <Licenses>`                                 | `운영자(Operator)` | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                    |
 | `balance <Bots>`                                                     | `주인(Master)`    | 해당 봇 인스턴스의 지갑 잔고를 보여줍니다.                                                                                                                                                              |
 | `bgr <Bots>`                                                         | `주인(Master)`    | 해당 봇 인스턴스의 **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 큐 정보를 표시합니다.                                                       |
 | `bl <Bots>`                                                          | `주인(Master)`    | 해당 봇 인스턴스들의 거래 모듈에서 블랙리스트에 등록된 유저 목록을 보여줍니다.                                                                                                                                          |
@@ -188,6 +188,26 @@ This way you can also set independent options however you like:
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+
+* * *
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| Type  | 별칭  | 예시           | 설명                                                                      |
+| ----- | --- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 

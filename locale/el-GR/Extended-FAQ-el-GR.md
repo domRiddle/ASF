@@ -4,7 +4,7 @@ Our extended FAQ covers a bit less common questions and answers that you may hav
 
 * * *
 
-### Who has created ASF?
+### Ποιος δημιούργησε το ASF;
 
 ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
 

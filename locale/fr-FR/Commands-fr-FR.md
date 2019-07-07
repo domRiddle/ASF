@@ -53,7 +53,7 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 | `2fa <Bots>`                                                         | `Maître`          | Génère un jeton temporaire **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pour des instances de bot donnés.                                                                                                                                                                                                           |
 | `2fano <Bots>`                                                       | `Maître`          | Refuse toutes les confirmations en attente **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pour des instances de bot donnés.                                                                                                                                                                                           |
 | `2faok <Bots>`                                                       | `Maître`          | Accepte toutes les confirmations en attente **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** pour des instances de bot donnés.                                                                                                                                                                                          |
-| `addlicense <Bots> <GameIDs>`                                  | `Opérateur`       | Active les `appID` (réseaux Steam) ou les `subIDs` (Steam Store) donnés sur des instances de bot données (jeux gratuits uniquement).                                                                                                                                                                                                                            |
+| `addlicense <Bots> <Licenses>`                                 | `Opérateur`       | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                                                                                                                                                                              |
 | `balance <Bots>`                                                     | `Maître`          | Affiche le portefeuille Steam des instances choisies.                                                                                                                                                                                                                                                                                                           |
 | `bgr <Bots>`                                                         | `Maître`          | Imprime les informations sur **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** file d'attente des instances de bot données.                                                                                                                                                                                              |
 | `bl <Bots>`                                                          | `Maître`          | Liste les utilisateurs en liste noire du module de négociation d'instances de bot données.                                                                                                                                                                                                                                                                      |
@@ -192,6 +192,26 @@ De cette façon, vous pouvez également définir des options indépendantes comm
 Ce qui précède définira le profil comme public, les jeux appartenant à seulement des amis, le temps de jeu privé, la liste d'amis public, l'inventaire public, les cadeaux d'inventaire privé et les commentaires de profil public. Vous pouvez obtenir la même chose avec des valeurs numériques si vous le souhaitez.
 
 Rappelez-vous que l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Reportez-vous aux arguments pour les options disponibles.
+
+* * *
+
+## `addlicense` licenses
+
+`addlicense` command supports two different license types, those are:
+
+| Type  | Alias | Exemple      | Description                                                             |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+
+The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+
+We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+
+Complete command example:
+
+    addlicense ASF app/292030,sub/47807
+    
 
 * * *
 
