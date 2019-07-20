@@ -335,7 +335,7 @@ ASF - консольное приложение, у которого нет ок
 
 ### Есть ли какие-то методы взаимодействия с ASF?
 
-Да, через чат Steam, или с помощью **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU)**. Более подробно читайте в разделе "**[Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**".
+Да, даже несколькими способами. Более подробно читайте в разделе "**[Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**".
 
 * * *
 

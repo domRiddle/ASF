@@ -56,6 +56,8 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu se
 
 `--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben, kann ASF nach der Initialisierung einzelne Programmverzeichnisse wie `config`, `plugins` oder `www` sowie die `NLog.config` an einem anderen Pfad auslagern. Die Binärdateien sind an den Stellen dadurch nicht mehr nötig. Es könnte besonders nützlich sein, wenn du die Binärdatei von der eigentlichen Konfiguration trennst, wie es in einem Linux-ähnlichen Paket geschieht. Auf diese Weise kannst du eine einzelne (aktuelle) Binärdatei mit mehreren verschiedenen Einstellungen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Wenn du mehrere Instanzen derselben Binärdatei ausführst, denke daran, dass du normalerweise automatische Updates deaktivieren solltest, da es keine Synchronisation zwischen ihnen gibt. Bedenke auch, dass dieser Befehl auf einen neuen "ASF Ordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF Ordner hat, mit einem Verzeichnis `config` darin.
 
+Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+
 Beispiel:
 
 ```shell

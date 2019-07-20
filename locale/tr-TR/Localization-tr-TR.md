@@ -30,7 +30,7 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
-Or:
+Veya:
 
 > {0} is the number of games to idle.
 

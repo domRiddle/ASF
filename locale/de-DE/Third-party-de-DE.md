@@ -8,6 +8,8 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern ge
 
 ## ASF Plugins
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Plugin für ASF, mit dem du Steam-Erfolge verwalten kannst.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
 

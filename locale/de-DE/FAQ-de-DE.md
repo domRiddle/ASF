@@ -137,7 +137,7 @@ In erster Linie hast du einige eingebaute Funktionen, die **[oben](#lohnt-es-sic
 
 - **Du kannst neue Gegenstände automatisch als erhalten markieren** (`BotBehaviour` von `DismissInventoryNotifications` Feature). Das Sammeln mit ASF führt dazu, dass dein Konto neue Karten erhält. Du weißt bereits, dass dies geschehen wird, also lass ASF diese unnötige Benachrichtigung für dich lesen und sicherstellen, dass nur wichtige Dinge deine Aufmerksamkeit gewinnen. Natürlich nur wenn du willst.
 
-- **Du kannst automatisch Karten von Steam Events** erhalten (`AutoSteamSaleEvent` Feature). ASF allows you to automate going through discovery queue during Steam sale, of course only if you'd like to make use of that. Dies spart jeden Tag enorm viel Zeit, während der Steam-Sale stattfindet, und stellt sicher, dass du deine täglichen Karten nie wieder verpassen wirst.
+- **Du kannst automatisch Karten von Steam Events** erhalten (`AutoSteamSaleEvent` Feature). ASF ermöglicht es dir, die Entdeckungsliste während des Steam-Sales zu automatisieren, aber natürlich nur, wenn du das auch möchtest. Dies spart jeden Tag enorm viel Zeit, während der Steam-Sale stattfindet, und stellt sicher, dass du deine täglichen Karten nie wieder verpassen wirst.
 
 - **Du kannst die bevorzugte Sammel-Reihenfolge mit mehr verfügbaren Optionen anpassen** (`FarmingOrders` Feature). Vielleicht möchtest du zuerst deine neu gekauften Spiele sammeln? Oder deine ältesten? Nach der Anzahl der Karten? Abzeichen-Level, die du bereits hergestellt hast? Gespielte Stunden? Alphabetisch? Nach den AppIDs? Oder komplett zufällig? Das liegt ganz bei dir.
 
@@ -335,7 +335,7 @@ ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fe
 
 ### Gibt es eine Möglichkeit mit ASF zu kommunizieren?
 
-Ja, durch den Steam-Chat or mittels **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**. Weitere Informationen findest du im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**.
+Ja, auf verschiedene Arten. Weitere Informationen findest du im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**.
 
 * * *
 

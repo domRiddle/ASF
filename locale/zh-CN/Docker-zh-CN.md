@@ -106,16 +106,16 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 ## 命令行参数
 
-ASF 允许您通过设定 `ASF_ARGS` 环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 您可以通过向 `docker run` 命令传递 `-e` 参数来实现。 例如：
+ASF 允许您通过设定环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-这会把您的 `--cryptkey` 参数正确地传递给 Docker 容器内部的 ASF 进程。 当然，如果您是一名高级用户，也可以修改 `ENTRYPOINT`，手动传递自定义参数。
+这会把您的 `--cryptkey` 以及其他参数正确地传递给 Docker 容器内部的 ASF 进程。 当然，如果您是一名高级用户，也可以修改 `ENTRYPOINT`，手动传递自定义参数。
 
-除非您需要提供自定义加密密钥或者使用其他高级选项，否则通常您不需要指定任何 `ASF_ARGS`，因为我们的 Docker 容器已被配置为使用合适的默认选项 `--no-restart` `--process-required` `--system-required`。
+除非您需要提供自定义加密密钥或者使用其他高级选项，否则通常您不需要指定任何环境变量，因为我们的 Docker 容器已被配置为使用合适的默认选项 `--no-restart` `--process-required` `--system-required`，所以您可能会发现，在上述示例中，`ASF_ARGS` 是多余的，只有 `ASF_CRYPTKEY` 发挥了作用。
 
 * * *
 

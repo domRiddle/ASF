@@ -8,6 +8,8 @@
 
 ## ASF 外掛程式
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
 

@@ -1,18 +1,18 @@
-# FAQ
+# Συχνές ερωτήσεις
 
 Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
 # Table of contents
 
-- [General](#general)
+- [Γενικά](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [ΔΙΑΦΟΡΑ](#misc)
-- [Issues](#issues)
+- [Προβλήματα](#issues)
 
 * * *
 
-## General
+## Γενικά
 
 ### So how it exactly works?
 
@@ -335,7 +335,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Is there any way to communicate with ASF?
 
-Yes, through steam chat, or by using **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**. Check out **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** section for more info.
+Yes, through several different ways. Check out **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** section for more info.
 
 * * *
 
@@ -385,7 +385,7 @@ You won't gain anything from launching more than 1 instance per a single IP/inte
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Description                                                                                                                                                                                                                    |
+| Status                  | Περιγραφή                                                                                                                                                                                                                      |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
@@ -414,7 +414,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Προβλήματα
 
 * * *
 

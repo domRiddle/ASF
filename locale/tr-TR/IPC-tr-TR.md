@@ -48,7 +48,7 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 * * *
 
-## Authentication
+## Kimlik Doğrulama
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 

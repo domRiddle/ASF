@@ -90,9 +90,9 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `stats`                                                                    | `Besitzer`      | Zeigt Prozessstatistiken, wie z.B. die Nutzung des verwalteten Speichers an.                                                                                                                                                                                                   |
 | `status <Bots>`                                                      | `FamilySharing` | Zeigt den Status der angegebenen Bot-Instanzen an.                                                                                                                                                                                                                             |
 | `stop <Bots>`                                                        | `Master`        | Stoppt die angegebenen Bot-Instanzen.                                                                                                                                                                                                                                          |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                           |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.                                                                                                                                               |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                         |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sendet alle `TransferableTypes` Steam Community-Gegenstände von gegebenen Bot-Instanzen an den Ziel-Bot-Instanz.                                                                                                                                                               |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, die mit den gegebenen `RealAppIDs` übereinstimmen, von gegebenen Bot-Instanzen an den Ziel-Bot-Instanz.                                                                                                           |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der gegebenen Bot-Instanzen an die Ziel-Bot-Instanz.                                                                                                                                                        |
 | `unpack <Bots>`                                                      | `Master`        | Entpackt alle Booster Packs, die im Inventar der angegebenen Bot-Instanzen vorhanden sind.                                                                                                                                                                                     |
 | `update`                                                                   | `Besitzer`      | Überprüft GitHub auf ASF-Aktualisierungen (dies geschieht automatisch alle `UpdatePeriod`).                                                                                                                                                                                    |
 | `version`                                                                  | `FamilySharing` | Gibt die ASF-Version an.                                                                                                                                                                                                                                                       |
@@ -204,7 +204,7 @@ The distinction is important, as ASF will use Steam network activation for apps,
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Beispiel für einen vollständigen Befehl:
 
     addlicense ASF app/292030,sub/47807
     
@@ -224,7 +224,7 @@ Complete command example:
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Beispiel für einen vollständigen Befehl:
 
     owns ASF app/292030,name/Witcher
     

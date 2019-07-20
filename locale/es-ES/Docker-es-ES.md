@@ -106,16 +106,16 @@ Esto solo tiene que hacerse una vez después de crear tu contenedor con `docker 
 
 ## Argumentos de la línea de comandos
 
-ASF permite pasar **[argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** en el contenedor docker usando la variable de entorno `ASF_ARGS`. Esto puede añadirse encima de `docker run` con el switch `-e`. Por ejemplo:
+ASF permite pasar **[argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** en el contenedor docker a través de variables de entorno. Debes usar variables de entorno específicas para los interruptores soportados, y `ASF_ARGS` para el resto. Esto se puede lograr con el interruptor `-e` añadido a `docker run`, por ejemplo:
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-Esto pasará correctamente tu argumento `--cryptkey` al proceso ASF que se ejecuta dentro del contenedor docker. Por supuesto, si eres un usuario avanzado también puedes modificar `ENTRYPOINT` pasar argumentos personalizados tú mismo.
+Esto pasará correctamente tu argumento `--cryptkey` al proceso ASF que se ejecuta dentro del contenedor docker, así como otros argumentos. Por supuesto, si eres un usuario avanzado también puedes modificar `ENTRYPOINT` pasar argumentos personalizados tú mismo.
 
-A menos que quieras proporcionar una clave de encriptación personalizada u otras opciones avanzadas, normalmente no necesitas incluir ningún `ASF_ARGS` especial ya que nuestros contenedores docker ya están configurados para ejecutarse con opciones predeterminadas decentes de `--no-restart` `--process-required` `--system-required`.
+A menos que quieras proporcionar una clave de encriptación personalizada u otras opciones avanzadas, normalmente no necesitas incluir variables de entorno especiales, debido a que nuestros contenedores docker ya están configurados para ejecutarse con opciones predeterminadas decentes de`--no-restart` `--process-required` `--system-required`, así que como puedes ver nuestros `ASF_ARGS` arriba son redundantes en este caso, y solo `ASF_CRYPTKEY` es relevante.
 
 * * *
 

@@ -63,11 +63,11 @@ Im Zweifelsfall solltest du überprüfen, was unsere **[kontinuierliche Integrat
 
 ## Probleme und Lösungen
 
-### Debian Stretch upgrade
+### Debian Stretch Aktualisierung
 
 Wenn du von Debian 8 Jessie (oder älter) auf Debian 9 Stretch aktualisiert hast, stelle sicher, dass du **nicht** das `libssl1.0.0` Paket hast, zum Beispiel mit `apt-get purge libssl1.0.0`. Andernfalls besteht die Gefahr, dass du auf einen Segmentfehler stößt. Dieses Paket ist veraltet und existiert per Definition nicht, es ist auch nicht möglich, es auf sauberen Debian 9-Setups zu installieren. Der einzige Weg auf dieses Problem zu sto&szlig;en ist ein Upgrade von Debian 8 oder älter - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. If you have some other packages depending on that outdated `libssl` version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
 
-### Debian Buster upgrade
+### Debian Buster Aktualisierung
 
 Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists).
 

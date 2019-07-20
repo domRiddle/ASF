@@ -335,7 +335,7 @@ ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因�
 
 ### 有办法在外部与 ASF 通信吗？
 
-是的，可以通过 Steam 聊天或者 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**。 请阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;章节了解详情。
+是的，有几种方式可以做到。 请阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;章节了解详情。
 
 * * *
 

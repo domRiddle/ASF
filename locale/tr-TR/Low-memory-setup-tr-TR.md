@@ -22,7 +22,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 * * *
 
-## ASF setup (easy)
+## ASF kurulumu (kolay)
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 

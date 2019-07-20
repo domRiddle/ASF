@@ -56,6 +56,8 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 `--path <path>` 혹은 `--path=<path>` - ASF는 설치시에 자체 디렉토리를 탐색합니다. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. 리눅스형태의 패키징에서 그런 것 처럼 바이너리와 실제 환경설정을 분리하고자 할때 특히 유용합니다. 이 방식으로 여러 다른 설치본을 하나의 (최신) 바이너리만으로 사용할 수 있습니다. 경로는 ASF 바이너리의 현재 위치에서 상대경로 또는 절대경로로 지정할 수 있습니다. 동일한 바이너리를 다중 인스턴스로 실행할 때는 인스턴스 간 동기화가 되지 않으므로 자동 업데이트를 비활성화해야 함을 명심하십시오. 또한 이 명령어는 원본 ASF와 동일한 구조를 가지고 있고, `config` 디렉토리가 내부에 있는 새로운 "ASF home"을 가리킴을 명심하십시오.
 
+Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+
 예시:
 
 ```shell

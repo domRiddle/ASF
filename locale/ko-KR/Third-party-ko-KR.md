@@ -8,6 +8,8 @@
 
 ## ASF 플러그인
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, ASF가 봇 이름을 대소문자 구분없이 사용하도록 하는 플러그인입니다.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF가 명령어 없이 키를 등록하도록 구현하는 플러그인입니다.
 

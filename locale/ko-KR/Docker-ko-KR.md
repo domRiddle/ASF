@@ -106,16 +106,16 @@ ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨
 
 ## 명령줄 인자
 
-ASF는 `ASF_ARGS` 환경변수를 사용해서 **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)** 를 도커 컨테이너로 넘겨줄 수 있습니다. 이는 `docker run`의 앞쪽에 `-e` 스위치를 추가하면 됩니다. 예를 들면 다음과 같습니다:
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_ARGS=--cryptkey MyPassword" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-이렇게 하면 `--cryptkey` 인자를 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. 물론, 당신이 고급 사용자라면 `ENTRYPOINT`를 수정해서 사용자지정 인자를 직접 전달할 수도 있습니다.
+This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. 물론, 당신이 고급 사용자라면 `ENTRYPOINT`를 수정해서 사용자지정 인자를 직접 전달할 수도 있습니다.
 
-사용자지정 암호화 키나 다른 고급 옵션을 주고싶은 것이 아니라면 보통은 어떤 특별한 `ASF_ARGS`를 포함하지 않습니다. 도커 컨테이너는 이미 기본값으로 `--no-restart` `--process-required` `--system-required`로 실행하도록 설정되어있습니다.
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so as you can see our `ASF_ARGS` above are redundant in this case, and only `ASF_CRYPTKEY` is relevant.
 
 * * *
 

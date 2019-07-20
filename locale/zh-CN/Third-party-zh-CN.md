@@ -8,6 +8,8 @@
 
 ## ASF 插件
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**，使您可以通过 ASF 管理 Steam 成就的插件。
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**，使 ASF 能够制作补充包的插件。
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，使 ASF 机器人名称不区分大小写的插件。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**，重新实现免命令序列号激活功能的 ASF 插件。
 

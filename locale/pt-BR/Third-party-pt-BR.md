@@ -8,6 +8,8 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 
 ## Plugins para o ASF
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin que te permite gerenciar as conquistas Steam.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin que adiciona a funcionalidade de criar pacotes de cartas.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para tirar a diferenciação que o ASF faz entre maiúsculas e minúsculas nos nomes dos bots.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de keys sem a necessidade do uso de comando.
 

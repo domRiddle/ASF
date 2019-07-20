@@ -56,6 +56,8 @@ Debido a la naturaleza de esta propiedad, también es posible establecer la clav
 
 `--path <path>` o `--path=<path>` - ASF siempre navega a su propio directorio al iniciarse. Al especificar este argumento, ASF navegará al directorio especificado tras la inicialización, lo que te permite usar una ruta personalizada para diversas partes de la aplicación (incluyendo los directorios `config`, `plugins` y `www`, además del archivo `NLog.config`), sin la necesidad de duplicar el ejecutable en el mismo lugar. Puede resultar especialmente útil si quieres separar el ejecutable de la configuración, como se hace en el paquete Linux - de esta forma puedes usar un (actualizado) binario con diferentes configuraciones. La ruta puede relativa según el lugar actual del binario de ASF, o absoluta. Al ejecutar múltiples instancias del mismo binario, ten en cuenta que normalmente debes desactivar las actualizaciones automáticas, ya que no hay sincronización entre ellas. También ten en cuenta que este comando apunta a un nuevo "ASF home" - el directorio que tiene la misma estructura que el ASF original, con el directorio `config` dentro.
 
+Debido a la naturaleza de esta propiedad, también es posible establecer una ruta esperada declarando la variable de entorno `ASF_PATH`, que puede ser más apropiado para las personas que quieran evitar detalles sensibles en los argumentos del proceso.
+
 Ejemplo:
 
 ```shell

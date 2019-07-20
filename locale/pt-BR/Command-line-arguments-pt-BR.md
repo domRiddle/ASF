@@ -56,6 +56,8 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 `--path <path>` or `--path=<path>` - o ASF sempre navega até a sua própria pasta na inicialização. Ao especificar esse argumento, o ASF navegará até a pasta selecionada ao inicializar, o que permite que você use caminhos personalizados para várias partes do aplicativo (incluindo as pastas `config`, `plugins` e `www`, assim como o arquivo `NLog.config`) sem a necessidade de duplicar o executável no mesmo lugar. Isso pode ser especialmente útil se você quiser separar os arquivos executáveis dos arquivos de configuração, como nos pacotes do Linux; desta forma, você pode usar um arquivo executável (atualizado) com várias configurações diferentes. O caminho pode tanto ser relativo de acordo com o local atual do executável do ASF, ou absoluto. Quando etiver executando várias instâncias do mesmo executável, tenha em mente que você normalmente deve desativar as atualizações automáticas, pois não existe nenhuma sincronização entre eles. Também tenha em mente que este comando aponta para uma nova "pasta principal do ASF", ou seja, a pasta que tem a mesma estrutura original do ASF, com a pasta `config` dentro.
 
+Devido à natureza desta propriedade, também é possível definir o caminho esperado declarando a variável de ambiente `ASF_PATH`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
+
 Exemplo:
 
 ```shell

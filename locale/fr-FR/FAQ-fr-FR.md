@@ -335,7 +335,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### Y a-t-il un moyen de communiquer avec ASF?
     
-    Par l’intermédiaire de l'0>IPC</a></strong>. Consultez la section **[Commandes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** pour plus d'informations.
+    Oui, de différentes manières. Consultez la section **[Commandes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** pour plus d'informations.
     
     * * *
     

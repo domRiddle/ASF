@@ -335,7 +335,7 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 ### Existe alguma maneira de se comunicar com o ASF?
 
-Sim, pelo chat Steam ou pelo **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**. Visite a seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** para mais informações.
+Sim, de diversas formas. Visite a seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** para mais informações.
 
 * * *
 

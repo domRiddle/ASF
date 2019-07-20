@@ -2,20 +2,20 @@
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-- **[Introduction](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
+- **[Giriş](#introduction)**
+- **[Web-tabanlı ConfigGenerator](#web-based-configgenerator)**
+- **[Elle yapılandırma](#manual-configuration)**
 - **[Global config](#global-config)**
 - **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
+- **[Dosya yapısı](#file-structure)**
 - **[JSON mapping](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
 - **[Configs compatibility](#configs-compatibility)**
-- **[Auto-reload](#auto-reload)**
+- **[Otomatik Yenile](#auto-reload)**
 
 * * *
 
-## Introduction
+## Giriş
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -37,7 +37,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Elle yapılandırma
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -84,7 +84,7 @@ Global config is located in `ASF.json` file and has following structure:
 
 All options are explained below:
 
-### `AutoRestart`
+### `Otomatik Yeniden Başlat`
 
 `bool` type with default value of `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 

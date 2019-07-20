@@ -49,7 +49,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Örnekler
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 

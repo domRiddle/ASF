@@ -8,6 +8,8 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Plugins de ASF
 
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite administrar los logros de Steam.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no sean sensibles a mayúsculas.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
 
