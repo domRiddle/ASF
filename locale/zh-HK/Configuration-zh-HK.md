@@ -629,7 +629,9 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 ### `SteamParentalCode`
 
-預設值為 `null` 的 `string` 類型。 此屬性定義您的 Steam 家庭監護 PIN 碼。 ASF 需要訪問由 Steam 家庭監護限制的資源，因此如果您使用該功能，則需要為 ASF 提供家長解鎖 PIN 碼，以便它正常運行。 預設值 `null` 意味著無需 Steam 家庭監護 PIN 碼即可解鎖此帳戶，如果您不使用Steam 家庭監護功能，這可能就是您想要的。 除了在此定義 Steam 家庭監護 PIN 之外，如果要在每次 ASF 啟動時輸入您的Steam家庭監護PIN而不是將其放入配置中，您還可以使用` 0 `值。 如果您不想在配置檔中保存敏感數據，這可能對您有用。
+預設值為 `null` 的 `string` 類型。 此屬性定義您的 Steam 家庭監護 PIN 碼。 ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. 預設值 `null` 意味著無需 Steam 家庭監護 PIN 碼即可解鎖此帳戶，如果您不使用Steam 家庭監護功能，這可能就是您想要的。 In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+
+In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
 * * *
 

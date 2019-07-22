@@ -629,7 +629,9 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belas
 
 ### `SteamParentalCode`
 
-`string` Typ mit einem Standardwert von `null`. Diese Eigenschaft definiert deinen Steam-Familienansicht-Code. ASF erfordert einen Zugriff auf Ressourcen, die durch Steam-Familienansicht geschützt sind, daher musst du ASF, wenn du diese Funktion verwendest, einen Code für die elterliche Freischaltung zur Verfügung stellen, damit es normal funktionieren kann. Der Standardwert von `null` bedeutet, dass für die Freischaltung dieses Kontos kein Steam-Familienansicht-Code erforderlich ist, und das ist wahrscheinlich das, was du willst, wenn du nicht die Steam-Elternfunktionalität verwendest. Zusätzlich zur Definition des Steam-Familienansicht-Code kannst du hier auch den Wert `0` verwenden, wenn du deinen Steam-Familienansicht-Code bei jedem ASF-Start eingeben möchtest, anstatt ihn in die Konfiguration einzutragen. Dies kann für dich nützlich sein, wenn du sensible Daten nicht in der Konfigurationsdatei speichern möchtest.
+`string` Typ mit einem Standardwert von `null`. Diese Eigenschaft definiert deinen Steam-Familienansicht-Code. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Der Standardwert von `null` bedeutet, dass für die Freischaltung dieses Kontos kein Steam-Familienansicht-Code erforderlich ist, und das ist wahrscheinlich das, was du willst, wenn du nicht die Steam-Elternfunktionalität verwendest. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+
+In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
 * * *
 
@@ -668,7 +670,7 @@ Es ist schön zu beachten, dass es noch eine weitere zusätzliche `Owner` Berech
 
 ### `TradingPreferences`
 
-`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
+`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
 | Wert | Name                | Beschreibung                                                                                                                                                                                                                     |
 | ---- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -710,7 +712,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `UseLoginKeys`
 
-`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF den Anmelde-Schlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmelde-Schlüssel-Mechanismus funktioniert sehr ähnlich wie die "Remember me"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmelde-Schlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmelde-Schlüssel gültig ist. Der Anmelde-Schlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund musst du kein Passwort/SteamGuard/2FA-Code angeben, nachdem du dich nur einmal erfolgreich mit ASF angemeldet hast.
+`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF den Anmelde-Schlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmelde-Schlüssel-Mechanismus funktioniert sehr ähnlich wie die "Remember me"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmelde-Schlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmelde-Schlüssel gültig ist. Der Anmelde-Schlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund musst du kein Passwort/SteamGuard/2FA-Code angeben, nachdem du dich nur einmal erfolgreich mit ASF angemeldet hast.
 
 Die Anmelde-Schlüssel werden standardmäßig für deine Bequemlichkeit verwendet, so dass du nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code (wenn du nicht **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendest) eingeben musst. Es ist auch eine überlegene Alternative, da der Anmelde-Schlüssel nur einmalig verwendet werden kann und dein ursprüngliches Passwort in keiner Weise offenbart. Genau die gleiche Methode wird von deinem ursprünglichen Steam-Client verwendet, der deinen Konto-Namen und Anmelde-Schlüssel für deinen nächsten Anmeldeversuch speichert, was praktisch die gleiche ist wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
 
@@ -777,7 +779,7 @@ Beispiel: `"Enabled": true`
 
 * * *
 
-`byte` - Unsignierter Byte-Typ, der nur ganze Zahlen von `0` bis `255` (einschließlich) akzeptiert.
+`byte` - Unsignierter Byte-Typ der nur ganze Zahlen von `0` bis `255` (einschließlich) akzeptiert.
 
 Beispiel: `"ConnectionTimeout": 60`
 
@@ -845,7 +847,7 @@ Wie du sehen kannst, haben wir im obigen Beispiel 3 verfügbare Flags zum Ein- u
 
 ## Kompatibilitätsmapping
 
-Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die richtige Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deine Konfigurationen tatsächlich gültig und korrekt generiert sind. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist, kannst du auch diesem Schema folgen und sie als Zeichenketten mit `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
+Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die entsprechende Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deinen Konfigurationen tatsächlich gültig sind und korrekt generiert wurden. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist kannst du auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
 
 * * *
 
@@ -866,4 +868,4 @@ Ab ASF V2.1.6.2+ ist es möglich, dass Konfigurationen "on-the-fly" geändert we
 
 All dies ist transparent und wird automatisch durchgeführt, ohne dass das Programm neu gestartet oder andere (nicht betroffene) Bot-Instanzen beendet werden müssen.
 
-Darüber hinaus wird sich ASF auch selbst neu starten (wenn `AutoRestart` es erlaubt), wenn du die ASF-Kern-Konfiguration `ASF.json` änderst. Ebenso wird das Programm beendet, wenn du es löschst oder umbenennst.
+Darüber hinaus wird sich ASF auch selbst neu starten (wenn `AutoRestart` es erlaubt), wenn du die ASF-Kern-Konfiguration `ASF.json` änderst. Ebenso wird das Programm beendet, wenn du sie löschst oder umbenennst.

@@ -629,7 +629,9 @@ Tipo `ulong` com o valor padrão `0`. Esta propriedade define a steamID do grupo
 
 ### `SteamParentalCode`
 
-Tipo `string` com o valor padrão `null`. Essa propriedade define o seu PIN de acesso ao Modo Família. O ASF requer acesso a recursos protegidos pelo modo família, portanto se você usa esse recurso, você precisa fornecer ao ASF o PIN de desbloqueio, assim ele poderá operar normalmente. O valor padrão `null` significa que não há um PIN necessário para desbloquear esta conta, e isso é o que você precisa se você não usa o modo família. Além de definir o PIN aqui, você também pode usar o valor `0` se desejar digitar seu PIN de acesso em cada inicialização do ASF em vez de colocá-lo na configuração. Isso pode ser útil para você se você não quer salvar dados confidenciais no arquivo de configuração.
+Tipo `string` com o valor padrão `null`. Essa propriedade define o seu PIN de acesso ao Modo Família. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. O valor padrão `null` significa que não há um PIN necessário para desbloquear esta conta, e isso é o que você precisa se você não usa o modo família. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+
+In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
 * * *
 
@@ -710,9 +712,9 @@ A configuração padrão do ASF baseia-se no uso mais comum do bot, transferindo
 
 ### `UseLoginKeys`
 
-Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF deve usar o mecanismo de chaves de login para essa conta Steam. O mecanismo de chaves de login funciona de forma muito semelhante a opção "lembrar-me neste computador" do cliente oficial da Steam, que torna possível que o ASF armazene e use a chave de login temporário para a próxima tentativa de conexão, ignorando a necessidade de fornecer a senha, Steam Guard ou código 2FA, enquanto nossa chave de login for válida. A chave de login é armazenada no arquivo `BotName.db` e atualizada automaticamente. É por isso que você não precisa fornecer senha/SteamGuard/código 2FA após se conectar com o ASF uma vez.
+Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF deve usar o mecanismo de chaves de login para essa conta Steam. O mecanismo de chaves de login funciona de forma muito semelhante a opção "lembrar-me neste computador" do cliente oficial do Steam, que permite que o ASF armazene e use a chave de login temporária para a próxima tentativa de conexão, ignorando a necessidade de fornecer a senha, Steam Guard ou código 2FA, enquanto nossa chave de login for válida. A chave de login é armazenada no arquivo `BotName.db` e atualizada automaticamente. É por isso que você não precisa fornecer senha/SteamGuard/código 2FA após se conectar com o ASF uma vez.
 
-Chaves de login são usadas por padrão para sua conveniência, portanto você não precisa inserir o `SteamPassword`, SteamGuard ou o código 2FA (quando não usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) em cada login. Também é uma alternativa superior, já que a chave de login pode ser usada apenas uma única vez e não revela sua senha original de forma alguma. Exatamente o mesmo método é usado pelo seu cliente Steam original, que salva seu nome de usuário e chave de login para a sua próxima tentativa de conexão, sendo efetivamente o mesmo que usar `SteamLogin` com `UseLoginKeys` e `SteamPassword` vazio no ASF.
+Chaves de login são usadas por padrão para sua conveniência, portanto você não precisa inserir o `SteamPassword`, SteamGuard ou o código 2FA (quando não usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) em cada login. Também é uma excelente alternativa, já que a chave de login pode ser usada apenas uma única vez e não revela sua senha original de forma alguma. Exatamente o mesmo método é usado pelo seu cliente Steam original, que salva seu nome de usuário e chave de login para a sua próxima tentativa de conexão, sendo efetivamente o mesmo que usar `SteamLogin` com `UseLoginKeys` e `SteamPassword` vazio no ASF.
 
 No entanto, algumas pessoas podem ficar preocupadas até mesmo com esse pequeno detalhe, portanto esta opção está disponível aqui para o caso de você querer garantir que o ASF não armazene nenhum tipo de token que permitiria retomar a sessão anterior após ela ser fechada, o que resultará na autenticação sendo totalmente obrigatória em cada tentativa de logon. Desabilitar essa opção vai funcionar exatamente da mesma forma que não marcar a opção "Lembrar-me neste computador" no cliente Steam oficial. A menos que você saiba o que está fazendo, você deve mantê-la com o valor `true` padrão.
 
@@ -720,7 +722,7 @@ No entanto, algumas pessoas podem ficar preocupadas até mesmo com esse pequeno 
 
 ## Estrutura de arquivos
 
-O ASF usa uma estrutura de arquivos bem simples.
+O ASF usa uma estrutura de arquivo bem simples.
 
     ├── config
     │     ├── ASF.json
@@ -811,7 +813,7 @@ Exemplo de `ImmutableHashSet <uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Dicionário (mapa) imutável que mapeia uma chave única especificada em `keyType`, para o valor especificado em `valueType`. Em JSON, é definida como um objeto com pares de valor chave. Mantenha em mente que o `keyType` deve estar sempre entre aspas nesse caso, mesmo se for um tipo de valor como `ulong`. Há também uma exigência rigorosa de a chave ser exclusiva através do mapeamento, desta vez imposta também pelo JSON.
+`ImmutableDictionary<keyType, valueType>` - Dicionário (mapa) imutável que mapeia uma chave única especificada em `keyType`, para o valor especificado em `valueType`. Em JSON, é definida como um objeto com pares de valor chave. Tenha em mente que o `keyType` deve estar sempre entre aspas, mesmo se for um valor do tipo `ulong`. Há também uma exigência rigorosa de a chave ser exclusiva através do mapeamento, desta vez imposta também pelo JSON.
 
 Exemplo de `ImmutableDictionary<ulong, byte>`:`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

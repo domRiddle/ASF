@@ -27,7 +27,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 * * *
 
-## Web-based ConfigGenerator
+## Web-tabanlı ConfigGenerator
 
 The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
@@ -629,7 +629,9 @@ If you're not sure how to set this property, leave it with default value of `fal
 
 ### `SteamParentalCode`
 
-`string` type with default value of `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you need to provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` type with default value of `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+
+In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
 * * *
 
@@ -651,12 +653,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Değer | İsim          | Açıklama                                                                                                                                                                                           |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Hiçbiri       | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
-| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2     | Operatör      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3     | Usta          | Provides full access to given bot instance                                                                                                                                                         |
+| Değer | İsim           | Açıklama                                                                                                                                                                                           |
+| ----- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Hiçbiri        | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 1     | Aile Paylaşımı | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2     | Operatör       | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3     | Usta           | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -718,7 +720,7 @@ However, some people could be concerned even about this little detail, therefore
 
 * * *
 
-## File structure
+## Dosya yapısı
 
 ASF is using quite simple file structure.
 
@@ -855,7 +857,7 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 * * *
 
-## Auto-reload
+## Otomatik Yenile
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 
