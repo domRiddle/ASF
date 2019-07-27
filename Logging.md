@@ -6,7 +6,7 @@ ASF allows you to configure your own custom logging module that will be used dur
 
 ## Default logging
 
-By default, ASF is logging to `ColoredConsole` and `File` - `log.txt` in program's directory, and `logs` directory for archival purposes.
+By default, ASF is logging to `ColoredConsole` and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
 Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
