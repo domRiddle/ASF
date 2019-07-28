@@ -8,13 +8,13 @@ O ASF permite que você configure seu próprio módulo de registro que será usa
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
-Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Isso te permite não só adicionar destinos de registro **extras**, mas também a desabilitar ou modificar os **padrões**.
+Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Isso te permite não só adicionar destinos de registro **extras**, mas também a desabilitar ou modificar os **padrões**.
 
 Se você quiser usar o registro padrão do ASF sem quaisquer modificações, você não precisa fazer nada; você também não precisa defini-lo em um `NLog.config` personalizado. Não use um `NLog.config` personalizado se você não quiser modificar o registro padrão do ASF. Para referência, o equivalente ao registro padrão do ASF codificado seria:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
@@ -57,7 +57,7 @@ Vamos começar com algo fácil. Nós usaremos apenas o alvo **[ColoredConsole](h
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
   </targets>
@@ -76,7 +76,7 @@ Agora vamos dizer que não gostamos do formato padrão `${longdate}|${level:uppe
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
   </targets>
@@ -93,7 +93,7 @@ Também podemos modificar a configuração de log para mais de um alvo. Vamos re
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -112,7 +112,7 @@ O ASF usa vários níveis de registro para deixar mais fácil para você entende
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -131,7 +131,7 @@ Por último, vamos fazer algo um pouco mais avançado e registrar todas as mensa
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="LogBotFile" fileName="LogBot.txt" deleteOldFileOnStartup="true" />
@@ -180,7 +180,7 @@ Este exemplo é baseado em nosso exemplo básico de `ColoredConsole` acima. Ante
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=-&gt;:else=&lt;-} ${event-properties:item=SteamID}" />
@@ -272,7 +272,7 @@ Para escrever todas as mensagens do nível `Debug` para cima, do bot chamado `My
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
   </targets>

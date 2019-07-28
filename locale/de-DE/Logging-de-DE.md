@@ -8,13 +8,13 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
-Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
+Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
 Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF-Protokollierung nicht verändern möchtest. Zum Vergleich: Das Äquivalent zur fest definierten standard ASF-Protokollierung wäre:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
@@ -57,7 +57,7 @@ Lass uns mit etwas einfachem anfangen. Wir werden nur **[ColoredConsole](https:/
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
   </targets>
@@ -76,7 +76,7 @@ Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
   </targets>
@@ -93,7 +93,7 @@ Wir können die Konfiguration auch so ändern, dass sie bei mehr als einem Ziel 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -112,7 +112,7 @@ Schließlich verwendet ASF verschiedene Protokollebenen, um es dir leichter zu m
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -131,7 +131,7 @@ Zuletzt, lasst uns etwas weiter fortgeschrittenes tun und alle Nachrichten in ei
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="LogBotFile" fileName="LogBot.txt" deleteOldFileOnStartup="true" />
@@ -180,7 +180,7 @@ Dieses Beispiel basiert auf unserem `ColoredConsole` Basis-Beispiel oben. Bevor 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=-&gt;:else=&lt;-} ${event-properties:item=SteamID}" />
@@ -272,7 +272,7 @@ Um alle Nachrichten von `Debug` Ebene und darüber, von dem Bot namens `MyBot` z
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
   </targets>

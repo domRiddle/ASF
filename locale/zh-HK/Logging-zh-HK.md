@@ -8,13 +8,13 @@ ASF允許您自訂將在運行時使用的自定義日誌記錄模組。 您可�
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
-Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. 這不僅允許您添加**額外**日誌記錄對象，而且還可以禁用或修改**預設值**。
+Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. 這不僅允許您添加**額外**日誌記錄對象，而且還可以禁用或修改**預設值**。
 
 如果您要在不進行任何修改的情況下使用預設 ASF 日誌記錄，則無需執行任何操——您也不需要在自訂 `NLog.config`中定義它。 如果不想修改預設 ASF 日誌記錄，請不要使用自訂 `NLog.config`。 但是，作為參考，相當於硬編碼的ASF默認日誌記錄將是：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
@@ -57,7 +57,7 @@ ASF在` Trace `日誌級別上記錄額外信息，例如用戶/聊天消息。 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
   </targets>
@@ -76,7 +76,7 @@ Now let's say that we don't like default format of `${longdate}|${level:uppercas
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
   </targets>
@@ -93,7 +93,7 @@ We can also modify the config to log to more than one target. Let's log to `Colo
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -112,7 +112,7 @@ Finally, ASF uses various log levels, to make it easier for you to understand wh
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -131,7 +131,7 @@ Lastly, let's do something a bit more advanced and log all messages to file, but
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="LogBotFile" fileName="LogBot.txt" deleteOldFileOnStartup="true" />
@@ -180,7 +180,7 @@ This example is based on our `ColoredConsole` basic example above. Before trying
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=-&gt;:else=&lt;-} ${event-properties:item=SteamID}" />
@@ -272,7 +272,7 @@ In order to write all messages of `Debug` level and above, from bot named `MyBot
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
   </targets>

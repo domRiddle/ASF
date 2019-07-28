@@ -8,13 +8,13 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
 
 默认情况下，ASF 会向 `ColoredConsole`（彩色控制台标准输出）和 `File`（文件）两个目标记录日志。 `File` 目标指程序文件夹内的 `log.txt` 文件以及被归档的 `logs` 文件夹。
 
-使用自定义 NLog 配置文件会导致 ASF 的默认日志配置被禁用。换句话说，您的配置文件将会**完全**覆盖默认的 ASF 日志配置，这意味着如果您想要保留 `ColoredConsole` 目标，就必须**自己**重新定义一个。 您不仅能够添加**额外**的日志目标，还可以禁用或修改**默认的**目标。
+使用自定义 NLog 配置文件会导致 ASF 的默认日志配置被禁用，您的配置文件将会**完全**覆盖默认的 ASF 日志配置，这意味着如果您想要保留 `ColoredConsole` 目标，就必须**自己**重新定义一个。 您不仅能够添加**额外**的日志目标，还可以禁用或修改**默认的**目标。
 
 如果您想要使用默认的 ASF 日志模块，不做任何修改，就什么也不需要做——也不需要在自定义的 `NLog.config` 中进行定义。 如果不希望修改 ASF 默认的日志模块，就不要使用自定义 `NLog.config`。 但作为参考，ASF 默认的日志设置等价于：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
@@ -57,7 +57,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
   </targets>
@@ -76,7 +76,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
   </targets>
@@ -93,7 +93,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -112,7 +112,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="File" fileName="NLog.txt" deleteOldFileOnStartup="true" />
@@ -131,7 +131,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="LogBotFile" fileName="LogBot.txt" deleteOldFileOnStartup="true" />
@@ -180,7 +180,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />
     <target xsi:type="File" name="ChatLogFile" fileName="${event-properties:item=ChatGroupID}-${event-properties:item=ChatID}${when:when='${event-properties:item=ChatGroupID}' == 0:inner=-${event-properties:item=SteamID}}.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss} ${event-properties:item=Message} ${when:when='${event-properties:item=Echo}' == 'true':inner=-&gt;:else=&lt;-} ${event-properties:item=SteamID}" />
@@ -272,7 +272,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
   </targets>
