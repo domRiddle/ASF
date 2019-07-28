@@ -1,4 +1,4 @@
-# Logging
+# Logování
 
 ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
@@ -6,7 +6,9 @@ ASF allows you to configure your own custom logging module that will be used dur
 
 ## Default logging
 
-Using custom NLog config automatically disables default ASF one, which includes `ColoredConsole` and `File`. In other words, your config overrides **completely** default ASF logging, which means that if you e.g. want to keep `ColoredConsole` target, you must define it yourself. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+
+Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
 
@@ -15,7 +17,7 @@ If you want to use default ASF logging without any modifications, you don't need
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
     <!-- Below becomes active when ASF's IPC interface is started -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>

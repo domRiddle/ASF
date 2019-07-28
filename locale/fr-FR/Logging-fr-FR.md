@@ -6,7 +6,9 @@ ASF vous permet de configurer votre propre module de connexion personnalisé qui
 
 ## Authentification par défaut
 
-L'utilisation de la configuration personnalisée de NLog désactive automatiquement la configuration ASF par défaut, qui inclut `ColoredConsole` et `Fichier`. En d’autres termes, votre configuration remplace l'authentification ASF par défaut par ** complètement**, ce qui signifie que si vous par exemple si vous souhaitez conserver la cible ` ColoredConsole`, vous devez le définir vous-même. Cela vous permet non seulement d'ajouter des ** extra** cibles d'authentification, mais également de désactiver ou de modifier **les cibles par défaut**.
+By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+
+Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Cela vous permet non seulement d'ajouter des ** extra** cibles d'authentification, mais également de désactiver ou de modifier **les cibles par défaut**.
 
 Si vous souhaitez utiliser l'authentification ASF par défaut sans aucune modification, vous n'avez rien à faire: vous n'avez pas non plus besoin de la définir dans la personnalisation `NLog.config`. N'utilisez pas la personnalisation `NLog.config` si vous ne souhaitez pas modifier l'authentification ASF par défaut. Pour référence cependant, l’équivalent de l'authentification ASF codée en dur serait:
 
@@ -15,7 +17,7 @@ Si vous souhaitez utiliser l'authentification ASF par défaut sans aucune modifi
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
     <!-- Below becomes active when ASF's IPC interface is started -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
@@ -245,7 +247,7 @@ En savoir plus sur l’utilisation du [fichier de configuration](https://github.
 
 ##### Options Générales
 
-*Nom* - Nom de la cible.
+* Nom* - Nom de la cible.
 
 * * *
 
@@ -257,11 +259,11 @@ En savoir plus sur l’utilisation du [fichier de configuration](https://github.
 
 ##### Options SteamTarget
 
-*chatGroupID* - ID du groupe de discussion déclaré en tant qu'entier non signé en 64 bits. Non requis. La valeur par défaut est `0`, ce qui désactivera la fonctionnalité de discussion en groupe et utilisera la discussion privée. Lorsqu'elle est activée (définie sur une valeur autre que zéro), la fonctionnalité `steamID` ci-dessous agit en tant que `chatID` et spécifie l'ID du canal dans ce `chatGroupID</ 0> ou le bot devrait envoyer des messages.</p>
+*chatGroupID* - ID du groupe de discussion déclaré en tant qu'entier non signé en 64 bits. Non requis La valeur par défaut est `0`, ce qui désactivera la fonctionnalité de discussion en groupe et utilisera la discussion privée. Lorsqu'elle est activée (définie sur une valeur autre que zéro), la fonctionnalité `steamID` ci-dessous agit en tant que `chatID` et spécifie l'ID du canal dans ce `chatGroupID</ 0> ou le bot devrait envoyer des messages.</p>
 
 <p><em>steamID</em> - SteamID déclaré comme non signé en 64 bits par l'utilisateur Steam cible (comme <code>SteamOwnerID`) ou la cible `chatID</ > (lorsque <code>chatGroupID` est défini). Obligatoire. La valeur par défaut est 0, ce qui désactive complètement la cible de journalisation.
 
-*botName* - Nom du bot (tel que reconnu par ASF, sensible à la casse) du bot cible qui enverra des messages à `steamID` déclaré ci-dessus. Non requis. La valeur par défaut est `null`, ce qui sélectionne automatiquement **n'importe quel** bot actuellement connecté. Il est recommandé de définir cette valeur correctement, car `SteamTarget` ne prend pas en compte de nombreuses limitations de Steam, telles que le fait que vous devez avoir `steamID` de la cible dans votre liste d'amis.
+*botName* - Nom du bot (tel que reconnu par ASF, sensible à la casse) du bot cible qui enverra des messages à `steamID` déclaré ci-dessus. Non requis La valeur par défaut est `null`, ce qui sélectionne automatiquement **n'importe quel** bot actuellement connecté. Il est recommandé de définir cette valeur correctement, car `SteamTarget` ne prend pas en compte de nombreuses limitations de Steam, telles que le fait que vous devez avoir `steamID` de la cible dans votre liste d'amis.
 
 * * *
 
@@ -292,7 +294,7 @@ Bien entendu, `SteamTarget` contient toutes les fonctions habituelles d’un gé
 
 #### Captures d'écran
 
-![Capture d'écran](https://i.imgur.com/5juKHMt.png)
+![Capture d"écran](https://i.imgur.com/5juKHMt.png)
 
 * * *
 

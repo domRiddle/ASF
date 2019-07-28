@@ -450,7 +450,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### ASF doesn't start, the program window closes immediately!
     
-    In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that.
+    In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
     
     However, if even .NET Core runtime isn't able to boot on your machine, then `log.txt` will not be generated. If that happens to you then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. Si la fenêtre de la console se ferme trop tôt pour que vous puissiez lire le message, ouvrez une console indépendante et lancez le fichier binaire ASF à partir de cet emplacement. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "open command window here" (or powershell), then type into the console `.\ArchiSteamFarm.exe` and confirm with enter. De cette façon, vous obtiendrez un message précis indiquant pourquoi ASF ne démarre pas correctement.
     

@@ -6,7 +6,9 @@ ASF允許您自訂將在運行時使用的自定義日誌記錄模組。 您可�
 
 ## 預設日誌
 
-使用自定義NLog配置會自動禁用預設ASF配置，包括` ColoredConsole `和` File `。 換句話說，您的自訂配置會**完全**覆蓋預設ASF日誌記錄對象，這意味著，如果想要保留` ColoredConsole `，你必須自己定義它。 這不僅允許您添加**額外**日誌記錄對象，而且還可以禁用或修改**預設值**。
+By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+
+Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. 這不僅允許您添加**額外**日誌記錄對象，而且還可以禁用或修改**預設值**。
 
 如果您要在不進行任何修改的情況下使用預設 ASF 日誌記錄，則無需執行任何操——您也不需要在自訂 `NLog.config`中定義它。 如果不想修改預設 ASF 日誌記錄，請不要使用自訂 `NLog.config`。 但是，作為參考，相當於硬編碼的ASF默認日誌記錄將是：
 
@@ -15,7 +17,7 @@ ASF允許您自訂將在運行時使用的自定義日誌記錄模組。 您可�
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
     <!-- Below becomes active when ASF's IPC interface is started -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
@@ -248,7 +250,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-##### Layout Options
+##### 佈局選項
 
 *layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
 

@@ -6,7 +6,9 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 ## Standard Protokollierung
 
-Eine benutzerdefinierte NLog-Konfiguration deaktiviert automatisch die standard ASF-Konfiguration, welche `ColoredConsole` und `File` beinhaltet. In anderen Worten überschreibt deine Konfiguration die standard ASF-Protokollierung **komplett**, was bedeutet, dass wenn du z.B. `ColoredConsole` als Ziel behalten möchtest, du es selber definieren musst. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
+By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+
+Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
 Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF-Protokollierung nicht verändern möchtest. Zum Vergleich: Das Äquivalent zur fest definierten standard ASF-Protokollierung wäre:
 
@@ -15,7 +17,7 @@ Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwende
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
     <!-- Below becomes active when ASF's IPC interface is started -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>

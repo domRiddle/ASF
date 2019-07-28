@@ -6,7 +6,9 @@ O ASF permite que você configure seu próprio módulo de registro que será usa
 
 ## Registro padrão
 
-Usar uma configuração NLog personalizada automaticamente desativa o registro padrão do ASF, que inclui `ColoredConsole` e `File`. Em outras palavras, sua configuração substitui **completamente** os registros padrões do ASF, o que significa que se você quiser manter, por exemplo, o destino `ColoredConsole`, você deve defini-lo você mesmo. Isso te permite não só adicionar destinos de registro **extras**, mas também a desabilitar ou modificar os **padrões**.
+By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+
+Using custom NLog config automatically disables default ASF config. In other words, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Isso te permite não só adicionar destinos de registro **extras**, mas também a desabilitar ou modificar os **padrões**.
 
 Se você quiser usar o registro padrão do ASF sem quaisquer modificações, você não precisa fazer nada; você também não precisa defini-lo em um `NLog.config` personalizado. Não use um `NLog.config` personalizado se você não quiser modificar o registro padrão do ASF. Para referência, o equivalente ao registro padrão do ASF codificado seria:
 
@@ -15,7 +17,7 @@ Se você quiser usar o registro padrão do ASF sem quaisquer modificações, voc
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
     <!-- Below becomes active when ASF's IPC interface is started -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
@@ -291,7 +293,7 @@ Claro, `SteamTarget` tem todas as funções típicas que você poderia esperar d
 
 #### Capturas de tela
 
-![Captura de tela](https://i.imgur.com/5juKHMt.png)
+![Captura da tela](https://i.imgur.com/5juKHMt.png)
 
 * * *
 

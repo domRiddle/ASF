@@ -6,7 +6,9 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
 
 ## 默认日志
 
-使用自定义 NLog 配置将会自动禁用 ASF 默认配置，其中包括 `ColoredConsole`（彩色控制台）和 `File`（文件）。 换句话说，您的配置文件将会**完全**覆盖默认的 ASF 日志，这意味着如果您想要保留 `ColoredConsole` 目标，就必须自己重新定义一个。 您不仅能够添加**额外**的日志目标，还可以禁用或修改**默认的**目标。
+默认情况下，ASF 会向 `ColoredConsole`（彩色控制台标准输出）和 `File`（文件）两个目标记录日志。 `File` 目标指程序文件夹内的 `log.txt` 文件以及被归档的 `logs` 文件夹。
+
+使用自定义 NLog 配置文件会导致 ASF 的默认日志配置被禁用。换句话说，您的配置文件将会**完全**覆盖默认的 ASF 日志配置，这意味着如果您想要保留 `ColoredConsole` 目标，就必须**自己**重新定义一个。 您不仅能够添加**额外**的日志目标，还可以禁用或修改**默认的**目标。
 
 如果您想要使用默认的 ASF 日志模块，不做任何修改，就什么也不需要做——也不需要在自定义的 `NLog.config` 中进行定义。 如果不希望修改 ASF 默认的日志模块，就不要使用自定义 `NLog.config`。 但作为参考，ASF 默认的日志设置等价于：
 
@@ -15,15 +17,15 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
 <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <!-- 以下规则会在 ASF IPC 启动后激活 -->
+    <target xsi:type="File" name="File" archiveFileName="logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
+    <!-- 以下规则会在 ASF 的 IPC 接口启动后激活 -->
     <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- 以下规则会在 ASF IPC 启动后激活 -->
+    <!-- 以下规则会在 ASF 的 IPC 接口启动后激活 -->
     <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
