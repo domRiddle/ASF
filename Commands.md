@@ -243,9 +243,11 @@ owns ASF app/292030,name/Witcher
 
 Value | Name | Description
 --- | --- | ---
+FAWK | ForceAssumeWalletKey | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled
 FD | ForceDistributing | Forces `Distributing` redeeming preference to be enabled
 FF | ForceForwarding | Forces `Forwarding` redeeming preference to be enabled
 FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled
+SAWK | SkipAssumeWalletKey | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled
 SD | SkipDistributing | Forces `Distributing` redeeming preference to be disabled
 SF | SkipForwarding | Forces `Forwarding` redeeming preference to be disabled
 SI | SkipInitial | Skips key redemption on initial bot
