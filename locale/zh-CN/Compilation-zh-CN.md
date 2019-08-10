@@ -36,16 +36,16 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET 框架
 
-在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.2` 更改为 `net472`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
+在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `netcoreapp2.2` 更改为 `net48`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
 在无法安装 .NET 框架甚至 .NET Core SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 netf：
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

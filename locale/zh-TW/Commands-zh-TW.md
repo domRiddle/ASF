@@ -237,16 +237,18 @@ Complete command example:
 
 `<Modes>` 參數接受多個模式值, 通常用逗號分隔。 可用的模式值如下所示:
 
-| 值    | 名稱                    | 描述                             |
-| ---- | --------------------- | ------------------------------ |
-| FD   | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置     |
-| FF   | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置       |
-| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置  |
-| SD   | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置     |
-| SF   | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置       |
-| SI   | SkipInitial           | 跳過初始機器人的產品序號激活過程               |
-| SKMG | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置 |
-| V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號            |
+| 值    | 名稱                    | 描述                                                                              |
+| ---- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD   | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置                                                      |
+| FF   | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置                                                        |
+| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置                                                   |
+| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD   | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置                                                      |
+| SF   | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置                                                        |
+| SI   | SkipInitial           | 跳過初始機器人的產品序號激活過程                                                                |
+| SKMG | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置                                                  |
+| V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號                                                             |
 
 例如，我們打算為尚未擁有遊戲的機器人激活 3 個產品序號，但不包括 `primary` 機器人。 為此我們需要執行指令：
 

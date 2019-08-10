@@ -568,12 +568,13 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 `byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
 
-| Wert | Name             | Beschreibung                                                                                            |
-| ---- | ---------------- | ------------------------------------------------------------------------------------------------------- |
-| 0    | None             | Keine speziellen Einlöse-Einstellungen, Standard                                                        |
-| 1    | Forwarding       | Leite Produktschlüssel, die nicht zum Einlösen verfügbar sind, zu anderen Bots weiter                   |
-| 2    | Distributing     | Verteile alle Produktschlüssel auf sich und andere Bots                                                 |
-| 4    | KeepMissingGames | Bewahre Produktschlüssel für (potenziell) fehlende Spiele beim Weiterleiten auf und lasse sie ungenutzt |
+| Wert | Name                               | Beschreibung                                                                                                                    |
+| ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | None                               | Keine speziellen Einlöse-Einstellungen, Standard                                                                                |
+| 1    | Forwarding                         | Leite Produktschlüssel, die nicht zum Einlösen verfügbar sind, zu anderen Bots weiter                                           |
+| 2    | Distributing                       | Verteile alle Produktschlüssel auf sich und andere Bots                                                                         |
+| 4    | KeepMissingGames                   | Bewahre Produktschlüssel für (potenziell) fehlende Spiele beim Weiterleiten auf und lasse sie ungenutzt                         |
+| 8    | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
@@ -582,6 +583,8 @@ Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglic
 `Distributing` veranlasst den Bot, alle empfangenen Produktschlüssel unter sich und anderen Bots zu verteilen. Das bedeutet, dass jeder Bot einen einzigen Produktschlüssel aus der Charge erhält. Normalerweise wird dies nur verwendet, wenn du viele Produktschlüssel für das gleiche Spiel einlöst und du sie gleichmäßig auf deine Bots verteilen möchtest, im Gegensatz zum Einlösen von Produktschlüsseln für verschiedene Spiele. Diese Funktion ist nicht sinnvoll, wenn du nur einen Produktschlüssel in einer einzigen `redeem` Aktion einlöst (da es keine zusätzlichen Produktschlüssel gibt, die verteilt werden müssen).
 
 `KeepMissingGames` veranlasst den Bot, `Forwarding` zu überspringen, wenn wir nicht sicher sein können, ob der Produktschlüssel, der eingelöst wird, tatsächlich unserem Bot gehört oder nicht. Dies bedeutet im Grunde, dass `Forwarding` **nur** für `AlreadyPurchased` Produktschlüssel gilt, anstatt auch andere Fälle wie `DoesNotOwnRequiredApp`, `RateLimited` oder `RestrictedCountry` zu behandeln. Normalerweise solltest du diese Option für das primäre Konto verwenden, um sicherzustellen, dass Produktschlüssel, die auf dem primären Konto eingelöst werden, nicht weitergereicht werden, wenn dein Bot beispielsweise vorübergehend `RateLimited` wird. Wie Sie der Beschreibung entnehmen können, hat dieses Feld absolut keine Wirkung, wenn `Forwarding` nicht aktiviert ist.
+
+`AssumeWalletKeyOnBadActivationCode` will cause `BadActivationCode` keys to be treated as `CannotRedeemCodeFromClient`, and therefore result in ASF trying to redeem them as wallet keys. This is needed because Steam might announce wallet keys as `BadActivationCode` (and not `CannotRedeemCodeFromClient` as it used to), resulting in ASF never attempting to redeem them. However, we recommend **against** using this preference, as it'll result in ASF trying to redeem every invalid key as a wallet code, resulting in excessive amount of (potentially invalid) requests sent to the Steam service, with all the potential consequences. Instead, we recommend to use `ForceAssumeWalletKey` **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#redeem-modes)** mode while knowingly redeeming wallet keys, which will enable the needed workaround only when it's required, on as-needed basis.
 
 Wenn du sowohl `Forwarding` als auch `Distributing` aktivierst, wird zusätzlich zur Weiterleitung eine Verteilungsfunktion hinzugefügt, wodurch ASF versucht, einen Produktschlüssel auf allen Bots zuerst einzulösen (Weiterleitung), bevor es zum nächsten geht (Verteilung). Normalerweise möchtest du diese Option nur verwenden, wenn du `Forwarding` möchtest, aber mit geändertem Verhalten beim Einschalten des verwendeten Bot auf Produktschlüssel, anstatt immer mit jedem Produktschlüssel in Reihenfolge zu gehen (das wäre `Forwarding` allein). Dieses Verhalten kann von Vorteil sein, wenn du weißt, dass die Mehrheit oder sogar alle deine Produktschlüssel an das gleiche Spiel gebunden sind, denn in dieser Situation würde `Forwarding` allein versuchen, alles auf einem Bot einzulösen (was Sinn macht, wenn deine Produktschlüssel für einzigartige Spiele sind), und `Forwarding` + `Distributing` schaltet den Bot auf den nächsten Produktschlüssel um, "verteilt" die Aufgabe, einen neuen Produktschlüssel auf einen anderen als den ursprünglichen einzulösen (was sinnvoll ist, wenn die Produktschlüssel für das gleiche Spiel sind, überspringt einen sinnlosen Versuch pro Produktschlüssel).
 
@@ -595,7 +598,7 @@ Bedenke auch, dass du keine Produktschlüssel an Bots weiterleiten oder verteile
 
 `bool` Typ mit einem Standardwert von `false`. Wenn ASF mit dem Sammeln des angegebenen Kontos fertig ist, kann es automatisch ein Steam-Handelsangebot mit allem, was bis zu diesem Punkt gesammelt wurde, an den Benutzer mit der Berechtigung `Master` senden, was sehr praktisch ist, wenn du dich nicht selbst mit den Handelsangeboten beschäftigen möchtest. Diese Option funktioniert genauso wie der Befehl `loot`, deshalb denken Sie daran, dass Sie einen Benutzer mit der Berechtigung `Master` benötigen, Sie können auch einen gültigen `SteamTradeToken` benötigen, sowie ein Konto, das überhaupt zum Handel zugelassen ist. Zusätzlich zum Einleiten von `loot` nach Beendigung des Sammelns initiiert ASF auch `loot` bei jeder Benachrichtigung über neue Gegenstände (wenn nicht am Sammeln) und nach Abschluss jedes Handelsangebotes, der zu neuen Gegenständen führt (immer), wenn diese Option aktiv ist. Dies ist besonders nützlich, um von anderen Personen erhaltene Gegenstände auf unser Konto "weiterzuleiten".
 
-Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden, obwohl es keine Voraussetzung ist, wenn du beabsichtigst, manuell und rechtzeitig zu bestätigen. Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
+Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden, obwohl es keine Voraussetzung ist, wenn du beabsichtigst, manuell und rechtzeitig zu bestätigen. Wenn du dir nicht sicher bist wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
 
 * * *
 
@@ -611,7 +614,7 @@ Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 
 `bool` Typ mit einem Standardwert von `false`. ASF "belegt" ein Konto für die gesamte Zeit des aktiven Prozesses. Wenn ein Konto mit dem Sammeln fertig ist, überprüft ASF regelmäßig (jede `IdleFarmingPeriode` Stunden), ob in der Zwischenzeit vielleicht einige neue Spiele mit Steam-Karten hinzugefügt wurden, damit es das Sammeln dieses Kontos fortsetzen kann, ohne den Prozess neu starten zu müssen. Dies ist für die Mehrheit der Menschen nützlich, da ASF bei Bedarf automatisch das Sammeln wieder aufnehmen kann. Jedoch kannst du den Prozess tatsächlich stoppen wollen, wenn das angegebene Konto vollständig gesammelt ist, du kannst das erreichen, indem du diese Eigenschaft auf `true` setzt. Wenn aktiviert, fährt ASF mit der Abmeldung fort, wenn das Konto vollständig gesammelt ist, was bedeutet, dass es nicht mehr regelmäßig überprüft oder belegt wird. Du solltest selbst entscheiden, ob du es vorziehst, dass ASF die ganze Zeit an einer bestimmten Bot-Instanz arbeitet, oder ob ASF sie vielleicht stoppen sollte, wenn das Sammeln abgeschlossen ist. Wenn alle Konten gestoppt sind und der Prozess nicht in `--process-required` **[Modus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** läuft, wird ASF auch heruntergefahren, wodurch deine Maschine in den Ruhemodus geht und du andere Aktionen planen kannst wie z.B. Schlafmodus oder Herunterfahren sobald die letzte Karte gesammelt wurde.
 
-Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
+Wenn du dir nicht sicher bist wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
 
 * * *
 
@@ -689,7 +692,7 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 
 ### `TransferableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam-Gegenstands-Typen für die Übertragung zwischen Bots während `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
+`ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam-Gegenstands-Typen für die Übertragung zwischen Bots während `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
 
 | Wert | Name              | Beschreibung                                                                                  |
 | ---- | ----------------- | --------------------------------------------------------------------------------------------- |
@@ -716,13 +719,13 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 Die Anmelde-Schlüssel werden standardmäßig für deine Bequemlichkeit verwendet, so dass du nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code (wenn du nicht **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendest) eingeben musst. Es ist auch eine überlegene Alternative, da der Anmelde-Schlüssel nur einmalig verwendet werden kann und dein ursprüngliches Passwort in keiner Weise offenbart. Genau die gleiche Methode wird von deinem ursprünglichen Steam-Client verwendet, der deinen Konto-Namen und Anmelde-Schlüssel für deinen nächsten Anmeldeversuch speichert, was praktisch die gleiche ist wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
 
-Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht dir diese Option hier zur Verfügung, wenn du sicherstellen möchtest, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn du "Remember me" im offiziellen Steam-Client nicht aktivierst. Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `true` belassen.
+Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht dir diese Option hier zur Verfügung, wenn du sicherstellen möchtest, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn du "Remember me" im offiziellen Steam-Client nicht aktivierst. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `true` belassen.
 
 * * *
 
 ## Dateistruktur
 
-ASF benutzt eine einfache Dateistruktur.
+ASF benutzt eine recht einfache Dateistruktur.
 
     ├── config
     │     ├── ASF.json
@@ -773,7 +776,7 @@ Die von ASF verwendeten Typen sind native C#-Typen, die im Folgenden aufgeführt
 
 * * *
 
-`bool` - Boolescher Typ, der nur `true` und `false` Werte akzeptiert.
+`bool` - Boolean-Typ der nur die Werte `true` und `false` akzeptiert.
 
 Beispiel: `"Enabled": true`
 
@@ -791,23 +794,23 @@ Beispiel: `"WebLimiterDelay": 300`
 
 * * *
 
-`uint` - Unsignierter Ganzzahl-Typ, der nur ganze Zahlen von `0` bis `4294967295` (einschließlich) akzeptiert.
+`uint` - Unsignierter Integer-Typ der nur ganze Zahlen von `0` bis `4294967295` (einschließlich) akzeptiert.
 
 * * *
 
-`ulong` - Unsignierter long integer Typ, der nur ganze Zahlen von `0` bis `18446744073709551615` (einschließlich) akzeptiert.
+`ulong` - Unsignierter Long-Integer-Typ der nur ganze Zahlen von `0` bis `18446744073709551615` (einschließlich) akzeptiert.
 
 Beispiel: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
-`string` - Zeichenketten-Typ, der jede beliebige Zeichenfolge akzeptiert, einschließlich der leeren Folge `""` und `null`. Leere Sequenz und `null` Wert werden von ASF gleich behandelt, so dass du es dir aussuchen kannst, welche du verwenden möchtest (wir bleiben bei `null`).
+`string` - String-Typ der jede beliebige Zeichenfolge akzeptiert, einschließlich einer leeren Zeichenfolge wie `""` und `null`. Leere Sequenz und `null` Wert werden von ASF gleich behandelt, so dass du es dir aussuchen kannst, welche du verwenden möchtest (wir bleiben bei `null`).
 
 Beispiele: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeinLogin"`
 
 * * *
 
-`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Satz) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft nur für eindeutige Werte Sinn macht, daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls du sie trotzdem angegeben hast).
+`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Set) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft nur für eindeutige Werte Sinn macht, daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls du sie trotzdem angegeben hast).
 
 Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
@@ -847,13 +850,13 @@ Wie du sehen kannst, haben wir im obigen Beispiel 3 verfügbare Flags zum Ein- u
 
 ## Kompatibilitätsmapping
 
-Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die entsprechende Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deinen Konfigurationen tatsächlich gültig sind und korrekt generiert wurden. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist kannst du auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
+Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die entsprechende Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deinen Konfigurationen tatsächlich gültig sind und korrekt generiert wurden. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist kannst du auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, dass wir diese JavaScript-Einschränkung irgendwann aufheben können.
 
 * * *
 
 ## Konfigurations-Kompatibilität
 
-Es ist für ASF oberste Priorität, mit älteren Konfigurationen kompatibel zu bleiben. Wie du bereits weißt, werden fehlende Konfigurationseigenschaften genauso behandelt, wie wenn sie mit ihren **Standardwerten** angegeben würden. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten. Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da du auf diese Weise automatisch Standardwerte für alle anderen vererbst, nicht nur deine Konfiguration sauber hältst, sondern auch die Kompatibilität erhöhst, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die du nicht explizit selbst festlegen möchtest (z.B. `WebLimiterDelay`).
+Es ist für ASF oberste Priorität mit älteren Konfigurationen kompatibel zu bleiben. Wie du bereits weißt, werden fehlende Konfigurationseigenschaften genauso behandelt, wie wenn sie mit ihren **Standardwerten** angegeben würden. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten. Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da du auf diese Weise automatisch Standardwerte für alle anderen vererbst, nicht nur deine Konfiguration sauber hältst, sondern auch die Kompatibilität erhöhst, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die du nicht explizit selbst festlegen möchtest (z.B. `WebLimiterDelay`).
 
 * * *
 

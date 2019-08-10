@@ -237,16 +237,18 @@ El comando `redeem^` te permite ajustar los modos que serán utilizados para un 
 
 El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de modo disponibles se especifican a continuación:
 
-| Valor | Nombre                | Descripción                                                                            |
-| ----- | --------------------- | -------------------------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Fuerza que la preferencia de activación `Distributing` esté habilitada                 |
-| FF    | ForceForwarding       | Fuerza que la preferencia de activación `Forwarding` esté habilitada                   |
-| FKMG  | ForceKeepMissingGames | Fuerza que la preferencia de activación `KeepMissingGames` esté habilitada             |
-| SD    | SkipDistributing      | Fuerza que la preferencia de activación `Distributing` esté deshabilitada              |
-| SF    | SkipForwarding        | Fuerza que la preferencia de activación `Forwarding` esté deshabilitada                |
-| SI    | SkipInitial           | Omite la activación de claves en el bot inicial                                        |
-| SKMG  | SkipKeepMissingGames  | Fuerza que la preferencia de activación `KeepMissingGames` esté deshabilitada          |
-| V     | Validate              | Valida que las claves tengan el formato correcto y automáticamente omite las inválidas |
+| Valor | Nombre                | Descripción                                                                                     |
+| ----- | --------------------- | ----------------------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Fuerza que la preferencia de activación `AssumeWalletKeyOnBadActivationCode` esté habilitada    |
+| FD    | ForceDistributing     | Fuerza que la preferencia de activación `Distributing` esté habilitada                          |
+| FF    | ForceForwarding       | Fuerza que la preferencia de activación `Forwarding` esté habilitada                            |
+| FKMG  | ForceKeepMissingGames | Fuerza que la preferencia de activación `KeepMissingGames` esté habilitada                      |
+| SAWK  | SkipAssumeWalletKey   | Fuerza que la preferencia de activación `AssumeWalletKeyOnBadActivationCode` esté deshabilitada |
+| SD    | SkipDistributing      | Fuerza que la preferencia de activación `Distributing` esté deshabilitada                       |
+| SF    | SkipForwarding        | Fuerza que la preferencia de activación `Forwarding` esté deshabilitada                         |
+| SI    | SkipInitial           | Omite la activación de claves en el bot inicial                                                 |
+| SKMG  | SkipKeepMissingGames  | Fuerza que la preferencia de activación `KeepMissingGames` esté deshabilitada                   |
+| V     | Validate              | Valida que las claves tengan el formato correcto y automáticamente omite las inválidas          |
 
 Por ejemplo, si quisieramos activar 3 claves en cualquiera de nuestros bots que aún no poseen juegos, pero no en nuestro bot `principal`. Para lograrlo podemos utilizar:
 

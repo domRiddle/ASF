@@ -568,12 +568,13 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 `byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 cd키 등록에서 ASF 봇의 행동을 아래와 같이 정의합니다.
 
-| 값 | 이름               | 설명                                                                             |
-| - | ---------------- | ------------------------------------------------------------------------------ |
-| 0 | 없음(None)         | No special redeeming preferences, default                                      |
-| 1 | Forwarding       | Forward keys unavailable to redeem to other bots                               |
-| 2 | Distributing     | Distribute all keys among itself and other bots                                |
-| 4 | KeepMissingGames | Keep keys for (potentially) missing games when forwarding, leaving them unused |
+| 값 | 이름                                 | 설명                                                                                                                              |
+| - | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 없음(None)                           | No special redeeming preferences, default                                                                                       |
+| 1 | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
+| 2 | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
+| 4 | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
+| 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
@@ -582,6 +583,8 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 `Distributing` will cause bot to distribute all received keys among itself and other bots. This means that every bot will get a single key from the batch. Typically this is used only when you're redeeming many keys for the same game, and you want to evenly distribute them among your bots, as opposed to redeeming keys for various different games. This feature makes no sense if you're redeeming only one key in a single `redeem` action (as there are no extra keys to be distributed).
 
 `KeepMissingGames` will cause bot to skip `Forwarding` when we can't be sure if key being redeemed is in fact owned by our bot, or not. This basically means that `Forwarding` will apply **only** to `AlreadyPurchased` keys, instead of covering also other cases such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`. Typically you want to use this option on primary account, to ensure that keys being redeemed on it won't be forwarded further if your bot for example becomes temporarily `RateLimited`. As you can guess from the description, this field has absolutely no effect if `Forwarding` is not enabled.
+
+`AssumeWalletKeyOnBadActivationCode` will cause `BadActivationCode` keys to be treated as `CannotRedeemCodeFromClient`, and therefore result in ASF trying to redeem them as wallet keys. This is needed because Steam might announce wallet keys as `BadActivationCode` (and not `CannotRedeemCodeFromClient` as it used to), resulting in ASF never attempting to redeem them. However, we recommend **against** using this preference, as it'll result in ASF trying to redeem every invalid key as a wallet code, resulting in excessive amount of (potentially invalid) requests sent to the Steam service, with all the potential consequences. Instead, we recommend to use `ForceAssumeWalletKey` **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#redeem-modes)** mode while knowingly redeeming wallet keys, which will enable the needed workaround only when it's required, on as-needed basis.
 
 Enabling both `Forwarding` and `Distributing` will add distributing feature on top of forwarding one, which makes ASF trying to redeem one key on all bots firstly (forwarding) before moving to the next one (distributing). Typically you want to use this option only when you want `Forwarding`, but with altered behaviour of switching the bot on key being used, instead of always going in-order with every key (which would be `Forwarding` alone). This behaviour can be beneficial if you know that majority or even all of your keys are tied to the same game, because in this situation `Forwarding` alone would try to redeem everything on one bot firstly (which makes sense if your keys are for unique games), and `Forwarding` + `Distributing` will switch the bot on the next key, "distributing" the task of redeeming new key onto another bot than the initial one (which makes sense if keys are for the same game, skipping one pointless attempt per key).
 
@@ -689,7 +692,7 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 
 ### `TransferableTypes`
 
-`ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 아이템 타입입니다. 이 속성값은 `transfer` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 두 봇간에 전송가능한 Steam 항목 타입을 정의합니다. ASF는 `TransferableTypes`에 있는 항목만 거래 제안에 포함할 것이므로, 이 속성값은 당신의 봇 중 하나에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
+`ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 아이템 타입입니다. 이 속성값은 `transfer` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 두 봇간에 전송가능한 Steam 아이템 타입을 정의합니다. ASF는 `TransferableTypes`에 있는 아이템만 거래 제안에 포함할 것이므로, 이 속성값은 당신의 봇 중 하나에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
 
 | 값 | 이름                          | 설명                                |
 | - | --------------------------- | --------------------------------- |
@@ -706,7 +709,7 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 아이템을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
 
 * * *
 

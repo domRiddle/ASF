@@ -568,12 +568,13 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 這是一個預設值為`0` 的 `byte flags` 屬性。 此屬性定義ASF在兌換cd-keys時的行為，定義如下：
 
-| 值 | 名稱               | 描述                     |
-| - | ---------------- | ---------------------- |
-| 0 | None             | 預設值，無特殊激活偏好            |
-| 1 | Forwarding       | 將無法兌換的金鑰转發給其他機械人       |
-| 2 | Distributing     | 在自己和其他機械人之間分配所有密鑰      |
-| 4 | KeepMissingGames | 轉發時保留（可能）缺少游戲的密鑰，不去激活它 |
+| 值 | 名稱                                 | 描述                                                                                                                              |
+| - | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None                               | 預設值，無特殊激活偏好                                                                                                                     |
+| 1 | Forwarding                         | 將無法兌換的金鑰转發給其他機械人                                                                                                                |
+| 2 | Distributing                       | 在自己和其他機械人之間分配所有密鑰                                                                                                               |
+| 4 | KeepMissingGames                   | 轉發時保留（可能）缺少游戲的密鑰，不去激活它                                                                                                          |
+| 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
@@ -582,6 +583,8 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 `Distributing` 命令將導致機械人在自身和其他機械人之間分發所有接收到的金鑰。 這意味著每個機械人都會從批處理中獲得一個密鑰。 通常，只有當您為同一遊戲兌換多個金鑰時，才會使用此功能，並且您希望將它們均勻地分佈在您的機械人中，而不是為各種不同的遊戲兌換金鑰。 如果您只兌換單個 `兌換` 操作中的一個金鑰，則此功能毫無意義（因為沒有要分發的額外金鑰）。
 
 當我們無法確定被兌換的密鑰是否實際上由我們的機械人擁有時，` KeepMissingGames `將導致機械人跳過` Forwarding `。 這意味著` Forwarding `將**僅**應用於` AlreadyPurchased `遊戲密鑰，而不覆蓋其他情況，例如` DoesNotOwnRequiredApp `， ` RateLimited `或` RestrictedCountry `。 通常，您可能希望在主帳戶上使用此選項，以確保當您的機械人狀態暫時為` RateLimited `時，不會進一步轉發在其上兌換的密鑰。 正如您從描述中猜測的那樣，如果未啟用` Forwarding `，則此字段絕無效果。
+
+`AssumeWalletKeyOnBadActivationCode` will cause `BadActivationCode` keys to be treated as `CannotRedeemCodeFromClient`, and therefore result in ASF trying to redeem them as wallet keys. This is needed because Steam might announce wallet keys as `BadActivationCode` (and not `CannotRedeemCodeFromClient` as it used to), resulting in ASF never attempting to redeem them. However, we recommend **against** using this preference, as it'll result in ASF trying to redeem every invalid key as a wallet code, resulting in excessive amount of (potentially invalid) requests sent to the Steam service, with all the potential consequences. Instead, we recommend to use `ForceAssumeWalletKey` **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#redeem-modes)** mode while knowingly redeeming wallet keys, which will enable the needed workaround only when it's required, on as-needed basis.
 
 同時啟用` Forwarding `和` Distributing `將在轉發功能之上添加分發功能，這使得ASF首先嘗試在所有機械人上兌換一個密鑰（轉發），然後再轉移到下一個（分發）。 通常，您只希望在需要` Forwarding `時使用此選項，它改變了使用密鑰的機器人的行為，而不是始終按順序使用每個密鑰（這將是` Forwarding（僅轉發）`）。 如果您知道大多數甚至所有密鑰都綁定到同一個遊戲，這種行為會很有用，因為在這種情況下，` Forwarding `會首先嘗試在一個機械人上兌換所有密鑰（如果每個密鑰用於不同的遊戲），` Forwarding ` + ` Distributing `將在下一個密鑰上切換機械人，將新密鑰的兌換任務“分發”到另一個機械人上（如果鍵是針對同一個遊戲，那麼這是有意義的，每個密鑰將跳過一次毫無意義的嘗試）。
 
@@ -706,7 +709,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裡定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
+ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` TransferableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 在此我強烈建議不要在`TransferableTypes` 中選擇 `Unknown` 類型，即使您真的希望交易任何類型的物品。
 
 * * *
 

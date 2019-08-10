@@ -237,16 +237,18 @@ Complete command example:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Reikšmė | Pavadinimas           | Description                                                           |
-| ------- | --------------------- | --------------------------------------------------------------------- |
-| FD      | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF      | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG    | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD      | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF      | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI      | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG    | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V       | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Reikšmė | Pavadinimas           | Description                                                                     |
+| ------- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK    | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD      | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF      | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG    | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK    | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD      | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF      | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI      | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG    | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V       | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 

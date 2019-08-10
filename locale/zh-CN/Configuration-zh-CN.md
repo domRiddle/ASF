@@ -568,12 +568,13 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为 `0` 的 `byte flags` 类型属性。 该属性定义 ASF 在激活游戏序列号时的行为，可选项如下：
 
-| 值 | 名称               | 描述                          |
-| - | ---------------- | --------------------------- |
-| 0 | None             | 无特殊激活偏好，默认值                 |
-| 1 | Forwarding       | 将无法激活的序列号转发给其他机器人           |
-| 2 | Distributing     | 将序列号分配给自身和其他机器人             |
-| 4 | KeepMissingGames | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用 |
+| 值 | 名称                                 | 描述                                                                                  |
+| - | ---------------------------------- | ----------------------------------------------------------------------------------- |
+| 0 | None                               | 无特殊激活偏好，默认值                                                                         |
+| 1 | Forwarding                         | 将无法激活的序列号转发给其他机器人                                                                   |
+| 2 | Distributing                       | 将序列号分配给自身和其他机器人                                                                     |
+| 4 | KeepMissingGames                   | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用                                                         |
+| 8 | AssumeWalletKeyOnBadActivationCode | 假定 `BadActivationCode` 状态的序列号等同于 `CannotRedeemCodeFromClient` 状态，并因此尝试将其作为钱包礼物卡代码激活 |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
@@ -582,6 +583,8 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 `Distributing` 会使机器人在自己和其他机器人之间分配所有序列号。 这意味着每个机器人都会从一批序列号中获得一个。 通常，这个功能仅适用于激活大量同一个游戏的序列号。并且您希望在所有机器人中均匀分配，而激活各种不同游戏的情况则不适合该选项。 如果您仅在 `redeem` 命令中提供一个序列号，则此功能就没有意义，因为没有可供分配的额外序列号。
 
 `KeepMissingGames` 会使机器人在无法确定自己是否拥有序列号所激活的游戏时，跳过 `Forwarding` 操作。 这基本上意味着 `Forwarding` 操作将**只会**针对 `AlreadyPurchased` 的序列号生效，而不再转发 `DoesNotOwnRequiredApp`、`RateLimited` 或 `RestrictedCountry` 状态的序列号。 通常情况下，您会希望为主帐户设置这一选项，以确保在临时触发频率限制 `RateLimited` 等情况下，不再继续转发为此帐户激活的序列号。 从描述中可以猜到，如果未启用 `Forwarding`，则此字段就完全没有任何效果。
+
+`AssumeWalletKeyOnBadActivationCode` 会使 `BadActivationCode` 状态的序列号被当作 `CannotRedeemCodeFromClient` 状态，ASF 会尝试将其作为钱包礼物卡代码激活。 加入此选项的原因是，Steam 可能会将钱包礼物卡代码当作 `BadActivationCode`（而非正确的 `CannotRedeemCodeFromClient`），导致 ASF 永远不会尝试激活它们。 然而，我们建议**避免**使用此选项，因为这会使 ASF 尝试将所有无效序列号当作钱包代码激活，因而向 Steam 服务发送大量（可能无效）的请求，造成意料之外的后果。 相反，我们建议您在明确激活钱包礼物卡代码时，使用 **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#redeem-模式)** 命令的 `ForceAssumeWalletKey` 模式，这样仅在启用此模式时进行所需的额外尝试。
 
 同时启用 `Forwarding` 和 `Distributing` 将会在转发的基础上增加分配的功能，即 ASF 会首先尝试在所有机器人上激活一个序列号（转发），然后再切换到下一个（分配）。 通常，如果您这样设置，就表示您希望启用 `Forwarding` 功能，同时在序列号被使用时切换机器人，而不是始终按机器人顺序激活每个序列号（仅启用 `Forwarding` 的行为）。 这种行为在您知道大多数甚至全部序列号都被绑定到同一款游戏的情况下非常有用，因为这种情况下仅启用 `Forwarding` 将会使机器人首先尝试在一个机器人上激活所有序列号（适合序列号属于不同游戏的情况），而启用 `Forwarding` + `Distributing` 将会在激活下一个序列号时切换机器人，将激活新序列号的任务“分配”到另一个机器人上，不再由初始机器人负责（适合所有序列号都是同一款游戏的情况，每次激活都会跳过一次无意义的尝试）。
 
@@ -689,7 +692,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `TransferableTypes`
 
-这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer`（转移）**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
+这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
 
 | 值 | 名称                | 描述                        |
 | - | ----------------- | ------------------------- |

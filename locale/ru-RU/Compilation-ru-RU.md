@@ -36,16 +36,16 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET Framework
 
-В очень редком случае, когда вы захотите создать сборку `generic-netf`, вы можете изменить целевой фреймворк с `netcoreapp2.2` на `net472`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET Core SDK, вам потребуется соответствующий пакет **[ .NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
+В очень редком случае, когда вы захотите создать сборку `generic-netf`, вы можете изменить целевой фреймворк с `netcoreapp2.2` на `net48`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET Core SDK, вам потребуется соответствующий пакет **[ .NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net472" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
 В случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. Вам понадобиться вручную указать `ASFNetFramework`, поскольку ASF по-умолчанию деактивирует сборку варианта netf на платформах, отличных от Windows:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net472 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

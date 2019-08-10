@@ -71,8 +71,10 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 相对路径也�
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
+    │           ├── logs（自动生成）
     │           ├── plugins（可选）
     │           ├── www（可选）
+    │           ├── log.txt（自动生成）
     │           └── NLog.config（可选）
     └── ...
     

@@ -1,6 +1,6 @@
 # FAQ Supplémentaires
 
-Our extended FAQ covers a bit less common questions and answers that you may have. Pour des informations plus courantes, consultez plutôt notre **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** de base.
+Notre FAQ étendue couvre les réponses à certaines questions moins courantes que vous pourriez avoir. Pour des informations plus courantes, consultez plutôt notre **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** de base.
 
 * * *
 

@@ -71,9 +71,11 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Caminho relativo 
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
-    │           ├── plugins (opcional)
-    │           ├── www (opcional)
-    │           └── NLog.config (opcional)
+    │           ├── logs (gerado)
+    │           ├── plugins (opicional)
+    │           ├── www (opicional)
+    │           ├── log.txt (gerado)
+    │           └── NLog.config (opicional)
     └── ...
     
 

@@ -243,9 +243,11 @@ La commande `redeem^</ 0> vous permet d’affiner les modes qui seront utilisés
 
 | Valeur  | Nom                   | Description                                                                             |
 | ------- | --------------------- | --------------------------------------------------------------------------------------- |
+| FAWK    | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled          |
 | FD      | ForceDistributing     | Force l'activation de la distribution `Distributing`                                    |
 | FF      | ForceForwarding       | Force l'activation du transfert `Forwarding`                                            |
 | FKMG    | ForceKeepMissingGames | Force l'activation de `KeepMissingGames`                                                |
+| SAWK    | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled         |
 | SD      | SkipDistributing      | Force la désactivation de la préférence ` Distributing `                                |
 | SF      | SkipForwarding        | Force la désactivation de la préférence ` Forwarding`                                   |
 | SI      | SkipInitial           | Ignore l'utilisation des clés sur le bot initial                                        |

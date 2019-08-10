@@ -8,7 +8,7 @@ ASF te permite configurar tu propio módulo de registro personalizado que se uti
 
 Por defecto, ASF registra a `ColoredConsole` (salida estándar) y a `File`. El registro en `File` incluye el archivo `log.txt` en el directorio del programa, y el directorio `logs` para fines de archivar.
 
-Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Esto te permite no solo añadir objetivos de registro **adicionales**, sino también desactivar o modificar los **predeterminados**.
+Usar una configuración NLog personalizada automáticamente desactiva el registro por defecto de ASF, tu configuración anula **por completo** el registro predeterminado de ASF, lo que significa que si quieres mantener, por ejemplo, el objetivo `ColoredConsole`, entonces debes definirlo **tú mismo**. Esto te permite no solo añadir objetivos de registro **adicionales**, sino también desactivar o modificar los **predeterminados**.
 
 Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas hacer nada - tampoco necesitas definirlo en `NLog.config`. No uses el `NLog.config` personalizado si no quieres modificar el registro predeterminado de ASF. Para referencia, el equivalente del registro predeterminado de ASF sería:
 

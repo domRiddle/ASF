@@ -237,16 +237,18 @@ O comando `redeem^` permite que você ajuste os métodos que serão usados em um
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
-| Valor | Nome                  | Descrição                                                                  |
-| ----- | --------------------- | -------------------------------------------------------------------------- |
-| FD    | ForceDistributing     | Força a ativação da preferência de resgate `Distributing`                  |
-| FF    | ForceForwarding       | Força a ativação da preferência de resgate `Forwarding`                    |
-| FKMG  | ForceKeepMissingGames | Força a ativação da preferência de resgate `KeepMissingGames`              |
-| SD    | SkipDistributing      | Força a desativação da preferência de resgate `Distributing`               |
-| SF    | SkipForwarding        | Força a desativação da preferência de resgate `Forwarding`                 |
-| SI    | SkipInitial           | Pula o resgate de keys no primeiro bot                                     |
-| SKMG  | SkipKeepMissingGames  | Força a desativação da preferência de resgate `KeepMissingGames`           |
-| V     | Validate              | Valida a formatação correta das keys e ignora automaticamente as inválidas |
+| Valor | Nome                  | Descrição                                                                          |
+| ----- | --------------------- | ---------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Força a ativação da preferência de resgate `AssumeWalletKeyOnBadActivationCode`    |
+| FD    | ForceDistributing     | Força a ativação da preferência de resgate `Distributing`                          |
+| FF    | ForceForwarding       | Força a ativação da preferência de resgate `Forwarding`                            |
+| FKMG  | ForceKeepMissingGames | Força a ativação da preferência de resgate `KeepMissingGames`                      |
+| SAWK  | SkipAssumeWalletKey   | Força a desativação da preferência de resgate `AssumeWalletKeyOnBadActivationCode` |
+| SD    | SkipDistributing      | Força a desativação da preferência de resgate `Distributing`                       |
+| SF    | SkipForwarding        | Força a desativação da preferência de resgate `Forwarding`                         |
+| SI    | SkipInitial           | Pula o resgate de keys no primeiro bot                                             |
+| SKMG  | SkipKeepMissingGames  | Força a desativação da preferência de resgate `KeepMissingGames`                   |
+| V     | Validate              | Valida a formatação correta das keys e ignora automaticamente as inválidas         |
 
 Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots que ainda não possuem os jogos, mas não nosso bot `primary`. Para isso nós podemos usar:
 

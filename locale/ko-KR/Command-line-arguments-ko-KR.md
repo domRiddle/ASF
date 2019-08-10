@@ -71,8 +71,10 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 상대경로도 �
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
+    │           ├── logs (generated)
     │           ├── plugins (optional)
     │           ├── www (optional)
+    │           ├── log.txt (generated)
     │           └── NLog.config (optional)
     └── ...
     

@@ -59,7 +59,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                   |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                               |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                     |
-| `exit`                                                                     | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
+| `έξοδος`                                                                   | `Owner`         | Stops whole ASF process.                                                                                                                                                                              |
 | `farm <Bots>`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                |
 | `help`                                                                     | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                       |
 | `input <Bots> <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                          |
@@ -237,16 +237,18 @@ Complete command example:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Τιμή | Όνομα                 | Περιγραφή                                                             |
-| ---- | --------------------- | --------------------------------------------------------------------- |
-| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled              |
-| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                |
-| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled          |
-| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled             |
-| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled               |
-| SI   | SkipInitial           | Skips key redemption on initial bot                                   |
-| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled         |
-| V    | Validate              | Validates keys for proper format and automatically skips invalid ones |
+| Τιμή | Όνομα                 | Περιγραφή                                                                       |
+| ---- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 

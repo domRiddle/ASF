@@ -71,8 +71,10 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../CélKönyvtár # Relatív elérési
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
+    │           ├── logs (generated)
     │           ├── plugins (optional)
     │           ├── www (optional)
+    │           ├── log.txt (generated)
     │           └── NLog.config (optional)
     └── ...
     

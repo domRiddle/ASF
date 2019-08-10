@@ -237,16 +237,18 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 `<Modes>` 接受由逗号分隔的多个模式代码。 可用的模式代码有：
 
-| 值    | 名称                    | 描述                             |
-| ---- | --------------------- | ------------------------------ |
-| FD   | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置     |
-| FF   | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置       |
-| FKMG | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置 |
-| SD   | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置     |
-| SF   | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置       |
-| SI   | SkipInitial           | 跳过首个机器人的激活过程                   |
-| SKMG | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置 |
-| V    | Validate              | 检查序列号的格式，自动跳过其中无效的             |
+| 值    | 名称                    | 描述                                               |
+| ---- | --------------------- | ------------------------------------------------ |
+| FAWK | ForceAssumeWalletKey  | 强制启用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| FD   | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置                       |
+| FF   | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置                         |
+| FKMG | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置                   |
+| SAWK | SkipAssumeWalletKey   | 强制禁用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| SD   | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置                       |
+| SF   | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置                         |
+| SI   | SkipInitial           | 跳过首个机器人的激活过程                                     |
+| SKMG | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置                   |
+| V    | Validate              | 检查序列号的格式，自动跳过其中无效的                               |
 
 例如，我么打算为尚未拥有游戏的机器人激活 3 个序列号，但不包括 `primary` 机器人。 为此我们需要执行命令：
 
