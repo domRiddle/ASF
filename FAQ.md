@@ -30,7 +30,7 @@ Core points are stated once again here, because people in general don't want to 
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
