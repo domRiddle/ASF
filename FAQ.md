@@ -28,7 +28,7 @@ Core points are stated once again here, because people in general don't want to 
 - **You can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you with card drops.**
 - **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you put money into. In other words, if you play a game long enough, all cards for that game will drop to your inventory, making it possible for you to complete a badge, sell them, or do whatever you want.
+So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
 ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
 
