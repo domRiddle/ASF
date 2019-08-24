@@ -14,7 +14,7 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 ## General
 
-### So how it exactly works?
+### What is ASF? Why does the program claims that there is nothing to idle on my account?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
