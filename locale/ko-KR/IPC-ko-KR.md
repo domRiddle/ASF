@@ -184,7 +184,7 @@ IPC 인터페이스는 추가 환경설정 파일을 지원합니다.`IPC.config
 
 `Endpoints` - 이것은 단말의 집합입니다. 모든 단말은 `example-http4`와 같은 유일한 이름을 가지고 있어야 하며, `Url` 속성값은 `Protocol://Host:Port` 수신주소를 특정합니다. 기본적으로 ASF는 IPv4와 IPv6 http 주소를 수신하지만, 필요할지 몰라 사용할 수 있는 https 예시를 추가해 두었습니다. 필요한 단말 만을 선언해야 합니다. 당신이 수정하기 쉽도록 위에 4개의 예시를 들어놓았습니다.
 
-`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. 이 경우 최소한 `IPCPassword`, 그리고 방화벽의 사용을 강력하게 권장합니다.
+`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
 `PathBase` - IPC 인터페이스가 사용될 기본 경로입니다. 이 속성값은 선택사항입니다. 기본값은 `/`인데 대부분의 사용례에서 수정할 필요가 없습니다. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://localhost:1242/MyPrefix` instead of `http://localhost:1242` alone. 사용자 지정 `PathBase` 는 특정한 URL만 프록시하기 원하는 역방향 프록시의 특정 설치와의 조합으로 사용할 수 있습니다. 예를 들어 전체 `mydomain.com` 도메인이 아닌`mydomain.com/ASF` 를 사용할 수 있습니다. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 

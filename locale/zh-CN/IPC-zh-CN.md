@@ -184,7 +184,7 @@ server {
 
 `Endpoints`——这是端点的集合，每个端点都有自己的唯一名称（例如 `example-http4`） 和 `Url` 属性指定监听地址，其格式为 `Protocol://Host:Port`。 默认情况下，ASF 会监听 IPv4 和 IPv6 的 HTTP 地址，但如果您需要，也可以参考我们的示例设置 HTTPS。 您应该只声​​明您需要的端点，我们在上面包含了 4 个示例端点，以便您可以更轻松地编辑它们。
 
-`Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您至少设置 `IPCPassword`（并且启用防火墙）。
+`Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您**至少**设置 `IPCPassword`（并且启用防火墙）。
 
 `PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `localhost:1242/Api/X`，但通过将 `PathBase` 设置为 `/ASF`，您可以更简单地实现从 `mydomain.com/ASF/Api/X` 到 `localhost:1242/ASF/Api/X` 的映射。
 

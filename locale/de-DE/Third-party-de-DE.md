@@ -12,6 +12,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern ge
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
 
 * * *
 

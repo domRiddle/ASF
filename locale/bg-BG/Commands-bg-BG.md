@@ -166,7 +166,7 @@ While valid values for all of them are:
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### Пример
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -195,7 +195,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Example      | Description                                                             |
+| Type  | Alias | Пример       | Description                                                             |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
@@ -215,7 +215,7 @@ Complete command example:
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                                   |
+| Type    | Alias | Пример           | Description                                                                                                                                                                                                                                                                   |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
 | `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
@@ -277,7 +277,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Пример
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

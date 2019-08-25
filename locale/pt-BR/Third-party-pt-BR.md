@@ -12,6 +12,7 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin que adiciona a funcionalidade de criar pacotes de cartas.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para tirar a diferenciação que o ASF faz entre maiúsculas e minúsculas nos nomes dos bots.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de keys sem a necessidade do uso de comando.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin que aceita automaticamente propostas de troca de determinado(s) tipo(s) de itens.
 
 * * *
 

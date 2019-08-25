@@ -17,7 +17,7 @@
 
 ## Основни
 
-* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Активатор на игри на заден фон](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Съвместимост](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Производителност](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**

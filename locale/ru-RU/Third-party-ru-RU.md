@@ -12,6 +12,7 @@
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
 
 * * *
 

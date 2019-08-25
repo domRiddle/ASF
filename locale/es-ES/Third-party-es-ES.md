@@ -12,6 +12,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no sean sensibles a mayúsculas.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para cierto tipo de objetos.
 
 * * *
 
