@@ -59,7 +59,7 @@ If you meet all of the requirements above, ASF will periodically communicate wit
 
 - Each matching is composed of "rounds", with up to `10` being a maximum in a single matching session.
 - In each round ASF will fetch our inventory and inventory of selected bots that are listed in order to find `MatchableTypes` items that can be matched. If match is found, ASF will send and confirm trade offer automatically.
-- Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades. This is the primary reason why matching is composed of rounds and not one ongoing process.
+- Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades. It's also the primary reason why matching is composed of rounds and not one ongoing process.
 - ASF will send no more than `255` items in a single trade, and no more than `5` trades to a single user in a single round. This is imposed by Steam limits, as well as our own load-balancing.
 - Matching round ends the moment we try to match a total of `40` bots, if not cancelled before due to running out of sets to match or excessive amount of empty matches.
 - If last matching round resulted in at least a single trade being sent, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching session ends and repeats itself in `8` hours.
