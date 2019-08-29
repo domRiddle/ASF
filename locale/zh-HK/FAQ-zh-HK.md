@@ -14,22 +14,24 @@
 
 ## 常規
 
-### 它究竟是如何工作的？
+### What is ASF?
+
+### Why does the program claim that there is nothing to idle on my account?
 
 在嘗試了解 ASF 之前，您應該先了解什麼是交換卡片以及如何得到它們，這在官方**[常見問題](https://steamcommunity.com/tradingcards/faq)**中有很好的說明。
 
 簡而言之，Steam 卡牌是您在擁有特定遊戲時有資格獲得的收藏物品，可用於製作徽章、在 Steam 市集上銷售或您選擇的任何其他目的。
 
-在此再次陳述重點，因為人們通常不希望看到它們，並且视若无睹：
+Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
 
-- **是的，您需要擁有遊戲，才有資格獲得掉落的卡牌。 親友同享的遊戲不算數。**
-- **不，您不能無限掛卡，每一個遊戲的掉落卡牌數量都是固定的。 一旦您獲得了在特定遊戲中掉落的卡牌（全套的一半），它就不可再用於掛卡了。 擁有遊戲並不重要，您已經完成了掛卡。**
-- **不，您無法在未消費的情況下從 F2P 遊戲中獲得掉落的卡牌。 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。**
-- **不，您不能在受限的帳戶（那些從未在Steam商店花5美元的帳戶）上獲得掉落的卡片，無論擁有什麼遊戲。 這在過去是有可能的，但現在已經不是這樣了。**
+- **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不算數。**
+- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **You can't drop cards from F2P games without spending any money in them. 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 Owning F2P games does not grant you with card drops.**
+- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. 這在過去是有可能的，但現在已經不是這樣了。**
 
-所以，如您所見，Steam卡片是一種奖品，來自您購買的遊戲，或您氪金的 F2P 遊戲。 換句話說，如果您玩一個遊戲的時間足夠長，該遊戲的所有卡片都會掉到你的庫存中，使您有可能合成一個徽章、出售它們，或者做任何您想做的事情。
+So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-ASF 是一個相當複雜且不易理解的程式，所以下面我們將提供一個非常簡單的解釋，而不是詳列所有的技術細節。
+Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF 使用您提供的憑據，通過內置自訂 Steam 用戶端實現登錄到您的Steam帳戶。 成功登錄後，它會分析您的**[徽章頁](https://steamcommunity.com/my/badges)**, 以查找可供掛卡的遊戲（您可以從玩這個遊戲中再獲得X張卡片）。 在分析了所有徽章頁面並構建了可用遊戲的最終清單後，ASF 選擇了最有效的掛卡算法並啟動進程。 這個過程取決於選擇的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**，但通常包括玩合格的遊戲，並定期（當每個物品掉落）檢查遊戲是否已經完成掛卡——如果是，ASF 可以相同的流程繼續下一個遊戲，直到獲得所有的遊戲卡片。
 

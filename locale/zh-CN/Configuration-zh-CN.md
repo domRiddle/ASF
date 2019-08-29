@@ -128,7 +128,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `CurrentCulture`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 默认情况下，ASF 会尝试使用您的操作系统语言，并且优先使用该语言中已翻译的字符串。 感谢我们的社区将 ASF **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;为各门主流语言。 如果处于某种原因，您不想使用操作系统的本地语言，则可以使用此属性选择另一门语言。 您可以在 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** 页面的 `Language tag` 标签查找所有可用的区域代码。 值得注意的是，ASF 接受包含地区的区域代码，例如 `en-GB`，也接受通用的区域代码，例如 `en`。 指定当前的区域还会影响其他与区域有关的行为，例如货币/日期格式等。 请注意，如果您选择了非本机的区域，则可能需要额外的字体/语言包才能显示该语言中的字符。 通常，如果您更喜欢以英语而不是您的母语使用 ASF，则需要更改这个属性。
+这是一个默认值为 `null` 的 `string` 类型属性。 默认情况下，ASF 会尝试使用您的操作系统语言，并且优先使用该语言中已翻译的字符串。 感谢我们的社区将 ASF **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;为各门主流语言。 如果处于某种原因，您不想使用操作系统的本地语言，则可以使用此属性选择另一门语言。 您可以在 **[MSDN](https://msdn.microsoft.com/zh-cn/library/cc233982.aspx)** 页面的 `Language tag` 标签查找所有可用的区域代码。 值得注意的是，ASF 接受包含地区的区域代码，例如 `en-GB`，也接受通用的区域代码，例如 `en`。 指定当前的区域还会影响其他与区域有关的行为，例如货币/日期格式等。 请注意，如果您选择了非本机的区域，则可能需要额外的字体/语言包才能显示该语言中的字符。 通常，如果您更喜欢以英语而不是您的母语使用 ASF，则需要更改这个属性。
 
 * * *
 

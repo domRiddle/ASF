@@ -14,22 +14,24 @@ Our basic FAQ covers standard questions and answers that you may have. Az biline
 
 ## Genel
 
-### Peki tam olarak nasıl çalışır?
+### What is ASF?
+
+### Why does the program claim that there is nothing to idle on my account?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
 Kısaca, Steam kartları bir oyuna sahip olduğunuzda elde etme hakkı kazandığınız, rozet üretmekte kullanılabilen, Steam topluluk pazarında satılabilen veya seçtiğiniz herhangi başka bir amaç için kullanabilen koleksiyon ürünleridir.
 
-Core points are stated once again here, because people in general don't want to see them and act like those do not exist:
+Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
 
-- **Evet, bir oyundan kart düşürebilmek için o oyuna sahip olmak zorundasınız. Aile paylaşımı kart hakkı vermez.**
-- **Hayır, bir oyundan sınırsız kart düşüremezsiniz, her oyundan belirli bir sayıda kart düşürülebilmektedir. Once you run out of cards to drop in given game (half of a full set), it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
-- **Hayır, F2P (oynaması ücretsiz) oyunlarda para harcamadan kart düşüremezsiniz. Team Fortress 2 veya Dota 2 gibi sürekli oynaması ücretsiz oyunlar da buna dahildir.**
-- **No, you can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. Geçmişte mümkündü, ancak artık mümkün değil.**
+- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Aile paylaşımı kart hakkı vermez.**
+- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **You can't drop cards from F2P games without spending any money in them. Team Fortress 2 veya Dota 2 gibi sürekli oynaması ücretsiz oyunlar da buna dahildir. Owning F2P games does not grant you with card drops.**
+- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. Geçmişte mümkündü, ancak artık mümkün değil.**
 
-Gördüğünüz gibi Steam kartları satın aldığınız bir oyunu veya para harcadığınız bir oynaması ücretsiz oyunu oynadığınız için size verilen bir ödüldür. Bir başka deyişle, bir oyunu yeterince uzun süre oynarsanız, o oyun için olan kartların tamamı envanterinize düşer, böylece bir rozet işlemeniz, kartları satmanız veya o kartla ne yapmak isterseniz mümkün hale gelmektedir.
+So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-ASF as a program is quite complex to understand fully, so instead of explaining all technical details, we'll offer a very simplified explanation below.
+Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. Başarılı olarak giriş yaptıktan sonra, program hesabınızdaki **[ rozetler](https://steamcommunity.com/my/badges)**i inceleyerek kart düşürmeye uygun olan oyunları belirler. (Bu oyunu oynayarak X kart daha düşürebilirsiniz). Bütün sayfaları inceleyip kart düşürmeye uygun oyunlar listesini oluşturduktan sonra, ASF en verimli kart düşürme algoritmasını seçer ve işlemi başlatır. İşlem seçilen **[kart düşürme algoritmasına](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** bağlıdır, ancak genellikle uygun oyunları oynayarak ve düzenli olarak (ek olarak her öğe düştüğünde) oyun tüm kartları düştü mü diye kontrol eder - Eğer tüm kartlar düşürülmüşse, ASF aynı işlemi kullanarak tüm oyunların kartları düşürülene kadar sıradaki oyunla devam eder.
 

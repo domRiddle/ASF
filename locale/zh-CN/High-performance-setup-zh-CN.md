@@ -16,7 +16,7 @@
 
 > 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：- 工作站垃圾回收，用于所有客户端工作站和独立 PC。 这是运行时配置架构中 `<gcServer>` 元素的默认设置。 - 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-您可以在&#8203;**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
+您可以在&#8203;**[垃圾回收的基本知识](https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
 
 ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之间的良好平衡，这对于运行少数机器人来说已经足够了，因为通常单个并发后台 GC 线程足以快速地处理所有由 ASF 分配的内存。
 

@@ -14,7 +14,7 @@
 
 - 安装 **[.NET Core 依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
 - 在 &#8203;**[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载合适的 OS-specific 包。
-- 将下载的压缩包解压到新位置，如果您使用 Linux/OS X，还需要执行命令 `chmod +x ArchiSteamFarm`。
+- 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm`。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 运行并开始使用 ASF。
 
@@ -24,18 +24,18 @@
 
 ### .NET Core 依赖
 
-第一步是确保您的操作系统至少能够正常运行 ASF。 ASF 是以 C# 编写的，基于 .NET Core 框架，并且可能依赖于一些您的平台尚未支持的本机库。 取决于您使用 Windows、Linux 还是 OS X，您将需要满足不同的要求，但所有要求都写在了您需要阅读的 **[.NET Core 依赖](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**&#8203;文档中。 这是我们应该使用的参考材料，但为了简单起见，我们也在下文列出了所需的一切，这样您就不需要去阅读完整的文档。
+第一步是确保您的操作系统至少能够正常运行 ASF。 ASF 是以 C# 编写的，基于 .NET Core 框架，并且可能依赖于一些您的平台尚未支持的本机库。 取决于您使用 Windows、Linux 还是 macOS，您将需要满足不同的要求，但所有要求都写在了您需要阅读的 **[.NET Core 依赖](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**&#8203;文档中。 这是我们应该使用的参考材料，但为了简单起见，我们也在下文列出了所需的一切，这样您就不需要去阅读完整的文档。
 
 由于您安装的第三方软件，有可能您的操作系统已经满足了一部分（甚至所有）依赖项，这是很正常的。 不过，您还是应该在操作系统上运行这些依赖项的安装程序来确保它们确实被安装了——如果缺少这些依赖项，ASF 将完全无法启动。
 
 请注意，您不需要为特定操作系统包进行其他准备工作，特别是安装 .NET Core SDK 或者运行时环境，因为操作系统包中已包含了它们。 您只需要安装 .NET Core 依赖项，使 ASF 自带的 .NET Core 运行时环境能够运行。
 
-#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**：
+#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/windows-prerequisites?tabs=netcore2x)**：
 
-- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
-- 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
+- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/zh-cn/download/details.aspx?id=52685)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
+- 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
 
-#### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**：
+#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?tabs=netcore2x)**：
 
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
@@ -48,9 +48,9 @@
 
 至少有一部分包应该已经在您的系统中了（例如 zlib1g 应该是大多数现代 Linux 发行版的基础组件）。
 
-#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**：
+#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/macos-prerequisites?tabs=netcore2x)**：
 
-- 目前没有，但您应该安装最新版本的 OS X，至少应为 10.12+
+- 目前没有，但您应该安装最新版本的 macOS，至少应为 10.12+
 
 * * *
 
@@ -60,9 +60,9 @@
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，Linux/OS X 提供的 `unzip` 等标准工具也应该没有任何问题。 之后，您应该看见大量的文件夹和文件。 不要担心，我们马上就能把它们清理干净。
+下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，Linux/macOS 提供的 `unzip` 等标准工具也应该没有任何问题。 之后，您应该看见大量的文件夹和文件。 不要担心，我们马上就能把它们清理干净。
 
-如果您正在使用 Linux/OS X，不要忘记执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包无法提供权限信息。 您只需要在解压之后执行一次。
+如果您正在使用 Linux/macOS，不要忘记执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包无法提供权限信息。 您只需要在解压之后执行一次。
 
 您应该将 ASF 解压到一个**独立的文件夹**中，而不是已有文件的文件夹——ASF 会在自动更新时删除文件夹中任何过时或无关的文件，您在 ASF 文件夹中存放的其他文件可能会因此丢失。 如果您需要一些与 ASF 相关的额外脚本或文件，请将它们放到上层文件夹。
 
@@ -84,7 +84,7 @@
 
 好，现在我们要开始整理 ASF 文件夹。 如果您愿意，也可以跳到下一步，因为整理 ASF 文件夹并不是必须的，但是这可以为您带来方便。
 
-打开 ASF 文件夹，找到核心可执行文件，在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/OS X 上是 `ArchiSteamFarm`，右键单击这个文件，选择“复制”。 现在前往您实际需要运行 ASF 的位置（例如桌面），右键单击并选择“粘贴快捷方式”。 如果需要，您可以将快捷方式重命名，例如将其命名为：“ASF”。 现在，您可以 `config` 文件夹做同样的操作，这个文件夹与 ASF 主程序在同一个文件夹下。
+打开 ASF 文件夹，找到核心可执行文件，在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/macOS 上是 `ArchiSteamFarm`，右键单击这个文件，选择“复制”。 现在前往您实际需要运行 ASF 的位置（例如桌面），右键单击并选择“粘贴快捷方式”。 如果需要，您可以将快捷方式重命名，例如将其命名为：“ASF”。 现在，您可以 `config` 文件夹做同样的操作，这个文件夹与 ASF 主程序在同一个文件夹下。
 
 经过简单的整理工作之后，您现在的文件夹结构使用起来非常方便，类似于：
 
@@ -92,7 +92,7 @@
 
 这使您能够方便地访问 ASF 可执行文件和配置文件。 就我个人来说，我决定采用上述的结构，所以我的 ASF 文件都在“Core”文件夹中。 您可以根据自己的喜好调整结构，例如在桌面放置 ASF 及其配置文件夹的快捷方式，再将 ASF 文件夹放到 `C:\ASF`，总之这取决于您自己。
 
-Linux/OS X 用户也应该进行类似的操作，您可以通过 `ln -s` 命令，利用强大的软链接机制做到这一点。
+Linux/macOS 用户也应该进行类似的操作，您可以通过 `ln -s` 命令，利用强大的软链接机制做到这一点。
 
 * * *
 
@@ -157,7 +157,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-这意味着 ASF 此时已经在您的帐户上正常运作，您可以将这个窗口最小化去做其他事。 经过足够的时间之后（取决于&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**），您将会看到 Steam 卡牌逐渐掉落。 当然，要做到这一点，您必须有可以挂卡的游戏，您可以在您的&#8203;**[徽章页面](https://steamcommunity.com/my/badges)**&#8203;上看到这些游戏会标注“X 张剩余卡牌掉落”——如果没有可挂卡的游戏，ASF 就会无事可做，如&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#那么它到底是如何工作的呢)**&#8203;中所述。
+这意味着 ASF 此时已经在您的帐户上正常运作，您可以将这个窗口最小化去做其他事。 经过足够的时间之后（取决于&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**），您将会看到 Steam 卡牌逐渐掉落。 当然，要做到这一点，您必须有可以挂卡的游戏，您可以在您的&#8203;**[徽章页面](https://steamcommunity.com/my/badges)**&#8203;上看到这些游戏会标注“X 张剩余卡牌掉落”——如果没有可挂卡的游戏，ASF 就会无事可做，如&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#什么是-asf)**&#8203;中所述。
 
 这就是我们最基本的安装指南。 现在您可以决定是进一步配置 ASF，还是让它以默认设置运行。 我们将会介绍另一些基本配置，但要了解完整的配置选项，您需要继续阅读 Wiki 的其他页面。
 
@@ -255,8 +255,8 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 - 安装 **[.NET Core 依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
 - 安装适合您操作系统的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或至少安装运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 - 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 Generic 包。
-- 将下载的压缩包解压到新位置，如果您使用 Linux/OS X，还需要执行命令 `chmod +x ArchiSteamFarm.sh`。
+- 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm.sh`。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 使用助手脚本或者在 shell 中执行 `dotnet /path/to/ArchiSteamFarm.dll` 启动 ASF。
 
-助手脚本（用于 Windows 的 `ArchiSteamFarm.cmd` 和用于 Linux/OS X 的 `ArchiSteamFarm.sh`）与 `ArchiSteamFarm.dll` 二进制文件处于同一个位置——这些文件都是 Generic 包特有的。 如果您不想手动执行 `dotnet` 命令，就可以使用这些助手脚本。 您也可以像上文所述，为这些脚本创建快捷方式，因为它们本就是用来代替二进制文件的脚本。 显然，如果您没有安装 .NET Core SDK，或者 `dotnet` 可执行文件不在系统的 `PATH` 环境变量中，助手脚本也无法运行。 助手脚本是完全可选的，您随时可以手动执行 `dotnet /path/to/ArchiSteamFarm.dll` 命令来启动 ASF。
+助手脚本（用于 Windows 的 `ArchiSteamFarm.cmd` 和用于 Linux/macOS 的 `ArchiSteamFarm.sh`）与 `ArchiSteamFarm.dll` 二进制文件处于同一个位置——这些文件都是 Generic 包特有的。 如果您不想手动执行 `dotnet` 命令，就可以使用这些助手脚本。 您也可以像上文所述，为这些脚本创建快捷方式，因为它们本就是用来代替二进制文件的脚本。 显然，如果您没有安装 .NET Core SDK，或者 `dotnet` 可执行文件不在系统的 `PATH` 环境变量中，助手脚本也无法运行。 助手脚本是完全可选的，您随时可以手动执行 `dotnet /path/to/ArchiSteamFarm.dll` 命令来启动 ASF。

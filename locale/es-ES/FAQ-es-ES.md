@@ -14,22 +14,24 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 
 ## General
 
-### ¿Cómo funciona exactamente?
+### ¿Qué es ASF?
+
+### ¿Por qué el programa afirma que no hay nada que recolectar en mi cuenta?
 
 Antes de intentar entender lo que es ASF, debes asegurarte de que entiendes lo que son los cromos de Steam, y cómo obtenerlos, lo que se describe bastante bien en el FAQ oficial **[aquí](https://steamcommunity.com/tradingcards/faq)**.
 
 En breve, los cromos de Steam son artículos coleccionables para los que eres elegible cuando tienes un juego en particular, y pueden ser usados para fabricar insignias, venderlos en el mercado de Steam o cualquier otro propósito de tu elección.
 
-Los puntos principales se repiten aquí, porque la gente en general no quiere verlos y actúan como si no existieran:
+Los puntos principales se repiten aquí, porque la gente en general no quiere aceptarlos y le gusta pretender que no existen:
 
-- **Sí, necesitas tener el juego para poder ser elegible para obtener cromos de él. El préstamo familiar no cuenta.**
-- **No, no puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que se agoten los cromos obtenibles en un juego dado (la mitad de un set completo), ya no es candidato para recolección. No importa que tengas el juego, se acabó.**
-- **No, no puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2.**
-- **No, no puedes obtener cromos en cuentas limitadas (aquellas que nunca gastaron $5 en la tienda de Steam), independientemente de los juegos que tenga. Antes era posible, para ya no es el caso.**
+- **Necesitas poseer el juego en tu cuenta de Steam para poder obtener cromos de él. El préstamo familiar no cuenta.**
+- **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, fabricado u olvidado lo que ocurrió con las cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego está terminado.**
+- **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te concede cromos obtenibles.**
+- **No puedes obtener cromos en cuentas limitadas (aquellas que nunca gastaron $5 en la tienda de Steam), independientemente de los juegos que tenga. Antes era posible, para ya no es el caso.**
 
-Como puedes ver, los cromos de Steam te son otorgados por jugar un juego que compraste, o un juego F2P en el que has invertido dinero. En otras palabras, si juegos a un juego lo suficiente, todos los cromos de ese juego aparecerán en tu inventario, haciendo posible que completes una insignia, los vendas, o hagas lo que quieras.
+Como puedes ver, los cromos de Steam te son otorgados por jugar un juego que compraste, o un juego F2P en el que has invertido dinero. Si juegas dicho juego lo suficiente, todos los cromos teminarán apareciendo en tu inventario, haciendo posible que completes una insignia (después de obtener la mitad restante del set), las vendas, o hagas lo que quieras.
 
-ASF como programa es bastante complejo para entender completamente, en lugar de explicar todos los detalles técnicos, a continuación te ofreceremos una explicación muy simplificada.
+Ahora que hemos explicado los fundamentos de Steam, podemos explicar ASF. El programa en sí es bastante complejo para entenderlo completamente, así que en lugar de explicar todos los detalles técnicos, a continuación te ofrecemos una explicación simplificada.
 
 ASF inicia sesión en tu cuenta de Steam a través de nuestro cliente de Steam integrado usando tus credenciales proporcionadas. Después de iniciar sesión con éxito, analiza tus **[insignias](https://steamcommunity.com/my/badges)** para encontrar juegos que estén disponibles para recolección (Puedes obtener X más cromos jugando a este juego). Después de analizar todas las páginas y construir una lista final de todos los juegos disponibles, ASF elige el algoritmo de recolección más eficiente y empieza el proceso. El proceso depende del **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** seleccionado pero normalmente consiste en jugar un juego elegible y comprobar periódicamente (además de en cada obtención de artículos) si el juego ya fue completamente recolectado - si es así, ASF puede proceder con el siguiente título, usando el mismo procedimiento, hasta que todos los juegos hayan sido recolectados.
 

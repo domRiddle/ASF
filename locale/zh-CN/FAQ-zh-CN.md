@@ -14,22 +14,24 @@
 
 ## 基本问题
 
-### 那么它到底是如何工作的呢？
+### 什么是 ASF？
+
+### 为什么程序提示该帐户已经无卡可挂？
 
 在尝试了解 ASF 是什么之前，您应该首先了解什么是 Steam 集换式卡牌，以及如何获取它们，这在官方的&#8203;**[常见问题](https://steamcommunity.com/tradingcards/faq)**&#8203;中已有很好的解释。
 
 简而言之，Steam 集换式卡牌是一种可收集的物品，您在拥有特定的游戏后即可自己获取它们，您可以用它们合成徽章、在 Steam 社区市场上出售或者做其他任何您想对它们做的事。
 
-我需要在此再次强调卡牌机制的核心要点，因为人们通常会无视这些事实：
+我需要在这里再次强调卡牌机制的核心要点，因为人们通常会反对并且无视这些事实：
 
-- **是的，您需要拥有游戏，才有资格获得此游戏掉落的卡牌。 家庭共享的游戏不算在内。**
-- **不，您不能无限挂卡，每款游戏只会掉落固定数量的卡牌。 一旦您挂完了指定游戏可掉落的卡牌（整套卡牌的一半），这款游戏就无法再挂卡。 您拥有此游戏已经不再重要了，挂卡已经完成。**
-- **不，如果您不在免费游戏中花钱，就无法从中获得卡牌掉落。 这一点涉及到永久免费的游戏，例如 Team Fortress 2 或 Dota 2。**
-- **不，受限账户（尚未在商店花费 5 美元）无法获得卡牌，无论是否拥有游戏。 在过去不是这样，但是现在情况发生了变化。**
+- **您需要在自己的 Steam 帐户上拥有相应游戏，才有资格获得此游戏掉落的卡牌。 家庭共享的游戏不算在内。**
+- **您不能无限挂卡，每款游戏只会掉落固定数量的卡牌。 一旦您挂完了所有可掉落的卡牌（整套卡牌的一半），这款游戏就无法再挂卡。 无论您是否出售、合成或对您已获得的卡牌进行任何操作，一旦卡牌掉落完毕，这款游戏就算挂完了。**
+- **如果您不在免费游戏中消费，就无法从中获得卡牌掉落。 这一点涉及到永久免费的游戏，例如 Team Fortress 2 或 Dota 2。 拥有免费游戏不会给您带来卡牌掉落。**
+- **受限账户（尚未在商店花费 5 美元）无法获得卡牌，无论是否拥有游戏。 在过去不是这样，但是现在情况发生了变化。**
 
-如您所见，Steam 卡牌是对您玩游戏或者在免费游戏中消费的奖励。 换句话说，如果您花足够长时间玩一款游戏，所有的可掉落卡牌都会掉落到您的库存中，使您有机会合成一个徽章、卖掉卡牌或者随便您如何处理它们。
+如您所见，Steam 卡牌是对您玩游戏或者在免费游戏中消费的奖励。 如果您花足够长时间玩一款游戏，所有的可掉落卡牌都会掉落到您的库存中，使您有机会合成一个徽章（在获取另外半套卡牌之后）、卖掉卡牌或者随便您如何处理它们。
 
-ASF 是一个非常难以理解的复杂程序，所以我们不会解释完整的技术细节，而是在下文简单解释。
+现在我们已经解释了 Steam 的基本知识，接下来解释 ASF。 这个程序本身非常复杂而且难以理解，所以我们只打算简单介绍，不会深入解释完整的技术细节。
 
 ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登录凭据登录到您的 Steam 帐户。 登录成功后，它将会解析您的&#8203;**[徽章页面](https://steamcommunity.com/my/badges)**，以寻找可挂卡的游戏（您可以通过玩此游戏获得 X 张卡牌）。 所有页面解析完成，最终的挂卡游戏列表构建成功后，ASF 会选择最优的挂卡算法开始挂卡。 这个过程取决于&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，但通常由两部分组成，一部分是运行合适的游戏，另一部分是定期（以及有物品掉落时）检查该游戏是否已经掉落所有卡牌——如果已完成，ASF 将会继续到下一款游戏，重复这一过程，直到所有游戏都挂卡完成。
 
@@ -271,7 +273,7 @@ ASF 真正需要关注的重点是：
 
 这起事件同样难以分析，因为 Steam 客服的回应非常模糊，几乎没有提供任何细节。 根据我个人的想法，这名用户可能用 Steam 卡牌兑换了某种金钱（等级机器人？）或者以其他方式进行了 Steam 套现。 您可能不知道，这也违反了 Steam 订户协议。
 
-最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=english)**&#8203;而被封禁。
+最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=schinese)**&#8203;而被封禁。
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此帐户和其他帐户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
@@ -323,7 +325,7 @@ ASF 真正需要关注的重点是：
 
 ### ASF 能最小化到托盘吗？
 
-ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](http://rbtray.sourceforge.net)** 或者 Linux/OS X 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
+ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](http://rbtray.sourceforge.net)** 或者 Linux/macOS 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
 
 * * *
 
@@ -400,11 +402,11 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 ### 你与任何挂卡服务有关联吗？
 
-**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;中明确指出：
+**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;中明确指出：
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
 
-ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
+ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
 
 此外，官方 Steam 订户协议明确指出：
 
@@ -482,7 +484,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 * * *
 
-### `无法获取徽章信息，将稍后再试 ！`
+### `无法获取徽章信息，将稍后重试！`
 
 通常情况下，这意味着您需要通过 Steam 家庭监护 PIN 码来访问帐户，但您忘了将其写在 ASF 配置中。您必须把正确的 PIN 码写在 `SteamParentalCode` 机器人配置属性中，否则 ASF 就无法访问大多数 Web 内容，因而无法正常工作。 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
 
@@ -540,7 +542,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 * * *
 
-### 为什我每次登录都需要输入两步验证/Steam 令牌？ / `Removed expired login key`（已删除过期的登录密钥！）
+### 为什么我每次登录都需要输入两步验证/Steam 令牌？ / `Removed expired login key`（已删除过期的登录密钥！）
 
 ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状态），这与 Steam 本身使用的机制相同——您只需要输入一次两步验证/Steam 令牌代码。 然而，由于 Steam 网络本身的问题，有可能登录密钥没有被保存，不仅 ASF 有这样的问题， Steam 官方客户端也有（即使勾选了“记住我的密码”，每次登录仍要输入用户名和密码）。
 
@@ -550,7 +552,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 * * *
 
-### 我遇到错误：`Unable to login to Steam: InvalidPassword or RateLimitExceeded`
+### 我遇到错误：`无法登录到 Steam：InvalidPassword 或 RateLimitExceeded`
 
 该错误可能指很多种情况，例如：
 

@@ -50,7 +50,7 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 
 > 垃圾回收器可自行优化并且适用于多种方案。 您可使用配置文件来基于工作负荷的特征设置垃圾回收的类型。 CLR 提供了以下类型的垃圾回收：- 工作站垃圾回收，用于所有客户端工作站和独立 PC。 这是运行时配置架构中 `<gcServer>` 元素的默认设置。 - 服务器垃圾回收，用于需要高吞吐量和可伸缩性的服务器应用程序。 服务器垃圾回收可以是非并发或者是后台的。
 
-您可以在&#8203;**[垃圾回收基础](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
+您可以在&#8203;**[垃圾回收的基本知识](https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/fundamentals)**&#8203;阅读更多。
 
 ASF 已经使用工作站 GC，您可以检查 `ArchiSteamFarm.runtimeconfig.json` 中的 `System.GC.Server` 属性是否被设置为 `false` 来确认这一点。
 

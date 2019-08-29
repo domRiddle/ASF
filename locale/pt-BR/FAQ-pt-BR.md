@@ -14,22 +14,24 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 
 ## Geral
 
-### Então, como exatamente ele funciona?
+### O que é o ASF?
+
+### Por que o programa afirma que não há nada para coletar na minha conta?
 
 Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
 
 Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, e podem ser usadas para criar insígnias, vender no mercado da Steam ou qualquer outro objetivo de sua escolha.
 
-Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem vê-los e agem como se eles não existissem:
+Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem concordar com eles e gostam de fingir que eles não existem:
 
-- **Sim, você precisa possuir o jogo para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
-- **Não, você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você conseguir todas as cartas que um jogo libera (metade de set completo), ele não será mais apto a coleta. Não importa que você ainda tenha o jogo, você já coletou as cartas dele.**
-- **Não, não é possível coletar cartas de jogos gratuitos sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2.**
-- **Não, não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram $5 na loja Steam), não importando os jogos possuídos. Isso foi possível no passado, mas não é mais o caso.**
+- **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
+- **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabaram as cartas disponíveis para serem obtidas, o jogo está concluído.**
+- **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
+- **Não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram $5 na loja Steam), não importando os jogos possuídos. Isso foi possível no passado, mas não é mais o caso.**
 
-Então como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Em outras palavras, se você jogar um jogo por tempo suficiente, todas as cartas daquele jogo aparecerão no seu inventário, possibilitando que você complete uma insígnia, venda, ou faça o que quiser.
+Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Se você jogar tais jogos por tempo suficiente, todas as cartas para aquele jogo vão eventualmente aparecer no seu inventário, tornando possível que você complete uma insígnia (após obter a metade restante do jogo de cartas), venda-as, ou faça o que mais você quiser.
 
-O ASF como um programa é bastante complexo para entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação muito simples abaixo.
+Agora que nós explicamos o básico do Steam, nós podemos explicar o ASF. O programa em si é bastante complexo para se entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação mais simples abaixo.
 
 O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido no código usando as credenciais que você forneceu. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
 
@@ -599,7 +601,7 @@ Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo
 
 * * *
 
-### O ASF está sendo detectado como um malware pelo meu AntiVirus! O que está acontecendo?
+### O ASF está sendo detectado como um malware pelo meu antivírus! O que está acontecendo?
 
 **Certifique-se de que você baixou o ASF de uma fonte confiável**. A única fonte oficial e confiável a página de **[lançamentos ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** no GitHub (e essa também é a fonte para as atualizações automáticas do ASF) - **qualquer outra fonte não é confiável e pode conter malware adicionado por outras pessoas** - você não deve confiar em nenhuma outra fonte de dowload e garantir que sua cópia do ASF sempre venha de nós.
 

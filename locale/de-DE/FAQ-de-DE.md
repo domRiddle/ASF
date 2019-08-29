@@ -14,22 +14,24 @@ Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für wen
 
 ## Allgemein
 
-### Also wie funktioniert das genau?
+### What is ASF?
+
+### Why does the program claim that there is nothing to idle on my account?
 
 Bevor du versuchst zu verstehen, was ASF ist, solltest du sicherstellen, dass du verstehst, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 
 Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die du berechtigt bist, wenn du ein bestimmtes Spiel besitzt, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck deiner Wahl verwendet werden.
 
-Hier werden noch einmal die Kernpunkte genannt, weil Leute sie im Allgemeinen nicht sehen wollen und so tun als ob sie nicht existieren würden:
+Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
 
-- **Ja, du musst das Spiel besitzen, um für Kartendrops berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
-- **Nein, du kannst das Spiel nicht unendlich lange sammeln - jedes Spiel hat eine feste Anzahl an Kartendrops. Sobald du alle Karten für das jeweilige Spiel (ein halbes Set) bekommen hast wird es nicht mehr gesammelt. Es spielt keine Rolle, dass du das Spiel besitzt, du bist fertig damit.**
-- **Nein, du kannst keine Karten von F2P Spiele bekommen ohne Geld in ihnen ausgegeben zu haben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2.**
-- **Nein, du kannst keine Kartendrops auf einem eingeschränkten Konto (diejenigen die nie 5€ im Steam Shop ausgegeben haben) erhalten, unabhängig der Anzahl der Spiele im Besitz. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
+- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
+- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **You can't drop cards from F2P games without spending any money in them. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2. Owning F2P games does not grant you with card drops.**
+- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
-Wie du sehen kannst, werden dir Steam-Karten verliehen, weil du ein Spiel spielst, das du gekauft hast oder ein F2P-Spiel in das du Geld gesteckt hast. Mit anderen Worten, wenn du ein Spiel lange genug spielst fallen alle Karten für dieses Spiel in dein Inventar, so dass du ein Abzeichen erstellen, die Karten verkaufen oder tun kannst, was du willst.
+So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-ASF als Programm ist recht komplex zu verstehen, so dass wir, anstatt alle technischen Details zu erklären, im Folgenden eine sehr vereinfachte Erklärung anbieten werden.
+Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF meldet sich über unseren integrierten mini Steam-Client mit den von dir angegebenen Anmeldeinformationen bei deinem Steam-Konto an. Nach erfolgreicher Anmeldung analysiert es deine **[Abzeichen](https://steamcommunity.com/my/badges)** um Spiele zu finden, die für das Sammeln verfügbar sind (Du kannst X weitere Karten erhalten, wenn du dieses Spiel spielst). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Kartendrop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
 

@@ -25,6 +25,6 @@ ASF 的版本分为两类——稳定版（Stable）和预览版（Pre-Release�
 
 两个版本之间的详细更新日志总是可以在 GitHub 上比较——通过提交记录和代码变更。 在发布中，我们倾向于仅记录我们认为的上次稳定版与当前版本之间的重要更改。 这样的简短更新日志并不完整，所以如果您希望了解两个版本之间发生的详细更改——请通过 GitHub 实现。
 
-ASF 工程由持续集成（CI）进程支持，并由两个独立的服务测试——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 会在 Windows 上测试 ASF，而 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 将在 Linux 和 OS X 上测试 ASF。每次构建都应该是可重现的，因此如果您使用给定版本的源代码自行编译，应该与下载预编译二进制文件的结果相同。
+ASF 工程由持续集成（CI）进程支持，并由两个独立的服务测试——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 会在 Windows 上测试 ASF，而 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 将在 Linux 和 macOS 上测试 ASF。每次构建都应该是可重现的，因此如果您使用给定版本的源代码自行编译，应该与下载预编译二进制文件的结果相同。
 
 此外，除了 ASF 稳定版和预览版，您也可以在&#8203;**[这里](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**&#8203;找到最新的自动化 AppVeyor 构建，通常这是由最新的提交构建而来，并不属于任何版本。 由于自动化以及未经测试，这些构建完全**不**被支持，通常仅适用于需要获取最新 GitHub 快照的开发者，使他们不需要自己编译。 我们无法保证 `master` 分支中的 ASF 能够正常工作。 在极少数情况下，这些构建也可以用来验证尚未发布的提交是否确实修复了特定的问题或漏洞，而无需等待预览版的测试。 如果您决定使用这些自动构建，请确保您在 ASF 方面具有相当的知识，因为它们是漏洞最多的软件。 除非您有充分的理由，否则使用预览版构建已经足够抢先——AppVeyor 构建比预览版更甚，仅仅用来验证特定的提交是否修复了我们正在解决的问题。 这些构建不应该在任何生产环境中使用。

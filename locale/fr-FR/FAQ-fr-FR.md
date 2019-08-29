@@ -14,22 +14,24 @@ Our basic FAQ covers standard questions and answers that you may have. Pour une 
 
 ## Général
 
-### Comment ça marche exactement?
+### What is ASF?
+
+### Why does the program claim that there is nothing to idle on my account?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
 En bref, les cartes Steam sont des objets de collection auxquels vous êtes admissible lorsque vous possédez un jeu en particulier. Vous pouvez les utiliser pour confectionner des badges, vendre sur le marché Steam ou à toute autre chose de votre choix.
 
-Core points are stated once again here, because people in general don't want to see them and act like those do not exist:
+Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
 
-- **Oui, vous devez posséder le jeu pour pouvoir prétendre à une carte. Le partage familial ne compte pas.**
-- **Non, vous ne pouvez pas exploiter le jeu à l'infini, chaque jeu a un nombre fixe de cartes. Once you run out of cards to drop in given game (half of a full set), it's not a candidate for farming anymore. It doesn't matter that you own the game, you're done with it.**
-- **Non, vous ne pouvez pas retirer des cartes de jeux F2P sans y dépenser de l'argent. Cela implique constamment des jeux F2P comme Team Fortress 2 ou Dota 2.**
-- **No, you can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. C'était possible dans le passé, mais ce n'est plus le cas.**
+- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Le partage familial ne compte pas.**
+- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **You can't drop cards from F2P games without spending any money in them. Cela implique constamment des jeux F2P comme Team Fortress 2 ou Dota 2. Owning F2P games does not grant you with card drops.**
+- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. C'était possible dans le passé, mais ce n'est plus le cas.**
 
-Ainsi, comme vous pouvez le constater, des cartes Steam vous sont attribuées si vous jouez à un jeu que vous avez acheté ou à un jeu F2P dans lequel vous investissez de l'argent. En d’autres termes, si vous jouez assez longtemps dans un jeu, toutes les cartes de ce jeu seront ajoutées à votre inventaire, ce qui vous permettra de créer un badge, de les vendre ou d'en faire ce que vous voulez.
+So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-ASF en tant que programme est assez complexe à comprendre en totalité. Par conséquent, au lieu d’expliquer tous les détails techniques, nous vous proposons une explication très simplifiée ci-dessous.
+Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. Une fois connecté, il analyse vos **[badges](https://steamcommunity.com/my/badges)** afin de rechercher les jeux disponibles pour le farming (vous pouvez obtenir X autres cartes en jouant à ce jeu). Après avoir analysé toutes les pages et construit la liste finale des jeux disponibles, ASF choisit l'algorithme de farming le plus efficace et lance le processus. Le processus dépend de **[l'algorithme d'agriculture de cartes choisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**, mais il consiste généralement à jouer à un jeu éligible et à vérifier périodiquement (plus à chaque suppression d'élément) si le jeu a fini. Si oui, ASF peut passer au titre suivant. , en utilisant la même procédure, jusqu’à ce que tous les jeux soient complètement développés.
 
