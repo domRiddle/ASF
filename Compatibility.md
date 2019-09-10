@@ -69,7 +69,7 @@ If you upgraded from Debian 8 Jessie (or older) to Debian 9 Stretch, ensure that
 
 ### Debian Buster upgrade
 
-Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists).
+Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists). Loading wrong combination of `libssl` version and OS-wide config will lead to various issues in regards to establishing `https` connections.
 
 The most appropriate way to do that is specifying `CLR_OPENSSL_VERSION_OVERRIDE=1.1` environment property, which will do the trick, without a need of downgrading your OS-wide `libssl` settings, or removing `libssl` 1.0 entirely. You can specify environment properties in at least several different ways, but unless you know better we recommend adding it to `/etc/environment` file (and restarting your machine).
 
