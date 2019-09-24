@@ -1,8 +1,8 @@
 # Riscatto giochi in background
 
-Il riscatto giochi in background è una caratteristica speciale incorporata in ASF che ti permette di importare un dato numero di chiavi di Steam (insieme con i loro nomi) per essere riscattate in background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Il riscatto giochi in background è una caratteristica speciale incorporata in ASF che ti permette di importare un dato numero di chiavi di Steam (insieme con i loro nomi) per essere riscattate in background. Questo è particolarmente utile se hai molte chiavi da riscattare e sei sicuro di raggiungere lo **[stato](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` prima di aver terminato l'intero batch.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. Questa funzione può essere usata insieme a (o al posto di) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, se necessario.
+Il riscatto giochi in background è fatto per un singolo bot, questo significa che non utilizza `RedeemingPreferences`. Questa funzione può essere usata insieme a (o al posto di) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, se necessario.
 
 * * *
 
@@ -12,7 +12,7 @@ L'importazione può essere effettuata in due modi: usando un file o con IPC.
 
 ### File
 
-ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che resta viene ignorato. Per esempio:
+ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. Questo file si aspetta una struttura ben precisa con il nome del gioco e la cd-key separati da un carattere tabulato e una nuova riga per indicare la prossima entrata. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che è nel mezzo viene ignorato. Per esempio:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR    12345-67890-ZXCVB

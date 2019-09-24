@@ -17,7 +17,7 @@
 
 ## Hlavní nastavení
 
-* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Aktivace her v pozadí](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Příkazy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
@@ -28,7 +28,7 @@
 ## Další nastavení
 
 * **[Argumenty příkazového řádku](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Zastaralé](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Rozšířené otázky a odpovědi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Nastavení pro vysoký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
@@ -46,4 +46,4 @@
 * **[Kompilace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[Jak přispět?](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Cyklus vydávání](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64"
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.2` to `net48`. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오. 따라서 아래의 내용은 오직 윈도우에서만 동작합니다:
+드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp2.2`에서 `net48`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오. 따라서 아래의 내용은 오직 윈도우에서만 동작합니다:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -62,7 +62,7 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 ## 태그
 
-`master` 분기는 한번에 성공적인 컴파일이나 흠없는 ASF 실행을 보장하는 상태가 아닙니다. 개발 분기는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에 게시되어 있습니다. ASF를 소스에서 컴파일하려면 목적에 맞는 적절한 **[태그](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** 를 사용해야 합니다. 이는 최소한 성공적인 컴파일을 보장하고, 안정 릴리스로 표시된 빌드는 거의 흠없는 실행도 가능합니다. 트리의 현재 "상태"를 체크하려면 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 나 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 등 CI를 사용하시기 바랍니다.
+`master` 분기는 한번에 성공적인 컴파일이나 흠없는 ASF 실행을 보장하는 상태가 아닙니다. 개발 분기는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에 게시되어 있습니다. If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). 트리의 현재 "상태"를 체크하려면 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 나 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 등 CI를 사용하시기 바랍니다.
 
 * * *
 

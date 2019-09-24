@@ -1,6 +1,6 @@
 # 两步验证
 
-此前，Valve 引入了名为“Escrow”（第三方托管）的系统，对很多与帐户相关的活动要求额外的验证工具。 您可在&#8203;**[此处](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)**&#8203;与&#8203;**[此处](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**&#8203;了解更多详情。 在理解 ASF 两步验证器背后的逻辑之前，至关重要的是先了解两步认证系统。
+此前，Valve 引入了交易暂挂系统，要求用户使用额外的验证器，才能进行很多与帐户有关的操作。 您可在&#8203;**[此处](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)**&#8203;与&#8203;**[此处](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**&#8203;了解更多详情。 在理解 ASF 两步验证器背后的逻辑之前，至关重要的是先了解两步认证系统。
 
 目前，所有的交易可被暂挂至最多 15 天。虽然对 ASF 来说这并不是大问题，但是仍然很烦人，尤其是对想要完全自动化的用户而言。 幸运的是，ASF 拥有对此问题的解决方案，名为 ASF 两步验证（ASF 2FA）。
 

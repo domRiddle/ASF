@@ -28,13 +28,13 @@ No establezcas ciegamente `HoursUntilCardDrops` solo porque alguien te lo dijo -
 
 * * *
 
-### ¿Cuál es la mejor manera de averiguar si tu cuenta es limitada?
+### ¿Cuál es la mejor manera de averiguar si tu cuenta está restringida?
 
-Asegúrate de que tienes algunos juegos para obtener cromos, de preferencia 5 o más, y ejecuta ASF con `HoursUntilCardDrops` de `0`. Sería buena idea que no juegues nada durante el período de recolección para mayor precisión en los resultados (mejor ejecutar ASF durante la noche). Deja de ASF recolecte esos 5 juegos, y después de eso comprueba el registro para los resultados.
+Asegúrate de que tienes algunos juegos para obtener cromos, de preferencia 5 o más, y ejecuta ASF con `HoursUntilCardDrops` de `0`. Sería buena idea que no juegues nada durante el período de recolección para mayor precisión en los resultados (mejor ejecutar ASF durante la noche). Deja que ASF recolecte esos 5 juegos, y después de eso comprueba el registro para los resultados.
 
 ASF claramente indica cuando se ha obtenido un cromo para un juego dado. Te interesa encontrar la obtención de cromo más rápida lograda por ASF. Por ejemplo, si tu cuenta no tiene restricción entonces la primera obtención de cromos debería producirse aproximadamente 30 minutos desde que iniciaste la recolección. Si notas **al menos un** juego que soltó un cromo en esos 30 minutos iniciales, este es un indicador de que tu cuenta **no** está restringida y debe usar `HoursUntilCardDrops` de `0`.
 
-Por otra parte, si observas que **cada** juego está tomando al menos `X` cantidad de horas antes de soltar su primer cromo, entonces este es un indicador del valor al que deberías establecer `HoursUntilCardDrops`. La mayoría (sino todos) de los usuarios restringidos requieres al menos `3` horas de juego por cromo, y este también es el valor por defecto para el ajuste `HoursUntilCardDrops`.
+Por otra parte, si observas que **cada** juego está tomando al menos `X` cantidad de horas antes de soltar su primer cromo, entonces este es un indicador del valor al que deberías establecer `HoursUntilCardDrops`. La mayoría (sino todos) de los usuarios restringidos requieren al menos `3` horas de juego para obtener cromos, y este también es el valor por defecto para el ajuste `HoursUntilCardDrops`.
 
 Recuerda que los juegos pueden tener diferente tasa de obtención, esto es por lo que debes probar si tu teoría es correcta con **al menos** 3 juegos, de preferencia más de 5 para asegurarte de que no estás teniendo resultados falsos por una coincidencia. La obtención de un cromo de un juego en menos de una hora es una confirmación de que tu cuenta **no está** restringida y puede usar `HoursUntilCardDrops` de `0`, pero para confirmar que tu cuenta **está** restringida, necesitas al menos varios juegos que no suelten cromos hasta que consigas una marca fija.
 
@@ -42,13 +42,13 @@ Es importante notar que en el pasado `HoursUntilCardDrops` era solamente `0` o `
 
 Al final, claro está, la decisión es tuya.
 
-Y para hacerlo peor - he visto casos en los que personas cambiaban de estado restringido a no restringido y viceversa - ya sea por un bug de Steam (oh sí, tenemos muchos de esos), o porque algunos ajustes a la lógicos hechos por Valve. Así que incluso si confirmas que tu cuenta está restringida (o no), no creas que se mantendrá así - para cambiar de no restringido a restringido basta con solicitar un reembolso. Si sientes que el valor establecido anteriormente ya no es apropiado, siempre puedes hacer nuevas pruebas y actualizarlo en concordancia.
+Y para hacerlo peor - he visto casos en los que personas cambiaban de estado restringido a no restringido y viceversa - ya sea por un bug de Steam (oh sí, tenemos muchos de esos), o por algunos ajustes a la lógica hechos por Valve. Así que incluso si confirmas que tu cuenta está restringida (o no), no creas que se mantendrá así - para cambiar de no restringido a restringido basta con solicitar un reembolso. Si sientes que el valor establecido anteriormente ya no es apropiado, siempre puedes hacer nuevas pruebas y actualizarlo en concordancia.
 
 * * *
 
 Por defecto, ASF asume que `HoursUntilCardDrops` es `3`, ya que el efecto negativo de establecerlo a `3` cuando debería ser menor es más reducido que hacerlo al contrario. Esto se debe al hecho de que en el peor de los casos desperdiciaremos `3` horas de recolección por cada `32` juegos, comparado con desperdiciar `3` horas por cada juego si `HoursUntilCardDrops` se estableciera a `0` por defecto. Sin embargo, aún deberías ajustar esta variable para que coincida con tu cuenta para máxima eficiencia, ya que esta es una suposición a ciegas basada en posibles inconvenientes y la mayoría de los usuarios (así que intentamos elegir el "menor de los males" por defecto).
 
-En este momento los dos algoritmos mencionados son suficientes para todos los escenarios de cuenta actualmente posibles, para recolectar lo más eficazmente posibles, por lo tanto no se planea añadir otros.
+En este momento los dos algoritmos mencionados son suficientes para todos los escenarios de cuenta actualmente posibles, para recolectar lo más eficazmente posible, por lo tanto no se planea añadir otros.
 
 Es bueno notar que ASF también incluye un modo de recolección `Manual` que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**.
 
@@ -60,7 +60,7 @@ El algoritmo de obtención de cromos no siempre funciona como debería, y es com
 
 Esta sección es principalmente para las personas que se preguntan por qué ASF no hace **X**, tal como cambiar rápidamente entre juegos para obtener cromos más rápido.
 
-Qué es un **glitch de Steam** - una acción específica que activa un comportamiento **indefinido**, que es **no intencional, no documentado, y considerado un error lógico**. Es **no confiable por definición**, lo que significa que no puede ser reproducido de forma confiable en un ambiente de pruebas limpio, y por lo tanto, codificado sin recurrir a hacks que se supone adivinen cuándo sucederá un glitch y cómo combatirlo / abusar de él. Normalmente es temporal hasta que los desarrolladores corrigen el error lógico, aunque algunos glitches puede pasar desapercibidos para un largo período de tiempo.
+Qué es un **glitch de Steam** - una acción específica que activa un comportamiento **indefinido**, que es **no intencional, no documentado, y considerado un error lógico**. Es **no confiable por definición**, lo que significa que no puede ser reproducido de forma confiable en un ambiente de pruebas limpio, y por lo tanto, codificado sin recurrir a hacks que se supone adivinen cuándo sucederá un glitch y cómo combatirlo / abusar de él. Normalmente es temporal hasta que los desarrolladores corrigen el error lógico, aunque algunos glitches pueden pasar desapercibidos por un largo período de tiempo.
 
 Un buen ejemplo de qué se considera un **glitch de Steam** es esa situación no tan rara cuando se obtienen cromos al cerrar el juego, que puede ser abusado hasta cierto punto con la función de omitir juegos de idle master.
 
@@ -82,4 +82,4 @@ No importa si puedes activar el glitch con otros programas (como IM), y tampoco 
 
 ASF **nunca** tomará ventaja de los exploits, abusos, hacks o cualquier otra actividad que consideremos **ilegal o no deseada** de acuerdo a los Términos de Servicio de Steam, las Normas de Conducta Online de Steam o cualquier fuente de confianza que pueda indicar que la actividad de ASF es no deseada por la red de Steam, como se indica en la sección **[pautas de contribución](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**.
 
-Si quieres arriesgar tu cuenta de Steam por obtener cromos de unos cuantos centavos más rápido de lo normal, entonces ASF nunca ofrecerá así en modo automático, aunque aún tienes el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**`play` que puede usarse como una herramiento para hacer lo que quieras en términos de interacción con la red de Steam. No recomendamos aprovechar los glitches de Steam y explotarlos para tu propio beneficio - no solo con ASF, sino también con cualquier otra herramienta. Sin embargo, al final es tu cuenta, y tu decisión lo que quieras hacer con ella - solo ten en cuenta que te avisamos.
+Si quieres arriesgar tu cuenta de Steam por obtener cromos de unos cuantos centavos más rápido de lo normal, entonces ASF nunca ofrecerá algo así en modo automático, aunque aún tienes el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `play` que puede usarse como una herramienta para hacer lo que quieras en términos de interacción con la red de Steam. No recomendamos aprovechar los glitches de Steam y explotarlos para tu propio beneficio - no solo con ASF, sino también con cualquier otra herramienta. Sin embargo, al final es tu cuenta, y tu decisión lo que quieras hacer con ella - solo ten en cuenta que te avisamos.

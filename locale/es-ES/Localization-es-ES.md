@@ -148,7 +148,7 @@ Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los en
 * Cadena para traducir junto con etiquetas HTML (la mayoría de las cadenas, donde solo parte de la frase es un enlace)
 * Cadena a traducir, con enlace incluido en `Hidden texts` -> `Link addresses` (raro, donde toda la cadena es un enlace, el caso más común es la barra lateral)
 
-En nuestro ejemplo anterior, es el primer caso (ya que solo "iniciando" es un enlace), así que en Crowdin lo veremos como:
+En nuestro ejemplo anterior, es el primer caso (ya que solo "setting up" es un enlace), así que en Crowdin lo veremos como:
 
 * * *
 

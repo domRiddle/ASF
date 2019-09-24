@@ -13,6 +13,7 @@
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，使 ASF 机器人名称不区分大小写的插件。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**，重新实现免命令序列号激活功能的 ASF 插件。
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**，使 ASF 自动接受特定类型物品的交易请求的插件。
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**，使 ASF 自动处理 Steam 邀请的插件。
 
 * * *
 

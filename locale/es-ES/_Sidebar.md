@@ -13,7 +13,7 @@
 * **[Inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-es)**
 * **[Configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)**
 * **[Preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es)**
-* **[Iniciando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)** **(empezar aquí)**
+* **[Instalación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)** **(empezar aquí)**
 
 ## Núcleo
 

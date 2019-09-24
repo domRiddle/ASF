@@ -49,9 +49,9 @@ ASF envía información inicial después de iniciar sesión, que contiene todas 
 
 Esto permite a nuestro sitio web registrar qué cuentas pueden ser usadas para emparejamiento, así como para registrar si todavía están activas. Gracias a eso, nuestro sitio web puede mostrar todas las cuentas ASF 2FA+STM que estaban activas en los **últimos 15 minutos**.
 
-Los usuarios se ordenan de acuerdo a sus inventarios (en orden descendente) - bots con `MatchEverything` en `Any` que aceptan todos los intercambios 1:1, luego por conteo de juegos únicos `MatchableTypes`, y finalmente por conteo de artículos `MatchableTypes`.
+Los usuarios se ordenan de acuerdo a sus inventarios (en orden descendente) - bots con `MatchEverything` con la etiqueta `Any` que aceptan todos los intercambios 1:1, luego por conteo de juegos únicos `MatchableTypes`, y finalmente por conteo de artículos `MatchableTypes`.
 
-Te en cuenta que **ni** serás mostrado en el sitio web si no cumples con todos los requisitos. En este caso ASF ni siquiera se tomará la molestia de comunicarse con nuestro servidor, así que el segundo punto se omite completamente para ti si intencionalmente no habilitaste `SteamTradeMatcher` para ayudarte a emparejar duplicados. Además la lista pública es compatible solo con la última versión estable de ASF y puede negarse a mostrar bots desactualizados, especialmente si les falta alguna funcionalidad central que solo se puede encontrar en las versiones más recientes.
+Te en cuenta que **no** serás mostrado en el sitio web si no cumples con todos los requisitos. En este caso ASF ni siquiera se tomará la molestia de comunicarse con nuestro servidor, así que el segundo punto se omite completamente para ti si intencionalmente no habilitaste `SteamTradeMatcher` para ayudarte a emparejar duplicados. Además la lista pública es compatible solo con la última versión estable de ASF y puede negarse a mostrar bots desactualizados, especialmente si les falta alguna funcionalidad central que solo se puede encontrar en las versiones más recientes.
 
 ### API
 
@@ -67,6 +67,6 @@ Si buscas una forma sencilla de acceder a nuestro listado de manera programátic
 
 ## No participar
 
-Para en las estadísticas **no es obligatorio**, aunque se anima a hacerlo por el futuro del programa. No te juzgamos, y si tienes la necesidad de ocultar el hecho de que usas ASF entonces puedes deshabilitar las estadísticas **completamente** cambiando la propiedad de configuración global `Statistics` a `false`. Con las estadísticas deshabilitadas todo el módulo se vuelve no operativo, y no hará ninguna de las acciones especificadas en nuestra política de privacidad mencionada antes.
+Participar en las estadísticas **no es obligatorio**, aunque se anima a hacerlo por el futuro del programa. No te juzgamos, y si tienes la necesidad de ocultar el hecho de que usas ASF entonces puedes deshabilitar las estadísticas **completamente** cambiando la propiedad de configuración global `Statistics` a `false`. Con las estadísticas deshabilitadas todo el módulo se vuelve no operativo, y no hará ninguna de las acciones especificadas en nuestra política de privacidad mencionada antes.
 
 Desactivar las estadísticas puede influir **nuestro soporte técnico, funcionalidades de ASF y otras cosas que se te ofrecen gratuitamente**. Por ejemplo, no podrás usar `MatchActively` sin tener `Statistics` habilitado.

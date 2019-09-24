@@ -496,7 +496,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
-Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 루팅하고 싶더라도 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
+Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
 
 * * *
 

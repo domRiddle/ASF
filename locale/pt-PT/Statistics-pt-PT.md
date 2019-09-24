@@ -1,4 +1,4 @@
-# Statistics
+# Estatísticas
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
@@ -6,15 +6,15 @@ ASF in default settings has `Statistics` global config property enabled. If you 
 
 * * *
 
-## Current privacy policy
+## Política de privacidade atual
 
 When `Statistics` are active, following things will happen:
 
-1. Account being used in ASF will join our **[Steam group](https://steamcommunity.com/gid/103582791440160998)** upon login. This is done for three reasons:
+1. Uma conta que esteja a ser usada no ASF, vai entrar no nosso **[Grupo Steam](https://steamcommunity.com/gid/103582791440160998)** após iniciar sessão. Isto é feito por três motivos:
 
 * It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
 * It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
-* It allows us to see how many actual steam accounts are being used by ASF
+* Permite-nos ver quantas contas Steam estão a ser usadas pelo ASF
 
 We consider Steam group as a crucial part in regards to ASF community. This is our main communication channel which we use for all important matters in regards to ASF, especially keeping you up-to-date with the development, potential issues, eventual warnings and all other matters that you should have access to as an user. We do not benefit from maintenance of that group in any way, it's the place dedicated to ASF users and we consider you part of our community. Since membership of the group in no way identifies you as ASF user, we do not consider this to be a problem in terms of privacy.
 

@@ -58,7 +58,7 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-Example:
+Exemplo:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path

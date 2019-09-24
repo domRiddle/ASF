@@ -5,10 +5,10 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 # Tabla de contenido
 
 - [General](#general)
-- [Comparación con herramientas similares](#comparison-with-similar-tools)
-- [Seguridad / Privacidad / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Extras](#misc)
-- [Problemas](#issues)
+- [Comparación con herramientas similares](#comparación-con-herramientas-similares)
+- [Seguridad / Privacidad / VAC / Bans / ToS](seguridad--privacidad--vac--bans--tos)
+- [Extras](#extras)
+- [Problemas](#problemas)
 
 * * *
 
@@ -454,7 +454,7 @@ En una frase - reporta los errores, no reportes las advertencias. Aún puedes pr
 
 En condiciones normales, cualquier fallo o cierre de ASF generará un `log.txt` en el directorio del programa, que puede ser usado para encontrar la causa de eso. Además, los últimos archivos de registro también se archivan en el directorio `logs`, ya que el archivo principal `log.txt` se sobreescribe en cada ejecución de ASF.
 
-Sin embargo, si ni siquiera el tiempo de ejecución .NET Core es capaz de arrancar en su máquina, entonces `log.txt` no se generará. Si eso te sucede, probablemente olvidaste instalar los prerrequisitos de .NET Core, como se indica en la guía **[iniciando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)**. Otros problemas comunes incluyen intentar ejecutar la variante incorrecta de ASF para tu sistema operativo, u otra forma de dependencias nativas de .NET Core runtime faltantes. Si la ventana de consola se cierra muy rápido para que leas el mensaje, entonces abre la consola independiente y ejecuta el binario de ASF desde ahí. Por ejemplo en Windows, abre el directorio de ASF, mantén `Shift`, clic derecho dentro de la carpeta y selecciona "abrir la ventana de comandos aquí" (o powershell), luego escribe en la consola `.\ArchiSteamFarm.exe` y confirma con intro. De esta manera obtendrás el mensaje preciso de por qué ASF no está iniciando correctamente.
+Sin embargo, si ni siquiera el tiempo de ejecución .NET Core es capaz de arrancar en su máquina, entonces `log.txt` no se generará. Si eso te sucede, probablemente olvidaste instalar los prerrequisitos de .NET Core, como se indica en la guía de **[instalación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)**. Otros problemas comunes incluyen intentar ejecutar la variante incorrecta de ASF para tu sistema operativo, u otra forma de dependencias nativas de .NET Core runtime faltantes. Si la ventana de consola se cierra muy rápido para que leas el mensaje, entonces abre la consola independiente y ejecuta el binario de ASF desde ahí. Por ejemplo en Windows, abre el directorio de ASF, mantén `Shift`, clic derecho dentro de la carpeta y selecciona "abrir la ventana de comandos aquí" (o powershell), luego escribe en la consola `.\ArchiSteamFarm.exe` y confirma con intro. De esta manera obtendrás el mensaje preciso de por qué ASF no está iniciando correctamente.
 
 * * *
 

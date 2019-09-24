@@ -13,6 +13,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no sean sensibles a mayúsculas.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para cierto tipo de objetos.
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin para ASF para procesar automáticamente invitaciones de Steam.
 
 * * *
 
@@ -38,7 +39,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Herramientas
 
-- **[Keys extractor](https://ske.pixv.io)**, permite comando y pegar claves en varios formatos y crear comandos `redeem` para ASF. Revisa **[GitHub repo](https://github.com/PixvIO/SKE)** para más detalles.
+- **[Keys extractor](https://ske.pixv.io)**, permite copiar y pegar claves en varios formatos y crear comandos `redeem` para ASF. Revisa **[GitHub repo](https://github.com/PixvIO/SKE)** para más detalles.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permite administrar múltiples configuraciones de ASF más fácilmente.
 
 * * *

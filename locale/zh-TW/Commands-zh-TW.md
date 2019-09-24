@@ -24,7 +24,7 @@ Interactive console is not available in [**`Headless`**](https://github.com/Just
 
 * * *
 
-### Steam chat
+### Steam 聊天
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 

@@ -62,7 +62,7 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## 标签
 
-`master` 分支并不保证能够成功编译或者正常运行 ASF，正如我们在&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**&#8203;中所述，这是一个开发分支。 如果您希望从源代码编译 ASF，就应该为此选择适当的&#8203;**[标签](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**，这样能够保证编译成功，甚至可以正常运行（如果您选择稳定版）。 要检查代码库的“健康状态”，您可以检查我们的 CI——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 或 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**。
+`master` 分支并不保证能够成功编译或者正常运行 ASF，正如我们在&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**&#8203;中所述，这是一个开发分支。 如果您希望从源代码编译或引用 ASF，就应该为此选择适当的&#8203;**[标签](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**，这样能够保证编译成功，甚至可以正常运行（如果您选择稳定版）。 要检查代码库的“健康状态”，您可以检查我们的 CI——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 或 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**。
 
 * * *
 

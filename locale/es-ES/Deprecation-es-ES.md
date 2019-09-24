@@ -8,7 +8,7 @@ A partir de ASF V3.1.2.2, seguiremos una política de depreciación consistente 
 
 Depreciación es el proceso de hacer cambios pequeños o grandes que vuelven obsoletos las opciones, argumentos, funcionalidades o casos de uso previos. La depreciación usualmente significa que una cosa dada fue reescrita en otra (similar) forma, y debes asegurarte de manera oportuna de cambiar a la nueva versión. En este caso, simplemente es mover una funcionalidad dada a un lugar más apropiado.
 
-ASF cambia rápidamente y siempre busca mejorar. Esto lamentablemente significa que podemos cambiar o mover alguna funcionalidad existente a otro segmento del programa para que se beneficie de nuevas características, compatibilidad o estabilidad. Gracias a eso no necesitamos apegarnos a decisiones de desarrollo equivocadas o simplemente equivocadas que hayamos tomado hace años. Siempre intentamos proporcionar un reemplazo razonable que se ajuste al uso de funcionalidades disponibles previamente, por lo cual la depreciación es mayormente inofensiva y requiere pequeños arreglos a lo que se usaba con anterioridad.
+ASF cambia rápidamente y siempre busca mejorar. Esto lamentablemente significa que podemos cambiar o mover alguna funcionalidad existente a otro segmento del programa para que se beneficie de nuevas características, compatibilidad o estabilidad. Gracias a eso no necesitamos apegarnos a decisiones de desarrollo obsoletas o simplemente equivocadas que hayamos tomado hace años. Siempre intentamos proporcionar un reemplazo razonable que se ajuste al uso de funcionalidades disponibles previamente, por lo cual la depreciación es mayormente inofensiva y requiere pequeños arreglos a lo que se usaba con anterioridad.
 
 * * *
 
@@ -20,11 +20,11 @@ ASF seguirá 2 etapas de deprecación, haciendo que la transición sea mucho má
 
 La etapa 1 ocurre cuando una característica dada se deprecia, con disponibilidad inmediata de otra solución (o ninguna si no hay planes para reintroducirla).
 
-Durante esta etapa, ASF mostrará la advertencia respectiva cuando se usa una función depreciada. Mientras sea posible, ASF intentará imitar el comportamiento antiguo y seguirá siendo compatible con él. ASF seguirá estando en la etapa 1 en cuanto a esa funcionalidad al menos hasta la siguiente versión estable. Este es el momento en que, con la esperanza de no romper la comportamiento, puedes hacer el cambio correspondiente en todas tus herramientas y patrones para satisfacer el nuevo comportamiento. Puedes confirmar que hiciste todos los cambios apropiados al ya no ver la advertencia de depreciación.
+Durante esta etapa, ASF mostrará la advertencia respectiva cuando se usa una función depreciada. Mientras sea posible, ASF intentará imitar el comportamiento antiguo y seguirá siendo compatible con él. ASF seguirá estando en la etapa 1 en cuanto a esa funcionalidad al menos hasta la siguiente versión estable. Este es el momento en que, con la esperanza de no romper el comportamiento, puedes hacer el cambio correspondiente en todas tus herramientas y patrones para satisfacer el nuevo comportamiento. Puedes confirmar que hiciste todos los cambios apropiados al ya no ver la advertencia de depreciación.
 
 ### Etapa 2
 
-La etapa 2 está programa después de que la etapa 1 se produzca y sea publicada en una versión estable. Esta etapa introduce la completa eliminación de la característica obsoleta, lo que significa que ASF ni siquiera reconocerá que estás intentando usar una característica obsoleta, mucho menos respetarla, ya que simplemente no existe en el código actual. ASF ya no mostrará ninguna advertencia, porque ya no reconoce lo que estás intentando hacer.
+La etapa 2 está programada después de que la etapa 1 se produzca y sea publicada en una versión estable. Esta etapa introduce la completa eliminación de la característica obsoleta, lo que significa que ASF ni siquiera reconocerá que estás intentando usar una característica obsoleta, mucho menos respetarla, ya que simplemente no existe en el código actual. ASF ya no mostrará ninguna advertencia, porque ya no reconoce lo que estás intentando hacer.
 
 * * *
 

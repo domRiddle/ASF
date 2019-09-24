@@ -13,6 +13,7 @@
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
 
 * * *
 

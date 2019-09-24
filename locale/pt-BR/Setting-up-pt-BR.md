@@ -32,7 +32,7 @@ Você não precisa fazer mais nada para as versões para SOs específicos, espec
 
 #### **[Windows](https://docs.microsoft.com/pt-BR/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
-- **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=52685)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
+- **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=53587)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
 - É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/pt-br/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
@@ -157,7 +157,7 @@ Após a etapa de conexão, supondo que seus dados estejam corretos, você vai en
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Isso prova que o ASF está fazendo seu trabalho na sua conta, então você pode minimizá-lo e fazer outra coisa. Depois de decorrido algum tempo (dependendo do **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**) você verá as cartas aparecerem no seu inventário. É claro, para que isso aconteça você tem que ter jogos válidos para coleta, eles são mostrados como "Jogo pode dar mais X cartas" na sua **[página de insígnias](https://steamcommunity.com/my/badges)**; se não houver nenhum jogo para coleta o ASF vai agir como se não houvesse nada a fazer, conforme mencionado em nossa seção de **[Perguntas Frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#ent%C3%A3o-como-exatamente-ele-funciona)**.
+Isso prova que o ASF está fazendo seu trabalho na sua conta, então você pode minimizá-lo e fazer outra coisa. Depois de decorrido algum tempo (dependendo do **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**) você verá as cartas aparecerem no seu inventário. É claro, para que isso aconteça você deve ter jogos válidos para coleta, eles são mostrados como "Jogo pode dar mais X cartas" na sua **[página de insígnias](https://steamcommunity.com/my/badges)**; se não houver nenhum jogo para coleta o ASF vai agir como se não houvesse nada a fazer, conforme mencionado em nossa seção de **[Perguntas Frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#o-que-%C3%A9-o-asf)**.
 
 Isso conclui nosso guia de configuração básica. Agora você pode decidir se deseja configurar o ASF ainda mais ou deixá-lo fazer seu trabalho com as configurações padrão. Vamos cobrir mais alguns detalhes básicos e, em seguida, deixar toda a wiki para você descobrir.
 

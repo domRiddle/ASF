@@ -32,7 +32,7 @@ Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nich
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update 3 RC](https://www.microsoft.com/en-us/download/details.aspx?id=52685)** (x64 für 64-Bit Windows, x86 für 32-Bit Windows)
+- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - Wir dringend empfohlen sicherzustellen, dass alle Windows Aktualisierungen installiert sind. Du benötigst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
@@ -157,7 +157,7 @@ Nachdem du das anfängliche Anmeldeportal passiert hast, (davon ausgegangen, das
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Dies beweist, dass ASF nun erfolgreich seine Arbeit auf deinem Konto erledigt, so dass du nun das Programm minimieren und etwas anderes tun kannst. Nach einiger Zeit (je nach **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**) wirst du sehen, wie Steam-Karten langsam gesammelt werden. Natürlich musst du dafür zulässige Spiele zum Sammeln haben, die auf deiner **[Abzeichen-Seite](https://steamcommunity.com/my/badges)** folgendes zeigen: "Du kannst noch X weitere Kartendrops vom Spielen dieses Spiels bekommen". Wenn es keine Spiele zum Sammeln gibt, dann wird ASF feststellen, dass es nichts zu tun gibt, wie in unserem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#so-how-it-exactly-works)** beschrieben.
+Dies beweist, dass ASF nun erfolgreich seine Arbeit auf deinem Konto erledigt, so dass du nun das Programm minimieren und etwas anderes tun kannst. Nach einiger Zeit (je nach **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**) wirst du sehen, wie Steam-Karten langsam gesammelt werden. Natürlich musst du dafür zulässige Spiele zum Sammeln haben, die auf deiner **[Abzeichen-Seite](https://steamcommunity.com/my/badges)** folgendes zeigen: "Du kannst noch X weitere Kartendrops vom Spielen dieses Spiels bekommen". Wenn es keine Spiele zum Sammeln gibt, dann wird ASF feststellen, dass es nichts zu tun gibt, wie in unserem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)** beschrieben.
 
 Dies schließt unseren sehr einfachen Einrichtungsleitfaden ab. Du kannst nun entscheiden, ob du ASF weiter konfigurieren möchtest oder ob du es in den Standardeinstellungen seine Arbeit tun lassen möchtest. Wir werden noch ein paar grundlegende Details besprechen und dir dann das gesamte Wiki zur Verfügung stellen.
 

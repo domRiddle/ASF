@@ -78,7 +78,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-Or on Windows:
+Ou no Windows:
 
 ```bat
 SET COMPlus_GCLatencyLevel=0
