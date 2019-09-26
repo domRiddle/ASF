@@ -35,12 +35,12 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore30)**:
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
-- libcurl (libcurl4, libcurl3)
-- libicu (latest version for your distribution, for example `libicu60`)
-- libkrb5-3 (krb5-libs)
-- liblttng-ust0 (lttng-ust)
-- libssl (libssl1.1, openssl-libs, latest 1.1.X version for your distribution)
-- zlib1g (zlib)
+- `libcurl` (`libcurl4`, `libcurl3`)
+- `libicu` (latest version for your distribution, for example `libicu60`)
+- `libkrb5-3` (`krb5-libs`)
+- `liblttng-ust0` (`lttng-ust`)
+- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
+- `zlib1g` (`zlib`)
 
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
 
