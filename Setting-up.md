@@ -45,7 +45,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 At least a few of those should be already natively available on your system (such as zlib1g that is required in almost every Linux distro nowadays).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
-- None for now, but you should have latest version of OS X installed, at least 10.12+
+- None for now, but you should have latest version of OS X installed, at least 10.13+
 
 ---
 
