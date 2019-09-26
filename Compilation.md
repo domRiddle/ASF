@@ -22,7 +22,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
+If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
 
 ### OS-specific
 
