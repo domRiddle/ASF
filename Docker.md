@@ -66,7 +66,7 @@ If you take a closer look at the command then you'll notice that we didn't decla
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf justarchi/archisteamfarm:latest-arm
+docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
 ```
 
 ---
