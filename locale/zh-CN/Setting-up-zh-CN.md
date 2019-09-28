@@ -30,27 +30,27 @@
 
 请注意，您不需要为特定操作系统包进行其他准备工作，特别是安装 .NET Core SDK 或者运行时环境，因为操作系统包中已包含了它们。 您只需要安装 .NET Core 依赖项，使 ASF 自带的 .NET Core 运行时环境能够运行。
 
-#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/windows-prerequisites?tabs=netcore2x)**：
+#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/windows-prerequisites?tabs=netcore30)**：
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/zh-cn/download/details.aspx?id=53587)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
 - 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
 
-#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?tabs=netcore2x)**：
+#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?tabs=netcore30)**：
 
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
-- libcurl3（libcurl）
-- libicu（您使用的发行版上的最新版，例如 Debian 9 上的 `libicu57`）
-- libkrb5-3（krb5-libs）
-- liblttng-ust0（lttng-ust）
-- libssl1.0.2（libssl、openssl-libs、compat-openssl10、您使用的发行版上的最新 1.0.X 版本）
-- zlib1g（zlib）
+- `libcurl`（`libcurl4`、`libcurl3`）
+- `libicu`（您的发行版上的最新版，例如 `libicu60`）
+- `libkrb5-3`（`krb5-libs`）
+- `liblttng-ust0`（`lttng-ust`）
+- `libssl`（`libssl1.1`、`openssl-libs`、您的发行版中最新的 1.1.X 版本）
+- `zlib1g`（`zlib`）
 
-至少有一部分包应该已经在您的系统中了（例如 zlib1g 应该是大多数现代 Linux 发行版的基础组件）。
+至少有一部分包应该已经在您的系统中了（例如 `zlib1g` 应该是大多数现代 Linux 发行版的基础组件）。
 
-#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/macos-prerequisites?tabs=netcore2x)**：
+#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/macos-prerequisites?tabs=netcore30)**：
 
-- 目前没有，但您应该安装最新版本的 macOS，至少应为 10.12+
+- 目前没有，但您应该安装最新版本的 macOS，至少应为 10.13+
 
 * * *
 

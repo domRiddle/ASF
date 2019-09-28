@@ -17,35 +17,35 @@ Regardless of platform, you need full .NET Core SDK (not just runtime) in order 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "/p:PublishTrimmed=false"
 ```
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `ArchiSteamFarm/out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`.
+If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
 
 ### Specyficzne dla systemu operacyjnego
 
-You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you used for the compilation in the first place, but just in case you want to:
+You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. This build will also have updates disabled.
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.2` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
 ```
 
 In case of being unable to install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables netf build on non-Windows platforms:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

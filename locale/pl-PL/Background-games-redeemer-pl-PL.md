@@ -20,7 +20,7 @@ ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` j
     Terraria ThisIsIgnored ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
     
 
-Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z nowej linii między każdego wpisu). ASF w tym przypadku użyje odpowiedzi Steam (jeśli to możliwe), aby wypełnić właściwą nazwę. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z nowej linii między każdego wpisu). ASF w tym przypadku użyje odpowiedzi Steam (jeśli to możliwe), aby wypełnić właściwą nazwę. W przypadku wszelkiego rodzaju tagowania kluczy zalecamy, abyś sam nadawał nazwy kluczom, ponieważ pakiety aktywowane na Steam nie muszą być zgodne z logiką gier, które aktywują. Więc w zależności od tego, co ustawił wydawca, możesz zobaczyć poprawną grę nazwy, niestandardowe nazwy pakietów (np. Humble Indie Bundle 18) lub wręcz błędne i potencjalnie nawet złośliwe (np. Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB

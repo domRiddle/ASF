@@ -17,35 +17,35 @@
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "/p:PublishTrimmed=false"
 ```
 
 如果您在使用 Linux/OS X，您也可以使用 `cc.sh` 腳本實現同樣的效果，此種編譯方法方式稍複雜。
 
-如果編譯成功完成，您可以在 `ArchiSteamFarm/out/generic` 目錄中找到您的 ASF `source` 。 這與ASF官方的 `generic` 構建相同，但它強制設定 `UpdateChannel` 和 `UpdatePeriod` 為 `0`。
+If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
 
 ### OS-specific
 
-如果您需要，也可以生成特定作業系統的 .NET Core 包。 一般情況下，您不需要這樣做，因為您剛剛編譯了 `generic` 包，您可以使用已安裝的用於編譯的 .NET Core 運行時環境運行此包，但如果您確實需要作業系統包：
+如果您需要，也可以生成特定作業系統的 .NET Core 包。 In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. 這一構建也將禁用自動更新。
 
 ### .NET 框架
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp2.2` to `net48`. 請注意，您需要合適的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**​開發者工具包和 .NET Core SDK 才能編譯 `netf` 包，所以此指令僅適用於 Windows：
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.0` to `net48`. 請注意，您需要合適的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**​開發者工具包和 .NET Core SDK 才能編譯 `netf` 包，所以此指令僅適用於 Windows：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
 ```
 
 在無法安裝 .NET 框架甚至 .NET Core SDK 本身的情況下（例如在 `linux-x86` 平臺用 `mono` 構建），可以直接調用 `msbuild`。 您還需要手動指定 `ASFNetFramework`，因為 ASF 預設禁止在非 Windows 平臺上構建 netf：
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

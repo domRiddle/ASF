@@ -30,27 +30,27 @@ O primeiro passo é garantir que seu sistema operacional pode mesmo executar o A
 
 Você não precisa fazer mais nada para as versões para SOs específicos, especialmente instalar o .NET Core SDK ou mesmo o tempo de execução, já que o pacote específico para SO já inclui tudo. Você precisa apenas dos pré-requisitos (dependências) .NET Core para rodar o tempo de execução .NET Core incluído no ASF.
 
-#### **[Windows](https://docs.microsoft.com/pt-BR/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
+#### **[Windows](https://docs.microsoft.com/pt-br/dotnet/core/windows-prerequisites?tabs=netcore30)**:
 
 - **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=53587)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
 - É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/pt-br/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
+#### **[Linux](https://docs.microsoft.com/pt-br/dotnet/core/linux-prerequisites?tabs=netcore30)**:
 
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
-- libcurl3 (libcurl)
-- libicu, (versão atualizada para a sua distribuição, poe exemplo `libicu57` para o Debian 9)
-- libkrb5-3 (krb5-libs)
-- liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, compat-openssl10, versão 1.0.X atualizada para a sua distribuição)
-- zlib1g (zlib)
+- `libcurl` (`libcurl4`, `libcurl3`)
+- `libicu` (a ultima versão para a sua distribuição, por exemplo `libicu60`)
+- `libkrb5-3` (`krb5-libs`)
+- `liblttng-ust0` (`lttng-ust`)
+- `libssl` (`libssl1.1`, `openssl-libs`, a última versão 1.1.X para a sua distribuição)
+- `zlib1g` (`zlib`)
 
-Pelo menos alguns desses já devem estar disponíveis nativamente no seu sistema (como o zlib1g que é exigido em quase todas as distribuições do Linux hoje em dia).
+Pelo menos alguns desses já devem estar disponíveis nativamente no seu sistema (como o `zlib1g` que é exigido em quase todas as distribuições do Linux hoje em dia).
 
-#### **[OS X](https://docs.microsoft.com/pt-br/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
+#### **[OS X](https://docs.microsoft.com/pt-br/dotnet/core/macos-prerequisites?tabs=netcore30)**:
 
-- Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.12+
+- Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.13+
 
 * * *
 

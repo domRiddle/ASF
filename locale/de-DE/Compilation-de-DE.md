@@ -17,35 +17,35 @@ Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nic
 Unter der Annahme, dass du die .NET Core SDK funktionsfähig und in der entsprechenden Version hast, navigiere einfach zum Quell-ASF-Verzeichnis (geklont oder heruntergeladen und entpacktes ASF-Repository) und führe folgendes aus:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/generic" "/p:LinkDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "/p:PublishTrimmed=false"
 ```
 
 Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
 
-Wenn die Kompilierung erfolgreich beendet wurde, findest du dein ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies ist dasselbe wie der offizielle `generische` ASF-Build, aber es hat `UpdateChannel` und `UpdatePeriod` von `0` erzwungen.
+If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
 
 ### Betriebssystemspezifisch
 
-Du kannst auch das betriebssystemspezifische .NET Core Paket erstellen, falls du einen bestimmten Grund dazu hast. Im Allgemeinen solltest du das nicht tun, weil du gerade `generisch` kompiliert hast, das du mit deiner bereits installierten .NET Core Runtime, die du für die Kompilierung verwendet hast, laufen lassen kannst. Aber für den Fall, dass du es trotzdem möchtest:
+Du kannst auch das betriebssystemspezifische .NET Core Paket erstellen, falls du einen bestimmten Grund dazu hast. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp2.2" -o "out/linux-x64" -r "linux-x64" "/p:CrossGenDuringPublish=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen die du anpeilen möchtest, wie beispielsweise `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
 
 ### .NET Framework
 
-Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp2.2` auf `net48` ändern. Beachte, dass du neben der .NET Core SDK auch ein entsprechendes **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** Entwicklerpaket für die Kompilierung der `netf` Variante benötigst, so dass das untenstehende nur unter Windows funktioniert:
+Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp3.0` auf `net48` ändern. Beachte, dass du neben der .NET Core SDK auch ein entsprechendes **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** Entwicklerpaket für die Kompilierung der `netf` Variante benötigst, so dass das untenstehende nur unter Windows funktioniert:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
 ```
 
 Falls du das .NET Framework oder sogar die .NET Core SDK selbst nicht installieren kannst (z.B. weil du auf `linux-x86` mit `mono` kompiliert hast), kannst du `msbuild` direkt aufrufen. Du musst auch `ASFNetFramework` manuell angeben, da ASF standardmäßig netf build auf Nicht-Windows-Plattformen deaktiviert:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /r /t:Publish ArchiSteamFarm
+msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm
 ```
 
 * * *

@@ -41,11 +41,11 @@ ASF當前可用於以下操作系統 ：
 - `win-x64` 支援 64 位 Windows 操作系統。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，以及未來的版本。
 - `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 特別是包括所有 Raspberry Pi 2& 3 可用的 GNU/Linux 操作系統（例如 Raspbian）在當前與未來的版本。 此包不適用於較舊的ARM體系結構，例如Raspberry Pi 0 & 1所使用的ARMv6，也不適用於尚未實現所需GNU/Linux環境的操作系統，例如Android。
 - `linux-x64` 適用於64 位 GNU/Linux 操作系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等操作系統以及它們的衍生版在當前和未來的版本。
-- `osx-x64` 適用於64位 OS X 操作系統。 包括 10.12 及更新版本。
+- `osx-x64` 適用於64位 OS X 操作系統。 包括 10.13 及更新版本。
 
 當然，即使沒有適合您操作系統及架構的 OS-specific 包，您也可以手動安裝適當的 .NET Core 運行時環境並運行 Generic ASF 包，這也是這個包存在的主要原因。 Generic ASF 包與平台無關，可在任何具有可用 .NET Core 運行時環境的平台上運行。 需要注意──ASF 需要的是 .NET Core 運行時環境，而不是特定的操作系統或架構。 例如，如果您使用的是 32 位 Windows，盡管沒有適用於 `win-x86` 的ASF版本，您仍然可以在 `win-x86`中安裝 .NET Core SDK，並運行 Generic 版本的 ASF。 我們無法為所有操作系統和架構組合都提供一份可執行档案，為此我們要在某處劃清界限。 x86 就是這條線的範例之一，因為它的體系結構至少自 2004 年開始就已過時了。
 
-您可以訪問​**[版本注釋​](https://github.com/dotnet/core/blob/master/release-notes/2.2/2.2-supported-os.md)**查看.NET Core 2.2 支持的所有平台與操作系統清單。
+您可以訪問​**[版本注釋​](https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-supported-os.md)**查看.NET Core 3.0 支持的所有平台與操作系統清單。
 
 * * *
 
@@ -55,22 +55,6 @@ ASF當前可用於以下操作系統 ：
 
 但是，如果您尝試運行 **Generic** ASF包，則必須確保 ASF 所需的對應平台的 .NET Core 運行時環境已經安裝。
 
-目前ASF 的目標是 **.NET Core 2.2**（`netcoreapp2.2`），但未來會指向更高版本。 `netcoreapp2.2` is supported since 2.2.100 SDK (2.2.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
+目前ASF 的目標是 **.NET Core 3.0**（`netcoreapp3.0`），但未來會指向更高版本。 `netcoreapp3.0` is supported since 3.0.100 SDK (3.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署ASF版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個生成的頂部找到`dotnet--info` 輸出。
-
-* * *
-
-## 問題與解決方案
-
-### Debian Stretch upgrade
-
-如果您從 Debian 8 Jessie（或更舊版本）升級到 Debian 9 Stretch，請確保您**沒有** `libssl1.0.0` 包，清除方法之一是執行` apt-get purge libssl1.0.0`。 否則，您可能會遇到段錯誤。 顧名思義，這個套裝軟件已過時並從軟件源中被移除，也無法在全新安裝的 Debian 9 設備上使用，觸發此事件的唯一途徑是從 Debian 8 或更早版本升級──如**[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**。 If you have some other packages depending on that outdated `libssl` version then you should either upgrade them, or get rid of them - not only because of this issue, but also because they're based on obsolete library in the first place.
-
-### Debian Buster upgrade
-
-Upgrading from Debian 9 Stretch (or older) to Debian 10 Buster will upgrade your default OS-wide `libssl` settings to 1.1. Until .NET Core 3.0 is released (and ASF upgraded to it), you'll need to manually tell .NET Core runtime to load `libssl` in version 1.1, instead of 1.0 (which is preferred as long as it exists). Loading wrong combination of `libssl` version and OS-wide config will lead to various issues in regards to establishing `https` connections.
-
-The most appropriate way to fix this issue depends on your situation. Contrary to Debian 9 upgrade mentioned above, you can use `CLR_OPENSSL_VERSION_OVERRIDE=1.1` environment property, which will do the trick, without a need of downgrading your OS-wide `libssl` settings, removing `libssl` 1.0 entirely, or doing any other OS modifications. You can specify environment properties in at least several different ways, but unless you know better we recommend adding `CLR_OPENSSL_VERSION_OVERRIDE=1.1` to `/etc/environment` file (and restarting your machine).
-
-Alternatively, similar to Debian 9 upgrade, you can ensure that you **don't** have `libssl1.0.2` package, for example with `apt-get purge libssl1.0.2`. This package is obsolete and doesn't exist by definition, neither is possible to install on clean Debian 10 setups, the only way to run into this issue is upgrading from Debian 9 or older - **[dotnet/corefx #33179](https://github.com/dotnet/corefx/issues/33179)**. However, at least several packages still depend on that package (for example, `dotnet-runtime-2.2` which is required for running ASF in generic variant), so it might not be possible depending on your environment. Once .NET Core 3.0 is released and ASF upgraded to it, this issue will no longer be relevant. Until then, we recommend to purge the obsolete package if possible, otherwise specify the `libssl` version manually through environment property.

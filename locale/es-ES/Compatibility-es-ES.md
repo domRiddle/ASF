@@ -41,11 +41,11 @@ ASF actualmente está disponible en las siguientes variantes específicas de SO:
 - `win-x64` funciona con sistemas operativos Windows de 64 bits. Esto incluye Windows 7 (SP1+), 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016, así como las futuras versiones.
 - `linux-arm` funciona en sistemas operativos ARM-based (ARMv7+) GNU/Linux de 32 bits. Esto incluye especialmente Raspberry Pi 2 & 3 con todos los sistemas operativos GNU/Linux disponibles para ellos (tal como Raspbian), en presentes y futuras versiones. Esta variante no funcionará con arquitecturas ARM antiguas, tal como ARMv6 encontrada en Raspberry Pi 0 & 1, tampoco funcionará con sistemas operativos que no implementen el entorno GNU/Linux requerido, tal como Android.
 - `linux-x64` funciona en sistemas operativos GNU/Linux de 64 bits. Esto incluye Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES y muchos otros, incluyendo sus derivados, en versiones actuales y futuras.
-- `osx-x64` funciona en sistemas operativos OS X de 64 bits. Esto incluye 10.12, así como futuras versiones.
+- `osx-x64` funciona en sistemas operativos OS X de 64 bits. Esto incluye 10.13, así como futuras versiones.
 
 Por supuesto, incluso si no tienes un paquete de SO específico disponible para tu combinación SO-arquitectura, siempre puedes instalar el .NET Core runtime adecuado y ejecutar el sabor genérico de ASF, que también es la razón principal por la que existe en primer lugar. La compilación genérica de ASF no depende de la plataforma y se ejecutará en cualquier plataforma que tenga .NET Core runtime funcional. Es importante notar esto - ASF requiere .NET Core runtime, no un sistema operativo específico o arquitectura. Por ejemplo, si estás ejecutando Windows de 32 bits a pesar no haber una versión `win-x86` de ASF, simplemente puedes instalar .NET Core SDK en la versión `win-x86` y ejecutar ASF genérico sin problemas. Simplemente no podemos apuntar a cada combinación de SO-arquitectura que exista y sea usada por alguien, así que tenemos que trazar la línea en algún punto. x86 es un buen ejemplo de esa línea, ya que es una arquitectura obsoleta al menos desde 2004.
 
-Para una lista completa de todas las plataformas y sistemas operativos soportados por .NET Core 2.2, visita **[notas de lanzamiento](https://github.com/dotnet/core/blob/master/release-notes/2.2/2.2-supported-os.md)**.
+Para una lista completa de todas las plataformas y sistemas operativos soportados por .NET Core 3.0, visita **[notas de lanzamiento](https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-supported-os.md)**.
 
 * * *
 
@@ -55,22 +55,6 @@ Si estás usando un paquete de SO específico entonces no necesitas preocuparte 
 
 Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF entonces debes asegurarte de que tu .NET Core runtime soporta la plataforma requerida por ASF.
 
-ASF como programa actualmente tiene como objetivo **.NET Core 2.2** (`netcoreapp2.2`), pero podría apuntar a una plataforma más nueva en el futuro. `netcoreapp2.2` es soportado desde 2.2.100 SDK (2.2.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
+ASF como programa actualmente tiene como objetivo **.NET Core 3.0** (`netcoreapp3.0`), pero podría apuntar a una plataforma más nueva en el futuro. `netcoreapp3.0` es soportado desde 3.0.100 SDK (3.0.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
 
 En caso de duda, revisa nuestros **[usos de integración continua](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar y publicar versiones de ASF en GitHub. Puedes encontrar `dotnet --info` en la parte de arriba de cada compilación.
-
-* * *
-
-## Problemas y soluciones
-
-### Actualización de Debian Stretch
-
-Si actualizaste desde Debian 8 Jessie (o anterior) a Debian 9 Stretch, asegúrate de que **no** tienes el paquete `libssl1.0.0`, por ejemplo con `apt-get purge libssl1.0.0`. De lo contrario, podrías caer en una violación de acceso. Este paquete está obsoleto y no existe por definición, tampoco es posible instalarlo en configuraciones limpias de Debian 9, la única forma de toparse con este problema es actualizando desde Debian 8 o anterior - **[dotnet/corefx #8951](https://github.com/dotnet/corefx/issues/8951#issuecomment-314455190)**. Si tienes otros paquetes dependiendo de esa versión obsoleta de `libssl` entonces debes actualizarlos, o deshacerte de ellos - no solo por este problema, sino también porque se basan en una biblioteca obsoleta en primer lugar.
-
-### Actualización de Debian Buster
-
-Actualizar desde Debian 9 Stretch (o anterior) a Debian 10 Buster actualizará tus ajustes predeterminados `libssl` a 1.1. Hasta que .NET Core 3.0 sea lanzado (y ASF se actualice a él), necesitarás decirle manualmente a .NET Core runtime que cargue `libssl` en la versión 1.1, en lugar de 1.0 (que será preferida mientras exista). Cargando una combinación equivocada de versión de `libssl` y configuración del sistema operativo conducirá a varios problemas en lo que respecta al establecimiento de conexiones `https`.
-
-La forma más adecuada de solucionar este problema depende de tu situación. Contrario a la actualización de Debian 9 mencionada anteriormente, puedes usar la propiedad de entorno `CLR_OPENSSL_VERSION_OVERRIDE=1.1`, lo que debería funcionar, sin necesidad de revertir (downgrade) los ajustes `libssl` de tu sistema operativo, eliminar `libssl` 1.0 por completo, o hacer otra modificación al sistema operativo. Puedes especificar las propiedades del entorno de varias maneras, pero a menos que conozcas algo mejor recomendamos añadir `CLR_OPENSSL_VERSION_OVERRIDE=1.1` al archivo `/etc/environment` (y reiniciar tu máquina).
-
-Alternativamente, similar a la actualización de Debian 9, puedes asegurarte de que **no** tienes el paquete `libssl1.0.2`, por ejemplo con `apt-get purge libssl1.0.2`. Este paquete está obsoleto y no existe por definición, tampoco es posible instalarlo en configuraciones limpias de Debian 10, la única forma de toparse con este error es actualizando de Debian 9 o anterior - **[dotnet/corefx #33179](https://github.com/dotnet/corefx/issues/33179)**. Sin embargo, al menos varios paquetes todavía dependen de ese paquete (por ejemplo, `dotnet-runtime-2.2` que es necesario para ejecutar ASF en su variante genérica), por lo que podría no ser posible dependiendo de tu entorno. Una vez que .NET Core sea lanzado y ASF actualizado a él, este problema ya no será relevante. Hasta entonces, recomendamos purgar el paquete obsoleto si es posible, de lo contrario especifica la versión de `libssl` manualmente a través de la propiedad del entorno.

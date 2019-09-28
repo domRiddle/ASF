@@ -30,27 +30,27 @@
 
 Помните, что для установки варианта под конкретную ОС вам больше ничего не надо делать, особенно устанавливать .NET Core SDK или даже среду исполнения, поскольку пакеты для конкретных ОС уже включают всё это в себя. Вам нужны только предусловия для .NET Core (зависимости) чтобы запустить среду исполнения включенную в ASF.
 
-#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x)**:
+#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore30)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 для 64-битного Windows, x86 для 32-битного Windows)
 - Настоятельно рекомендуется убедиться, что у вас уже установлены все обновления Windows. Как минимум вам потребуются **[KB2533623](https://support.microsoft.com/en-us/help/2533623/)** и **[KB2999226](https://support.microsoft.com/en-us/help/2999226/)**, но могут понадобиться и другие обновления. Все они уже должны быть установлены если ваша Windows полностью обновлена. Убедитесть что вы выполнили эти требования до того как устанавливать пакет Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)**:
+#### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore30)**:
 
 Имена пакетов зависят от того, каким дистрибутивом Linux вы пользуетесь, мы перечисляем наиболее распространённые. Вам можете получить их все с помощью встроенного менеджера пакетов для вашей ОС (таким как `apt` для Debian или `yum` для CentOS).
 
-- libcurl3 (libcurl)
-- libicu (последняя версия для вашего дистрибутива, например `libicu57` для Debian 9)
-- libkrb5-3 (krb5-libs)
-- liblttng-ust0 (lttng-ust)
-- libssl1.0.2 (libssl, openssl-libs, последняя версия 1.0.X для вашего дистрибутива)
-- zlib1g (zlib)
+- `libcurl` (`libcurl4`, `libcurl3`)
+- `libicu` (последняя версия для вашего дистрибутива, например `libicu60`)
+- `libkrb5-3` (`krb5-libs`)
+- `liblttng-ust0` (`lttng-ust`)
+- `libssl` (`libssl1.1`, `openssl-libs`, последняя версия 1.1.X для вашего дистрибутива)
+- `zlib1g` (`zlib`)
 
-Как минимум часть из них должна быть уже доступна для вашей системы (как например zlib1g которая в наши дни требуется практически в любом дистрибутиве Linux).
+Как минимум часть из них должна быть уже доступна для вашей системы (как например `zlib1g` которая в наши дни требуется практически в любом дистрибутиве Linux).
 
-#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore2x)**:
+#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
 
-- На данный момент никаких дополнительных требований нет, но у вас должна быть установлена последняя версия OS X, как минимум 10.12+
+- На данный момент никаких дополнительных требований нет, но у вас должна быть установлена последняя версия OS X, как минимум 10.13+
 
 * * *
 
