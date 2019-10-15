@@ -20,7 +20,7 @@ ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `Bot
     Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
     
 
-此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 我們建議你自行標記所有序號的名稱，因為在 Steam 上啟動的 Package 名稱不一定會符合 Package 中的遊戲名稱，所以根據開發者填寫的內容，你可能會看到正確的遊戲名稱、自訂名稱（例如 Humble Indie Bundle 18），或完全錯誤、甚至是惡意的名稱（例如 Half-Life 4）。
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -32,7 +32,7 @@ ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `Bot
 
 ### IPC
 
-除了使用上述的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**。 Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+除了使用上述的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**。 IPC 將可能提供更完善的功能，因為你可以使用你覺得合適的方式進行解析。例如使用自訂分隔符，而非強制使用 Tab，甚至可以完全自訂序號格式。
 
 * * *
 
@@ -54,7 +54,7 @@ ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `Bot
 
 除了 `BotName.keys` 檔案，您也可以使用 IPC API 端點，甚至也可以根據需要將兩種方式合併使用。
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. 這兩個檔案包含了啟動過程的結果。 舉例來說，你可以將 `BotName.keys.unused` 重新命名為 `BotName2.keys`，以便將未使用的序號交給其他的 BOT 啟動，因為前一個 BOT 並未用到這些序號。 或者您也可以將未使用的序號複製貼上到其他檔案留作他用。 請留意，當 ASF 處理佇列時，新的項目會逐一寫入 `used` 和 `unused` 等兩個輸出檔案中，因此建議等待佇列完全清空後再使用這兩個檔案。 如果要在佇列完全清空之前存取這些輸出檔案的話，請先將欲存取的檔案**移動**到別的資料夾，**然後**再對其做進一步處理。 這是因為 ASF 可能會在你處理這些檔案的時候寫入新的結果，且可能導致某些序號遺失。例如，你讀取了一個包含 3 個序號的檔案，然後將其刪除，但 ASF 在此期間又寫入了 4 個新序號，那些序號便會遺失。 如果你想存取這些檔案，請務必先將它們從 ASF 的 `config` 資料夾中移出，例如將其重新命名。
+經過一段時間後，可能會產生 `BotName.keys.used` 和 `BotName.keys.unused` 等兩個檔案。 這兩個檔案包含了啟動過程的結果。 舉例來說，你可以將 `BotName.keys.unused` 重新命名為 `BotName2.keys`，以便將未使用的序號交給其他的 BOT 啟動，因為前一個 BOT 並未用到這些序號。 或者您也可以將未使用的序號複製貼上到其他檔案留作他用。 請留意，當 ASF 處理佇列時，新的項目會逐一寫入 `used` 和 `unused` 等兩個輸出檔案中，因此建議等待佇列完全清空後再使用這兩個檔案。 如果要在佇列完全清空之前存取這些輸出檔案的話，請先將欲存取的檔案**移動**到別的資料夾，**然後**再對其做進一步處理。 這是因為 ASF 可能會在你處理這些檔案的時候寫入新的結果，且可能導致某些序號遺失。例如，你讀取了一個包含 3 個序號的檔案，然後將其刪除，但 ASF 在此期間又寫入了 4 個新序號，那些序號便會遺失。 如果你想存取這些檔案，請務必先將它們從 ASF 的 `config` 資料夾中移出，例如將其重新命名。
 
 你也可以在佇列已有遊戲的情況下匯入更多遊戲，只需要重覆上述步驟就行了。 ASF 會正確地將其加入正在處理的佇列中並完成啟動程序。
 

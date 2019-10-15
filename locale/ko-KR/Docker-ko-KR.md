@@ -52,18 +52,18 @@ ASF 도커 이미지는 현재 `x64`와 `arm` 두개의 아키텍처에서 가�
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it --name asf justarchi/archisteamfarm
+docker run -it --name asf --rm justarchi/archisteamfarm
 ```
 
-캐시에 오래된 사본이 있을수 있으므로 `docker pull` 명령으로 최신의 `justarchi/archisteamfarm` 이미지를 사용하고 있음을 확인합니다. `docker run` 으로 당신의 새로운 ASF 도커 컨테이너를 생성하고 전경에서 실행되도록 합니다(`-it`).
+캐시에 오래된 사본이 있을수 있으므로 `docker pull` 명령으로 최신의 `justarchi/archisteamfarm` 이미지를 사용하고 있음을 확인합니다. `docker run` 으로 당신의 새로운 ASF 도커 컨테이너를 생성하고 전경에서 실행되도록 합니다(`-it`). `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
 
-모든것이 성공적으로 끝나면, 모든 레이어를 당기고 컨테이너를 시작한 뒤 ASF가 정상적으로 시작해서 정의된 봇이 없다고 알리고 있음을 알게 됩니다. ASF가 도커에서 정상적으로 작동하고 있습니다. `CTRL+P`와 `CTRL+Q`를 순서대로 눌러서 전경 도커 컨테이너에서 빠져나옵니다. 그리고 `docker stop asf`를 입력해 ASF를 중지하고, `docker rm asf`로 ASF를 삭제합니다.
+모든것이 성공적으로 끝나면, 모든 레이어를 당기고 컨테이너를 시작한 뒤 ASF가 정상적으로 시작해서 정의된 봇이 없다고 알리고 있음을 알게 됩니다. ASF가 도커에서 정상적으로 작동하고 있습니다. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`.
 
 명령어를 자세히 봤다면 태그를 선언하지 않았음을 알게 되었을 겁니다. 태그는 자동으로 기본값인 `latest` 가 됩니다. `latest` 말고 `latest-arm` 같은 다른 태그를 사용하고 싶다면 명시적으로 선언해야 합니다.
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf justarchi/archisteamfarm:latest-arm
+docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
 ```
 
 * * *

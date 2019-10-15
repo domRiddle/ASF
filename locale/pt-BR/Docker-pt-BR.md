@@ -52,18 +52,18 @@ Primeiro devemos verificar se nosso docker está funcionando corretamente, isso 
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it --name asf justarchi/archisteamfarm
+docker run -it --name asf --rm justarchi/archisteamfarm
 ```
 
-O comando `docker pull` garante que você está usando uma versão atualizada da imagem `justarchi/archisteamfarm`, para o caso de você ter uma cópia local desatualizada no seu cache. `docker run` cria um novo contêiner docker do ASF para você e o executa em primeiro plano (`-it`).
+O comando `docker pull` garante que você está usando uma versão atualizada da imagem `justarchi/archisteamfarm`, para o caso de você ter uma cópia local desatualizada no seu cache. `docker run` cria um novo contêiner docker do ASF para você e o executa em primeiro plano (`-it`). `--rm` garante que nosso contêiner seja excluído assim que pare, já que estamos apenas testando por enquanto.
 
-Se tudo correu bem, após receber todas as camadas e iniciar o contêiner, você deverá notar que o ASF foi iniciado e nos informou que não há bots definidos, o que é bom; nós acabamos de verificar que o ASF funcionou corretamente no docker. Aperte `CTRL+P` e então `CTRL+Q` para sair do contêiner docker em primeiro plano, então pare o contêiner ASF com o comando `docker stop asf` e remova-o com `docker rm asf`.
+Se tudo correu bem, após receber todas as camadas e iniciar o contêiner, você deverá notar que o ASF foi iniciado e nos informou que não há bots definidos, o que é bom; nós acabamos de verificar que o ASF funcionou corretamente no docker. Aperte `CTRL+P` e então `CTRL+Q` para sair do contêiner docker em primeiro plano, então pare o contêiner ASF com o comando `docker stop asf`.
 
 Se você olhar para o comando você vai notar que nós não declaramos nenhum marcador, que automaticamente usa o padrão `latest`. Se você quiser usar um marcador diferente, por exemplo `latest-arm`, então você deve declará-lo explicitamente:
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf justarchi/archisteamfarm:latest-arm
+docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
 ```
 
 * * *

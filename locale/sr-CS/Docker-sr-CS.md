@@ -52,18 +52,18 @@ Firstly we should verify if our docker is even working correctly, this will serv
 
 ```shell
 docker pull justarchi/archisteamfarm
-docker run -it --name asf justarchi/archisteamfarm
+docker run -it --name asf --rm justarchi/archisteamfarm
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`).
+`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`). `--rm` osigurava da će naš direktorijum biti izbrisan nakon zaustavijanja, jer mi samo testiramo da li sve radi kako treba za sada.
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`, and remove it with `docker rm asf`.
+If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Pritisni `CTRL+P` pa `CTRL+Q` da zaustavite docker direktorijum, pa zaustavite ASF direktorijum sa `docker stop asf`.
 
 If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
 
 ```shell
 docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf justarchi/archisteamfarm:latest-arm
+docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
 ```
 
 * * *

@@ -14,6 +14,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para cierto tipo de objetos.
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin para ASF para procesar automáticamente invitaciones de Steam.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin para ASF que permite conexiones proxy WebSocket.
 
 * * *
 

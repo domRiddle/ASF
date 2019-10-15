@@ -14,6 +14,7 @@ Si prega di notare che i seguenti programmi **non** sono mantenuti da sviluppato
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin di ASF che accetta automaticamente le richieste di scambio per alcuni tipi di oggetti.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin di ASF che accetta automaticamente le richieste di scambio per alcuni tipi di oggetti.
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
 
 * * *
 

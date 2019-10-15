@@ -32,7 +32,7 @@
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore30)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
+- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 для 64-bit Windows, x86 для 32-bit Windows)
 - Наполегливо рекомендуємо переконатися, що усі оновлення Windows вже встановлені. Якнайменше вам потрібні пакети **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** та **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, але можуть бути потрібні й інші. Усі вони вже встановлені якщо ваша Windows цілком оновлена. Переконайтеся що виконали ці вимоги перш ніж встановлювати пакет Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore30)**:
@@ -40,13 +40,13 @@
 Назви пакетів залежать від обраного дистрибутиву Linux, тож ми наводимо найпоширеніші з них. Ви можете отримати усі з них через стандартний менеджер пакетів у вашій ОС (такий як `apt` для Debian чи `yum` для CentOS).
 
 - `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (latest version for your distribution, for example `libicu60`)
+- `libicu` (остання версія для вашого дистрибутиву, наприклад `libicu60`)
 - `libkrb5-3` (`krb5-libs`)
 - `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
+- `libssl` (`libssl1.1`, `openssl-libs`, остання версія 1.1.X для вашого дистрибутиву)
 - `zlib1g` (`zlib`)
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+Принаймні деякі з цих пакетів мають бути вже встановлені у вашій системі (як наприклад `zlib1g`, який наразі є необхідним для майже кожного дистрибутиву Linux).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
 
@@ -157,7 +157,7 @@ ASF потребує ваші облікові дані бо він має вб�
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Це доводить що ASF тепер успішно працює з вашим обліковим записом, тому ви можете згорнути програму і зайнятися чимось іншим. Після достатнього часу (він залежить від **[продуктивності](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-uk-UA)**), ви побачите що повільно почали випадати колекційні картки Steam. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+Це доводить що ASF тепер успішно працює з вашим обліковим записом, тому ви можете згорнути програму і зайнятися чимось іншим. Після достатнього часу (він залежить від **[продуктивності](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-uk-UA)**), ви побачите що повільно почали випадати колекційні картки Steam. Звичайно, щоб це сталося, вам потрібно мати ігри, з яких ще мають випасти картки, на це вказує напис "Ще може випасти карток: X" на сторінці **[значків](https://steamcommunity.com/my/badges)** - якщо там немає ігор для фарму, то ASF видасть повідомлення що йому нема чого робити, як описано у нашому розділі **[ЧаПи](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-uk-UA#user-content-Що-таке-asf)**.
 
 На цьому ми завершуємо наш дуже простий посібник з налаштування. Ви можете вирішити чи бажаєте ви конфігурувати ASF далі, чи просто дозволити йому робити свою роботу з налаштуваннями за замовчуванням. Ми охопимо ще кілька простих деталей, а потім залишимо вам усю Wiki для вивчання.
 
