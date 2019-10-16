@@ -245,4 +245,17 @@ If you believe that something inappropriate is included in a code block, or that
 
 ---
 
-Thank you for helping us translating ASF into all languages spoken worldwide!
+## Hall of fame
+
+We'd like to show our eternal grattitude for people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have reviewed all of the strings used in ASF project at least **once**, translating over **70 thousand words in total**. Their effort is incredible, and you can enjoy fully translated ASF project, including the wiki, mostly thanks to them.
+
+Contributor | Languages
+--- | ---
+**[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)** | Russian, Ukrainian
+**[deluxghost](https://crowdin.com/profile/deluxghost)** | Chinese (CN)
+**[Dead_Sam](https://crowdin.com/profile/Dead_Sam)** | Portuguese (BR)
+**[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)
+**[https://crowdin.com/profile/MrBurrBurr](SKANHUNTER)** | German
+**[Astaroth](https://crowdin.com/profile/ismacanto)** | Spanish
+
+Thank you all for improving our ASF localization quality!
