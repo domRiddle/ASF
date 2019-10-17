@@ -255,7 +255,7 @@ Contributor | Languages
 **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)** | Portuguese (BR)
 **[deluxghost](https://crowdin.com/profile/deluxghost)** | Chinese (CN)
 **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)** | Russian, Ukrainian
-**[SKANHUNTER](https://crowdin.com/profile/MrBurrBurr)** | German
+**[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)** | German
 **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)
 
 Thank you all for improving our ASF localization quality!
