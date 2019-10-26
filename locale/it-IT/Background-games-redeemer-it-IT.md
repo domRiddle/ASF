@@ -20,7 +20,7 @@ ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `B
     Terraria    QuestoVieneIgnorato    AncheQuestoVieneIgnorato    ZXCVB-ASDFG-QWERT
     
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternativamente, puoi anche usare chiavi di solo formato (ancora con una nuova riga tra ogni voce). ASF in questo caso userà la risposta di Steam (se possibile) per compilare il giusto nome. Per ogni tipo di tag delle chiavi, raccomandiamo che tu stesso nomini le tue chiavi, come pacchetti riscattati su Steam, senza seguire la logica dei giochi che stai attivando, quindi in base a cosa ha messo lo sviluppatore, potresti vedere nomi dei giochi corretti, nomi dei pacchetti personalizzati (es. Humble Indie Bundle 18) o totalmente errati e potenzialmente anche maligni (es. Half-Life 4).
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -28,17 +28,17 @@ Alternatively, you're also able to use keys only format (still with a newline be
     ZXCVB-ASDFG-QWERT
     
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+Indipendentemente da quale formato hai deciso di mantenere, ASF importerà il tuo file `chiavi`, all'avvio del bot, o dopo durante l'esecuzione. Dopo aver analizzato con successo il tuo file ed eventualmente omissione di voci non valide, tutti i giochi propriamente rilevati saranno aggiunti alla coda in background, ed il file `BotName.keys` sarà rimosso dalla directory `config`.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+Oltre ad usare il file delle chiavi sopra menzionato, ASF espone anche **[l'endpoint API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** `GamesToRedeemInBackground` che può essere eseguito da qualsiasi strumento IPC, inclusa la nostra ASF-ui. L'uso di IPC potrebbe essere più potente, come puoi fare tu stesso un'analisi appropriata, come usare un delimitatore personalizzato invece di essere forzato ad un carattere di scheda, o anche introdurre la tua struttura di chiavi personalizzate interamente tua.
 
 * * *
 
-## Queue
+## Coda
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Una volta che i giochi sono importati con successo, sono aggiunti alla coda. ASF passa automaticamente per la sua coda in background finché il bot è connesso alla rete Steam, e la coda non è vuota. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 

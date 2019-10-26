@@ -35,7 +35,7 @@ Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,11 +44,11 @@ Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm">
-      <HintPath>C:\\Pfad\Zu\Heruntergeladenen\ArchiSteamFarm.dll</HintPath>
+      <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- Wenn du als Teil des ASF-Quellbaums erstellst, verwende dies anstelle von <Reference> oben -->
-    <!-- <ProjectReference Include="C:\\Pfad\Zu\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```
@@ -86,7 +86,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 Danach ist dein Plugin einsatzbereit. Es liegt an dir, wie du dein Plugin verteilen und veröffentlichen möchtest, aber wir empfehlen, ein Zip-Archiv mit einem einzigen Ordner namens `DeinNamespace.DeinPluginName` zu erstellen, in dem du dein kompiliertes Plugin mit seinen **[Abhängigkeiten](#plugin-abhängigkeiten)** kopierst. Auf diese Weise muss der Benutzer einfach sein Zip-Archiv in sein `plugins` Verzeichnis entpacken und nichts weiter tun.
 
-Dies ist jedoch nur das Basisszenario um dir den Einstieg zu erleichtern. Wir haben ein **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** Projekt, das dir exemplarische Schnittstellen und Aktionen zeigt, die du innerhalb deines eigenen Plugins durchführen kannst, einschließlich hilfreicher Kommentare. Zögere nicht einen Blick darauf zu werfen, wenn du von einem funktionierenden Quellcode lernen möchtest, oder entdecke den `ArchiSteamFarm.Plugins` Namespace selbst und schaue in die mitgelieferte Dokumentation für alle verfügbaren Optionen.
+This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Zögere nicht einen Blick darauf zu werfen, wenn du von einem funktionierenden Quellcode lernen möchtest, oder entdecke den `ArchiSteamFarm.Plugins` Namespace selbst und schaue in die mitgelieferte Dokumentation für alle verfügbaren Optionen.
 
 * * *
 

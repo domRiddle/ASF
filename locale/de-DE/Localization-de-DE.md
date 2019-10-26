@@ -246,4 +246,17 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 * * *
 
-Vielen Dank, dass du uns bei der Übersetzung von ASF in alle weltweit gesprochenen Sprachen unterstützt!
+## Hall of fame
+
+We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+
+| Contributor                                                | Languages          |
+| ---------------------------------------------------------- | ------------------ |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanish            |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+
+Thank you all for improving our ASF localization quality!

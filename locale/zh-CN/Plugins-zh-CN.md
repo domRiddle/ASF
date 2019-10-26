@@ -35,7 +35,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -86,7 +86,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 然后，您的插件已经准备好进行部署。 如何分发和发布插件完全取决于您自己，但我们建议创建一个 zip 压缩包，其中只有一个以插件命名空间和插件名 `YourNamespace.YourPluginName` 为名的的目录，目录内部放置已编译好的插件及其&#8203;**[依赖项](#插件依赖项)**。 这样用户在安装时就只需要将 zip 压缩包解压到 `plugins` 目录而不需要其他操作。
 
-这只是让您入门的最基本场景，我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
+这只是开发插件最基本的场景。 我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
 * * *
 

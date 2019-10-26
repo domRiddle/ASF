@@ -35,7 +35,7 @@ Si hiciste todo correctamente, tu `csproj` será similar al siguiente:
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -86,7 +86,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 Después, tu plugin está lista para su despliegue. Depende de ti como quieres distribuirlo y publicarlo, pero recomendamos crear un archivo zip con un solo archivo llamado `YourNamespace.YourPluginName` (TuNombreespacio.NombreDeTuPlugin), dentro del cual pondrás tu plugin compilado junto con sus **[dependencias](#plugin-dependencies)**. Así el usuario simplemente necesitará desempaquetar tu archivo zip en su directorio `plugins` y nada más.
 
-Esto es solo el escenario más básico para empezar, tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)**que te muestra interfaces de ejemplo y acciones que puedes realizar dentro de tu propio plugin, incluyendo comentarios útiles. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
+Este solo es el escenario más básico para empezar. Tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que muestra interfaces de ejemplo y acciones que puedes realizar dentro de tu propio plugin, incluyendo comentarios útiles. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
 
 * * *
 

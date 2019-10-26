@@ -246,4 +246,17 @@ Si crees que algo inapropiado está incluido en un bloque de código, o que hay 
 
 * * *
 
-¡Gracias por ayudarnos a traducir ASF en todos los idiomas hablados en el mundo!
+## Sala de la fama
+
+Nos gustaría mostrar nuestra eterna gratitud a las personas que han pasado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Estos colaboradores han traducido al menos **20 mil palabras en total**, alrededor de la mitad de todo el proyecto. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos.
+
+| Colaborador                                                | Idiomas         |
+| ---------------------------------------------------------- | --------------- |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Español         |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Alemán          |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chino (HK)      |
+
+¡Gracias a todos por mejorar la calidad de nuestra localización de ASF!

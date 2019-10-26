@@ -182,7 +182,7 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `IPCPassword`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines mandatory password for every API call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `string` зі значенням за замовчуванням `null`. Цей параметр визначає обов'язковий пароль для кожного запита API крізь IPC й виступає додатковим заходом безпеки. Якщо йому встановлено не пусте значення, усі запити крізь IPC вимагатимуть додаткового параметру `password` з паролем, вказаним тут. Значення за замовчуванням `null` відміняє необхідність пароля, і тому ASF обробляє усі запити. На додаток до цього, завдання цього параметру також вмикає вбудований в IPC механізм захисту від перебору, який буде тимчасово банити окремий `IPAddress` якщо він надіслав забагато неавторизованих запитів за дуже короткий час. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 

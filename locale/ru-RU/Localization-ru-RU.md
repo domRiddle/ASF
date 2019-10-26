@@ -246,4 +246,17 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 * * *
 
-Спасибо Вам за помощь в переводе ASF на все языки мира!
+## Доска почёта
+
+Мы хотели бы выразить нашу бесконечную благодарность людям, которые потратили значительную часть личного времени в стремлении сделать локализацию ASF лучше. Это участники, которые перевели по меньшей мере **20 тысяч слов суммарно**, это примерно половина всего проекта. Их усилия невероятны, и вы можете наслаждаться полным переводом, включая wiki, в основном благодаря им.
+
+| Участник                                                   | Языки               |
+| ---------------------------------------------------------- | ------------------- |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Испанский           |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальский (BR)  |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайский (CN)      |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Русский, Украинский |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Немецкий            |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Китайский (HK)      |
+
+Спасибо вам всем за улучшение качества локализации ASF!

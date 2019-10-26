@@ -35,7 +35,7 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -47,7 +47,7 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- Se estiver compilando como parte da árvore raíz do ASF, use iso ao invés da <Reference> acima -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
@@ -87,7 +87,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 Após isso seu plugin estará pronto. Como exatamente você quer distribuir e publicar seu plugin é por sua conta, mas recomendamos criar um arquivo zip com uma pasta apenas, chamada `YourNamespace.YourPluginName`, dentro da qual você colocará seu plugin compilado juntamente com suas **[dependências](#dependências -do-plugin)**. Dessa forma o usuário precisará apenas descompactar o arquivo zip dentro da pasta `plugins` e nada mais.
 
-Este é apenas o cenário mais básico para começar, temos o projeto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que mostra interfaces e ações que você pode fazer dentro do seu próprio plugin, incluindo comentários úteis. Sinta-se livre para dar uma olhada se você quiser aprender com um código funcional, ou explore o namespace `ArquiSteamFarm.Plugins` por sua conta e consulte a documentação incluída para todas as opções disponíveis.
+Esse é o cenário mais básico, apenas para começar. Temos o projeto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/master/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que mostra interfaces e ações que você pode fazer dentro do seu próprio plugin, incluindo comentários úteis. Sinta-se livre para dar uma olhada se você quiser aprender com um código funcional, ou explore o namespace `ArquiSteamFarm.Plugins` por sua conta e consulte a documentação incluída para todas as opções disponíveis.
 
 * * *
 
