@@ -383,7 +383,7 @@ Value | Name | Description
 4 | RejectInvalidGroupInvites | Will cause ASF to reject (instead of ignoring) invalid group invites
 8 | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications
 16 | MarkReceivedMessagesAsRead | Will cause ASF to automatically mark all received messages as read
-32  | MarkBotMessagesAsRead | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance)
+32  | MarkBotMessagesAsRead | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read
 64 | MarkTradeMessagesAsRead | Will cause ASF to automatically mark trade notifications happening in the chat as read
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
