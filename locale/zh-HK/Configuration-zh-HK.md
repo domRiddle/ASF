@@ -375,14 +375,16 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 這是一個預設值為`0` 的 `byte flags` 屬性。 此屬性定義各種事件中的 ASF 機械人行為，定義如下：
 
-| 值  | 名稱                            | 描述                       |
-| -- | ----------------------------- | ------------------------ |
-| 0  | None                          | 沒有特殊的機械人行為，最少侵入模式，預設值    |
-| 1  | RejectInvalidFriendInvites    | 將導致 ASF 拒絕（而不是忽略）無效的好友邀請 |
-| 2  | RejectInvalidTrades           | 將導致 ASF 拒絕（而不是忽略）無效的交易報價 |
-| 4  | RejectInvalidGroupInvites     | 將導致 ASF 拒絕（而不是忽略）無效的群組邀請 |
-| 8  | DismissInventoryNotifications | 將導致 ASF 自動關閉所有庫存通知       |
-| 16 | MarkReceivedMessagesAsRead    | 將導致 ASF 自動標記所有消息為已讀      |
+| 值  | 名稱                            | 描述                                                                                               |
+| -- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| 0  | None                          | 沒有特殊的機械人行為，最少侵入模式，預設值                                                                            |
+| 1  | RejectInvalidFriendInvites    | 將導致 ASF 拒絕（而不是忽略）無效的好友邀請                                                                         |
+| 2  | RejectInvalidTrades           | 將導致 ASF 拒絕（而不是忽略）無效的交易報價                                                                         |
+| 4  | RejectInvalidGroupInvites     | 將導致 ASF 拒絕（而不是忽略）無效的群組邀請                                                                         |
+| 8  | DismissInventoryNotifications | 將導致 ASF 自動關閉所有庫存通知                                                                               |
+| 16 | MarkReceivedMessagesAsRead    | 將導致 ASF 自動標記所有消息為已讀                                                                              |
+| 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
+| 64 | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
@@ -398,7 +400,9 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 當您為Steam關於接收新物品的通知所困擾時，` DismissInventoryNotifications `非常有用。 ASF無法消除通知本身，因為它來自您的Steam客戶端，但它能夠在收到通知後自動清除通知，這將不再留下“庫存中的新項目”通知。 如果您希望自己知曉所有收到的物品（特別是用ASF的掛卡所得），那麼您自然不應該啟用此選項。 如果您已經開始抓狂了，請記住這僅僅是一個選項。
 
-` MarkReceivedMessagesAsRead `將自動標記運行ASF的帳戶收到的**所有**消息為已讀。 這通常僅應由備用帳戶使用，以便清除“新消息”通知，例如： 在執行ASF命令時從您那裡收到的消息。 我們不建議將此選項用於主要帳戶，除非您希望自己避免收到任何類型的新郵件通知，**包括**您在離線時，ASF仍處於開放狀態而不予理會的通知。
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. 這通常僅應由備用帳戶使用，以便清除“新消息”通知，例如： 在執行ASF命令時從您那裡收到的消息。 我們不建議將此選項用於主要帳戶，除非您希望自己避免收到任何類型的新郵件通知，**包括**您在離線時，ASF仍處於開放狀態而不予理會的通知。
+
+`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
 
 如果您不確定如何配置此選項，最好將其保留為預設值。
 
@@ -496,7 +500,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
-ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片（包括閃亮卡片）。 這裡定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
+ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片（包括閃亮卡片）。 這裏定義的屬性允許你以任何令你滿意的方式改變這種行為。 請記住，上面未定義的所有類型都將顯示為` Unknown `類型，這在Valve發布一些新的Steam項目時尤為重要，該項目將被ASF標記為` Unknown `，直到它被添加到這裡（在將來的版本中）。 這就是為什麼一般不建議在` LootableTypes `中選擇` Unknown `類型，除非您知道自己在做什麼，並且還瞭解萬一Steam 網絡崩潰並將您的所有商品標記為` Unknown `，ASF會在交易提案中發送您的整個庫存。 My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
 
 * * *
 

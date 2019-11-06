@@ -375,14 +375,16 @@ Bitte bedenke, dass wir aufgrund von ständigen Steam-Problemen, Änderungen und
 
 `byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
 
-| Wert | Name                          | Beschreibung                                                                                |
-| ---- | ----------------------------- | ------------------------------------------------------------------------------------------- |
-| 0    | None                          | Kein spezielles Bot-Verhalten, der am wenigsten invasive Modus, Standard                    |
-| 1    | RejectInvalidFriendInvites    | Führt dazu, dass ASF ungültige Freundschaftseinladungen ablehnt (anstatt sie zu ignorieren) |
-| 2    | RejectInvalidTrades           | Wird ASF dazu veranlassen, ungültige Handelsangebote abzulehnen (anstatt sie zu ignorieren) |
-| 4    | RejectInvalidGroupInvites     | Führt dazu, dass ASF ungültige Gruppeneinladungen ablehnt (anstatt sie zu ignorieren)       |
-| 8    | DismissInventoryNotifications | Veranlasst ASF dazu, alle Inventar-Benachrichtigungen automatisch zu entfernen              |
-| 16   | MarkReceivedMessagesAsRead    | Führt dazu, dass ASF automatisch alle empfangenen Nachrichten als gelesen markiert          |
+| Wert | Name                          | Beschreibung                                                                                     |
+| ---- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| 0    | None                          | Kein spezielles Bot-Verhalten, der am wenigsten invasive Modus, Standard                         |
+| 1    | RejectInvalidFriendInvites    | Führt dazu, dass ASF ungültige Freundschaftseinladungen ablehnt (anstatt sie zu ignorieren)      |
+| 2    | RejectInvalidTrades           | Wird ASF dazu veranlassen, ungültige Handelsangebote abzulehnen (anstatt sie zu ignorieren)      |
+| 4    | RejectInvalidGroupInvites     | Führt dazu, dass ASF ungültige Gruppeneinladungen ablehnt (anstatt sie zu ignorieren)            |
+| 8    | DismissInventoryNotifications | Veranlasst ASF dazu, alle Inventar-Benachrichtigungen automatisch zu entfernen                   |
+| 16   | MarkReceivedMessagesAsRead    | Führt dazu, dass ASF automatisch alle empfangenen Nachrichten als gelesen markiert               |
+| 32   | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
+| 64   | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
@@ -398,9 +400,11 @@ Eine ungültige Gruppeneinladung ist eine Einladung, die nicht aus der Gruppe `S
 
 `DismissInventoryNotifications` ist äußerst nützlich, wenn du anfängst, dich durch die Benachrichtigung von Steam über den Erhalt neuer Gegenstände zu ärgern. ASF kann die Benachrichtigung selbst nicht loswerden, da sie in deinem Steam-Client integriert ist, aber es ist in der Lage, die Benachrichtigung nach Erhalt automatisch zu löschen, was dazu führt, dass keine Benachrichtigung über "neue Gegenstände im Inventar" mehr auftritt. Wenn du erwartest, alle erhaltenen Gegenstände selbst zu überprüfen (insbesondere Karten, die mit ASF gesammelt wurden), dann solltest du diese Option natürlich nicht aktivieren. Wenn du anfängst verrückt zu werden, denk daran, dass dies als Option angeboten wird.
 
-`MarkReceivedMessagesAsRead` markiert automatisch **alle** Nachrichten, die von dem Konto empfangen werden, auf dem ASF läuft. Dies sollte typischerweise nur von Alt-Konten verwendet werden, um Benachrichtigungen über "neue Nachrichten" zu löschen, die z.B. von dir während der Ausführung von ASF-Befehlen kommen. Wir empfehlen diese Option nicht für Hauptkonten, es sei denn, du möchtest dich von jeder Art von Benachrichtigungen über neue Nachrichten befreien, **einschließlich** derjenigen, die während deines Offline-Betriebs passiert sind, vorausgesetzt, dass ASF immer noch offen gelassen wurde, als es sie ablehnte.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. Dies sollte typischerweise nur von Alt-Konten verwendet werden, um Benachrichtigungen über "neue Nachrichten" zu löschen, die z.B. von dir während der Ausführung von ASF-Befehlen kommen. Wir empfehlen diese Option nicht für Hauptkonten, es sei denn, du möchtest dich von jeder Art von Benachrichtigungen über neue Nachrichten befreien, **einschließlich** derjenigen, die während deines Offline-Betriebs passiert sind, vorausgesetzt, dass ASF immer noch offen gelassen wurde, als es sie ablehnte.
 
-Wenn du dir nicht sicher bist wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
+`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+
+Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
 
 * * *
 
@@ -473,13 +477,13 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `IdleRefundableGames`
 
-`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob es ASF erlaubt ist, Spiele zu sammeln, die noch erstattungsfähig sind. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. Standardmäßig, wenn diese Option auf `true` gesetzt ist, ignoriert ASF die Steam-Rückerstattungen vollständig und Sammelt alles, wie es die meisten Benutzer erwarten würden. Du kannst diese Option jedoch auf `false` setzen, wenn du sicherstellen möchtest, dass ASF keines deiner rückerstattungsfähigen Spiele zu früh sammelt, so dass du diese Spiele selbst bewerten und bei Bedarf zurückerstatten kannst, ohne dir Sorgen zu machen, dass ASF die Spielzeit negativ beeinflusst. Bitte bedenke, dass, wenn du diese Option deaktivierst, Spiele, die du im Steam-Shop gekauft hast, bis zu 14 Tage nach dem Einlösedatum nicht von ASF gesammelt werden, was als nichts zu sammeln angezeigt wird, wenn dein Konto nichts anderes besitzt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `true`.
+`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob es ASF erlaubt ist, Spiele zu sammeln, die noch erstattungsfähig sind. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. Standardmäßig, wenn diese Option auf `true` gesetzt ist, ignoriert ASF die Steam-Rückerstattungen vollständig und Sammelt alles, wie es die meisten Benutzer erwarten würden. Du kannst diese Option jedoch auf `false` setzen, wenn du sicherstellen möchtest, dass ASF keines deiner rückerstattungsfähigen Spiele zu früh sammelt, so dass du diese Spiele selbst bewerten und bei Bedarf zurückerstatten kannst, ohne dir Sorgen zu machen, dass ASF die Spielzeit negativ beeinflusst. Bitte bedenke, dass, wenn du diese Option deaktivierst, Spiele, die du im Steam-Shop gekauft hast, bis zu 14 Tage nach dem Einlösedatum nicht von ASF gesammelt werden, was als nichts zu sammeln angezeigt wird, wenn dein Konto nichts anderes besitzt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `true`.
 
 * * *
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
+`ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
 
 | Wert | Name              | Beschreibung                                                                                           |
 | ---- | ----------------- | ------------------------------------------------------------------------------------------------------ |
@@ -554,7 +558,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 ### `PasswordFormat`
 
-`byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das Format der Eigenschaft `SteamPassword` und unterstützt derzeit - `0` für `PlainText`, `1` für `AES` und `2` für `ProtectedDataForCurrentUser`. Bitte lies den Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**, wenn du mehr erfahren möchtest, da du sicherstellen musst, dass die Eigenschaft `SteamPassword` tatsächlich ein Passwort im passenden `PasswordFormat` enthält. Mit anderen Worten, wenn du `PasswordFormat` änderst, dann sollte dein `SteamPassword` **bereits** in diesem Format sein und nicht nur darauf abzielen, es zu sein. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `0` belassen.
+`byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das Format der Eigenschaft `SteamPassword` und unterstützt derzeit - `0` für `PlainText`, `1` für `AES` und `2` für `ProtectedDataForCurrentUser`. Bitte lies den Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**, wenn du mehr erfahren möchtest, da du sicherstellen musst, dass die Eigenschaft `SteamPassword` tatsächlich ein Passwort im passenden `PasswordFormat` enthält. Mit anderen Worten, wenn du `PasswordFormat` änderst, dann sollte dein `SteamPassword` **bereits** in diesem Format sein und nicht nur darauf abzielen, es zu sein. Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `0` belassen.
 
 * * *
 
@@ -566,7 +570,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 ### `RedeemingPreferences`
 
-`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
+`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
 
 | Wert | Name                               | Beschreibung                                                                                                                    |
 | ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |

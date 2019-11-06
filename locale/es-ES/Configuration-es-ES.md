@@ -375,14 +375,16 @@ Por favor, ten en cuenta que debido a los constantes problemas y cambios de Valv
 
 Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento tipo bot de ASF durante diversos eventos, como se define a continuación:
 
-| Valor | Nombre                        | Descripción                                                                        |
-| ----- | ----------------------------- | ---------------------------------------------------------------------------------- |
-| 0     | None                          | Sin comportamiento especial del bot, es el modo menos invasivo, por defecto        |
-| 1     | RejectInvalidFriendInvites    | Causará que ASF rechace (en lugar de ignorar) las solicitudes de amistad inválidas |
-| 2     | RejectInvalidTrades           | Causará que ASF rechace (en lugar de ignorar) las ofertas de intercambio inválidas |
-| 4     | RejectInvalidGroupInvites     | Causará que ASF rechace (en lugar de ignorar) las invitaciones de grupo inválidas  |
-| 8     | DismissInventoryNotifications | Causará que ASF descarte automáticamente todas las notificaciones de inventario    |
-| 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos    |
+| Valor | Nombre                        | Descripción                                                                                      |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
+| 0     | None                          | Sin comportamiento especial del bot, es el modo menos invasivo, por defecto                      |
+| 1     | RejectInvalidFriendInvites    | Causará que ASF rechace (en lugar de ignorar) las solicitudes de amistad inválidas               |
+| 2     | RejectInvalidTrades           | Causará que ASF rechace (en lugar de ignorar) las ofertas de intercambio inválidas               |
+| 4     | RejectInvalidGroupInvites     | Causará que ASF rechace (en lugar de ignorar) las invitaciones de grupo inválidas                |
+| 8     | DismissInventoryNotifications | Causará que ASF descarte automáticamente todas las notificaciones de inventario                  |
+| 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                  |
+| 32    | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
+| 64    | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
@@ -398,7 +400,9 @@ Una invitación a grupo inválida es un invitación que no proviene del grupo `S
 
 `DismissInventoryNotifications` es extremadamente útil cuando empiezan a ser molestas las notificaciones de que has recibido nuevos artículos. ASF no puede deshacerse de la notificación en sí, ya que eso está integrado en tu cliente de Steam, pero es capaz de descartar la notificación automáticamente después de recibirla, lo que ya no dejará la notificación de "nuevos artículos en el inventario". Si quieres revisar tú mismo todos los artículos recibidos (especialmente cromos recolectados con ASF), naturalmente no deberías habilitar esta opción. Cuando empieces a volverte loco, recuerda que se ofrece esta opción.
 
-`MarkReceivedMessagesAsRead` automáticamente marcará como leídos **todos** los mensajes recibidos por la cuenta en la que se esté ejecutando ASF. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que lleguen, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto descartándolas.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que lleguen, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto descartándolas.
+
+`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
 
 Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor por defecto.
 
@@ -461,13 +465,13 @@ Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
+Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
 
 * * *
 
@@ -554,19 +558,19 @@ Si no estás seguro de cómo configurar esta propiedad, se recomienda usar un va
 
 ### `PasswordFormat`
 
-Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta - `0` para `PlainText`, `1` para `AES` y `2` para `ProtectedDataForCurrentUser`. Por favor, consulta la sección **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** si deseas aprender más, ya que necesitarás asegurarte que la propiedad `SteamPassword` incluye una contraseña que coincida con `PasswordFormat`. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
+Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta - `0` para `PlainText`, `1` para `AES` y `2` para `ProtectedDataForCurrentUser`. Por favor, consulta la sección **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** si deseas aprender más, ya que necesitarás asegurarte que la propiedad `SteamPassword` incluye una contraseña que coincida con `PasswordFormat`. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
 
 * * *
 
 ### `Paused`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres `resume` manualmente el proceso automático de recolección, por ejemplo, porque quieres usar `play` todo el tiempo y nunca usar el módulo automático de `CardsFarmer` - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `pause`. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres `resume` manualmente el proceso automático de recolección, por ejemplo, porque quieres usar `play` todo el tiempo y nunca usar el módulo automático de `CardsFarmer` - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `pause`. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
 
 * * *
 
 ### `RedeemingPreferences`
 
-Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento de ASF al activar claves de juego, y se describe a continuación:
+Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el como de ASF al activar claves de juego, y se describe a continuación:
 
 | Valor | Nombre                             | Descripción                                                                                                                                                     |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -576,7 +580,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 4     | KeepMissingGames                   | Conserva las claves de (potencialmente) juegos no poseídos cuando se envían, dejándolas sin usar                                                                |
 | 8     | AssumeWalletKeyOnBadActivationCode | Asume que las claves con el estado `BadActivationCode` equivalen a `CannotRedeemCodeFromClient`, y por lo tanto intenta activarlas como un código de la cartera |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 `Forwarding` causará que el bot envíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es enviar un juego `AlreadyPurchased` a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`.
 
