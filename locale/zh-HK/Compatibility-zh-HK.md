@@ -58,3 +58,13 @@ ASF當前可用於以下操作系統 ：
 目前ASF 的目標是 **.NET Core 3.0**（`netcoreapp3.0`），但未來會指向更高版本。 `netcoreapp3.0` is supported since 3.0.100 SDK (3.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署ASF版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個生成的頂部找到`dotnet--info` 輸出。
+
+* * *
+
+## 問題
+
+### Various lock-related issues running ASF on Linux VPS with OpenVZ virtualization
+
+OpenVZ kernel is usually based on a very old Linux kernel version (2.6) which seems incompatible with latest .NET Core runtime. If you're trying to run ASF in such environment, you may encounter various lock-related issues, usually in form of process freeze. See related CoreCLR issue: https://github.com/dotnet/coreclr/issues/26873
+
+Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be dealt with eventually, but with no indication of the actual timeframe. If you're unable to move to better virtualization solutions, you can consider running `generic-netf` ASF variant with `mono`.

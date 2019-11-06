@@ -116,7 +116,7 @@ server {
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # Мы добавим эти 3 опции для проксификации websockets, подробнее читайте https://nginx.org/en/docs/http/websocket.html
+        # Мы добавим эти 3 опции для проксификации websockets, подробнее читайте https://nginx.org/ru/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;

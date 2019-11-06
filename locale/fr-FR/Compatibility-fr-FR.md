@@ -60,3 +60,13 @@ Toutefois, si vous essayez d'exécuter le package **générique** ASF, vous deve
 ASF, en tant que programme, cible actuellement **.NET Core 3.0** (`netcoreapp3.0`), mais pourrait cibler une nouvelle plate-forme à l'avenir. `netcoreapp3.0` est supporté depuis la version 3.0.100 SDK (3.0.0 runtime) bien que ASF soit configuré pour viser le **dernier runtime au moment de la compilation**, vous devriez donc vous assurez que vous avez les **[dernières versions du SDK](https://dotnet.microsoft.com/download)** (au moins le runtime) disponibles pour votre machine. Des variantes génériques d'ASF pourraient refuser de se lancer si votre runtime est plus vieux que le minimum (cible) connu durant la compilation.
 
 En cas de doute, vérifiez ce que notre **[intégration continue utilise](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** pour compiler et déployer les versions ASF sur GitHub. Vous pouvez trouver la sortie `dotnet --info` au-dessus de chaque construction.
+
+* * *
+
+## Problèmes
+
+### Various lock-related issues running ASF on Linux VPS with OpenVZ virtualization
+
+OpenVZ kernel is usually based on a very old Linux kernel version (2.6) which seems incompatible with latest .NET Core runtime. If you're trying to run ASF in such environment, you may encounter various lock-related issues, usually in form of process freeze. See related CoreCLR issue: https://github.com/dotnet/coreclr/issues/26873
+
+Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be dealt with eventually, but with no indication of the actual timeframe. If you're unable to move to better virtualization solutions, you can consider running `generic-netf` ASF variant with `mono`.

@@ -246,7 +246,7 @@ Si crees que algo inapropiado está incluido en un bloque de código, o que hay 
 
 * * *
 
-## Sala de la fama
+## Salón de la Fama
 
 Nos gustaría mostrar nuestra eterna gratitud a las personas que han pasado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Estos colaboradores han traducido al menos **20 mil palabras en total**, alrededor de la mitad de todo el proyecto. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos.
 
