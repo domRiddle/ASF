@@ -143,8 +143,8 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 		ServerName asf.mydomain.com
 
 		SSLEngine On
-		SSLCertificateFile /path/to/fullchain.pem
-		SSLCertificateKeyFile /path/to/privkey.pem
+		SSLCertificateFile /path/to/your/fullchain.pem
+		SSLCertificateKeyFile /path/to/your/privkey.pem
 
 		# TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
 		ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
