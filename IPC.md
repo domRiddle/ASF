@@ -146,7 +146,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 		SSLCertificateFile /path/to/fullchain.pem
 		SSLCertificateKeyFile /path/to/privkey.pem
 
-		# TODO: Apache can't do case-insensitive matching properly
+		# TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
 		ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
 		ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 
