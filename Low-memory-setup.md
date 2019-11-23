@@ -61,7 +61,9 @@ In addition to verifying that workstation GC is active, there are also interesti
 
 > Specifies the GC heap usage as a percentage of the total memory.
 
-The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios. On the other hand, it's a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing ASF to do its job efficiently.
+The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios.
+
+On the other hand, it's a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing ASF to do its job efficiently.
 
 ### `GCLatencyLevel`
 
