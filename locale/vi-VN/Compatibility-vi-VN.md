@@ -26,9 +26,9 @@ It's not recommended to use generic flavour if you're casual or even advanced us
 
 In addition to generic package mentioned above, there is also `generic-netf` package which is built on top of .NET Framework (and not .NET Core). This package is a legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package can't as of today.
 
-In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. An example of such platform would be `linux-x86` that didn't receive working .NET Core runtime as of today.
+In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. Examples of such platforms include `linux-x86` (32-bit i386/i686 linux), as well as `linux-armel` (ARMv6 boards found e.g. in Raspberry Pi 0 & 1), all of which do not have official working .NET Core runtime as of today.
 
-As the time goes on with more platforms being supported by .NET Core and less compatibility between .NET Framework and .NET Core, `generic-netf` package will be entirely replaced with `generic` one in the future. Please refrain from using it if you can use any .NET Core package instead, as `generic-netf` is missing a lot of functionality and compatibility compared to .NET Core versions, and it'll be only less functional as the time goes on. We offer support for this package only on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
+As the time goes on with more platforms being supported by .NET Core and less compatibility between .NET Framework and .NET Core, `generic-netf` package will be entirely replaced with `generic` one in the future. Please refrain from using it if you can use any .NET Core package instead, as `generic-netf` is missing a lot of functionality and compatibility compared to .NET Core versions, and it'll be only less functional as the time goes on. We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
 * * *
 
@@ -39,7 +39,7 @@ OS-specific package, apart from managed code included in generic package, also i
 ASF is currently available in following OS-specific variants:
 
 - `win-x64` works on 64-bit Windows OSes. This includes Windows 7 (SP1+), 8.1, 10, Server 2008 R2 (SP1+), 2012, 2012 R2, 2016, as well as future versions.
-- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes especially Raspberry Pi 2 & 3 with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment, such as Android.
+- `linux-arm` works on 32/64-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment, such as Android.
 - `linux-x64` works on 64-bit GNU/Linux OSes. This includes Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES and many other ones, including their derivatives, in current and future versions.
 - `osx-x64` works on 64-bit OS X OSes. This includes 10.13, as well as future versions.
 
@@ -67,4 +67,6 @@ If in doubt, check what our **[continuous integration uses](https://ci.appveyor.
 
 OpenVZ kernel is usually based on a very old Linux kernel version (2.6) which seems incompatible with latest .NET Core runtime. If you're trying to run ASF in such environment, you may encounter various lock-related issues, usually in form of process freeze. See related CoreCLR issue: https://github.com/dotnet/coreclr/issues/26873
 
-Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be dealt with eventually, but with no indication of the actual timeframe. If you're unable to move to better virtualization solutions, you can consider running `generic-netf` ASF variant with `mono`.
+Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be **[fixed](https://github.com/dotnet/coreclr/pull/26912)** in the next .NET Core runtime upgrade (3.1, probably also 3.0), but there is no actual timeframe for it yet. If you're unable to move to better virtualization solution, you can consider running `generic-netf` ASF variant with `mono`, at least until new runtime version is released.
+
+Of course you can also run previous version of ASF (V4.0), but running outdated ASF versions is not supported by us and might cause you entirely different issues, possibly more severe.

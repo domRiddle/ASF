@@ -24,7 +24,7 @@
 
 ### .NET 核心套件
 
-第一步是確保您的操作系統可以正確地啟動 ASF。 ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文檔中。 這是我們應該使用的參考資料，但為了簡單起見，我們還在下面詳細介紹了所有需要的套裝軟件。因此您無需閱讀完整的文檔。
+第一步是確保您的操作系統可以正確地啟動 ASF。 ASF 是用 C# 語言編寫的，基於 .NET Core，並且可能需要你的平台上尚不可用的原生程式庫。 根據您是否使用 Windows、Linux 或 OS X, 您將有不同的要求, 它們都列在您應該遵循的 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 文檔中。 這是我們應該使用的參考資料，但為了簡單起見，我們還在下面詳細介紹了所有需要的套裝軟件。因此您無需閱讀完整的文檔。
 
 在通常情況下，您正在使用的其他軟件已安裝了其依賴項，因此您的操作系統上可能已經存在某些（甚至全部）依賴項。 然而，您還是應運行相應安裝程式以確保您的操作系統上確實已經存在 ASF 的依賴項──否則 ASF 無法啟動。
 
@@ -32,25 +32,25 @@
 
 #### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore30)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- 強烈建議您確保已安裝所有 Windows 更新。 At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. 如果您的 Windows 是最新版本，則上述所有更新都已安裝。 在安裝 Visual C ++ 套件之前，請確保滿足這些要求。
+- **[Microsoft Visual C++ 2015 可轉散發套件 Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**（64 位元版本 Windows 請下載 x64，32 位元版本 Windows 請下載 x86）
+- 強烈建議您確保已安裝所有 Windows 更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** 版本，並可能需要更新的版本。 如果您的 Windows 是最新版本，則上述所有更新都已安裝。 在安裝 Visual C ++ 套件之前，請確保滿足這些要求。
 
 #### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore30)**:
 
 套裝名稱因您使用的 Linux 版本而異，我們列出了最常見的套裝軟件名稱。 您可以獲得所有這些適用於您操作系統的本機套件管理器（如適用於 Debian 的`apt`或適用於 CentOS 的 `yum`）。
 
-- `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (latest version for your distribution, for example `libicu60`)
-- `libkrb5-3` (`krb5-libs`)
-- `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
-- `zlib1g` (`zlib`)
+- `libcurl`（`libcurl4`、`libcurl3`）
+- `libicu`（您的 Linux 發行版的最新版本，例如 `libicu60`）
+- `libkrb5-3`（`krb5-libs`）
+- `liblttng-ust0`（`lttng-ust`）
+- `libssl`（`libssl1.1`、`openssl-libs`、您的 Linux 發行版最新的 1.1.X 版本）
+- `zlib1g`（`zlib`）
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+其中至少應該有幾個套件已經可用於您的系統本地了（例如現今幾乎每一個 Linux 發行版都需要 `zlib1g`）。
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
 
-- None for now, but you should have latest version of OS X installed, at least 10.13+
+- 暫時沒有必要條件，但你應該安裝最新的 OS X 版本，至少 10.13 以上版本。
 
 * * *
 
@@ -60,11 +60,11 @@ At least a few of those should be already natively available on your system (suc
 
 ![資產](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. 別擔心，我們會迅速清理它。
+下載完成之後，從解壓縮 ZIP 檔至一個資料夾中開始。 我們建議使用 **[7-zip](https://www.7-zip.org)**，Linux/OS X 的標準工具程式（例如 `unzip`）應該也沒有問題。 解壓縮之後，您將會擁有一大堆資料夾和檔案。 別擔心，我們會迅速清理它。
 
 如果您使用的是Linux / OS X，請不要忘記執行` chmod + x ArchiSteamFarm `命令，因為權限不會自動設置在zip檔案中。 這在解壓縮後只需進行一次。
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. 如果您有任何要與ASF一起使用的額外腳本或档案，請將它們放在之前提到的資料夾中。
+建議將 ASF 解壓縮到**獨立的目錄**中而不是任何已有其他用途的目錄—— ASF 的自動更新功能將會在升級時刪除所有舊的和無關檔案，可能會使您丟失您儲存於 ASF 目錄的任何檔案。 如果您有任何要與ASF一起使用的額外腳本或档案，請將它們放在之前提到的資料夾中。
 
 示例結構如下所示：
 
@@ -92,7 +92,7 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 
 這將允許您輕鬆訪問二進位ASF檔案和設定檔。 於我而言，我決定使用上面提到的結構，所以我將 ASF 檔直接放置在 「Core」 目錄中。 您可以根據自己的喜好調整此結構，例如在桌面和 ASF 目錄中使用 ASF + 配置快捷方式，例如在 `C:\ASF` 中，這取決於您自己。
 
-Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
+Linux/OS X 使用者也建議做相同的事情，您可以透過 `ln -s` 指令來使用出色的符號連結機制。
 
 * * *
 
@@ -102,7 +102,7 @@ Linux/OS X users are advised to do the same, you can use excellent symbolic link
 
 首先，** [配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration) **頁面解釋了**一切**與配置有關的事情，但它包含大量的新信息，其中的很多信息我們並不需要立即理解。 相反，我們將教您如何獲取您實際要找的資訊。
 
-ASF configuration can be done in two ways - either by using our web config generator, or manually. 這將在 **[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** 部分中進行深入解釋，因此如果您想要更詳細的資訊，請參考。 我們將使用便於操作的網頁設定檔產生器。
+ASF 設定檔可以用兩種方法完成——要不使用我們的網頁設定檔產生器，要不就是手動設定。 這將在 **[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** 部分中進行深入解釋，因此如果您想要更詳細的資訊，請參考。 我們將使用便於操作的網頁設定檔產生器。
 
 使用您喜歡的瀏覽器導航到我們的** [網頁設定檔產生器](https://justarchinet.github.io/ASF-WebConfigGenerator) **頁面，若您之前手動禁用了 Javascript，您需要啓用之。 我們推薦 Chrome 或 Firefox，但它應該適用于當前所有流行的瀏覽器。
 
@@ -123,17 +123,17 @@ ASF configuration can be done in two ways - either by using our web config gener
 
 前者將允許 ASF 在啟動期間自動使用您的帳戶憑據，使您不必在每次 ASF 需要時手動輸入它們。 但是，您可以決定省略它們，在這種情況下它們不會被保存，因此 ASF 將無法在沒有您幫助的情況下自動啟動，您需要在運行時輸入它們。
 
-ASF 需要您的登錄憑據，因為它使用內置的Steam用戶端實現，並且需要與您自己使用的用戶端相同的詳細資訊登錄。 Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section.
+ASF 需要您的登錄憑據，因為它使用內置的Steam用戶端實現，並且需要與您自己使用的用戶端相同的詳細資訊登錄。 您的登入認證只會儲存在您的電腦上的 ASF `Config` 目錄，不會儲存在其他地方，我們的網頁設定檔產生器是基於用戶端的，也就是說代碼是在您的瀏覽器本地執行來產生 ASF 設定檔的，您輸入的資訊永遠不會離開您的電腦，所以沒有必要擔心任何可能的敏感資料洩漏。 然而，無論是什麼原因讓您不想輸入登入認證，我們能夠理解，您可以稍後手動輸入到產生的檔案裡，或者徹底省略並只在 ASF 命令提示字元輸入。 更多安全性問題可以在**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**部分找到。
 
-You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental to unlock the account, you'll need to put it into `SteamParentalCode` field.
+您也可以選擇只省略一個欄位，例如 `SteamPassword`（Steam 密碼），這樣將能使 ASF 自動登入，不過仍然會詢問密碼（類似 Steam 用戶端）。 如果您在使用 Steam 家庭監護，要解鎖您的帳戶，您需要將 PIN 碼填入 `SteamParentalCode` 欄位。
 
-After the decision and optional details, your web page will now look similar to the one below:
+在一連串的決定和選擇過後，您的網頁現在看起來會像是下圖：
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+您現在可以按下您現在可以按下「下載」按鈕了，網頁設定檔產生器將會產生一個名為您剛才輸入的名稱的 `json` 檔。 將檔案儲存到 ASF 的 `config` 目錄裡。 您可以使用您稍早建立的`設定檔`捷徑，或者直接在 ASF 檔案結構裡手動找到 `config` 目錄。
 
-Your `config` directory will now look like this:
+您的 `config` 目錄現在看來會像是這樣：
 
 ![架構 2](https://i.imgur.com/crWdjcp.png)
 
@@ -143,23 +143,23 @@ Your `config` directory will now look like this:
 
 ### 運行 ASF
 
-您現在已準備好首次啟動該程序。 Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
+您現在已準備好首次啟動該程序。 只需要按兩下 ASF 捷徑或 ASF 目錄裡的 `ArchiSteamFarm(.exe)` 執行檔。
 
-After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
+按下以後，如果您在第一步正確地安裝了所有相依性，ASF 應該會正確地啟動，注意您的第一個 BOT（如果您沒忘記把產生的設定檔置放在 `config` 目錄裡），然後嘗試登入：
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
+如果您在設定檔提供了 `SteamLogin` 和 `SteamPassword` 給 ASF 使用，ASF 將只會詢問您的 Steam Guard 權杖（電子郵件、兩步驟驗證或無，取決於您的 Steam 設定）。 如果您沒有提供這兩項，ASF 也會同時詢問您的 Steam 帳戶名稱和密碼。
 
-Now is a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about what will happen next, as stated by ASF itself.
+如果您擔心 ASF 陳述的接下來會發生的事情，現在是仔細檢查我們的**[隱私權政策](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-TW#當前的隱私權政策)**的好時機。
 
-After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start idling using default settings that you didn't change as of now:
+初次登入通過後，假設您的資訊填寫無誤，您的帳戶將會成功登入，ASF 也將會使用您未曾變更的預設設定開始掛卡：
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+這表明 ASF 現在成功在您的帳戶上工作了，所以您現在可以最小化程式然後幹其他事。 經過足夠的時間後（取決於**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**），您將會看到 Steam 交換卡片慢慢掉落。 當然，要使那發生，您必須擁有可以掛卡的遊戲，可以在 **[Steam 徽章](https://steamcommunity.com/my/badges)**頁面看到「還有 N 張卡片會掉落」的藍色提示——如果沒有遊戲可以掛卡，那麼 ASF 將會提示「這個帳戶目前沒有需要掛卡的遊戲！」，跟我們的**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#什麼是-ASF)**裡描述的一樣。
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
+我們最基本的新手上路指南到此結束。 您現在可以決定要進一步設定 ASF，還是讓 ASF 以預設設定工作。 我們將會介紹更多基本細節，然後您可以自己探索整個 Wiki。
 
 * * *
 
@@ -167,72 +167,72 @@ This concludes our very basic setting up guide. You can now decide whether you w
 
 #### 同時讓多個帳戶掛卡
 
-ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
+ASF 支援不止一個帳戶同時掛卡，也是它的主要功能。 您可以透過產生更多 BOT 設定檔來添加更多帳戶，方法跟您幾分鐘前產生的第一個設定檔完全相同。 您只需要確保兩件事：
 
-- Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
-- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalCode` (if using Steam parental settings)
+- BOT 名稱唯一，例如假設您的第一個 BOT 名為「主帳戶」，您就不能擁有另一個跟它名稱一樣的 BOT。
+- 登入資訊有效，例如 `SteamLogin`、`SteamPassword` 和 `SteamParentalCode`（如果正在使用 Steam 家庭監護）
 
-In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
+換句話說，只要再次跳轉到設定檔部分，然後做完全一樣的事，只不過這次要填入您第二或是第三個帳戶的資訊。 記住為您所有的 BOT 使用唯一的名稱。
 
 * * *
 
 #### 變更設定
 
-You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
+您可以透過完全相同的方式來變更現有的設定——產生一個新的設定檔。 如果您還沒有關閉網頁設定檔產生器，按一下「開啟進階設定」然後看看有什麼是您發現您所需要的選項。 在這個教學課程裡，我們要來變更 `CustomGamePlayedWhileFarming` 設定，這個選項使您可以設定 ASF 掛卡時顯示自訂遊戲名稱，而不是真正的遊戲名稱。
 
-So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
+那就開始吧，如果您用預設設定執行 ASF 並開始掛卡，您將會看見您的 Steam 帳戶正在遊戲中：
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 
-Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
+那就讓我們一起來完善吧。 在網頁設定檔產生器中按一下「開啟進階設定」然後找到 `CustomGamePlayedWhileFarming`。 找到後，輸入您想要顯示的的自訂文字，例如「掛卡中（Idling cards）」：
 
 ![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
-Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
+現在跟之前一樣下載新的設定檔，然後用新的設定檔**取代**舊的。 當然，您也可以先刪除舊的設定檔，然後再放置新的。
 
-Once you do that and start ASF again, you'll notice that ASF now displays your custom text in previous place:
+一旦完成並重新啟動 ASF，您將注意到現在 ASF 會在之前的位置顯示您的自訂文字：
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
+這表示您成功地編輯了設定檔。您也可以用完全相同的方法來變更全域 ASF 屬性，切換到「分頁」，下載產生的 `ASF.json` 設定檔，然後放置在 `config` 目錄裡。
 
 * * *
 
 #### 使用 ASF-ui
 
-ASF is a console app and doesn't include a graphical user interface. 但是，我們正積極致力於**[ ASF-ui ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**我們的 IPC 前端接口，它將以合適且對用戶友好的方式來訪問各種 ASF 功能。
+ASF 是一個沒有圖形使用者介面的主控台應用程式。 但是，我們正積極致力於**[ ASF-ui ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**我們的 IPC 前端接口，它將以合適且對用戶友好的方式來訪問各種 ASF 功能。
 
-In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+要使用 ASF-ui，您應該確保（在 ASF 分頁）設定了全域設定檔屬性 `IPC` 和 `SteamOwnerID`。
 
-For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
+您需要將您帐户獨一無二的 Steam 64 位 ID 填入 `SteamOwnerID`。 您可以透過各種方法查看 ID，我們將會使用 **[SteamRep](https://steamrep.com)** 來查看。 開啟網站，在右上角找到「Sign in through Steam」按鈕，然後登入。 然後在相同的位置，按一下您的個人頭像，然後在您的個人資料中查看 `steamID64` 欄位。
 
 ![SteamRep](https://i.imgur.com/RUuJ63i.png)
 
-For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
+例如我的帳戶的 Steam 64位 ID 就是這串數字 `76561198006963719`。 您的 ID 也與其相似並同樣以 `7656` 開始。 複製它。
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID.
+現在重新回到網頁設定檔產生器，然後把剛剛複製的數字貼上 SteamOwnerID。
 
 ![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
 
-You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
+您只需要再做一件事：開啟進階設定，找到並啟用 `IPC` 選項。
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+現在您可以下載 ASF 設定檔並放置在 `config` 目錄，跟往常一樣。 然後重新啟動 ASF，您應該可以確認 IPC 介面正確啟動了：
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
+如果您所做的一切無誤，只要 ASF 正在執行，您現在將可以透過**[此連結](http://localhost:1242)**來存取 ASF 的 IPC 介面。 您可以使用 ASF-ui 用於各種目的，例如發送**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**。 請隨意看看來發現 ASF-ui 的全部功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
-Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
+請注意，ASF-ui 當前處於預覽狀態，暫時無法保證所有功能都可用/正常工作，但要應對簡單的 ASF 使用應該綽綽有餘。
 
 * * *
 
 ### 概要
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+您已經成功設定好讓 ASF 使用您的 Steam 帳戶，並且根據您的喜好進行了客製化。 If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. 祝您愉快！
 
 * * *
 
@@ -253,7 +253,7 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 額外步驟：
 
 - 安裝 **[.NET 核心套件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
-- Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
+- 安裝適用於您作業系統的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或者至少安裝執行階段）。 You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
 - **[配置ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**。

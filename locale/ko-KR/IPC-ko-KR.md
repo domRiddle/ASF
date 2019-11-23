@@ -134,6 +134,26 @@ server {
 }
 ```
 
+Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
+```
+
 ### HTTPS 프로토콜로 IPC 인터페이스에 접근할 수 있습니까?
 
 **예**. 두가지 방법으로 가능합니다. 추천하는 방법은 위에서 설명한 역방향 프록시를 사용하여 웹서버에 http로 평소처럼 접근한 뒤, 그 기기에서 ASF IPC 인터페이스에 접속하는 것입니다. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.

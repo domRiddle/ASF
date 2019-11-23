@@ -38,17 +38,17 @@ Oltre ad usare il file delle chiavi sopra menzionato, ASF espone anche **[l'endp
 
 ## Coda
 
-Una volta che i giochi sono importati con successo, sono aggiunti alla coda. ASF passa automaticamente per la sua coda in background finché il bot è connesso alla rete Steam, e la coda non è vuota. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Una volta che i giochi sono importati con successo, sono aggiunti alla coda. ASF passa automaticamente per la sua coda in background finché il bot è connesso alla rete Steam, e la coda non è vuota. Una chiave che si è tentato di riscattare e non è risultata in `RateLimited` è rimossa dalla coda, con il suo stato scritto propriamente in un file nella directory `config` - o `BotName.keys.used` se la chiave era usata nel processo (es. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), o altrimenti `BotName.keys.unused`. ASF usa intenzionalmente il nome del gioco fornito essendo la chiave non garantita affinché la rete di Steam restituisca un nome significativo - in questo modo puoi taggare le tue chiavi anche usando nomi personalizzati se necessario/desiderato.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Se durante il processo il nostro profilo colpisce lo stato `RateLimited`, la coda è temporaneamente sospesa per un'ora intera per attendere che il tempo di ricarica scompaia. Successivamente, il processo continua da dove era rimasto, finché l'intera coda non è vuota.
 
 * * *
 
-## Example
+## Esempio
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Supponiamo tu abbia un elenco di 100 chiavi. Prima di tutto dovresti creare un nuovo file `BotName.keys.new` nella directory ASD `config`. Abbiamo aggiunto l'estensione `.new` per far sapere ad ASF che non dovrebbe raccogliere questo file immediatamente non appena è creato (essendo vuoto, non ancora pronto per l'importazione).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Ora puoi aprire il nostro nuovo file e copiare-incollare la lista delle nostre 100 chiavi lì, fissando il formato se necessario. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
 
 You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
 

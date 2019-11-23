@@ -376,16 +376,15 @@ Veuillez noter qu'en raison de problèmes, modifications et problèmes constants
 
 `chaîne` avec la valeur par défaut `0`. Cette fonction définit le comportement de type bot ASF lors de divers événements. Elle est définie comme suit:
 
-| Valeur  | Nom                           | Description                                                                                      |
-| ------- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0       | None                          | No special bot behaviour, the least invasive mode, default                                       |
-| 1       | RejectInvalidFriendInvites    | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'amitié non valides                        |
-| 2       | RejectInvalidTrades           | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'échange non valides                       |
-| 4       | RejectInvalidGroupInvites     | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'inclusion à un groupe non valides         |
-| 8       | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                              |
-| 16      | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                               |
-| 32      | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
-| 64      | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
+| Valeur  | Nom                           | Description                                                                                              |
+| ------- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 0       | None                          | No special bot behaviour, the least invasive mode, default                                               |
+| 1       | RejectInvalidFriendInvites    | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'amitié non valides                                |
+| 2       | RejectInvalidTrades           | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'échange non valides                               |
+| 4       | RejectInvalidGroupInvites     | Forcera ASF à rejeter (au lieu d'ignorer) des offres d'inclusion à un groupe non valides                 |
+| 8       | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                                      |
+| 16      | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
+| 32      | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
 Veuillez noter que cette fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est activée.
 
@@ -401,9 +400,9 @@ Une invitation de groupe non valide est une invitation qui ne provient pas du gr
 
 `DismissInventoryNotifications` is extremely useful when you start getting annoyed by contact Steam notification about receiving new items. ASF can't get rid of the notification itself, as that's built-in into your Steam client, but it's able to automatically clear the notification after receiving it, which will no longer leave "new items in inventory" notification hanging around. If you expect to evaluate yourself all received items (especially cards idled with ASF), then naturally you shouldn't enable this option. When you start going crazy, remember this is offered as an option.
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
 
-`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+`MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
 
 Si vous ne savez pas comment configurer cette option, il est préférable de la laisser par défaut.
 

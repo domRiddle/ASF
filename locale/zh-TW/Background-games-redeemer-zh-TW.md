@@ -1,14 +1,14 @@
 # 背景序號啟動器
 
-背景序號啟動器是 ASF 內建的特殊功能，可以讓你匯入一批 Steam 序號（包含遊戲名稱）以便在背景啟用。 如果你需要啟動大量的序號，且在全數啟動前肯定會觸發 `RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#啟動遊戲序號時的狀態是什麼意思)**，此時背景啟動功能將十分有用。
+背景序號啟動器是 ASF 內建的特殊功能，可以讓你匯入一批 Steam 序號（包含遊戲名稱）以便在背景啟用。 如果你需要啟動大量的序號，且在全數啟動前肯定會觸發 `RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#啟用遊戲序號時的狀態是什麼意思)**，此時背景啟動功能將十分有用。
 
-背景序號啟動器僅對單個 BOT 有效，也就是說它不會採用 `RedeemingPreferences` 的設置。 如有需要，這個功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
+背景序號啟動器僅對單個 BOT 有效，也就是說它不會採用 `RedeemingPreferences` 的設定。 如有需要，這個功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
 
 * * *
 
 ## 匯入
 
-匯入可以通過兩種方式進行，使用文字檔或 IPC。
+匯入可以透過兩種方式進行，使用文字檔或 IPC。
 
 ### 文字檔
 
@@ -20,7 +20,7 @@ ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `Bot
     Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
     
 
-此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 我們建議你自行標記所有序號的名稱，因為在 Steam 上啟動的 Package 名稱不一定會符合 Package 中的遊戲名稱，所以根據開發者填寫的內容，你可能會看到正確的遊戲名稱、自訂名稱（例如 Humble Indie Bundle 18），或完全錯誤、甚至是惡意的名稱（例如 Half-Life 4）。
+此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 我們建議你自行標記所有序號的名稱，因為在 Steam 上啟動的 Package 名稱不一定會符合 Package 中的遊戲名稱，所以根據開發人員填寫的內容，你可能會看到正確的遊戲名稱、自訂名稱（例如 Humble Indie Bundle 18），或完全錯誤、甚至是惡意的名稱（例如 Half-Life 4）。
 
     ABCDE-EFGHJ-IJKLM
     12345-67890-ZXCVB
@@ -46,7 +46,7 @@ ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `Bot
 
 ## 範例
 
-假設你有一個包含 100 個序號的清單。 首先你應該在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys.new` 的檔案。 我們加上 `.new` 後綴是為了防止 ASF 在建立檔案時立刻讀取該檔案（因為它是一個空白文件，尚未準備匯入）。
+假設你有一個包含 100 個序號的清單。 首先你應該在 ASF 的 `config` 資料夾中建立一個名為 `BotName.keys.new` 的檔案。 我們加上 `.new` 後綴是為了防止 ASF 在建立檔案時立刻讀取該檔案（因為它是一個空白檔案，尚未準備匯入）。
 
 現在你可以打開剛建立的檔案並將 100 個序號貼上，並視情況修正格式。 之後 `BotName.keys.new` 檔案中應該正好有 100 行（或如果末尾有空行的話就是 101 行），每一行的格式均為 `遊戲名稱\t遊戲序號\n`，其中 `\t` 是 Tab 符，`\n` 是換行符。
 

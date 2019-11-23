@@ -42,7 +42,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64"
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
 ```
 
-В случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. Вам понадобиться вручную указать `ASFNetFramework`, поскольку ASF по-умолчанию деактивирует сборку варианта netf на платформах, отличных от Windows:
+В случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. Вам понадобиться вручную указать `ASFNetFramework`, поскольку ASF по умолчанию деактивирует сборку варианта netf на платформах, отличных от Windows:
 
 ```shell
 msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm

@@ -14,7 +14,7 @@
 
 ## 常規
 
-### What is ASF?
+### 什麼是 ASF？
 
 ### Why does the program claim that there is nothing to idle on my account?
 

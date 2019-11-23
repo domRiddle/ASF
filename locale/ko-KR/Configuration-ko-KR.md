@@ -375,16 +375,15 @@ Valve의 이슈, 변화, 문제에 따라 **이 기능이 정상작동할지 보
 
 `byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 다양한 이벤트 발생시 ASF 봇의 행동을 아래와 같이 정의합니다.
 
-| 값  | 이름                                          | 설명                                                                                               |
-| -- | ------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0  | 없음(None)                                    | 특별한 행동 없음, 가장 덜 공격적인 모드, 기본값                                                                     |
-| 1  | 유효하지 않은 친구초대 거절(RejectInvalidFriendInvites) | ASF는 유효하지 않은 친구 초대를 거절합니다.(무시 아님)                                                                |
-| 2  | 유효하지 않은 거래 거절(RejectInvalidTrades)          | ASF는 유효하지 않은 거래 제안을 거절합니다.(무시 아님)                                                                |
-| 4  | 유효하지 않은 그룹 초대 거절(RejectInvalidGroupInvites) | ASF는 유효하지 않은 그룹 초대를 거절합니다.(무시 아님)                                                                |
-| 8  | 보관함 알림 해제(DismissInventoryNotifications)    | ASF가 모든 보관함 알림을 자동으로 해제합니다.                                                                      |
-| 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다.                                                              |
-| 32 | MarkBotMessagesAsRead                       | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
-| 64 | MarkTradeMessagesAsRead                     | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
+| 값  | 이름                                          | 설명                                                                                                       |
+| -- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 0  | 없음(None)                                    | 특별한 행동 없음, 가장 덜 공격적인 모드, 기본값                                                                             |
+| 1  | 유효하지 않은 친구초대 거절(RejectInvalidFriendInvites) | ASF는 유효하지 않은 친구 초대를 거절합니다.(무시 아님)                                                                        |
+| 2  | 유효하지 않은 거래 거절(RejectInvalidTrades)          | ASF는 유효하지 않은 거래 제안을 거절합니다.(무시 아님)                                                                        |
+| 4  | 유효하지 않은 그룹 초대 거절(RejectInvalidGroupInvites) | ASF는 유효하지 않은 그룹 초대를 거절합니다.(무시 아님)                                                                        |
+| 8  | 보관함 알림 해제(DismissInventoryNotifications)    | ASF가 모든 보관함 알림을 자동으로 해제합니다.                                                                              |
+| 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다.                                                                      |
+| 32 | MarkBotMessagesAsRead                       | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
 이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
@@ -400,9 +399,9 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 `보관함 알림 해제(DismissInventoryNotifications)`는 새 아이템을 받게 되어 Steam 알림이 뜨는 것이 짜증나기 시작할때 매우 유용합니다. 이 알림은 Steam 클라이언트에 내장되어있기 때문에 ASF가 이 알림을 없앨수는 없지만, 알림을 받은 후 이를 자동으로 클리어 할 수는 있으며, "새로운 보관함 항목" 알림을 놔두지 않아도 됩니다. ASF에서 농사지은 카드 등 모든 보관함 항목을 평가하길 원한다면 자연스럽게 이 옵션은 사용하지 않을 것입니다. 미쳐가고 있다면 이 옵션이 있음을 기억하십시오.
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. 이는 보통 부계정에서 ASF 명령어 수행중에 자신이 보낸 "새로운 메시지"를 클리어하기 위해서만 사용합니다. 당신은 오프라인이지만 ASF는 여전히 알림을 해제하고 있었던 메시지를 **포함한** 모든 종류의 새로운 메시지 알림을 잘라내버리고 싶지 않는 한, 이 옵션을 주 계정에서 사용하는 것을 권장하지 않습니다.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. 이는 보통 부계정에서 ASF 명령어 수행중에 자신이 보낸 "새로운 메시지"를 클리어하기 위해서만 사용합니다. 당신은 오프라인이지만 ASF는 여전히 알림을 해제하고 있었던 메시지를 **포함한** 모든 종류의 새로운 메시지 알림을 잘라내버리고 싶지 않는 한, 이 옵션을 주 계정에서 사용하는 것을 권장하지 않습니다.
 
-`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+`MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
 
 이 옵션을 어떻게 설정해야 할지 확실치 않다면 기본값으로 두는 것이 최선입니다.
 

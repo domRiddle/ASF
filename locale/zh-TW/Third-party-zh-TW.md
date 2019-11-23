@@ -6,7 +6,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## ASF plugins
+## ASF 外掛程式
 
 - **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
@@ -18,27 +18,27 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## Integrations
+## 整合
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**，用 Python 編寫的 ASF 功能整合 Telegram BOT。
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**，另一個（基本的）用 Python 編寫的 ASF 功能整合 Telegram BOT。
 
 * * *
 
-## Libraries
+## 庫
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
 * * *
 
-## Packaging
+## 封裝
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
 
 * * *
 
-## Tools
+## 工具
 
 - **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.

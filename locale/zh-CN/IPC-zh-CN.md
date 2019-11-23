@@ -134,6 +134,26 @@ server {
 }
 ```
 
+下面是一份 Apache 示例配置文件。 如果您需要进一步的说明，请参考 **[Apache 文档](https://httpd.apache.org/docs)**。
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: Apache 不支持大小写不敏感的匹配，因此我们在此写入了两种最常见的情况
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
+```
+
 ### 我可以通过 HTTPS 协议访问 IPC 吗？
 
 **是的**，有两种方法来实现。 推荐的方法是使用反向代理（如上所述），您可以像平常一样通过 HTTPS 访问您的 Web 服务器，并且通过它来访问在同一台机器上的 ASF IPC 接口。 这样，您的流量将完全加密，并且您不需要修改 IPC 的设置。

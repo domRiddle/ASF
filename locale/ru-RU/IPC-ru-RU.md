@@ -134,6 +134,26 @@ server {
 }
 ```
 
+Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
+```
+
 ### Могу ли я получить доступ к IPC через протокол HTTPS?
 
 **Да**, вы можете сделать это двумя разными способами. Рекомендуемый способ это использовать для этого обратный прокси (как описано выше), в этом случае вы можете получить доступ к своему веб-серверу по https как обычно, а затем подключить его к интерфейсу IPC ASF на той же машине. Таким образом ваш трафик полностью зашифрован и вам не нужно вносить никаких изменений в настройки IPC для поддержки такой конфигурации.

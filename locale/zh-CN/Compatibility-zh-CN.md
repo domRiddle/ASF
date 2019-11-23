@@ -26,9 +26,9 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架（而非 .NET Core）。 该包是一种旧式包，它补全了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET Core 的 `Generic` 包则无法用于 Mono。
 
-通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET Core 运行时环境，但能够运行 Mono 的平台。 此类平台的例子之一是至今仍没有获得 .NET Core 运行时环境支持的 `linux-x86` 平台。
+通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET Core 运行时环境，但能够运行 Mono 的平台。 此类平台包括 `linux-x86`（32 位 i386/i686 Linux），以及 `linux-armel`（Raspberry Pi 0 & 1 等开发板所用的 ARMv6），目前官方尚未提供这些平台可用的 .NET Core 运行时环境。
 
-随着时间的推移，.NET Core 会支持更多平台，而 .NET Framework 和 .NET Core 之间会更加不兼容，`Generic-netf` 包将会在未来完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 软件包，就不要使用框架包，因为 `Generic-netf` 与 .NET Core 版本相比缺少许多功能和兼容性，并且功能会随着时间的推移变少。 我们仅对无法使用 `Generic` 包的平台提供此版本的支持（例如 `linux-x86`），并且也仅基于最新版本的运行时环境（例如最新版 Mono）提供支持。
+随着时间的推移，.NET Core 会支持更多平台，而 .NET Framework 和 .NET Core 之间会更加不兼容，`Generic-netf` 包将会在未来完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 软件包，就不要使用框架包，因为 `Generic-netf` 与 .NET Core 版本相比缺少许多功能和兼容性，并且功能会随着时间的推移变少。 我们**仅**对无法使用 `Generic` 包的平台提供此版本的支持（例如 `linux-x86`），并且也仅基于最新版本的运行时环境（例如最新版 Mono）提供支持。
 
 * * *
 
@@ -39,7 +39,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 ASF 目前提供以下几种 OS-specific 包：
 
 - `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，和未来的版本。
-- `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 特别是包括所有 Raspberry Pi 2 & 3 可用的 GNU/Linux 操作系统（例如 Raspbian）的当前和未来版本。 此包不支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统，例如 Android。
+- `linux-arm`，支持 32/64 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 GNU/Linux 操作系统（例如 Raspbian）的平台，例如 Raspberry Pi 2（或更新版本）。 此包不支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统，例如 Android。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.13 及更新版本。
 
@@ -67,4 +67,6 @@ ASF 目前指向的构建目标是 **.NET Core 3.0**（`netcoreapp3.0`），但�
 
 OpenVZ 内核通常基于非常旧的 Linux 内核版本（2.6），此版本似乎不兼容最新的 .NET Core 运行时环境。 如果您尝试在这种环境下运行 ASF，就可能会遇到各种与锁相关的问题，并通常表现为程序卡死。 参见相关的 CoreCLR Issue：https://github.com/dotnet/coreclr/issues/26873
 
-我们的建议是放弃 OpenVZ 架构，转向更好的虚拟化方案，例如 KVM。 这里提到的问题的确是 .NET Core 运行时环境的一个漏洞，并且最终应该被修复，但并没有给出明确的时间。 如果您无法迁移到更好的虚拟化方案，则可以考虑使用 `mono` 运行 ASF 的 `generic-netf` 包。
+我们的建议是放弃 OpenVZ 架构，转向更好的虚拟化方案，例如 KVM。 这里提到的问题的确是 .NET Core 运行时环境的一个漏洞，并且应当在下个版本 .NET Core 运行时环境（3.1，也可能是 3.0）中被&#8203;**[修复](https://github.com/dotnet/coreclr/pull/26912)**，但暂无明确的时间。 如果无法迁移到更好的虚拟化方案，则在此问题被修复之前，您可以考虑使用 `mono` 运行 ASF 的 `generic-netf` 包。
+
+当然，您也可以运行之前版本的 ASF（V4.0），但运行过时版本的 ASF 不受我们支持，还可能为您带来其他更严重的问题。

@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64"
 
 ### .NET 框架
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.0` to `net48`. 請注意，您需要合適的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**​開發者工具包和 .NET Core SDK 才能編譯 `netf` 包，所以此命令僅適用於 Windows：
+在非常罕見的情況下您會需要建置 `generic-netf` 套件，您可以將目標軟體框架從 `netcoreapp3.0` 變更到 `net48`。 請注意，您需要合適的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**​開發者工具包和 .NET Core SDK 才能編譯 `netf` 包，所以此命令僅適用於 Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"

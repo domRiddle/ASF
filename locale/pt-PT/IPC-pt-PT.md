@@ -78,7 +78,7 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 * * *
 
-# FAQ
+# Perguntas frequentes
 
 ### Is ASF's IPC interface secure and safe to use?
 
@@ -132,6 +132,26 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
     }
 }
+```
+
+Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
 ```
 
 ### Can I access IPC interface through HTTPS protocol?

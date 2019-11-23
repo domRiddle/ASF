@@ -6,7 +6,7 @@ ASF in default settings has `Statistics` global config property enabled. If you 
 
 * * *
 
-## Current privacy policy
+## 當前的隱私權政策
 
 When `Statistics` are active, following things will happen:
 
@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 * * *
 
-# Usage of data
+# 資料使用方式
 
 All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 

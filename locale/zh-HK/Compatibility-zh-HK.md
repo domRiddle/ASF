@@ -26,9 +26,9 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 
 除了上面提到的 Generic 包，我們也提供 `Generic-netf` 包，它基於 .NET 框架（而非 .NET Core）。 該包是一種舊式包，它補全了從 ASF V2 時代即已知的兼容性缺失，並且可以使用 **[Mono](https://www.mono-project.com)** 運行，當前來自 .NET Core 的 `Generic` 包無法用於Mono。
 
-通常，您應該**儘量避免使用此程式包**，因為大多數操作系統都完全（並且更好地）支援上面提到的` Generic `包。 事實上，這個套裝軟件只適用於缺失 .NET Core 運行時環境，但能夠運行 Mono 的平台。 此類平台的例子之一是至今仍沒有獲得 .NET Core 運行時環境支援的 `linux-x86` 平台。
+通常，您應該**儘量避免使用此程式包**，因為大多數操作系統都完全（並且更好地）支援上面提到的` Generic `包。 事實上，這個套裝軟件只適用於缺失 .NET Core 運行時環境，但能夠運行 Mono 的平台。 Examples of such platforms include `linux-x86` (32-bit i386/i686 linux), as well as `linux-armel` (ARMv6 boards found e.g. in Raspberry Pi 0 & 1), all of which do not have official working .NET Core runtime as of today.
 
-隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不兼容，`Generic-netf` 包將會在未來完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 套裝軟件，就不要使用套裝框架，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和兼容性，並且隨著時間的推移，它的功能只會變少。 我們僅對無法使用 `Generic` 包的平台提供此版本的支援（例如 `linux-x86`），並且也僅支援基於最新版本的運行時環境（例如最新版 Mono）。
+隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不兼容，`Generic-netf` 包將會在未來完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 套裝軟件，就不要使用套裝框架，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和兼容性，並且隨著時間的推移，它的功能只會變少。 We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
 * * *
 
@@ -39,7 +39,7 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 ASF當前可用於以下操作系統 ：
 
 - `win-x64` 支援 64 位 Windows 操作系統。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，以及未來的版本。
-- `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 特別是包括所有 Raspberry Pi 2& 3 可用的 GNU/Linux 操作系統（例如 Raspbian）在當前與未來的版本。 此包不適用於較舊的ARM體系結構，例如Raspberry Pi 0 & 1所使用的ARMv6，也不適用於尚未實現所需GNU/Linux環境的操作系統，例如Android。
+- `linux-arm` works on 32/64-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. 此包不適用於較舊的ARM體系結構，例如Raspberry Pi 0 & 1所使用的ARMv6，也不適用於尚未實現所需GNU/Linux環境的操作系統，例如Android。
 - `linux-x64` 適用於64 位 GNU/Linux 操作系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等操作系統以及它們的衍生版在當前和未來的版本。
 - `osx-x64` 適用於64位 OS X 操作系統。 包括 10.13 及更新版本。
 
@@ -67,4 +67,6 @@ ASF當前可用於以下操作系統 ：
 
 OpenVZ kernel is usually based on a very old Linux kernel version (2.6) which seems incompatible with latest .NET Core runtime. If you're trying to run ASF in such environment, you may encounter various lock-related issues, usually in form of process freeze. See related CoreCLR issue: https://github.com/dotnet/coreclr/issues/26873
 
-Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be dealt with eventually, but with no indication of the actual timeframe. If you're unable to move to better virtualization solutions, you can consider running `generic-netf` ASF variant with `mono`.
+Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be **[fixed](https://github.com/dotnet/coreclr/pull/26912)** in the next .NET Core runtime upgrade (3.1, probably also 3.0), but there is no actual timeframe for it yet. If you're unable to move to better virtualization solution, you can consider running `generic-netf` ASF variant with `mono`, at least until new runtime version is released.
+
+Of course you can also run previous version of ASF (V4.0), but running outdated ASF versions is not supported by us and might cause you entirely different issues, possibly more severe.

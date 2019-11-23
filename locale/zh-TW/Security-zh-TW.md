@@ -1,6 +1,6 @@
 # 安全性
 
-## SteamPassword
+## SteamPassword（Steam 密碼）
 
 ASF currently supports 4 types of passwords - `PlainText`, `AES`, `ProtectedDataForCurrentUser` and None (`null` / `""`).
 
@@ -8,13 +8,13 @@ In order to use encrypted password, you should firstly log in to Steam as usual 
 
 * * *
 
-### PlainText
+### PlainText（純文字）
 
 This is the most simple and insecure way of storing the password, defined as `PasswordFormat` of `0`. ASF expects `SteamPassword` property to be a plain text - password being used to log in to Steam in its direct form. It's the easiest one to use, and 100% compatible with all setups, therefore it's default.
 
 * * *
 
-### AES
+### AES（進階加密標準）
 
 Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `PasswordFormat` of `1`. ASF expects `SteamPassword` property to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
 
@@ -36,7 +36,7 @@ The only way that guarantees 100% security and ensures that nobody can steal you
 
 * * *
 
-## Recommendation
+## 建議
 
 If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 
@@ -46,6 +46,6 @@ For people launching ASF rarely or those who are not bothered with entering the 
 
 * * *
 
-# Decryption
+# 解密
 
 ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply switch your `PasswordFormat` back to `0` (PlainText), and fill `SteamPassword` appropriately. You can then launch ASF as usual, and repeat the procedure from beginning.

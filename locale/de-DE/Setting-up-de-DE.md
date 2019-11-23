@@ -40,13 +40,13 @@ Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nich
 Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Du kannst alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
 
 - `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (latest version for your distribution, for example `libicu60`)
+- `libicu` (neueste Version für deine Distribution, zum Beispiel `libicu60`)
 - `libkrb5-3` (`krb5-libs`)
 - `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
+- `libssl` (`libssl1.1`, `openssl-libs`, neueste 1.1.X Version für deine Distribution)
 - `zlib1g` (`zlib`)
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+Wenigstens einige davon sollten bereits nativ auf deinem System verfügbar sein (wie z. B. `zlib1g` das heutzutage in fast allen Linux-Distributionen benötigt wird).
 
 #### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
 

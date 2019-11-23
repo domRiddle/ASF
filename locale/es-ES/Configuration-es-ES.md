@@ -375,16 +375,15 @@ Por favor, ten en cuenta que debido a los constantes problemas y cambios de Valv
 
 Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento tipo bot de ASF durante diversos eventos, como se define a continuación:
 
-| Valor | Nombre                        | Descripción                                                                                      |
-| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None                          | Sin comportamiento especial del bot, es el modo menos invasivo, por defecto                      |
-| 1     | RejectInvalidFriendInvites    | Causará que ASF rechace (en lugar de ignorar) las solicitudes de amistad inválidas               |
-| 2     | RejectInvalidTrades           | Causará que ASF rechace (en lugar de ignorar) las ofertas de intercambio inválidas               |
-| 4     | RejectInvalidGroupInvites     | Causará que ASF rechace (en lugar de ignorar) las invitaciones de grupo inválidas                |
-| 8     | DismissInventoryNotifications | Causará que ASF descarte automáticamente todas las notificaciones de inventario                  |
-| 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                  |
-| 32    | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
-| 64    | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
+| Valor | Nombre                        | Descripción                                                                                                               |
+| ----- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                          | Sin comportamiento especial del bot, es el modo menos invasivo, por defecto                                               |
+| 1     | RejectInvalidFriendInvites    | Causará que ASF rechace (en lugar de ignorar) las solicitudes de amistad inválidas                                        |
+| 2     | RejectInvalidTrades           | Causará que ASF rechace (en lugar de ignorar) las ofertas de intercambio inválidas                                        |
+| 4     | RejectInvalidGroupInvites     | Causará que ASF rechace (en lugar de ignorar) las invitaciones de grupo inválidas                                         |
+| 8     | DismissInventoryNotifications | Causará que ASF descarte automáticamente todas las notificaciones de inventario                                           |
+| 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                                           |
+| 32    | MarkBotMessagesAsRead         | Causará que ASF automáticamente marque como leídos los mensajes de otros bots de ASF (ejecutándose en la misma instancia) |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
@@ -400,9 +399,9 @@ Una invitación a grupo inválida es un invitación que no proviene del grupo `S
 
 `DismissInventoryNotifications` es extremadamente útil cuando empiezan a ser molestas las notificaciones de que has recibido nuevos artículos. ASF no puede deshacerse de la notificación en sí, ya que eso está integrado en tu cliente de Steam, pero es capaz de descartar la notificación automáticamente después de recibirla, lo que ya no dejará la notificación de "nuevos artículos en el inventario". Si quieres revisar tú mismo todos los artículos recibidos (especialmente cromos recolectados con ASF), naturalmente no deberías habilitar esta opción. Cuando empieces a volverte loco, recuerda que se ofrece esta opción.
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que lleguen, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto descartándolas.
+`MarkReceivedMessagesAsRead` automáticamente marcará como leídos **todos** los mensajes recibidos por la cuenta en la que se esté ejecutando ASF, tanto privados como grupales. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que lleguen, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto descartándolas.
 
-`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+`MarkBotMessagesAsRead` funciona de forma similar marcando como leídos solo los mensajes de bots. Sin embargo, ten en cuenta que al usar esta opción en chats grupales con tus bots y otras personas, la implementación de Steam de reconocer un mensaje de chat **también** reconoce todos los mensajes que llegaron **antes** del que decidiste marcar, si no quieres perder mensajes no relacionados que hayan llegado entre tanto, normalmente querrías evitar usar esta función. Obviamente, también es riesgoso cuando tienes varias cuentas principales (por ejemplo, de diferentes usuarios) ejecutándose en la misma instancia de ASF, ya que también puedes perder sus mensajes normales que no sean de ASF.
 
 Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor por defecto.
 

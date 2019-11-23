@@ -6,19 +6,19 @@ Now as you can see all trades are being hold for up to 15 days, which is not a m
 
 * * *
 
-# ASF logic
+# ASF 邏輯
 
 Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
 * * *
 
-# ASF 2FA
+# ASF 兩步驟驗證
 
 ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
 
 You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
-To enable ASF 2FA, you need to have:
+要啟用 ASF 兩步驟驗證，您需要：
 
 - Working steam authenticator in your Android
 - or working steam authenticator in your iOS
@@ -42,7 +42,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 * * *
 
-### Android phone
+### Android 手機
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
@@ -124,7 +124,7 @@ Please confirm that accepting confirmations in fact works. If you made a mistake
 
 * * *
 
-## Done
+## 完成
 
 From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
 

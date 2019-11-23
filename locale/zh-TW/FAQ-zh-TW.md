@@ -14,7 +14,7 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 ## 一般
 
-### What is ASF?
+### 什麼是 ASF？
 
 ### Why does the program claim that there is nothing to idle on my account?
 
@@ -163,7 +163,7 @@ ASF is not based on steam client, it has its own steam client implementation. Th
 
 ### But is the difference really noticeable?
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
+不。 The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
 
 However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
 
@@ -383,7 +383,7 @@ You won't gain anything from launching more than 1 instance per a single IP/inte
 
 * * *
 
-### What is the meaning of status when redeeming a key?
+### 啟用遊戲序號時的狀態是什麼意思？
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 

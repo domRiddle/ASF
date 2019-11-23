@@ -375,16 +375,15 @@ Bitte bedenke, dass wir aufgrund von ständigen Steam-Problemen, Änderungen und
 
 `byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
 
-| Wert | Name                          | Beschreibung                                                                                     |
-| ---- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0    | None                          | Kein spezielles Bot-Verhalten, der am wenigsten invasive Modus, Standard                         |
-| 1    | RejectInvalidFriendInvites    | Führt dazu, dass ASF ungültige Freundschaftseinladungen ablehnt (anstatt sie zu ignorieren)      |
-| 2    | RejectInvalidTrades           | Wird ASF dazu veranlassen, ungültige Handelsangebote abzulehnen (anstatt sie zu ignorieren)      |
-| 4    | RejectInvalidGroupInvites     | Führt dazu, dass ASF ungültige Gruppeneinladungen ablehnt (anstatt sie zu ignorieren)            |
-| 8    | DismissInventoryNotifications | Veranlasst ASF dazu, alle Inventar-Benachrichtigungen automatisch zu entfernen                   |
-| 16   | MarkReceivedMessagesAsRead    | Führt dazu, dass ASF automatisch alle empfangenen Nachrichten als gelesen markiert               |
-| 32   | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
-| 64   | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
+| Wert | Name                          | Beschreibung                                                                                             |
+| ---- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 0    | None                          | Kein spezielles Bot-Verhalten, der am wenigsten invasive Modus, Standard                                 |
+| 1    | RejectInvalidFriendInvites    | Führt dazu, dass ASF ungültige Freundschaftseinladungen ablehnt (anstatt sie zu ignorieren)              |
+| 2    | RejectInvalidTrades           | Wird ASF dazu veranlassen, ungültige Handelsangebote abzulehnen (anstatt sie zu ignorieren)              |
+| 4    | RejectInvalidGroupInvites     | Führt dazu, dass ASF ungültige Gruppeneinladungen ablehnt (anstatt sie zu ignorieren)                    |
+| 8    | DismissInventoryNotifications | Veranlasst ASF dazu, alle Inventar-Benachrichtigungen automatisch zu entfernen                           |
+| 16   | MarkReceivedMessagesAsRead    | Führt dazu, dass ASF automatisch alle empfangenen Nachrichten als gelesen markiert                       |
+| 32   | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
@@ -400,9 +399,9 @@ Eine ungültige Gruppeneinladung ist eine Einladung, die nicht aus der Gruppe `S
 
 `DismissInventoryNotifications` ist äußerst nützlich, wenn du anfängst, dich durch die Benachrichtigung von Steam über den Erhalt neuer Gegenstände zu ärgern. ASF kann die Benachrichtigung selbst nicht loswerden, da sie in deinem Steam-Client integriert ist, aber es ist in der Lage, die Benachrichtigung nach Erhalt automatisch zu löschen, was dazu führt, dass keine Benachrichtigung über "neue Gegenstände im Inventar" mehr auftritt. Wenn du erwartest, alle erhaltenen Gegenstände selbst zu überprüfen (insbesondere Karten, die mit ASF gesammelt wurden), dann solltest du diese Option natürlich nicht aktivieren. Wenn du anfängst verrückt zu werden, denk daran, dass dies als Option angeboten wird.
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. Dies sollte typischerweise nur von Alt-Konten verwendet werden, um Benachrichtigungen über "neue Nachrichten" zu löschen, die z.B. von dir während der Ausführung von ASF-Befehlen kommen. Wir empfehlen diese Option nicht für Hauptkonten, es sei denn, du möchtest dich von jeder Art von Benachrichtigungen über neue Nachrichten befreien, **einschließlich** derjenigen, die während deines Offline-Betriebs passiert sind, vorausgesetzt, dass ASF immer noch offen gelassen wurde, als es sie ablehnte.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. Dies sollte typischerweise nur von Alt-Konten verwendet werden, um Benachrichtigungen über "neue Nachrichten" zu löschen, die z.B. von dir während der Ausführung von ASF-Befehlen kommen. Wir empfehlen diese Option nicht für Hauptkonten, es sei denn, du möchtest dich von jeder Art von Benachrichtigungen über neue Nachrichten befreien, **einschließlich** derjenigen, die während deines Offline-Betriebs passiert sind, vorausgesetzt, dass ASF immer noch offen gelassen wurde, als es sie ablehnte.
 
-`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+`MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
 
 Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
 

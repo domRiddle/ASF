@@ -237,18 +237,18 @@ Complete command example:
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
-| 值    | 名稱                    | 描述                                                                              |
-| ---- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD   | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置                                                      |
-| FF   | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置                                                        |
-| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置                                                   |
-| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD   | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置                                                      |
-| SF   | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置                                                        |
-| SI   | SkipInitial           | 跳過初始機械人的金鑰兌換過程                                                                  |
-| SKMG | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置                                                  |
-| V    | Validate              | 檢查金鑰格式是否正確，並自動跳過無效金鑰                                                            |
+| 值    | 名稱                    | 描述                                               |
+| ---- | --------------------- | ------------------------------------------------ |
+| FAWK | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| FD   | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置                       |
+| FF   | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置                         |
+| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置                    |
+| SAWK | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| SD   | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置                       |
+| SF   | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置                         |
+| SI   | SkipInitial           | 跳過初始機械人的金鑰兌換過程                                   |
+| SKMG | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置                   |
+| V    | Validate              | 檢查金鑰格式是否正確，並自動跳過無效金鑰                             |
 
 例如，我們打算為尚未擁有遊戲的機械人兌換 3 個金鑰，但不包括 `primary` 機械人。 為此我們需要執行命令：
 

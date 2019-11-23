@@ -14,9 +14,9 @@ Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für wen
 
 ## Allgemein
 
-### What is ASF?
+### Was ist ASF?
 
-### Why does the program claim that there is nothing to idle on my account?
+### Warum behauptet das Programm, dass es auf meinem Konto nichts zum Farmen gibt?
 
 Bevor du versuchst zu verstehen, was ASF ist, solltest du sicherstellen, dass du verstehst, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 

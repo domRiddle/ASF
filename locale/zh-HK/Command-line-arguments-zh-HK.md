@@ -73,11 +73,11 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path
     │     │     └── ...
     │     └── TargetDirectory
     │           ├── config
-    │           ├── logs (generated)
-    │           ├── plugins (optional)
-    │           ├── www (optional)
-    │           ├── log.txt (generated)
-    │           └── NLog.config (optional)
+    │           ├── logs（自動產生的）
+    │           ├── plugins（可省略）
+    │           ├── www（可省略）
+    │           ├── log.txt（自動產生的）
+    │           └── NLog.config（可省略）
     └── ...
     
 

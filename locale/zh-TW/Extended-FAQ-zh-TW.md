@@ -4,9 +4,9 @@ Our extended FAQ covers a bit less common questions and answers that you may hav
 
 * * *
 
-### Who has created ASF?
+### 誰建立了 ASF？
 
-ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
+**[Archi](https://github.com/JustArchi)** 在2015年10月建立了 ASF。 In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
 
 However, ASF is open-source project, and I can't express enough that I'm not behind everything that you can see here. We have a few **[other](https://github.com/JustArchiNET?q=ASF-)** ASF projects that are being developed almost exclusively by other developers. Even core ASF project has a lot of **[contributors](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** that helped me to make all of this happen. On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[Discord](https://discordapp.com/open-source)**, **[AppVeyor](https://www.appveyor.com)**, **[Travis](https://travis-ci.com)** and **[Crowdin](https://crowdin.com)**. You also can't forget about all the awesome libraries and tools that made ASF happen, such as **[ReSharper](https://www.jetbrains.com/resharper)** and especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. ASF also wouldn't be where it is today without my **[sponsors](https://github.com/sponsors/JustArchi)**, **[patrons](https://www.patreon.com/JustArchi)** and various donators, supporting me in everything that I'm doing here.
 

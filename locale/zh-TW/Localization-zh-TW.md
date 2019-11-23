@@ -1,24 +1,24 @@
-# 本土化
+# 在地化
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF 由 Crowdin 提供服務，使每個人都有可能幫忙把 ASF 翻譯到世界上的所有語言。 要更多詳細解釋 Crowdin 如何工作，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
+如果您對正在發生的事情感興趣，您可以查看 **[ASF Crowdin 活動](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
 * * *
 
-## Scope
+## 範圍
 
 Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 * * *
 
-## Signing up
+## 註冊
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
 * * *
 
-### Translating
+### 翻譯
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
@@ -30,7 +30,7 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to idle is equal to {0}.
 
-Or:
+或：
 
 > {0} is the number of games to idle.
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 * * *
 
-### Reviewing
+### 檢閱
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -127,7 +127,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> 如果您是新使用者，我們建議你從**[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)**開始。
 
 Which is originally written as:
 
@@ -202,7 +202,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### 本地連結
 
 Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
@@ -246,17 +246,17 @@ If you believe that something inappropriate is included in a code block, or that
 
 * * *
 
-## Hall of fame
+## 名人堂
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
-| Contributor                                                | Languages          |
-| ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanish            |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| 貢獻者                                                        | 語言       |
+| ---------------------------------------------------------- | -------- |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | 西班牙文     |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西） |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）   |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文  |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
 
 Thank you all for improving our ASF localization quality!

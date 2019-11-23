@@ -202,7 +202,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### 本地連結
 
 Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
@@ -246,17 +246,17 @@ If you believe that something inappropriate is included in a code block, or that
 
 * * *
 
-## Hall of fame
+## 名人堂
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
-| Contributor                                                | Languages          |
-| ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanish            |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| 貢獻者                                                        | 語言       |
+| ---------------------------------------------------------- | -------- |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | 西班牙文     |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西） |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）   |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文  |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
 
 Thank you all for improving our ASF localization quality!

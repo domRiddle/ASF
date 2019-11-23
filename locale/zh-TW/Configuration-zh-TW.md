@@ -1,51 +1,51 @@
-# 設定組態
+# 設定檔
 
 此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
 
 - **[簡介](#introduction)**
 - **[網頁設定檔產生器](#web-based-configgenerator)**
 - **[手動設定](#manual-configuration)**
-- **[全域設定](#global-config)**
-- **[BOT 設定](#bot-config)**
+- **[全域設定檔](#global-config)**
+- **[BOT 設定檔](#bot-config)**
 - **[檔案結構](#file-structure)**
-- **[JSON 對映](#json-mapping)**
-- **[相容性對映](#compatibility-mapping)**
-- **[配置相容性](#configs-compatibility)**
+- **[JSON 對應](#json-mapping)**
+- **[相容性對應](#compatibility-mapping)**
+- **[設定相容性](#configs-compatibility)**
 - **[自動重新載入](#auto-reload)**
 
 * * *
 
 ## 簡介
 
-ASF 設定檔分為兩個主要的部份 - 全域（程序）設定，以及所有 BOT 的設定。 每個 BOT 都有它們專屬的 BOT 設定檔名為 `BotName.json` （ `BotName` 即為 BOT 的名稱），而全域 ASF（程序）設定為一個檔案名為 `ASF.json`。
+ASF 設定檔分為兩個主要部分——全域（處理程序）設定檔，以及每一個 BOT 的設定檔。 每個 BOT 都有名為 `BotName.json` 的 BOT 設定檔（`BotName` 為 BOT 名稱），而全域 ASF（處理程序）設定檔是一個名為 `ASF.json` 的檔案。
 
-每個機器人都是一個在 ASF 進程中運行的獨立的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**機器人實例。 進程不會為機器人實例設定強制的數量限制，所以您可以運行任意數量的機器人（Steam 帳戶）。
+每個 BOT 都是一個在 ASF 處理程序中執行的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**BOT 執行個體。 BOT 執行個體沒有強制處理程序數量限制，所以您可以使用任意數量的 BOT（Steam 帳戶）。
 
-ASF 採用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存儲其配置檔案。 這是人性化、可讀性高且非常通用的格式，您可以在其中對程式進行配置。 不過不用擔心，您不需要為了配置 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批量創建大量 ASF 配置檔案。
+ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定檔。 這是人性化、可讀性高且非常通用的格式，您可以在其中設定程式。 不過不用擔心，您不需要為了設定 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批次建立大量 ASF 設定檔。
 
-您可以通過創建合適的 JSON 配置檔案來手動完成配置，也可以通過我們的**[​網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**來進行配置，那將會更簡單方便。 除非您是高級用戶，否則我建議您使用網頁設定檔產生器，我們將會在下方對其進行具體說明。
+您可以透過建立合適的 JSON 設定檔來手動完成設定，也可以透過我們的**[​網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**來進行設定，那將會更簡單方便。 除非您是進階使用者，否則我建議您使用網頁設定檔產生器，我們將會在下方對其進行具體說明。
 
 * * *
 
 ## 網頁設定檔產生器
 
-**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於生成 ASF 配置檔案的友好前端。 網頁設定檔產生器是 100% 基於客戶端的，這意味著您輸入的任何信息都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**​運行。
+**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於生成 ASF 設定檔的友好前端。 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**​執行。
 
-網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常運行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常運行。
+網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常執行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常執行。
 
-它的用法非常簡單——切換到正確的標簽來選擇要生成 `ASF` 設定檔還是 `Bot（機器人）`設定檔，確保所選設定檔的版本與您的 ASF 版本相匹配，然後輸入所有詳細信息並點擊“下載”按鈕。 將此檔案移動到 ASF 的 `config` 檔案夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重覆以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
+它的用法非常簡單——切換到正確的標籤來選取要產生 `ASF` 設定檔還是 `BOT` 設定檔，確保所選設定檔的版本與您的 ASF 版本相符，然後輸入所有詳細資訊並點選「下載」按鈕。 將此檔案移動到 ASF 的 `config` 資料夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重複以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
 
 * * *
 
 ## 手動設定
 
-我強烈推薦使用網頁設定檔產生器，但若您出於某些原因不想使用它，您亦可手動創建設定檔。 Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
+我強烈推薦使用網頁設定檔產生器，但若您出於某些原因不想使用它，您亦可手動建立設定檔。 查看下面的 JSON 範例以適當的結構開始建立，您可以複製內容到檔案並作為您的設定檔基礎。由於您沒有使用我們的前端，請確保您的設定檔**[有效](https://jsonlint.com)**，因為如果不符合語法，ASF 將會拒絕載入設定檔。 要取得適當的 JSON 結構的所有可用欄位，請參閱 **[JSON 對應](#json-mapping)**章節和下方的文件。
 
 * * *
 
-## 全域設定
+## 全域設定檔
 
-全域設定存放於 `ASF.json 檔案中`，其結構如下：
+全域設定檔存放於 `ASF.json 檔案中`，其結構如下：
 
 ```json
 {
@@ -84,15 +84,15 @@ ASF 採用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存儲其配置�
 
 以下是對所有選項的解釋：
 
-### `AutoRestart`
+### `AutoRestart（自動重新啟動）`
 
-`bool` type with default value of `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+`bool`類型，預設值為 `true`。 這項屬性定義了當需要時是否允許 ASF 自行重新啟動。 一些事件將會要求 ASF 自行重新啟動，例如 ASF 更新（完成於 `UpdatePeriod` 或 `update` 指令）以及編輯 `ASF.json` 設定檔、`restart` 指令和類似事件。 重新啟動通常包括兩部分——建立新的處理程序和結束當前處理程序。 大多數使用者對此應該沒有問題並保持這項屬性使用預設值 `true`，然而——如果你正在透過自己的指令碼及/或 `dotnet` 執行 ASF，你可能會想完全控制處理程序，並避免某些情況像是有新（重新啟動）的 ASF 處理程序在背景與舊的處理程序同時執行，而且不在指令碼前景。 This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
 
 * * *
 
-### `Blacklist`
+### `Blacklist（封鎖清單）`
 
 `ImmutableHashSet<uint>` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
 
@@ -132,7 +132,7 @@ In short, default value should be decent for most cases, but you may want to inc
 
 * * *
 
-### `除錯`
+### `Debug（除錯）`
 
 `bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
 
@@ -212,9 +212,9 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `統計`
+### `Statistics（統計）`
 
-`bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
+`bool`類型，預設值為 `true`。 This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -238,7 +238,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | - | --------- | ------------------------------------------------------------------------- |
 | 0 | 無         | 無協議                                                                       |
 | 1 | TCP       | **[傳輸控制協議](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2 | UDP       | **[用戶數據報協議](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
+| 2 | UDP       | **[用戶資料包協定](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                  |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
@@ -247,7 +247,7 @@ By default ASF should use all available Steam protocols as a measure for fightin
 
 * * *
 
-### `更新頻道`
+### `UpdateChannel（更新頻道）`
 
 `byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
 
@@ -309,7 +309,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## BOT 設定
+## BOT 設定檔
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
@@ -375,16 +375,15 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| 值  | 名稱                            | 描述                                                                                               |
-| -- | ----------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0  | 無                             | No special bot behaviour, the least invasive mode, default                                       |
-| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                            |
-| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                              |
-| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                             |
-| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                              |
-| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                               |
-| 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) |
-| 64 | MarkTradeMessagesAsRead       | Will cause ASF to automatically mark trade notifications happening in the chat as read           |
+| 值  | 名稱                            | 描述                                                                                                       |
+| -- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 0  | 無                             | No special bot behaviour, the least invasive mode, default                                               |
+| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
+| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
+| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
+| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                                      |
+| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
+| 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -400,27 +399,27 @@ Invalid group invite is an invite that doesn't come from `SteamMasterClanID` gro
 
 `DismissInventoryNotifications` is extremely useful when you start getting annoyed by contact Steam notification about receiving new items. ASF can't get rid of the notification itself, as that's built-in into your Steam client, but it's able to automatically clear the notification after receiving it, which will no longer leave "new items in inventory" notification hanging around. If you expect to evaluate yourself all received items (especially cards idled with ASF), then naturally you shouldn't enable this option. When you start going crazy, remember this is offered as an option.
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
+`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
 
-`MarkBotMessagesAsRead` and `MarkTradeMessagesAsRead` work in a similar manner by marking only specific messages as read. However, keep in mind that Steam implementantion of acknowledging chat message **also** acknowledges all messages that happened **before** that one, so if by any chance you don't want to miss a message that happened in-between of a specific event you decided to mark, you typically want to avoid those options.
+`MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
 
 If you're unsure how to configure this option, it's best to leave it at default.
 
 * * *
 
-### `CustomGamePlayedWhileFarming`
+### `CustomGamePlayedWhileFarming（掛卡時顯示自訂遊戲名稱）`
 
 `string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `OnlineStatus` of `Offline`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
 
 * * *
 
-### `CustomGamePlayedWhileIdle`
+### `CustomGamePlayedWhileIdle（閒置時顯示自訂遊戲名稱）`
 
 `string` type with default value of `null`. Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
 
 * * *
 
-### `Enabled`
+### `Enabled（啟用）`
 
 `bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
@@ -477,7 +476,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `IdleRefundableGames`
 
-`bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
+`bool`類型，預設值為 `true`。 This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
 
 * * *
 
@@ -535,10 +534,10 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | 值 | 名稱             |
 | - | -------------- |
-| 0 | 離線             |
-| 1 | 線上             |
-| 2 | Busy           |
-| 3 | Away           |
+| 0 | Offline（離線）    |
+| 1 | Online（線上）     |
+| 2 | Busy（忙碌）       |
+| 3 | Away（離開）       |
 | 4 | Snooze         |
 | 5 | LookingToTrade |
 | 6 | LookingToPlay  |
@@ -642,7 +641,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 * * *
 
-### `SteamPassword`
+### `SteamPassword（Steam 密碼）`
 
 `string` type with default value of `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
@@ -719,7 +718,7 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 ### `UseLoginKeys`
 
-`bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`bool`類型，預設值為 `true`。 This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
@@ -770,7 +769,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 * * *
 
-## JSON 對映
+## JSON 對應
 
 Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
@@ -852,13 +851,13 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 * * *
 
-## 相容性對映
+## 相容性對應
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
 * * *
 
-## 配置相容性
+## 設定相容性
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
 

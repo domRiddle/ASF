@@ -6,7 +6,7 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 ## Standard Protokollierung
 
-By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+Standardmäßig protokolliert ASF in `ColoredConsole` (Standardausgabe) und `File`. `File` Protokollierung beinhaltetet die `log.txt` Datei im Programmverzeichnis und das `logs` Verzeichnis für Archivierungszwecke.
 
 Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
