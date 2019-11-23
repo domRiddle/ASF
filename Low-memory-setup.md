@@ -80,7 +80,9 @@ This offers little improvement, but may make GC even more aggressive when system
 You can enable all of them by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
-export COMPlus_GCHeapHardLimitPercent=75 # Don't forget to tune this one
+# Don't forget to tune this one if you're going to use it
+#export COMPlus_GCHeapHardLimitPercent=75
+
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
@@ -89,7 +91,9 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 Or on Windows (powershell):
 
 ```powershell
-$Env:COMPlus_GCHeapHardLimitPercent=75 # Don't forget to tune this one
+# Don't forget to tune this one if you're going to use it
+#$Env:COMPlus_GCHeapHardLimitPercent=75
+
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.exe
