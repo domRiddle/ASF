@@ -69,4 +69,4 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 Participating in statistics is **not mandatory**, although highly encouraged for future of the program. We do not judge you, and if you have inner urge of hiding the fact that you're ASF user then you can disable statistics **entirely** by switching `Statistics` global config property to `false`. Disabled statistics make entire module non-operative, and will not do any of actions specified in our privacy policy above.
 
-Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.
+Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled (as you refuse to communicate with our server).
