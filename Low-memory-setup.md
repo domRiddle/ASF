@@ -55,7 +55,13 @@ More can be read at **[fundamentals of garbage collection](https://docs.microsof
 
 ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
 
-In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** that you can use - `gcTrimCommitOnLowMemory` and `GCLatencyLevel`.
+In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** that you can use. You can read about the most interesting ones below.
+
+### `GCHeapHardLimitPercent`
+
+> Specifies the GC heap usage as a percentage of the total memory.
+
+The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios.
 
 ### `GCLatencyLevel`
 
@@ -71,19 +77,21 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable both by setting appropriate `COMPlus_` environment variables. For example, on Linux:
+You can enable all of them by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
+export COMPlus_GCHeapHardLimitPercent=75 # Don't forget to tune this one
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm
 ```
 
-Or on Windows:
+Or on Windows (powershell):
 
-```bat
-SET COMPlus_GCLatencyLevel=0
-SET COMPlus_gcTrimCommitOnLowMemory=1
+```powershell
+$Env:COMPlus_GCHeapHardLimitPercent=75 # Don't forget to tune this one
+$Env:COMPlus_GCLatencyLevel=0
+$Env:COMPlus_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.exe
 ```
 
