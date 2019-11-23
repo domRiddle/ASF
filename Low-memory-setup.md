@@ -99,6 +99,7 @@ $Env:COMPlus_GCHeapHardLimitPercent=75
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
+
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
 
