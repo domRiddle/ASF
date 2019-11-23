@@ -28,7 +28,7 @@ You can enable server GC by switching `System.GC.Server` property of `ArchiSteam
 
 Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You may find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory. Alternatively, you might also experiment with another knob, **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)**, or even both of them at the same time.
 
-However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's much better to not change those knobs at all, achieving superior performance in result.
+However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those knobs at all, achieving superior performance in result.
 
 ---
 
