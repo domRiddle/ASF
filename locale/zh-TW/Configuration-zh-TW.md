@@ -29,7 +29,7 @@ ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定�
 
 ## 網頁設定檔產生器
 
-**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於生成 ASF 設定檔的友好前端。 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**​執行。
+**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於產生 ASF 設定檔的友好前端。 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**​執行。
 
 網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常執行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常執行。
 

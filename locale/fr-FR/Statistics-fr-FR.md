@@ -70,4 +70,4 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
     
     La participation dans les statistiques n’est **pas obligatoire**, mais fortement recommandé pour l’avenir du programme. Nous ne vous jugeons pas, et si vous avez l'envie de cacher le fait que vous êtes un utilisateur ASF, vous pouvez désactiver complètement les statistiques en changeant `Statistics`de la configuration global par `false`. Les statistiques désactivées rendent tout le module non opérationnel, et ne feront aucune des actions spécifiées dans notre politique de confidentialité ci-dessus.
     
-    Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled.
+    Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled (as you refuse to communicate with our server for the functionality to work).

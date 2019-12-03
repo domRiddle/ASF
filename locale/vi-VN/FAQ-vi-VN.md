@@ -18,6 +18,8 @@ Our basic FAQ covers standard questions and answers that you may have. Đối v�
 
 ### Why does the program claim that there is nothing to idle on my account?
 
+### Why is my account limited?
+
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
 Tóm tắt, thẻ Steam là vật dụng thu thập khi có đủ điều kiện mà bạn sở hữu một trò chơi nhất định, và có thể sử dụng chúng để tạo huy hiệu, bán trên chợ Steam hoặc cho bất kỳ mục đích khác mà bạn muốn.
@@ -27,7 +29,7 @@ Core points are stated once again here, because people in general don't want to 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. Chế độ Family sharing sẽ không tính.**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. Điều này bao gồm các trò chơi miễn phí mãi mãi như Team Fortress 2 hay Dota 2. Owning F2P games does not grant you with card drops.**
-- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. Việc này có khả thi trong quá khứ, nó không còn nữa.**
+- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. Việc này có khả thi trong quá khứ, nó không còn nữa.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 

@@ -12,7 +12,7 @@
 
 일반적으로 다음 몇분동안 할 일의 목록입니다:
 
-- **[.NET Core 필수 구성 요소](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** 설치
+- **[.NET Core 필수 구성 요소](#net-core-prerequisites)** 설치
 - 특정 OS에 맞는 **[최신 버전 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** 다운로드
 - 압축파일을 새 위치에 풀기(리눅스/OS X라면 `chmod +x ArchiSteamFarm` 실행)
 - **[ASF 환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**

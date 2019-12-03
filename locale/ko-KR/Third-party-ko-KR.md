@@ -13,8 +13,8 @@
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, ASF가 봇 이름을 대소문자 구분없이 사용하도록 하는 플러그인입니다.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF가 명령어 없이 키를 등록하도록 구현하는 플러그인입니다.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, ASF가 특정 형태의 아이템 거래를 자동으로 수락하는 플러그인입니다.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, ASF가 Steam 초대를 자동으로 수행하는 플러그인입니다.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, ASF가 WebSocket 연결을 프록시화 하도록 하는 플러그인입니다.
 
 * * *
 

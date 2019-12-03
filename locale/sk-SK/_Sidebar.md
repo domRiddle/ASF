@@ -21,7 +21,7 @@
 * **[Príkazy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Štatistiky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Obchodovanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 

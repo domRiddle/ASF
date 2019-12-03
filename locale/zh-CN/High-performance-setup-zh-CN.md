@@ -24,9 +24,9 @@ ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之
 
 您可以将 `ArchiSteamFarm.runtimeconfig.json` 的 `System.GC.Server` 属性从 `false` 切换到 `true` 来启用服务器 GC。 请记住，您可能需要多次执行此操作，因为 ASF 在自动更新后仍默认使用 `false`。
 
-仅仅启用服务器 GC 本身不会导致增加很大的内存开销，但它具有更大的代数，因此会更少将内存返回给操作系统。 您可能会发现自己处于一个尴尬的情况，服务器 GC 显著提高了性能，并且您希望继续使用它，但同时您无法承受使用它带来的巨大内存消耗。 幸运的是，将 **[GCLatencyLevel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 设置为 `0` 是一个两者兼顾的设置，服务器 GC 仍然启用，但会限制代数并且更关注内存消耗。
+仅仅启用服务器 GC 本身不会导致增加很大的内存开销，但它具有更大的代数，因此会更少将内存返回给操作系统。 您可能会发现自己处于一个尴尬的情况，服务器 GC 显著提高了性能，并且您希望继续使用它，但同时您无法承受使用它带来的巨大内存消耗。 幸运的是，将 **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 设置为 `0` 是一个两者兼顾的设置，服务器 GC 仍然启用，但会限制代数并且更关注内存消耗。 或者，您也许可以尝试另一个选项，**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gcheaphardlimitpercent)**，或者同时启用这两个选项。
 
-但是，如果内存对您来说不是问题（因为 GC 仍会根据您的可用内存自行调整），那么最好不要更改 ` GCLatencyLevel`，从而达到最佳性能。
+但是，如果内存对您来说不是问题（因为 GC 仍会根据您的可用内存自行调整），那么最好完全不更改这些选项，从而达到最佳性能。
 
 * * *
 
@@ -34,6 +34,6 @@ ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之
 
 - 确保您的 `OptimizationMode` 属性设置为默认值 `MaxPerformance`。 这是最重要的设置，因为使用 `MinMemoryUsage` 值会对性能产生巨大影响。
 - 将 `ArchiSteamFarm.runtimeconfig.json` 的 `System.GC.Server` 属性从 `false` 切换到 `true` 来启用服务器 GC。 这将启用服务器 GC，与工作站 GC 相比，您可以通过瞬间增加的内存消耗确认启用了服务器 GC。
-- 如果您无法承受如此巨量的内存消耗，可以考虑将 `GCLatencyLevel` 设置为 `0` 实现二者之间的平衡。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
+- 如果您无法负担如此高的内存开销，可以考虑调整 **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 和/或 **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gcheaphardlimitpercent)** 以求两全。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
 
-如果您已启用服务器 GC 并保留 `GCLatencyLevel` 的默认设置，那么即使您启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。 若要进一步优化就只能升级 CPU 和内存了。
+如果您已启用服务器 GC 并保留各个选项的默认设置，那么即使您启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。 若要进一步优化就只能升级 CPU 和内存了。

@@ -134,7 +134,7 @@ server {
 }
 ```
 
-Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Пример конфигурации Apache вы можете найти ниже. Дальнейшую информацию вы можете найти в **[документации apache](https://httpd.apache.org/docs)**.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -145,7 +145,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
         SSLCertificateFile /path/to/your/fullchain.pem
         SSLCertificateKeyFile /path/to/your/privkey.pem
 
-        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        # TODO: Apache не может производить регистронезависимое сравнение, поэтому мы задали два наиболее используемых формата
         ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
         ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 

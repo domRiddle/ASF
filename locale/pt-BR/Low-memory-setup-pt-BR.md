@@ -54,7 +54,15 @@ Mais pode ser lido em **[noções básicas da coleta de lixo](https://docs.micro
 
 O ASF já usa a coleta de lixo de estação de trabalho, mas você pode garantir que esse é realmente o caso, verifique se o parâmetro `System.GC.Server` de `ArchiSteamFarm.runtimeconfig.json` está definido como `false`.
 
-Além de verificar que o coletor de lixo estiver ativo, há também **[botões de configuração](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)** interessantes que você pode usar: `gcTrimCommitOnLowMemory` e `GCLatencyLevel`.
+Além de verificar se o coletor de lixo está ativo, há também **[botões de configuração](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** interessantes que você pode usar. Você pode ler sobre ps mais interessantes abaixo.
+
+### `GCHeapHardLimitPercent`
+
+> Especifica o montante de uso do do coletor de lixo como uma porcentagem da memória total.
+
+O limite de memória "difícil" para o processo do ASF, este botão liga o Coletor de Lixo para usar apenas um subconjunto de memória total e não tudo. Isso pode se tornar especialmente útil em várias situações semelhantes a servidores, onde você pode dedicar uma porcentagem fixa da memória do seu servidor para o ASF, mas nunca mais do que isso. Esteja ciente que limitar a memória para uso do ASF não fará com que todas as atribuições de memória necessárias desapareçam magicamente, portanto, fixar este valor muito baixo pode resultar em situações de falta de memória.
+
+Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita para garantir que o ASF nunca usará mais memória do que você pode realmente dispor, dando algum espaço para sua máquina respirar mesmo sob carga pesada, enquanto ainda permite que o programa faça seu trabalho eficientemente quando possível.
 
 ### `GCLatencyLevel`
 
@@ -70,20 +78,28 @@ Ele oferece pouca melhora mas pode tornar o coletor de lixo ainda mais agressivo
 
 * * *
 
-Você pode habilitar ambos definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux:
+Você pode habilitar ambos definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
 ```shell
+# Não se esqueça de ajustar este se você vai usá-lo
+export COMPlus_GCHeapHardLimitPercent=75
+
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
-./ArchiSteamFarm
+
+./ ArchiSteamFarm # Para a versão específica de OS
 ```
 
-Ou no Windows:
+Ou no Windows (powershell):
 
-```bat
-SET COMPlus_GCLatencyLevel=0
-SET COMPlus_gcTrimCommitOnLowMemory=1
-.\ArchiSteamFarm.exe
+```powershell
+# Não se esqueça de ajustar este se você vai usá-lo
+$Env:COMPlus_GCHeapHardLimitPercent=75
+
+$Env:COMPlus_GCLatencyLevel=0
+$Env:COMPlus_gcTrimCommitOnLowMemory=1
+
+.\ArchiSteamFarm.exe # Para a versão específica de OS
 ```
 
 `GCLatencyLevel` será especialmente útil, pois verificamos que o tempo de execução de fato otimiza o código para a memória e portanto diminui significativamente o uso de memória, mesmo com o coletor de lixo do servidor. Esse é uma das melhores dicas que você pode aplicar se você deseja diminuir significativamente o uso de memória pelo ASF sem degradar demais o desempenho com `OptimizationMode`.

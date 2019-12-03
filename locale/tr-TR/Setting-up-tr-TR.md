@@ -12,7 +12,7 @@ Ancak bu, PC'nizde kullanamayacağınız veya kullanmanın normalden daha karma�
 
 Genel olarak, işte önümüzdeki birkaç dakika içinde yapacağımız şey:
 
-- **[.NET Core ön koşullarını](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** yükleyin.
+- **[.NET Core ön koşullarını](#net-core-prerequisites)** yükleyin.
 - İşletim Sistemi'ne uygun değişkene göre **[en son ASF sürümünü](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** indirin.
 - Arşivi yeni yerine çıkartın (ve eğer Linux / OS X kullanıyorsanız, `chmod + x ArchiSteamFarm`).
 - **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.

@@ -18,6 +18,8 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 
 ### Por que o programa afirma que não há nada para coletar na minha conta?
 
+### Por que minha conta está limitada?
+
 Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
 
 Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, e podem ser usadas para criar insígnias, vender no mercado da Steam ou qualquer outro objetivo de sua escolha.
@@ -27,7 +29,7 @@ Os pontos principais são apresentados aqui novamente, porque geralmente as pess
 - **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
 - **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabaram as cartas disponíveis para serem obtidas, o jogo está concluído.**
 - **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
-- **Não é possível coletar cartas em contas limitadas (aquelas que nunca gastaram $5 na loja Steam), não importando os jogos possuídos. Isso foi possível no passado, mas não é mais o caso.**
+- **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
 
 Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Se você jogar tais jogos por tempo suficiente, todas as cartas para aquele jogo vão eventualmente aparecer no seu inventário, tornando possível que você complete uma insígnia (após obter a metade restante do jogo de cartas), venda-as, ou faça o que mais você quiser.
 

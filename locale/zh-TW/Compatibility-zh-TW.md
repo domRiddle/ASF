@@ -43,7 +43,7 @@ ASF 目前可用於以下作業系統 ：
 - `linux-x64` 支援 64 位 GNU/Linux 作業系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等作業系統以及它們的衍生版的當前和未來版本。
 - `osx-x64` 支援64 位 OS X 作業系統。 包括 10.13 及更新版本。
 
-當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的 .NET Core 執行階段並執行通用（Generic）ASF 套件，這也是這個套件存在的主要原因。 通用（Generic）ASF 包與平台無關，可在任何具有可用 .NET Core 執行階段的平台上執行。 需要注意——ASF 需要的是 .NET Core 執行階段，而不是特定的作業系統或架構。 例如，如果您使用的是 32 位 Windows，但 ASF 沒有 `win-x86` 版本，您仍然可以安裝 `win-x86` 版本的 .NET Core SDK，然後執行通用（Generic）版本的 ASF。 我們無法為所有作業系統和架構組合都生成一份可執行档案，所以我們為此畫下一道分隔線。 x86 就是這條線的範例之一，因為這種架構自 2004 年開始就過時了。
+當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的 .NET Core 執行階段並執行通用（Generic）ASF 套件，這也是這個套件存在的主要原因。 通用（Generic）ASF 包與平台無關，可在任何具有可用 .NET Core 執行階段的平台上執行。 需要注意——ASF 需要的是 .NET Core 執行階段，而不是特定的作業系統或架構。 例如，如果您使用的是 32 位 Windows，但 ASF 沒有 `win-x86` 版本，您仍然可以安裝 `win-x86` 版本的 .NET Core SDK，然後執行通用（Generic）版本的 ASF。 我們無法為所有作業系統和架構組合都產生一份可執行档案，所以我們為此畫下一道分隔線。 x86 就是這條線的範例之一，因為這種架構自 2004 年開始就過時了。
 
 您可以訪問​**[發行說明​](https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-supported-os.md)**查看完整的 .NET Core 3.0 支援的平台與作業系統列表。
 

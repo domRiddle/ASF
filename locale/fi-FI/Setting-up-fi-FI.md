@@ -12,7 +12,7 @@ Tämä ei silti tarkoita ettei sitä voisi käyttää kotikoneellasi tai että s
 
 Yleisesti ottaen tässä on, mitä teemme seuraavien minuuttien aikana:
 
-- Asenna **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Asenna **[.NET Core prerequisites](#net-core-prerequisites)**.
 - Lataa **[viimeisin ASF julkaisu](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** käyttämäsi käyttöjärjestelmän mukaisesti.
 - Pura arkisto uuteen kohteeseen (ja `chmod +x ArchiSteamFarm` jos käytät Linux/OS X).
 - **[Konfiguroi ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.

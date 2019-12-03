@@ -12,7 +12,7 @@ Das bedeutet jedoch nicht, dass du es nicht auf deinem PC benutzen kannst oder d
 
 Folgendes werden wir in den nächsten paar Minuten machen:
 
-- **[.NET Core Prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installieren.
+- Installiere **[.NET Core prerequisites](#net-core-prerequisites)**.
 - Die **[neueste ASF Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in der entsprechenden betriebssystemspezifischen Variante herunterladen.
 - Das Archiv in einen neuen Ordner entpacken (und mit `chmod +x ArchiSteamFarm` ausführbar machen, wenn du dich auf Linux oder OS X befindest).
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.

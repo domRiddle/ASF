@@ -26,7 +26,7 @@ If compilation ended successfully, you can find your ASF in `source` flavour in 
 
 ### 特定作業系統（OS-specific）
 
-如果您需要，也可以生成特定作業系統的 .NET Core 套件。 In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
+如果您需要，也可以產生特定作業系統的 .NET Core 套件。 In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"

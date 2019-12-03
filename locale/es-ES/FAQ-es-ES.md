@@ -18,6 +18,8 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 
 ### ¿Por qué el programa afirma que no hay nada que recolectar en mi cuenta?
 
+### ¿Por qué mi cuenta está limitada?
+
 Antes de intentar entender lo que es ASF, debes asegurarte de que entiendes lo que son los cromos de Steam, y cómo obtenerlos, lo que se describe bastante bien en el FAQ oficial **[aquí](https://steamcommunity.com/tradingcards/faq)**.
 
 En breve, los cromos de Steam son artículos coleccionables para los que eres elegible cuando tienes un juego en particular, y pueden ser usados para fabricar insignias, venderlos en el mercado de Steam o cualquier otro propósito de tu elección.
@@ -27,7 +29,7 @@ Los puntos principales se repiten aquí, porque la gente en general no quiere ac
 - **Necesitas poseer el juego en tu cuenta de Steam para poder obtener cromos de él. El préstamo familiar no cuenta.**
 - **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, fabricado u olvidado lo que ocurrió con las cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego está terminado.**
 - **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te concede cromos obtenibles.**
-- **No puedes obtener cromos en cuentas limitadas (aquellas que nunca gastaron $5 en la tienda de Steam), independientemente de los juegos que tenga. Antes era posible, para ya no es el caso.**
+- **No puedes obtener cromos en [cuentas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), independientemente de los juegos que tengan. Antes era posible, para ya no es el caso.**
 
 Como puedes ver, los cromos de Steam te son otorgados por jugar un juego que compraste, o un juego F2P en el que has invertido dinero. Si juegas dicho juego lo suficiente, todos los cromos teminarán apareciendo en tu inventario, haciendo posible que completes una insignia (después de obtener la mitad restante del set), las vendas, o hagas lo que quieras.
 

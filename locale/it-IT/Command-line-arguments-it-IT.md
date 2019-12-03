@@ -1,14 +1,14 @@
 # Argomenti della riga di comando
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF include supporto per differenti argomenti della linea di comando che può influire sui tempi di esecuzione del programma. Questi possono essere usati da utenti avanzati per poter specificare come dovrebbe essere eseguito il programma. In confronto al modo predefinito del file di configurazione `ASF.json`, gli argomenti della linea di comando sono usati per l'inizializzazione del core (es. `--path`), le impostazioni specifiche della piattaforma (es.: `--systemrequired`) o i dati sensibili (es.: `--cryptkey`).
 
 * * *
 
-## Usage
+## Uso
 
-Usage depends on your OS and ASF flavour.
+L'uso dipende dal tuo sistema operativo e dal flavour di ASF.
 
-Generic:
+Generico:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -26,9 +26,9 @@ Linux/OS X
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Gli argomenti della linea di comando sono anche supportati negli script di aiuto generici come `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Inoltre, quando usi gli script d'aiuto puoi anche usare la proprietà ambientale di `ASF_ARGS`, come indicato nella nostra sezione **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Se il tuo argomento include spazi, non dimenticarti di citarlo. Questi due sono sbagliati:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!

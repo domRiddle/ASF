@@ -69,4 +69,4 @@ Si buscas una forma sencilla de acceder a nuestro listado de manera programátic
 
 Participar en las estadísticas **no es obligatorio**, aunque se anima a hacerlo por el futuro del programa. No te juzgamos, y si tienes la necesidad de ocultar el hecho de que usas ASF entonces puedes deshabilitar las estadísticas **completamente** cambiando la propiedad de configuración global `Statistics` a `false`. Con las estadísticas deshabilitadas todo el módulo se vuelve no operativo, y no hará ninguna de las acciones especificadas en nuestra política de privacidad mencionada antes.
 
-Desactivar las estadísticas puede influir **nuestro soporte técnico, funcionalidades de ASF y otras cosas que se te ofrecen gratuitamente**. Por ejemplo, no podrás usar `MatchActively` sin tener `Statistics` habilitado.
+Desactivar las estadísticas puede influir **nuestro soporte técnico, funcionalidades de ASF y otras cosas que se te ofrecen gratuitamente**. Por ejemplo, no puedes hacer uso de `MatchActively` sin tener `Statistics` habilitado (ya que no quieres comunicarte con nuestro servidor para que la funcionalidad trabaje).

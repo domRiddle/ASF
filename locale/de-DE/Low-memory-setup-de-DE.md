@@ -54,7 +54,15 @@ Weitere Informationen findest du unter **[Grundlagen der Garbage Collection](htt
 
 ASF verwendet bereits die Workstation GC, aber du kannst sicherstellen, dass dies wirklich der Fall ist, indem du überprüfst, ob in der `ArchiSteamFarm.runtimeconfig.json` Datei die `System.GC.Server` Eigenschaft auf `false` gesetzt ist.
 
-Zusätzlich zur Verifizierung, dass Workstation GC aktiv ist, gibt es auch interessante **[Konfigurationsknöpfe](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)**, die du verwenden kannst - `gcTrimCommitOnLowMemory` und `GCLatencyLevel`.
+In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** that you can use. You can read about the most interesting ones below.
+
+### `GCHeapHardLimitPercent`
+
+> Specifies the GC heap usage as a percentage of the total memory.
+
+The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios.
+
+On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job efficiently when possible.
 
 ### `GCLatencyLevel`
 
@@ -70,20 +78,28 @@ Dies bietet zwar wenig Vorteile, könnte GC aber noch aggressiver machen, wenn d
 
 * * *
 
-Du kannst beides aktivieren, indem du die entsprechenden `COMPlus_` Umgebungsvariablen einstellst. Als Beispiel unter Linux:
+You can enable all of them by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
+# Don't forget to tune this one if you're going to use it
+export COMPlus_GCHeapHardLimitPercent=75
+
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
-./ArchiSteamFarm
+
+./ArchiSteamFarm # For OS-specific build
 ```
 
-Oder unter Windows:
+Or on Windows (powershell):
 
-```bat
-SET COMPlus_GCLatencyLevel=0
-SET COMPlus_gcTrimCommitOnLowMemory=1
-.\ArchiSteamFarm.exe
+```powershell
+# Don't forget to tune this one if you're going to use it
+$Env:COMPlus_GCHeapHardLimitPercent=75
+
+$Env:COMPlus_GCLatencyLevel=0
+$Env:COMPlus_gcTrimCommitOnLowMemory=1
+
+.\ArchiSteamFarm.exe # For OS-specific build
 ```
 
 Insbesondere `GCLatencyLevel` wird sehr nützlich sein, da wir überprüft haben, dass die Laufzeit tatsächlich Programmcode für den Speicher optimiert und somit den durchschnittlichen Speicherverbrauch signifikant reduziert, selbst bei Server-GC. Es ist einer der besten Tricks, die du anwenden kannst, wenn du den ASF-Speicherverbrauch deutlich senken und gleichzeitig die Leistung mit `OptimizationMode` nicht zu stark beeinträchtigen willst.

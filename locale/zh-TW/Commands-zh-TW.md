@@ -266,14 +266,14 @@ Complete command example:
 
 `<Type>` 不區分大小寫，並定義由 ASF 識別的輸入類型。 目前，ASF 可識別以下類型：
 
-| 類型                      | 描述                                            |
-| ----------------------- | --------------------------------------------- |
-| DeviceID                | 兩步驟設備驗證器，在 `.maFile` 中缺失這個值時使用。               |
-| Login                   | `SteamLogin` BOT 設定檔屬性，在設定檔缺失這個值時使用。          |
-| Password                | `SteamPassword` BOT 設定檔屬性，在設定檔缺失這個值時使用。       |
-| SteamGuard              | 如果您未啟用兩步驟驗證，驗證碼將以電子郵件的方式發送。                   |
-| SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。   |
-| TwoFactorAuthentication | 如果您使用的是兩步驟驗證，但未使用 ASF 兩步驟驗證，則從您的手機生成兩步驟驗證代碼 。 |
+| 類型                      | 描述                                                 |
+| ----------------------- | -------------------------------------------------- |
+| DeviceID                | 兩步驟設備驗證器，在 `.maFile` 中缺失這個值時使用。                    |
+| Login                   | `SteamLogin` BOT 設定檔屬性，在設定檔缺失這個值時使用。               |
+| Password                | `SteamPassword` BOT 設定檔屬性，在設定檔缺失這個值時使用。            |
+| SteamGuard              | 如果您未啟用兩步驟驗證，驗證碼將以電子郵件的方式發送。                        |
+| SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。        |
+| TwoFactorAuthentication | 如果您正在使用兩步驟驗證，但未使用 ASF 的兩步驟驗證，則兩步驟驗證代碼權杖會從您的行動裝置產生。 |
 
 `<Value>` 是要為指定類型設定的值。 目前所有的值都是字元串。
 

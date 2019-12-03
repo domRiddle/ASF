@@ -22,11 +22,11 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "
 
 리눅스나 OS X를 사용한다면, 대신 `cc.sh` 스크립트를 사용할 수도 있습니다. 이는 좀 더 복잡한 방식이지만 동일하게 동작합니다.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
+컴파일이 성공적으로 끝나면 `out/generic` 디렉토리에 `소스` 맛으로 된 ASF가 있습니다. 이것은 공식 `일반` ASF 빌드도 동일하지만, 자체 빌드에 적합하도록 `UpdateChannel`과 `UpdatePeriod`이 `0` 값으로 되어있다는 점만 다릅니다.
 
 ### OS 특화
 
-특정한 필요가 있다면 OS 특화 .NET Core 패키지를 생성할 수도 있습니다. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
+특정한 필요가 있다면 OS 특화 .NET Core 패키지를 생성할 수도 있습니다. 일반적으로 처음에 컴파일에 사용한 기 설치된 .NET Core 런타임으로 실행 가능한 `일반` 맛을 방금 컴파일 했기 때문에 그럴일은 없습니다만, 만일 필요하다면 다음과 같이 입력하십시오.
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
@@ -62,7 +62,7 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 ## 태그
 
-`master` 분기는 한번에 성공적인 컴파일이나 흠없는 ASF 실행을 보장하는 상태가 아닙니다. 개발 분기는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에 게시되어 있습니다. If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). 트리의 현재 "상태"를 체크하려면 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 나 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 등 CI를 사용하시기 바랍니다.
+`master` 분기는 한번에 성공적인 컴파일이나 흠없는 ASF 실행을 보장하는 상태가 아닙니다. 개발 분기는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에 게시되어 있습니다. ASF를 소스에서 컴파일하거나 참조하려면 목적에 맞는 적절한 **[태그](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** 를 사용해야 합니다. 이는 최소한 성공적인 컴파일을 보장하고, 안정 릴리스로 표시된 빌드는 거의 흠없는 실행도 가능합니다. 트리의 현재 "상태"를 체크하려면 **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 나 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)** 등 CI를 사용하시기 바랍니다.
 
 * * *
 

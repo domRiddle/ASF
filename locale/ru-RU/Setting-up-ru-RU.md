@@ -12,7 +12,7 @@
 
 В общем случае, вот что нам придётся сделать в следующие несколько минут:
 
-- Установить **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Установить **[предусловия для .NET Core](#net-core-prerequisites)**.
 - Скачать **[последнюю версию ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в варианте для конкретной ОС.
 - Распаковать архив в новую папку (и выполнить `chmod +x ArchiSteamFarm` если вы работаете в Linux/OS X).
 - **[Сконфигурировать ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**.

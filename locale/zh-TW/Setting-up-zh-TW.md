@@ -12,7 +12,7 @@
 
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
 
-- 安裝 **[.NET Core 必要條件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
+- 安裝 **[.NET Core 必要條件](#net-core-prerequisites)**。
 - 下載適合您作業系統的**[最新 ASF 版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**變體。
 - 解壓縮檔案到新位置（若使用Linux/OS X 系統，請執行指令 `chmod +x ArchiSteamFarm`）。
 - **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**

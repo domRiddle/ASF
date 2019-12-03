@@ -134,7 +134,7 @@ server {
 }
 ```
 
-Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+다음은 아파치 환경설정의 예시입니다. 더 자세한 설명이 필요하면 **[apache 문서(영문)](https://httpd.apache.org/docs)** 를 참고하십시오.
 
 ```apache
 <IfModule mod_ssl.c>

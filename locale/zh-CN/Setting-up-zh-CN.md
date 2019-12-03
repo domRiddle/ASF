@@ -12,8 +12,8 @@
 
 通常，我们只需要花费几分钟进行下列操作：
 
-- 安装 **[.NET Core 依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
-- 在 &#8203;**[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载合适的 OS-specific 包。
+- 安装 **[.NET Core 依赖项](#net-core-依赖)**。
+- 在 &#8203;**[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载适合您操作系统的包。
 - 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm`。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 运行并开始使用 ASF。

@@ -69,4 +69,4 @@ ASF STM 清單暫時只接受 ASF 機械人。 目前無法在我們的清單中
 
 儘管我們高度鼓勵未來的計劃，但參與統計資訊**並非強制性的**。 如果您希望不為人知地使用ASF，我們不予置評，您可以將全域配置中的` Statistics `屬性切換為 `false`來**完全**禁用統計。 禁用統計資訊將使整個模組無法運行，且不會執行上述隱私政策中指定的任何操作。
 
-Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. 例如，您未啓用 `Statistics` 的話，將無法使用 `MatchActively` 功能。
+Disabling statistics may influence **our technical support, ASF functionality and other things that are offered to you for free**. For example, you can't make use of `MatchActively` without having `Statistics` enabled (as you refuse to communicate with our server for the functionality to work).

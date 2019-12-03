@@ -54,7 +54,15 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 
 ASF 已经使用工作站 GC，您可以检查 `ArchiSteamFarm.runtimeconfig.json` 中的 `System.GC.Server` 属性是否被设置为 `false` 来确认这一点。
 
-为了进一步确认已启用工作站 GC，您可以使用两个有趣的&#8203;**[配置选项](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/clr-configuration-knobs.md)**——`gcTrimCommitOnLowMemory` 和 `GCLatencyLevel`。
+为了进一步确认已启用工作站 GC，您可以使用一些有趣的&#8203;**[配置选项](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)**。 我们会在此介绍其中最有趣的几个。
+
+### `GCHeapHardLimitPercent`
+
+> 以内存百分比形式指定 GC 堆空间使用量。
+
+对 ASF 进程设置的硬性内存限制，此选项会调整 GC 仅使用一部分而不是全部内存。 这在各种服务器环境下可能非常有用，您可以为服务器上的 ASF 分配固定大小的内存，使 ASF 无法占用更多。 需要注意的是，限制 ASF 的可用内存不会神奇地减少它实际需要的内存，因此，如果将此选项设置得过低，就可能导致内存用尽的情况。
+
+另一方面，如果您希望 ASF 不会使用超出您可接受范围的内存，让您的设备在高负载的情况下依然有喘息的空间，但仍然允许程序尽可能高效率地完成它的任务，就可以合理调高这个选项。
 
 ### `GCLatencyLevel`
 
@@ -70,20 +78,28 @@ ASF 已经使用工作站 GC，您可以检查 `ArchiSteamFarm.runtimeconfig.jso
 
 * * *
 
-您可以通过 `COMPlus_` 环境变量设置它们。 例如，在 Linux 上：
+您可以通过 `COMPlus_` 环境变量启用以上所有选项。 例如，在 Linux 上（Shell）：
 
 ```shell
+# 如要使用此功能，不要忘记调整此数值
+export COMPlus_GCHeapHardLimitPercent=75
+
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
-./ArchiSteamFarm
+
+./ArchiSteamFarm # 针对操作系统包
 ```
 
-或者在 Windows 上：
+或者在 Windows 上（Powershell）：
 
-```bat
-SET COMPlus_GCLatencyLevel=0
-SET COMPlus_gcTrimCommitOnLowMemory=1
-.\ArchiSteamFarm.exe
+```powershell
+# 如要使用此功能，不要忘记调整此数值
+$Env:COMPlus_GCHeapHardLimitPercent=75
+
+$Env:COMPlus_GCLatencyLevel=0
+$Env:COMPlus_gcTrimCommitOnLowMemory=1
+
+.\ArchiSteamFarm.exe # 针对操作系统包
 ```
 
 其中 `GCLatencyLevel` 将非常有用，因为我们可以验证运行时环境确实为内存优化了代码，因此即使采用服务器 GC 也会显著降低平均内存使用量。 如果您希望显著降低 ASF 的内存用量，但不希望 `OptimizationMode` 造成严重的性能下降，那么这是您可以选择的最佳技巧之一。

@@ -18,6 +18,8 @@ Our basic FAQ covers standard questions and answers that you may have. Pro mén�
 
 ### Why does the program claim that there is nothing to idle on my account?
 
+### Why is my account limited?
+
 Dříve než se pokusíte pochopit, co je ASF, měli byste se ujistit, že rozumíte tomu, co jsou Steam karty a jak je získat, což je dobře popsáno v oficiálním FAQ **[zde](https://steamcommunity.com/tradingcards/faq)**.
 
 Ve zkratce, Steam karty jsou sbíratelné položky, které můžete získat při vlastnictví konkrétní hry a mohou být použity pro výrobu odznaků, prodej na komunitním trhu služby Steam, nebo jakýkoliv jiný účel.
@@ -27,7 +29,7 @@ Core points are stated once again here, because people in general don't want to 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. Rodinné sdílení se nepočítá.**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. To zahrnuje F2P hry jako Team Fortress 2 nebo Dota 2. Owning F2P games does not grant you with card drops.**
-- **You can't drop cards on limited accounts (those that never spent $5 in steam store), regardless of owned games. It was possible in the past, but it's no longer the case.**
+- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. It was possible in the past, but it's no longer the case.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 

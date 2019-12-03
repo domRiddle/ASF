@@ -246,17 +246,17 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 * * *
 
-## Hall of fame
+## 명예의 전당
 
-We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+더 나은 ASF 현지화를 위해 자신의 소중한 시간을 할애해준 사람들에게 영원한 감사를 전하고 싶습니다. 이 기여자들은 적어도 **총 2만 단어** 이상을 번역했습니다. 이는 전체 프로젝트의 절반정도입니다. 그들의 노력은 믿을 수 없는 것이고, 당신은 그들 덕에 위키를 포함한 완벽한 번역을 즐길 수 있습니다.
 
-| Contributor                                                | Languages          |
-| ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanish            |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| 기여자                                                        | 언어           |
+| ---------------------------------------------------------- | ------------ |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | 스페인어         |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 포르투칼어(BR)    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 중국어(CN)      |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 러시아어와 우크라이나어 |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 독일어          |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 중국어(HK)      |
 
-Thank you all for improving our ASF localization quality!
+ASF 현지화의 품질을 개선해주셔서 감사합니다!
