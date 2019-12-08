@@ -24,18 +24,18 @@
 
 ### Передумови для .NET Core
 
-Перший крок це переконатися, що ваша ОС взагалі може коректно запустити ASF. ASF запрограмовано на C#, на основі .NET Core та може потребувати нативні бібліотеки, які ще недоступні для вашої платформи. Залежно від того, користуєтесь ви Windows, Linux чи OS X, у вас будуть різні вимоги, але усі вони приведені у документі **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**, тож користуйтеся ним. Це наш довідковий матеріал, яким слід користуватися, але щоб зробити це простішим для вас ми також наводимо усі необхідні пакети нижче, тому вам немає необхідності читати повний документ.
+Перший крок це переконатися, що ваша ОС взагалі може коректно запустити ASF. ASF запрограмовано на C#, на основі .NET Core та може потребувати нативні бібліотеки, які ще недоступні для вашої платформи. Залежно від того, користуєтесь ви Windows, Linux чи OS X, у вас будуть різні вимоги, але усі вони приведені у документі **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**, тож користуйтеся ним. Це наш довідковий матеріал, яким слід користуватися, але щоб зробити це простішим для вас ми також наводимо усі необхідні пакети нижче, тому вам немає необхідності читати повний документ.
 
 Цілком нормально, якщо деякі (або навіть усі) залежності вже існують у вашій системі через те, що були встановлені якимось програмним забезпеченням, яким ви вже користуєтесь. Однак, вам слід переконатися що це саме так запустивши відповідний інсталятор для вашої ОС - без цих залежностей ASF взагалі не запуститься.
 
 Пам'ятайте, що вам не потрібно більше нічого для запуску пакетів ASF для конкретної ОС, особливо встановлювати .NET Core SDK чи навіть середовище виконання, оскільки пакет для конкретної ОС вже включає все це до свого складу. Вам потрібні лише передумови для .NET Core (залежності), щоб запустити середовище виконання включене до ASF.
 
-#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore30)**:
+#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 для 64-bit Windows, x86 для 32-bit Windows)
 - Наполегливо рекомендуємо переконатися, що усі оновлення Windows вже встановлені. Якнайменше вам потрібні пакети **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** та **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, але можуть бути потрібні й інші. Усі вони вже встановлені якщо ваша Windows цілком оновлена. Переконайтеся що виконали ці вимоги перш ніж встановлювати пакет Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore30)**:
+#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Назви пакетів залежать від обраного дистрибутиву Linux, тож ми наводимо найпоширеніші з них. Ви можете отримати усі з них через стандартний менеджер пакетів у вашій ОС (такий як `apt` для Debian чи `yum` для CentOS).
 
@@ -48,7 +48,7 @@
 
 Принаймні деякі з цих пакетів мають бути вже встановлені у вашій системі (як наприклад `zlib1g`, який наразі є необхідним для майже кожного дистрибутиву Linux).
 
-#### **[OS X](https://docs.microsoft.com/en-us/dotnet/core/macos-prerequisites?tabs=netcore30)**:
+#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - На даний час додаткових передумов немає, але у вас має бути встановлена остання версія OS X, якнайменше 10.13+
 
@@ -252,7 +252,7 @@ ASF це консольна програма, і не включає в себе
 
 Тож, разом з додатковими кроками, вам треба:
 
-- Встановити **[передумови для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**.
+- Встановити **[передумови для .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**.
 - Встановити **[.NET Core SDK](https://www.microsoft.com/net/download)** (чи принаймні runtime), відповідний до вашої ОС. Найвірогідніше ви схочете скористуватися інсталятором. Зверніться до розділу "**[Вимоги середовища виконання](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-uk-UA#Вимоги-середовища-виконання<)**", якщо не впевнені яку версію вам потрібно встановити.
 - Скачати **[останній випуск ASf](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в універсальному варіанті.
 - Розпакувати архів до нового місця (та зробити `chmod +x ArchiSteamFarm.sh` якщо ви під Linux/OS X).

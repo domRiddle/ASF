@@ -17,7 +17,7 @@ Independente da plataforma, você precisa do SDK completo do .NET Core (e não a
 Assumindo que você tenha o SDK do .NET Core na versão apropriada, simplesmente navegue para o diretório raiz do ASF (copiado ou baixado e descompactado do repositório do ASF) e execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "/p:PublishTrimmed=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic" "/p:PublishTrimmed=false"
 ```
 
 Se você estiver usando Linux/OS X, você pode usar o código `cc.sh`, que fará o mesmo de uma maneira um pouco mais complexa.
@@ -29,14 +29,14 @@ Se a compilação obteve sucesso você poderá encontrar a `source` da sua vers�
 Você também pode gerar um pacote .NET Core específico para OS se você tiver uma necessidade particular. Em geral, você não deverá fazer isso, pois você já compilou o tipo `genérico` que você pode rodar em seu já instalado tempo de execução .NET Core, que você usou para a compilação, mas caso você queira:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal como `win-x64`. Essa compilação também terá as atualizações desabilitadas.
 
 ### .NET framework
 
-Em casos muito raros, quando você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `netcoreapp3.0` para `net48`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET Core, então a instrução abaixo funcionará apenas no Windows:
+Em casos muito raros, quando você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `netcoreapp3.1` para `net48`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET Core, então a instrução abaixo funcionará apenas no Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"

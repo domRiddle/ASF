@@ -6,7 +6,7 @@ No modo automático o ASF não permite que você escolha quais jogos que devem s
 
 * * *
 
-Há algum tempo a Valve mudou o algoritmo de recebimento de cartas. Desse ponto em diante, nós pode dividir as contas do Steam em duas categorias: aquelas **com** recebimento de cartas restito e aquelas **sem**. A única diferença entre esses dois tipos é o fato de que as contas com restrição não recebem nenhuma carta de determinado jogo até que ele seja jogado por, no mínimo, `X` horas. Parece que contas mais antigas que nunca pediram reembolso têm **a coleta de cartas irrestrita**, enquanto novas contas e aqueles que pediram reembolso têm **a restrição**. No entanto isso é apenas uma teoria e não deve ser tomada como regra. É por isso que **não há uma resposta óbvia**, e o ASF depende de **você** dizer qual o caso da sua conta.
+Há algum tempo a Valve mudou o algoritmo de recebimento de cartas. Desse ponto em diante, nós podemos dividir as contas do Steam em duas categorias: aquelas **com** recebimento de cartas restito e aquelas **sem**. A única diferença entre esses dois tipos é o fato de que as contas com restrição não recebem nenhuma carta de determinado jogo até que ele seja jogado por, no mínimo, `X` horas. Parece que contas mais antigas que nunca pediram reembolso têm **a coleta de cartas irrestrita**, enquanto novas contas e aqueles que pediram reembolso têm **a restrição**. No entanto isso é apenas uma teoria e não deve ser tomada como regra. É por isso que **não há uma resposta óbvia**, e o ASF depende de **você** dizer qual o caso da sua conta.
 
 * * *
 

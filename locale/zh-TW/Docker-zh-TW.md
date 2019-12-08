@@ -150,7 +150,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 * * *
 
-### Complete example
+### 完整範例
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 

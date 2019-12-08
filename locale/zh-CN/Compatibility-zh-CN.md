@@ -45,7 +45,7 @@ ASF 目前提供以下几种 OS-specific 包：
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET Core 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET Core 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET Core 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET Core SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。
 
-您可以访问&#8203;**[发行说明](https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-supported-os.md)**&#8203;查看完整的 .NET Core 3.0 支持的平台与操作系统列表。
+您可以访问&#8203;**[发行说明](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md)**&#8203;查看完整的 .NET Core 3.1 支持的平台与操作系统列表。
 
 * * *
 
@@ -55,7 +55,7 @@ ASF 目前提供以下几种 OS-specific 包：
 
 但如果您使用 **Generic** 包，则必须保证已安装 ASF 所需的对应平台的 .NET Core 运行时环境。
 
-ASF 目前指向的构建目标是 **.NET Core 3.0**（`netcoreapp3.0`），但在未来可能会指向更高版本。 `netcoreapp3.0` 自 3.0.100 SDK（3.0.0 运行时环境）以来就受到支持，但 ASF 以**编译时最新版本的运行时环境**为构建目标，所以您应该确保您的机器上有&#8203;**[最新版 SDK](https://dotnet.microsoft.com/download)**（或至少有运行时环境）。 如果您的运行时环境版本低于编译时的已知最低目标版本，Generic ASF 包将会拒绝启动。
+ASF 目前指向的构建目标是 **.NET Core 3.1**（`netcoreapp3.1`），但在未来可能会指向更高版本。 `netcoreapp3.1` 自 3.1.100 SDK（3.1.0 运行时环境）以来就受到支持，但 ASF 以**编译时最新版本的运行时环境**为构建目标，所以您应该确保您的机器上有&#8203;**[最新版 SDK](https://dotnet.microsoft.com/download)**（或至少有运行时环境）。 如果您的运行时环境版本低于编译时的已知最低目标版本，Generic ASF 包将会拒绝启动。
 
 如有疑问，您可以访问我们用于编译并在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每个构建的顶端看到 `dotnet --info` 的输出。
 
@@ -67,6 +67,6 @@ ASF 目前指向的构建目标是 **.NET Core 3.0**（`netcoreapp3.0`），但�
 
 OpenVZ 内核通常基于非常旧的 Linux 内核版本（2.6），此版本似乎不兼容最新的 .NET Core 运行时环境。 如果您尝试在这种环境下运行 ASF，就可能会遇到各种与锁相关的问题，并通常表现为程序卡死。 参见相关的 CoreCLR Issue：https://github.com/dotnet/coreclr/issues/26873
 
-我们的建议是放弃 OpenVZ 架构，转向更好的虚拟化方案，例如 KVM。 这里提到的问题的确是 .NET Core 运行时环境的一个漏洞，并且应当在下个版本 .NET Core 运行时环境（3.1，也可能是 3.0）中被&#8203;**[修复](https://github.com/dotnet/coreclr/pull/26912)**，但暂无明确的时间。 如果无法迁移到更好的虚拟化方案，则在此问题被修复之前，您可以考虑使用 `mono` 运行 ASF 的 `generic-netf` 包。
+我们的建议是放弃 OpenVZ 架构，转向更好的虚拟化方案，例如 KVM。 这里提到的问题的确是 .NET Core 运行时环境的一个漏洞，并且应当在下个版本 .NET Core 运行时环境（3.1 服务补丁）中被&#8203;**[修复](https://github.com/dotnet/coreclr/pull/26912)**，但暂无明确的时间。 如果无法迁移到更好的虚拟化方案，则在此问题被修复之前，您可以考虑使用 `mono` 运行 ASF 的 `generic-netf` 包。
 
 当然，您也可以运行之前版本的 ASF（V4.0），但运行过时版本的 ASF 不受我们支持，还可能为您带来其他更严重的问题。

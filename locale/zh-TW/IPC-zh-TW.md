@@ -210,7 +210,7 @@ There are 2 properties worth explanation/editing, those are `Endpoints` and `Pat
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-### Example config
+### 設定檔範例
 
 The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
 

@@ -119,7 +119,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### Global links
+### 全域連結
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -228,7 +228,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 * * *
 
-### Code blocks
+### 程式碼區塊
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 範例：
 
@@ -259,4 +259,4 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 | **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
 
-Thank you all for improving our ASF localization quality!
+感謝你們提升 ASF 的在地化品質！

@@ -45,7 +45,7 @@ ASF está atualmente disponível nas seguintes variantes específicas de Sistema
 
 Claro, mesmo que não haja um pacote de Sistema Operacional específico para a sua combinação de arquitetura de Sistema, você sempre pode instalar o tempo de execução .NET Core por sua conta e rodar o pacote genérico do ASF, que também é uma das principais razões para ele existir em primeiro lugar. O pacote genérico do ASF não depende de plataforma e será executado em qualquer plataforma que tenha o tempo de execução .NET Core funcional. Há algo importante de se notar: o ASF requer o tempo de execução .NET Core, não um Sistema Operacional ou arquitetura específicos. Por exemplo, se você estiver rodando o Windows de 32 bits, apesar de não haver versão do ASF dedicado `win-x86`, você pode instalar o .NET Core SDK na versão `win-x86` e rodar o ASF genérico tranquilamente. Nós simplesmente não podemos atender a todas as combinações de arquitetura de Sistemas Operacionais que existam e são usadas por alguém, então temos que traçar um limite em algum lugar. O x86 é um bom exemplo desse limite, já que é uma arquitetura obsoleta desde pelo menos 2004.
 
-Para uma lista completa de todas as plataformas e Sistemas Operacionais suportados pelo .NET Core 3.0, visite as **[notas de lançamento](https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-supported-os.md)**.
+Para uma lista completa de todas as plataformas e Sistemas Operacionais suportados pelo .NET Core 3.1, visite as **[notas de lançamento](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md)**.
 
 * * *
 
@@ -55,7 +55,7 @@ Se você estiver usando um pacote para Sistema Operacional específico você nã
 
 No entanto, se você está tentando executar o pacote **genérico** do ASF, você deve garantir o que o seu tempo de execução .NET Core ofereça suporte a plataforma requerida pelo ASF.
 
-O ASF, como programa, utiliza o **.NET Core 3.0** (`netcoreapp3.0`) agora, mas ele deve utilizar plataformas mais novas no futuro. O `netcoreapp3.0` é suportado desde o SDK 3.0.100 (tempo de execução 3.0.0), porém o ASF é configurado para buscar o **tempo de execução mais recente na hora da compilação**, então você deve garantir que você tem a **[SDK mais recente](https://dotnet.microsoft.com/download)** (ou ao menos o tempo de execução) disponível para o seu computador. A variante genéria do ASF pode se recusar a iniciar se o seu tempo de execução for mais antigo que o utilizado durante a compilação.
+O ASF, como programa, utiliza o **.NET Core 3.1** (`netcoreapp3.1`) agora, mas ele deve utilizar plataformas mais novas no futuro. O `netcoreapp3.1` é suportado desde o SDK 3.1.100 (tempo de execução 3.1.0), porém o ASF é configurado para buscar o **tempo de execução mais recente na hora da compilação**, então você deve garantir que você tem a **[SDK mais recente](https://dotnet.microsoft.com/download)** (ou ao menos o tempo de execução) disponível para o seu computador. A variante genéria do ASF pode se recusar a iniciar se o seu tempo de execução for mais antigo que o utilizado durante a compilação.
 
 Em caso de dúvida, verifique o que nossa **[integração contínua usa](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar e implantar as versões do ASF liberadas no GitHub. Você pode encontrar a saída `dotnet --info` no topo de cada compilação.
 
@@ -67,6 +67,6 @@ Em caso de dúvida, verifique o que nossa **[integração contínua usa](https:/
 
 O kernel OpenVZ é geralmente baseado em uma versão muito antiga (2.6) do kernel Linux que parece incompatível com o tempo de execução do .NET Core mais recente. Se você está tentando executar o ASF nesse ambiente, você pode encontrar vários problemas relacionados ao bloqueio, normalmente sob forma de congelamento do processo. Veja problemas relacionados ao CoreCLR em: https://github.com/dotnet/coreclr/issues/26873
 
-A nossa recomendação é trocar o OpenVZ por soluções de virtualização muito melhores, como a KVM. O problema descrito aqui é, de fato, um bug do .NET Core que deve ser **[corrigido](https://github.com/dotnet/coreclr/pull/26912)** na próxima atualização (3.1, prvavelmente até na 3.0), mas não há data até o momento. Se você não pode mudar para uma melhor solução de virtualização, você pode considerar executar a variante `generic-netf` com `mono`, ao menos até que a nova versão do tempo de execução seja lançada.
+A nossa recomendação é trocar o OpenVZ por soluções de virtualização muito melhores, como a KVM. O problema descrito aqui é, de fato, um bug do .NET Core que deve ser **[corrigido](https://github.com/dotnet/coreclr/pull/26912)** na próxima atualização (atualização de serviço 3.1), mas não há data até o momento. Se você não pode mudar para uma melhor solução de virtualização, você pode considerar executar a variante `generic-netf` com `mono`, ao menos até que a nova versão do tempo de execução seja lançada.
 
 É claro que você também pode executar a versão anterior do ASF (V4.0), mas as versões obsoletas do ASF não contam com nosso suporte e podem causar problemas completamente diferentes, possivelmente mais severos.

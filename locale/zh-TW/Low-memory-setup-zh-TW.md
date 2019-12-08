@@ -22,7 +22,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 * * *
 
-## ASF setup (easy)
+## ASF 設定（簡單）
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
@@ -42,7 +42,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 * * *
 
-## Runtime tuning (advanced)
+## 執行階段調整（進階）
 
 Below tricks **involve performance degradation** and should be used with caution.
 
@@ -90,7 +90,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+或在 Windows 上（PowerShell）：
 
 ```powershell
 # Don't forget to tune this one if you're going to use it

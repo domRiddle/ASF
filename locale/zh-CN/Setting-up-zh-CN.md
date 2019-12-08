@@ -24,18 +24,18 @@
 
 ### .NET Core 依赖
 
-第一步是确保您的操作系统至少能够正常运行 ASF。 ASF 是以 C# 编写的，基于 .NET Core 框架，并且可能依赖于一些您的平台尚未支持的本机库。 取决于您使用 Windows、Linux 还是 macOS，您将需要满足不同的要求，但所有要求都写在了您需要阅读的 **[.NET Core 依赖](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**&#8203;文档中。 这是我们应该使用的参考材料，但为了简单起见，我们也在下文列出了所需的一切，这样您就不需要去阅读完整的文档。
+第一步是确保您的操作系统至少能够正常运行 ASF。 ASF 是以 C# 编写的，基于 .NET Core 框架，并且可能依赖于一些您的平台尚未支持的本机库。 取决于您使用 Windows、Linux 还是 macOS，您将需要满足不同的要求，但所有要求都写在了您需要阅读的 **[.NET Core 依赖](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**&#8203;文档中。 这是我们应该使用的参考材料，但为了简单起见，我们也在下文列出了所需的一切，这样您就不需要去阅读完整的文档。
 
 由于您安装的第三方软件，有可能您的操作系统已经满足了一部分（甚至所有）依赖项，这是很正常的。 不过，您还是应该在操作系统上运行这些依赖项的安装程序来确保它们确实被安装了——如果缺少这些依赖项，ASF 将完全无法启动。
 
 请注意，您不需要为特定操作系统包进行其他准备工作，特别是安装 .NET Core SDK 或者运行时环境，因为操作系统包中已包含了它们。 您只需要安装 .NET Core 依赖项，使 ASF 自带的 .NET Core 运行时环境能够运行。
 
-#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/windows-prerequisites?tabs=netcore30)**：
+#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**：
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/zh-cn/download/details.aspx?id=53587)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
 - 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
 
-#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?tabs=netcore30)**：
+#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**：
 
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
@@ -48,7 +48,7 @@
 
 至少有一部分包应该已经在您的系统中了（例如 `zlib1g` 应该是大多数现代 Linux 发行版的基础组件）。
 
-#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/macos-prerequisites?tabs=netcore30)**：
+#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**：
 
 - 目前没有，但您应该安装最新版本的 macOS，至少应为 10.13+
 
@@ -252,7 +252,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 添加额外的步骤之后：
 
-- 安装 **[.NET Core 依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。
+- 安装 **[.NET Core 依赖项](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**。
 - 安装适合您操作系统的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或至少安装运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 - 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 Generic 包。
 - 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm.sh`。

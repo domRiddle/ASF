@@ -160,19 +160,19 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 * * *
 
-## Chat logging
+## 聊天記錄
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
-### Event properties
+### 事件內容
 
-| 名稱          | 描述                                                                                                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong` type. This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| 名稱          | 描述                                                                                                                                                                                                         |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Echo        | `bool` 類型。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
+| Message     | `string` 類型。 This is the actual sent/received message.                                                                                                                                                     |
+| ChatGroupID | `ulong` 類型。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
+| ChatID      | `ulong` 類型。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
+| SteamID     | `ulong` 類型。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
 ### 範例
 
@@ -209,7 +209,7 @@ Of course this is just a working example with a few nice layout tricks showed in
 
 * * *
 
-## ASF targets
+## ASF 目標
 
 In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
 
@@ -244,7 +244,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 #### Parameters
 
-##### General Options
+##### 一般選項
 
 *name* - Name of the target.
 
@@ -258,11 +258,11 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### SteamTarget Options
 
-*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
+*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. 非必要。 Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
 
 *steamID* - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to 0 which disables logging target entirely.
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
+*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) of target bot that will be sending messages to `steamID` declared above. 非必要。 Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist.
 
 * * *
 
@@ -291,7 +291,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 * * *
 
-#### Screenshots
+#### 螢幕擷圖
 
 ![截圖](https://i.imgur.com/5juKHMt.png)
 
@@ -322,7 +322,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 #### Parameters
 
-##### General Options
+##### 一般選項
 
 *name* - Name of the target.
 
@@ -336,7 +336,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ##### 歷史目標選項
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+*maxCount* - Maximum amount of stored logs for on-demand history. 非必要。 Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 * * *
 

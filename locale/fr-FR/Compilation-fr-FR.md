@@ -16,7 +16,7 @@ Quelle que soit la plate-forme, vous avez besoin du SDK .NET Core complet (pas s
 
 <p>En supposant que vous avez un SDK .NET Core opérationnel dans sa version appropriée, il vous suffit de naviguer vers le répertoire source ASF (cloné ou téléchargé et dés-archivé) et d'exécuter :</p>
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/generic" "/p:PublishTrimmed=false"
+<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic" "/p:PublishTrimmed=false"
 `</pre> 
 
 Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui fera de même, de manière un peu plus complexe.</p>
@@ -28,14 +28,14 @@ Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui 
 Vous pouvez également générer un package .NET Core spécifique au système d'exploitation si vous avez un besoin spécifique. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation que vous souhaitez cibler, tel que ` win-x64 `. Cette mise à jour aura également des mises à jour désactivées.
 
 ### .NET Framework 
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.0` to `net48`. N'oubliez pas que vous aurez besoin du pack de développeurs **[ .NET Framework ](https://dotnet.microsoft.com/download/visual-studio-sdks)** approprié pour la compilation de la variante ` netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.1` to `net48`. N'oubliez pas que vous aurez besoin du pack de développeurs **[ .NET Framework ](https://dotnet.microsoft.com/download/visual-studio-sdks)** approprié pour la compilation de la variante ` netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"

@@ -74,7 +74,7 @@ Now once we realized what Steam glitch is, and the fact that cards being dropped
 
 > As a Steam subscriber you agree to abide by the following conduct rules.
 > 
-> You will not:
+> 您將不會：
 > 
 > Institute attacks upon a Steam server or otherwise disrupt Steam.
 

@@ -1,8 +1,8 @@
 # 在地化
 
-ASF 由 Crowdin 提供服務，使每個人都有可能幫忙把 ASF 翻譯到世界上的所有語言。 要更多詳細解釋 Crowdin 如何工作，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
+ASF 在地化由 Crowdin 提供服務，使每個人都能幫助翻譯 ASF 為所有語言。 需要更多關於 Crowdin 如何工作的詳細解釋，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
 
-如果您對正在發生的事情感興趣，您可以查看 **[ASF Crowdin 活動](https://crowdin.com/project/archisteamfarm/activity_stream)**。
+如果您對這感興趣，請查看 ASF 的 **[Crowdin 活動](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
 * * *
 
@@ -119,7 +119,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### Global links
+### 全域連結
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -228,7 +228,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 * * *
 
-### Code blocks
+### 程式碼區塊
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 範例：
 
@@ -259,4 +259,4 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 | **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
 
-Thank you all for improving our ASF localization quality!
+感謝你們提升 ASF 的在地化品質！
