@@ -30,12 +30,12 @@ O primeiro passo é garantir que seu sistema operacional pode mesmo executar o A
 
 Você não precisa fazer mais nada para as versões para SOs específicos, especialmente instalar o .NET Core SDK ou mesmo o tempo de execução, já que o pacote específico para SO já inclui tudo. Você precisa apenas dos pré-requisitos (dependências) .NET Core para rodar o tempo de execução .NET Core incluído no ASF.
 
-#### **[Windows](https://docs.microsoft.com/pt-br/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=53587)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
 - É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/pt-br/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
@@ -48,7 +48,7 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 
 Pelo menos alguns desses já devem estar disponíveis nativamente no seu sistema (como o `zlib1g` que é exigido em quase todas as distribuições do Linux hoje em dia).
 
-#### **[OS X](https://docs.microsoft.com/pt-br/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.13+
 
@@ -82,9 +82,9 @@ Uma exemplo de extrutura seria assim:
 
 Essa também é a estrutura que recomendamos, então você não precisa passar por um grande número de arquivos e pastas incluídas no ASF, já que para o uso você só precisa de um atalho para a pasta de configuração e para o executável principal.
 
-Certo, agora vamos preparar a pasta do ASF para o uso. Se você quiser você já pode pular para o próximo passo, uma vez que limpar a estrutura do ASF não é necessário, mas vai deixar sua vida um pouco mais fácil.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-Abra a pasta do ASF e encontre arquivo executável principal, é o `ArchiSteamFarm.exe` no Windows e `ArchiSteamFarm` no Linux/OS X. Clique com o botão direito do mouse e selecione "copiar". Agora, navegue até o local que você quer colocar o atalho do ASF (por exemplo, sua área de trabalho), clique com o botão direito e escolha "colar atalho aqui". Você pode renomear o atalho se você quiser, dando-lhe o nome de "ASF" por exemplo. Agora faça o mesmo com a pasta `config` que você pode encontrar no mesmo lugar que o executável do ASF.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Agora, navegue até o local que você quer colocar o atalho do ASF (por exemplo, sua área de trabalho), clique com o botão direito e escolha "colar atalho aqui". Você pode renomear o atalho se você quiser, dando-lhe o nome de "ASF" por exemplo. Agora faça o mesmo com a pasta `config` que você pode encontrar no mesmo lugar que o executável do ASF.
 
 Após uma pequena limpeza você terá uma estrutura muito conveniente, similar a essa abaixo:
 

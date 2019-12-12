@@ -30,12 +30,12 @@
 
 특정 OS용 빌드는 이미 모든 것을 포함하고 있으므로 .NET Core SDK나 런타임의 설치 등 다른 어떤 것도 할 필요가 없다는 것을 명심하십시오. ASF에 포함된 .NET Core 런타임을 실행하기 위해서는 .NET Core 필수 구성 요소(종속 프로그램)만 필요합니다.
 
-#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - 모든 윈도우 업데이트를 미리 설치해 놓는 것을 매우 권장합니다. 적어도 **[KB2533623](https://support.microsoft.com/ko-kr/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**과 **[KB2999226](https://support.microsoft.com/ko-kr/help/2999226/update-for-universal-c-runtime-in-windows)**은 필수이고 더 많은 업데이트가 필요할 수 있습니다. 윈도우가 최신 상태라면 모든 것이 설치되어 있을 것입니다. Visual C++ 패키지를 설치하기 전에 요구사항을 충족하는지 확인하십시오.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 리눅스 배포판에 따라 패키지 이름이 다릅니다. 아래에 공통적인 것들을 나열했습니다. 데비안에서는 `apt`, CentOS에서는 `yum` 등 OS에서 사용하는 자체 패키지 관리자를 통해 전부를 설치할 수 있습니다.
 
@@ -48,7 +48,7 @@
 
 At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - 현재는 없습니다만, 적어도 10.13 이상의 OS X 최신버전이 설치되어 있어야 합니다.
 
@@ -82,9 +82,9 @@ ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 �
 
 이것이 우리가 권장하는 구조입니다. 사용을 위해서 ASF에 포함된 수많은 파일과 폴더를 거칠 필요없이 설정(config) 폴더와 메인 실행파일의 바로가기만 있으면 됩니다.
 
-좋습니다. 이제 ASF 폴더가 사용준비되었습니다. 원한다면 다음 단계는 넘어가도 됩니다. ASF 구조를 정리하는 것은 필수작업은 아닙니다. 하지만 삶이 조금 쉬워지긴 합니다.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-ASF 폴더를 열어서 핵심 실행 파일을 찾으십시오. 윈도우는 `ArchiSteamFarm.exe`이고 리눅스나 OS X는 `ArchiSteamFarm`입니다. 마우스 오른쪽 버튼을 누르고 "복사"를 선택합니다. 이제 바탕화면 같이 ASF 바로가기를 실제로 놓을 곳으로 가서 마우스 오른쪽 버튼을 누르고 "바로가기 붙여넣기"를 선택합니다. 바로가기는 "ASF" 같이 원하는 이름으로 바꿀 수 있습니다. `config` 디렉토리는 ASF 실행파일이 있는 곳에 있으며, 동일하게 해줍니다.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". 이제 바탕화면 같이 ASF 바로가기를 실제로 놓을 곳으로 가서 마우스 오른쪽 버튼을 누르고 "바로가기 붙여넣기"를 선택합니다. 바로가기는 "ASF" 같이 원하는 이름으로 바꿀 수 있습니다. `config` 디렉토리는 ASF 실행파일이 있는 곳에 있으며, 동일하게 해줍니다.
 
 정리가 끝나면 아래와 같이 아주 편리한 구조를 갖게 됩니다.
 

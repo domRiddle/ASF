@@ -40,7 +40,7 @@
 
 ## 도구
 
-- **[키 추출기](https://ske.pixv.io)**, 키를 복사-붙여넣기해서 다양한 형식으로 만들 수 있으며 ASF의 `redeem` 명령을 만들 수 있습니다. 자세한 내용은 **[GitHub repo](https://github.com/PixvIO/SKE)** 를 확인하시기 바랍니다.
+- **[키 추출기](https://ske.xpixv.com)**, 키를 복사-붙여넣기해서 다양한 형식으로 만들 수 있으며 ASF의 `redeem` 명령을 만들 수 있습니다. 자세한 내용은 **[GitHub repo](https://github.com/PixvIO/SKE)** 를 확인하시기 바랍니다.
 - **[ASF 대량 환경설정 에디터](https://github.com/genesix-eu/ASF_MCE)**, 다량의 ASF 환경설정을 더 쉽게 관리할 수 있습니다.
 
 * * *

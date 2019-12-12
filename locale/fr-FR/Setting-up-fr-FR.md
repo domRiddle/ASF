@@ -30,12 +30,12 @@ Il est parfaitement normal que quelques (ou mêmes tous) les prérequis soient d
 
 Gardez bien à l'esprit que ça sera sera la seule chose à installer sur votre OS, car la plupart des OS incluent déjà les autres packages requis. Vous aurez seulement besoin des prérequis (dépendances) du .NET Core pour faire tourner l'environnement .NET Core inclus dans ASF.
 
-#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
@@ -48,7 +48,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - None for now, but you should have latest version of OS X installed, at least 10.13+
 
@@ -82,9 +82,9 @@ Un structure d'example ressemblerait à ça:
 
 C'est une structure que nous recommandons, car vous n'avez pas besoin de passer par un grand nombre de fichiers et dossiers inclus dans ASF, vu que vous avez uniquement besoin d'un raccourci vers le dossier de config et vers le .exe principal.
 
-Bien, maintenant on va préparer le dossier ASF à l'utilisation. Si vous le souhaitez, vous pouvez passer cette prochaine étape, car nettoyer la structure d'ASF n'est pas obligatoire, bien que ça vous simplifie grandement la vie.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-Ouvrez le dossier ASF et trouvez l’exécutable principal, qui sera nommé `ArchiSteamFarm.exe` sous Windows, et `ArchiSteamFarm` sur Linux/OS X. Faites un clic droit et sélectionnez "copier". Maintenant, naviguez jusque l'emplacement où vous souhaitez avoir votre raccourci vers ASF (comme votre bureau), clic droit et sélectionnez "coller le raccourci". Vous pouvez ensuite renommer le raccourci comme vous voulez, comme par exemple en l'appelant "ASF". Maintenant, faites la même chose avec le dossier `config` que vous trouverez au même endroit que l’exécutable ASF.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Maintenant, naviguez jusque l'emplacement où vous souhaitez avoir votre raccourci vers ASF (comme votre bureau), clic droit et sélectionnez "coller le raccourci". Vous pouvez ensuite renommer le raccourci comme vous voulez, comme par exemple en l'appelant "ASF". Maintenant, faites la même chose avec le dossier `config` que vous trouverez au même endroit que l’exécutable ASF.
 
 Après un peu de nettoyage, vous devriez donc avoir une structure similaire à ci dessous:
 

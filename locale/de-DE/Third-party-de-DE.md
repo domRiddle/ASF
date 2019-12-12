@@ -40,7 +40,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern ge
 
 ## Programme
 
-- **[Keys extractor](https://ske.pixv.io)**, ermöglicht es dir Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau dir das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
+- **[Keys extractor](https://ske.xpixv.com)**, ermöglicht es dir Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau dir das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, der es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
 
 * * *

@@ -40,7 +40,7 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.pixv.io)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/PixvIO/SKE)**&#8203;了解更多。
+- **[Keys extractor](https://ske.xpixv.com)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/PixvIO/SKE)**&#8203;了解更多。
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**，使您能够方便地管理多份 ASF 配置文件。
 
 * * *

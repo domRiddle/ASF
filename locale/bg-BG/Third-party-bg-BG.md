@@ -1,4 +1,4 @@
-# Third-party
+# От трета страна
 
 This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
@@ -40,7 +40,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## Tools
 
-- **[Keys extractor](https://ske.pixv.io)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
+- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
 
 * * *

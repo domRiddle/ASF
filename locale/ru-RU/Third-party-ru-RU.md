@@ -40,7 +40,7 @@
 
 ## Инструменты
 
-- **[Keys extractor](https://ske.pixv.io)**, позволяет вам копировать/вставлять ключи в различных форматах и формировать команду `redeem` для ASF. Вы найдёте подробности в **[репозитории на GitHub](https://github.com/PixvIO/SKE)**.
+- **[Keys extractor](https://ske.xpixv.com)**, позволяет вам копировать/вставлять ключи в различных форматах и формировать команду `redeem` для ASF. Вы найдёте подробности в **[репозитории на GitHub](https://github.com/PixvIO/SKE)**.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, позволяет проще управлять большим количеством конфигурационных файлов ASF.
 
 * * *

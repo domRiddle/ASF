@@ -1,6 +1,6 @@
 # 常見問題
 
-Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+基本的「常見問題」包含了您可能會问的問題和標準答案。 如果您的問題並不常見，請參閱**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**。
 
 # 目錄
 
@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 - [與類似的工具比較](#comparison-with-similar-tools)
 - [安全/隱私/VAC/封鎖/條款](#security--privacy--vac--bans--tos)
 - [其他](#misc)
-- [問題](#issues)
+- [執行問題](#issues)
 
 * * *
 
@@ -16,20 +16,20 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 ### 什麼是 ASF？
 
-### Why does the program claim that there is nothing to idle on my account?
+### 為什麼程式提示「這個帳戶目前沒有需要掛卡的遊戲」？
 
 ### 為什麼我的帳戶受限制？
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+在嘗試瞭解什麼是 ASF 之前，你應該先瞭解什麼是交換卡片以及它的獲得方法，這在 Steam 官方的**[常見問題](https://steamcommunity.com/tradingcards/faq)**中有詳細的描述。
 
 Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
 
 Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Family sharing doesn't count.**
+- **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不包含在內。**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you with card drops.**
-- **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 It was possible in the past, but it's no longer the case.**
+- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 這跟永久免費遊玩的遊戲有關，像是《絕地要塞2》或 Dota 2。 擁有免費遊戲不會讓您掉落卡片。**
+- **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 （曾經可以，但現在已經無法掉落了。）**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
@@ -47,7 +47,7 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 * * *
 
-### Do I have to put my account credentials?
+### 我必須輸入我的帳戶認證嗎？
 
 **是的**。 ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
 
@@ -87,7 +87,7 @@ It's very likely that in the future we'll see working .NET Core for Android itse
 
 * * *
 
-### Can I choose which games should be idled?
+### 我可以選擇要給那些遊戲掛卡嗎？
 
 **Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
@@ -105,7 +105,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-### Is ASF similar to Idle Master?
+### ASF 跟 Idle Master 類似嗎？
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -325,7 +325,7 @@ With cards farming module paused/disabled, you can make use of extra ASF feature
 
 * * *
 
-### Can ASF minimize to tray?
+### ASF 能最小化到工作列吗？
 
 ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](http://rbtray.sourceforge.net)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
 
@@ -418,7 +418,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## 問題
+## 執行問題
 
 * * *
 
@@ -548,7 +548,7 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
-You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask GabeN for solution, because I can't force Steam network to accept our login keys.
+You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask Valve for solution, because I can't force Steam network to accept our login keys.
 
 As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but this will not solve the problem, only skip the initial login key failure. ASF is already aware of the issue explained here and will try its best to not use login keys if it can guarantee itself all login credentials, so there is no need to tweak `UseLoginKeys` manually if you can provide all login details together with using ASF 2FA.
 
@@ -567,7 +567,7 @@ This error can mean a lot of things, some of them include:
 
 In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You can avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
+In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). This can naturally happen over time, but if you get this issue on each login, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue **[above](#why-do-i-have-to-put-2fasteamguard-code-on-each-login--removed-expired-login-key)**. You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 

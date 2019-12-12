@@ -30,12 +30,12 @@ Es perfectamente normal que algunas (o incluso todas) las dependencias ya exista
 
 Ten en cuenta que no necesitas hacer nada más para la compilación de SO específico, especialmente instalar .NET Core SDK o incluso "runtime", ya que el paquete de SO específico ya incluye todo eso. Solamente necesitas los prerrequisitos de .NET Core (dependencias) para correr el tiempo de ejecución de .NET Core incluido en ASF.
 
-#### **[Windows](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore30&amp%3Bpivots=os-windows&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 para Windows de 64 bits, x86 para Windows de 32 bits)
 - Es altamente recomendado que te asegures que todas las actualizaciones de Windows ya estén instaladas. Por lo menos necesitar **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** y **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, pero podrían necesitarse más actualizaciones. Todas ellas ya están instaladas si tu Windows está actualizado. Asegúrate de cumplir esos requisitos antes de instalar el paquete Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Los nombres de los paquetes depende de la distribución de Linux que estés usando, hemos listado las más comunes. Puedes obtener todas con el administrador de paquetes nativos para tu sistema operativo (tal como `apt` para Debian o `yum` para CentOS).
 
@@ -48,7 +48,7 @@ Los nombres de los paquetes depende de la distribución de Linux que estés usan
 
 Al menos algunas de esas ya deberían estar disponibles nativamente en tu sistema (tal como `zlib1g` que es requerida en casi cualquier distro de Linux hoy en día).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - Ninguno por ahora, pero debes tener instalada la última versión de OS X, al menos 10.13+
 
@@ -82,9 +82,9 @@ Un ejemplo de la estructura se vería así:
 
 Esta es una estructura que recomendamos, para que no tengas la necesidad de navegar por un gran número de archivos y carpetas incluidos en ASF, ya que para su uso solamente necesitas un acceso directo a la carpeta de configuración (config) y el ejecutable principal.
 
-Muy bien, ahora prepararemos la carpeta de ASF para su uso. Si lo deseas, puedes saltar al siguiente paso, ya que limpiar la estructura de ASF no es obligatorio, pero hará tu vida un poco más fácil.
+Preparemos la estructura de ASF para su uso. Si lo deseas, ahora puedes saltar al siguiente paso, ya que limpiar la estructura de ASF no es necesario (especialmente si estás usando compilaciones de sistema operativo específico que ya están empaquetadas), pero puede hacer tu vida un poco más fácil.
 
-Abre la carpeta de ASF y busca el archivo ejecutable, este será `ArchiSteamFarm.exe` en Windows, y `ArchiSteamFarm` en Linux/OS X. Haz clic derecho y selecciona "copiar". Ahora navega al lugar donde quieras tener el acceso directo de ASF (como tu escritorio), haz clic derecho y elige "pegar acceso directo". Puedes renombrar tu acceso directo si lo deseas, como nombrarlo "ASF". Ahora haz lo mismo con el directorio `config` que puedes encontrar en el mismo lugar que el binario de ASF.
+Puedes abrir la carpeta de ASF y buscar el archivo ejecutable, este será `ArchiSteamFarm.exe` en Windows, y `ArchiSteamFarm` en Linux/OS X. Haz clic derecho y selecciona "copiar". Ahora navega al lugar donde quieras tener el acceso directo de ASF (como tu escritorio), haz clic derecho y elige "pegar acceso directo". Puedes renombrar tu acceso directo si lo deseas, como nombrarlo "ASF". Ahora haz lo mismo con el directorio `config` que puedes encontrar en el mismo lugar que el binario de ASF.
 
 Después de una pequeña limpieza, tendrás una estructura conveniente similar a la de abajo:
 

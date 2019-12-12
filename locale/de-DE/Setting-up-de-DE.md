@@ -30,12 +30,12 @@ Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in 
 
 Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder der Runtimes, da die betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Prerequisites (Abhängigkeiten) um die .NET Core Runtime, die bereits in ASF enthalten ist, auszuführen.
 
-#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - Wir dringend empfohlen sicherzustellen, dass alle Windows Aktualisierungen installiert sind. Du benötigst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Du kannst alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
 
@@ -48,7 +48,7 @@ Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen
 
 Wenigstens einige davon sollten bereits nativ auf deinem System verfügbar sein (wie z. B. `zlib1g` das heutzutage in fast allen Linux-Distributionen benötigt wird).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - Keine vorerst, aber du solltest die neueste Version von OS X installiert haben, mindestens 10.13+.
 
@@ -82,9 +82,9 @@ Eine Beispiel-Struktur würde wie folgt aussehen:
 
 Dies ist auch eine Struktur, die wir empfehlen würden, so dass du nicht durch eine große Anzahl von Dateien und Ordnern gehen musst, die in ASF enthalten sind, da du für die Verwendung nur eine Verknüpfung zu Konfigurationsordner und Hauptbinärdatei benötigst.
 
-Okay, wir bereiten nun den ASF-Ordner für die Verwendung vor. Wenn du möchtest, kannst du jetzt zum nächsten Schritt übergehen, da das Bereinigen der ASF-Struktur nicht erforderlich ist, aber es wird dein Leben ein wenig einfacher machen.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-Öffne den ASF-Ordner und finde die ausführbare Kerndatei. Dies ist `ArchiSteamFarm.exe` unter Windows und `ArchiSteamFarm` unter Linux/OS X. Klicke mit der rechten Maustaste darauf und wähle "Kopieren". Navigiere nun zu dem Ort an dem du die ASF-Verknüpfung haben möchtest (z.B. auf deinem Desktop), klicke mit der rechten Maustaste und wähle "Verknüpfung hier einfügen" aus. Wenn du möchtest kannst du deine Verknüpfung umbenennen, z.B. indem du ihr den Namen "ASF" gibst. Jetzt machst du dasselbe mit dem Verzeichnis `config`, das du an der gleichen Stelle wie die ASF-Binärdatei finden kannst.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Navigiere nun zu dem Ort an dem du die ASF-Verknüpfung haben möchtest (z.B. auf deinem Desktop), klicke mit der rechten Maustaste und wähle "Verknüpfung hier einfügen" aus. Wenn du möchtest kannst du deine Verknüpfung umbenennen, z.B. indem du ihr den Namen "ASF" gibst. Jetzt machst du dasselbe mit dem Verzeichnis `config`, das du an der gleichen Stelle wie die ASF-Binärdatei finden kannst.
 
 Nach einer kleinen Säuberung hast du nun eine sehr komfortable Struktur, ähnlich der untenstehenden:
 

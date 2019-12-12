@@ -2,11 +2,11 @@
 
 ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
-Below commands can be sent to the bot through various different ways:
+您可以透過這些不同的方式發送指令：
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- 透過互動式 ASF 主控台
+- 透過 Steam 私人/群組聊天
+- 透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 介面
 
 請注意，與 ASF 交互需要您擁有執行相關指令的許可權。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 設定檔屬性瞭解更多。
 
@@ -14,7 +14,7 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### 互動式主控台
 
 Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
@@ -30,9 +30,9 @@ You can execute command to given ASF bot also through Steam chat. Obviously you 
 
 ![截圖](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 BOT 同樣監聽（並加入）指定的群組交談。 This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. 這樣，ASF BOT（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
+In similar way you can also use group chat of given Steam group. 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 BOT 同樣監聽（並加入）指定的群組交談。 不同於私人聊天，因為這種方法不需要專用的 BOT 帳戶，所以可以用於「和自己交談」。 You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. 這樣，ASF BOT（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
 
-Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 BOT 交談**時一樣，使用`特定 BOT` 名稱的指令形式。 ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
+Please note that sending a command to the group chat acts like a relay. 如果您向一個含有 3 個 BOT 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 BOT 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 BOT 交談**時一樣，使用`特定 BOT` 名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 BOT 通訊的有效方式，但如果您的群組中有多個 ASF BOT，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 BOT執行相同的指令。
 
 *即使在這種情況下，您也應該使用 `<Bots>` 私人交談向 BOT 發送指令。*
 
@@ -50,7 +50,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 | 指令                                                                         | 存取              | 描述                                                                                                                                              |
 | -------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa <Bots>`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.     |
+| `2fa <Bots>`                                                         | `Master`        | 為指定 BOT 產生臨時的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​權杖。                               |
 | `2fano <Bots>`                                                       | `Master`        | 為指定 BOT 拒絕所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                          |
 | `2faok <Bots>`                                                       | `Master`        | 為指定 BOT 接受所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                          |
 | `addlicense <Bots> <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                              |
@@ -59,7 +59,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `bl <Bots>`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                             |
 | `bladd <Bots> <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                         |
 | `blrm <Bots> <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                               |
-| `exit`                                                                     | `Owner`         | 完全終止 ASF 處理程序。                                                                                                                                  |
+| `exit`                                                                     | `Owner`         | 完全終止 ASF 行程。                                                                                                                                    |
 | `farm <Bots>`                                                        | `Master`        | 重啟指定 BOT 的掛卡模塊。                                                                                                                                 |
 | `help`                                                                     | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                 |
 | `input <Bots> <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.    |
@@ -77,17 +77,17 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 | `owns <Bots> <Games>`                                          | `Operator`      | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                    |
 | `password <Bots>`                                                    | `Master`        | 顯示指定 BOT 加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                        |
 | `pause <Bots>`                                                       | `Operator`      | 停止指定 BOT 的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                             |
-| `pause~ <Bots>`                                                      | `FamilySharing` | 暫停指定 BOT 的自動掛卡模塊。 掛卡處理程序將會在下次遊戲事件被觸發時或 BOT 斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                       |
+| `pause~ <Bots>`                                                      | `FamilySharing` | 暫停指定 BOT 的自動掛卡模塊。 掛卡行程將會在下次遊戲事件被觸發時或 BOT 斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                         |
 | `pause& <Bots> <Seconds>`                                  | `Operator`      | 暫停指定 BOT 的自動掛卡模塊 `seconds` 秒。 之後，掛卡將自動恢復。                                                                                                       |
 | `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定 BOT 執行特定的 `AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 Use `reset` or `resume` for returning.                                             |
 | `privacy <Bots> <Settings>`                                    | `Master`        | 變更指定 BOT 的 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                  |
-| `redeem <Bots> <Keys>`                                         | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances.                                                                                   |
-| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                         |
+| `redeem <Bots> <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                  |
+| `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                         |
 | `reset <Bots>`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                       |
-| `重新啟動`                                                                     | `Owner`         | 重啟 ASF 處理程序。                                                                                                                                    |
-| `resume <Bots>`                                                      | `FamilySharing` | 恢復指定 BOT 的自動掛卡處理程序。 參見 `pause` 和 `play`。                                                                                                        |
+| `重新啟動`                                                                     | `Owner`         | 重啟 ASF 行程。                                                                                                                                      |
+| `resume <Bots>`                                                      | `FamilySharing` | 恢復指定 BOT 的自動掛卡行程。 參見 `pause` 和 `play`。                                                                                                          |
 | `start <Bots>`                                                       | `Master`        | 啟動指定 BOT。                                                                                                                                       |
-| `stats`                                                                    | `Owner`         | 顯示處理程序統計資訊，例如託管記憶體用量。                                                                                                                           |
+| `stats`                                                                    | `Owner`         | 顯示行程統計資訊，例如託管記憶體用量。                                                                                                                             |
 | `status <Bots>`                                                      | `FamilySharing` | 顯示指定 BOT 的狀態。                                                                                                                                   |
 | `stop <Bots>`                                                        | `Master`        | 停止指定 BOT。                                                                                                                                       |
 | `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                            |
@@ -132,9 +132,9 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 `<Bots>`是複數參數的一個特殊變體，除了接受多個值以外，它還有額外的功能。
 
-首要的是，您可以使用特殊的關鍵字 `ASF` 來表示「所有 BOT」，因此 `status ASF` 指令等同於 `status all,your,bots,listed,here`。 這也可以方便地識別您有權操作哪些 BOT，因為儘管 `ASF` 關鍵字的目標是所有 BOT，但只有您能夠實際發送指令的 BOT 才會作出回應。
+首要的是，您可以使用特殊的關鍵字 `ASF` 來表示「所有 BOT」，因此 `status ASF` 指令等同於 `status all,your,bots,listed,here`。 這也可以方便地辨識您有權操作哪些 BOT，因為儘管 `ASF` 關鍵字的目標是所有 BOT，但只有您能夠實際發送指令的 BOT 才會作出回應。
 
-`<Bots>`引數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `<Bots>`情況下的一般語法為 `firstBot..lastBot`。 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E` 。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `firstBot` 和`lastBot`必須是 ASF 能夠識別的有效 BOT 名稱，否則範圍語法將不會生效。
+`<Bots>`引數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `<Bots>`情況下的一般語法為 `firstBot..lastBot`。 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `firstBot` 和`lastBot`必須是 ASF 能夠辨識的有效 BOT 名稱，否則範圍語法將不會生效。
 
 除了上述的範圍語法，`<Bots>`參數還支援**[正規表示式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活正規表示式模式，其中 `r!` 是用於正規表示式符合的 ASF 啟動指令，而 `<pattern>` 是您的正規表示式。 一個使用正規表示式的例子為 `status r!\d{3}` 指令，它會向所有名稱為 3 個數字的 BOT（例如 `123` 和 `981`）發送` status` 指令。 您可以閱讀這份**[文件](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解正規表示式的解釋和示例。
 
@@ -233,7 +233,7 @@ Complete command example:
 
 ## `redeem^` 模式
 
-`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋 `RedeemingPreferences` **[BOT 設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#BOT-設定)**。
+`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋 `RedeemingPreferences` **[BOT 設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#BOT-設定檔)**。
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
@@ -264,16 +264,16 @@ Complete command example:
 
 通用語法是 < 0>input &lt;Bots&gt; &lt;Type&gt; &lt;Value&gt; </code>。
 
-`<Type>` 不區分大小寫，並定義由 ASF 識別的輸入類型。 目前，ASF 可識別以下類型：
+`<Type>` 不區分大小寫，並定義由 ASF 辨識的輸入類型。 目前，ASF 可辨識以下類型：
 
-| 類型                      | 描述                                                 |
-| ----------------------- | -------------------------------------------------- |
-| DeviceID                | 兩步驟設備驗證器，在 `.maFile` 中缺失這個值時使用。                    |
-| Login                   | `SteamLogin` BOT 設定檔屬性，在設定檔缺失這個值時使用。               |
-| Password                | `SteamPassword` BOT 設定檔屬性，在設定檔缺失這個值時使用。            |
-| SteamGuard              | 如果您未啟用兩步驟驗證，驗證碼將以電子郵件的方式發送。                        |
-| SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。        |
-| TwoFactorAuthentication | 如果您正在使用兩步驟驗證，但未使用 ASF 的兩步驟驗證，則兩步驟驗證代碼權杖會從您的行動裝置產生。 |
+| 類型                      | 描述                                               |
+| ----------------------- | ------------------------------------------------ |
+| DeviceID                | 兩步驟裝置驗證器，在 `.maFile` 中缺失這個值時使用。                  |
+| Login                   | `SteamLogin` BOT 設定檔屬性，在設定檔缺失這個值時使用。             |
+| Password                | `SteamPassword` BOT 設定檔屬性，在設定檔缺失這個值時使用。          |
+| SteamGuard              | 如果您未啟用兩步驟驗證，驗證碼將以電子郵件的方式發送。                      |
+| SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。      |
+| TwoFactorAuthentication | 如果您正在使用兩步驟驗證，但未使用 ASF 的兩步驟驗證，則兩步驟驗證權杖會從您的行動裝置產生。 |
 
 `<Value>` 是要為指定類型設定的值。 目前所有的值都是字元串。
 

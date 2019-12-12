@@ -1,6 +1,6 @@
 # Docker
 
-從 3.0.3.2 版本開始，ASF 現在也可用於 **[Docker 容器](https://www.docker.com/what-container)**中。 Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. 我們的 Docker 倉庫可以在**[此處](https://hub.docker.com/r/justarchi/archisteamfarm)**找到。
+從 3.0.3.2 版本開始，ASF 現在也可用於 **[Docker 容器](https://www.docker.com/what-container)**中。 Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. 我們的 Docker 儲存庫可以在**[此處](https://hub.docker.com/r/justarchi/archisteamfarm)**找到。
 
 * * *
 

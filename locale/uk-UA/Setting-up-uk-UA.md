@@ -30,12 +30,12 @@
 
 Пам'ятайте, що вам не потрібно більше нічого для запуску пакетів ASF для конкретної ОС, особливо встановлювати .NET Core SDK чи навіть середовище виконання, оскільки пакет для конкретної ОС вже включає все це до свого складу. Вам потрібні лише передумови для .NET Core (залежності), щоб запустити середовище виконання включене до ASF.
 
-#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 для 64-bit Windows, x86 для 32-bit Windows)
 - Наполегливо рекомендуємо переконатися, що усі оновлення Windows вже встановлені. Якнайменше вам потрібні пакети **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** та **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, але можуть бути потрібні й інші. Усі вони вже встановлені якщо ваша Windows цілком оновлена. Переконайтеся що виконали ці вимоги перш ніж встановлювати пакет Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Назви пакетів залежать від обраного дистрибутиву Linux, тож ми наводимо найпоширеніші з них. Ви можете отримати усі з них через стандартний менеджер пакетів у вашій ОС (такий як `apt` для Debian чи `yum` для CentOS).
 
@@ -48,7 +48,7 @@
 
 Принаймні деякі з цих пакетів мають бути вже встановлені у вашій системі (як наприклад `zlib1g`, який наразі є необхідним для майже кожного дистрибутиву Linux).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - На даний час додаткових передумов немає, але у вас має бути встановлена остання версія OS X, якнайменше 10.13+
 
@@ -82,9 +82,9 @@
 
 Ми рекомендуємо саме таку структуру, щоб вам не було потреби шукати щось у величезному масиві файлів та папок включених до ASF, оскільки вам потрібні лише ярлики до папки config та виконуваного файла.
 
-Добре, а зараз приготуємо папку ASF до використання. Якщо бажаєте - можете пропустити наступний крок, бо очищення структури ASF не є обов'язковим, але воно зробить ваше життя трохи легшим.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-Відкрийте папку ASF та знайдіть виконуваний файл, це буде `ArchiSteamFarm.exe` для Windows чи `ArchiSteamFarm` для Linux/OS X. Клацніть на ньому правою кнопкою миші та оберіть "Копіювати". Тепер перейдіть до місця, де ви бажаете помістити ярлик для ASF (наприклад на робочий стіл), клацніть правою кнопкою миші та оберіть "Вставити ярлик". Ви можете перейменувати ваш ярлик як бажаєте, наприклад давши йому ім'я "ASF". Тепер зробіть те ж саме з каталогом `config`, який ви можете знайти у тому ж місці де й виконуваний файл ASF.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Тепер перейдіть до місця, де ви бажаете помістити ярлик для ASF (наприклад на робочий стіл), клацніть правою кнопкою миші та оберіть "Вставити ярлик". Ви можете перейменувати ваш ярлик як бажаєте, наприклад давши йому ім'я "ASF". Тепер зробіть те ж саме з каталогом `config`, який ви можете знайти у тому ж місці де й виконуваний файл ASF.
 
 Після невеличкого прибирання у вас тепер є зручна структура, схожа на таку:
 

@@ -30,12 +30,12 @@
 
 请注意，您不需要为特定操作系统包进行其他准备工作，特别是安装 .NET Core SDK 或者运行时环境，因为操作系统包中已包含了它们。 您只需要安装 .NET Core 依赖项，使 ASF 自带的 .NET Core 运行时环境能够运行。
 
-#### **[Windows](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**：
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**：
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/zh-cn/download/details.aspx?id=53587)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
 - 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
 
-#### **[Linux](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**：
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**：
 
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
@@ -48,7 +48,7 @@
 
 至少有一部分包应该已经在您的系统中了（例如 `zlib1g` 应该是大多数现代 Linux 发行版的基础组件）。
 
-#### **[macOS](https://docs.microsoft.com/zh-cn/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**：
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**：
 
 - 目前没有，但您应该安装最新版本的 macOS，至少应为 10.13+
 
@@ -82,9 +82,9 @@
 
 这也是我们推荐的结构，您不需要浏览 ASF 包含的大量文件和文件夹，只需要创建指向配置文件夹和主程序的快捷方式。
 
-好，现在我们要开始整理 ASF 文件夹。 如果您愿意，也可以跳到下一步，因为整理 ASF 文件夹并不是必须的，但是这可以为您带来方便。
+现在我们开始准备 ASF 文件夹结构。 如果您愿意，也可以跳到下一步，因为整理 ASF 文件夹并不是必须的（尤其是在您使用已经打包好的操作系统包的时候），但是这可以为您带来方便。
 
-打开 ASF 文件夹，找到核心可执行文件，在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/macOS 上是 `ArchiSteamFarm`，右键单击这个文件，选择“复制”。 现在前往您实际需要运行 ASF 的位置（例如桌面），右键单击并选择“粘贴快捷方式”。 如果需要，您可以将快捷方式重命名，例如将其命名为：“ASF”。 现在，您可以 `config` 文件夹做同样的操作，这个文件夹与 ASF 主程序在同一个文件夹下。
+您可以打开 ASF 文件夹，找到核心可执行文件，在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/macOS 上是 `ArchiSteamFarm`，右键单击这个文件，选择“复制”。 现在前往您实际需要运行 ASF 的位置（例如桌面），右键单击并选择“粘贴快捷方式”。 如果需要，您可以将快捷方式重命名，例如将其命名为：“ASF”。 现在，您可以 `config` 文件夹做同样的操作，这个文件夹与 ASF 主程序在同一个文件夹下。
 
 经过简单的整理工作之后，您现在的文件夹结构使用起来非常方便，类似于：
 

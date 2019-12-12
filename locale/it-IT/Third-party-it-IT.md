@@ -40,7 +40,7 @@ Si prega di notare che i seguenti programmi **non** sono mantenuti da sviluppato
 
 ## Strumenti
 
-- **[Estrattore di chiavi](https://ske.pixv.io)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
+- **[Estrattore di chiavi](https://ske.xpixv.com)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permette di gestire configurazioni multiple di ASF più facilmente.
 
 * * *

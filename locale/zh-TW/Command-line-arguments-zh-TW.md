@@ -50,7 +50,7 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. 除非有特殊的需要，否則您應直接在描述檔中設定 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全域設定即可適應環境。 Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. 除非有特殊的需要，否則您應直接在描述檔中設定 `AutoRestart` 屬性。這個開關使 Docker 腳本不必修改您的全域設定檔即可適應環境。 Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
 
 * * *
 

@@ -16,7 +16,7 @@
 
 ### 什麼是 ASF？
 
-### Why does the program claim that there is nothing to idle on my account?
+### 為什麼程式提示「這個帳戶目前沒有需要掛卡的遊戲」？
 
 ### 為什麼我的帳戶受限制？
 
@@ -28,7 +28,7 @@ Core points are stated once again here, because people in general don't want to 
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不算數。**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 Owning F2P games does not grant you with card drops.**
+- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 擁有免費遊戲不會讓您掉落卡片。**
 - **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 這在過去是有可能的，但現在已經不是這樣了。**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
@@ -548,7 +548,7 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
-You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask GabeN for solution, because I can't force Steam network to accept our login keys.
+You could remove `BotName.db` (+ `BotName.bin`, if exists) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask Valve for solution, because I can't force Steam network to accept our login keys.
 
 As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but this will not solve the problem, only skip the initial login key failure. ASF is already aware of the issue explained here and will try its best to not use login keys if it can guarantee itself all login credentials, so there is no need to tweak `UseLoginKeys` manually if you can provide all login details together with using ASF 2FA.
 
@@ -567,7 +567,7 @@ This error can mean a lot of things, some of them include:
 
 In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). If you get this issue often, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue above. You can avoid this issue by not using login keys at all with `UseLoginKeys` config property, but we do not recommend going that way.
+In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). This can naturally happen over time, but if you get this issue on each login, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue **[above](#why-do-i-have-to-put-2fasteamguard-code-on-each-login--removed-expired-login-key)**. You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 

@@ -17,9 +17,9 @@
 
 ## 簡介
 
-ASF 設定檔分為兩個主要部分——全域（處理程序）設定檔，以及每一個 BOT 的設定檔。 每個 BOT 都有名為 `BotName.json` 的 BOT 設定檔（`BotName` 為 BOT 名稱），而全域 ASF（處理程序）設定檔是一個名為 `ASF.json` 的檔案。
+ASF 設定檔分為兩個主要部分——全域（行程）設定檔，以及每一個 BOT 的設定檔。 每個 BOT 都有名為 `BotName.json` 的 BOT 設定檔（`BotName` 為 BOT 名稱），而全域 ASF（行程）設定檔是一個名為 `ASF.json` 的檔案。
 
-每個 BOT 都是一個在 ASF 處理程序中執行的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**BOT 執行個體。 BOT 執行個體沒有強制處理程序數量限制，所以您可以使用任意數量的 BOT（Steam 帳戶）。
+每個 BOT 都是一個在 ASF 行程中執行的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**BOT 執行個體。 BOT 執行個體沒有強制限制行程數量，所以您可以使用任意數量的 BOT（Steam 帳戶）。
 
 ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定檔。 這是人性化、可讀性高且非常通用的格式，您可以在其中設定程式。 不過不用擔心，您不需要為了設定 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批次建立大量 ASF 設定檔。
 
@@ -86,7 +86,7 @@ ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定�
 
 ### `AutoRestart（自動重新啟動）`
 
-`bool` 類型，預設值為「`true`」。 這項屬性定義了當需要時是否允許 ASF 自行重新啟動。 一些事件將會要求 ASF 自行重新啟動，例如 ASF 更新（完成於 `UpdatePeriod` 或 `update` 指令）以及編輯 `ASF.json` 設定檔、`restart` 指令和類似事件。 重新啟動通常包括兩部分——建立新的處理程序和結束當前處理程序。 大多數使用者對此應該沒有問題並保持這項屬性使用預設值 `true`，然而——如果你正在透過自己的指令碼及/或 `dotnet` 執行 ASF，你可能會想完全控制處理程序，並避免某些情況像是有新（重新啟動）的 ASF 處理程序在背景與舊的處理程序同時執行，而且不在指令碼前景。 This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+`bool` 類型，預設值為「`true`」。 這項屬性定義了當需要時是否允許 ASF 自行重新啟動。 一些事件將會要求 ASF 自行重新啟動，例如 ASF 更新（完成於 `UpdatePeriod` 或 `update` 指令）以及編輯 `ASF.json` 設定檔、`restart` 指令和類似事件。 重新啟動通常包括兩部分——建立新的行程和結束當前行程。 大多數使用者對此應該沒有問題並保持這項屬性使用預設值 `true`，然而——如果你正在透過自己的指令碼及/或 `dotnet` 執行 ASF，你可能會想完全控制行程，並避免某些情況像是有新（重新啟動）的 ASF 行程在背景與舊的行程同時執行，而且不在指令碼前景。 This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
 
@@ -555,13 +555,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 * * *
 
-### `PasswordFormat`
+### `PasswordFormat（密碼格式）`
 
 `byte` 類型，預設值為「`0`」。 This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
 
 * * *
 
-### `Paused`
+### `Paused（暫停）`
 
 `bool` 類型，預設值為「`false`」。 This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 

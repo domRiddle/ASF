@@ -40,7 +40,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Herramientas
 
-- **[Keys extractor](https://ske.pixv.io)**, permite copiar y pegar claves en varios formatos y crear comandos `redeem` para ASF. Revisa **[GitHub repo](https://github.com/PixvIO/SKE)** para más detalles.
+- **[Keys extractor](https://ske.xpixv.com)**, permite copiar y pegar claves en varios formatos y crear comandos `redeem` para ASF. Revisa **[GitHub repo](https://github.com/PixvIO/SKE)** para más detalles.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permite administrar múltiples configuraciones de ASF más fácilmente.
 
 * * *

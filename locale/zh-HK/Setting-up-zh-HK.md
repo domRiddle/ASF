@@ -30,12 +30,12 @@
 
 請謹記，您不需要為特定于操作系統的 ASF 安裝包執行任何其他操作，尤其是 .NET Core SDK 甚至是運行時環境，因為此包自帶這些內容。 您只需要 .NET Core 核心套件（依賴項）即可運行 ASF 中包含的 .NET Core 運行時。
 
-#### **[Windows](https://docs.microsoft.com/zh-tw/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**：
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 可轉散發套件 Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**（64 位元版本 Windows 請下載 x64，32 位元版本 Windows 請下載 x86）
 - 強烈建議您確保已安裝所有 Windows 更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** 版本，並可能需要更新的版本。 如果您的 Windows 是最新版本，則上述所有更新都已安裝。 在安裝 Visual C ++ 套件之前，請確保滿足這些要求。
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 套裝名稱因您使用的 Linux 版本而異，我們列出了最常見的套裝軟件名稱。 您可以獲得所有這些適用於您操作系統的本機套件管理器（如適用於 Debian 的`apt`或適用於 CentOS 的 `yum`）。
 
@@ -48,7 +48,7 @@
 
 其中至少應該有幾個套件已經可用於您的系統本地了（例如現今幾乎每一個 Linux 發行版都需要 `zlib1g`）。
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - 暫時沒有必要條件，但你應該安裝最新的 OS X 版本，至少 10.13 以上版本。
 
@@ -82,9 +82,9 @@
 
 這也是我們推薦的結構，因此您不需要查看ASF中包含的大量資料夾和檔案，因為您只需要一個配置資料夾和主二進制檔的快捷方式用於使用。
 
-好的，我們現在準備好了可供使用的ASF資料夾。 如果您希望，現在可以跳到下一步，因為清理 ASF 結構不是必需的，但它會讓您更輕鬆一些。
+開始準備 ASF 結構吧。 您可以跳到下一個步驟，因為整理 ASF 結構並不是必需的（特別是特定作業系統建置套件使用者），但進行此步驟可以使您的生活多一點簡單。
 
-打開ASF資料夾並找到核心可執行檔，這將是Windows上的` ArchiSteamFarm.exe `，或Linux / OS X上的` ArchiSteamFarm `。右鍵單擊它並選擇“複製”。 現在導航到您實際想要放置 ASF 快捷方式的地方（如桌面）， 按右鍵並選擇「粘貼快捷方式」。 如果需要，可以重命名快捷方式，例如為其命名為「ASF」。 現在，您可以在與二進位ASF檔案相同的位置找到 `config` 目錄。
+開啟 ASF 資料夾，然後找到核心執行檔：在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/OS X 上是 `ArchiSteamFarm`。右鍵按一下它然後選取「複製」。 現在導航到您實際想要放置 ASF 快捷方式的地方（如桌面）， 按右鍵並選擇「粘貼快捷方式」。 如果需要，可以重命名快捷方式，例如為其命名為「ASF」。 現在，您可以在與二進位ASF檔案相同的位置找到 `config` 目錄。
 
 經過一次迅速清理後，您現在將擁有一個簡便的結構，類似這樣：
 
@@ -232,31 +232,31 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 但是，我
 
 ### 概要
 
-您已經成功設定好讓 ASF 使用您的 Steam 帳戶，並且根據您的喜好進行了客製化。 If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. 祝您愉快！
+您已經成功設定好讓 ASF 使用您的 Steam 帳戶，並且根據您的喜好進行了客製化。 如果您每一步都按照指南進行，那麼您甚至可以透過 ASF-ui 介面發送一條簡單的指令。 現在您可以閱讀整個**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**部分以瞭解「進階設定」裡所有選項的用途和 ASF 的功能。 如果您有任何問題，請參閱**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**，您可能遇到的所有，或至少大部分的问题都包含在內。 如果您想瞭解關於 ASF 的一切以及它如何讓您掛卡事半功倍，請閱讀 **[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)** 的剩餘部分。 祝您愉快！
 
 * * *
 
 ## 通用設定
 
-This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
+這部分是為想要安裝 ASF **[通用（Generic）](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#通用Generic)** 套件的進階使用者準備的。 如果您可以**[安裝特定作業系統（OS-specific）套件](#安裝特定作業系統OS-specific套件)**，我們不推薦安裝您安装通用套件。
 
-You want to use generic variant mainly in three situations (but of course you can use it regardless):
+您主要在以下三種情況才會用到通用套件（不過當然，您無須理由也可使用）：
 
-- When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
-- When you already have .NET Core Runtime/SDK, or want to install and use one
-- When you want to minimize ASF structure size by handling runtime requirements yourself
+- 當您正在使用沒有建置特定作業系統套件的系統（例如 32 位元 Windows）
+- 當您已經或想要安裝 .NET Core 執行階段/SDK
+- 當您想透過自行管理執行階段必要條件來最小化 ASF 結構大小
 
-However, keep in mind that you're in charge of .NET Core runtime in this case. This means that if your .NET Core SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET Core SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET Core runtime bundled with ASF can do so.
+不過，請注意在這種情況下您將需要安裝 .NET Core 執行階段。 這表示一旦您的 .NET Core SDK（執行階段）不可用、過時或損壞，ASF 就無法工作。 這就是一般使用者不推薦使用這個套件的原因，因為這樣您就需要確保 .NET Core SDK（執行階段）符合執行 ASF 的需求，使用**我們**驗證過的 ASF 配套的 .NET Core 執行階段則不需要這麼做。
 
-For generic package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
+對於通用套件，您可以按照上面的「安裝特定作業系統（OS-specific）套件」指南來安裝，但有兩個微小的變化。 除了要安裝 .NET Core 必要條件以外，您還需安裝 .NET Core SDK，而且二進位檔 `ArchiSteamFarm.dll` 將取代特定作業系統套件的執行檔 `ArchiSteamFarm(.exe)`。 其他步驟完全一樣。
 
 額外步驟：
 
 - 安裝 **[.NET 核心套件](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**。
-- 安裝適用於您作業系統的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或者至少安裝執行階段）。 You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
+- 安裝適用於您作業系統的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或者至少安裝執行階段）。 大部分情況下您會需要一個安裝程式。 如果您不知道要安裝 .NET Core 的哪一個版本，請參閱**[執行階段必要條件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行階段必要條件)**。
+- 下載**[最新版本的 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**通用（Generic）套件。
+- 解壓縮檔案到新位置（若您正在使用 Linux/OS X 系統，請執行指令 `chmod +x ArchiSteamFarm.sh`）。
 - **[配置ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**。
-- Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
+- 透過輔助腳本或是手動在 Shell 中執行 `dotnet /path/to/ArchiSteamFarm.dll` 指令來啟動 ASF。
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+輔助腳本位於 `ArchiSteamFarm.dll` 二進位檔所在的位置（例如用於 Windows 的 `ArchiSteamFarm.cmd` 和 Linux/OS X 的 `ArchiSteamFarm.sh`）——這些檔案只包含在通用套件內。 如果您不想手動執行 `dotnet` 指令，請使用輔助腳本。 您也可以跟特定作業系統套件一樣，為輔助脚本建立捷徑，因為輔助腳本就是用來代替主程式的。 很明顯，如果您未安裝 .NET Core SDK 而且 `dotnet` 執行檔不在系統 `PATH` 環境變數中，輔助腳本將無法執行。 輔助腳本完全是非必要的，您永遠可以透過手動執行 `dotnet /path/to/ArchiSteamFarm.dll` 指令來啟動 ASF。

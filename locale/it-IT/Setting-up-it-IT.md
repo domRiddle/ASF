@@ -30,12 +30,12 @@ Il primo passo consiste nell'assicurarsi che il proprio OS possa eseguire ASF co
 
 Tieni a mente che non hai bisogno di fare altro per le build specifiche per il vostro OS, come installare il .NET Core SDK, dacché i pacchetti specifici per ogni OS includono tutto ciò di cui si ha bisogno. Hai solo bisogno dei prerequisiti (o dipendenze) per .NET Core per far funzionare il runtime .NET Core incluso in ASF.
 
-#### **[Windows](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - È fortemente consigliato assicurarsi gli aggiornamenti di Windows siano tutti installati. Gli aggiornamenti **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** sono fondamentali, ma potrebbero esserne richiesti anche degli altri. Se mantieni il tuo Windows aggiornato, saranno già installati. Assicurati di soddisfare tali requisiti prima di installare il pacchetto Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
 
 Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando, ma elencheremo quelli che sono i più comuni. Li puoi ottenere dal tuo gestore di pacchetti nativo in base all'OS che usi (come `apt` per Debian, o `yum` per CentOS).
 
@@ -48,7 +48,7 @@ Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando,
 
 At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
 
-#### **[OS X](https://docs.microsoft.com/pl-pl/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
 
 - Per il momento nessuno, tuttavia è necessario avere OS X con versione 10.13 o superiore
 
@@ -82,9 +82,9 @@ Una struttura ideale è simile a questa:
 
 Tale è la struttura che raccomandiamo, così che tu non debba passare attraverso lo sproposito di file e sottocartelle inclusi in ASF, dacché per utilizzarlo hai bisogno giusto di un collegamento al file eseguibile e alla cartella config.
 
-Bene, ora prepareremo la cartella di ASF per l'utilizzo. Se lo preferisci, puoi anche passare saltare questa parte, poiché organizzare come si deve la struttura di cartelle e file per ASF non è necessario, ma ti faciliterebbe la vita.
+Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
 
-Apri la cartella di ASF e trova il file eseguibile principale, che su Windows sarà `ArchiSteamFarm.exe`, mentre su Linux/OS X sarà `ArchiSteamFarm`. Fai click destro su di esso e seleziona "Copia". Ora vai nella cartella in cui vorresti avere il collegamento ad ASF (come il tuo Desktop), fai click destro in un punto vuoto e seleziona "Incolla collegamento". Puoi anche rinominare il collegamento se lo vuoi, chiamandolo ad esempio "ASF". Ora fai anche la stessa cosa con la cartella `config` che trovi sempre nella cartella dell'eseguibile di ASF.
+You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Ora vai nella cartella in cui vorresti avere il collegamento ad ASF (come il tuo Desktop), fai click destro in un punto vuoto e seleziona "Incolla collegamento". Puoi anche rinominare il collegamento se lo vuoi, chiamandolo ad esempio "ASF". Ora fai anche la stessa cosa con la cartella `config` che trovi sempre nella cartella dell'eseguibile di ASF.
 
 Dopo aver messo un po' d'ordine, avrai una comoda struttura di file e cartelle come la seguente:
 

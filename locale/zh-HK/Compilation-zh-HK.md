@@ -22,11 +22,11 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic" "
 
 如果您在使用 Linux/OS X，您也可以使用 `cc.sh` 腳本實現同樣的效果，此種編譯方法方式稍複雜。
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
+如果編譯成功完成，您可以在 `out/generic` 目錄中找到您的 ASF `source` 套件。 這與 ASF 官方的 `通用（Generic）` 建置相同，但因為這是您自己建置的，所以它強制設定 `UpdateChannel` 和 `UpdatePeriod` 為 `0`。
 
 ### OS-specific
 
-如果您需要，也可以生成特定操作系統的 .NET Core 包。 In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
+如果您需要，也可以生成特定操作系統的 .NET Core 包。 一般您不需要這樣做，因為您剛剛編譯了`通用`套件，您可以直接使用已安裝用於編譯的 .NET Core 執行階段來執行此套件。如果您還是想要使用特定作業系統套件，請執行：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
@@ -62,7 +62,7 @@ msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFram
 
 ## 標籤
 
-`master` 分支並不保證能夠成功編譯或者正常運行 ASF，正如我們在​**[發佈周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**​中所述，這是一個開發分支。 If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). 您可以通過檢查我們的 CI——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 或 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**以了解代碼庫現時的“健康狀態”。
+`master` 分支並不保證能夠成功編譯或者正常運行 ASF，正如我們在​**[發佈周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**​中所述，這是一個開發分支。 如果您希望從原始碼編譯或參照 ASF，就應該為此選擇適當的​**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**，這樣能夠保證編譯成功，甚至可以正常運行（如果您選擇穩定版）。 您可以通過檢查我們的 CI——**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 或 **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**以了解代碼庫現時的“健康狀態”。
 
 * * *
 
