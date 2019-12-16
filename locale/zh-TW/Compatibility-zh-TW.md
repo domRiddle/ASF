@@ -55,7 +55,7 @@ ASF 目前可用於以下作業系統：
 
 但如果您使用 **Generic**（通用）套件，則必須保證已安裝 ASF 所需的對應平台的 .NET Core 執行階段。
 
-ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but it may target newer platform in the future. `netcoreapp3.1` is supported since 3.1.100 SDK (3.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的執行階段版本低於編譯時已知的最低（目標）版本，通用 ASF 套件將會拒絕啟動。
+ASF 程式目前的目標是 **.NET Core 3.1**（`netcoreapp3.1`），但在未來可能會以更高版本為目標。 即使 ASF 以**編譯時最新版本的執行階段**為建置目標，`netcoreapp3.1` 從 3.1.100 SDK（3.1.0 執行階段）之後就受支援，所以您應該確保您的機器上有**[最新版本的 SDK](https://dotnet.microsoft.com/download)**（或至少有執行階段）。 如果您的執行階段版本低於編譯時已知的最低（目標）版本，通用 ASF 套件將會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個構建的頂端找到 `dotnet --info` 的輸出。
 
@@ -67,6 +67,6 @@ ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but
 
 OpenVZ 核心通常基於非常舊的 Linux 核心版本（2.6），這似乎不相容最新版本的 .NET Core 執行階段。 如果您嘗試執行 ASF 於這種環境下，您可能會遭遇許多與鎖相關的問題，通常表現為行程畫面凍結。 請參閱相關的 CoreCLR Issue：https://github.com/dotnet/coreclr/issues/26873
 
-Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be **[fixed](https://github.com/dotnet/coreclr/pull/26912)** in the next .NET Core runtime upgrade (3.1 service patch), but there is no actual timeframe for it yet. If you're unable to move to better virtualization solution, you can consider running `generic-netf` ASF variant with `mono`, at least until new runtime version is released.
+我們建議是放棄 OpenVZ 架構，使用更好的虛擬化技術，例如 KVM。 這裡提到的問題的確是 .NET Core 執行階段的一個錯誤，並且應當在下個版本 .NET Core 執行階段（3.1 服務修補程式）中被**[修復](https://github.com/dotnet/coreclr/pull/26912)**，但暫無明確的時間。 如果您不能使用更好的虛擬化技術，在執行階段更新之前，您可以考慮使用 `mono` 來執行 ASF 的 `generic-netf` 套件。
 
 當然，您也可以執行舊版本的 ASF（V4.0），但執行過時版本的 ASF 將不受支援，這可能會帶來其他更嚴重的問題。

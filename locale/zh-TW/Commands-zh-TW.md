@@ -10,27 +10,27 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 請注意，與 ASF 交互需要您擁有執行相關指令的許可權。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 設定檔屬性瞭解更多。
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+透過 Steam 聊天執行的指令都受 `CommandPrefix` **[全域設定檔屬性影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**，該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 當您使用主控台或 IPC 時可以省略 `CommandPrefix`，這項屬性不是強制性的。
 
 * * *
 
 ### 互動式主控台
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+從 V4.0.0.9 版本開始，ASF 已經支援了互動式主控台，可以透過設定 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) 屬性來啟用。 之後，只需按一下 `c` 鍵即可啟用指令模式，輸入指令然後按一下 Enter 鍵確認。
 
 ![截圖](https://i.imgur.com/bH5Gtjq.png)
 
-Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
+互動式主控台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) 模式下不可用。
 
 * * *
 
 ### Steam 聊天
 
-You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+您也可以透過 Steam 聊天對指定的 ASF BOT 執行指令。 顯然，您不能直接跟自己聊天，因此，如果您想在自己的主帳戶執行指令，您需要至少另一個 BOT 帳戶。
 
 ![截圖](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 BOT 同樣監聽（並加入）指定的群組交談。 不同於私人聊天，因為這種方法不需要專用的 BOT 帳戶，所以可以用於「和自己交談」。 You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. 這樣，ASF BOT（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
+類似的，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 BOT 同樣監聽（並加入）指定的群組交談。 不同於私人聊天，因為這種方法不需要專用的 BOT 帳戶，所以可以用於「和自己交談」。 You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. 這樣，ASF BOT（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
 
 Please note that sending a command to the group chat acts like a relay. 如果您向一個含有 3 個 BOT 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 BOT 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 BOT 交談**時一樣，使用`特定 BOT` 名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 BOT 通訊的有效方式，但如果您的群組中有多個 ASF BOT，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 BOT執行相同的指令。
 
@@ -79,31 +79,31 @@ Please note that sending a command to the group chat acts like a relay. 如果�
 | `pause <Bots>`                                                       | `Operator`      | 停止指定 BOT 的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                             |
 | `pause~ <Bots>`                                                      | `FamilySharing` | 暫停指定 BOT 的自動掛卡模塊。 掛卡行程將會在下次遊戲事件被觸發時或 BOT 斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                         |
 | `pause& <Bots> <Seconds>`                                  | `Operator`      | 暫停指定 BOT 的自動掛卡模塊 `seconds` 秒。 之後，掛卡將自動恢復。                                                                                                       |
-| `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定 BOT 執行特定的 `AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 Use `reset` or `resume` for returning.                                             |
+| `play <Bots> <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定 BOT 執行特定的 `AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 使用 `reset` 或 `resume` 指令恢復。                                                        |
 | `privacy <Bots> <Settings>`                                    | `Master`        | 變更指定 BOT 的 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                  |
 | `redeem <Bots> <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                  |
 | `redeem^ <Bots> <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                         |
-| `reset <Bots>`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                       |
-| `重新啟動`                                                                     | `Owner`         | 重啟 ASF 行程。                                                                                                                                      |
+| `reset <Bots>`                                                       | `Master`        | 重設遊玩狀態為正常，使用 `play` 指令手動掛卡時使用此指令。                                                                                                               |
+| `restart`                                                                  | `Owner`         | 重新啟動 ASF 行程。                                                                                                                                    |
 | `resume <Bots>`                                                      | `FamilySharing` | 恢復指定 BOT 的自動掛卡行程。 參見 `pause` 和 `play`。                                                                                                          |
 | `start <Bots>`                                                       | `Master`        | 啟動指定 BOT。                                                                                                                                       |
 | `stats`                                                                    | `Owner`         | 顯示行程統計資訊，例如託管記憶體用量。                                                                                                                             |
 | `status <Bots>`                                                      | `FamilySharing` | 顯示指定 BOT 的狀態。                                                                                                                                   |
 | `stop <Bots>`                                                        | `Master`        | 停止指定 BOT。                                                                                                                                       |
-| `transfer <Bots> <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                            |
-| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.                |
-| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                          |
+| `transfer <Bots> <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                   |
+| `transfer@ <Bots> <RealAppIDs> <TargetBot>`              | `Master`        | 將指定 BOT 所有符合特定 `RealAppIDs` 的 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                |
+| `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                             |
 | `unpack <Bots>`                                                      | `Master`        | 拆開指定 BOT 物品庫中的所有補充包。                                                                                                                            |
 | `update`                                                                   | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                   |
-| `版本`                                                                       | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                    |
+| `version`                                                                  | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                    |
 
 * * *
 
-### 備註
+### 註解
 
 所有的指令都不區分大小寫，但它們的參數（例如 BOT 名稱）通常是區分大小寫的。
 
-`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的 BOT 上執行。 但省略時，指令會在當前接收指令的 BOT 上執行。 In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
+`<Bots>`參數對所有指令都是可選的。 當指定該參數時，指令會在指定的 BOT 上執行。 但省略時，指令會在當前接收指令的 BOT 上執行。 換句話說，向 BOT `B` 發送 `status A` 指令等於向 BOT `A` 發送 `status` 指令，在這種情況下 BOT `B` 只是作為一個代理 BOT。 This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
 指令的**許可權**定義了需要執行此指令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全域設定檔中定義的 `SteamOwnerID` 使用者（擁有最高許可權）。
 
@@ -142,7 +142,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 ## `privacy` 設定
 
-`<Settings>`參數擁有**多至 7 個**不同的選項，使用 ASF 標準的逗號分隔格式。 這些選項分別是：
+`<Settings>` 參數接受**最多 7 個**不同的選項，使用 ASF 標準的逗號分隔格式。 這些選項分別是：
 
 | 參數 | 名稱             | 從屬於        |
 | -- | -------------- | ---------- |
@@ -193,18 +193,18 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 ## `addlicense` licenses
 
-`addlicense` command supports two different license types, those are:
+`addlicense` 指令支援兩種不同的授權類型：
 
-| 類型    | 別名  | 範例           | 描述                                                                      |
-| ----- | --- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| 類型    | 別名  | 範例           | 描述                              |
+| ----- | --- | ------------ | ------------------------------- |
+| `app` | `a` | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
+| `sub` | `s` | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+完整的指令範例：
 
     addlicense ASF app/292030,sub/47807
     
@@ -217,14 +217,14 @@ Complete command example:
 
 | 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                                                            |
 | ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
-| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
+| `app`   | `a` | `app/292030`     | 透過遊戲唯一的 `appID` 授權。                                                                                                                                                                                                                                                           |
+| `sub`   | `s` | `sub/47807`      | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。                                                                                                                                                                                                                                               |
 | `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `名稱`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+| `name`  | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+完整的指令範例：
 
     owns ASF app/292030,name/Witcher
     
@@ -275,7 +275,7 @@ Complete command example:
 | SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。      |
 | TwoFactorAuthentication | 如果您正在使用兩步驟驗證，但未使用 ASF 的兩步驟驗證，則兩步驟驗證權杖會從您的行動裝置產生。 |
 
-`<Value>` 是要為指定類型設定的值。 目前所有的值都是字元串。
+`<Value>` 是要為指定類型設定的值。 目前所有的值都是字串。
 
 ### 範例
 

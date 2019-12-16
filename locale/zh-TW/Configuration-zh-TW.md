@@ -164,7 +164,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `IdleFarmingPeriod`
 
-`byte` 類型，預設值為「`8`」。 When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. Value of `0` disables this feature. Also check: `ShutdownOnFarmingFinished`.
+`byte` 類型，預設值為「`8`」。 When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. 值為 `0` 時停用這項功能。 Also check: `ShutdownOnFarmingFinished`.
 
 * * *
 
