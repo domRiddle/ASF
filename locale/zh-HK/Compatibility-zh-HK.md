@@ -69,4 +69,4 @@ OpenVZ 核心通常基於非常舊的 Linux 核心版本（2.6），這似乎不
 
 我們建議是放棄 OpenVZ 架構，使用更好的虛擬化技術，例如 KVM。 這裡提到的問題的確是 .NET Core 執行階段的一個錯誤，並且應當在下個版本 .NET Core 執行階段（3.1 服務修補程式）中被**[修復](https://github.com/dotnet/coreclr/pull/26912)**，但暫無明確的時間。 如果您不能使用更好的虛擬化技術，在執行階段更新之前，您可以考慮使用 `mono` 來執行 ASF 的 `generic-netf` 套件。
 
-當然，您也可以執行舊版本的 ASF（V4.0），但執行過時版本的 ASF 將不受支援，這可能會帶來其他更嚴重的問題。
+For more advanced users that are not afraid of their Linux OS, there is a **[much better workaround](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)** available which makes it possible to run latest .NET Core ASF without running into this issue.

@@ -496,6 +496,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
 | 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 | 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -519,6 +521,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
 | 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 | 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. O ASF inclui uma lógica própria para descobrir a raridade dos itens, portanto também é seguro combinar emoticons ou planos de fundo, uma vez que o ASF vai considerar justo apenas os itens do mesmo jogo e tipo, que também compartilhem a mesma raridade.
 
@@ -709,6 +713,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
 | 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
 | 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 

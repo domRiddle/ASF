@@ -496,6 +496,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
 | 9     | ProfileModifier   | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
@@ -519,6 +521,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de 
 | 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
 | 9     | ProfileModifier   | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye una lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
@@ -709,6 +713,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
 | 9     | ProfileModifier   | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 

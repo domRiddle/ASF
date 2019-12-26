@@ -82,9 +82,9 @@ Uma exemplo de extrutura seria assim:
 
 Essa também é a estrutura que recomendamos, então você não precisa passar por um grande número de arquivos e pastas incluídas no ASF, já que para o uso você só precisa de um atalho para a pasta de configuração e para o executável principal.
 
-Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
+Vamos preparar a estrutura do ASF para ser usada. Caso você queira, você pode pular essas etapas, já que preparar a estrutura do ASF não é necessária (especialmente se estiver usando uma build para um SO especifico que já estiver pronta), mas pode fazer sua vida um pouco mais fácil.
 
-You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Agora, navegue até o local que você quer colocar o atalho do ASF (por exemplo, sua área de trabalho), clique com o botão direito e escolha "colar atalho aqui". Você pode renomear o atalho se você quiser, dando-lhe o nome de "ASF" por exemplo. Agora faça o mesmo com a pasta `config` que você pode encontrar no mesmo lugar que o executável do ASF.
+Você pode abrir o diretorio do ASF e achar os arquivos executaveis, eles são `ArchiSteamFarm.exe` no Windows, e `ArchiSteamFarm` no Linux/OS X. Botão direito e copie. Agora, navegue até o local que você quer colocar o atalho do ASF (por exemplo, sua área de trabalho), clique com o botão direito e escolha "colar atalho aqui". Você pode renomear o atalho se você quiser, dando-lhe o nome de "ASF" por exemplo. Agora faça o mesmo com a pasta `config` que você pode encontrar no mesmo lugar que o executável do ASF.
 
 Após uma pequena limpeza você terá uma estrutura muito conveniente, similar a essa abaixo:
 
