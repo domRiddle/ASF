@@ -91,7 +91,8 @@ Command | Access | Description
 `status <Bots>` | `FamilySharing` | Prints status of given bot instances.
 `stop <Bots>` | `Master` | Stops given bot instances.
 `transfer <Bots> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.
-`transfer@ <Bots> <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance.
+`transfer@ <Bots> <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.
+`transfer% <Bots> <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items apart of given `RealAppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.
 `transfer^ <Bots> <AppID> <ContextID> <TargetBot>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.
 `unpack <Bots>` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).
