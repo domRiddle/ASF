@@ -496,8 +496,8 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 7  | SaleItem          | Special items awarded during Steam sales                      |
 | 8  | Consumable        | Special consumable items that disappear after being used      |
 | 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | Special items that can be used on Steam chat                  |
-| 11 | ChatEffect        | Special items that can be used on Steam chat                  |
+| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -521,8 +521,8 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 | 7  | SaleItem          | Special items awarded during Steam sales                      |
 | 8  | Consumable        | Special consumable items that disappear after being used      |
 | 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | Special items that can be used on Steam chat                  |
-| 11 | ChatEffect        | Special items that can be used on Steam chat                  |
+| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -713,8 +713,8 @@ For further explanation of ASF trading logic, and description of every available
 | 7  | SaleItem          | Special items awarded during Steam sales                      |
 | 8  | Consumable        | Special consumable items that disappear after being used      |
 | 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | Special items that can be used on Steam chat                  |
-| 11 | ChatEffect        | Special items that can be used on Steam chat                  |
+| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 

@@ -69,4 +69,4 @@ O kernel OpenVZ é geralmente baseado em uma versão muito antiga (2.6) do kerne
 
 A nossa recomendação é trocar o OpenVZ por soluções de virtualização muito melhores, como a KVM. O problema descrito aqui é, de fato, um bug do .NET Core que deve ser **[corrigido](https://github.com/dotnet/coreclr/pull/26912)** na próxima atualização (atualização de serviço 3.1), mas não há data até o momento. Se você não pode mudar para uma melhor solução de virtualização, você pode considerar executar a variante `generic-netf` com `mono`, ao menos até que a nova versão do tempo de execução seja lançada.
 
-For more advanced users that are not afraid of their Linux OS, there is a **[much better workaround](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)** available which makes it possible to run latest .NET Core ASF without running into this issue.
+Para usuários mais avançados que não têm medo de seu sistema Linux, há uma **[alternativa melhor](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)** disponível que torna possível executar o .NET Core mais recente do ASF sem entrar nesta questão.
