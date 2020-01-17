@@ -4,7 +4,7 @@ ASF includes support for Steam non-interactive (offline) trades. Both receiving 
 
 * * *
 
-## Logic
+## Lógica
 
 ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory.
 

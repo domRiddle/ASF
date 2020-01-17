@@ -458,7 +458,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 ### `GamesPlayedWhileIdle`
 
-預設值為空的 `ImmutableHashSet<uint>` 類型。 如果 ASF 沒有任何遊戲可供掛卡，它可以遊玩指定的 Steam 遊戲 (`appIDs`)。 以這樣的方式玩遊戲會增加那些遊戲的「遊玩時長」，但除此之外，別無他用。 此功能可以與` CustomGamePlayedWhileIdle `同時啟用，以便在Steam網絡中顯示自訂遊戲狀態，但在` CustomGamePlayedWhileFarming `這類情況中， 實際的顯示順序無法保證。 請注意，Steam 允許 ASF 最多同時遊玩 `32` 個 `appIDs`，因此您設置該屬性時應參考此值。
+預設值為空的 `ImmutableHashSet<uint>` 類型。 如果 ASF 沒有任何遊戲可供掛卡，它可以遊玩指定的 Steam 遊戲 (`appIDs`)。 以這樣的方式玩遊戲會增加那些遊戲的「遊玩時長」，但除此之外，別無他用。 In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. 此功能可以與` CustomGamePlayedWhileIdle `同時啟用，以便在Steam網絡中顯示自訂遊戲狀態，但在` CustomGamePlayedWhileFarming `這類情況中， 實際的顯示順序無法保證。 請注意，Steam 允許 ASF 最多同時遊玩 `32` 個 `appIDs`，因此您設置該屬性時應參考此值。
 
 * * *
 

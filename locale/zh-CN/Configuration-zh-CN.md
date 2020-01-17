@@ -458,7 +458,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `GamesPlayedWhileIdle`
 
-这是一个默认值为空的 `ImmutableHashSet<uint>` 类型属性。 如果 ASF 没有游戏可以挂卡，您可以让它运行指定的 Steam 游戏（`appIDs`）。 以这种方式玩游戏会增加您的游戏时间，但这也是唯一的作用。 此功能可以与 `CustomGamePlayedWhileIdle` 一同启用，在运行指定游戏的同时，使 Steam 网络显示自定义的状态信息，但在这种情况下，与 `CustomGamePlayedWhileFarming` 的情况类似，我们无法保证实际的显示顺序。 请注意，Steam 只允许 ASF 同时运行最多 `32` 款游戏（`appIDs`），因此您也只能在该属性中设置这么多游戏。
+这是一个默认值为空的 `ImmutableHashSet<uint>` 类型属性。 如果 ASF 没有游戏可以挂卡，您可以让它运行指定的 Steam 游戏（`appIDs`）。 以这种方式玩游戏会增加您的游戏时间，但这也是唯一的作用。 若要此功能正常工作，您的 Steam 帐户**必须**拥有所有您指定的 `appIDs` 的有效许可，包括免费游戏。 此功能可以与 `CustomGamePlayedWhileIdle` 一同启用，在运行指定游戏的同时，使 Steam 网络显示自定义的状态信息，但在这种情况下，与 `CustomGamePlayedWhileFarming` 的情况类似，我们无法保证实际的显示顺序。 请注意，Steam 只允许 ASF 同时运行最多 `32` 款游戏（`appIDs`），因此您也只能在该属性中设置这么多游戏。
 
 * * *
 

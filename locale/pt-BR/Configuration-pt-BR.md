@@ -458,7 +458,7 @@ Há também uma lista de prioridade de coleta acessível através de **[comandos
 
 ### `GamesPlayedWhileIdle`
 
-Tipo `ImmutableHashSet<uint>` com valor padrão vazio. Se o ASF não tem nada para coletar ele pode jogar seus jogos Steam (`appIDs`). Jogar os jogos de tal forma aumenta suas horas "jogadas" nesses jogos, mas nada mais além disso. Esse recurso pode ser habilitado juntamente com `CustomGamePlayedWhileIdle` para poder jogar seus jogos selecionados e, ao mesmo tempo, mostrar um status personalizado na rede Steam, mas neste caso, como no caso de `CustomGamePlayedWhileFarming`, a ordem de exibição real é não é garantida. Note que o Seam só permite que o ASF rode no até de `32` `appIDs`no total, portanto esse é o máximo de AppIDs que você pode por nesta propriedade.
+Tipo `ImmutableHashSet<uint>` com valor padrão vazio. Se o ASF não tem nada para coletar ele pode jogar seus jogos Steam (`appIDs`). Jogar os jogos de tal forma aumenta suas horas "jogadas" nesses jogos, mas nada mais além disso. Para que este recurso funcione corretamente, sua conta Steam **deve** possuir uma licença válida para todos os `appIDs` que você especificar aqui, Isso também inclui jogos F2P. Esse recurso pode ser habilitado juntamente com `CustomGamePlayedWhileIdle` para poder jogar seus jogos selecionados e, ao mesmo tempo, mostrar um status personalizado na rede Steam, mas neste caso, como no caso de `CustomGamePlayedWhileFarming`, a ordem de exibição real é não é garantida. Note que o Seam só permite que o ASF rode no até de `32` `appIDs`no total, portanto esse é o máximo de AppIDs que você pode por nesta propriedade.
 
 * * *
 

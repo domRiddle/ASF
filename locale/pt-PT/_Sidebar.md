@@ -10,7 +10,7 @@
 
 ## Basics
 
-* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[Início](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Perguntas frequentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
@@ -25,25 +25,25 @@
 * **[Partilha de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-## Advanced
+## Avançado
 
-* **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[FAQ estendida](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configuração de pouca memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[Terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Autenticação de dois fatores](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Desenvolvedores
 
-* **[Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[Compilação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licença](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

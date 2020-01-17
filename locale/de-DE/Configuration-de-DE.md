@@ -458,7 +458,7 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wenn ASF nichts zu sammeln hat, kann es stattdessen deine angegebenen Steam Spiele (`appIDs`) spielen. Das Spielen von Spielen auf diese Weise erhöht deine "gespielten Stunden" dieser Spiele, aber nichts anderes als das. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird, aber in diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge nicht garantiert. Bitte beachte, dass Steam insgesamt ASF nur bis zu `32` `appIDs` spielen lässt, daher kannst du nur so viele Spiele in diese Eigenschaft aufnehmen.
+`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wenn ASF nichts zu sammeln hat, kann es stattdessen deine angegebenen Steam Spiele (`appIDs`) spielen. Das Spielen von Spielen auf diese Weise erhöht deine "gespielten Stunden" dieser Spiele, aber nichts anderes als das. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird, aber in diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge nicht garantiert. Bitte beachte, dass Steam insgesamt ASF nur bis zu `32` `appIDs` spielen lässt, daher kannst du nur so viele Spiele in diese Eigenschaft aufnehmen.
 
 * * *
 
