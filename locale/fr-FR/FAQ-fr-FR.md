@@ -95,6 +95,16 @@ En plus de la gestion du module de farming automatique des cartes décrit ci-des
 
 * * *
 
+### I'm not interested in card drops, I'd like to idle hours played instead, is that possible?
+
+Yes, ASF allows you to do that through at least several ways.
+
+The most optimal way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will idle your chosen appIDs when ASF has no cards to idle. If you'd like to idle your games all the time, even if you do have card drops from other games, then you can combine it with **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#idlepriorityqueueonly)**, so ASF will idle only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
+
+Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#commands-1)** command, which will cause ASF to play your selected games. However, keep in mind that `play` should be used only for games you want to idle temporarily, as it's not a persistent state, causing ASF to revert back to default state e.g. upon disconnection from Steam network. Therefore, we recommend you to use `GamesPlayedWhileIdle`, unless you indeed want to start your selected games just for a short time period, and then revert back to general flow.
+
+* * *
+
 ### Je suis un utilisateur Linux / OS X, les jeux à farmer depuis ASF ne sont-ils pas indisponibles pour mon système d'exploitation? Est-ce que ASF continura à fonctionner avec les jeux 64-bits lorsque je l'exécute sur un système d'exploitation 32-bits?
 
 Oui, ASF ne se soucie même pas de télécharger des fichiers de jeu réels. Il fonctionnera donc avec toutes vos licences liées à votre compte Steam, quelles que soient les exigences techniques de la plate-forme. Cela devrait également fonctionner pour les jeux liés à une région spécifique (jeux liés à une région) même lorsque vous n'êtes pas dans la région correspondante, bien que nous n'ayons pas testé cela.
@@ -404,7 +414,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### Êtes-vous affilié à un service cards farming/idling service?
     
-    **Non** ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement/english)** que:
+    **Non**. ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement/english)** que:
     
     > Vous êtes responsable de la confidentialité de votre identifiant et de votre mot de passe, ainsi que de la sécurité de votre système informatique. Valve n'est pas responsable de l'utilisation de votre mot de passe et de votre compte, ni de toutes les communications et activités sur Steam résultant de l'utilisation de votre nom d'utilisateur et de votre mot de passe par vous-même, par toute personne à qui vous auriez pu intentionnellement ou par négligence divulgué votre nom d'utilisateur e /ou mot de passe en violation de cette clause de confidentialité.
     

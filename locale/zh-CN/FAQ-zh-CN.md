@@ -95,6 +95,16 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 * * *
 
+### 我对挂卡不感兴趣，但我需要挂游戏时长，有办法做到吗？
+
+是的，ASF 有几种方式可以为您做到这一点。
+
+最佳方式是设置 **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#gamesplayedwhileidle)** 配置属性，ASF 就会在无卡可挂时挂您选择的 appID。 如果您希望即使仍有游戏未挂完卡，也始终挂这些游戏，那么您可以进一步设置 **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#idlepriorityqueueonly)** 属性，这样 ASF 就仅会为您明确指定的游戏挂卡，或者设置 **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#paused)** 属性，使挂卡模块完全暂停工作，直到您手动恢复。
+
+另外一种方式是使用 **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#命令-1)** 命令，使 ASF 开始挂您选择的游戏。 然而，请注意 `play` 命令仅应该在您需要临时挂游戏的时候使用，因为它的状态不会长久保持，ASF 如果遇到从 Steam 断开连接等情况，就会恢复到它默认的状态。 因此，我们建议您使用 `GamesPlayedWhileIdle`，除非您确实只需要短时间运行所选游戏，然后恢复到正常的挂卡流程。
+
+* * *
+
 ### 我是 Linux/macOS 用户，ASF 可以挂我的操作系统不支持的游戏吗？ 我可以在 32 位系统上挂 64 位游戏吗？
 
 是的，ASF 甚至不需要下载实际的游戏文件，因此无论游戏的系统或技术需求如何，它对您 Steam 帐户内的所有游戏许可都有效。 它甚至可以在您不处于指定区域的情况下运行区域限制（锁区）的游戏，但是我们尚未测试这一点。
@@ -327,7 +337,7 @@ ASF 真正需要关注的重点是：
 
 ### ASF 能最小化到托盘吗？
 
-ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](http://rbtray.sourceforge.net)** 或者 Linux/macOS 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
+ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](http://rbtray.sourceforge.net)** 或者 Linux/OS X 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
 
 * * *
 
@@ -404,11 +414,11 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 ### 你与任何挂卡服务有关联吗？
 
-**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;中明确指出：
+**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;中明确指出：
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
 
-ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
+ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
 
 此外，官方 Steam 订户协议明确指出：
 

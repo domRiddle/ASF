@@ -95,6 +95,16 @@ Zusätzlich zur Verwaltung des oben beschriebenen Moduls für das automatische K
 
 * * *
 
+### I'm not interested in card drops, I'd like to idle hours played instead, is that possible?
+
+Yes, ASF allows you to do that through at least several ways.
+
+The most optimal way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will idle your chosen appIDs when ASF has no cards to idle. If you'd like to idle your games all the time, even if you do have card drops from other games, then you can combine it with **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#idlepriorityqueueonly)**, so ASF will idle only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
+
+Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#commands-1)** command, which will cause ASF to play your selected games. However, keep in mind that `play` should be used only for games you want to idle temporarily, as it's not a persistent state, causing ASF to revert back to default state e.g. upon disconnection from Steam network. Therefore, we recommend you to use `GamesPlayedWhileIdle`, unless you indeed want to start your selected games just for a short time period, and then revert back to general flow.
+
+* * *
+
 ### Ich bin ein Linux / OS X Benutzer - Kann ASF Spiele sammeln die für mein Betriebssystem nicht verfügbar sind? Wird ASF 64-Bit-Spiele sammeln, wenn ich es auf einem 32-Bit-Betriebssystem ausführe?
 
 Ja, ASF kümmert sich nicht einmal um das Herunterladen aktueller Spieldateien, so dass es mit all deinen Lizenzen funktioniert, die an dein Steam-Konto gebunden sind, unabhängig von Plattform oder technischen Anforderungen. Es sollte auch für Spiele funktionieren, die an eine bestimmte Region gebunden sind (region-locked Spiele), auch wenn du nicht in der passenden Region bist, obwohl wir dies nicht getestet haben.

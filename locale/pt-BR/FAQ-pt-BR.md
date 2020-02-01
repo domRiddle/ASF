@@ -95,6 +95,16 @@ Além de gerenciar o módulo de coleta automática que foi descrito acima, você
 
 * * *
 
+### Não estou interessado em receber cartas. Gostaria apenas de aumentar minhas horas de jogo, isso é possível?
+
+Sim, o ASF permite que você faça isso de várias maneiras.
+
+A forma ideal para isso é configurar **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#gamesplayedwhileidle)** que vai rodar seus appIDs escolhidos quando o ASF não tiver cartas para coletar. Caso você queira rodar determinados jogos o tempo todo mesmo tendo cartas para receber de outros jogos, então você pode combiná-lo com **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#idlepriorityqueueonly)**, assim o ASF vai rodar apenas os jogos que você definiu para receber cartas, ou **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#paused)**, que fará com que o módulo de coleta de cartas seja pausado até que você o reinicie.
+
+Como alternativa, você pode usar o comando **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR#comandos-1)**, que vai fazer o ASF jogar seus jogos selecionados. No entanto, tenha em mente que `play` deve ser usado apenas para jogos que você deseja rodar temporariamente, pois como ele não é um estado persistente o ASF reverterá para o estado padrão após desconexão da rede Steam, por exemplo. Portanto, recomendamos que você use o `GamesPlayedWhileIdle`, a menos que você realmente deseje iniciar seus jogos selecionados apenas por um curto período de tempo e depois reverter para o fluxo padrão.
+
+* * *
+
 ### Eu sou usuário do Linux / OS X, o ASF roda jogos que não estão disponíveis para a minha plataforma? O vai ASF roda jogos 64-bit se eu rodo um SO de 32-bit?
 
 Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas as licenças que estejam ligadas a sua conta Steam, independente de qualquer requisito técnico ou de plataforma. Ele também deve funcionar com jogos que tenham bloqueio regional, mesmo quando você não estiver na região correta, embora não tenhamos testado isso.
@@ -448,13 +458,13 @@ A regra geral do ASF é que avisos **não** são erros, portanto eles **não** d
 
 Erros, por outro lado, indicam uma situação que não deveria acontecer, porém eles devem ser relatados se você se certificou de que não é você quem os está causando. Se é uma situação comum e que esperamos que aconteça, então ele será convertido em um aviso. Caso contrário, possivelmente é um erro que deve ser corrigido e não ignorado em silêncio, supondo que não seja resultado de problema técnico seu. Por exemplo, colocar conteúdo inválido no arquivo `ASF.json` acarretará um erro já que o ASF não vai conseguir processá-lo, mas como foi você quem o editou, você não deve nos reportar esse erro (a menos que você tenha confirmado que o ASF está errado e que a estrutura está absolutamente certa).
 
-Em suma - informe erros, não informe avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
+Em suma - reporte erros, não reporte avisos. Porém você ainda perguntar sobre os avisos e receber ajuda em nossas seções de suporte.
 
 * * *
 
 ### O ASF não funciona, a janela do programa fecha imediatamente!
 
-Em condições normais, qualquer falha ou fechamento do ASF vai gerar um arquivo `log.txt` na pasta do programa, o qual pode ser usado para encontrar a causa. Além disso, alguns arquivos de logs mais recentes serão arquivados na pasta `logs`, uma vez que o arquivo `log.txt` é reescrito toda vêz que o ASF é executado.
+Em condições normais, qualquer falha ou fechamento do ASF vai gerar um arquivo `log.txt` na pasta do programa que pode ser usado para encontrar a causa. Além disso, alguns arquivos de logs mais recentes serão arquivados na pasta `logs`, uma vez que o arquivo `log.txt` é reescrito toda vêz que o ASF é executado.
 
 No entanto, se nem mesmo o tempo de execução .NET Core for capaz de inicializar no seu computador, então o arquivo `log.txt` não será gerado. Se isso acontecer com você, é provável que você tenha esquecido de instalar o .NET Core, como consta no guia de **[instalação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR#instalador-para-sistemas-operacionais-espec%C3%ADficos)**. Outros problemas comuns incluem tentar rodar a variante errada do ASF para seu SO, ou de alguma outra forma a falta de dependências nativas do .NET Core. Se a janela de console facha rápido demais para você conseguir ler a mensagem, então abra um console independente e rode o executável do ASF por lá. Por exemplo, no Windows, abra a pasta do ASF, segure `Shift`, clique com o botão direito dentro da pasta e escolha "Abrir janela de comando (ou powershell) aqui", digite no console `.\ArchiSteamFarm.exe` e confirme com enter. Desta forma você obterá a mensagem correta do motivo do ASF é não iniciar corretamente.
 
@@ -546,7 +556,7 @@ Em todo caso, o ASF pode apenas **tentar** enviar uma solicitação adequada par
 
 ### Por que tenho que colocar o código 2FA/SteamGuard em cada início de sessão? / `Chave de sessão expirada removida`
 
-O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me nesse computador" marcada).
+O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me neste computador" marcada).
 
 Você pode remover o arquivo `BotName.db` (e `BotName.bin`, se ele existir) da conta afetada e tentar vincular ASF a sua conta novamente, mas isso provavelmente não vai adiantar. A solução real baseada no ASF é importar seu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** - desta forma o ASF pode gerar tokens automaticamente quando eles forem necessários, e você não precisa colocá-los manualmente. Geralmente esse problema se resolve magicamente sozinho depois de algum tempo, então você pode simplesmente esperar. É claro, você também pode pedir uma solução pra Valve, pois eu não posso forçar a rede Steam a aceitar nossas chaves de registro.
 
@@ -599,7 +609,7 @@ Se você tem certeza de que a data no seu computador está certa e mesmo assim o
 
 ### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
 
-Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Reportar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Informar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
 
 * * *
 

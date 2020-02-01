@@ -197,7 +197,7 @@ Este ejemplo se basa en nuestro ejemplo básico de `ColoredConsole` que se mostr
 </nlog>
 ```
 
-Hemos empezado desde nuestro ejemplo básico de `ColoredConsole` y lo hemos extendido. En primer lugar, hemos preparado un archivo permanente de registro de char por cada grupo y usuario de Steam - esto es posible gracias a las propiedades adicionales que ASF nos expone de manera elegante. También hemos decidido ir con un layout personalizado que solo escribe la fecha actual, el mensaje, información enviada/recibida y el usuario de Steam. Por último, hemos habilitado nuestra regla de registro de chat para el nivel `Trace`, solo para nuestro bot `MainAccount` y solo para funciones relacionadas con el registro de chat (`OnIncoming*` que es usado para recibir mensajes y ecos, y `SendMessage*` para enviar mensajes de ASF).
+Hemos empezado desde nuestro ejemplo básico de `ColoredConsole` y lo hemos extendido. En primer lugar, hemos preparado un archivo permanente de registro de chat por cada grupo y usuario de Steam - esto es posible gracias a las propiedades adicionales que ASF nos expone de manera elegante. También hemos decidido ir con un layout personalizado que solo escribe la fecha actual, el mensaje, información enviada/recibida y el usuario de Steam. Por último, hemos habilitado nuestra regla de registro de chat para el nivel `Trace`, solo para nuestro bot `MainAccount` y solo para funciones relacionadas con el registro de chat (`OnIncoming*` que es usado para recibir mensajes y ecos, y `SendMessage*` para enviar mensajes de ASF).
 
 El ejemplo anterior generará el archivo `0-0-76561198069026042.txt` cuando se hable con **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
