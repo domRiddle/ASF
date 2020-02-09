@@ -484,20 +484,21 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义 ASF 拾取操作的行为——这既包括通过&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;触发的手动拾取，也包括通过各种配置属性设置的自动拾取。 ASF 会确保交易报价内只包含 `LootableTypes` 类型的物品，因此，这个属性使您可以选择您希望从交易报价中获得何种物品。
 
-| 值  | 名称                | 描述                        |
-| -- | ----------------- | ------------------------- |
-| 0  | Unknown           | 不符合以下情况的任何类型              |
-| 1  | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
-| 2  | Emoticon          | Steam 聊天中使用的表情            |
-| 3  | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
-| 4  | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
-| 5  | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
-| 6  | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
-| 7  | SaleItem          | Steam 特卖期间的特殊奖励物品         |
-| 8  | Consumable        | 使用后消失的特殊消耗品               |
-| 9  | ProfileModifier   | 修改 Steam 个人资料外观的特殊物品      |
-| 10 | Sticker           | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect        | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 值  | 名称                    | 描述                        |
+| -- | --------------------- | ------------------------- |
+| 0  | Unknown               | 不符合以下情况的任何类型              |
+| 1  | BoosterPack           | 包含某游戏随机 3 张卡牌的补充包         |
+| 2  | Emoticon              | Steam 聊天中使用的表情            |
+| 3  | FoilTradingCard       | 闪亮集换式卡牌（`TradingCard`）    |
+| 4  | ProfileBackground     | 在 Steam 个人资料上使用的个人资料背景    |
+| 5  | TradingCard           | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6  | SteamGems             | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
+| 7  | SaleItem              | Steam 特卖期间的特殊奖励物品         |
+| 8  | Consumable            | 使用后消失的特殊消耗品               |
+| 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
+| 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
@@ -509,20 +510,21 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为 Steam 物品类型 `5` 的 `ImmutableHashSet<byte>` 类型属性。 此属性定义了当您启用 `TradingPreferences` 中的 `SteamTradeMatcher` 选项时，允许用于匹配的 Steam 物品类型。 可用类型如下：
 
-| 值  | 名称                | 描述                        |
-| -- | ----------------- | ------------------------- |
-| 0  | Unknown           | 不符合以下情况的任何类型              |
-| 1  | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
-| 2  | Emoticon          | Steam 聊天中使用的表情            |
-| 3  | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
-| 4  | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
-| 5  | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
-| 6  | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
-| 7  | SaleItem          | Steam 特卖期间的特殊奖励物品         |
-| 8  | Consumable        | 使用后消失的特殊消耗品               |
-| 9  | ProfileModifier   | 修改 Steam 个人资料外观的特殊物品      |
-| 10 | Sticker           | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect        | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 值  | 名称                    | 描述                        |
+| -- | --------------------- | ------------------------- |
+| 0  | Unknown               | 不符合以下情况的任何类型              |
+| 1  | BoosterPack           | 包含某游戏随机 3 张卡牌的补充包         |
+| 2  | Emoticon              | Steam 聊天中使用的表情            |
+| 3  | FoilTradingCard       | 闪亮集换式卡牌（`TradingCard`）    |
+| 4  | ProfileBackground     | 在 Steam 个人资料上使用的个人资料背景    |
+| 5  | TradingCard           | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6  | SteamGems             | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
+| 7  | SaleItem              | Steam 特卖期间的特殊奖励物品         |
+| 8  | Consumable            | 使用后消失的特殊消耗品               |
+| 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
+| 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 
 当然，您应该设置的类型通常只有 `2`、`3`、`4` 和 `5`，因为 STM 只支持这些类型。 ASF 的逻辑能够正确地获取物品的稀有程度，因此匹配表情或背景也是安全的，因为 ASF 只会将来自同一游戏、同一物品类型以及稀有程度相同的物品视为相等。
 
@@ -701,20 +703,21 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
 
-| 值  | 名称                | 描述                        |
-| -- | ----------------- | ------------------------- |
-| 0  | Unknown           | 不符合以下情况的任何类型              |
-| 1  | BoosterPack       | 包含某游戏随机 3 张卡牌的补充包         |
-| 2  | Emoticon          | Steam 聊天中使用的表情            |
-| 3  | FoilTradingCard   | 闪亮集换式卡牌（`TradingCard`）    |
-| 4  | ProfileBackground | 在 Steam 个人资料上使用的个人资料背景    |
-| 5  | TradingCard       | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
-| 6  | SteamGems         | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
-| 7  | SaleItem          | Steam 特卖期间的特殊奖励物品         |
-| 8  | Consumable        | 使用后消失的特殊消耗品               |
-| 9  | ProfileModifier   | 修改 Steam 个人资料外观的特殊物品      |
-| 10 | Sticker           | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect        | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 值  | 名称                    | 描述                        |
+| -- | --------------------- | ------------------------- |
+| 0  | Unknown               | 不符合以下情况的任何类型              |
+| 1  | BoosterPack           | 包含某游戏随机 3 张卡牌的补充包         |
+| 2  | Emoticon              | Steam 聊天中使用的表情            |
+| 3  | FoilTradingCard       | 闪亮集换式卡牌（`TradingCard`）    |
+| 4  | ProfileBackground     | 在 Steam 个人资料上使用的个人资料背景    |
+| 5  | TradingCard           | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
+| 6  | SteamGems             | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
+| 7  | SaleItem              | Steam 特卖期间的特殊奖励物品         |
+| 8  | Consumable            | 使用后消失的特殊消耗品               |
+| 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
+| 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 

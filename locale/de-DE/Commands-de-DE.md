@@ -193,7 +193,7 @@ Bedenke, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Eltern
 
 * * *
 
-## `addlicense` licenses
+## `addlicense` Lizenzen
 
 `addlicense` command supports two different license types, those are:
 
@@ -213,7 +213,7 @@ Beispiel für einen vollständigen Befehl:
 
 * * *
 
-## `owns` games
+## `owns` Spiele
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 

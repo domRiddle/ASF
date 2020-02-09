@@ -484,20 +484,21 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` 類型，預設值為「`1, 3, 5`」Steam 物品類型。 This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| 值  | 名稱                | 描述                                                            |
-| -- | ----------------- | ------------------------------------------------------------- |
-| 0  | Unknown           | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground | Profile background to use on your Steam profile               |
-| 5  | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem          | Special items awarded during Steam sales                      |
-| 8  | Consumable        | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
+| 值  | 名稱                    | 描述                                                            |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -509,20 +510,21 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` 類型，預設值為「`5`」Steam 物品類型。 This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| 值  | 名稱                | 描述                                                            |
-| -- | ----------------- | ------------------------------------------------------------- |
-| 0  | Unknown           | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground | Profile background to use on your Steam profile               |
-| 5  | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem          | Special items awarded during Steam sales                      |
-| 8  | Consumable        | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
+| 值  | 名稱                    | 描述                                                            |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -701,20 +703,21 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` 類型，預設值為「`1, 3, 5`」Steam 物品類型。 This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| 值  | 名稱                | 描述                                                            |
-| -- | ----------------- | ------------------------------------------------------------- |
-| 0  | Unknown           | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack       | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon          | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard   | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground | Profile background to use on your Steam profile               |
-| 5  | TradingCard       | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems         | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem          | Special items awarded during Steam sales                      |
-| 8  | Consumable        | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier   | Special items that can modify Steam profile appearance        |
-| 10 | Sticker           | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect        | 可用在 Steam 聊天中的特殊物品                                            |
+| 值  | 名稱                    | 描述                                                            |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
+| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 

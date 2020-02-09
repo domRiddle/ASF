@@ -484,20 +484,21 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF tie
 
 Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
 
-| Valor | Nombre            | Descripción                                                                         |
-| ----- | ----------------- | ----------------------------------------------------------------------------------- |
-| 0     | Unknown           | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
-| 1     | BoosterPack       | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
-| 2     | Emoticon          | Emoticón para usar en el Chat de Steam                                              |
-| 3     | FoilTradingCard   | Variante reflectante de `TradingCard`                                               |
-| 4     | ProfileBackground | Fondo de perfil para usar en tu perfil de Steam                                     |
-| 5     | TradingCard       | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
-| 6     | SteamGems         | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
-| 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
-| 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier   | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
-| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
-| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
+| Valor | Nombre                | Descripción                                                                         |
+| ----- | --------------------- | ----------------------------------------------------------------------------------- |
+| 0     | Unknown               | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
+| 1     | BoosterPack           | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
+| 2     | Emoticon              | Emoticón para usar en el Chat de Steam                                              |
+| 3     | FoilTradingCard       | Variante reflectante de `TradingCard`                                               |
+| 4     | ProfileBackground     | Fondo de perfil para usar en tu perfil de Steam                                     |
+| 5     | TradingCard           | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
+| 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
+| 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
+| 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
@@ -509,20 +510,21 @@ La configuración por defecto de ASF está basada en el uso más común de un bo
 
 Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de Steam `5`. Esta propiedad define qué tipos de artículo de Steam están permitidos para emparejamiento cuando la opción `SteamTradeMatcher` está activada en `TradingPreferences`. Los tipos se describen a continuación:
 
-| Valor | Nombre            | Descripción                                                                         |
-| ----- | ----------------- | ----------------------------------------------------------------------------------- |
-| 0     | Unknown           | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
-| 1     | BoosterPack       | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
-| 2     | Emoticon          | Emoticón para usar en el Chat de Steam                                              |
-| 3     | FoilTradingCard   | Variante reflectante de `TradingCard`                                               |
-| 4     | ProfileBackground | Fondo de perfil para usar en tu perfil de Steam                                     |
-| 5     | TradingCard       | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
-| 6     | SteamGems         | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
-| 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
-| 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier   | Artículos que pueden modificar la apariencia del perfil de Steam                    |
-| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
-| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
+| Valor | Nombre                | Descripción                                                                         |
+| ----- | --------------------- | ----------------------------------------------------------------------------------- |
+| 0     | Unknown               | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
+| 1     | BoosterPack           | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
+| 2     | Emoticon              | Emoticón para usar en el Chat de Steam                                              |
+| 3     | FoilTradingCard       | Variante reflectante de `TradingCard`                                               |
+| 4     | ProfileBackground     | Fondo de perfil para usar en tu perfil de Steam                                     |
+| 5     | TradingCard           | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
+| 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
+| 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
+| 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
+| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye una lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
@@ -701,20 +703,21 @@ Para más información sobre la lógica de intercambios de ASF, y descripción d
 
 Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define qué tipos de artículo de Steam serán considerados para transferirse entre bots, durante el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `transfer`. ASF se asegurará que solo los artículos de `TransferableTypes` sean incluidos en una oferta de intercambio, por lo tanto esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio enviada a uno de tus bots.
 
-| Valor | Nombre            | Descripción                                                                         |
-| ----- | ----------------- | ----------------------------------------------------------------------------------- |
-| 0     | Unknown           | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
-| 1     | BoosterPack       | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
-| 2     | Emoticon          | Emoticón para usar en el Chat de Steam                                              |
-| 3     | FoilTradingCard   | Variante reflectante de `TradingCard`                                               |
-| 4     | ProfileBackground | Fondo de perfil para usar en tu perfil de Steam                                     |
-| 5     | TradingCard       | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
-| 6     | SteamGems         | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
-| 7     | SaleItem          | Artículos especiales otorgados durante las ofertas de Steam                         |
-| 8     | Consumable        | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier   | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
-| 10    | Sticker           | Artículos especiales que se pueden usar en el chat de Steam                         |
-| 11    | ChatEffect        | Artículos especiales que se pueden usar en el chat de Steam                         |
+| Valor | Nombre                | Descripción                                                                         |
+| ----- | --------------------- | ----------------------------------------------------------------------------------- |
+| 0     | Unknown               | Cualquier tipo que no pertenezca a ninguno de los siguientes                        |
+| 1     | BoosterPack           | Pack de refuerzo que contiene 3 cromos aleatorios de un juego                       |
+| 2     | Emoticon              | Emoticón para usar en el Chat de Steam                                              |
+| 3     | FoilTradingCard       | Variante reflectante de `TradingCard`                                               |
+| 4     | ProfileBackground     | Fondo de perfil para usar en tu perfil de Steam                                     |
+| 5     | TradingCard           | Cromo de Steam, usado para fabricar insignias (no reflectante)                      |
+| 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
+| 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
+| 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
+| 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 

@@ -484,20 +484,21 @@ Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF tem permi
 
 Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 5`. Essa propriedade define o comportamento do ASF quando estiver coletando tanto manualmente quanto através de algum **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**, ou mesmo automaticamente, atrávés de uma ou mais propriedades de configuração. O ASF vai garantir que apenas itens definidos em `LootableTypes` serão incluídos na oferta de troca, assim você pode especificar o que deseja receber nas propostas que o bot te enviará.
 
-| Valor | Nome              | Descrição                                                                   |
-| ----- | ----------------- | --------------------------------------------------------------------------- |
-| 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
-| 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
-| 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
-| 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
-| 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
-| 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
-| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
-| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
-| 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
-| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
-| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
+| Valor | Nome                  | Descrição                                                                   |
+| ----- | --------------------- | --------------------------------------------------------------------------- |
+| 0     | Unknown               | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
+| 1     | BoosterPack           | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
+| 2     | Emoticon              | Emoticons para uso no Chat Steam                                            |
+| 3     | FoilTradingCard       | Versão brilhante da `Carta Colecionável`                                    |
+| 4     | ProfileBackground     | Fundo de perfil para usar em seu perfil Steam                               |
+| 5     | TradingCard           | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
+| 6     | SteamGems             | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
+| 7     | SaleItem              | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable            | Consumíveis especiais que desaparecem após serem usados                     |
+| 9     | ProfileModifier       | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
+| 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -509,20 +510,21 @@ A configuração padrão do ASF baseia-se no uso mais comum do bot, coletando ap
 
 Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Esta propriedade define quais tipos de itens Steam podem ser trocados se a opção `SteamTradeMatcher` estiver habilitada em `TradingPreferences`. Os tipos são definidos abaixo:
 
-| Valor | Nome              | Descrição                                                                   |
-| ----- | ----------------- | --------------------------------------------------------------------------- |
-| 0     | Unknown           | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
-| 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
-| 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
-| 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
-| 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
-| 6     | SteamGems         | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
-| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
-| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
-| 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
-| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
-| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
+| Valor | Nome                  | Descrição                                                                   |
+| ----- | --------------------- | --------------------------------------------------------------------------- |
+| 0     | Unknown               | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
+| 1     | BoosterPack           | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
+| 2     | Emoticon              | Emoticons para uso no Chat Steam                                            |
+| 3     | FoilTradingCard       | Versão brilhante da `Carta Colecionável`                                    |
+| 4     | ProfileBackground     | Fundo de perfil para usar em seu perfil Steam                               |
+| 5     | TradingCard           | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
+| 6     | SteamGems             | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
+| 7     | SaleItem              | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable            | Consumíveis especiais que desaparecem após serem usados                     |
+| 9     | ProfileModifier       | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
+| 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. O ASF inclui uma lógica própria para descobrir a raridade dos itens, portanto também é seguro combinar emoticons ou planos de fundo, uma vez que o ASF vai considerar justo apenas os itens do mesmo jogo e tipo, que também compartilhem a mesma raridade.
 
@@ -701,20 +703,21 @@ Para obter mais explicações sobre a lógica de trocas do ASF e uma descrição
 
 Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 5`. Essa propriedade define que tipos de itens do Steam serão considerados para transferência entre bots durante o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `transfer`. O ASF garantirá que apenas itens definidos em `TransferableTypes` serão incluídos na oferta de troca, portanto, essa propriedade permite que você escolha o que você deseja receber em uma oferta de troca que está sendo enviada para um de seus bots.
 
-| Valor | Nome              | Descrição                                                                   |
-| ----- | ----------------- | --------------------------------------------------------------------------- |
-| 0     | Unknown           | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
-| 1     | BoosterPack       | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
-| 2     | Emoticon          | Emoticons para uso no Chat Steam                                            |
-| 3     | FoilTradingCard   | Versão brilhante da `Carta Colecionável`                                    |
-| 4     | ProfileBackground | Fundo de perfil para usar em seu perfil Steam                               |
-| 5     | TradingCard       | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
-| 6     | SteamGems         | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
-| 7     | SaleItem          | Itens especiais ganhos durante as promoções Steam                           |
-| 8     | Consumable        | Consumíveis especiais que desaparecem após serem usados                     |
-| 9     | ProfileModifier   | Itens especiais que podem modificar a aparência do perfil Steam             |
-| 10    | Adesivo           | Itens especiais que podem ser usados no chat Steam                          |
-| 11    | ChatEffect        | Itens especiais que podem ser usados no chat Steam                          |
+| Valor | Nome                  | Descrição                                                                   |
+| ----- | --------------------- | --------------------------------------------------------------------------- |
+| 0     | Unknown               | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
+| 1     | BoosterPack           | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
+| 2     | Emoticon              | Emoticons para uso no Chat Steam                                            |
+| 3     | FoilTradingCard       | Versão brilhante da `Carta Colecionável`                                    |
+| 4     | ProfileBackground     | Fundo de perfil para usar em seu perfil Steam                               |
+| 5     | TradingCard           | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
+| 6     | SteamGems             | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
+| 7     | SaleItem              | Itens especiais ganhos durante as promoções Steam                           |
+| 8     | Consumable            | Consumíveis especiais que desaparecem após serem usados                     |
+| 9     | ProfileModifier       | Itens especiais que podem modificar a aparência do perfil Steam             |
+| 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
+| 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
+| 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 

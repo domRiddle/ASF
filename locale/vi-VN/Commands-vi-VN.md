@@ -197,7 +197,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Example      | Description                                                             |
+| Type  | Alias | Example      | Mô tả                                                                   |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
@@ -217,7 +217,7 @@ Complete command example:
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                                   |
+| Type    | Alias | Example          | Mô tả                                                                                                                                                                                                                                                                         |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
 | `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
@@ -239,7 +239,7 @@ Complete command example:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Tên                   | Description                                                                     |
+| Value | Tên                   | Mô tả                                                                           |
 | ----- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
@@ -268,7 +268,7 @@ General syntax is `input <Bots> <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Mô tả                                                                      |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |

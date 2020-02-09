@@ -18,7 +18,7 @@ Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für wen
 
 ### Warum behauptet das Programm, dass es auf meinem Konto nichts zum Farmen gibt?
 
-### Why is my account limited?
+### Warum ist mein Konto begrenzt?
 
 Bevor du versuchst zu verstehen, was ASF ist, solltest du sicherstellen, dass du verstehst, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 
@@ -33,7 +33,7 @@ Core points are stated once again here, because people in general don't want to 
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
-Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
+Nun, da wir die Grundlagen von Steam erklärt haben, können wir ASF erklären. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
 ASF meldet sich über unseren integrierten mini Steam-Client mit den von dir angegebenen Anmeldeinformationen bei deinem Steam-Konto an. Nach erfolgreicher Anmeldung analysiert es deine **[Abzeichen](https://steamcommunity.com/my/badges)** um Spiele zu finden, die für das Sammeln verfügbar sind (Du kannst X weitere Karten erhalten, wenn du dieses Spiel spielst). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Kartendrop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
 
@@ -97,7 +97,7 @@ Zusätzlich zur Verwaltung des oben beschriebenen Moduls für das automatische K
 
 ### I'm not interested in card drops, I'd like to idle hours played instead, is that possible?
 
-Yes, ASF allows you to do that through at least several ways.
+Ja, ASF erlaubt es Ihnen, dies auf mehrere Arten zu tun.
 
 The most optimal way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will idle your chosen appIDs when ASF has no cards to idle. If you'd like to idle your games all the time, even if you do have card drops from other games, then you can combine it with **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#idlepriorityqueueonly)**, so ASF will idle only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
 

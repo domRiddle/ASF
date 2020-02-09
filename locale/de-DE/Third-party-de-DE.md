@@ -12,9 +12,9 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern ge
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, Plugin für ASF, um Steam Einladungen automatisch zu verarbeiten.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, Plugin für ASF erlaubt das Proxifieren von WebSocket-Verbindungen.
 
 * * *
 
