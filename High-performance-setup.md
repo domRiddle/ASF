@@ -37,11 +37,7 @@ However, if memory is not a problem for you (as GC still takes into account your
 You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
-# Don't forget to tune this one if you're going to use it
-export COMPlus_GCHeapHardLimitPercent=75
-
-export COMPlus_GCLatencyLevel=0
-export COMPlus_gcTrimCommitOnLowMemory=1
+export COMPlus_gcServer=1
 
 ./ArchiSteamFarm # For OS-specific build
 ```
@@ -49,11 +45,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 Or on Windows (powershell):
 
 ```powershell
-# Don't forget to tune this one if you're going to use it
-$Env:COMPlus_GCHeapHardLimitPercent=75
-
-$Env:COMPlus_GCLatencyLevel=0
-$Env:COMPlus_gcTrimCommitOnLowMemory=1
+$Env:COMPlus_gcServer=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
