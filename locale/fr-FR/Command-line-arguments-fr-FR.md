@@ -57,11 +57,12 @@ En raison de la nature de cette propriété, il est également possible de défi
 
 En raison de la nature de cet propriété, il est aussi possible de définir le chemin attendu en déclarant la variable d'environnement `ASF_PATH`, ce qui peut être plus approprié pour les personnes voulant éviter des données sensibles dans les arguments du processus.
 
-Exemple :
+Exemples:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Chemin 'absolu'
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Chemin alternatif, fonctionne aussi
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
     ├── /opt

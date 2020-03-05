@@ -58,11 +58,12 @@ A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKE
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-Példa:
+Examples:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/CélKönyvtár # Abszolút elérési út 
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../CélKönyvtár # Relatív elérési út is ugyanúgy működik
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
     ├── /opt

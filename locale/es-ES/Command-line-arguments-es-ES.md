@@ -58,11 +58,12 @@ Debido a la naturaleza de esta propiedad, también es posible establecer la clav
 
 Debido a la naturaleza de esta propiedad, también es posible establecer una ruta esperada declarando la variable de entorno `ASF_PATH`, que puede ser más apropiado para las personas que quieran evitar detalles sensibles en los argumentos del proceso.
 
-Ejemplo:
+Ejemplos:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/DirectorioObjetivo # Ruta absoluta
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../DirectorioObjetivo # También acepta ruta relativa
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
     ├── /opt

@@ -46,21 +46,17 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 Die folgenden Tricks **beeinträchtigen die Performance-Minderung** und sollten mit Vorsicht angewendet werden.
 
-`ArchiSteamFarm.runtimeconfig.json` ermöglicht es dir, die ASF-Runtime einzustellen, insbesondere zwischen Server GC und Workstation GC zu wechseln.
+.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-> Der Garbage Collector ist selbstoptimierend und kann in einer Vielzahl von Szenarien eingesetzt werden. Du kannst mit Hilfe einer Einstellung in der Konfigurationsdatei die Art der Garbage Collection basierend auf den Eigenschaften der Systemlast festlegen. Die CLR bietet die folgenden Arten der Garbage Collection: - Workstation Garbage Collection, die für alle Client-Arbeitsplätze und Einzel-PCs gilt. Dies ist die Standardeinstellung für das Element `<gcServer>` im Runtime-Konfigurationsschema. - Server Garbage Collection, die für Serveranwendungen bestimmt ist, die einen hohen Datendurchsatz und Skalierbarkeit erfordern. Die Server Garbage Collection kann sowohl nicht zeitgleich als auch im Hintergrund erfolgen.
+The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
-Weitere Informationen findest du unter **[Grundlagen der Garbage Collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
-
-ASF verwendet bereits die Workstation GC, aber du kannst sicherstellen, dass dies wirklich der Fall ist, indem du überprüfst, ob in der `ArchiSteamFarm.runtimeconfig.json` Datei die `System.GC.Server` Eigenschaft auf `false` gesetzt ist.
-
-In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** that you can use. You can read about the most interesting ones below.
+Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
 ### `GCHeapHardLimitPercent`
 
 > Specifies the GC heap usage as a percentage of the total memory.
 
-The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios.
+The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job efficiently when possible.
 
@@ -68,17 +64,17 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 > Gibt die GC-Latenzstufe an, für die du optimieren möchtest.
 
-Dies funktioniert außerordentlich gut, da die Größe der GC-Generationen begrenzt wird und führt dazu, dass GC sie häufiger und aggressiver bereinigt. Die standardmäßige (symmetrische) Latenzstufe ist `1`, wir werden `0` verwenden wollen, was sich nach der Speichernutzung richtet.
+This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Die standardmäßige (symmetrische) Latenzstufe ist `1`, wir werden `0` verwenden wollen, was sich nach der Speichernutzung richtet.
 
 ### `gcTrimCommitOnLowMemory`
 
 > Wenn wir die Einstellung vorgenommen haben, trimmen wir den engagierten Raum aggressiver für das ephemere Segment. Dies wird verwendet, um viele Instanzen von Serverprozessen auszuführen, bei denen sie so wenig Speicher wie möglich gebunden halten wollen.
 
-Dies bietet zwar wenig Vorteile, könnte GC aber noch aggressiver machen, wenn das System wenig Speicherplatz hat.
+This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
 
 * * *
 
-You can enable all of them by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune this one if you're going to use it
@@ -117,7 +113,7 @@ Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollt
 ## Empfohlene Optimierung
 
 - Beginne mit den einfachen ASF-Setup-Tricks, vielleicht benutzt du deinen ASF einfach falsch, wie z.B. den Prozess für alle deine Bots mehrmals zu starten oder alle aktiv zu halten, wenn du nur ein oder zwei zum Autostart brauchst.
-- Wenn es immer noch nicht ausreicht, aktiviere alle oben aufgeführten Konfigurationsknöpfe, indem du die entsprechenden `COMPlus_` Umgebungsvariablen einstellst. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.
+- If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.
 - Wenn auch das nicht geholfen hat, aktiviere als letztes Mittel `MinMemoryUsage` `OptimizationMode`. Dies zwingt ASF, fast alles in synchroner Angelegenheit auszuführen, was es viel langsamer macht, aber auch nicht auf Thread-Pool angewiesen ist, um die Dinge auszugleichen, wenn es um die parallele Ausführung geht.
 
 Es ist physisch unmöglich, den Speicher noch weiter zu verringern, dein ASF ist bereits in Bezug auf die Leistung stark beeinträchtigt und du hast alle deine Möglichkeiten ausgeschöpft, sowohl code- als auch laufzeitbezogen. Überlege dir, etwas zusätzlichen Speicher für ASF hinzuzufügen, selbst 128 MB würden einen großen Unterschied machen.

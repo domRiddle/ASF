@@ -58,11 +58,12 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 이 속성값의 특성때문에 `ASF_PATH` 환경 변수를 선언하여 예상 경로를 설정하는 것도 가능합니다. 프로세스 인자 중 민감한 정보를 피하고 싶은 사람들에게 더 적절합니다.
 
-예시:
+Examples:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 절대경로
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 상대경로도 잘 작동함
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
     ├── /opt

@@ -58,11 +58,12 @@ Linux/OS X
 
 Из-за природы этого параметра также есть возможность задавать необходимый путь с помощью задания переменной среды `ASF_PATH`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.
 
-Пример:
+Примеры:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Абсолютный путь
 dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Относительный путь тоже работает
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Как и переменная окружения
 ```
 
     ├── /opt

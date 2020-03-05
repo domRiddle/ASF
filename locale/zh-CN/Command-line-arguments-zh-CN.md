@@ -58,11 +58,12 @@ Linux/macOS：
 
 由于该属性本身的性质，您也可以设置 `ASF_PATH` 环境变量来设置此路径，这更适合想避免在进程参数中暴露敏感信息的用户。
 
-示例：
+示例:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 绝对路径
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 相对路径也可以使用
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 也可以使用相对路径
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或者使用环境变量
 ```
 
     ├── /opt

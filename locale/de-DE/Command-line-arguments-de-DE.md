@@ -58,11 +58,12 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu se
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
-Beispiel:
+Beispiele:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absoluter Pfad
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relativer Pfad funktioniert auch
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
     ├── /opt

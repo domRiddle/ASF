@@ -46,21 +46,17 @@ Lo que significa que la memoria se elevará más cuando ASF está leyendo págin
 
 Los siguientes trucos **involucran reducción del rendimiento** y deben ser usados con precaución.
 
-`ArchiSteamFarm.runtimeconfig.json` te permite ajustar el runtime de ASF, especialmente permitiéndote cambiar entre server GC y workstation GC.
+.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de muchas formas, afinando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
 
-> El recolector de basura es autoajustable y puede trabajar en una amplia variedad de escenarios. Puedes usar un archivo de configuración para establecer el tipo recolector de basura basado en las características de la carga de trabajo. El CLR proporciona los siguientes tipos de recolección de basura: - Recolección de basura de estación de trabajo, que es para todas las estaciones de trabajo y PC independientes. Esta es la configuración predeterminada para el elemento `<gcServer>` en el esquema de configuración de runtime. - Recolección de basura de servidor, que está destinada para aplicaciones de servidor que necesitan alto rendimiento y escalabilidad. La recolección de basura de servidor puede ser no concurrente o en segundo plano.
+La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `COMPlus_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
 
-Puedes leer más en **[fundamentos de la recolección de basura](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
-
-ASF ya usa workstation GC, pero puedes asegurarte que ese es realmente el caso comprobando que la propiedad `System.GC.Server` de `ArchiSteamFarm.runtimeconfig.json` esté establecida en `false`.
-
-Además de verificar que la recolección de elementos no utilizados de estación de trabajo (workstation GC) está activa, también hay **[parámetros de configuración](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** interesantes que puedes usar. A continuación puedes leer sobre los más interesantes.
+Consulta la documentación para todas las propiedades que puedes utilizar, a continuación mencionaremos las más importantes (en nuestra opinión):
 
 ### `GCHeapHardLimitPercent`
 
 > Especifica el uso de la recolección de elementos no utilizados como un porcentaje de la memoria total.
 
-El límite de memoria para el proceso de ASF, este parámetro ajusta la recolección de elementos no utilizados para usar solamente un subconjunto de la memoria total y no toda. Puede resultar especialmente útil en situaciones de servidor donde puedes dedicar una porcentaje fijo de la memoria de tu servidor para ASF, pero nunca más que eso. Ten en cuenta que limitar la memoria de ASF no hará que todas las asignaciones de memoria desaparezcan, por lo tanto establecer este valor muy bajo podría resultar en toparse con escenarios en los que no hay memoria suficiente.
+El límite de memoria para el proceso de ASF, este parámetro ajusta la recolección de basura (GC) para usar solamente un subconjunto de la memoria total y no toda. Puede resultar especialmente útil en situaciones de servidor donde puedes dedicar una porcentaje fijo de la memoria de tu servidor para ASF, pero nunca más que eso. Ten en cuenta que limitar la memoria de ASF no hará que todas las asignaciones de memoria desaparezcan, por lo tanto establecer este valor muy bajo podría resultar en escenarios en los que no hay memoria suficiente, en los que el proceso ASF se verá forzado a terminar.
 
 Por otro lado, establecer este valor lo suficientemente alto es una forma perfecta de asegurar que ASF nunca usará más memoria de la que puedes permitirte realmente, dando a tu máquina un respiro incluso bajo una carga pesada, y permitiendo al programa hacer su trabajo de manera eficiente cuando sea posible.
 
@@ -68,17 +64,17 @@ Por otro lado, establecer este valor lo suficientemente alto es una forma perfec
 
 > Especifica el nivel de latencia de GC para el que quieres optimizar.
 
-Esto funciona excepcionalmente bien limitando los tamaños de generación del recolector de basura y en consecuencia hace que el recolector de basura los purgue más frecuentemente y más agresivamente. El nivel de latencia (equilibrado) por defecto es `1`, queremos usar `0`, lo que ajustará el uso de memoria.
+Esta es una propiedad no documenta que resultó funcionar excepcionalmente bien para ASF, limitando los tamaños de generación del recolector de basura y en consecuencia hace que este los purgue más frecuente y agresivamente. El nivel de latencia (equilibrado) por defecto es `1`, queremos usar `0`, lo que ajustará el uso de memoria.
 
 ### `gcTrimCommitOnLowMemory`
 
 > Cuando está establecido se recorta el espacio comprometido más agresivamente para el segmento efímero. Esto se utiliza para ejecutar muchas instancias de procesos de servidor donde quieren mantener tan poca memoria comprometida como sea posible.
 
-Esto ofrece poca mejora, pero podría hacer que el recolector de basura sea incluso más agresivo cuando el sistema esté bajo en memoria.
+Esto ofrece pocos beneficios, pero puede hacer que el recolector de basura (GC) sea más agresivo cuando el sistema tenga poca memoria, especialmente para ASF que hace un uso fuerte de las tareas del grupo de subprocesos (threadpool).
 
 * * *
 
-Puedes habilitar todas estableciendo las variables de entorno `COMPlus_` apropiadas. Por ejemplo, en Linux (shell):
+Puedes habilitar todas las propiedades del recolector de basura (GC) estableciendo las variables de entorno `COMPlus_` apropiadas. Por ejemplo, en Linux (shell):
 
 ```shell
 # Don't forget to tune this one if you're going to use it
@@ -117,7 +113,7 @@ Los siguientes trucos **involucran mucha reducción del rendimiento** y deben se
 ## Optimización recomendada
 
 - Empieza con trucos de configuración simples, tal vez solo estás usando tu ASF de una manera equivocada como iniciar el procesos varias veces para todos tus bots, o mantenerlos todos activos si solo necesitas uno o dos para autoiniciar.
-- Si aún no es suficiente, habilita todas las configuraciones listadas arriba estableciendo las variables de entorno `COMPlus_` apropiadas. Especialmente `GCLatencyLevel` ofrece significativas mejoras de runtime por poco costo en rendimiento.
+- Si aún no es suficiente, habilita todas las propiedades de configuración mencionadas arriba estableciendo las variables de entorno `COMPlus_` apropiadas. Especialmente `GCLatencyLevel` ofrece significativas mejoras de runtime por poco costo en rendimiento.
 - Si ni siquiera eso ayudó, como último recurso habilita `MinMemoryUsage` `OptimizationMode`. Esto obliga a ASF a ejecutar casi todo de forma sincrónica, haciéndolo funcionar mucho más lento pero además no confía en el grupo de hilos para equilibrar las cosas cuando se trata de ejecución en paralelo.
 
 Es físicamente imposible reducir aún más la memoria, ASF ya está muy degradado en términos de rendimiento y ya agotaste todas las posibilidades, tanto en términos de código como de runtime. Considere añadir algo de memoria adicional para que use ASF, incluso 128 MB harían una gran diferencia.

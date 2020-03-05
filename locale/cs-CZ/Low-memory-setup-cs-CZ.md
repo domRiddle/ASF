@@ -46,21 +46,17 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 Below tricks **involve performance degradation** and should be used with caution.
 
-`ArchiSteamFarm.runtimeconfig.json` allows you to tune ASF runtime, especially allowing you to switch between server GC and workstation GC.
+.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-> The garbage collector is self-tuning and can work in a wide variety of scenarios. You can use a configuration file setting to set the type of garbage collection based on the characteristics of the workload. The CLR provides the following types of garbage collection: - Workstation garbage collection, which is for all client workstations and stand-alone PCs. This is the default setting for the `<gcServer>` element in the runtime configuration schema. - Server garbage collection, which is intended for server applications that need high throughput and scalability. Server garbage collection can be non-concurrent or background.
+The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
-More can be read at **[fundamentals of garbage collection](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals)**.
-
-ASF is already using workstation GC, but you can ensure that it's truly the case by checking if `System.GC.Server` property of `ArchiSteamFarm.runtimeconfig.json` is set to `false`.
-
-In addition to verifying that workstation GC is active, there are also interesting **[configuration knobs](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** that you can use. You can read about the most interesting ones below.
+Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
 ### `GCHeapHardLimitPercent`
 
 > Specifies the GC heap usage as a percentage of the total memory.
 
-The "hard" memory limit for ASF process, this knob tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios.
+The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job efficiently when possible.
 
@@ -68,17 +64,17 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 > Specifies the GC latency level that you want to optimize for.
 
-This works exceptionally well by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
+This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
 
 ### `gcTrimCommitOnLowMemory`
 
 > When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
 
-This offers little improvement, but may make GC even more aggressive when system will be low on memory.
+This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
 
 * * *
 
-You can enable all of them by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune this one if you're going to use it
@@ -117,7 +113,7 @@ Below tricks **involve serious performance degradation** and should be used with
 ## Recommended optimization
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration knobs listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
+- If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
 
 It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.

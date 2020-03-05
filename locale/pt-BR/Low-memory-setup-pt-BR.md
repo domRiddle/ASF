@@ -46,21 +46,17 @@ O que significa que a memória terá os maiores picos quando o ASF fizer a leitu
 
 As dicas abaixo **envolvem diminuição de performance** e devem ser usados com cautela.
 
-`ArchiSteamFarm.runtimeconfig.json` permite que você configure o tempo de execução do ASF, especialmente permitindo que você alterne entre coleta de lixo de servidor ou de estação de trabalho.
+O tempo de execução.NET Core permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/pt-br/dotnet/core/run-time-config/garbage-collector)** de muitas maneiras, aperfeiçõando efetivamente o processo de coleta de lixo de acordo com suas necessidades.
 
-> O coletor de lixo tem autoajuste e pode trabalhar em uma ampla variedade de cenários. Você pode usar uma definição de arquivo de configuração para definir o tipo de coleta de lixo com base nas características da carga de trabalho. O CLR fornece as seguintes formas de coletor de lixo: - Coleta de lixo de estação de trabalho, que funciona para todas as estações de trabalho e PCs individuais. Esta é a configuração padrão para o elemento `<gcServer>` no esquema de configuração do tempo de execução. - A coleta de lixo de servidor, que serve para aplicativos de servidor que precisam de escalabilidade e taxa de transferência altas. A coleta de lixo de servidor pode ser não simultânea ou em segundo plano.
+A forma recomendada de aplicar essas configurações é através das propriedades de ambiente `COMPlus_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-Mais pode ser lido em **[noções básicas da coleta de lixo](https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/fundamentals)**.
-
-O ASF já usa a coleta de lixo de estação de trabalho, mas você pode garantir que esse é realmente o caso, verifique se o parâmetro `System.GC.Server` de `ArchiSteamFarm.runtimeconfig.json` está definido como `false`.
-
-Além de verificar se o coletor de lixo está ativo, há também **[botões de configuração](https://github.com/dotnet/coreclr/blob/master/src/inc/clrconfigvalues.h)** interessantes que você pode usar. Você pode ler sobre ps mais interessantes abaixo.
+Consulte a documentação para todas as propriedades que você pode usar, mencionaremos as mais importantes (na nossa opinião) abaixo:
 
 ### `GCHeapHardLimitPercent`
 
 > Especifica o montante de uso do do coletor de lixo como uma porcentagem da memória total.
 
-O limite de memória "difícil" para o processo do ASF, este botão liga o Coletor de Lixo para usar apenas um subconjunto de memória total e não tudo. Isso pode se tornar especialmente útil em várias situações semelhantes a servidores, onde você pode dedicar uma porcentagem fixa da memória do seu servidor para o ASF, mas nunca mais do que isso. Esteja ciente que limitar a memória para uso do ASF não fará com que todas as atribuições de memória necessárias desapareçam magicamente, portanto, fixar este valor muito baixo pode resultar em situações de falta de memória.
+O limite de memória "difícil" para o processo do ASF, essa propriedade liga o Coletor de Lixo para usar apenas um subconjunto de memória total e não tudo. Isso pode se tornar especialmente útil em várias situações semelhantes a servidores, onde você pode dedicar uma porcentagem fixa da memória do seu servidor para o ASF, mas nunca mais do que isso. Esteja ciente que limitar a memória para uso do ASF não fará com que todas as atribuições de memória necessárias desapareçam magicamente, portanto, fixar este valor muito baixo pode resultar em situações de falta de memória, forçando a finalização do processo do ASF.
 
 Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita para garantir que o ASF nunca usará mais memória do que você pode realmente dispor, dando algum espaço para sua máquina respirar mesmo sob carga pesada, enquanto ainda permite que o programa faça seu trabalho eficientemente quando possível.
 
@@ -68,17 +64,17 @@ Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita par
 
 > Especifica o nível de latência do coletor de lixo que você deseja otimizar.
 
-Funciona excepcionalmente bem limitando o tamanho das gerações de coleta de lixo e como resultado faz o coletor de lixo expurgá-los mais frequentemente e de forma mais agressiva. O atraso padrão (balanceado) de latência é `1`, devemos usar `0`, que vai reduzir o uso de memória.
+Essa é uma propriedade não documentada que funciona excepcionalmente bem, limitando o tamanho das gerações de coleta de lixo e como resultado fazendo o coletor de lixo expurgá-los mais frequentemente e de forma mais agressiva. O atraso padrão (balanceado) de latência é `1`, devemos usar `0`, que vai reduzir o uso de memória.
 
 ### `gcTrimCommitOnLowMemory`
 
 > Quando ativo, nós ajustamos a memória alocada de forma mais agressiva para os segmentos de curta duração. Isso é usado para rodar vários processos no servidor, onde há a necessidade do menor uso de memória possível.
 
-Ele oferece pouca melhora mas pode tornar o coletor de lixo ainda mais agressivo quando o sistema ficar com pouca memória.
+Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agressivo quando o sistema ficar com pouca memória, especialmente para o ASF que faz bastante uso de tarefas no pool de threads.
 
 * * *
 
-Você pode habilitar ambos definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
+Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
 ```shell
 # Não se esqueça de ajustar este se você vai usá-lo
@@ -117,7 +113,7 @@ As dicas abaixo **envolvem séria diminuição de performance** e devem ser usad
 ## Otimização recomendada
 
 - Comece com as dicas simples de configuração do ASF, talvez você só esteja usando o ASF de forma errada, como iniciando o processo várias vezes para todos os bots, ou mantendo todos ativos quando você precisa iniciar automaticamente apenas um ou dois.
-- Se ainda não for o suficiente, habilite todos os controled de configuração listados acima definindo as variáveis de ambiente apropriadas em `COMPlus_`. Especialmente `GCLatencyLevel`, que oferece melhorias significativas de tempo de execução com pouca queda de desempenho.
+- Se ainda não for o suficiente, habilite todas as propriedades de configuração listados acima definindo as variáveis de ambiente apropriadas em `COMPlus_`. Especialmente `GCLatencyLevel`, que oferece melhorias significativas de tempo de execução com pouca queda de desempenho.
 - Se mesmo isso não ajudar, como um último recurso defina `MinMemoryUsage` em `OptimizationMode`. Isso força o ASF a executar quase tudo de forma síncrona, fazendo-o trabalhar muito mais devagar, mas também sem depender do pool de threads para equilibrar as coisas quando se trata de execução paralela.
 
 É fisicamente impossível diminuir ainda mais o uso de memória, o ASF já estará com o desempenho seriamente afetado e você sem mais opções, tanto em termos de código quanto em termos de tempo de execução. Considere adicionar mais memória para o ASF usar, até 128MB faria uma grande diferença.

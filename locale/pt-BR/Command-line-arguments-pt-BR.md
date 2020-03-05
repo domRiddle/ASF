@@ -58,11 +58,12 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 Devido à natureza desta propriedade, também é possível definir o caminho esperado declarando a variável de ambiente `ASF_PATH`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 
-Exemplo:
+Exemplos:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Caminho absoluto
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Caminho relativo que também funciona
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # O caminho relativo também funciona
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # O mesmo que as variáveis de ambiente
 ```
 
     ├── /opt
