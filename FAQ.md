@@ -619,7 +619,7 @@ This warning means that Steam did not answer to ASF request in given time. Usual
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` windows service doesn't have disabled startup and is currently started.
+This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` windows service doesn't have disabled startup and is currently running.
 
 ---
 
