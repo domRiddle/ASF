@@ -617,6 +617,12 @@ This warning means that Steam did not answer to ASF request in given time. Usual
 
 ---
 
+### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
+
+This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` windows service is set to automatic startup, and is currently started.
+
+---
+
 ### ASF is being detected as a malware by my AntiVirus! What's going on?
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
