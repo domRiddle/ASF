@@ -1,4 +1,4 @@
-# 常見問題
+# 如何使用
 
 我們的基本常見問題解答涵蓋了您可能會问的問題和它们的標準答案。 對於不太常見的問題，請訪問我們的**[常見問題擴展](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**。
 
@@ -30,6 +30,7 @@ Core points are stated once again here, because people in general don't want to 
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 擁有免費遊戲不會讓您掉落卡片。**
 - **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 這在過去是有可能的，但現在已經不是這樣了。**
+- **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. 這在過去是有可能的，但現在已經不是這樣了。**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
@@ -610,6 +611,12 @@ If you made sure that the date on your machine is appropriate and the error does
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
 This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing after 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
+
+* * *
+
+### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
+
+This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` windows service doesn't have disabled startup and is currently running.
 
 * * *
 

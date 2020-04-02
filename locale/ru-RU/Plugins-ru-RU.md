@@ -35,7 +35,7 @@ ASF загружает плагины из папки `plugins` располож
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -47,7 +47,7 @@ ASF загружает плагины из папки `plugins` располож
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- Если вы хотите сослаться на исходный проект ASF, используйте это вместо <Reference> выше -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>

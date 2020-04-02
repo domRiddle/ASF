@@ -134,9 +134,9 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ## 常見問題
 
-### How is ASF making use of 2FA module?
+### ASF 如何使用兩步驟驗證模組？
 
-If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
+如果 ASF 兩步驟驗證可用，ASF 將用它自動確認由 ASF 傳送/接受的交易。 It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
 * * *
 

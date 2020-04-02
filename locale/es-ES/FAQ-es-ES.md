@@ -30,6 +30,7 @@ Los puntos principales se repiten aquí, porque la gente en general no quiere ac
 - **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, fabricado u olvidado lo que ocurrió con las cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego está terminado.**
 - **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te concede cromos obtenibles.**
 - **No puedes obtener cromos en [cuentas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), independientemente de los juegos que tengan. Antes era posible, para ya no es el caso.**
+- **Los juegos de paga que obtengas gratis durante una promoción no pueden ser recolectados para obtener cromos, independientemente de lo que se muestre en la página de la tienda. Antes era posible, para ya no es el caso.**
 
 Como puedes ver, los cromos de Steam te son otorgados por jugar un juego que compraste, o un juego F2P en el que has invertido dinero. Si juegas dicho juego lo suficiente, todos los cromos teminarán apareciendo en tu inventario, haciendo posible que completes una insignia (después de obtener la mitad restante del set), las vendas, o hagas lo que quieras.
 
@@ -610,6 +611,12 @@ Si estás seguro que la fecha en tu máquina es correcta y el error no desaparec
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
 Esta advertencia significa que Steam no respondió a la solicitud de ASF en un tiempo dado. Generalmente es causado por errores en la red de Steam y no afecta a ASF de ninguna manera. En otros casos es lo mismo que la solicitud fallando después de 5 intentos. Reportar este error no tienen sentido la mayoría del tiempo, ya que no podemos forzar a Steam a responder a nuestras solicitudes.
+
+* * *
+
+### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
+
+Este problema es casi exclusivamente causado por el servicio de Windows `CNG Key Isolation` desactivado/detenido, este proporciona la funcionalidad de criptografía para ASF, y sin el cual el programa no puede ejecutarse. Puede solucionar este problema ejecutando `services.msc` y asegurarte de que el servicio de Windows `CNG Key Isolation` no tiene el inicio deshabilitado y que se encuentra en ejecución.
 
 * * *
 

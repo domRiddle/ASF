@@ -8,7 +8,7 @@ ASF 在地化由 Crowdin 提供服務，使每個人都能幫助翻譯 ASF 為�
 
 ## 範圍
 
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+我們的平台支援 ASF 主程式的在地化，以及我們提供的所有可進行在地化的內容。 主要包括 ASF 網頁設定檔產生器、ASF-ui 以及 wiki。 這些都可以輕鬆地透過 Crowdin 介面進行翻譯。
 
 * * *
 
@@ -20,21 +20,21 @@ If you'd like to help with ASF, either by translating, reviewing or approving tr
 
 ### 翻譯
 
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
+如果您選擇的語言仍然缺少字串，您可以立刻開始翻譯。 We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. 這對從右往左書寫的語言尤其重要，例如希伯來文。
 
-For example, you could have a string like:
+例如，您可以翻譯一個字串為：
 
-> We have {0} games to idle.
+> 我們有 {0} 個遊戲等待掛卡。
 
-But based on your language, following sentence could make more sense:
+但根據您的語言，這個句子可能更通順：
 
-> The number of games to idle is equal to {0}.
+> 等待掛卡的遊戲數量為 {0}。
 
 或：
 
-> {0} is the number of games to idle.
+> 還有 {0} 個遊戲等待掛卡。
 
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). 這提高了整體的翻譯品質。
 
 * * *
 
@@ -46,7 +46,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 * * *
 
-### Proof-reading
+### 校對
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad may get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -71,7 +71,7 @@ There are currently 4 supported type of issues:
 
 * * *
 
-### Translation progress
+### 翻譯進度
 
 Every language has two states of completion - translation, and proof-reading.
 
@@ -83,7 +83,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 * * *
 
-## Missing languages
+## 缺少語言
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
 
@@ -91,7 +91,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 * * *
 
-## Pluralization
+## 複數形式
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -125,14 +125,14 @@ Our crowdin platform also allows you to adapt the original text in order to make
 
 ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+例如，ASF **[首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)** 包含了這條文本：
 
 > 如果您是新使用者，我們建議你從**[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)**開始。
 
-Which is originally written as:
+原始形式為：
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+如果您是新使用者，我們建議你從**新手上路（https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW）**開始。
 ```
 
 On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.

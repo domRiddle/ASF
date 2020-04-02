@@ -248,9 +248,9 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben bislang mindestens über **20 Tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich, und Sie können komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
 
-| Mitwirkender                                               | Sprache              |
+| Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
 | **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanisch             |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugiesisch (BR)   |
@@ -259,4 +259,4 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 | **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Deutsch              |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
 
-Thank you all for improving our ASF localization quality!
+Vielen Dank, an euch alle, für die Verbesserung unserer ASF-Lokalisierungsqualität!

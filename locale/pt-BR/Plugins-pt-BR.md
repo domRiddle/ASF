@@ -35,7 +35,7 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,11 +44,11 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm">
-      <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
+      <HintPath>C:\\Caminho\Para\Pasta\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- Se estiver compilando como parte da árvore raíz do ASF, use iso ao invés da <Reference> acima -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- Se estiver compilando como parte da árvore fonte do ASF, então use isso ao invés da <Reference> descrita acima -->
+    <!-- <ProjectReference Include="C:\\Caminho\Para\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```

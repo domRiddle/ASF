@@ -24,18 +24,18 @@ Ca a l'air plutôt simple, pas vrai ? Alors c'est parti.
 
 ### Prérequis du .NET Core
 
-La première étape consiste à vérifier que votre OS peut lancer ASF correctement. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Suivant votre OS (Windows, Linux, ou OS X), vous aurez des prérequis différents, qui sont tous listés dans **[les prérequis du .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)** que vous devriez suivre. C'est le guide de référence qui devrait être utilisé, mais pour plus de simplicité (et pour vous éviter de devoir lire le doc entier), nous avons détaillé tous les packages requis ci-dessous.
+La première étape consiste à vérifier que votre OS peut lancer ASF correctement. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Suivant votre OS (Windows, Linux, ou OS X), vous aurez des prérequis différents, qui sont tous listés dans **[les prérequis du .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** que vous devriez suivre. C'est le guide de référence qui devrait être utilisé, mais pour plus de simplicité (et pour vous éviter de devoir lire le doc entier), nous avons détaillé tous les packages requis ci-dessous.
 
 Il est parfaitement normal que quelques (ou mêmes tous) les prérequis soient déjà installés sur votre système, notamment par des programmes tiers qui les nécessitent. Mais vous devriez quand même vous assurer que ça soit le cas en lançant les installeurs appropriés pour votre OS - sans ces dépendances, ASF ne se lancera même pas.
 
 Gardez bien à l'esprit que ça sera sera la seule chose à installer sur votre OS, car la plupart des OS incluent déjà les autres packages requis. Vous aurez seulement besoin des prérequis (dépendances) du .NET Core pour faire tourner l'environnement .NET Core inclus dans ASF.
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-linux)**:
 
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
@@ -48,7 +48,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-macos)**:
 
 - None for now, but you should have latest version of OS X installed, at least 10.13+
 
@@ -254,7 +254,7 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Installer les prérequis du **[.NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore30)**.
+- Installer les prérequis du **[.NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).

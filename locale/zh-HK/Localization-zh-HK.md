@@ -83,7 +83,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 * * *
 
-## Missing languages
+## 缺少語言
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
 
@@ -91,7 +91,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 * * *
 
-## Pluralization
+## 複數形式
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -125,14 +125,14 @@ Our crowdin platform also allows you to adapt the original text in order to make
 
 ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+例如，ASF **[首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)** 包含了這條文本：
 
 > 如果您是新用戶，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。
 
-Which is originally written as:
+原始形式為：
 
 ```markdown
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+如果您是新使用者，我們建議你從**新手上路（https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW）**開始。
 ```
 
 On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.

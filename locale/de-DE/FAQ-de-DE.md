@@ -24,12 +24,13 @@ Bevor du versuchst zu verstehen, was ASF ist, solltest du sicherstellen, dass du
 
 Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die du berechtigt bist, wenn du ein bestimmtes Spiel besitzt, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck deiner Wahl verwendet werden.
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht mit ihnen einverstanden sind und so tun als ob diese nicht existieren würden:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **Du musst das Spiel auf deinem Steam Account besitzen, um für die dazu gehörigen Kartenfunde berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
+- **Du kannst nicht unendlich lange sammeln, jedes Spiel hat eine feste Anzahl an Kartenfunde. Sobald du alle Karten gesammelt hast (ungefähr die Hälfte eines vollständigen Satzes), ist das Spiel kein Idling-Kandidat mehr. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2. Owning F2P games does not grant you with card drops.**
 - **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
+- **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 
@@ -610,6 +611,12 @@ Wenn du sichergestellt hast, dass das Datum auf deiner Maschine korrekt ist und 
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
 
 Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die ASF-Anfrage geantwortet hat. Normalerweise wird dies durch Steam-Netzwerkproblemen verursacht und hat keine Auswirkung auf ASF. In manchen Fällen ist es das gleiche wie wenn die Anfrage nach 5 Versuchen fehlschlägt. Die Meldung dieses Problems macht meistens keinen Sinn, da wir Steam nicht zwingen können, auf unsere Anfragen zu reagieren.
+
+* * *
+
+### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
+
+This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` windows service doesn't have disabled startup and is currently running.
 
 * * *
 

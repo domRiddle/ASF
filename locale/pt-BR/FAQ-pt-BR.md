@@ -30,6 +30,7 @@ Os pontos principais são apresentados aqui novamente, porque geralmente as pess
 - **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabaram as cartas disponíveis para serem obtidas, o jogo está concluído.**
 - **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
 - **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
+- **Jogos pagos que você obteve de graça durante alguma promoção não podem ser coletados, independente do que esteja escrito na página da loja. Isso foi possível no passado, mas não é mais o caso.**
 
 Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Se você jogar tais jogos por tempo suficiente, todas as cartas para aquele jogo vão eventualmente aparecer no seu inventário, tornando possível que você complete uma insígnia (após obter a metade restante do jogo de cartas), venda-as, ou faça o que mais você quiser.
 
@@ -610,6 +611,12 @@ Se você tem certeza de que a data no seu computador está certa e mesmo assim o
 ### `System.Threading.Tasks.TaskCanceledException: Uma tarefa foi cancelada.`
 
 Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo esperado. Isso normalmente é causado por falhas da rede Steam e não afeta em nada o ASF. Em outros casos é o mesmo que pedidos falhando após 5 tentativas. Informar esses problemas não faz sentido na maioria das vezes, já que não podemos forçar o Steam a responder nossas solicitações.
+
+* * *
+
+### `O inicializador de tipo de 'System.Security.Cryptography.CngKeyLite' acionou uma exceção`
+
+Esse problema é quase exclusivamente causado pelo serviço do windows `CNG Key Isolation` estar parado/desabilitado, ele fornece a funcionalidade de criptografia básica para o ASF, sem o qual o programa não consegue rodar. Você pode resolver este problema abrindo `services.msc` e garantindo que o serviço `CNG Key Isolation` não esteja desativado na inicialização e está atualmente em execução.
 
 * * *
 
