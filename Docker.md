@@ -23,6 +23,8 @@ Very similar to the above, this tag always points to the latest **[released](htt
 
 This tag in comparison with previous two, as the first one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
 
+Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image was built with, which would otherwise require image to be re-built.
+
 ### `A.B.C.D`
 
 In comparison with above tags, this tag is completely frozen, which means that the image won't be updated once published. This works similar to our GitHub releases that are never touched after the initial release, which guarantees you stable and frozen environment. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
