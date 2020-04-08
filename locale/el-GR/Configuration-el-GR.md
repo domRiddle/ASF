@@ -647,7 +647,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 * * *
 
-### `SteamPassword`
+### `Κωδικός του Steam`
 
 `string` type with default value of `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 

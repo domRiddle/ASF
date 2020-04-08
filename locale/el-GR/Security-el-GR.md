@@ -1,10 +1,10 @@
 # Ασφάλεια
 
-## SteamPassword
+## Κωδικός του Steam
 
-ASF currently supports 4 types of passwords - `PlainText`, `AES`, `ProtectedDataForCurrentUser` and None (`null` / `""`).
+Το ASF αυτή τη στιγμή υποστηρίζει 4 τύπους κωδικών - `PlainText`, `AES`, `ProtectedDataForCurrentUser` και None (`null` / `""`).
 
-In order to use encrypted password, you should firstly log in to Steam as usual with `PlainText`, then generate encrypted passwords using `password` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Pick the encryption method you like, then put the encrypted password you got as `SteamPassword` bot config property, and finally don't forget to change `PasswordFormat` to the one that matches your chosen encryption method.
+Για να χρησιμοποιήσετε κρυπτογραφημένο κωδικό πρόσβασης, θα πρέπει πρώτα να συνδεθείτε στο Steam ως συνήθως με `PlainText`, και έπειτα δημιουργήστε κρυπτογραφημένους κωδικούς χρησιμοποιώντας το `password` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Επιλέξτε την μέθοδο κρυπτογράφησης που σας αρέσει και στη συνέχεια τοποθετήστε τον κρυπτογραφημένο κωδικό πρόσβασης που έχετε ως `SteamPassword` bot config property, και τέλος μην ξεχάσετε να αλλάξετε το `PasswordFormat` σε εκείνο που ταιριάζει με την επιλεγμένη μέθοδο κρυπτογράφησης.
 
 * * *
 

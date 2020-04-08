@@ -143,7 +143,7 @@ ASF 需要您的登入認證，因為它透過內建 Steam 用戶端自行實現
 
 ### 執行 ASF
 
-現在您已經準備好第一次啟動程式了。 只需要按兩下 ASF 捷徑或 ASF 目錄裡的 `ArchiSteamFarm(.exe)` 執行檔。
+現在您已經準備好第一次啟動程式了。 Simply double-click ASF shortcut, or `ArchiSteamFarm` binary in ASF directory.
 
 按下以後，如果您在第一步正確地安裝了所有相依性，ASF 應該會正確地啟動，注意您的第一個 BOT（如果您沒忘記把產生的設定檔置放在 `config` 目錄裡），然後嘗試登入：
 

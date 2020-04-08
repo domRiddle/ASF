@@ -143,7 +143,7 @@ Tu directorio `config` ahora se verá así:
 
 ### Ejecutando ASF
 
-Ahora estás listo para ejecutar el programa por primera vez. Simplemente haz doble clic en el acceso directo de ASF, o en el ejecutable `ArchiSteamFarm(.exe)` que se encuentra en el directorio de ASF.
+Ahora estás listo para ejecutar el programa por primera vez. Simplemente haz doble clic en el acceso directo de ASF, o en el ejecutable `ArchiSteamFarm` que se encuentra en el directorio de ASF.
 
 Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el primer paso, ASF debería ejecutarse correctamente, detectar tu primer bot (si no olvidaste poner el archivo generado en el directorio `config`), e intentar iniciar sesión:
 

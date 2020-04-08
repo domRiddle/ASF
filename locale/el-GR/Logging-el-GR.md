@@ -1,10 +1,10 @@
-# Logging
+# Σύνδεση
 
 ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
 * * *
 
-## Default logging
+## Προεπιλεγμένη σύνδεση
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
@@ -33,7 +33,7 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## Ενσωμάτωση ASF
 
 ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
 
@@ -51,7 +51,7 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 * * *
 
-## Examples
+## Παραδείγματα
 
 Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
@@ -160,7 +160,7 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 * * *
 
-## Chat logging
+## Σύνδεση συνομιλίας
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
@@ -242,7 +242,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Παράμετροι
 
 ##### General Options
 
@@ -291,9 +291,9 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 * * *
 
-#### Screenshots
+#### Στιγμιότυπα οθόνης
 
-![Screenshot](https://i.imgur.com/5juKHMt.png)
+![Στιγμιότυπο οθόνης](https://i.imgur.com/5juKHMt.png)
 
 * * *
 
@@ -320,7 +320,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-#### Parameters
+#### Παράμετροι
 
 ##### General Options
 
@@ -340,7 +340,7 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 * * *
 
-## Caveats
+## Προσοχή
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

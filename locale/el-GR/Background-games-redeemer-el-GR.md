@@ -6,7 +6,7 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 * * *
 
-## Import
+## Εισαγωγή
 
 The import process can be done through two ways - either by using a file, or IPC.
 

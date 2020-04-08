@@ -13,16 +13,16 @@
 * **[Αρχική](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Παραμετροποίηση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Συχνές ερωτήσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[Εγκατάσταση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(ξεκινήστε εδώ)**
 
 ## Πυρήνας
 
-* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Εξαργύρωση παιχνιδιών παρασκηνίου](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Εντολές](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Συμβατότητα](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Επιδόσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Στατιστικά](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Κοινή χρήση Steam με την οικογένεια](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Ανταλλαγές](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Προχωρημένες
@@ -34,16 +34,16 @@
 * **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Μετάφραση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Σύνδεση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Εγκατάσταση χαμηλή-μνήμη](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Πρόσθετα](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[ΑΣΦΑΛΕΙΑ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Εφαρμογές τρίτων](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Έλεγχος ταυτότητας δύο παραγόντων](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Προγραμματιστές
 
-* **[Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[Συλλογή](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Άδεια](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Κύκλος απελευθέρωσης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

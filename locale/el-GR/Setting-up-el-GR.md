@@ -143,7 +143,7 @@ Congratulations! You've just finished the very basic ASF bot configuration. We'l
 
 ### Running ASF
 
-You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm(.exe)` binary in ASF directory.
+You're now ready to launch the program for the first time. Simply double-click ASF shortcut, or `ArchiSteamFarm` binary in ASF directory.
 
 After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 

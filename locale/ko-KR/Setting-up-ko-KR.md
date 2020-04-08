@@ -143,7 +143,7 @@ You can now hit "download" button and our web config generator will generate new
 
 ### ASF 실행
 
-이제 프로그램을 처음 실행할 준비가 되었습니다. ASF 바로가기나 ASF 디렉토리의 `ArchiSteamFarm(.exe)` 실행파일을 를 더블클릭하십시오.
+이제 프로그램을 처음 실행할 준비가 되었습니다. Simply double-click ASF shortcut, or `ArchiSteamFarm` binary in ASF directory.
 
 After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 

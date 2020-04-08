@@ -18,7 +18,9 @@ Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](htt
 
 ### `latest`
 
-Em comparação com os dois marcadores anteriores, como o primeiro inclui o recurso de atualizações automáticas do ASF e normalmente aponta para aquela versão considerada estável, e não necessariamente a mais recente. O objetivo desse marcador é fornecer um contêiner Docker padrão que é capaz de executar a atualização automática do ASF. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
+This tag in comparison with others, as the only one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
+
+Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
 
 ### `A.B.C.D`
 
