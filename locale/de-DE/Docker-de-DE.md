@@ -38,7 +38,7 @@ Wir raten generell davon ab, `master` Builds auszuprobieren, genau wie automatis
 
 ## Architekturen
 
-Ein ASF-Docker-Image steht derzeit für zwei Architekturen zur Verfügung - `X64` und `arm`. Du kannst im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
+ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. Du kannst im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
 
 Da Multi-Arch Docker-Tags noch in Arbeit sind, sind Builds für andere Architekturen als den Standard `x64` derzeit verfügbar, wobei `-{ARCH}` an den Tag-Namen angehängt ist. Mit anderen Worten, wenn du `latest` Tag für `arm` Architektur verwenden willst, verwende einfach `latest-arm`.
 

@@ -38,7 +38,7 @@ Nós geralmente desencorajamos o uso de compilações `master`, assim como compi
 
 ## Arquiteturas
 
-A imagem docker do ASF está disponível atualmente para duas arquiteturas: `c64` e `arm`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
+ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
 Uma vez que os marcadores docker multi-arquiteturas ainda são um trabalho em andamento, compilações diferentes do padrão `x64` atualmente estão disponíveis com `-{ARCH}` no nome. Eu outras palavras, se você quer usar o marcador `latest` para a arquitetura `arm`, simpesmente use `latest-arm`.
 

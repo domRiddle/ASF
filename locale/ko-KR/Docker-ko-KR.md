@@ -38,7 +38,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 ## 아키텍쳐
 
-ASF 도커 이미지는 현재 `x64`와 `arm` 두개의 아키텍처에서 가능합니다. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
+ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
 
 다중 아키텍처 태그는 아직 작업중이므로, 기본 `x64`가 아닌 다른 아키텍처용 빌드는 태그 이름에 `-{ARCH}`를 붙이면 됩니다. 즉, `arm` 아키텍처에서 `latest` 태그를 사용하고 싶다면 `latest-arm`를 사용하면 됩니다.
 

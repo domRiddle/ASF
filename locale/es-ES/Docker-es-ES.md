@@ -38,7 +38,7 @@ Generalmente no recomendamos probar las compilaciones `master`, al igual que las
 
 ## Arquitecturas
 
-La imagen docker ASF está disponible actualmente para dos arquitecturas - `x64` y `arm`. Puedes leer más acerca de ellas en la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
+La imagen docker ASF está disponible actualmente para 3 arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
 
 Puesto que las etiquetas docker multiarquitectura todavía son trabajo en proceso, las compilaciones para otras arquitecturas diferentes a la predeterminada `x64` están disponibles con `-{ARCH}` anexado al nombre de la etiqueta. En otras palabras, si quieres usar la etiqueta `latest` para la arquitectura `arm`, simplemente usa `latest-arm`.
 

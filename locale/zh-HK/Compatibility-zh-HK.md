@@ -39,7 +39,8 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 ASF當前可用於以下操作系統 ：
 
 - `win-x64` 支援 64 位 Windows 操作系統。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，以及未來的版本。
-- `linux-arm` 支援基於 ARM（ARMv7+）的 32/64 位元 GNU/Linux 作業系統。 包括所有像是 Raspberry Pi 2（或更新版本）的平台可用的 GNU/Linux 作業系統（例如 Raspbian）的當前和未來版本。 此包不適用於較舊的ARM體系結構，例如Raspberry Pi 0 & 1所使用的ARMv6，也不適用於尚未實現所需GNU/Linux環境的操作系統，例如Android。
+- `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 包括所有像是 Raspberry Pi 2（或更新版本）的平台可用的 GNU/Linux 作業系統（例如 Raspbian）的當前和未來版本。 This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will not work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspbian), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-x64` 適用於64 位 GNU/Linux 操作系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等操作系統以及它們的衍生版在當前和未來的版本。
 - `osx-x64` 適用於64位 OS X 操作系統。 包括 10.13 及更新版本。
 

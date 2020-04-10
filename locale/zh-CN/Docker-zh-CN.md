@@ -38,7 +38,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ## 架构
 
-ASF Docker 映像目前支持两种架构——`x64` 和 `arm`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
+ASF Docker 映像目前支持 3 种架构——`x64,`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
 由于 Docker 多架构分支仍然未完成，非 `x64` 架构的构建需要在分支名称后面加上架构名称 `-{ARCH}`。 也就是说，如果您需要使用 `arm` 架构的 `latest` 分支，则实际的分支名应为 `latest-arm`。
 
