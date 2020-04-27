@@ -858,6 +858,8 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
+Example: `"SteamProtocols": 7`
+
 ---
 
 ## Compatibility mapping
