@@ -234,16 +234,16 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | 名前        | Description                                                                                      |
-| ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | 無し        | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| 値 | 名前        | Description                                                                                      |
+| - | --------- | ------------------------------------------------------------------------------------------------ |
+| 0 | 無し        | No protocol                                                                                      |
+| 1 | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2 | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
-By default ASF should use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -375,15 +375,15 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | 名前                            | Description                                                                                              |
-| ----- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 0     | 無し                            | No special bot behaviour, the least invasive mode, default                                               |
-| 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
-| 2     | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
-| 4     | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
-| 8     | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                                      |
-| 16    | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
-| 32    | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
+| 値  | 名前                            | Description                                                                                              |
+| -- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 0  | 無し                            | No special bot behaviour, the least invasive mode, default                                               |
+| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
+| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
+| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
+| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                                      |
+| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
+| 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -429,24 +429,24 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 `ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | 名前                        | Description                                                                      |
-| ----- | ------------------------- | -------------------------------------------------------------------------------- |
-| 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
-| 1     | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
-| 2     | AppIDsDescending          | Try to farm games with highest `appIDs` first                                    |
-| 3     | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
-| 4     | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
-| 5     | HoursAscending            | Try to farm games with lowest number of hours played first                       |
-| 6     | HoursDescending           | Try to farm games with highest number of hours played first                      |
-| 7     | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
-| 8     | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
-| 9     | Random                    | Try to farm games in totally random order (different on each run of the program) |
-| 10    | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
-| 11    | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
-| 12    | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
-| 13    | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
-| 14    | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
-| 15    | MarketableDescending      | Try to farm games with marketable card drops first                               |
+| 値  | 名前                        | Description                                                                      |
+| -- | ------------------------- | -------------------------------------------------------------------------------- |
+| 0  | Unordered                 | No sorting, slightly improving CPU performance                                   |
+| 1  | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
+| 2  | AppIDsDescending          | Try to farm games with highest `appIDs` first                                    |
+| 3  | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
+| 4  | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
+| 5  | HoursAscending            | Try to farm games with lowest number of hours played first                       |
+| 6  | HoursDescending           | Try to farm games with highest number of hours played first                      |
+| 7  | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
+| 8  | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
+| 9  | Random                    | Try to farm games in totally random order (different on each run of the program) |
+| 10 | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
+| 11 | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
+| 12 | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
+| 13 | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
+| 14 | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
+| 15 | MarketableDescending      | Try to farm games with marketable card drops first                               |
 
 Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
 
@@ -484,21 +484,21 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | 名前                    | Description                                                   |
-| ----- | --------------------- | ------------------------------------------------------------- |
-| 0     | Unknown               | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7     | SaleItem              | Special items awarded during Steam sales                      |
-| 8     | Consumable            | Special consumable items that disappear after being used      |
-| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10    | Sticker               | Special items that can be used on Steam chat                  |
-| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 値  | 名前                    | Description                                                   |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | Special items that can be used on Steam chat                  |
+| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -510,21 +510,21 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | 名前                    | Description                                                   |
-| ----- | --------------------- | ------------------------------------------------------------- |
-| 0     | Unknown               | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7     | SaleItem              | Special items awarded during Steam sales                      |
-| 8     | Consumable            | Special consumable items that disappear after being used      |
-| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10    | Sticker               | Special items that can be used on Steam chat                  |
-| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 値  | 名前                    | Description                                                   |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | Special items that can be used on Steam chat                  |
+| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -538,16 +538,16 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Value | 名前             |
-| ----- | -------------- |
-| 0     | Offline        |
-| 1     | Online         |
-| 2     | Busy           |
-| 3     | Away           |
-| 4     | Snooze         |
-| 5     | LookingToTrade |
-| 6     | LookingToPlay  |
-| 7     | Invisible      |
+| 値 | 名前             |
+| - | -------------- |
+| 0 | オフライン          |
+| 1 | オンライン          |
+| 2 | Busy           |
+| 3 | Away           |
+| 4 | Snooze         |
+| 5 | LookingToTrade |
+| 6 | LookingToPlay  |
+| 7 | Invisible      |
 
 `Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
@@ -577,13 +577,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | 名前                                 | Description                                                                                                                     |
-| ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | 無し                                 | No special redeeming preferences, default                                                                                       |
-| 1     | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
-| 2     | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
-| 4     | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
-| 8     | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
+| 値 | 名前                                 | Description                                                                                                                     |
+| - | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 無し                                 | No special redeeming preferences, default                                                                                       |
+| 1 | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
+| 2 | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
+| 4 | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
+| 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -665,12 +665,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | 名前            | Description                                                                                                                                                                                        |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | 無し            | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
-| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| 値 | 名前            | Description                                                                                                                                                                                        |
+| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 無し            | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2 | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3 | Master        | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -684,14 +684,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | 名前                  | Description                                                                                                                                                                                          |
-| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | 無し                  | No special trading preferences, default                                                                                                                                                              |
-| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
-| 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
-| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
-| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
-| 16    | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
+| 値  | 名前                  | Description                                                                                                                                                                                          |
+| -- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | 無し                  | No special trading preferences, default                                                                                                                                                              |
+| 1  | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
+| 2  | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
+| 4  | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
+| 8  | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
+| 16 | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -703,21 +703,21 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | 名前                    | Description                                                   |
-| ----- | --------------------- | ------------------------------------------------------------- |
-| 0     | Unknown               | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7     | SaleItem              | Special items awarded during Steam sales                      |
-| 8     | Consumable            | Special consumable items that disappear after being used      |
-| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10    | Sticker               | Special items that can be used on Steam chat                  |
-| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 値  | 名前                    | Description                                                   |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | Special items that can be used on Steam chat                  |
+| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -838,12 +838,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | 名前 |
-| ----- | -- |
-| 0     | 無し |
-| 1     | A  |
-| 2     | B  |
-| 4     | C  |
+| 値 | 名前 |
+| - | -- |
+| 0 | 無し |
+| 1 | A  |
+| 2 | B  |
+| 4 | C  |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
@@ -857,6 +857,8 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `A+C -> 5`
 - `B+C -> 6`
 - `A+B+C -> 7`
+
+Example: `"SteamProtocols": 7`
 
 * * *
 

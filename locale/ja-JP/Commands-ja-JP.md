@@ -14,11 +14,11 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### インタラクティブコンソール
 
 Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![スクリーンショット](https://i.imgur.com/bH5Gtjq.png)
 
 Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
 
@@ -28,7 +28,7 @@ Interactive console is not available in [**`Headless`**](https://github.com/Just
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![スクリーンショット](https://i.imgur.com/IvFRJ5S.png)
 
 In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
@@ -42,13 +42,13 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![スクリーンショット](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
 ## コマンド
 
-| Command                                                              | アクセス            | Description                                                                                                                                                                                                                                                                                                                         |
+| コマンド                                                                 | アクセス            | Description                                                                                                                                                                                                                                                                                                                         |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
 | `2fano [Bots]`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
@@ -101,7 +101,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 * * *
 
-### Notes
+### 備考
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -121,16 +121,16 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| コマンド         | 別名   |
+| ------------ | ---- |
+| `owns ASF`   | `oa` |
+| `status ASF` | `sa` |
+| `redeem`     | `r`  |
+| `redeem^`    | `r^` |
 
 * * *
 
-### `[Bots]` argument
+### `[Bots]` 引数
 
 `[Bots]` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -142,33 +142,33 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `privacy` 設定
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | 名前             | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| 引数 | 名前             | Child of   |
+| -- | -------------- | ---------- |
+| 1  | プロファイル         |            |
+| 2  | OwnedGames     | プロファイル     |
+| 3  | Playtime       | OwnedGames |
+| 4  | FriendsList    | プロファイル     |
+| 5  | インベントリ         | プロファイル     |
+| 6  | InventoryGifts | インベントリ     |
+| 7  | コメント           | プロファイル     |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Value | 名前            |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| 値 | 名前            |
+| - | ------------- |
+| 1 | `Private`     |
+| 2 | `FriendsOnly` |
+| 3 | `Public`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### 例
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -197,10 +197,10 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Example      | Description                                                             |
-| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Type  | 別名  | Example      | Description                                                             |
+| ----- | --- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -213,16 +213,16 @@ Complete command example:
 
 * * *
 
-## `owns` games
+## `owns` ゲーム
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                                   |
-| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
-| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `名前`    | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+| Type    | 別名  | Example          | Description                                                                                                                                                                                                                                                                   |
+| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
+| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
+| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `名前`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -239,18 +239,18 @@ Complete command example:
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | 名前                    | Description                                                                     |
-| ----- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| 値    | 名前                    | Description                                                                     |
+| ---- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI   | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V    | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -260,7 +260,7 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
-## `input` command
+## `input` コマンド
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -271,7 +271,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Type                    | Description                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | DeviceID                | 2FA device identificator, if missing from `.maFile`.                       |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
+| ログイン                    | `SteamLogin` bot config property, if missing from config.                  |
 | パスワード                   | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
@@ -279,7 +279,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### 例
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

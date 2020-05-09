@@ -243,7 +243,7 @@ Tipo `byte flags` con valor predeterminado de `7`. Esta propiedad define los pro
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`, y esa opción es inválida por sí misma.
 
-Por defecto ASF debería usar todos los protocolos de Stean disponibles como una medida para evitar caídas y otros problemas similares de Steam. Normalmente querrás cambiar esta propiedad si quieres limitar a que ASF solamente use uno o dos protocolos específicos en vez de todos los disponibles. Tal medida podría ser necesaria, por ejemplo, si habilitas solamente el tráfico TCP en tu firewall y no quieres que ASF intente conectarse a través de UDP. Sin embargo, a menos que estés depurando un problema o error en particular, casi siempre querrás asegurarse que ASF sea libre de usar cualquier protocolo que sea soportado en el momento y no solo uno o dos. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Por defecto ASF utilizará todos los protocolos de Steam disponibles como una medida para evitar caídas y otros problemas similares de Steam. Normalmente querrás cambiar esta propiedad si quieres limitar a que ASF solamente use uno o dos protocolos específicos en vez de todos los disponibles. Tal medida podría ser necesaria, por ejemplo, si habilitas solamente el tráfico TCP en tu firewall y no quieres que ASF intente conectarse a través de UDP. Sin embargo, a menos que estés depurando un problema o error en particular, casi siempre querrás asegurarse que ASF sea libre de usar cualquier protocolo que sea soportado en el momento y no solo uno o dos. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 * * *
 
@@ -857,6 +857,8 @@ Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para acti
 - `A+C -> 5`
 - `B+C -> 6`
 - `A+B+C -> 7`
+
+Ejemplo: `"SteamProtocols": 7`
 
 * * *
 

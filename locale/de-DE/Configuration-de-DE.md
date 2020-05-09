@@ -243,7 +243,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schau dir **[JSON-Mapping](#json-mapping)** an, wenn du mehr darüber erfahren möchtest. Das Nicht-Aktivieren eines der Flags führt zur Option `None`, und diese Option ist an sich schon ungültig.
 
-Standardmäßig sollte ASF alle verfügbaren Steam-Protokolle als Maßnahme zur Bekämpfung von Ausfallzeiten und anderen ähnlichen Steam-Problemen verwenden. Normalerweise möchtest du diese Eigenschaft ändern, wenn du ASF darauf beschränken möchtest, nur ein oder zwei bestimmte Protokolle anstelle aller verfügbaren zu verwenden. Eine solche Maßnahme könnte erforderlich sein, wenn du z.B. nur TCP-Datenverkehr auf deiner Firewall aktivierst und du nicht willst, dass ASF versucht, eine Verbindung über UDP herzustellen. Wenn du jedoch kein bestimmtes Problem debuggst, willst du fast immer sicherstellen, dass ASF jedes Protokoll verwenden kann, das derzeit unterstützt wird, und nicht nur ein oder zwei. Wenn du keinen **triftigen** Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Normalerweise möchtest du diese Eigenschaft ändern, wenn du ASF darauf beschränken möchtest, nur ein oder zwei bestimmte Protokolle anstelle aller verfügbaren zu verwenden. Eine solche Maßnahme könnte erforderlich sein, wenn du z.B. nur TCP-Datenverkehr auf deiner Firewall aktivierst und du nicht willst, dass ASF versucht, eine Verbindung über UDP herzustellen. Wenn du jedoch kein bestimmtes Problem debuggst, willst du fast immer sicherstellen, dass ASF jedes Protokoll verwenden kann, das derzeit unterstützt wird, und nicht nur ein oder zwei. Wenn du keinen **triftigen** Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 * * *
 
@@ -857,6 +857,8 @@ Wie du sehen kannst, haben wir im obigen Beispiel 3 verfügbare Flags zum Ein- u
 - `A+C -> 5`
 - `B+C -> 6`
 - `A+B+C -> 7`
+
+Example: `"SteamProtocols": 7`
 
 * * *
 

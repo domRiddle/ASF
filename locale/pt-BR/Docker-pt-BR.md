@@ -18,9 +18,9 @@ Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](htt
 
 ### `latest`
 
-This tag in comparison with others, as the only one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
+Em comparação com os demais marcadores, esse é o único que contém o recurso de atualizações automáticas do ASF e normalmente aponta para aquela versão considerada estável, e não necessariamente a mais recente. O objetivo desse marcador é fornecer um contêiner Docker padrão que é capaz de executar a atualização automática do ASF na versão específica de OS. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
+Uma vez que a imagem da tag `latest` vem com capacidade de atualização automática, ela inclui apenas versão da SO determinada na versão especifica para SO, ao contrário de todas as outras tags que incluem a SO com tempo de execução .NET Core principal e versão a genérica do ASF. Isso acontece porque a versão mais recente do ASF (atualizada) também pode exigir um tempo de execução mais recente do que aquele com que a imagem possivelmente pode ter sido compilada, o que exigiria que a imagem fosse reconstruída do zero, anulando o tipo de uso planejado.
 
 ### `A.B.C.D`
 
@@ -38,7 +38,7 @@ Nós geralmente desencorajamos o uso de compilações `master`, assim como compi
 
 ## Arquiteturas
 
-ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
+A imagem docker do ASF está disponível atualmente para 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
 Uma vez que os marcadores docker multi-arquiteturas ainda são um trabalho em andamento, compilações diferentes do padrão `x64` atualmente estão disponíveis com `-{ARCH}` no nome. Eu outras palavras, se você quer usar o marcador `latest` para a arquitetura `arm`, simpesmente use `latest-arm`.
 
