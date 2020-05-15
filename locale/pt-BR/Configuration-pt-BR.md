@@ -858,7 +858,7 @@ Então como você pode ver, n oexemplo acima temos 3 flags disponíveis para lig
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-Example: `"SteamProtocols": 7`
+Exemplo: `"SteamProtocols": 7`
 
 * * *
 

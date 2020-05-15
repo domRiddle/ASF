@@ -81,7 +81,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-É isso, agora nosso contêiner docker do ASF usará a pasta compartilhada com nosso computador local em modo de leitura e gravação, isso é tudo o que você precisa para configurar o ASF.
+É isso, agora nosso contêiner docker do ASF usará a pasta compartilhada com nosso computador local em modo de leitura e gravação, isso é tudo o que você precisa para configurar o ASF. Da mesma forma, você pode montar outros volumes que você gostaria de compartilhar com o ASF, tais como `/app/logs` ou `/app/plugins`.
 
 Claro, essa é apenas uma forma específica de alcançar o resultado que queremos, nada te impede de, por exemplo, criar seu próprio `Dockerfile` que copie seus arquivos de configuração para a pasta `/app/config` dentro do contêiner docker do ASF. Estamos cobrindo apenas o uso básico nesse guia.
 
@@ -115,7 +115,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo executado dentro do contêiner docker, assim como outros argumentos. Claro, se você for um usuário avançado então você também pode mudar o `ENTRYPOINT` e passar seus argumentos personalizados você mêsmo.
+Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo executado dentro do contêiner docker, assim como outros argumentos. Claro, se você for um usuário avançado então você também pode mudar o `ENTRYPOINT` ou adicionar `CMD` e passar seus argumentos personalizados você mêsmo.
 
 A menos que você deseje fornecer chaves de criptografia personalizadas ou outras opções avançadas, geralmente você não precisa incluir qualquer variável de ambiente em especial, já que nosso contêiner docker já está configurado para ser executado com opções padrões esperadas de `--no-restart` `--process-required` `--system-required`, então, como você pode ver nossos `ASF_ARGS` são redundantes nesse caso, e apenas `ASF_CRYPTKEY` é relevante.
 
@@ -183,4 +183,4 @@ Quando você já tem o contêiner docker do ASF pronto, você não precisa usar 
 
 Como dito acima, em qualquer outro marcador que não seja o `latest`, o ASF não vai se atualizar automaticamente, o que significa que **você** é o responsável por usar uma verão atualizada do repositório `justarchi/archisteamfarm`. Isso traz muitas vantagens já que normalmente o aplicativo não precisa mudar seu código durante a operação, mas nós entendemos a conveniência de não precisar se preocupar com a versão do ASF em seu contêiner docker. Se você se importa com boas práticas e o uso correto do contêiner docker, sugerimos o marcador `released` ao invés de `latest`, mas se você não quer se preocupar com isso e só quer fazer o ASF tanto funcionar quanto se atualizar automaticamente, então `latest` serve.
 
-Você normalmente deve rodar o ASF no contêiner docker com a configuração global `Headless: true`. Isso indicará explicitamente ao ASF que você não poderá inserir os dados ausentes e que ele não deverá solicitá-los. Claro, para a configuração inicial você deve deixar essa opção como `false` então você poderá configurar tudo facilmente, mas no longo prazo você normalmente não estará ligado diretamente ao console do ASF, portanto faz sentido informar o ASF sobre isso e usar o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `input` caso seja necessário. Dessa forma o ASF não vai esperar infinitamente por um comando do usuário que não será inserido (e gastar recursos enquanto isso).
+Você normalmente deve rodar o ASF no contêiner docker com a configuração global `Headless: true`. Isso indicará explicitamente ao ASF que você não poderá inserir os dados ausentes e que ele não deverá solicitá-los. Claro, para a configuração inicial você deve deixar essa opção como `false` então você poderá configurar tudo facilmente, mas no longo prazo você normalmente não estará ligado diretamente ao console do ASF, portanto faz sentido informar o ASF sobre isso e usar o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `input` caso seja necessário. Dessa forma o ASF não vai esperar infinitamente por um comando do usuário que não será inserido (e gastar recursos enquanto isso). Isso também permitirá que o ASF rode em modo não-interativo dentro do contêiner, o que é crucial, por exemplo, no que diz respeito a sinais de encaminhamento, tornando possível que o ASF feche com o comando `docker stop asf`.

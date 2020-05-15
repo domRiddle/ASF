@@ -81,7 +81,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-就这样，现在 ASF Docker 容器将会以读写模式使用您本地的共享目录，您可以在其中对 ASF 进行一切配置。
+就这样，现在 ASF Docker 容器将会以读写模式使用您本地的共享目录，您可以在其中对 ASF 进行一切配置。 您可以用同样方式挂载 ASF 的其他目录，例如 `/app/logs` 或 `/app/plugins`。
 
 当然，这只是其中一种方法，如果您打算创建自己的 `Dockerfile` 将配置文件复制到 ASF 容器内的 `/app/config` 目录，我们也无法阻止您。 我们只会在本指南中介绍基本用法。
 
@@ -115,7 +115,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-这会把您的 `--cryptkey` 以及其他参数正确地传递给 Docker 容器内部的 ASF 进程。 当然，如果您是一名高级用户，也可以修改 `ENTRYPOINT`，手动传递自定义参数。
+这会把您的 `--cryptkey` 以及其他参数正确地传递给 Docker 容器内部的 ASF 进程。 当然，如果您是一名高级用户，也可以修改 `ENTRYPOINT`，或者添加 `CMD`，以手动传递自定义参数。
 
 除非您需要提供自定义加密密钥或者使用其他高级选项，否则通常您不需要指定任何环境变量，因为我们的 Docker 容器已被配置为使用合适的默认选项 `--no-restart` `--process-required` `--system-required`，所以您可能会发现，在上述示例中，`ASF_ARGS` 是多余的，只有 `ASF_CRYPTKEY` 发挥了作用。
 
@@ -183,4 +183,4 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣。
 
-通常，您应该在全局配置文件中设置 Docker 容器内的 ASF 运行于 `Headless: true` 模式。 这会明确告诉 ASF，您无法直接提供它所需的数据，它不应该在命令行中直接询问这些。 当然，对于初次设置来说，您应该保持这个选项为 `false` 以便于设置，但长期来看，您很少需要连接到 ASF 控制台上，因此使 ASF 这样做是很合理的。当需要向 ASF 输入内容时，使用 `input` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 这样，ASF 就不必无限等待不存在的用户输入（也无需因此而浪费资源）。
+通常，您应该在全局配置文件中设置 Docker 容器内的 ASF 运行于 `Headless: true` 模式。 这会明确告诉 ASF，您无法直接提供它所需的数据，它不应该在命令行中直接询问这些。 当然，对于初次设置来说，您应该保持这个选项为 `false` 以便于设置，但长期来看，您很少需要连接到 ASF 控制台上，因此使 ASF 这样做是很合理的。当需要向 ASF 输入内容时，使用 `input` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 这样，ASF 就不必无限等待不存在的用户输入（也无需因此而浪费资源）。 这也使 ASF 在容器内以非交互模式运行，这一点很关键，例如这将会转发信号，使 ASF 可以在收到 `docker stop asf` 请求时安全退出。

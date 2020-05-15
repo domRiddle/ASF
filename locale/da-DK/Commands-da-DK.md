@@ -1,26 +1,26 @@
 # Kommandoer
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF understøtter forskellige kommandoer, som kan bruges til at kontrollere opførsel af processen og bot-forekomster.
 
-Below commands can be sent to the bot through various different ways:
+Nedenstående kommandoer kan sendes til botten på forskellige måder:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Igennem interaktiv ASF-konsol
+- Igennem Steam privat/gruppechat
+- Igennem vores **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Husk, at ASF-interaktion kræver, at du er berettiget til kommandoen i henhold til ASF-tilladelser. Tjek `SteamUserPermissions` og `SteamOwnerID` konfigurationsegenskaber for flere detaljer.
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+Kommandoer, der udføres via Steam chat, påvirkes af `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, som er `!` som standard. Dette betyder, at til eksekvering af f.eks. `status` kommando, du skal faktisk skrive `!Status` (eller brugerdefineret `CommandoPrefix` efter eget valg, som du indstiller i stedet). `CommandoPrefix` er ikke obligatorisk, når du bruger konsol eller IPC og kan udelades.
 
 * * *
 
-### Interactive console
+### Interaktiv konsol
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+Starter med V4.0.0.9, ASF har support for interaktiv konsol som kan blive aktiveret ved at indstille [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid). Bagefter skal du blot trykke på `c` knappen for at aktivere kommandotilstand, skriv din kommando og bekræft med enter.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 
-Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
+Interaktiv konsol er ikke tilgængelig i [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) tilstand.
 
 * * *
 
@@ -166,67 +166,67 @@ While valid values for all of them are:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Du kan enten bruge et bogstavs følsomt navn eller en numerisk værdi. Argumenter, der blev udeladt, indstilles som standard til `Private`. Det er vigtigt at bemærke forholdet mellem child og parent til de argumenter, der er specificeret ovenfor, da child aldrig kan have mere åben tilladelse end parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
 ### Eksempel
 
-If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
+Hvis du vil indstille **all** privatlivsindstillinger for din bot med navnet `Main` til `Private`, kan du bruge en af nedenstående:
 
     privacy Main 1
     privacy Main Private
     
 
-This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
+Dette skyldes, at ASF automatisk antager, at alle andre indstillinger er `Private`, så det er ikke nødvendigt at indtaste dem. På den anden side, hvis du gerne vil indstille alle privatlivsindstillinger til `Public`, skal du bruge en af nedenstående:
 
     privacy Main 3,3,3,3,3,3,3
     privacy Main Public,Public,Public,Public,Public,Public,Public
     
 
-This way you can also set independent options however you like:
+På denne måde kan du også indstille uafhængige indstillinger, på lige den måde du vil:
 
     privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
     
 
-The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
+Ovenstående indstiller profil til offentlige, ejede spil kun til venner, spilletid til privat, venneliste til offentlig, inventar til offentlig, inventar gaver til privat og profilkommentarer til offentlig. Du kan opnå det samme med numeriske værdier, hvis du vil.
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
+Husk, at child aldrig kan have mere åben tilladelse end parent. Se forholdet til argumenter for tilgængelige indstillinger.
 
 * * *
 
-## `addlicense` licenses
+## `addlicense` Licenser
 
-`addlicense` command supports two different license types, those are:
+`addlicense` kommandoen supporter to forskellige licens typer, disse er:
 
-| Type  | Alias | Eksempel     | Beskriveslse                                                            |
-| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Type          | Alias | Eksempel     | Beskrivelse                                                         |
+| ------------- | ----- | ------------ | ------------------------------------------------------------------- |
+| `applikation` | `a`   | `app/292030` | Spillet er kendt via sit unikke `appID`.                            |
+| `sub`         | `s`   | `sub/47807`  | Pakken indholder et eller flere spil, kendt via sit unikke `subID`. |
 
-The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+Forskellen er vigtig, da ASF vil bruge Steam-netværks aktivering til apps og Steam Store-aktivering til pakker. Disse to er ikke kompatible med hinanden, typisk bruger du apps til gratis weekender og permanent F2P-spil og ellers pakker.
 
-We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+Vi anbefaler at kun definere typen af hver entry for at undgå tvetydige resultater, men for bagudkompatibiliteten, hvis du leverer ugyldig type eller udelader den helt, antager ASF, at du beder om `sub` i dette sag. Du kan også forespørge en eller flere af licenser på samme tid ved hjælp af standard ASF `,` afgrænsning.
 
-Complete command example:
+Komplet kommandoeksempel:
 
     addlicense ASF app/292030,sub/47807
     
 
 * * *
 
-## `owns` games
+## `owns` spil
 
-`owns` command supports several different game types for `<games>` argument that can be used, those are:
+`owns` kommando understøtter flere forskellige spiltyper til `<games>` argument, der kan bruges, disse er:
 
-| Type    | Alias | Eksempel         | Beskriveslse                                                                                                                                                                                                                                                                  |
-| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                        |
-| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                       |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `navn`  | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
+| Type          | Alias | Eksempel         | Beskriveslse                                                                                                                                                                                                                                                                  |
+| ------------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `applikation` | `a`   | `app/292030`     | Spillet er kendt via sit unikke `appID`.                                                                                                                                                                                                                                      |
+| `sub`         | `s`   | `sub/47807`      | Pakken indholder et eller flere spil, kendt via sit unikke `subID`.                                                                                                                                                                                                           |
+| `regex`       | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `navn`        | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                                    |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Komplet kommandoeksempel:
 
     owns ASF app/292030,name/Witcher
     

@@ -81,7 +81,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
 ```
 
-그러면 끝입니다. 이제 ASF 도커 컨테이너는 로컬 기기에 있는 공유 디렉토리를 읽기-쓰기 모드로 사용하고, 이는 ASF를 설정하는데 필요한 전부입니다.
+그러면 끝입니다. 이제 ASF 도커 컨테이너는 로컬 기기에 있는 공유 디렉토리를 읽기-쓰기 모드로 사용하고, 이는 ASF를 설정하는데 필요한 전부입니다. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins`.
 
 물론, 이는 우리가 원하는 바를 달성하기 위한 하나의 방법일뿐이고, 자신만의 `Dockerfile`을 만들어서 환경설정 파일을 ASF 도커 컨테이너 안의 `/app/config` 디렉토리로 복사하는 등 당신이 하려는 것을 막을수 있는 것은 없습니다. 이 가이드에서는 기본적인 것만을 다룹니다.
 
@@ -115,7 +115,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. 물론, 당신이 고급 사용자라면 `ENTRYPOINT`를 수정해서 사용자지정 인자를 직접 전달할 수도 있습니다.
+이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
 사용자지정 암호화 키나 다른 고급 옵션을 주고싶은 것이 아니라면 보통은 어떤 특별한 환경 변수를 포함하지 않습니다. 도커 컨테이너는 이미 기본값으로 `--no-restart` `--process-required` `--system-required`로 실행하도록 설정되어있습니다. 따라서 위의 `ASF_ARGS` 는 필요없고, `ASF_CRYPTKEY` 만이 적용됩니다.
 
@@ -183,4 +183,4 @@ ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행�
 
 위에서 암시하였듯이, `latest` 가 아닌 ASF 태그는 스스로 자동 업데이트하지 않습니다. 즉, **당신이** 최신의 `justarchi/archisteamfarm` 저장소를 사용할 주체입니다. 보통 앱이 실행중에는 코드를 건드려서는 안되기 때문에 많은 장점을 갖지만, 도커 컨테이너에 있는 ASF는 걱정할 필요가 없다는 편리함도 있습니다. 좋은 사례와 정확한 도커 사용례를 잘 살핀다면 우리가 추천하는 것은 `latest` 태그가 아닌 `released` 태그입니다. 하지만 그게 귀찮고 ASF가 동작도 잘하고 자동 업데이트도 하길 원하면 `latest` 태그가 그 답입니다.
 
-보통 ASF 도커 컨테이너는 `Headless: true` 일반 설정상태로 실행해야 합니다. 이는 ASF에게 세부적인 내용이 빠져있어도 당신이 줄 수 없으며 묻지 말 것을 알립니다. 물론 초기 설치단계에서는 이 옵션을 `false`로 해서 쉽게 설정할 수 있지만, 장기적으로는 ASF 콘솔에 매여있지 않으므로 ASF에게 이를 알리고 필요가 있으면 `input` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 사용하는 것이 맞습니다. 이렇게 해서 ASF는 일어나지 않을 사용자 입력을 무한히 기다리지 않을 수 있고 이에 소요되는 자원낭비를 막을 수 있습니다.
+보통 ASF 도커 컨테이너는 `Headless: true` 일반 설정상태로 실행해야 합니다. 이는 ASF에게 세부적인 내용이 빠져있어도 당신이 줄 수 없으며 묻지 말 것을 알립니다. 물론 초기 설치단계에서는 이 옵션을 `false`로 해서 쉽게 설정할 수 있지만, 장기적으로는 ASF 콘솔에 매여있지 않으므로 ASF에게 이를 알리고 필요가 있으면 `input` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 사용하는 것이 맞습니다. 이렇게 해서 ASF는 일어나지 않을 사용자 입력을 무한히 기다리지 않을 수 있고 이에 소요되는 자원낭비를 막을 수 있습니다. It will also allow ASF to run in non-interactive mode inside container, which is crucial e.g. in regards to forwarding signals, making it possible for ASF to gracefully close on `docker stop asf` request.

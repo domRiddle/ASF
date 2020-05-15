@@ -19,7 +19,7 @@
 
 * **[Produktaktivering i baggrunden](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Kommandoer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[Kompabilitet](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[Kompatibilitet](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Ydeevne](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Statistik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam-familiedeling](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
@@ -27,7 +27,7 @@
 
 ## Avanceret
 
-* **[Kommandolinjeargumenter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Kommandolinje argumenter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Udfasning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Udvidet OSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**

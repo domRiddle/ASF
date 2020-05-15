@@ -6,13 +6,13 @@ Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyd
 
 * * *
 
-## Import
+## Importer
 
-Importeringsprocessen kan gøres på to måder - enten ved brug af en fil eller via IPC.
+Importering's processen kan gøres på to måder - enten ved brug af en fil eller via IPC.
 
 ### Fil
 
-ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tabulatortegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tabulatortegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
+ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
 
     POSTAL 2    ABCDE-EFGHJ-IJKLM
     Domino Craft VR 12345-67890-ZXCVB
@@ -28,7 +28,7 @@ Som et alternativ kan du også bruge "keys only format" (stadig med en ny linje 
     ZXCVB-ASDFG-QWERT
     
 
-Uanset hvilket format du vælger at bruge vil ASF importere din `nøgle` fil, enten ved botstart eller senere ved udførsel. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
+Uanset hvilket format du vælger at bruge vil ASF importere din `nøgle` fil, enten ved bot start eller senere ved udførsel. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
 
 ### IPC
 
@@ -38,30 +38,30 @@ Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRed
 
 ## Kø
 
-Når spil er succesfuldt importeret, er de tilføjet til køen. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Når spil er succesfuldt importeret, er de tilføjet til køen. ASF går automatisk igennem dens baggrunds kø så længe at botten er tilsluttet til Steam netværket, og køen ikke er tom. En nøgle, der blev forsøgt at blive indløst og ikke resulterede i `RateLimited` fjernes fra køen, med dens status bliver skrevet ordentligt til en fil i `config` biblioteket - eller `BotName.keys.used` hvis nøglen blev brugt i processen (f.eks. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) eller <0 >BotName.keys.unused</code> ellers. ASF bruger med vilje det angivne spillets navn, da nøglen ikke garanteres at få et meningsfuldt navn returneret af Steam-netværket - på denne måde kan du tagge dine nøgler ved hjælp af endda tilpassede navne, hvis det er nødvendigt / ønsket.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Hvis vores konto rammer `RateLimited` -status under processen, standses køen midlertidigt i en hel time for at vente på, at cooldown forsvinder. Bagefter fortsætter processen, hvor den var fra, indtil hele køen er tom.
 
 * * *
 
 ## Eksempel
 
-Lad os antage, at du har en liste med 100 nøgler. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Lad os antage, at du har en liste med 100 nøgler. Først skal du oprette en ny `BotName.keys.new` fil i ASF `config` biblioteket. Vi tilføjede udvidelsen `.new` for at lade ASF vide, at den ikke skulle hente denne fil med det samme, når den er oprettet (da den er en ny tom fil, ikke klar til import endnu).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Nu kan du åbne vores nye fil og copy-paste listen over vores 100 nøgler der, hvorefter formatet kan rettes om nødvendigt. Efter rettelser vil vores `BotName.keys.new` fil have nøjagtigt 100 (eller 101 med den sidste nye linje), hver linje har en struktur på `GameName\tcd-nøgle\n`, hvor `\t` er fanebetegn og `\n` er nylinje.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Du er nu klar til at omdøbe denne fil fra `BotName.keys.new` til `BotName.keys` for at lade ASF vide, at den er klar til at blive hentet. I det øjeblik du gør dette, vil ASF automatisk importere filen (uden behov for genstart) og slette den bagefter og bekræfte, at alle vores spil blev analyseret og føjet til køen.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+I stedet for at bruge `BotName.keys` -fil, kan du også bruge IPC API-endpoint eller endda kombinere begge, hvis du vil.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+Efter nogen tid genereres `BotName.keys.used` og `BotName.keys.unused` filer. Disse filer indholder resultater af vores indløsnings process. For eksempel kunne du omdøbe `BotName.keys.unused` til `BotName2.keys` fil og derfor indsende vores ubrugte nøgler til en anden bot, da tidligere bot ikke benyttede sig af disse nøgler selv. Eller du kan blot copy-paste ubrugte nøgler til en anden fil og opbevare den til senere, dit valg. Husk, at når ASF går gennem køen, tilføjes nye entries til vores output `used` og `unused` filer, derfor anbefales det at vente på, at køen tømmes fuldstændigt før du bruger dem. Hvis du absolut skal havde adgang til disse filer, før køen er tømt fuldt, skal du først **move** output filen, du vil have adgang til et andet bibliotek, **then** analysere det. Dette skyldes, at ASF kan tilføje nogle nye resultater, mens du gør dine ting, og det kan potentielt føre til tab af nogle nøgler, hvis du læser en fil med f.eks. 3 nøgler i, og sletter det derefter, og glemmer helt det faktum, at ASF føjede 4 andre nøgler til din fjernede fil i mellemtiden. Hvis du vil havde adgang til disse filer, skal du sikrere dig at rykke dem væk fra ASF `config` mappen før du læser dem, ved for eksempelvis at gennavne dem.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+Det er også muligt at tilføje ekstra spil til importering imens der allerede er nogle spil i vores kø, ved at gentage de øvrige trin igen. ASF vil sandsynligvis også tilføje vores ekstra enheder til allerede udegående kø og ordne det på et tidspunkt.
 
 * * *
 
 ## Bemærkninger
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+Baggrunds produktaktivering bruger `OrderedDictionary` under hjelmen, hvilket betyder at dine cd-nøgler vil have bevaret ordre som de var specificeret i filen (eller IPC API kaldet). Dette betyder at du kan (og skulle helst) give en list hvor givet cd-nøgle kan kun havde direkte afhængigheder på cd-nøgler listet oven over, men ikke nedenunder. For eksempelvis, dette betyder at hvis du har DLC `D` som kræver spillet `G` at blive aktiveret som the første, så cd-nøgle for spillet `G` skulle **always** være inkluderet før cd-nøgle for DLC `D`. Ligeledes, hvis DLC `D` ville have afhængigheder af `A`, `B` og `C`, så skulle alle 3 blive inkluderet før (i hvilken som helst ordre, medmindre de har afhængigheder selv).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+Hvis du ikke følger skemaet ovenfor, vil din DLC ikke blive aktiveret med `DoesNotOwnRequiredApp`, selvom din konto er berettiget til at aktivere den efter at have gennemgået hele køen. Hvis du vil undgå det så skal du helst sikre at din DLC altid er inkluderet efter basisspillet i din kø.
