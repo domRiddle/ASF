@@ -58,6 +58,8 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
+If you're considering using this command-line argument for running multiple instances of ASF, consider reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+
 Examples:
 
 ```shell
