@@ -14,7 +14,7 @@ However, regardless of where you run ASF, you must ensure that your target platf
 
 ASF is compatible with running multiple instances of the process on the same machine. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
 
-When running multiple instances from the same binary, keep in mind that you should typically disable auto-updates in all of their configs, as there is no synchronization between them in regards to auto-updates. If you'd like to keep having auto-updates enables, we recommend standalone instances.
+When running multiple instances from the same binary, keep in mind that you should typically disable auto-updates in all of their configs, as there is no synchronization between them in regards to auto-updates. If you'd like to keep having auto-updates enabled, we recommend standalone instances.
 
 ASF will do its best to maintain a minimum amount of OS-wide, cross-process communication with other ASF instances. This includes ASF failing to start if you attempt to run a second ASF instance for the same configuration directory, as well as sharing core process-wide semaphores configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue.
 
