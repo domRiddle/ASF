@@ -123,7 +123,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 # And so on, all ASF containers are now synchronized with each other
 ```
 
-We recommend to bind ASF's `/tmp/ASF` directory also to a temporary directory `/tmp` on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
+We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
 
 As you've probably guessed from example above, it's also possible to create two or more "synchronization groups", by binding different docker host paths into ASF's `/tmp/ASF`.
 
