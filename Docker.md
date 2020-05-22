@@ -118,9 +118,9 @@ By default, each ASF running inside a docker container is standalone, which mean
 ```shell
 mkdir -p /tmp/ASF-group-1
 docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-group-1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-group-1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
-# And so on, all ASF containers with the same physical docker host path binded to /tmp/ASF are synchronized with each other
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+# And so on, all ASF containers are now synchronized with each other
 ```
 
 We recommend to bind ASF's `/tmp/ASF` directory also to a temporary directory `/tmp` on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
