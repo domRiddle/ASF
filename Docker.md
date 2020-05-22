@@ -116,7 +116,7 @@ ASF includes support for multiple instances synchronization, as stated in **[com
 By default, each ASF running inside a docker container is standalone, which means that no synchronization takes place. In order to enable synchronization between them, you must bind `/tmp/ASF` path in every ASF container that you want to synchronize, to one, shared path on your docker host, in read-write mode. This is achieved exactly the same as binding a volume which was described above, just with different paths:
 
 ```shell
-mkdir -p /tmp/ASF-group-1
+mkdir -p /tmp/ASF-g1
 docker pull justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
