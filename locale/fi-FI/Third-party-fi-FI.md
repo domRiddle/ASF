@@ -1,4 +1,4 @@
-# Kolmas osapuoli
+# Kolmannet osapuolet
 
 This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
@@ -6,7 +6,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## ASF pluginit
+## ASF-laajennukset
 
 - **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
@@ -45,6 +45,6 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## Haluatko löytää lisää?
+## Haluatko lukea lisää?
 
 We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.

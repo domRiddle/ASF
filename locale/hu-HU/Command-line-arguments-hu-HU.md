@@ -54,9 +54,11 @@ A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKE
 
 * * *
 
-`--path <path>` or `--path=<path>` - alapértelmezetten az ASF mindig a saját könyvtárába fog navigálni induláskor. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. Jól jöhet, ha szeretnéd külön választani a binárist a konfigurációtól, ahogy az a linux-szerű csomagokban megszokott dolog - így egy binárist több különféle beállítással is használhatsz. Az útvonal lehet relatív az ASF bináris helyéhez képest, vagy abszolút. Ha több példányt is futtatnál ugyanabból a binárisból, akkor tartsd észben, hogy kapcsold ki az automatikus frissítést, mivel nincsen köztük szinkronizálás. Azt is jegyezd meg, hogy ez a parancs egy új "ASF home" könyvtárra mutat, aminek a felépítése ugyanolyan kell legyen, mint az eredeti esetében, vagyis kell lennie benne egy `config` könyvtárnak.
+`--path <path>` or `--path=<path>` - alapértelmezetten az ASF mindig a saját könyvtárába fog navigálni induláskor. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. Jól jöhet, ha szeretnéd külön választani a binárist a konfigurációtól, ahogy az a linux-szerű csomagokban megszokott dolog - így egy binárist több különféle beállítással is használhatsz. Az útvonal lehet relatív az ASF bináris helyéhez képest, vagy abszolút. Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
 Examples:
 

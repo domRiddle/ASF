@@ -54,9 +54,11 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 * * *
 
-`--path <path>`或`--path=<path>`──ASF在啟動時始終會導航至自身所在的目錄。 By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用，類似Linux 打包機制——這樣您就可以在多個設置中共用一個（最新的）二進位檔案。 此路徑既可以是基於當前 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 請留意，使用同一個二進位檔案運行多個實例時，通常應禁用自動更新, 因為它們之間沒有同步。 也請注意，該命令指向新的「ASF 主目錄」──與原始的 ASF 具有相同結構的目錄，其中包含 `config` 目錄。
+`--path <path>`或`--path=<path>`──ASF在啟動時始終會導航至自身所在的目錄。 By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用，類似Linux 打包機制——這樣您就可以在多個設置中共用一個（最新的）二進位檔案。 此路徑既可以是基於當前 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
 範例:
 

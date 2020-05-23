@@ -10,6 +10,20 @@ Sin embargo, independientemente de dónde ejecutes ASF, debes asegurarte que tu 
 
 * * *
 
+## Múltiples instancias
+
+ASF es compatible con ejecutar múltiples instancias del proceso en la misma máquina. Las instancias pueden ser completamente independientes o derivadas de la ubicación del mismo ejecutable (en cuyo caso, querrás ejecutarlas con un diferente **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--path`).
+
+Al ejecutar múltiples instancias del mismo ejecutable, ten en cuenta que normalmente debes deshabilitar las actualizaciones automáticas en todas sus configuraciones, ya que no hay sincronización entre ellas en lo que se refiere a las actualizaciones automáticas. Si quieres dejar las actualizaciones automáticas activadas, recomendamos instancias independientes, pero aún puedes hacer que las actualizaciones funcionen, siempre y cuando te asegures de que todas las demás instancias de ASF están cerradas.
+
+ASF hará lo posible para mantener una cantidad mínima de comunicación entre procesos del sistema operativo con otras instancias de ASF. Estoy incluye que ASF compruebe su directorio de configuración con otras instancias, así como compartir semáforos en el proceso configurado con las **[propiedades de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-global)**`*LimiterDelay`, asegurando que ejecutar múltiples instancias de ASF no causará la posibilidad de tener un problema de límite de tarifa. Las plataformas Windows utilizan semáforos nativos del sistema operativo para este propósito, las plataformas Unix usan un mecanismo para evitar bloqueos basado en archivos de ASF creado en el directorio `/tmp/ASF`.
+
+No es necesario que las instancias de ASF compartan las mismas propiedades `*LimiterDelay`, pueden usar diferentes valores, ya que cada ASF añadirá su propio retraso configurado. Si el `*LimiterDelay` configurado se establece en `0`, la instancia de ASF omitirá esperar para el bloqueo de un recurso dado que se comparte con otras instancias (que potencialmente aún podrían mantener un bloqueo compartido entre sí). Cuando se establece en cualquier otro valor, ASF se sincronizará correctamente con otras instancias y esperará su turno, luego libera el bloqueo después del retraso configurado, permitiendo que otras continúen.
+
+ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito compartido, lo que significa que dos instancias de ASF que usan diferentes configuraciones `WebProxy` no compartirán sus limitadores entre sí. Esto se implementa para permitir que las configuraciones `WebProxy` funcionen sin retrasos excesivos, como se espera de diferentes interfaces de red.
+
+* * *
+
 ## Paquetes de ASF
 
 ASF viene en 2 sabores principales - paquete genérico y específico de SO. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF también viene con runtime **específico de SO** para impulsarlo.
@@ -56,7 +70,7 @@ Si estás usando un paquete de SO específico entonces no necesitas preocuparte 
 
 Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF entonces debes asegurarte de que tu .NET Core runtime soporta la plataforma requerida por ASF.
 
-ASF como programa actualmente tiene como objetivo **.NET Core 3.1** (`netcoreapp3.1`), pero podría apuntar a una plataforma más nueva en el futuro. `netcoreapp3.1` es soportado desde 3.1.100 SDK (3.1.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
+ASF como programa actualmente tiene como objetivo **.NET Core 3.1** (`netcoreapp3.1`), pero podría apunta a una plataforma más nueva en el futuro. `netcoreapp3.1` es soportado desde 3.1.100 SDK (3.1.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
 
 En caso de duda, revisa nuestros **[usos de integración continua](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar y publicar versiones de ASF en GitHub. Puedes encontrar `dotnet --info` en la parte de arriba de cada compilación.
 

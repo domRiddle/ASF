@@ -10,6 +10,20 @@ ASF - это приложение C#, работающее на платформ
 
 * * *
 
+## Multiple instances
+
+ASF is compatible with running multiple instances of the process on the same machine. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
+
+When running multiple instances from the same binary, keep in mind that you should typically disable auto-updates in all of their configs, as there is no synchronization between them in regards to auto-updates. If you'd like to keep having auto-updates enabled, we recommend standalone instances, but you can still make updates work, as long as you can ensure that all other ASF instances are closed.
+
+ASF will do its best to maintain a minimum amount of OS-wide, cross-process communication with other ASF instances. This includes ASF checking its configuration directory against other instances, as well as sharing core process-wide semaphores configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue. Windows platforms use native OS-wide named semaphores for this purpose, Unix platforms use fallback mechanism of custom ASF file-based locks created in `/tmp/ASF` directory.
+
+It's not required for running ASF instances to share the same `*LimiterDelay` properties, they can use different values, as each ASF will add its own configured delay to the release time after acquiring the lock. If the configured `*LimiterDelay` is set to `0`, ASF instance will entirely skip waiting for the lock of given resource that is shared with other instances (that could potentially still maintain a shared lock with each other). When set to any other value, ASF will properly synchronize with other ASF instances and wait for its turn, then release the lock after configured delay, allowing other instances to continue.
+
+ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces.
+
+* * *
+
 ## Пакеты ASF
 
 ASF поставляется в 2 основных вариациях - универсальный пакет и пакеты под конкретные ОС. С точки зрения функциональности они идентичны, и способны автоматически обновляться. Единственная разница в том, содержится ли там только **универсальный (generic)** пакет, или с ним поставляется среда выполнения **под конкретную ОС**.
@@ -50,13 +64,13 @@ ASF на данный момент доступно для следующих в
 
 * * *
 
-## Требования среды выполнения
+## Требования среды исполнения
 
 Если вы используете пакет под конкретную ОС, то вам не нужно беспокоиться о требуемой среде выполнения, поскольку ASF всегда комплектуется требуемой и актуальной средой исполнения, главное чтобы у вас были установлены актуальные **[предусловия для .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**. Другими словами, **вам не нужно устанавливать среду выполнения или SDK для .NET Core**, поскольку пакеты под конкретную ОС требуют только присутствия необходимых библиотек в данной ОС (предусловий) и ничего более.
 
 Однако, если вы пытаетесь запустить **универсальный (generic)** пакет ASF - вам следует убедиться, что среда .NET Core поддерживает необходимую ASF платформу.
 
-ASF в данный момент основано на **.NET Core 3.1** (`netcoreapp3.1`), но в будущем может потребоваться более новая платформа. `netcoreapp3.1` поддерживается начиная с версии 3.1.100 SDK (среда выполнения 3.1.0), но ASF настроен на использование **самой последней среды выполнения на момент компиляции** в качестве целевой, поэтому вам необходимо убедиться, что на вашей машине установлена **[последняя версия SDK](https://dotnet.microsoft.com/download)** (или как минимум среды выполнения), доступная для вашей платформы. Универсальная версия ASF может не запуститься, если ваша среда выполнения более старая, чем минимальная (целевая) используемая в процессе компиляции.
+ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but it may target newer platform in the future. `netcoreapp3.1` is supported since 3.1.100 SDK (3.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Универсальная версия ASF может не запуститься, если ваша среда выполнения более старая, чем минимальная (целевая) используемая в процессе компиляции.
 
 Если сомневаетесь - проверьте что использует наша **[система непрерывной интеграции](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** для компиляции и развертывания сборок ASF на GitHub. Вы найдёте вывод команды `dotnet --info` наверху каждой сборки.
 

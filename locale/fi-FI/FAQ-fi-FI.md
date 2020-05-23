@@ -1,10 +1,10 @@
 # UKK
 
-Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+UKK-sivumme sisältää tavallisimpia kysymyksiä ja vastauksia. Vähemmän yleisiä asioita varten lue sen sijaan lisää **[laajennetusta UKK:sta](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Sisällysluettelo
 
-- [Yleinen](#general)
+- [Yleiset](#general)
 - [Vertailu samanlaisten työkalujen kanssa](#comparison-with-similar-tools)
 - [Turvallisuus / Yksityisyys / VAC / Bannit / Käyttöehdot](#security--privacy--vac--bans--tos)
 - [Sekalaiset](#misc)
@@ -14,31 +14,31 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 ## Yleinen
 
-### What is ASF?
+### Mikä on ASF?
 
-### Why does the program claim that there is nothing to idle on my account?
+### Miksi ohjelma väittää, ettei tililläni ole mitää idlattavaa?
 
-### Why is my account limited?
+### Miksi tiliäni on rajoitettu?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Ennen kuin yrität ymmärtää mikä ASF on, sinun tulee varmistaa, että ymmärrät mitä Steamin kortit ovat ja miten niitä hankitaan, josta kerrotaan hienosti virallisessa UKK:ssa **[täällä](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Lyhyesti sanottuna, Steamin kortit ovat kerättäviä esineitä, joita voit saada tietyn pelin omistaessasi. Niitä voidaan käyttää merkkien luomiseen, myymiseen Steamin kauppapaikalla, tai mihin tahansa muuhun valitsemaasi tarkoitukseen.
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+Tässä toistetaan jälleen kerran muutama asia, joihin ihmiset eivät usko tai haluavat teeskenneellä, ettei niitä ole olemassa:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you with card drops.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. It was possible in the past, but it's no longer the case.**
-- **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. It was possible in the past, but it's no longer the case.**
+- **Jos haluat saada pelin kortteja, sinun tulee omistaa se Steam-tililläsi. Steamin Lainaamoa ei lasketa.**
+- **Ei voi farmata peliä loputtomasti, jokaisella pelillä on vain tietty määrä korttien pudotuksia. Kun kaikki kortit on pudotettu (yleensä puolet koko setistä), peli ei enää sovi idlaamiseen. Ei ole väliä oletko myynyt, luonut vai unohtanut, mitä saamillesi korteille tapahtui. Kun korttien pudotukset ovat loppuneet, peli on loppu.**
+- **Ilmaispelit eivät pudota kortteja, ellet ensin käytä niihin rahaa. Tämä pätee pysyvästi ilmaisiin peleihin, kuten Team Fortress 2 tai Dota 2. Ilmaispelien omistaminen ei anna sinulle korttien pudotuksia.**
+- **[Rajoitetuilla tileillä](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663) ei voi saada korttien pudotuksia, omistetuista peleistä riippumatta. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
+- **Maksullisia pelejä, jotka olet hankkinut ilmaiseksi kampanjan aikana, ei voi käyttää korttien pudotusten idlaamiseen, riippumatta siitä, mitä kauppasivulla sanotaan. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
+Joten kuten huomaat, Steamin kortteja myönnetään sinulle, kun pelaat ostamaasi peliä, tai ilmaispeliä, johon olet käyttänyt rahaa. Jos pelaat tällaista peliä tarpeeksi kauan, kaikki kyseisen pelin kortit putoavat lopulta tavaraluetteloosi, jolloin voit luoda merkin (saatuasi loputkin koko setistä), myydä ne tai tehdä mitä tahansa muuta.
 
-Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
+Nyt kun olemme selittäneet Steamin perusteet, voimme selittää ASF:n. Ohjelma itsessään on melko monimutkainen ymmärtää täysin, joten syvällisen teknisen läpikäynnin sijasta, tarjoamme yksinkertaisen selityksen alapuolella.
 
-ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF kirjautuu Steam-tilillesi meidän sisäänrakentamamme, mukautetun Steam-asiakassovelluksen kautta, antamiasi kirjautumistietoja käyttämällä. Kirjautumisen jälkeen se jäsentää **[merkkisi](https://steamcommunity.com/my/badges)** löytääkseen idlaukseen sopivia pelejä (X korttilöytöä jäljellä). Kun kaikki sivut on jäsennetty ja lopullinen sopivien pelin lista on luotu, ASF valitsee tehokkaimman farmausalgoritmin ja aloittaa prosessin. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+Muista, että yllä oleva selitys on yksinkertaistettu, eikä se kuvaa tusinaa muuta ASF:n tarjoamaa lisäominaisuutta ja toimintoa. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
 Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
 
@@ -388,11 +388,11 @@ ASF team suggests running (and **owning**) up to **10 bots in total**, anything 
 
 ### Can I run more ASF instances then?
 
-You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources, and causes lack of synchronization between bots - so for example you're more likely to hit `InvalidPassword/RateLimitExceeded` issue described below, as logging in requests are not being synchronized between ASF instances.
+You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between different ASF instances, as ASF is forced to share its semaphores with other instances.
 
-Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, every instance using its own IP/interface. If you don't, launching more ASF instances is totally pointless, and does not only degrade performance and takes more OS resources (such as memory), but also causes lack of synchronization and increased likehood of causing issues.
+Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, with every instance using its own IP/interface through unique `WebProxy` setting. If you don't, launching more ASF instances is totally pointless, as you won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
 
-You won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
+Of course, there are still valid use cases for multiple ASF instances on the same network interface, such as hosting ASF service for your friends with each friend having its own unique ASF instance in order to guarantee isolation between bots and even the ASF processes themselves, however, you're not circumventing any Steam limitations this way, that's entirely different purpose.
 
 * * *
 

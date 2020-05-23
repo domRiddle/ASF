@@ -54,9 +54,11 @@ Debido a la naturaleza de esta propiedad, también es posible establecer la clav
 
 * * *
 
-`--path <path>` o `--path=<path>` - ASF siempre navega a su propio directorio al iniciarse. Al especificar este argumento, ASF navegará al directorio especificado tras la inicialización, lo que te permite usar una ruta personalizada para diversas partes de la aplicación (incluyendo los directorios `config`, `plugins` y `www`, además del archivo `NLog.config`), sin la necesidad de duplicar el ejecutable en el mismo lugar. Puede resultar especialmente útil si quieres separar el ejecutable de la configuración, como se hace en el paquete Linux - de esta forma puedes usar un (actualizado) binario con diferentes configuraciones. La ruta puede ser relativa según el lugar actual del binario de ASF, o absoluta. Al ejecutar múltiples instancias del mismo binario, ten en cuenta que normalmente debes desactivar las actualizaciones automáticas, ya que no hay sincronización entre ellas. También ten en cuenta que este comando apunta a un nuevo "ASF home" - el directorio que tiene la misma estructura que el ASF original, con el directorio `config` dentro.
+`--path <path>` o `--path=<path>` - ASF siempre navega a su propio directorio al iniciarse. Al especificar este argumento, ASF navegará al directorio especificado tras la inicialización, lo que te permite usar una ruta personalizada para diversas partes de la aplicación (incluyendo los directorios `config`, `plugins` y `www`, además del archivo `NLog.config`), sin la necesidad de duplicar el ejecutable en el mismo lugar. Puede resultar especialmente útil si quieres separar el ejecutable de la configuración, como se hace en el paquete Linux - de esta forma puedes usar un (actualizado) binario con diferentes configuraciones. La ruta puede ser relativa según el lugar actual del binario de ASF, o absoluta. Ten en cuenta que este comando apunta a un nuevo "ASF home" - el directorio que tiene la misma estructura que el ASF original, con el directorio config dentro, ve el ejemplo de abajo para la explicación.
 
 Debido a la naturaleza de esta propiedad, también es posible establecer una ruta esperada declarando la variable de entorno `ASF_PATH`, que puede ser más apropiado para las personas que quieran evitar detalles sensibles en los argumentos del proceso.
+
+Si estás considerando usar este argumento de la línea de comandos para ejecutar múltiples instancias de ASF, recomendamos leer nuestra **[página de compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#múltiples-instancias)**.
 
 Ejemplos:
 
@@ -82,7 +84,7 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 
 * * *
 
-`--process-required` - declarar esto desactivará el comportamiento predeterminado de ASF de cerrarse cuando no hay bots en ejecución. El comportamiento de no autocerrarse es especialmente útil en combinación con **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** donde la mayoría de usuarios esperarían que su servicio web se ejecute independientemente de la cantidad de bots activos. Si estás usando la opción IPC o necesitas que el proceso de ASF se ejecute todo el tiempo hasta que lo cierrres, esta es la opción correcta.
+`--process-required` - declarar esto desactivará el comportamiento predeterminado de ASF de cerrarse cuando no hay bots en ejecución. El comportamiento de autocerrarse es especialmente útil en combinación con **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** donde la mayoría de usuarios esperarían que su servicio web se ejecute independientemente de la cantidad de bots activos. Si estás usando la opción IPC o necesitas que el proceso de ASF se ejecute todo el tiempo hasta que lo cierrres, esta es la opción correcta.
 
 Si no pretendes usar IPC, esta opción será inútil para ti, ya que puedes solamente iniciar el proceso de nuevo cuando lo necesites (contrario al servidor web de ASF donde requieres que esté escuchando todo el tiempo para enviar comandos).
 
