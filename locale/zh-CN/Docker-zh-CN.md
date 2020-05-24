@@ -106,6 +106,28 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 * * *
 
+## 多实例同步
+
+ASF 支持多实例同步，如&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)**&#8203;章节所述。 在 Docker 容器内运行 ASF 时，如果您需要多个 ASF 容器互相同步，可以手动选择启用此功能。
+
+默认情况下，每个运行在 Docker 容器内的 ASF 都是独立的，这意味着不会有任何同步。 要启用它们之间的同步，您必须将每个需要同步的 ASF 容器内的 `/tmp/ASF` 路径以读写模式绑定到宿主机上的共享目录。 实现方式与上文所述的绑定数据卷完全相同，只有路径有区别：
+
+```shell
+mkdir -p /tmp/ASF-g1
+docker pull justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+# 以此类推，所有 ASF 容器都会互相同步
+```
+
+我们建议将 ASF 的 `/tmp/ASF` 目录也绑定到宿主机上的 `/tmp` 临时目录之下，但您当然也可以根据需要绑定到其他任何位置。 此时，预期要互相同步的每个 ASF 容器的 `/tmp/ASF` 目录都应该已经与其他需要同步的容器共享。
+
+可能您已经从上文猜到，您也可以创建两个或多个这样的“同步组”，只需要将 ASF 容器的 `/tmp/ASF` 目录绑定到宿主机上的不同位置。
+
+挂载 `/tmp/ASF` 是完全可选的，并且也不推荐，除非您明确需要同步两个或多个 ASF 容器。 我们不推荐为单个容器挂载 `/tmp/ASF`，因为如果只运行一个 ASF 容器，这个操作是完全无用的，反而可能会带来本可以避免的其它问题。
+
+* * *
+
 ## 命令行参数
 
 ASF 允许您通过设定环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
@@ -161,7 +183,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-这假定您将所有 ASF 配置放在 `/home/archi/asf`，否则您就需要修改命令中的路径。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：
+此示例假定您将使用单个 ASF 容器，所有配置文件都放在 `/home/archi/asf`。 您需要修改此处的配置文件路径以匹配您的环境。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：
 
 ```json
 {

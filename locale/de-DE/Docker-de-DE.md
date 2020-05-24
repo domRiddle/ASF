@@ -106,6 +106,28 @@ Dies muss nur einmal durchgeführt werden, nachdem du deinen Container mit `dock
 
 * * *
 
+## Multiple instances synchronization
+
+ASF includes support for multiple instances synchronization, as stated in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** section. When running ASF in docker container, you can optionally "opt-in" into the process, in case you're running multiple containers with ASF and you'd like for them to synchronize with each other.
+
+By default, each ASF running inside a docker container is standalone, which means that no synchronization takes place. In order to enable synchronization between them, you must bind `/tmp/ASF` path in every ASF container that you want to synchronize, to one, shared path on your docker host, in read-write mode. This is achieved exactly the same as binding a volume which was described above, just with different paths:
+
+```shell
+mkdir -p /tmp/ASF-g1
+docker pull justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+# And so on, all ASF containers are now synchronized with each other
+```
+
+We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
+
+As you've probably guessed from example above, it's also possible to create two or more "synchronization groups", by binding different docker host paths into ASF's `/tmp/ASF`.
+
+Mounting `/tmp/ASF` is completely optional and actually not recommended, unless you explicitly want to synchronize two or more ASF containers. We do not recommend mounting `/tmp/ASF` for single-container usage, as it brings absolutely no benefits if you expect to run just one ASF container, and it might actually cause issues that could otherwise be avoided.
+
+* * *
+
 ## Befehlszeilenargumente
 
 ASF erlaubt es Ihnen **[Kommandozeilenargumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in Docker-Containern durch Umgebungsvariablen zu geben. Sie sollten spezifische Umgebungsvariablen für die unterstützten Schalter benutzen und für den Rest `ASF_ARGS`. This can be achieved with `-e` switch added to `docker run`, for example:
@@ -161,7 +183,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-Dies setzt voraus, dass du alle ASF-Konfigurationsdateien in `/home/archi/asf` hast, wenn nicht, solltest du den Pfad zu demjenigen ändern, der passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn du dich entschieden hast, `IPC.config` in dein Konfigurationsverzeichnis mit einem Inhalt wie unten beschrieben aufzunehmen:
+This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn du dich entschieden hast, `IPC.config` in dein Konfigurationsverzeichnis mit einem Inhalt wie unten beschrieben aufzunehmen:
 
 ```json
 {

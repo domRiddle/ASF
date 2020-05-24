@@ -106,6 +106,28 @@ Esto solo tiene que hacerse una vez después de crear tu contenedor con `docker 
 
 * * *
 
+## Sincronización de múltiples instancias
+
+ASF incluye soporte para la sincronización de múltiples instancias, como se menciona en la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#m%C3%BAltiples-instancias)**. Al ejecutar ASF en el contenedor docker, opcionalmente puedes optar en el proceso, en caso de que estés ejecutando múltiples contenedores con ASF y quieres que se sincronicen entre sí.
+
+Por defecto, cada ASF ejecutándose dentro de un contenedor es independiente, lo que significa que no hay sincronización alguna. Para habilitar la sincronización entre ellos, debes enlazar la ruta `/tmp/ASF` en cada contenedor de ASF que quieras que se sincronice, a una ruta compartida en tu host docker, en modo lectura-escritura. Esto se logra exactamente igual que enlazar un volumen, lo que se describió anteriormente, solo que con diferentes rutas:
+
+```shell
+mkdir -p /tmp/ASF-g1
+docker pull justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+# Y así sucesivamente, todos los contenedores de ASF ahora están sincronizados entre sí
+```
+
+Recomendamos enlazar el directorio de ASF `/tmp/ASF` también al directorio temporal `/tmp` en tu máquina, pero eres libre de elegir cualquier otro que se ajuste a tu uso. Cada contenedor de ASF que se espera que esté sincronizado debería tener su directorio `/tmp/ASF` compartido con otros contenedores que forman parte del mismo proceso de sincronización.
+
+Como probablemente hayas notado del ejemplo anterior, también es posible crear dos o más "grupos de sincronización", vinculando diferentes rutas del host docker en el directorio `/tmp/ASF` de ASF.
+
+Montar `/tmp/ASF` es completamente opcional y no recomendable, a menos que explícitamente quieras sincronizar dos o más contenedores de ASF. No recomendamos montar `/tmp/ASF` para uso de un solo contenedor, ya que no aporta ningún beneficio si esperas ejecutar solo un contenedor de ASF, y en realidad podría causar problemas que de otro modo podrían evitarse.
+
+* * *
+
 ## Argumentos de la línea de comandos
 
 ASF permite pasar **[argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** en el contenedor docker a través de variables de entorno. Debes usar variables de entorno específicas para los interruptores soportados, y `ASF_ARGS` para el resto. Esto se puede lograr con el interruptor `-e` añadido a `docker run`, por ejemplo:
@@ -161,7 +183,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-Esto supone que tienes todos los archivos de configuración de ASF en `/home/archi/asf`, si no, debes modificar la ruta a la que coincida. Esta configuración también está lista para uso opcional de IPC si decidiste incluir `IPC.config` en tu directorio de configuración con un contenido como el siguiente:
+Esto asume que usarás un solo contenedor de ASF, con todos los archivos de configuración de ASF en `/home/archi/asf`. Deberías modificar la ruta de configuración a la que coincide con tu máquina. Esta configuración también está lista para uso opcional de IPC si decidiste incluir `IPC.config` en tu directorio de configuración con un contenido como el siguiente:
 
 ```json
 {
