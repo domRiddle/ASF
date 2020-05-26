@@ -138,7 +138,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `firstBot` 和`lastBot`必須是 ASF 能夠辨識的有效 BOT 名稱，否則範圍語法將不會生效。
 
-除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活規則運算式模式，其中 `r!` 是用於規則運算式符合的 ASF 啟動指令，而 `<pattern>` 是您的規則運算式。 一個使用規則運算式的例子為 `status r!\d{3}` 指令，它會向所有名稱為 3 個數字的 BOT（例如 `123` 和 `981`）發送` status` 指令。 您可以閱讀這份**[文件](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解規則運算式的解釋和示例。
+除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活規則運算式模式，其中 `r!` 是用於規則運算式符合的 ASF 啟動指令，而 `<pattern>` 是您的規則運算式。 一個使用規則運算式的例子為 `status r!\d{3}` 指令，它會向所有名稱為 3 個數字的 BOT（例如 `123` 和 `981`）發送` status` 指令。 您可以閱讀這份**[文件](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解規則運算式的解釋和示例。
 
 * * *
 
@@ -217,12 +217,12 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 `owns` 指令支援幾種不同的 `<games>` 遊戲參數類型，分別是：
 
-| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                            |
-| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | 透過遊戲唯一的 `appID` 授權。                                                                                                                                                                                           |
-| `sub`   | `s` | `sub/47807`      | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。                                                                                                                                                                               |
-| `regex` | `r` | `regex/^\d{4}:` | 用於遊戲名稱的**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**，區分大小寫。 請參閱**[文件](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**以取得完整語法和更多範例。 |
-| `name`  | `n` | `name/Witcher`   | 部分遊戲名稱，不區分大小寫。                                                                                                                                                                                                |
+| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                       |
+| ------- | --- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | 透過遊戲唯一的 `appID` 授權。                                                                                                                                                                                                                      |
+| `sub`   | `s` | `sub/47807`      | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。                                                                                                                                                                                                          |
+| `regex` | `r` | `regex/^\d{4}:` | 用於遊戲名稱的**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**，區分大小寫。 See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `name`  | `n` | `name/Witcher`   | 部分遊戲名稱，不區分大小寫。                                                                                                                                                                                                                           |
 
 我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
 

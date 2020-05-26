@@ -8,14 +8,14 @@
 
 * * *
 
-## Basics
+## Pagrindai
 
 * **[Pradžia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfigūracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[D.U.K](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[ Paruošimas ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**** (pradėti čia)**
 
-## Pagrindas
+## Branduolys
 
 * **[Pasyvusis žaidimų aktyvatorius](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Komandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
@@ -36,9 +36,9 @@
 * **[Lokalizacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Žurnalas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Mažos atminties sąranka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Priedai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Saugumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Trečiosios šalys](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dviejų lygių autentifikavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Kūrėjai

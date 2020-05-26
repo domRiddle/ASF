@@ -17,7 +17,7 @@ Unabhängig von der Plattform benötigst du die vollständige .NET Core SDK (nic
 Unter der Annahme, dass du die .NET Core SDK funktionsfähig und in der entsprechenden Version hast, navigiere einfach zum Quell-ASF-Verzeichnis (geklont oder heruntergeladen und entpacktes ASF-Repository) und führe folgendes aus:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic" "/p:PublishTrimmed=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
 ```
 
 Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
@@ -39,13 +39,13 @@ Natürlich solltest du `linux-x64` durch eine Betriebssystemarchitektur ersetzen
 Im sehr seltenen Fall, dass du das `generic-netf` Paket erstellen möchtest, kannst du das Zielframework von `netcoreapp3.1` auf `net48` ändern. Beachte, dass du neben der .NET Core SDK auch ein entsprechendes **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** Entwicklerpaket für die Kompilierung der `netf` Variante benötigst, so dass das untenstehende nur unter Windows funktioniert:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
 Falls du das .NET Framework oder sogar die .NET Core SDK selbst nicht installieren kannst (z.B. weil du auf `linux-x86` mit `mono` kompiliert hast), kannst du `msbuild` direkt aufrufen. Du musst auch `ASFNetFramework` manuell angeben, da ASF standardmäßig netf build auf Nicht-Windows-Plattformen deaktiviert:
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 * * *

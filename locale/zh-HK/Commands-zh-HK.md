@@ -77,7 +77,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機械人的Steam`nickname`更改為自訂昵稱。                                                                                                                      |
 | `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定 `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                |
 | `password [Bots]`                                                    | `Master`        | 顯示指定機械人加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                              |
-| `pause [Bots]`                                                       | `Operator`      | 停止指定機械人的自動掛卡模組。 ASF 在本次會話中將不會再嘗試對當前帳戶進行掛卡，除非您手動 `resume`或者重啟 ASF。                                                                                   |
+| `暫停 [Bots]`                                                          | `Operator`      | 停止指定機械人的自動掛卡模組。 ASF 在本次會話中將不會再嘗試對當前帳戶進行掛卡，除非您手動 `resume`或者重啟 ASF。                                                                                   |
 | `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機械人的自動掛卡模組。 掛卡進程將會在下次遊戲事件被觸發時或機械人斷開連接時自動恢復。 您可以使用`resume`命令以恢復掛卡。                                                                               |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | 暂停指定機械人的自动挂卡模块 `seconds` 秒。 之後，掛卡模組將自動恢復。                                                                                                           |
 | `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式──使指定機械人運行特定的`AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。 |
@@ -86,7 +86,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以`Modes`模式為指定機械人實例兌換給定的CD金鑰或錢包充值碼，模式將於**[​下文](#redeem-modes)**詳述。                                                                                   |
 | `reset [Bots]`                                                       | `Master`        | 重設遊玩狀態為正常，使用 `play` 指令手動掛卡時使用此指令。                                                                                                                   |
 | `restart`                                                            | `Owner`         | 重啟 ASF 進程。                                                                                                                                          |
-| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機械人的自動掛卡進程。 另請參閱 `pause`和`play`。                                                                                                                |
+| `繼續 [Bots]`                                                          | `FamilySharing` | 恢復指定機械人的自動掛卡進程。 另請參閱 `pause`和`play`。                                                                                                                |
 | `start [Bots]`                                                       | `Master`        | 啟動指定機械人實例。                                                                                                                                          |
 | `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                 |
 | `status [Bots]`                                                      | `FamilySharing` | 顯示指定機械人的狀態。                                                                                                                                         |
@@ -138,7 +138,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 例如，如果您有名為 `A, B, C, D, E, F`的機械人，在這種情況下，执行 `status B..E`的效果等於执行 `status B,C,D,E` 。 使用此語法時，ASF將使用字母排序，以决定哪些機械人在指定的範圍內。 `firstBot` 和 `lastBot` 都必須是可被 ASF 識別的有效機械人名稱，否則進程將完全跳過範圍語法。
 
-除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為機械人名稱來激活正則運算式模式，其中 `r!` 是用於正則運算式匹配的ASF啟動命令，而 `<pattern>` 是您的正則運算式。 一個使用正則運算式的例子為 `status r!\d{3}` 命令，它會向所有名稱由 3 個數位組成的機械人（例如 `123` 和 `981`）發送` status` 命令。 您可以隨時閱讀這份**[​文檔](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)**，以進一步了解更多可用正則運算式的解釋和示例。
+除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為機械人名稱來激活正則運算式模式，其中 `r!` 是用於正則運算式匹配的ASF啟動命令，而 `<pattern>` 是您的正則運算式。 一個使用正則運算式的例子為 `status r!\d{3}` 命令，它會向所有名稱由 3 個數位組成的機械人（例如 `123` 和 `981`）發送` status` 命令。 您可以隨時閱讀這份**[​文檔](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，以進一步了解更多可用正則運算式的解釋和示例。
 
 * * *
 
@@ -217,12 +217,12 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 `owns` 指令支援幾種不同的 `<games>` 遊戲參數類型，分別是：
 
-| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                            |
-| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | 透過遊戲唯一的 `appID` 授權。                                                                                                                                                                                           |
-| `sub`   | `s` | `sub/47807`      | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。                                                                                                                                                                               |
-| `regex` | `r` | `regex/^\d{4}:` | 用於遊戲名稱的**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**，區分大小寫。 請參閱**[文件](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**以取得完整語法和更多範例。 |
-| `名稱`    | `n` | `name/Witcher`   | 部分遊戲名稱，不區分大小寫。                                                                                                                                                                                                |
+| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                       |
+| ------- | --- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | 透過遊戲唯一的 `appID` 授權。                                                                                                                                                                                                                      |
+| `sub`   | `s` | `sub/47807`      | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。                                                                                                                                                                                                          |
+| `regex` | `r` | `regex/^\d{4}:` | 用於遊戲名稱的**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**，區分大小寫。 See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `名稱`    | `n` | `name/Witcher`   | 部分遊戲名稱，不區分大小寫。                                                                                                                                                                                                                           |
 
 我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
 

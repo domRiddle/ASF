@@ -16,7 +16,7 @@ Quelle que soit la plate-forme, vous avez besoin du SDK .NET Core complet (pas s
 
 <p>En supposant que vous avez un SDK .NET Core opérationnel dans sa version appropriée, il vous suffit de naviguer vers le répertoire source ASF (cloné ou téléchargé et dés-archivé) et d'exécuter :</p>
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic" "/p:PublishTrimmed=false"
+<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
 `</pre> 
 
 Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui fera de même, de manière un peu plus complexe.</p>
@@ -38,13 +38,13 @@ Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation
 In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.1` to `net48`. N'oubliez pas que vous aurez besoin du pack de développeurs **[ .NET Framework ](https://dotnet.microsoft.com/download/visual-studio-sdks)** approprié pour la compilation de la variante ` netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf" "/p:PublishTrimmed=false"
+dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
 Dans des cas encore plus rares, si vous ne pouvez pas installer .NET Framework ou même .NET Core SDK lui-même (par exemple, en raison de la construction sur ` linux-x86 ` avec ` mono `), vous pouvez appeler ` msbuild ` directement. Vous devrez également spécifier `ASFNetFramework` manuellement, car ASF désactive par défaut la construction netf sur les plates-formes non Windows :
 
 ```shell
-msbuild /m /p:Configuration=Release /p:PublishDir=out/generic-netf /p:TargetFramework=net48 /p:ASFNetFramework=true /p:PublishTrimmed=false /r /t:Publish ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 * * *

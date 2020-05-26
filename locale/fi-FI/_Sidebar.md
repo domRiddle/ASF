@@ -13,19 +13,19 @@
 * **[Aloitus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Konfigurointi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[UKK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Aloittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(aloita täältä)**
+* **[Määrittäminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(aloita tästä)**
 
-## Ydin
+## Ydinasiat
 
 * **[Taustalla pelien lunastaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Komennot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Yhteensopivuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Suorityskyky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Tilastot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Steamin perhejako](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Steamin Lainaamo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Vaihtaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-## Edistynyt
+## Edistyneet
 
 * **[Komentoriviltä syötettävät komennot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
@@ -38,8 +38,8 @@
 * **[Alhaisen muistin asetelma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Liitännäiset](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Turvallisuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[Kolmas osapuoli](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Kaksivaiheinen todentaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Kolmannet osapuolet](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Kaksivaiheinen tunnistautuminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Kehittäjille
 
