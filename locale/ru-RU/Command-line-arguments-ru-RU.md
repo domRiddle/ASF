@@ -50,6 +50,12 @@ Linux/OS X
 
 * * *
 
+`--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with additional custom network group having `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
+
+Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+
+* * *
+
 `--no-restart` - данный параметр используется для контейнеров **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ru-RU)** и принудительно задаёт параметру `AutoRestart` значение `false`. Если у вас нет какой-то конкретной цели, вам следует вместо этого настроить параметр `AutoRestart` в конфигурационном файле. Этот аргумент нужен чтобы нашему скрипту Docker не нужно было трогать ваш файл глобальной конфигурации чтобы приспособиться к своему окружению. Разумеется, если вы запускаете ASF из скрипта, возможно вы захотите тоже воспользоваться этим аргументом (в противном случае лучше использовать параметр глобальной конфигурации).
 
 * * *
