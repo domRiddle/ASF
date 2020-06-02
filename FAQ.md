@@ -636,7 +636,7 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 ### A fatal error was encountered. Could not extract contents of the bundle
 
-ASF is using single-file publishing in OS-specific variants, which are afterwards extracted to a temporary `<tmp>/.net` location. On Windows, this is `%TEMP%/.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`.
+ASF is using single-file publishing in OS-specific variants, which cause the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%/.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`.
 
 ASF process needs write access to the directory specified above. On Windows, this is usually not a problem, but on Linux you must ensure that the user that ASF process is running under has access to `/var/tmp/.net` folder, which is usually the case, but might require from you extra steps in case you're using non-default permissions or likewise. In case of an issue, whether on Windows or Linux, the first step should be deleting the temporary `.net` directory and trying again, which usually should fix the problem.
 
