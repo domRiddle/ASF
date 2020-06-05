@@ -287,7 +287,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 如果您的代理需要用戶身份驗證，則還需要設置` WebProxyUsername `和/或` WebProxyPassword `。 如果無此需求，僅設置此屬性就足夠了。
 
-現在，ASF僅對` http `和` https `請求使用Web代理，**不**包括在 ASF 內部 Steam 客戶端內的內部 Steam 網絡通信。 There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. 如果你想實現它，我建議從此處開始。
+現在，ASF僅對` http `和` https `請求使用Web代理，**不**包括在 ASF 內部 Steam 客戶端內的內部 Steam 網絡通信。 當前沒有支援這一點的計畫，主要原因是缺少 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 功能。 如果你想實現它，我建議從此處開始。
 
 除非您有充分的修改理由，否則應保持它為預設值。
 
@@ -410,6 +410,8 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 ### `CustomGamePlayedWhileFarming`
 
 預設值為 `null` 的 `string` 類型。 當ASF掛卡時，它可以顯示狀態為“玩非Steam遊戲：` CustomGamePlayedWhileFarming `”而不是當前掛卡的遊戲。 如果您想讓您的朋友知道您正在掛卡，但您不想使用` Offline `的` OnlineStatus `，這將非常有用。 請注意，ASF無法干預Steam網絡的實際顯示順序，因此這只是一種建議，可能會正確顯示，也可能不會。 ` null `的預設值禁用此功能。
+
+ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
 
 * * *
 

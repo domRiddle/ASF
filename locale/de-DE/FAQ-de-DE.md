@@ -630,6 +630,20 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 * * *
 
+### A fatal error was encountered. Could not extract contents of the bundle
+
+### `System.BadImageFormatException: Could not load file or assembly`
+
+ASF is using single-file publishing in OS-specific variants, which causes the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%/.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`. The `.net` directory might not exist by default, it will be created the first time it's needed.
+
+First issue is caused by ASF being unable to extract ASF into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
+
+ASF process needs write access to the directory specified above. On Windows, this is usually not a problem, but on Linux you must ensure that the user that ASF process is running under has access to `/var/tmp/.net` folder, which is usually the case, but might require from you extra steps in case you're using non-default permissions or likewise.
+
+Alternatively, you can also set custom `DOTNET_BUNDLE_EXTRACT_BASE_DIR` environment variable which will point to the extraction directory of your choice. This can be especially useful if you don't want ASF to use the default directory for bundle extraction. Keep in mind that same required permissions apply to new location as well.
+
+* * *
+
 ### ASF wird von meinem AntiVirus als Schadsoftware erkannt! Was ist hier los?
 
 **Stelle sicher, dass du ASF von einer vertrauenswürdigen Quelle heruntergeladen hast**. Die einzige offizielle und vertrauenswürdige Quelle ist **[ASF-Veröffentlichungen](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** Seite auf GitHub (und das ist auch die Quelle für automatische ASF-Aktualisierungen) - **jede andere Quelle ist per Definition nicht vertrauenswürdig und könnte Schadsoftware enthalten, die von anderen Personen hinzugefügt wurde** - Du solltest keiner anderen Quelle per Definition vertrauen und sicherstellen, dass dein ASF immer von uns kommt.

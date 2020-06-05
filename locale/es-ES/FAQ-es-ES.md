@@ -630,6 +630,20 @@ Este problema es casi exclusivamente causado por el servicio de Windows `CNG Key
 
 * * *
 
+### Se ha encontrado un error fatal. No pudo extraer el contenido del paquete
+
+### `System.BadImageFormatException: Could not load file or assembly`
+
+ASF utiliza la publicación de un solo archivo en las variantes de sistema operativo específico, lo que causa que la aplicación sea extraída temporalmente a una ubicación `<tmp>/.net` durante el inicio (si es necesario). En Windows, esta es `%TEMP%/.net` (normalmente `C:\Users\<YourUser>\AppData\Local\Temp\.net`), en Linux, es `/var/tmp/.net`. El directorio `.net` podría no existir por defecto, será creado la primera que sea necesario.
+
+First issue is caused by ASF being unable to extract ASF into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
+
+El proceso de ASF necesita acceso de escritura al directorio especificado anteriormente. En Windows, esto no suele ser un problema, pero en Linux debes asegurarte de que el usuario ejecutando el proceso de ASF tenga acceso a la carpeta `/var/tmp/.net`, que suele ser el caso, pero podría requerir pasos adicionales en caso de que estés usando permisos no predeterminados o algo por el estilo.
+
+Alternativamente, también puedes establecer una variable de entorno personalizada `DOTNET_BUNDLE_EXTRACT_BASE_DIR` lo que apuntará al directorio de extracción de tu elección. Esto puede ser especialmente útil si no quieres que ASF use el directorio predeterminado para la extracción de paquetes. Ten en cuenta que los mismos permisos requeridos se aplican también para la nueva ubicación.
+
+* * *
+
 ### ¡ASF está siendo detectado como malware por mi AntiVirus! ¿Qué está pasando?
 
 **Asegúrate de que descargaste ASF de una fuente confiable**. La único fuente oficial y de confianza es la página de **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en GitHub (esta también es la fuente para las actualizaciones automáticas de ASF) - **cualquier otra fuente no es de confianza por definición y puede contener malware agregado por otras personas** - no debes confiar en ninguna otra ubicación de descarga por definición, y asegúrate de que tu ASF siempre viene de nosotros.

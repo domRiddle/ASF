@@ -287,7 +287,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 
 프록시가 인증을 필요로 하면, `WebProxyUsername`과 `WebProxyPassword`를 설정해야 합니다. 그럴 필요가 없다면 이 속성값을 설정하는 것만으로 충분합니다.
 
-지금 ASF는 `http`와 `https` 요청만을 위해 웹 프록시를 사용합니다. 이는 ASF의 내부 Steam 클라이언트에서 이루어지는 내부 Steam 네트워크 통신을 **포함하지 않습니다**. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. 만약 당신이 이를 할 필요가 있거나 하기를 원한다면 거기서부터 시작하기를 권합니다.
+지금 ASF는 `http`와 `https` 요청만을 위해 웹 프록시를 사용합니다. 이는 ASF의 내부 Steam 클라이언트에서 이루어지는 내부 Steam 네트워크 통신을 **포함하지 않습니다**. **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 기능이 없으므로 이를 지원할 계획은 현재로써는 없습니다. 만약 당신이 이를 할 필요가 있거나 하기를 원한다면 거기서부터 시작하기를 권합니다.
 
 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
@@ -411,11 +411,13 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 `string` 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
+ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
+
 * * *
 
 ### `CustomGamePlayedWhileIdle`
 
-문자열(`string`) 타입으로 기본값은 `null`입니다. `CustomGamePlayedWhileFarming`와 비슷하지만 농사가 끝난 계정 등 ASF가 할 일이 없을 경에 사용합니다. 기본값 `null`은 이 기능을 비활성화 합니다.
+`string` 타입으로 기본값은 `null`입니다. `CustomGamePlayedWhileFarming`와 비슷하지만 농사가 끝난 계정 등 ASF가 할 일이 없을 경에 사용합니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
@@ -450,7 +452,7 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 이 속성값은 배열이므로 고정된 순서를 여러 다른 설정을 사용할 수 있게 해 줍니다. 예를 들어 카드 판매가능한 게임을 먼저, 배지 레벨이 높은 게임을 그 다음에, 마지막으로 알파벳순으로 정렬하려고 `15`, `11`, 그리고 `7` 값을 포함할 수 있습니다. 추측할 수 있듯이 순서가 영향을 줍니다. 거꾸로 하면(`7`, `11`, 그리고 `15`)는 완전히 다른 뭔가가 됩니다. 대부분의 사람들은 한 가지 순서만 사용하지만, 만약 원한다면 추가 매개 변수로 더 깊이있게 정렬할 수 있습니다.
 
-위의 설명에 있는 "시도"라는 단어에 유의하십시오. 실제 ASF의 순서는 선택한 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 심하게 영향을 받고 정렬방식은 동일한 성능측면을 고려한 경우에만 영향을 줍니다. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer idling performance over `FarmingOrders`).
+위의 설명에 있는 "시도"라는 단어에 유의하십시오. 실제 ASF의 순서는 선택한 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 심하게 영향을 받고 정렬방식은 동일한 성능측면을 고려한 경우에만 영향을 줍니다. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer idling performance over `FarmingOrders`).
 
 There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
@@ -605,7 +607,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 아이템의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 아이템을 "전달"하는데 매우 유용합니다.
+`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
 시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
