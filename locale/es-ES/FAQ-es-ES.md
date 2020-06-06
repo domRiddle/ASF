@@ -630,13 +630,13 @@ Este problema es casi exclusivamente causado por el servicio de Windows `CNG Key
 
 * * *
 
-### Se ha encontrado un error fatal. No pudo extraer el contenido del paquete
+### Se ha encontrado un error fatal. No se pudo extraer el contenido del paquete
 
 ### `System.BadImageFormatException: Could not load file or assembly`
 
 ASF utiliza la publicación de un solo archivo en las variantes de sistema operativo específico, lo que causa que la aplicación sea extraída temporalmente a una ubicación `<tmp>/.net` durante el inicio (si es necesario). En Windows, esta es `%TEMP%/.net` (normalmente `C:\Users\<YourUser>\AppData\Local\Temp\.net`), en Linux, es `/var/tmp/.net`. El directorio `.net` podría no existir por defecto, será creado la primera que sea necesario.
 
-First issue is caused by ASF being unable to extract ASF into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
+El primer problema es debido a que ASF no puede extraer ASF en el directorio, el segundo es debido a una extracción corrupta - muy probablemente porque hayas cerrado ASF antes de poder extraer todo. Generalmente, la solución más simple a este problema, ya sea en Windows o Linux, es eliminar el directorio temporal `.net` mencionado antes e intentarlo de nuevo, lo que normalmente debería arreglar el problema.
 
 El proceso de ASF necesita acceso de escritura al directorio especificado anteriormente. En Windows, esto no suele ser un problema, pero en Linux debes asegurarte de que el usuario ejecutando el proceso de ASF tenga acceso a la carpeta `/var/tmp/.net`, que suele ser el caso, pero podría requerir pasos adicionales en caso de que estés usando permisos no predeterminados o algo por el estilo.
 

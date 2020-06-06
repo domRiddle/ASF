@@ -411,7 +411,7 @@ ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSO
 
 Параметр типа `string` со значением по умолчанию `null`. Во время фарма ASF может показывать статус "В сторонней игре: `CustomGamePlayedWhileFarming`" вместо названия текущей игры. Это может быть полезно, если вы хотите позволить друзьям знать что вы фармите, но не хотите использовать `Offline` в `OnlineStatus`. Обратите внимание, ASF не может гарантировать порядок отображения статусов в Steam, поэтому этот статус может как работать так и не работать правильно. Значение по умолчанию `null` выключает эту функцию.
 
-ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
+ASF предоставляет несколько особых переменных, которые вы можете использовать в своём тексте. `{0}` будет заменено ASF на значение `AppID` игр(ы), которыя(ая) сейчас фармится, а `{1}` будет заменено ASF на значение `GameName` игр(ы), которые(ая) сейчас фармится.
 
 * * *
 
