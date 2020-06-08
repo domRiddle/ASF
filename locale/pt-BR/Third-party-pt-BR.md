@@ -21,6 +21,7 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 ## Integrações
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot do telegram escrito em python com integração com o ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração com o ASF.
 
 * * *

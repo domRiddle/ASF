@@ -1,4 +1,4 @@
-# Third-party
+# Bên thứ ba
 
 This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
@@ -21,6 +21,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ## Integrations
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
 
 * * *

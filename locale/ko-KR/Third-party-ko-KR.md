@@ -21,6 +21,7 @@
 ## 통합
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF와 통합되는 python으로 작성한 텔레그램 봇입니다.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
 
 * * *

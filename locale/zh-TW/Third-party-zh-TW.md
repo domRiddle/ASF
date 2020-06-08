@@ -21,6 +21,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ## 整合
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**，用 Python 編寫的 ASF 功能整合 Telegram BOT。
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**，另一個（基本的）用 Python 編寫的 ASF 功能整合 Telegram BOT。
 
 * * *

@@ -397,7 +397,7 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 유효하지 않은 그룹 초대는 `SteamMasterClanID` 그룹이 아닌 그룹에서 온 초대입니다. 예상하시는대로 보통 모드에서 ASF는 이러한 그룹 초대를 무시하고, 특정 Steam 그룹에 가입할지 말지를 스스로 정하도록 합니다. `유효하지 않은 그룹초대 거절(RejectInvalidGroupInvites)`은 이러한 그룹 초대를 자동으로 거절하고, `SteamMasterClanID`가 아닌 다른 그룹이 당신을 초대할 수 없도록 합니다. 모든 그룹 초대를 완전히 거부하려는 것이 아니라면 이 옵션을 활성화해서는 안됩니다.
 
-`보관함 알림 해제(DismissInventoryNotifications)`는 새 아이템을 받게 되어 Steam 알림이 뜨는 것이 짜증나기 시작할때 매우 유용합니다. 이 알림은 Steam 클라이언트에 내장되어있기 때문에 ASF가 이 알림을 없앨수는 없지만, 알림을 받은 후 이를 자동으로 클리어 할 수는 있으며, "새로운 보관함 항목" 알림을 놔두지 않아도 됩니다. ASF에서 농사지은 카드 등 모든 보관함 항목을 평가하길 원한다면 자연스럽게 이 옵션은 사용하지 않을 것입니다. 미쳐가고 있다면 이 옵션이 있음을 기억하십시오.
+`DismissInventoryNotifications` is extremely useful when you start getting annoyed by constant Steam notification about receiving new items. 이 알림은 Steam 클라이언트에 내장되어있기 때문에 ASF가 이 알림을 없앨수는 없지만, 알림을 받은 후 이를 자동으로 클리어 할 수는 있으며, "새로운 보관함 항목" 알림을 놔두지 않아도 됩니다. ASF에서 농사지은 카드 등 모든 보관함 항목을 평가하길 원한다면 자연스럽게 이 옵션은 사용하지 않을 것입니다. 미쳐가고 있다면 이 옵션이 있음을 기억하십시오.
 
 `MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. 이는 보통 부계정에서 ASF 명령어 수행중에 자신이 보낸 "새로운 메시지"를 클리어하기 위해서만 사용합니다. 당신은 오프라인이지만 ASF는 여전히 알림을 해제하고 있었던 메시지를 **포함한** 모든 종류의 새로운 메시지 알림을 잘라내버리고 싶지 않는 한, 이 옵션을 주 계정에서 사용하는 것을 권장하지 않습니다.
 

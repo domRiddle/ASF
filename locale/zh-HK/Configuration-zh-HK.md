@@ -397,7 +397,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 無效群組邀請是來自` SteamMasterClanID `之外群組的邀請。 正常模式下的ASF會忽略那些群組邀請，正如您所期望的那樣，允許您自行決定是否要加入特定的Steam群組。 啟用` RejectInvalidGroupInvites `將導致所有這些群組邀請被自動拒絕，實際上您無法被邀請加入` SteamMasterClanID `之外的任何其他群組。 除非您想徹底拒絕所有群組邀請，否則您不應啟用此選項。
 
-當您為Steam關於接收新物品的通知所困擾時，` DismissInventoryNotifications `非常有用。 ASF無法消除通知本身，因為它來自您的Steam客戶端，但它能夠在收到通知後自動清除通知，這將不再留下“庫存中的新項目”通知。 如果您希望自己知曉所有收到的物品（特別是用ASF的掛卡所得），那麼您自然不應該啟用此選項。 如果您已經開始抓狂了，請記住這僅僅是一個選項。
+`DismissInventoryNotifications` is extremely useful when you start getting annoyed by constant Steam notification about receiving new items. ASF無法消除通知本身，因為它來自您的Steam客戶端，但它能夠在收到通知後自動清除通知，這將不再留下“庫存中的新項目”通知。 如果您希望自己知曉所有收到的物品（特別是用ASF的掛卡所得），那麼您自然不應該啟用此選項。 如果您已經開始抓狂了，請記住這僅僅是一個選項。
 
 `MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. 這通常僅應由備用帳戶使用，以便清除“新消息”通知，例如： 在執行ASF命令時從您那裡收到的消息。 我們不建議將此選項用於主要帳戶，除非您希望自己避免收到任何類型的新郵件通知，**包括**您在離線時，ASF仍處於開放狀態而不予理會的通知。
 
