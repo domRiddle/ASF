@@ -1,6 +1,6 @@
 # PREVIEW
 
-`SteamTokenDumperPlugin` is currently in closed beta testing period. We'll open it to general public soon.
+`SteamTokenDumperPlugin` is currently in closed beta testing period. We'll open it to general public soon. The description below applies to current beta testing period, as well as general public release (in the future).
 
 # SteamTokenDumperPlugin
 
