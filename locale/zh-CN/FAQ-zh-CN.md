@@ -108,7 +108,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 ### 我是 Linux/macOS 用户，ASF 可以挂我的操作系统不支持的游戏吗？ 我可以在 32 位系统上挂 64 位游戏吗？
 
-是的，ASF 甚至不需要下载实际的游戏文件，因此无论游戏的系统或技术需求如何，它对您 Steam 帐户内的所有游戏许可都有效。 它甚至可以在您不处于指定区域的情况下运行区域限制（锁区）的游戏，但是我们尚未测试这一点。
+是的，ASF 甚至不需要下载实际的游戏文件，因此无论游戏的系统或技术需求如何，它对您 Steam 帐户内的所有游戏许可都有效。 它甚至可以在您不处于指定区域的情况下运行区域限制（锁区）的游戏，但是我们无法保证这一点（我们上次尝试时仍然可以）。
 
 * * *
 
@@ -136,7 +136,7 @@ ASF 的逻辑还能够正确处理**系列**视频。 Steam 上有许多视频�
 
 这是 3 点使用 ASF 的**重要**理由，因为它们直接影响到每个人的挂卡过程，谁也无法肯定“这与我无关”，因为 Steam 的维护和故障会影响到所有人。 在下文中，您可以了解到一些或重要或不重要的额外理由。 因此，一句话来说，**是的**，即使您不需要 ASF 比 IM 多的额外功能，也应该考虑使用 ASF。
 
-除此之外，IM 项目已经正式停止，在将来会完全失效，因为现在已有更强大的解决方案（不仅仅有 ASF），没有人愿意继续修复 IM。 无法使用 IM 的用户已经有很多，这个数字只会上升而不会下降。 您应该始终避免使用过时的软件，不仅仅有 IM，也包括任何其他已被废弃的程序。 无人维护意味着没有人在乎它还是否有效，没有人验证，也**没有人对其功能负责**，这在安全性方面是一个至关重要的问题。
+除此之外，IM 项目已经正式停止，在将来会完全失效，因为现在已有更强大的解决方案（不仅仅有 ASF），没有人愿意继续修复 IM。 无法使用 IM 的用户已经有很多，这个数字只会上升而不会下降。 您应该始终避免使用过时的软件，不仅仅有 IM，也包括任何其他已被废弃的程序。 无人维护意味着没有人在乎它还是否有效，没有人验证，也**没有人对其功能负责**，这在安全性方面是一个至关重要的问题。 其中可能存在对 Steam 基础设施有害的致命错误——没有人修复，如果 Steam 进行另一波封禁，使用者就会受到影响，而完全不知道原因是什么，使用过时版本 ASF 的用户就曾经历过这样的事情…… 
 
 * * *
 
@@ -258,7 +258,7 @@ ASF 真正需要关注的重点是：
 
 特别是因为：
 
-> In regard to all Subscriptions, Contents and Services that are not authored by Valve, Valve does not screen such third party content available on Steam or through other sources.（参考译文：对于不是由 Valve 创作的订阅、内容和服务，Valve 不会在 Steam 或其他来源上屏蔽此类第三方内容。） Valve assumes no responsibility or liability for such third party content.（参考译文：Valve 对此类第三方内容不承担任何责任。） Some third party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.（参考译文：某些第三方应用软件能够被企业用于商业目的——但是，您通过 Steam 购买的此类软件仅供私人个人使用。）
+> In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources.（参考译文：对于不是由 Valve 创作的订阅、内容和服务，Valve 不会在 Steam 或其他来源上屏蔽此类第三方内容。） Valve assumes no responsibility or liability for such third party content.（参考译文：Valve 对此类第三方内容不承担任何责任。） Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.（参考译文：某些第三方应用软件能够被企业用于商业目的——但是，您通过 Steam 购买的此类软件仅供私人个人使用。）
 
 然而，如&#8203;**[此文章](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所述，Valve 明确知晓“Steam 挂机工具”的存在，因此，如果您问我，我很确定如果他们认为这种行为不妥，就早已采取措施来阻止，而不是指出这种行为会造成 VAC 的故障了。 这里的关键词是 **Steam** 挂机工具，例如 ASF，而不是**游戏**挂机工具。
 
@@ -417,7 +417,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 **不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;中明确指出：
 
-> You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
+> You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
 
 ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
 
@@ -561,7 +561,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 如果仍然无法解决问题，您可以随时启用 `Debug` 模式，自己检查请求失败的原因。 请注意，Steam 在大多数情况下都无法提供有意义的错误原因，甚至可能是完全错误的——如果您决定解释原因，一定要对 Steam 及其奇怪特性有相当的了解。 问题完全没有符合逻辑的解释也很常见，此时唯一推荐的方法就是重新将此帐户添加到 ASF（并且再次等待 7 天）。 有时这些问题也会*神奇地*自己消失，就像它们出现时一样。 但最常见的情况还是 7 天的交易锁定与暂时的 Steam 问题，或者两者兼而有之。 最好等待几天再开始手动检查错误，除非您真的希望立刻开始调试错误的真正原因（通常您还是要等待，因为错误消息可能没有意义，也没有任何帮助）。
 
-无论如何，ASF 只能**尝试**向 Steam 发送一个接受/发送交易报价的正确请求。 无论 Steam 是否接受该请求，ASF 都无法控制，也无法神奇地让请求变正常。 这并非是该功能的漏洞，也没有进一步改进的可能，因为问题发生在 ASF 之外。 因此，不要请我们修复没有损坏的东西，也不要询问为什么 ASF 不能接受或发送交易——**我不知道，ASF 也不知道**。 您可以绕过它，或者自己修复它。
+无论如何，ASF 只能**尝试**向 Steam 发送一个接受/发送交易报价的正确请求。 无论 Steam 是否接受该请求，ASF 都无法控制，也无法神奇地让请求变正常。 这并非是该功能的漏洞，也没有进一步改进的可能，因为问题发生在 ASF 之外。 因此，不要请我们修复没有损坏的东西，也不要询问为什么 ASF 不能接受或发送交易——**我不知道，ASF 也不知道**。 您可以绕过它，或者如果您有更好的办法，请自己修复它。
 
 * * *
 
@@ -634,7 +634,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 ### `System.BadImageFormatException: 未能加载文件或程序集`
 
-ASF 使用单文件发布操作系统包，导致应用如有需要，就会在在启动时将自身解压到临时的 `<tmp>/.net` 目录。 在 Windows 上，这个目录是 `%TEMP%/.net`（通常是 `C:\Users\<YourUser>\AppData\Local\Temp\.net`），在 Linux 上，这个目录是 `/var/tmp/.net`。 `.net` 目录默认不存在，程序会在第一次使用时尝试创建它。
+ASF 使用单文件发布操作系统包，导致应用如有需要，就会在在启动时将自身解压到临时的 `<tmp>/.net` 目录。 在 Windows 上，这个目录是 `%TEMP%\.net`（通常是 `C:\Users\<YourUser>\AppData\Local\Temp\.net`），在 Linux 上，这个目录是 `/var/tmp/.net`。 `.net` 目录默认不存在，程序会在第一次使用时尝试创建它。
 
 第一种情况是由于 ASF 无法将自身解压到目录，第二种则是因为解压被中断——通常是因为您在 ASF 完成解压之前关闭了程序。 解决问题的最简单办法，无论是在 Windows 还是 Linux 上，都是删除上述的临时 `.net` 目录然后重试，通常就可以修复问题。
 
