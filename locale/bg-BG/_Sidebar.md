@@ -38,6 +38,7 @@
 * **[Настройки за ползване на възможно най-малко памет](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Плъгини / Приставки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Защита](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[От трета страна](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Двуфакторно удостоверяване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

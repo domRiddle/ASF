@@ -38,8 +38,9 @@
 * **[Конфигурация для низкого потребления ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
 * **[Плагины](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-ru-RU)**
 * **[Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**
-* **[Сторонние разработки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-ru-RU)**
-* **[Двухфакторная аутентификация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Сторонние разработки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Двухфакторная аутентификация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Для разработчиков
 

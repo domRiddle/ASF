@@ -25,7 +25,7 @@
 * **[Steam-Familienbibliothek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-de-DE)**
 * **[Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)**
 
-## Erweitert
+## Erweiterte Einstellungen
 
 * **[Befehlszeilenargumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE)**
 * **[Veraltete Funktionen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-de-DE)**
@@ -38,6 +38,7 @@
 * **[Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

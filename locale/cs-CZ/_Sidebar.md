@@ -38,6 +38,7 @@
 * **[Nastavení pro nízký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Pluginy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Zabezpečení](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Třetí strana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

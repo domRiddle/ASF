@@ -15,7 +15,7 @@
 * **[Perguntas frequentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
-## Core
+## Núcleo
 
 * **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
@@ -38,6 +38,7 @@
 * **[Configuração de pouca memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Autenticação de dois fatores](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

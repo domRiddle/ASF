@@ -38,6 +38,7 @@
 * **[Configuration pour faible mémoire](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Extensions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sécurité](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Services tiers](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Authentification à deux facteurs](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

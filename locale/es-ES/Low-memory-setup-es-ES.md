@@ -58,7 +58,7 @@ Consulta la documentación para todas las propiedades que puedes utilizar, a con
 
 El límite de memoria para el proceso de ASF, este parámetro ajusta la recolección de basura (GC) para usar solamente un subconjunto de la memoria total y no toda. Puede resultar especialmente útil en situaciones de servidor donde puedes dedicar una porcentaje fijo de la memoria de tu servidor para ASF, pero nunca más que eso. Ten en cuenta que limitar la memoria de ASF no hará que todas las asignaciones de memoria desaparezcan, por lo tanto establecer este valor muy bajo podría resultar en escenarios en los que no hay memoria suficiente, en los que el proceso ASF se verá forzado a terminar.
 
-On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
+Por otro lado, establecer este valor lo suficientemente alto es una forma perfecta de asegurar que ASF nunca usará más memoria de la que puedes permitirte realmente, dando a tu máquina un respiro incluso bajo una carga pesada, y permitiendo al programa hacer su trabajo de manera tan eficiente como sea posible.
 
 ### `GCLatencyLevel`
 

@@ -38,6 +38,7 @@
 * **[Thiết lập bộ nhớ thấp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Bổ sung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Bên thứ ba](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Xác thực 2 bước](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

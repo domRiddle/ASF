@@ -38,6 +38,7 @@
 * **[Beállítások kevés memóriához](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Pluginok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Biztonság](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Harmadik fél](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Kétlépcsős hitelesítés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

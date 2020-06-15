@@ -38,6 +38,7 @@
 * **[Lav-hukommelsesopsætning](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sikkerhed](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Tredjepart](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[To-faktor autentificering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

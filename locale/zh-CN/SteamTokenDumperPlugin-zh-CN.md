@@ -1,10 +1,6 @@
-# 预览
-
-`SteamTokenDumperPlugin` 目前处于内部测试期。 我们将很快向所有人开放。 以下描述适用于当前测试版本，也适用于之后的公开版本。
-
 # Steam Token 转存插件
 
-`SteamTokenDumperPlugin` 是由我们开发的 ASF 官方&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**，您可以通过此插件为 **[SteamDB](https://steamdb.info)** 项目作出贡献，分享您的 Steam 帐户有权访问的 Package Token、App Token 以及 Depot Key。 关于所收集信息的进一步说明，以及为什么 SteamDB 需要这些信息，可以在 SteamDB 的 **[Token Dumper](https://steamdb.info/tokendumper)** 页面查看。
+`SteamTokenDumperPlugin` 是由我们开发的 ASF 官方&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**，自 ASF V4.2.2.2 版本开始可用，您可以通过此插件为 **[SteamDB](https://steamdb.info)** 项目作出贡献，分享您的 Steam 帐户有权访问的 Package Token、App Token 以及 Depot Key。 关于所收集信息的进一步说明，以及为什么 SteamDB 需要这些信息，可以在 SteamDB 的 **[Token Dumper](https://steamdb.info/tokendumper)** 页面查看。 如上所述，所提交的数据不包含任何敏感信息，也不会有安全或隐私风险。
 
 ---
 
@@ -18,7 +14,7 @@ ASF 在发布时会一并打包 `SteamTokenDumperPlugin`，但插件本身默认
 }
 ```
 
-在 ASF 程序启动时，此插件会通过标准的 ASF 日志机制通知您插件是否已成功启用。
+在 ASF 程序启动时，此插件会通过标准的 ASF 日志机制通知您插件是否已成功启用。 您也可以通过我们的在线配置文件生成器启用此插件。
 
 ---
 
@@ -26,7 +22,7 @@ ASF 在发布时会一并打包 `SteamTokenDumperPlugin`，但插件本身默认
 
 启用后，此插件将会收集 ASF 内正在运行的机器人有权访问的 Package Token、App Token 和 Depot Key。 数据收集模块包括被动与主动例程，以尽量减少数据收集造成的额外开销。
 
-为了符合预期的使用场景，除了上述的数据收集例程以外，还有提交例程负责确定哪些数据需要定期被提交到 SteamDB。 自 ASF 启动约 `30` 分钟后，此例程将会启动，之后则每 `24` 小时重复一次。 此插件会尽可能减少需要发送的数据量，因此只会发送需要更新的数据。
+为了符合预期的使用场景，除了上述的数据收集例程以外，还有提交例程负责确定哪些数据需要定期被提交到 SteamDB。 自 ASF 启动最多 `1` 小时后，此例程将会启动，之后则每 `24` 小时重复一次。 此插件将尽全力减少需要发送的数据量，因此，某些收集到的数据会被认为无需提交而跳过（例如 Token 未发生变化的 App 更新）。
 
 此插件使用一个持久化缓存数据库，位于 `config/SteamDB.cache`，其用途类似 `config/ASF.db` 之于 ASF。 此文件用于记录收集到和被提交的数据，以尽可能减少下次 ASF 启动时的工作量。 删除此文件会导致此过程完全从零开始，这种情况尽可能避免。
 

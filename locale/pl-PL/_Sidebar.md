@@ -38,8 +38,9 @@
 * **[Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pl-PL)**
 * **[Wtyczki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pl-PL)**
 * **[Bezpieczeństwo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pl-PL)**
-* **[Zasoby zewnętrzne](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pl-PL)**
-* **[Weryfikacja dwu-etapowa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pl-PL)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Zasoby zewnętrzne](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Weryfikacja dwu-etapowa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Deweloperzy
 

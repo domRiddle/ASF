@@ -38,6 +38,7 @@
 * **[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
