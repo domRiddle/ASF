@@ -24,7 +24,7 @@ Después de habilitarlo, el plugin usará los bots que estés ejecutando en ASF 
 
 Para lograr el caso de uso previsto, además de la rutina de recolección de datos explicada anteriormente, la rutina de envío es inicializada como responsable de determinar qué datos necesitan ser enviados a SteamDB de forma periódica. Esta rutina se iniciará hasta `1` hora después de la ejecución de ASF, y se repetirá cada `24` horas. El plugin hará todo lo posible para minimizar la cantidad de datos que necesitan ser enviados, por lo tanto es posible que alguna información recolectada por el plugin sea marcada como no necesaria para enviar, y por lo tanto será omitida (por ejemplo, actualizaciones de la aplicación que no cambian el token de acceso).
 
-El plugin utiliza una base de datos de caché persistente guardada en la ubicación `config/SteamDB.cache`, que tiene un propósito similar a `config/ASF.db` para ASF. El archivo se utiliza para registrar los datos recolectados y enviados y minimizar la cantidad de trabajo necesario entre diferentes ejecuciones de ASF. Eliminar el archivo hace que el proceso se reinicie desde cero, lo que debe evitarse si es posible.
+El plugin utiliza una base de datos de caché persistente guardada en la ubicación `config/SteamTokenDumper.cache`, que tiene un propósito similar a `config/ASF.db` para ASF. El archivo se utiliza para registrar los datos recolectados y enviados y minimizar la cantidad de trabajo necesario entre diferentes ejecuciones de ASF. Eliminar el archivo hace que el proceso se reinicie desde cero, lo que debe evitarse si es posible.
 
 ---
 
