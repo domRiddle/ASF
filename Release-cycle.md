@@ -18,7 +18,7 @@ Of course, lack of documentation applies **only** to pre-releases - each stable 
 
 A pre-release version may be considered stable after some time. This is especially true if there are no changes done in the meantime, and there is no point in version bump just for the sake of stable release. It's also done very often when pre-release is considered "stable release candidate", as it allows advanced users to test it before it gets marked as stable, so the risk of introducing bugs is much lower, therefore this is the most common pattern when it comes to ASF releases:
 
-```
+```text
 Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
 ```
 
