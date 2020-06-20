@@ -741,7 +741,7 @@ However, some people could be concerned even about this little detail, therefore
 
 ASF is using quite simple file structure.
 
-```
+```text
 ├── config
 │     ├── ASF.json
 │     ├── ASF.db
