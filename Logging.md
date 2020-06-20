@@ -201,7 +201,7 @@ We've started from our basic `ColoredConsole` example and extended it further. F
 
 The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
-```
+```text
 2018-07-26 01:38:38 how are you doing? -> 76561198069026042
 2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
 ```
