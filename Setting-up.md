@@ -63,7 +63,7 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 
 An example structure would look like this:
 
-```
+```text
 C:\ASF (where you put your own things)
     ├── ASF shortcut.lnk (optional)
     ├── Config shortcut.lnk (optional)
