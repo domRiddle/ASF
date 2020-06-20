@@ -56,14 +56,14 @@ Now, you can choose if you want to import your authenticator to WinAuth first, t
 
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 
-```
+```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 <1> Please enter your Device ID (including "android:"):
 ```
 
 You will need to do only one more step - find your `DeviceID` property in `shared_prefs/steam.uuid.xml`. It will be inside XML tags and starting with `android:`. Copy that (or write it down) and put it in ASF as asked. If you did everything correctly, import should be finished.
 
-```
+```text
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
@@ -91,7 +91,7 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 
 If you did everything correctly, launch ASF, and you should notice:
 
-```
+```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
@@ -108,7 +108,7 @@ Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGua
 
 If you did everything correctly, launch ASF, and you should notice:
 
-```
+```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 <1> Please enter your Device ID (including "android:"):
 ```
@@ -119,7 +119,7 @@ Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "
 
 If you've done that properly as well, you're now done!
 
-```
+```text
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
