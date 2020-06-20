@@ -534,7 +534,7 @@ There is no "golden rule" that works for everybody, because blocks are heavily i
 
 If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
 
-```
+```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
 InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 ```
