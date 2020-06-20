@@ -74,7 +74,7 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
-```
+```text
 ├── /opt
 │     ├── ASF
 │     │     ├── ArchiSteamFarm.dll
