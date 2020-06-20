@@ -1,12 +1,12 @@
-# SteamTokenDumperPlugin
+# Plugin SteamTokenDumper
 
 `SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
 
 ---
 
-## Enabling the plugin
+## Abilitare il plugin
 
-ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
+ASF viene rilasciato con il plugin `SteamTokenDumper` incluso nel rilascio, ma tale plugin è disabilitato per impostazione predefinita. È possibile abilitare il plugin impostando la proprietà `SteamTokenDumperPluginEnabled` nella configurazione globale di ASF a `true`, in sintassi JSON:
 
 ```json
 {
@@ -14,11 +14,11 @@ ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but t
 }
 ```
 
-On the launch of the ASF program, the plugin will let you know whether it was enabled successfully through standard ASF logging mechanism. You can also enable the plugin through our web-based config generator.
+All'avvio dell'applicazione ASF, il plugin comunicherà se è stato abilitato con successo attraverso il meccanismo di logging standard. È inoltre possibile abilitare il plugin attraverso il generatore di configurazione web.
 
 ---
 
-## Technical details
+## Dettagli tecnici
 
 Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
 
