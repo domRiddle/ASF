@@ -171,21 +171,21 @@ You can use either a case-insensitive name, or a numeric value. Arguments that w
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
-```
+```text
 privacy Main 1
 privacy Main Private
 ```
 
 This is because ASF will automatically assume all other settings to be `Private`, so there is no need to input them. On the other hand, if you'd like to set all privacy settings to `Public`, then you should use any of below:
 
-```
+```text
 privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
 This way you can also set independent options however you like:
 
-```
+```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 ```
 
@@ -210,7 +210,7 @@ We recommend to explicitly define the type of each entry in order to avoid ambig
 
 Complete command example:
 
-```
+```text
 addlicense ASF app/292030,sub/47807
 ```
 
@@ -231,7 +231,7 @@ We recommend to explicitly define the type of each entry in order to avoid ambig
 
 Complete command example:
 
-```
+```text
 owns ASF app/292030,name/Witcher
 ```
 
