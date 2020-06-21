@@ -68,17 +68,18 @@
 
 这是一个文件夹结构的示例：
 
-    C:\ASF (放置您所有与 ASF 相关的东西)
-        ├── ASF shortcut.lnk (ASF 的快捷方式，可选)
-        ├── Config shortcut.lnk (配置的快捷方式，可选)
-        ├── Commands.txt (您记录的一些命令，可选)
-        ├── MyExtraScript.bat (一些您使用的相关脚本，可选)
-        ├── ... (总之这里是您自己存放的一些与 ASF 有关的东西，都是可选的)
-        └── Core (ASF 本身使用的文件夹，解压 ASF 安装包的地方)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (放置您所有与 ASF 相关的东西)
+    ├── ASF shortcut.lnk (ASF 的快捷方式，可选)
+    ├── Config shortcut.lnk (配置的快捷方式，可选)
+    ├── Commands.txt (您记录的一些命令，可选)
+    ├── MyExtraScript.bat (一些您使用的相关脚本，可选)
+    ├── ... (总之这里是您自己存放的一些与 ASF 有关的东西，都是可选的)
+    └── Core (ASF 本身使用的文件夹，解压 ASF 安装包的地方)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 这也是我们推荐的结构，您不需要浏览 ASF 包含的大量文件和文件夹，只需要创建指向配置文件夹和主程序的快捷方式。
 

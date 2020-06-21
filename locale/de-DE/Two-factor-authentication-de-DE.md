@@ -58,14 +58,16 @@ Nun kannst du wählen, ob du deinen Authentifikator zuerst in WinAuth und dann i
 
 Wenn du dich nicht mit WinAuth befassen willst, dann kopiere einfach die Datei `files/Steamguard-SteamID` aus unserem geschützten Verzeichnis, wobei `SteamID` deine 64-Bit Steam-Identifikation des Kontos ist, das du hinzufügen möchtest (wenn mehr als eine, denn wenn du nur ein Konto hast, dann ist dies die einzige Datei). Du musst diese Datei in das ASF-Verzeichnis `config` kopieren. Sobald du das getan hast, benenne die Datei um in `BotName.maFile`, wobei `BotName` der Name deines Bot ist, dem du ASF 2FA hinzufügst. Nach diesem Schritt starte ASF - es sollte die `.maFile` erkennen und importieren.
 
-    [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
-    <1> Bitte trage die Gerätekennung deines mobilen Authentifikators ein (einschließlich "android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
+<1> Bitte trage die Gerätekennung deines mobilen Authentifikators ein (einschließlich "android:"):
+```
 
 Du musst nur noch einen weiteren Schritt ausführen - finde deine `DeviceID` Eigenschaft in `shared_prefs/steam.uuid.xml`. Es wird in XML-Tags enthalten sein und mit `android:` beginnen. Kopiere das (oder schreibe es auf) und gib es in ASF ein, wenn gefragt. Wenn du alles richtig gemacht hast sollte der Import abgeschlossen sein.
 
-    [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
+```
 
 Bitte verifiziere, dass die Annahme von Bestätigungen tatsächlich funktioniert. Wenn du einen Fehler bei der Eingabe deiner `DeviceID` gemacht hast, dann hast du einen halb kaputten Authentifikator - Codes funktionieren aber Bestätigungen akzeptieren nicht. Du kannst `Bot.db` jederzeit entfernen und bei Bedarf neu beginnen.
 
@@ -91,9 +93,10 @@ Du solltest nun `steamID.maFile` in `BotName.maFile` im ASF-Konfigurationsverzei
 
 Wenn du alles richtig gemacht hast, starte ASF und du solltest folgendes sehen:
 
-    [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
-    [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
+[*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
+```
 
 Von nun an sollte dein ASF 2FA für dieses Konto einsatzbereit sein.
 
@@ -107,9 +110,10 @@ Nun starte WinAuth wie gewohnt. Nach einem Rechtsklick auf das Steam-Symbol wäh
 
 Wenn du alles richtig gemacht hast, starte ASF und du solltest folgendes sehen:
 
-    [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
-    <1> Bitte trage die Gerätekennung deines mobilen Authentifikators ein (einschließlich "android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
+<1> Bitte trage die Gerätekennung deines mobilen Authentifikators ein (einschließlich "android:"):
+```
 
 Hier kommt der knifflige Teil ins Spiel. WinAuth fehlt die deviceID-Eigenschaft, die von ASF benötigt wird, so dass du noch eine weitere Sache tun musst.
 
@@ -117,8 +121,9 @@ Gehe zurück zu WinAuths "Show SteamGuard and Recovery Code" und du solltest die
 
 Wenn du das auch richtig gemacht hast, bist du jetzt fertig!
 
-    [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
+```
 
 Bitte verifiziere, dass die Annahme von Bestätigungen tatsächlich funktioniert. Wenn du einen Fehler bei der Eingabe deiner `DeviceID` gemacht hast, dann hast du einen halb kaputten Authentifikator - Codes funktionieren aber Bestätigungen akzeptieren nicht. Du kannst `Bot.db` jederzeit entfernen und bei Bedarf neu beginnen.
 

@@ -68,17 +68,18 @@ Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 
-    C:\ASF (hier tust du deine eigenen Dateien hin)
-        ├── ASF Verknüpfung.lnk (optional)
-        ├── Config Verknüpfung.lnk (optional)
-        ├── Befehle.txt (optional)
-        ├── MeinZusätzlichesSkript.bat (optional)
-        ├── ... (Alle anderen Dateien deiner Wahl, optional)
-        └── Core (nur ASF, hier extrahierst du das Archiv)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (hier tust du deine eigenen Dateien hin)
+    ├── ASF Verknüpfung.lnk (optional)
+    ├── Config Verknüpfung.lnk (optional)
+    ├── Befehle.txt (optional)
+    ├── MeinZusätzlichesSkript.bat (optional)
+    ├── ... (Alle anderen Dateien deiner Wahl, optional)
+    └── Core (nur ASF, hier extrahierst du das Archiv)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 Dies ist auch eine Struktur, die wir empfehlen würden, so dass du nicht durch eine große Anzahl von Dateien und Ordnern gehen musst, die in ASF enthalten sind, da du für die Verwendung nur eine Verknüpfung zu Konfigurationsordner und Hauptbinärdatei benötigst.
 

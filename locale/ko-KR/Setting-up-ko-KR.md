@@ -68,17 +68,18 @@ ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 �
 
 다음은 구조도 예시입니다:
 
-    C:\ASF (필요한 스크립트나 파일은 여기에 넣으십시오)
-        ├── ASF shortcut.lnk (선택사항)
-        ├── Config shortcut.lnk (선택사항)
-        ├── Commands.txt (선택사항)
-        ├── MyExtraScript.bat (선택사항)
-        ├── ... (그외 기타 등등, 선택사항)
-        └── Core (압축을 푼 곳, ASF 전용)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (필요한 스크립트나 파일은 여기에 넣으십시오)
+    ├── ASF shortcut.lnk (선택사항)
+    ├── Config shortcut.lnk (선택사항)
+    ├── Commands.txt (선택사항)
+    ├── MyExtraScript.bat (선택사항)
+    ├── ... (그외 기타 등등, 선택사항)
+    └── Core (압축을 푼 곳, ASF 전용)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 이것이 우리가 권장하는 구조입니다. 사용을 위해서 ASF에 포함된 수많은 파일과 폴더를 거칠 필요없이 설정(config) 폴더와 메인 실행파일의 바로가기만 있으면 됩니다.
 

@@ -74,19 +74,20 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path wor
 ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
 ```
 
-    ├── /opt
-    │     ├── ASF
-    │     │     ├── ArchiSteamFarm.dll
-    │     │     └── ...
-    │     └── TargetDirectory
-    │           ├── config
-    │           ├── logs（自動產生的）
-    │           ├── plugins（可省略）
-    │           ├── www（可省略）
-    │           ├── log.txt（自動產生的）
-    │           └── NLog.config（可省略）
-    └── ...
-    
+```text
+├── /opt
+│     ├── ASF
+│     │     ├── ArchiSteamFarm.dll
+│     │     └── ...
+│     └── TargetDirectory
+│           ├── config
+│           ├── logs（自動產生的）
+│           ├── plugins（可省略）
+│           ├── www（可省略）
+│           ├── log.txt（自動產生的）
+│           └── NLog.config（可省略）
+└── ...
+```
 
 * * *
 

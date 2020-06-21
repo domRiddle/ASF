@@ -741,20 +741,21 @@ Sin embargo, algunas personas podrían preocuparse incluso por este pequeño det
 
 ASF usa una está de archivos bastante sencilla.
 
-    ├── config
-    │     ├── ASF.json
-    │     ├── ASF.db
-    │     ├── Bot1.json
-    │     ├── Bot1.db
-    │     ├── Bot1.bin
-    │     ├── Bot2.json
-    │     ├── Bot2.db
-    │     ├── Bot2.bin
-    │     └── ...
-    ├── ArchiSteamFarm.dll
-    ├── log.txt
-    └── ...
-    
+```text
+├── config
+│     ├── ASF.json
+│     ├── ASF.db
+│     ├── Bot1.json
+│     ├── Bot1.db
+│     ├── Bot1.bin
+│     ├── Bot2.json
+│     ├── Bot2.db
+│     ├── Bot2.bin
+│     └── ...
+├── ArchiSteamFarm.dll
+├── log.txt
+└── ...
+```
 
 Para mover ASF a una nueva ubicación, por ejemplo, otro PC, basta con mover/copiar solo el directorio `config`, y esa es la forma recomendada de hacer cualquier tipo de "respaldos de ASF", ya que siempre puedes descargar la parte restante (el programa) del GitHub, sin arriesgarse a corromper archivos internos de ASF, por ejemplo, por un respaldo defectuoso.
 

@@ -74,19 +74,20 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # O caminho relativ
 ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # O mesmo que as variáveis de ambiente
 ```
 
-    ├── /opt
-    │     ├── ASF
-    │     │     ├── ArchiSteamFarm.dll
-    │     │     └── ...
-    │     └── TargetDirectory
-    │           ├── config
-    │           ├── logs (gerado)
-    │           ├── plugins (opicional)
-    │           ├── www (opicional)
-    │           ├── log.txt (gerado)
-    │           └── NLog.config (opicional)
-    └── ...
-    
+```text
+├── /opt
+│     ├── ASF
+│     │     ├── ArchiSteamFarm.dll
+│     │     └── ...
+│     └── TargetDirectory
+│           ├── config
+│           ├── logs (gerado)
+│           ├── plugins (opicional)
+│           ├── www (opicional)
+│           ├── log.txt (gerado)
+│           └── NLog.config (opicional)
+└── ...
+```
 
 * * *
 

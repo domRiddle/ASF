@@ -14,19 +14,21 @@ Proces importowania może odbyć się na dwa sposoby - poprzez plik, lub IPC.
 
 ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` jest nazwą bot. Ten plik ma oczekuje i stałej struktury nazwa gry z cd-key, oddzielone od siebie znakiem tabulacji i kończy znakiem nowej linii, aby wskazać następnego wpisu. Jeśli wiele kart są używane, a następnie pierwszy wpis jest uważana za nazwę gry, ostatni wpis jest uważany za cd-key i wszystko pomiędzy nimi jest ignorowana. Na przykład:
 
-    POCZTOWY 2 ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A tydzień cyrk grozy POIUY-KJHGD-QWERT
-    Terraria ThisIsIgnored ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
-    
+```text
+POCZTOWY 2 ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A tydzień cyrk grozy POIUY-KJHGD-QWERT
+Terraria ThisIsIgnored ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+```
 
 Alternatywnie również jesteśmy w stanie użyć klawiszy tylko format (nadal z nowej linii między każdego wpisu). ASF w tym przypadku użyje odpowiedzi Steam (jeśli to możliwe), aby wypełnić właściwą nazwę. W przypadku wszelkiego rodzaju tagowania kluczy zalecamy, abyś sam nadawał nazwy kluczom, ponieważ pakiety aktywowane na Steam nie muszą być zgodne z logiką gier, które aktywują. Więc w zależności od tego, co ustawił wydawca, możesz zobaczyć poprawną grę nazwy, niestandardowe nazwy pakietów (np. Humble Indie Bundle 18) lub wręcz błędne i potencjalnie nawet złośliwe (np. Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportuje twoje klucze ` </ 0>, zarówno podczas uruchamiania bota, jak i później w trakcie jego wykonywania. Po pomyślnym przeanalizowaniu pliku i ewentualnym pominięciu nieprawidłowych wpisów, wszystkie poprawnie wykryte gry zostaną dodane do kolejki tła, a sam plik <code> BotName.keys </ 0> zostanie usunięty z <code> config </ 0 > katalog.</p>
 

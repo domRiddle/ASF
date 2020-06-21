@@ -74,19 +74,20 @@ dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 也可以使用�
 ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或者使用环境变量
 ```
 
-    ├── /opt
-    │     ├── ASF
-    │     │     ├── ArchiSteamFarm.dll
-    │     │     └── ...
-    │     └── TargetDirectory
-    │           ├── config
-    │           ├── logs（自动生成）
-    │           ├── plugins（可选）
-    │           ├── www（可选）
-    │           ├── log.txt（自动生成）
-    │           └── NLog.config（可选）
-    └── ...
-    
+```text
+├── /opt
+│     ├── ASF
+│     │     ├── ArchiSteamFarm.dll
+│     │     └── ...
+│     └── TargetDirectory
+│           ├── config
+│           ├── logs（自动生成）
+│           ├── plugins（可选）
+│           ├── www（可选）
+│           ├── log.txt（自动生成）
+│           └── NLog.config（可选）
+└── ...
+```
 
 * * *
 

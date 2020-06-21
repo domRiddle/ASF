@@ -68,17 +68,18 @@ Se recomienda desempaquetar ASF en **su propio directorio** y no en algún direc
 
 Un ejemplo de la estructura se vería así:
 
-    C:\ASF (donde pones tus cosas)
-        ├── ASF shortcut.lnk (opcional)
-        ├── Config shortcut.lnk (opcional)
-        ├── Commands.txt (opcional)
-        ├── MyExtraScript.bat (opcional)
-        ├── ... (cualquier otro archivo de tu elección, opcional)
-        └── Core (dedicado a ASF solamente, donde extraes el archivo)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (donde pones tus cosas)
+    ├── ASF shortcut.lnk (opcional)
+    ├── Config shortcut.lnk (opcional)
+    ├── Commands.txt (opcional)
+    ├── MyExtraScript.bat (opcional)
+    ├── ... (cualquier otro archivo de tu elección, opcional)
+    └── Core (dedicado a ASF solamente, donde extraes el archivo)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 Esta es una estructura que recomendamos, para que no tengas la necesidad de navegar por un gran número de archivos y carpetas incluidos en ASF, ya que para su uso solamente necesitas un acceso directo a la carpeta de configuración (config) y el ejecutable principal.
 

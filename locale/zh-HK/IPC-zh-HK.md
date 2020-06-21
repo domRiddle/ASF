@@ -10,9 +10,10 @@ ASF 包含自己獨特的 IPC 接口，可用於與流程進一步交互。 IPC�
 
 您可以通過啟用` IPC ` ** [全域配置屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**來啟用我們的 IPC 接口。 ASF 將在其日誌中聲明 IPC 啟動, 您可以使用該日誌驗證 IPC 介面是否已正常啟動：
 
-    INFO|ASF|Start() Starting IPC server...
-    INFO|ASF|Start() IPC server ready!
-    
+```text
+INFO|ASF|Start() Starting IPC server...
+INFO|ASF|Start() IPC server ready!
+```
 
 ASF 的 http 伺服器現在正在偵聽選定的端點。 如果您沒有為 IPC 提供自訂配置檔，預設端點將為基於IPv4 ** [ 127.0.0.1 ](http://127.0.0.1:1242) **和基於IPv6的** [ [:: 1] ](http://[::1]:1242) **的` 1242 `端點。 您可以從與運行 ASF 進程同一台電腦通過以上連結訪問我們的 IPC 接口。
 

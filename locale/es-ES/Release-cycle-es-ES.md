@@ -18,8 +18,9 @@ Por supuesto, la falta de documentación aplica **solo** para las pre-versiones 
 
 Una versión prelanzamiento puede ser considerada estable después de algún tiempo. Esto es especialmente cierto si no se hacen cambios mientras tanto, y no tiene sentido en subir de versión solo por una versión estable. También se hace a menudo cuando la pre-versión se considera "candidato para versión estable", ya que permite a los usuarios avanzados probarla antes de que sea marcada como estable, así que el riesgo de introducir bugs es mucho menor, por lo tanto este es el patrón más común cuando se trata de versiones de ASF:
 
-    Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
-    
+```text
+Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
+```
 
 Aunque en general, las versiones de ASF se publican cuando están listas, lo que resulta en un calendario de publicaciones impredecible. Normalmente hay una pre-versión después de hacer cualquier cambio o característica importante, y una versión estable si no se encuentran bugs después de algún tiempo (unos días) desde que la pre-versión estuvo disponible. Buscamos más o menos **una versión estable por mes**, a menos que haya problemas críticos con los que tratar o cosas por el estilo. Las pre-versiones suceden según sea necesario cuando creemos que hay suficientes elementos que deben probarse desde el lanzamiento de la última. Dependiendo de qué tan ocupado esté el desarrollo de ASF en un momento dado, esto puede ser desde una docena de pre-versiones entre cada versión estable.
 

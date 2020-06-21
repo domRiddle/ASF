@@ -18,8 +18,9 @@ Bien sûr, le manque de documentation ne concerne ** seulement** les pré-versio
 
 A pre-release version may be considered stable after some time. Cela est particulièrement vrai si aucune modification n'est apportée entre-temps et si la version bump n'a aucun sens uniquement pour des raisons de stabilité de la publication. Cela se produit également très souvent lorsque la pré-publication est considérée comme "candidate à la publication stable", car elle permet aux utilisateurs expérimentés de la tester avant qu'elle ne devienne stable. Le risque d'introduction de bogues est donc beaucoup plus faible. C'est donc le schéma le plus courant il s’agit des communiqués ASF:
 
-    Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
-    
+```text
+Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
+```
 
 En général cependant, les versions ASF sont publiées lorsqu'elles sont prêtes, ce qui entraîne un calendrier de publication non prévisible. Il existe généralement une pré-version à la fin de toute fonctionnalité majeure ou modification en cours, et une version stable si aucun bogue n’est détecté après un certain temps (quelques jours) depuis que la pré-version est disponible. Nous visons plus ou moins **une version stable par mois**, sauf s’il ya des problèmes critiques à résoudre ou un problème similaire. Les pré-versions se produisent au besoin lorsque nous pensons qu’il ya suffisamment de données à tester depuis la publication de la dernière. En fonction de l’actualité du développement d’ASF, il peut s’agir de quelques une à une douzaine de pré-versions entre chaque version stable.
 

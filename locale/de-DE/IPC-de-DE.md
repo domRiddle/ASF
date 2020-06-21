@@ -10,9 +10,10 @@ IPC kann für viele verschiedene Dinge verwendet werden, je nach deinen Fähigke
 
 Du kannst unsere IPC-Schnittstelle aktivieren, indem du `IPC` **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#ipc)** aktivierst. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
 
-    INFO|ASF|Start() Starte IPC-Server...
-    INFO|ASF|Start() IPC-Server bereit!
-    
+```text
+INFO|ASF|Start() Starte IPC-Server...
+INFO|ASF|Start() IPC-Server bereit!
+```
 
 ASF's http-Server hört nun auf den ausgewählten Endpunkten. Falls du keine benutzerdefinierte Konfigurationsdatei für IPC angegeben hast wird für IPv4 **[127.0.0.1](http://127.0.0.1:1242)** und für IPv6 **[[::1]](http://[::1]:1242)** auf Standard-Port `1242` verwendet. Du kannst auf unsere IPC-Schnittstelle über die obigen Links von derselben Maschine aus zugreifen, auf der auch der ASF-Prozess läuft.
 

@@ -14,19 +14,21 @@ Le processus d'importation peut être effectué de deux façons - par fichier, o
 
 ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Le formatage de ce fichier est important, et consiste du nom du jeu suivi de la clé Cd, séparés par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    Ceciestignoré   Ceciestaussiignoré    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    Ceciestignoré   Ceciestaussiignoré    ZXCVB-ASDFG-QWERT
+```
 
 Alternativement, vous pouvez aussi utiliser le format s clés seulement (toujours avec une nouvelle ligne entre chaque entrée). ASF dans ce cas utilisera la réponse de Steam (si possible) pour trouver le nom correct. Pour toute association de nom de jeu aux clés Steam, nous vous recommandons de nommer vos clés vous-même, puisque les paquets activés sur Steam ne contiennent pas cette information de façon certaine. Suivant l'information que le développeur a renseignée, vous pouvez voir les noms de jeu corrects, les noms de paquets personnalisés (par exemple Humble Indie Bundle 18) ou bien des noms faux et même potentiellement malveillants (par exemple Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Quel que soit le format que vous avez choisi, ASF importera votre fichier de `keys` soit au démarrage du bot, soit plus tard lors de l'exécution. Une fois le fichier analysé et les éventuelles entrées invalides omises, tous les jeux correctement détectés seront ajoutés à la file d'attente de fond, et le fichier `BotName.keys` sera retiré du répertoire `config`.
 

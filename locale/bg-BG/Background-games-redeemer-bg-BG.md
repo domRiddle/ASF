@@ -14,19 +14,21 @@ The import process can be done through two ways - either by using a file, or IPC
 
 ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+```
 
 Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
 

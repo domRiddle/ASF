@@ -68,17 +68,18 @@ Assicurati di estrarre ASF **in una cartella ad esso destinata** e non in una ch
 
 Una struttura ideale è simile a questa:
 
-    C:\ASF (dove metterai le tue cose)
-        ├── Collegamento ad ASF.lnk (opzionale)
-        ├── Collegamento a Config.lnk (opzionale)
-        ├── Comandi.txt (opzionale)
-        ├── IlMioScript.bat (opzionale)
-        ├── ... (opzionalmente, ogni altro file di cui hai bisogno)
-        └── Core (chiamala come preferisci, estrarrai l'archivio qui)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (dove metterai le tue cose)
+    ├── Collegamento ad ASF.lnk (opzionale)
+    ├── Collegamento a Config.lnk (opzionale)
+    ├── Comandi.txt (opzionale)
+    ├── IlMioScript.bat (opzionale)
+    ├── ... (opzionalmente, ogni altro file di cui hai bisogno)
+    └── Core (chiamala come preferisci, estrarrai l'archivio qui)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 Tale è la struttura che raccomandiamo, così che tu non debba passare attraverso lo sproposito di file e sottocartelle inclusi in ASF, dacché per utilizzarlo hai bisogno giusto di un collegamento al file eseguibile e alla cartella config.
 

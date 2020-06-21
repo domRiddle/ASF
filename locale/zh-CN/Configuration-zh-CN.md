@@ -741,20 +741,21 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ASF 采用这种很简单的文件结构：
 
-    ├── config
-    │     ├── ASF.json
-    │     ├── ASF.db
-    │     ├── Bot1.json
-    │     ├── Bot1.db
-    │     ├── Bot1.bin
-    │     ├── Bot2.json
-    │     ├── Bot2.db
-    │     ├── Bot2.bin
-    │     └── ...
-    ├── ArchiSteamFarm.dll
-    ├── log.txt
-    └── ...
-    
+```text
+├── config
+│     ├── ASF.json
+│     ├── ASF.db
+│     ├── Bot1.json
+│     ├── Bot1.db
+│     ├── Bot1.bin
+│     ├── Bot2.json
+│     ├── Bot2.db
+│     ├── Bot2.bin
+│     └── ...
+├── ArchiSteamFarm.dll
+├── log.txt
+└── ...
+```
 
 如果您需要将 ASF 迁移到其他位置，例如另一台 PC，则仅移动/复制 `config` 文件夹就足够了，并且这也是备份 ASF 数据的推荐方式，因为您随时可以从 GitHub 下载其余的（程序）文件，而无需承担因备份失败导致 ASF 内部文件损坏的风险。
 

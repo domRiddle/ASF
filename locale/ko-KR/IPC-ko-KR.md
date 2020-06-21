@@ -10,9 +10,10 @@ IPC는 우리의 필요와 능력에 따라 수많은 다른 것들로 사용될
 
 IPC 인터페이스를 사용하려면 `IPC` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#일반-환경설정)** 을 활성화해야 합니다. ASF는 IPC의 실행을 로그에서 표시하여 IPC 인터페이스가 제대로 시작되었는지 확인할 수 있습니다.
 
-    INFO|ASF|Start() Starting IPC server...
-    INFO|ASF|Start() IPC server ready!
-    
+```text
+INFO|ASF|Start() Starting IPC server...
+INFO|ASF|Start() IPC server ready!
+```
 
 ASF의 http 서버가 이제 선택한 단말에서 수신중입니다. IPC에 사용자 지정 환경설정 파일을 넣지 않았다면, 이는 IPv4-기반의 **[127.0.0.1](http://127.0.0.1:1242)** 와 IPv6-기반의 **[[::1]](http://[::1]:1242)** 이며 포트 기본값은 `1242` 입니다. ASF 프로세스가 실행중인 동일한 기기에서 위의 링크로 IPC에 접속할 수 있습니다.
 

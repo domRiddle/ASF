@@ -14,19 +14,21 @@
 
 ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`是您的機械人名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間以 Tab 分隔，並以一個分行符號結束，表示開始下一項。 如果使用多個 Tab，則第一個條目會被視為遊戲名稱，最後一個會被視為遊戲序號，中間的所有內容都將被忽略。 範例：
 
-    POSTAL 2	ABCDE-EFGHJ-IJKLM
-    Domino Craft VR	12345-67890-ZXCVB
-    A Week of Circus Terror	POIUY-KJHGD-QWERT
-    Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2	ABCDE-EFGHJ-IJKLM
+Domino Craft VR	12345-67890-ZXCVB
+A Week of Circus Terror	POIUY-KJHGD-QWERT
+Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
+```
 
 或者，您還可以只使用遊戲序號格式（每個條目之間仍須有一個分行符號）。 在這種情況下，ASF 將使用 Steam 的應答（如果可能的話）來填充正確的遊戲名稱。 對於任何類型的金鑰標記，我們建議您使用自訂名稱，因為在 Steam 上兌換的包名稱不一定與包中的遊戲名稱一致，因此根據開發者填寫的內容，您可能會看到正確的遊戲名稱、自訂包名稱（例如 Humble Indie Bundle 18）或完全錯誤甚至是惡意的名稱（例如 Half-Life 4）。
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 無論你決定使用哪種格式，ASF 都將在機械人啟動或執行時導入你的 `keys` 檔案。 成功解析檔案並跳過無效序號後，所有正確檢測到的遊戲都將被添加到后台佇列中，`BotName.keys` 檔案將自動從 `config` 目錄中刪除。
 

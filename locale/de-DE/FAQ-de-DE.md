@@ -531,9 +531,10 @@ Es gibt keine "goldene Regel", die für jeden funktioniert, denn Sperren werden 
 
 Wenn nichts hilft und du keine Ahnung hast was kaputt ist, kannst du immer den `Debug`-Modus aktivieren und dir im ASF-Log selbst ansehen warum genau die Anfragen fehlschlagen. Zum Beispiel:
 
-    InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
-    InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
-    
+```text
+InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
+InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
+```
 
 Siehst du das `Forbidden`? Das bedeutet, dass du vorübergehend für übermäßig viele Anfragen gesperrt wurdest, weil du `WebLimiterDelay` noch nicht richtig angepasst hast (vorausgesetzt, du bekommst den gleichen Fehlercode auch für alle anderen Anfragen). Es kann noch weitere Gründe geben, wie z.B. `InternalServerError`, `ServiceUnavailable` und Timeouts, die auf Steam Wartungsarbeiten und Probleme hinweisen. Du kannst immer versuchen, den von ASF erwähnten Link selbst zu besuchen und zu überprüfen, ob er funktioniert - wenn nicht, dann weißt du, warum ASF auch nicht darauf zugreifen kann. Wenn dies der Fall ist und der gleiche Fehler nach ein oder zwei Tagen nicht verschwindet, könnte es sich lohnen, ihn zu untersuchen und zu melden.
 

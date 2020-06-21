@@ -531,9 +531,10 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 如果以上解释都不能解决问题，并且您仍然不知道哪里发生了故障，可以随时启用 `Debug` 模式，自己检查 ASF 的日志了解请求失败的具体原因。 例如：
 
-    InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
-    InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
-    
+```text
+InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
+InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
+```
 
 您看见 `Forbidden` 代码了吗？ 这意味着您因为请求数量过多而被暂时封禁，其原因是您没有正确调整 `WebLimiterDelay` 属性（假如您的所有其他请求也有同样的错误）。 这里还可能有其他的错误代码，例如 `InternalServerError`、`ServiceUnavailable`，还有表示 Steam 正在维护或出现问题的超时错误。 您可以随时尝试访问 ASF 提到的链接，检查它们能否正常打开——如果不能，您就明白 ASF 同样无法打开这些链接。 如果一切正常，并且该错误持续了一两天之久，您就需要调查并反馈此问题了。
 

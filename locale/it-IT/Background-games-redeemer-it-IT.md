@@ -14,19 +14,21 @@ L'importazione può essere effettuata in due modi: usando un file o con IPC.
 
 ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. Questo file si aspetta una struttura ben precisa con il nome del gioco e la cd-key separati da un carattere tabulato e una nuova riga per indicare la prossima entrata. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che è nel mezzo viene ignorato. Per esempio:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR    12345-67890-ZXCVB
-    A Week of Circus Terror    POIUY-KJHGD-QWERT
-    Terraria    QuestoVieneIgnorato    AncheQuestoVieneIgnorato    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR    12345-67890-ZXCVB
+A Week of Circus Terror    POIUY-KJHGD-QWERT
+Terraria    QuestoVieneIgnorato    AncheQuestoVieneIgnorato    ZXCVB-ASDFG-QWERT
+```
 
 Alternativamente, puoi anche usare chiavi di solo formato (ancora con una nuova riga tra ogni voce). ASF in questo caso userà la risposta di Steam (se possibile) per compilare il giusto nome. Per ogni tipo di tag delle chiavi, raccomandiamo che tu stesso nomini le tue chiavi, come pacchetti riscattati su Steam, senza seguire la logica dei giochi che stai attivando, quindi in base a cosa ha messo lo sviluppatore, potresti vedere nomi dei giochi corretti, nomi dei pacchetti personalizzati (es. Humble Indie Bundle 18) o totalmente errati e potenzialmente anche maligni (es. Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Indipendentemente da quale formato hai deciso di mantenere, ASF importerà il tuo file `chiavi`, all'avvio del bot, o dopo durante l'esecuzione. Dopo aver analizzato con successo il tuo file ed eventualmente omissione di voci non valide, tutti i giochi propriamente rilevati saranno aggiunti alla coda in background, ed il file `BotName.keys` sarà rimosso dalla directory `config`.
 

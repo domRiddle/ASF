@@ -531,9 +531,10 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. Par exemple :
     
-        InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
-        InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
-        
+    ```text
+    InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
+    InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
+    ```
     
     See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There could be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. Vous pouvez toujours essayer de visiter vous-même le lien mentionné par ASF et vérifier si cela fonctionne. Sinon, vous saurez pourquoi ASF ne peut pas y accéder. If it does, and the same error doesn't go away after a day or two, it may be worth investigating and reporting.
     

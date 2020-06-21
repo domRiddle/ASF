@@ -14,19 +14,21 @@
 
 ASF 會辨識 `config` 資料夾下名為 `BotName.keys` 的檔案，其中 `BotName` 是你的 BOT 名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間須以 Tab 分隔，最後以一個換行符結束表示開始下一項。 如果使用多個 Tab，則第一項會被認定是遊戲名稱，最後一項會被認定是遊戲序號，中間的所有內容將被忽略。 範例：
 
-    POSTAL 2	ABCDE-EFGHJ-IJKLM
-    Domino Craft VR	12345-67890-ZXCVB
-    A Week of Circus Terror	POIUY-KJHGD-QWERT
-    Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2	ABCDE-EFGHJ-IJKLM
+Domino Craft VR	12345-67890-ZXCVB
+A Week of Circus Terror	POIUY-KJHGD-QWERT
+Terraria	忽略	忽略	ZXCVB-ASDFG-QWERT
+```
 
 此外，你也可以只使用遊戲序號（序號之間仍須隔一個換行符）。 在這種情況下，如果可能，ASF 將會向 Steam 詢問正確的遊戲名稱。 我們建議你自行標記所有序號的名稱，因為在 Steam 上啟動的 Package 名稱不一定會符合 Package 中的遊戲名稱，所以根據開發人員填寫的內容，你可能會看到正確的遊戲名稱、自訂名稱（例如 Humble Indie Bundle 18），或完全錯誤、甚至是惡意的名稱（例如 Half-Life 4）。
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 無論你選擇哪種格式，ASF 都將在 BOT 啟動或執行時匯入你的 `keys` 檔案。 成功解析並忽略無效的序號後，所有正確辨識的遊戲將會加入背景佇列，而 `BotName.keys` 檔案也會自動從 `config` 資料夾移除。
 

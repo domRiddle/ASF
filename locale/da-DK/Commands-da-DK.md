@@ -172,20 +172,23 @@ Du kan enten bruge et bogstavs følsomt navn eller en numerisk værdi. Argumente
 
 Hvis du vil indstille **all** privatlivsindstillinger for din bot med navnet `Main` til `Private`, kan du bruge en af nedenstående:
 
-    privacy Main 1
-    privacy Main Private
-    
+```text
+privacy Main 1
+privacy Main Private
+```
 
 Dette skyldes, at ASF automatisk antager, at alle andre indstillinger er `Private`, så det er ikke nødvendigt at indtaste dem. På den anden side, hvis du gerne vil indstille alle privatlivsindstillinger til `Public`, skal du bruge en af nedenstående:
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
-    
+```text
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
+```
 
 På denne måde kan du også indstille uafhængige indstillinger, på lige den måde du vil:
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
-    
+```text
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+```
 
 Ovenstående indstiller profil til offentlige, ejede spil kun til venner, spilletid til privat, venneliste til offentlig, inventar til offentlig, inventar gaver til privat og profilkommentarer til offentlig. Du kan opnå det samme med numeriske værdier, hvis du vil.
 
@@ -208,8 +211,9 @@ Vi anbefaler at kun definere typen af hver entry for at undgå tvetydige resulta
 
 Komplet kommandoeksempel:
 
-    addlicense ASF app/292030,sub/47807
-    
+```text
+addlicense ASF app/292030,sub/47807
+```
 
 * * *
 
@@ -228,8 +232,9 @@ We recommend to explicitly define the type of each entry in order to avoid ambig
 
 Komplet kommandoeksempel:
 
-    owns ASF app/292030,name/Witcher
-    
+```text
+owns ASF app/292030,name/Witcher
+```
 
 * * *
 

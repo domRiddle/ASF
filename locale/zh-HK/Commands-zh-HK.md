@@ -172,20 +172,23 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 如果您希望將機械人 `Main` 的**所有**隱私設置都設置為 `Private`，可以使用以下任一命令：
 
-    privacy Main 1
-    privacy Main Private
-    
+```text
+privacy Main 1
+privacy Main Private
+```
 
 這是因為 ASF 會預設所有未賦值選項為 `Private`，所以您不需要全部寫出它們。 另一方面，如果您希望設置所有選項為 `Public`，可以使用以下任一命令：
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
-    
+```text
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
+```
 
 也可以為每個選項設置不同的值：
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
-    
+```text
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+```
 
 上述命令將會設置個人資料為公開、遊戲詳情為僅限好友、遊戲時間為私密、好友列表為公開、物品庫為公開、物品庫禮物為私密、留言為公開。 若有需要，您也可以使用數字值來實現相同效果。
 
@@ -208,8 +211,9 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 完整的指令範例：
 
-    addlicense ASF app/292030,sub/47807
-    
+```text
+addlicense ASF app/292030,sub/47807
+```
 
 * * *
 
@@ -228,8 +232,9 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 完整的指令範例：
 
-    owns ASF app/292030,name/Witcher
-    
+```text
+owns ASF app/292030,name/Witcher
+```
 
 * * *
 

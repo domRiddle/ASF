@@ -172,20 +172,23 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 如果您希望将机器人 `Main` 的**所有**隐私设置都设置为 `Private`，可以使用以下任一命令：
 
-    privacy Main 1
-    privacy Main Private
-    
+```text
+privacy Main 1
+privacy Main Private
+```
 
 这是因为 ASF 会默认所有选项为 `Private`，所以您不需要全部写出它们。 另一方面，如果您希望设置所有选项为 `Public`，可以使用以下任一命令：
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
-    
+```text
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
+```
 
 也可以为每个选项设置不同的值：
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
-    
+```text
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+```
 
 该命令将会设置个人资料为公开、游戏详情为仅限好友、游戏时间为私密、好友列表为公开、库存为公开、库存礼物为私密、留言为公开。 如果您改用数字值，效果是一样的。
 
@@ -208,8 +211,9 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 一个完整命令的示例：
 
-    addlicense ASF app/292030,sub/47807
-    
+```text
+addlicense ASF app/292030,sub/47807
+```
 
 * * *
 
@@ -228,8 +232,9 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 一个完整命令的示例：
 
-    owns ASF app/292030,name/Witcher
-    
+```text
+owns ASF app/292030,name/Witcher
+```
 
 * * *
 

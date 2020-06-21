@@ -10,9 +10,10 @@ El IPC puede ser utilizado para muchas cosas diferentes, dependiendo de tus nece
 
 Puedes habilitar nuestra interfaz IPC habilitando la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-global)** `IPC`. ASF declarará la ejecución de IPC en su registro, lo que puedes usar para verificar que la interfaz IPC inició correctamente:
 
-    INFO|ASF|Start() Iniciando servidor IPC...
-    INFO|ASF|Start() ¡Servidor IPC listo!
-    
+```text
+INFO|ASF|Start() Iniciando servidor IPC...
+INFO|ASF|Start() ¡Servidor IPC listo!
+```
 
 El servidor http de ASF ahora está escuchando en endpoints seleccionados. Si no proporcionaste un archivo de configuración personalizada para IPC, estos serán **[127.0.0.1](http://127.0.0.1:1242)** basado en IPv4 y el basado en IPv6 **[[::1]](http://[::1]:1242)** en el puerto por defecto `1242`. Puedes acceder a nuestra interfaz IPC mediante los enlaces anteriores, desde la misma máquina en que se ejecuta el proceso ASF.
 

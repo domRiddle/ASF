@@ -68,17 +68,18 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 
 Un structure d'example ressemblerait à ça:
 
-    C:\ASF (où vous placez vos fichiers perso)
-        ├── Raccourci vers ASF.lnk (optionnel)
-        ├── Raccourci vers Config.lnk (optionnel)
-        ├── Commandes.txt (optionnel)
-        ├── MonScriptPersoEnPlus.bat (optionnel)
-        ├── ... (autres fichiers de votre choix, optionnels)
-        └── Core (dédié à ASF uniquement, c'est ici que vous devez extraire l'archive)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (où vous placez vos fichiers perso)
+    ├── Raccourci vers ASF.lnk (optionnel)
+    ├── Raccourci vers Config.lnk (optionnel)
+    ├── Commandes.txt (optionnel)
+    ├── MonScriptPersoEnPlus.bat (optionnel)
+    ├── ... (autres fichiers de votre choix, optionnels)
+    └── Core (dédié à ASF uniquement, c'est ici que vous devez extraire l'archive)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 C'est une structure que nous recommandons, car vous n'avez pas besoin de passer par un grand nombre de fichiers et dossiers inclus dans ASF, vu que vous avez uniquement besoin d'un raccourci vers le dossier de config et vers le .exe principal.
 

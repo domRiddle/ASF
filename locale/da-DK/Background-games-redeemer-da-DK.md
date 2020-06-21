@@ -14,19 +14,21 @@ Importering's processen kan gøres på to måder - enten ved brug af en fil elle
 
 ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    DetteErIgnoreret   DetteErOgsåIgnoreret    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    DetteErIgnoreret   DetteErOgsåIgnoreret    ZXCVB-ASDFG-QWERT
+```
 
 Som et alternativ kan du også bruge "keys only format" (stadig med en ny linje mellem hver indtastning). ASF vil i dette tilfælde bruge Steam's svar (hvis muligt) til at udfylde det rigtige navn. For alle typer af nøgletagging anbefaler vi at du navngiver nøglerne selv, fordi pakker der indløses på Steam ikke skal følge den samme logik som det spil de aktiverer, så afhængigt af hvad udvikleren har indtastet kan du risikere at se det rigtige spilnavn, "Bundle"-navn (f.eks. Humble Indie Bundle 18) eller direkte forkert og potentielt skadelige navne (f.eks. Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Uanset hvilket format du vælger at bruge vil ASF importere din `nøgle` fil, enten ved bot start eller senere ved udførsel. Efter en vellykket analyse af din fil og eventuel fjernelse af ugyldige indtastninger, vil alle opdagede spil blive tilføjet til baggrundskøen og selve `BotName.keys`-filen vil blive fjernet fra `config`-mappen.
 

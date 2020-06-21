@@ -14,19 +14,21 @@ Der Importvorgang kann auf zwei Arten durchgeführt werden - entweder über eine
 
 ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name deines Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus dem Namen des Spiels und dessen Produktschlüssel, getrennt von einander durch ein Tab-Zeichen und endend mit einem Zeilenumbruch zur Kennzeichnung des nächsten Eintrags. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
+```
 
 Alternativ kannst du auch nur Produktschlüssel als Format verwenden (immer noch mit einem Zeilenumbruch zwischen jedem Eintrag). ASF verwendet in diesem Fall die Antwort von Steam (wenn möglich), um den richtigen Namen zu finden. Für jede Art von Produktschlüsselkennzeichnung empfehlen wir dir, deine Produktschlüssel selbst zu benennen, da Pakete, die bei Steam eingelöst werden, nicht der Logik der Spiele folgen müssen, die sie aktivieren, so dass du je nachdem, was der Entwickler angegeben hat, korrekte Spielnamen, benutzerdefinierte Paketnamen (z.B. Humble Indie Bundle 18) oder völlig falsche und möglicherweise sogar gefährliche (z.B. Half-Life 4) sehen kannst.
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Egal für welches Format du dich entschieden hast, ASF importiert deine `Produktschlüssel`-Datei entweder beim Start des Bots oder später während der Ausführung. Nach dem erfolgreichen Parsen deiner Datei und dem eventuellen Weglassen ungültiger Einträge werden alle ordnungsgemäß erkannten Spiele der Hintergrundwarteschlange hinzugefügt und die Datei `BotName.keys` selbst wird aus dem Verzeichnis `config` entfernt.
 

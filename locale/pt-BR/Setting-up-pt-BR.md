@@ -68,17 +68,18 @@ Certifique-se de descompactar o ASF para a **sua própria pasta** e não para ou
 
 Uma exemplo de extrutura seria assim:
 
-    C:\ASF (onde você pode colocar suas coisas)
-        ├── ASF shortcut.lnk (opcional)
-        ├── Config shortcut.lnk (opcional)
-        ├── Commands.txt (opcional)
-        ├── MyExtraScript.bat (opcional)
-        ├── ... (qualquer outro arquivo que você quiser, opcional)
-        └── Core (dedicado apenas ao ASF, onde você vai extrair o arquivo)
-             ├── ArchiSteamFarm.dll
-             ├── config
-             └── (...)
-    
+```text
+C:\ASF (onde você pode colocar suas coisas)
+    ├── ASF shortcut.lnk (opcional)
+    ├── Config shortcut.lnk (opcional)
+    ├── Commands.txt (opcional)
+    ├── MyExtraScript.bat (opcional)
+    ├── ... (qualquer outro arquivo que você quiser, opcional)
+    └── Core (dedicado apenas ao ASF, onde você vai extrair o arquivo)
+         ├── ArchiSteamFarm.dll
+         ├── config
+         └── (...)
+```
 
 Essa também é a estrutura que recomendamos, então você não precisa passar por um grande número de arquivos e pastas incluídas no ASF, já que para o uso você só precisa de um atalho para a pasta de configuração e para o executável principal.
 

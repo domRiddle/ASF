@@ -741,20 +741,21 @@ However, some people could be concerned even about this little detail, therefore
 
 ASF는 꽤 간단한 파일구조를 사용합니다.
 
-    ├── config
-    │     ├── ASF.json
-    │     ├── ASF.db
-    │     ├── Bot1.json
-    │     ├── Bot1.db
-    │     ├── Bot1.bin
-    │     ├── Bot2.json
-    │     ├── Bot2.db
-    │     ├── Bot2.bin
-    │     └── ...
-    ├── ArchiSteamFarm.dll
-    ├── log.txt
-    └── ...
-    
+```text
+├── config
+│     ├── ASF.json
+│     ├── ASF.db
+│     ├── Bot1.json
+│     ├── Bot1.db
+│     ├── Bot1.bin
+│     ├── Bot2.json
+│     ├── Bot2.db
+│     ├── Bot2.bin
+│     └── ...
+├── ArchiSteamFarm.dll
+├── log.txt
+└── ...
+```
 
 ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하나만을 이동/복사하는 것으로 충분합니다. 그리고 이것이 "ASF 백업"으로 권장되는 방법입니다. 잘못된 백업 등으로 ASF 내부파일을 오염시킬 위험을 감수하지 않고 프로그램 등 다른 부분은 GitHub에서 항상 다운받을 수 있기 때문입니다.
 

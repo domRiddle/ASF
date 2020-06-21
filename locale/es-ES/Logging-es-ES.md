@@ -201,9 +201,10 @@ Hemos empezado desde nuestro ejemplo básico de `ColoredConsole` y lo hemos exte
 
 El ejemplo anterior generará el archivo `0-0-76561198069026042.txt` cuando se hable con **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
-    2018-07-26 01:38:38 ¿cómo te va? -> 76561198069026042
-    2018-07-26 01:38:38 me va genial, ¿qué hay de ti? <- 76561198069026042
-    
+```text
+2018-07-26 01:38:38 ¿cómo te va? -> 76561198069026042
+2018-07-26 01:38:38 me va genial, ¿qué hay de ti? <- 76561198069026042
+```
 
 Claro que este solo es un ejemplo funcional con algunos trucos de layout mostrados de forma práctica. Puedes ampliar esta idea a tus propias necesidades, tal como filtrado extra, orden personalizado, un layout personal, grabar solo mensajes recibidos, etcétera.
 

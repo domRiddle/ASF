@@ -14,19 +14,21 @@ El proceso de importación puede hacerse de dos maneras - ya sea a través de un
 
 ASF reconocerá en su directorio `config` un archivo llamado `BotName.keys` donde `BotName` es el nombre de tu bot. Se espera que el archivo tenga una estructura definida de nombre de juego con clave de producto, separados entre sí por un carácter de tabulación y que termine con una nueva línea para indicar la siguiente entrada. Si se utilizan varias tabulaciones, entonces la primera entrada es considerada nombre del juego, la última entrada es considerada clave de producto, y todo lo intermedio es ignorado. Por ejemplo:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    EstoSeIgnora   EstoSeIgnoraTambién    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    EstoSeIgnora   EstoSeIgnoraTambién    ZXCVB-ASDFG-QWERT
+```
 
 Alternativamente, también puedes usar el formato de solo claves (también con una nueva línea entre cada entrada). En este caso ASF utilizará la respuesta de Steam (si es posible) para rellenar el nombre correcto. Para cualquier tipo de etiquetado, recomendamos que nombres las claves tú mismo, ya que los paquetes activados en Steam no tienen que seguir la lógica de los juegos que están activando, así que dependiendo de lo que el desarrollador haya puesto, puedes ver nombres de juegos correctos, nombres de paquetes personalizados (por ejemplo, Humble Indie Bundle 18) o incorrectos y potencialmente maliciosos (por ejemplo, Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Independientemente del formato que hayas decidido mantener, ASF importará tu archivo de `keys`, ya sea al iniciar el bot, o luego durante la ejecución. Después de revisar el archivo y eventualmente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será removido del directorio `config`.
 

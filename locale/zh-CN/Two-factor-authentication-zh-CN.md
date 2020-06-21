@@ -58,14 +58,16 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 如果您不想这样做，或者只是不想用 WinAuth，则可以直接从受保护文件夹中复制 `files/Steamguard-SteamID` 文件，其中 `SteamID` 是您要添加的帐户的 64 位 ID（可能有多个文件，如果只有一个帐户则只有一个文件）。 您需要将这个文件放入 ASF 的 `config` 文件夹。 完成这一步之后，将此文件重命名为 `BotName.maFile`，其中 `BotName` 是您需要导入 ASF 2FA 的机器人名称。 在这一步之后，运行 ASF——它将会发现 `.maFile` 文件并导入。
 
-    [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
-    <1> 请输入您的设备 ID (包括"android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
+<1> 请输入您的设备 ID (包括"android:"):
+```
 
 您还需要一步操作——在 `shared_prefs/steam.uuid.xml` 文件中找到您的 `DeviceID` 属性值。 这个值应该在 XML 标签中，以 `android:` 开头。 复制它（或者记下来）并将其输入 ASF。 如果您的操作完全正确，导入过程应该已完成。
 
-    [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
-    
+```text
+[*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
+```
 
 请确认接受交易确认功能能够正常工作。 如果您在输入 `DeviceID` 时出错，您的验证器将只有一半功能正常工作——验证令牌正常，但无法接受交易确认。 您可以随时删除 `Bot.db` 文件以重新开始这个过程。
 
@@ -91,9 +93,10 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 如果一切正确，启动 ASF，您将会看到：
 
-    [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
-    [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
-    
+```text
+[*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
+[*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
+```
 
 从现在开始，此帐户的 ASF 2FA 功能已经可用。
 
@@ -107,9 +110,10 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 如果一切正确，启动 ASF，您将会看到：
 
-    [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
-    <1> 请输入您的设备 ID (包括"android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
+<1> 请输入您的设备 ID (包括"android:"):
+```
 
 现在棘手的部分来了。 WinAuth 缺少 ASF 所需的 deviceID 属性，所以您需要再做一件事。
 
@@ -117,8 +121,9 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 如果您的一切操作都正确，现在导入过程已完成！
 
-    [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
-    
+```text
+[*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
+```
 
 请确认接受交易确认功能能够正常工作。 如果您在输入 `DeviceID` 时出错，您的验证器将只有一半功能正常工作——验证令牌正常，但无法接受交易确认。 您可以随时删除 `Bot.db` 文件以重新开始这个过程。
 

@@ -1,4 +1,4 @@
-# Two-factor authentication
+# 2ファクタ認証
 
 A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
 
@@ -58,14 +58,16 @@ Now, you can choose if you want to import your authenticator to WinAuth first, t
 
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> Please enter your Device ID (including "android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+<1> Please enter your Device ID (including "android:"):
+```
 
 You will need to do only one more step - find your `DeviceID` property in `shared_prefs/steam.uuid.xml`. It will be inside XML tags and starting with `android:`. Copy that (or write it down) and put it in ASF as asked. If you did everything correctly, import should be finished.
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 Please confirm that accepting confirmations in fact works. If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
 
@@ -91,9 +93,10 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 
 If you did everything correctly, launch ASF, and you should notice:
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 From now on, your ASF 2FA should be operational for this account.
 
@@ -107,9 +110,10 @@ Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGua
 
 If you did everything correctly, launch ASF, and you should notice:
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> Please enter your Device ID (including "android:"):
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+<1> Please enter your Device ID (including "android:"):
+```
 
 This is when tricky part comes in. WinAuth is missing deviceID property that is required by ASF, so you'll need to do one more thing.
 
@@ -117,8 +121,9 @@ Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "
 
 If you've done that properly as well, you're now done!
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 Please confirm that accepting confirmations in fact works. If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
 

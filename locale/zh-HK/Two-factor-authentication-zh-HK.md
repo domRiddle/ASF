@@ -58,14 +58,16 @@ Now, you can choose if you want to import your authenticator to WinAuth first, t
 
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). 您需要將該檔放入ASF` config `目錄中。 Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> 請輸入您的裝置識別碼（包括"android:"）：
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+<1> 請輸入您的裝置識別碼（包括"android:"）：
+```
 
 You will need to do only one more step - find your `DeviceID` property in `shared_prefs/steam.uuid.xml`. It will be inside XML tags and starting with `android:`. Copy that (or write it down) and put it in ASF as asked. If you did everything correctly, import should be finished.
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 請確認接受確認實際上可用。 If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
 
@@ -91,9 +93,10 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 
 如果您正確執行了所有操作，請啟動ASF，您應該注意到：
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 從現在開始，您的ASF 2FA應該可以在此帳戶運行。
 
@@ -107,9 +110,10 @@ Firstly create new empty `BotName.maFile` in ASF config directory, where `BotNam
 
 如果您正確執行了所有操作，請啟動ASF，您應該注意到：
 
-    [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-    <1> 請輸入您的裝置識別碼（包括"android:"）：
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+<1> 請輸入您的裝置識別碼（包括"android:"）：
+```
 
 This is when tricky part comes in. WinAuth is missing deviceID property that is required by ASF, so you'll need to do one more thing.
 
@@ -117,8 +121,9 @@ Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "
 
 If you've done that properly as well, you're now done!
 
-    [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-    
+```text
+[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+```
 
 請確認接受確認實際上可用。 If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
 

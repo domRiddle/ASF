@@ -14,19 +14,21 @@ O processo de importação das keys pode ser feito de duas maneiras: ou com um a
 
 O ASF reconhecerá em sua pasta `config` um arquivo chamado `BotName.keys`, onde `BotName` é o nome do seu bot. Esse arquivo deve conter uma estrutura fixa com o nome do jogo e a key separados por um caractere de tabulação e terminando com uma nova linha pra indicar a nova entrada. Se várias tabulações forem usadas, então a primeira entrada será considerada o nome do jogo e a última será considerada uma key, tudo o que estiver no meio será ignorado. Por exemplo:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    IssoÉIgnorado    IssoTambémÉIgnorado    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    IssoÉIgnorado    IssoTambémÉIgnorado    ZXCVB-ASDFG-QWERT
+```
 
 Como alternativa você também pode usar apenas as keys (ainda assim com uma nova linha entre cada uma delas). Nesse caso o ASF vai usar a resposta da Steam (se possível) para preencher o nome correto. Seja qual for a formatação das keys, sugerimos que você mesmo as nomeie, uma vez que os pacotes ativados pelo Steam não precisam seguir uma lógica quanto aos jogos que estão sendo ativados, então, dependendo do que o desenvolvedor colocou você pode ver o nome correto do jogo, o nome do pacote (por exemplo, Humble Indie Bundle 18) ou mesmo um nome errado e até malicioso (por exemplo, Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Independente do formato com o qual você decidiu trabalhar, o ASF vai importar seu arquivo `keys`, seja ao iniciar o bot ou posteriormente durante a execução. Depois da análise bem sucedida do seu arquivo e eventual omissão de entradas inválidas, todos os jogos corretamente detectados serão adicionados à fila em segundo plano, e o arquivo `BotName.keys` será removido da pasta `config`.
 

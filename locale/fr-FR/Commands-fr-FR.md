@@ -176,20 +176,23 @@ Vous pouvez utiliser un nom ne tenant pas compte de la casse ou une valeur numé
 
 Si vous souhaitez définir ** tous ** les paramètres de confidentialité de votre bot nommé ` Principal ` sur ` Privé `, vous pouvez utiliser l'un des éléments ci-dessous:
 
-    privacy Main 1
-    privacy Main Privat
-    
+```text
+privacy Main 1
+privacy Main Privat
+```
 
 En effet, ASF supposera automatiquement que tous les autres paramètres sont ` Privés `. Il n'est donc pas nécessaire de les saisir. Par contre, si vous souhaitez définir tous les paramètres de confidentialité sur ` Public `, vous devez utiliser l'un des éléments ci-dessous:
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
-    
+```text
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
+```
 
 De cette façon, vous pouvez également définir des options indépendantes comme bon vous semble:
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
-    
+```text
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+```
 
 Ce qui précède définira le profil comme public, les jeux appartenant à seulement des amis, le temps de jeu privé, la liste d'amis public, l'inventaire public, les cadeaux d'inventaire privé et les commentaires de profil public. Vous pouvez obtenir la même chose avec des valeurs numériques si vous le souhaitez.
 
@@ -212,8 +215,9 @@ We recommend to explicitly define the type of each entry in order to avoid ambig
 
 Complete command example:
 
-    addlicense ASF app/292030,sub/47807
-    
+```text
+addlicense ASF app/292030,sub/47807
+```
 
 * * *
 
@@ -232,8 +236,9 @@ We recommend to explicitly define the type of each entry in order to avoid ambig
 
 Complete command example:
 
-    owns ASF app/292030,name/Witcher
-    
+```text
+owns ASF app/292030,name/Witcher
+```
 
 * * *
 

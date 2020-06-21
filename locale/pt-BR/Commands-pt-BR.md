@@ -172,20 +172,23 @@ Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, qua
 
 Se você deseja definir **todas as** configurações de privacidade do seu bot chamado `Main` para `Privado`, você pode usar qualquer um comandos abaixo:
 
-    privacy Main 1
-    privacy Main Private
-    
+```text
+privacy Main 1
+privacy Main Private
+```
 
 Isso acontece porque o ASF assumirá automaticamente todas as outras configurações como sendo `Privada`, então não há nenhuma necessidade de defini-las. Por outro lado, se você gostaria de definir todas as configurações de privacidade para `Público`, então você deve usar qualquer um dos comandos abaixo:
 
-    privacy Main 3,3,3,3,3,3,3
-    privacy Main Public,Public,Public,Public,Public,Public,Public
-    
+```text
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
+```
 
 Desta forma você também pode definir opções independentes da forma que preferir:
 
-    privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
-    
+```text
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
+```
 
 O comando acima vai definir o perfil como público, jogos na biblioteca como apenas amigos, tempo de jogo como privado, lista de amigos como pública, inventário como público, presentes no inventário como privado e os comentários no perfil como público. Você pode ter o mesmo resultado com valores numéricos, se você quiser.
 
@@ -208,8 +211,9 @@ Recomendamos definir explicitamente o tipo de cada entrada para evitar resultado
 
 Exemplo de comando completo:
 
-    addlicense ASF app/292030,sub/47807
-    
+```text
+addlicense ASF app/292030,sub/47807
+```
 
 * * *
 
@@ -228,8 +232,9 @@ Recomendamos definir explicitamente o tipo de cada entrada para evitar resultado
 
 Exemplo de comando completo:
 
-    owns ASF app/292030,name/Witcher
-    
+```text
+owns ASF app/292030,name/Witcher
+```
 
 * * *
 

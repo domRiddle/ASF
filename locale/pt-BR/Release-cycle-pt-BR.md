@@ -18,8 +18,9 @@ Claro, a falta de documentação se aplica **apenas** aos pré-lançamentos; tod
 
 Uma versão pré-lançamento pode ser considerada estável após algum tempo. Isso ocorre principalmente se nenhuma mudança foi feita durante esse tempo, e não há motivos para mudar a numeração da versão apenas para indicar estabilidade. Isso também acontece frequentemente quando um pré-lançamento é considerado "candidato a lançamento estável", já que isso permite que os usuários avançados o testem antes dele ser marcado como estável, esse é o padrão mais comum quando se fala sobre os lançamentos do ASF:
 
-    Estável 1.0 -> Pré 1.1 -> Pré 1.2 -> ... -> Pré 1.7 (RC) -> Estável 1.7 (a mesma que a Pré 1.7)
-    
+```text
+Estável 1.0 -> Pré 1.1 -> Pré 1.2 -> ... -> Pré 1.7 (RC) -> Estável 1.7 (a mesma que a Pré 1.7)
+```
 
 De maneira geral, as versões do ASF são liberadas quando estão prontas, o que resulta em um calendário de lançamentos não previsível. Normalmente há um pré-lançamento quando qualquer funcionalidade principal ou mudança é termina de ser implantada, e uma versão estável se nem um erro for encontrado depois de algum tempo (alguns dias) desde que a versão pré-lançamento tornou-se disponível. Nós buscamos lançar **uma versão estável por mês** mais ou menos, a menos que tenhamos que lidar com algum problema crítico ou algo do tipo. Os pré-lançamentos ocorrem conforme a necessidade, quando sentimos que há coisas o bastante que precisam ser testadas desde o lançamento da última versão. Dependendo de quão ocupado o desenvolvimento do ASF está em determinado momento, podem ocorrer desde algumas até uma dúzia de pré-lançamentos entre cada versão estável.
 

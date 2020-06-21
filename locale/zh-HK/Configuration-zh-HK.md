@@ -741,20 +741,21 @@ ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片�
 
 ASF 使用的檔結構相當簡單。
 
-    ├── config
-    │     ├── ASF.json
-    │     ├── ASF.db
-    │     ├── Bot1.json
-    │     ├── Bot1.db
-    │     ├── Bot1.bin
-    │     ├── Bot2.json
-    │     ├── Bot2.db
-    │     ├── Bot2.bin
-    │     └── ...
-    ├── ArchiSteamFarm.dll
-    ├── log.txt
-    └── ...
-    
+```text
+├── config
+│     ├── ASF.json
+│     ├── ASF.db
+│     ├── Bot1.json
+│     ├── Bot1.db
+│     ├── Bot1.bin
+│     ├── Bot2.json
+│     ├── Bot2.db
+│     ├── Bot2.bin
+│     └── ...
+├── ArchiSteamFarm.dll
+├── log.txt
+└── ...
+```
 
 為了將ASF移動到新位置，例如另一台PC，只需移動/複製` config `目錄就足夠了，這是執行任何形式的“ASF備份”的推薦方式，因為您始終可以從GitHub下載剩餘的（程序）部分，同時不存在破壞內部ASF檔案的風險，例如錯誤備份。
 

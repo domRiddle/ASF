@@ -10,9 +10,10 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
-    INFO|ASF|Start() Starting IPC server...
-    INFO|ASF|Start() IPC server ready!
-    
+```text
+INFO|ASF|Start() Starting IPC server...
+INFO|ASF|Start() IPC server ready!
+```
 
 ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
 
@@ -68,7 +69,7 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 * * *
 
-## Swagger documentation
+## Swagger 文件
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://localhost:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 

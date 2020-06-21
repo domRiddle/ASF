@@ -10,9 +10,10 @@ IPC 可以用来做很多不同的事情，这取决于您的需求和技能。 
 
 您可以编辑 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;启用 IPC 接口。 ASF 将在日志中提示 IPC 的启动，您可以借此检查 IPC 接口是否正确运行：
 
-    INFO|ASF|Start() 正在启动 IPC 服务……
-    INFO|ASF|Start() IPC 服务已就绪！
-    
+```text
+INFO|ASF|Start() 正在启动 IPC 服务……
+INFO|ASF|Start() IPC 服务已就绪！
+```
 
 此时，ASF 的 HTTP 服务器将会监听指定的端点。 如果你没有为 IPC 提供自定义配置文件，则 IPC 将会运行于 IPv4 地址 **[127.0.0.1](http://127.0.0.1:1242)** 和 IPv6 地址 **[[::1]](http://[::1]:1242)** 上的 `1242` 默认端口。 如果是在同一台机器上运行 ASF，您可以通过上面的两个链接访问我们的 IPC 接口。
 

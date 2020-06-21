@@ -531,9 +531,10 @@ No hay una "regla de oro" que funcione para todos, porque los bloqueos son influ
 
 Si nada ayuda y no tienes idea de qué está mal, siempre puedes activar el modo `Debug` y ver en el registro de ASF exactamente por qué las solicitudes están fallando. Por ejemplo:
 
-    InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
-    InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
-    
+```text
+InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
+InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
+```
 
 ¿Ves ese código `Forbidden`? Esto significa que fuiste temporalmente baneado por una excesiva cantidad de solicitudes, porque aún no modificaste correctamente `WebLimiterDelay` (suponiendo que también obtienes el mismo error de todas la demás solicitudes). Podría haber otras razones listadas ahí, tal como `InternalServerError`, `ServiceUnavailable` y timeouts que indican mantenimiento/problemas de Steam. Siempre puedes intentar visitar el enlace mencionado por ASF y comprobar si funciona - si no lo hace, ya sabes por qué ASF tampoco puede acceder. Si lo hace, y el mismo error no desaparece después de un día o dos, puede ser útil investigar y reportar.
 

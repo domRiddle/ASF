@@ -14,19 +14,21 @@ ASF 内置了一个特别的功能——后台游戏激活器，此功能可以�
 
 ASF 会识别 `config` 文件夹下名为 `BotName.keys` 的文件，其中 `BotName` 是机器人的名字。 该文件必须遵循严格的固定格式，每行由游戏名称和游戏序列号组成，两者之间由 Tab 分隔，最后以一个换行符结束表示开始下一个条目。 如果存在多个 Tab，则第一项会被认为是游戏名称，最后一项会被认为是游戏序列号，中间所有内容将被忽略。 例如：
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+```
 
 此外，您也可以使用只有游戏序列号的格式（相邻条目之间仍然有一个换行符）。 在这种情况下，如果可能，ASF 将会向 Steam 询问正确的游戏名称。 我们建议您自己标记所有序列号的名称，因为在 Steam 上激活的 Package 的名称不需要符合 Package 中的游戏，所以根据开发者填写的内容，您可能会看到正确的游戏名称、自定义包名称（例如 Humble Indie Bundle 18）或者完全错误的甚至是恶意的名字（例如 Half-Life 4）。
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 无论您选择哪种格式，ASF 都将在机器人启动时或者运行时导入您的 `keys` 文件。 在成功解析并忽略所有无效项后，所有正确识别的游戏将会被添加到后台队列，`BotName.keys` 文件将被自动从 `config` 文件夹移除。
 

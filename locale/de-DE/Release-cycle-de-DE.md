@@ -18,8 +18,9 @@ Natürlich gilt der Mangel an Dokumentation **nur** für Vorabveröffentlichunge
 
 Eine Vorabveröffentlichung kann nach einiger Zeit als stabil angesehen werden. Dies gilt insbesondere dann, wenn in der Zwischenzeit keine Änderungen vorgenommen wurden und es keinen Sinn macht, den Versionswechsel nur um der stabilen Veröffentlichung willen durchzuführen. Es wird auch sehr oft gemacht, wenn die Vorabversion als "stabiler Veröffentlichungskandidat" angesehen wird, da es fortgeschrittenen Benutzern erlaubt, sie zu testen, bevor sie als stabil markiert wird, so dass das Risiko der Einführung von Fehlern viel geringer ist, weshalb dies das häufigste Muster ist, wenn es sich um ASF-Veröffentlichungen handelt:
 
-    Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (gleich wie Pre 1.7)
-    
+```text
+Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (gleich wie Pre 1.7)
+```
 
 Im Allgemeinen werden ASF-Veröffentlichungen jedoch freigegeben, wenn sie fertig sind, was zu einem nicht vorhersehbaren Veröffentlichungsplan führt. Normalerweise gibt es am Ende eines jeden wichtigen Features oder einer Änderung eine Vorabversion und eine stabile Version, wenn nach einiger Zeit (ein paar Tage) seit der Verfügbarkeit der Vorabversion keine Fehler mehr gefunden werden. Wir streben mehr oder weniger **eine stabile Veröffentlichung pro Monat** an, es sei denn, es gibt einige kritische Probleme zu lösen oder ähnliches. Vorabveröffentlichungen finden nach Bedarf statt, wenn wir das Gefühl haben, dass es genug Dinge gibt, die seit der Veröffentlichung der letzten Version getestet werden müssen. Je nachdem, wie beschäftigt die ASF-Entwicklung im gegebenen Moment ist, kann dies von einigen wenigen bis zu einem Dutzend Vorabversionen zwischen den einzelnen stabilen Versionen sein.
 

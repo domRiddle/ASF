@@ -201,10 +201,11 @@ Nous avons commencé notre exemple de base `ColoredConsole` et l'avons étendu. 
 
 L'exemple ci-dessus générera un fichier `0-0-76561198069026042.txt` lors d'une conversation avec **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
 
-    2018-07-26 01:38:38 2018-07-26 01:38:38 comment allez-vous? -> 76561198069026042
-    2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
-    
-    
+```text
+2018-07-26 01:38:38 2018-07-26 01:38:38 comment allez-vous? -> 76561198069026042
+2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
+
+```
 
 Bien sûr, ce n’est qu’un exemple avec quelques astuces de mise en page bien présentées de manière pratique. Vous pouvez étendre cette idée à vos propres besoins, tels que filtrage supplémentaire, ordre personnalisé, mise en page personnelle, enregistrement uniquement des messages reçus, etc.
 

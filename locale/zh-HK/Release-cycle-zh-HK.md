@@ -18,8 +18,9 @@ Please note that newly introduced features and changes may be undocumented (e.g.
 
 A pre-release version may be considered stable after some time. This is especially true if there are no changes done in the meantime, and there is no point in version bump just for the sake of stable release. It's also done very often when pre-release is considered "stable release candidate", as it allows advanced users to test it before it gets marked as stable, so the risk of introducing bugs is much lower, therefore this is the most common pattern when it comes to ASF releases:
 
-    Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
-    
+```text
+Stable 1.0 -> Pre 1.1 -> Pre 1.2 -> ... -> Pre 1.7 (RC) -> Stable 1.7 (same as Pre 1.7)
+```
 
 總體而言，ASF版本會在準備就緒時發布，發布時間不可預測。 通常在任何主要功能或更改結束時都會發布預發布版本，如果在預發布可用之後的一段時間（幾天）內沒有發現錯誤，則會發布穩定版本。 We're aiming for more or less **one stable release per month**, unless there are some critical issues to deal with or likewise. Pre-releases are happening on as-needed basis when we feel like there is enough of stuff that needs to be tested since the release of the last one. Depending on how busy ASF development is in given moment, this can be from a few to a dozen of pre-releases between each stable release.
 

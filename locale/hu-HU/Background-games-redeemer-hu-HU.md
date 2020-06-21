@@ -14,19 +14,21 @@ Az importálási folyamatot kétféleképpen lehet véghez vinni: fájllal, vagy
 
 Az ASF magától fel fogja ismerni a `config` könyvtárában a `BotNeve.keys` nevű fájlt, ahol `BotNeve` a botod neve. Attól a fájltól elvárjuk, hogy fix struktúrája legyen, vagyis soronként megtalálható benne a játék neve és a cd kulcs egymástól egy tabulátorral elválasztva, valamint minden sorban csak egy játék lehet. Ha egy sorban több tabulátor is van, akkor akkor az első tabulátor előtti szavak lesznek a játék neve, az utolsó pedig a cd kulcs, minden más ignorálva lesz. Például:
 
-    POSTAL 2    ABCDE-EFGHJ-IJKLM
-    Domino Craft VR 12345-67890-ZXCVB
-    A Week of Circus Terror POIUY-KJHGD-QWERT
-    Terraria    EztIgnorálom   EztIsIgnorálom    ZXCVB-ASDFG-QWERT
-    
+```text
+POSTAL 2    ABCDE-EFGHJ-IJKLM
+Domino Craft VR 12345-67890-ZXCVB
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    EztIgnorálom   EztIsIgnorálom    ZXCVB-ASDFG-QWERT
+```
 
 Nem szükséges a játéknevek megadása, használhatsz csak kulcsokat is (de még mindig csak egy kulcs kerülhet egy sorba). Az ASF ebben az esetben a Steam válaszából fogja kinyerni a játék nevét (ha lehetséges). A kulcsok megjelöléséhez azt javasoljuk, hogy saját magad csináld, mivel csomagok beváltása esetén a Steam nem köteles értelmes nevet adni az aktiválandó játékoknak, az csakis a fejlesztőtől függ, így lehetséges, hogy rendes játékneveket fogsz látni, vagy csomag neveket (pl.: Humble Indie Bundle 18) vagy akár teljesen hibásakat és félrevezetőket (pl: Half-Life 4).
 
-    ABCDE-EFGHJ-IJKLM
-    12345-67890-ZXCVB
-    POIUY-KJHGD-QWERT
-    ZXCVB-ASDFG-QWERT
-    
+```text
+ABCDE-EFGHJ-IJKLM
+12345-67890-ZXCVB
+POIUY-KJHGD-QWERT
+ZXCVB-ASDFG-QWERT
+```
 
 Bármelyik formátumot is használnád az ASF importálni fogja a `keys` fájlodat, vagy a bot indulásakor, vagy a futtatás során. A fájl sikeres feldolgozása után (a hibás sorok kivételével) a detektált játékok hozzá lesznek adva egy háttérbeli várakozó listába, majd a `BotName.keys` fájl törölve lesz a `config` könyvtárból.
 

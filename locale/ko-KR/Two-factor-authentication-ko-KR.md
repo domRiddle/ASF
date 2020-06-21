@@ -58,14 +58,16 @@ ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 
 WinAuth를 사용하고 싶지 않거나 필요없다면 보호된 디렉토리에서 `files/Steamguard-SteamID`를 복사하십시오. `SteamID`는 추가하려는 계정의 64비트 Steam 식별자입니다. (계정이 하나라면 이 파일이 유일하겠지만 계정이 두개 이상이라면 SteamID로 구별하십시오) 이 파일을 ASF의 `config` 디렉토리에 넣어야 합니다. 그 다음, 이 파일을 `봇이름.maFile`로 이름을 변경하십시오. `봇이름`은 ASF 2단계 인증을 추가하려는 봇의 이름입니다. 이 단계 후에 ASF를 실행하십시오. ASF는 `.maFile`을 인식하고 가져올 것입니다.
 
-    [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
-    <1> Device ID를 입력하세요. ("android:" 포함해서):
-    
+```text
+[*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
+<1> Device ID를 입력하세요. ("android:" 포함해서):
+```
 
 한 단계만 더 하면 됩니다. `shared_prefs/steam.uuid.xml`에서 `DeviceID` 속성값을 찾으십시오. `android:`로 시작하는 XML 태그 안에 있습니다. 이것을 복사해서(혹은 받아적어서) ASF가 요청하면 넣으십시오. 모든 것을 정확하게 했다면 가져오기가 완료될 것입니다.
 
-    [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
-    
+```text
+[*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
+```
 
 확인사항 수락이 실제로 동작하는지 확인하십시오. `DeviceID` 입력에서 실수했다면 반쪽자리 인증기를 갖고 있는 것입니다. 토큰은 동작하지만 확인사항 수락은 동작하지 않습니다. 필요하면 `Bot.db`를 삭제하고 다시 시작할 수 있습니다.
 
@@ -91,9 +93,10 @@ ASF 환경설정 디렉토리의 `steamID.maFile` 파일을 `봇이름.maFile` �
 
 모든 것을 정확하게 했다면 ASF를 실행하고 다음화면을 보게 됩니다.
 
-    [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
-    [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
-    
+```text
+[*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
+[*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
+```
 
 이제부터 이 계정의 ASF 2단계 인증이 작동하게됩니다.
 
@@ -107,9 +110,10 @@ ASF 환경설정 디렉토리의 `steamID.maFile` 파일을 `봇이름.maFile` �
 
 모든 것을 정확하게 했다면 ASF를 실행하고 다음화면을 보게 됩니다.
 
-    [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
-    <1> Device ID를 입력하세요. ("android:" 포함해서):
-    
+```text
+[*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
+<1> Device ID를 입력하세요. ("android:" 포함해서):
+```
 
 까다로운 부분이 왔습니다. WinAuth는 ASF가 필요로하는 deviceID 속성값이 없습니다. 따라서 한가지를 더 해야 합니다.
 
@@ -117,8 +121,9 @@ WinAuth의 "Show SteamGuard and Recovery Code" 메뉴로 돌아가십시오. 좀
 
 이것도 적절히 했다면 이제 끝입니다!
 
-    [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
-    
+```text
+[*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
+```
 
 확인사항 수락이 실제로 동작하는지 확인하십시오. `DeviceID` 입력에서 실수했다면 반쪽자리 인증기를 갖고 있는 것입니다. 토큰은 동작하지만 확인사항 수락은 동작하지 않습니다. 필요하면 `Bot.db`를 삭제하고 다시 시작할 수 있습니다.
 
