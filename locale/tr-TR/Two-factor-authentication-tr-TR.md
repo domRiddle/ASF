@@ -1,30 +1,30 @@
-# İki faktörlü kimlik doğrulaması
+# İki aşamalı kimlik doğrulaması
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Valve bir süre önce "Escow" ismiyle bilinen ve hesapla ilgili çeşitli etkinlikler için ekstra kimlik doğrulayıcı gerektiren bir sistem tanıttı. **[Buradan](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** ve **[buradan](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** daha fazlasını okuyabilirsiniz. ASF 2FA' nın arkasındaki mantığı anlamaya çalışmadan önce 2FA sistemini anlamak çok önemlidir.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Gördüğünüz gibi tüm takas işlemlerinin 15 güne kadar bekletilmesi; söz konusu ASF olduğunda büyük bir sorun olmaktan çıkıyor, ama özellikle tam otomasyon isteyenler için hala can sıkıcı olabiliyor. Neyse ki ASF bu soruna ASF 2FA adı verilen bir çözüm içeriyor.
 
 * * *
 
-# ASF logic
+# ASF Mantığı
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Aşağıda açıklanan ASF 2FA' yı kullansanız da kullanmasanız da, ASF uygun mantığı içerir ve standart 2FA ile korunan hesapların tamamen farkındadır. İhtiyaç olduğunda sizden gerekli ayrıntıları isteyecektir.(oturum açma sırasında olduğu gibi). Eğer ASF 2FA kullanıyorsanız, uygulama bu istekleri atlayabilecek ve otomatik olarak gerekli tokenları oluşturabilecek, sizi güçlükten kurtaracak ve ekstra işlevsellik sağlayacak.(aşağıda açıklanan).
 
 * * *
 
 # ASF 2FA
 
-ASF 2FA is built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so there is no need to use ASF 2FA exclusively.
+ASF 2FA, ASF için token oluşturma ve onay isteklerini kabul etme gibi 2FA özelliklerini sağlamaktan sorumlu yerleşik bir modüldür. Mevcut kimlik doğrulayıcınızı kopyalar, bu nedenle sadece ASF 2FA kullanmanız gerekmiyor.
 
-You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
+Bot hesabınızın ASF 2FA kullanıp kullanmadığını `2fa` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** uygulayarak kontrol edebilirsiniz. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also ineligible for advanced ASF features that require the module to be operative.
 
-To enable ASF 2FA, you need to have:
+ASF 2FA'yı etkinleştirmek için sahip olmanız gerekenler:
 
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
-- or any other working implementation of Steam authenticator with access to shared/identity secret and device's ID
+- Android'inizde çalışan steam kimlik doğrulayıcısı
+- ya da iOS'unuzda çalışan steam kimlik doğrulayıcısı
+- ya da **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)** da çalışan steam kimlik doğrulayıcısı
+- ya da **[WinAuth](https://winauth.github.io/winauth)** da çalışan steam kimlik doğrulayıcısı
+- ya da Steam'in kimlik doğrulayıcısının paylaşılan/gizli kimlik bilgisine ve cihaz kimliğine erişimi olan başka herhangi bir çalışan uygulaması
 
 * * *
 

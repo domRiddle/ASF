@@ -36,7 +36,7 @@
 * **[Yerelleştirme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Günlük kaydı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Düşük bellek kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Pluginler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Eklentiler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Güvenlik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Üçüncü-Parti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**

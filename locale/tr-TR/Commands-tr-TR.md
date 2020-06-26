@@ -2,15 +2,15 @@
 
 ASF, bot örneklerinin ve sürecin davranışlarını kontrol etmek için kullanılabilecek çeşitli komutları destekler.
 
-Below commands can be sent to the bot through various different ways:
+Aşağıdaki komutlar çeşitli yollarla bota gönderilebilir:
 
 - Etkileşimli ASF konsolu aracılığıyla
 - Steam özel/grup chati aracılığıyla
 - **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** arayüzümüz aracılığıyla
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Daha fazla bilgi için `SteamKullanıcıİzinleri` ve `SteamSahipKimliği` yapılandırma özelliklerini kontrol edin.
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. Bu, örnek `status` komutu, aslında `!status` şeklinde yazmalısınız (veya bunun yerine özel `CommandPrefix` kullanabilirsiniz). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. Bu, örnek `status` komutu, aslında `!status` şeklinde yazmalısınız (veya bunun yerine özel `CommandPrefix` kullanabilirsiniz). `KomutÖneki` konsol veya IPC kullanılırken zorunlu değildir ve atlanabilir.
 
 * * *
 
