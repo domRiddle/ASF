@@ -274,7 +274,6 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 Type | Description
 --- | ---
-DeviceID | 2FA device identificator, if missing from `.maFile`.
 Login | `SteamLogin` bot config property, if missing from config.
 Password | `SteamPassword` bot config property, if missing from config.
 SteamGuard | Auth code sent on your e-mail if you're not using 2FA.
