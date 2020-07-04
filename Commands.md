@@ -70,8 +70,8 @@ Command | Access | Description
 `iqrm [Bots] <AppIDs>` | `Master` | Removes given `appIDs` from priority idling queue of given bot instances.
 `level [Bots]` | `Master` | Shows Steam account level of given bot instances.
 `loot [Bots]` | `Master` | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
-`loot@ [Bots] <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot%`.
-`loot% [Bots] <RealAppIDs>` | `Master` | Sends all `LootableTypes` Steam community items apart from given `RealAppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot@`.
+`loot@ [Bots] <AppIDs>` | `Master` | Sends all `LootableTypes` Steam community items matching given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot%`.
+`loot% [Bots] <AppIDs>` | `Master` | Sends all `LootableTypes` Steam community items apart from given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot@`.
 `loot^ [Bots] <AppID> <ContextID>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).
 `nickname [Bots] <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
 `owns [Bots] <Games>` | `Operator` | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.
@@ -91,8 +91,8 @@ Command | Access | Description
 `status [Bots]` | `FamilySharing` | Prints status of given bot instances.
 `stop [Bots]` | `Master` | Stops given bot instances.
 `transfer [Bots] <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.
-`transfer@ [Bots] <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `RealAppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.
-`transfer% [Bots] <RealAppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items apart from given `RealAppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.
+`transfer@ [Bots] <AppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items matching given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.
+`transfer% [Bots] <AppIDs> <TargetBot>` | `Master` | Sends all `TransferableTypes` Steam community items apart from given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.
 `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master` | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.
 `unpack [Bots]` | `Master` | Unpacks all booster packs stored in the inventory of given bot instances.
 `update` | `Owner` | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).
