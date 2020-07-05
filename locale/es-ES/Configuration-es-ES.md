@@ -501,6 +501,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
+| 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
+| 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
@@ -527,6 +529,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de 
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
+| 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
+| 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye una lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
@@ -720,6 +724,8 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
+| 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
+| 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 

@@ -136,9 +136,9 @@ Für einige Befehle sind auch Aliase verfügbar, um dir Zeit beim tippen zu spar
 
 Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Prozess" fungiert, so dass der Befehl `status ASF` gleich `status all,your,bots,listed,here` ist. Dies kann auch verwendet werden, um die Bots zu identifizieren, auf die du Zugriff hast, da das `ASF` Schlüsselwort, trotz der Ausrichtung auf alle Bots, nur von den Bots eine Antwort generiert, an die du den Befehl tatsächlich senden kannst.
 
-Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es dir ermöglicht, einen Reihe von Bots einfacher auszuwählen. The general syntax for `[Bots]` in this case is `firstBot..lastBot`. Wenn du zum Beispiel Bots mit den Namen `A, B, C, D, E, F` hast, kannst du `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von dir angegebenen Bereich befinden. Sowohl `ersterBot` als auch `letzterBot` müssen gültige Bot-Namen sein, die von ASF erkannt werden, da sonst die Bereichs-Syntax vollständig übersprungen wird.
+Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es dir ermöglicht, einen Reihe von Bots einfacher auszuwählen. Der allgemeine Syntax für `[Bots]` ist in diesem Fall `ersterBot..letzterBot`. Wenn du zum Beispiel Bots mit den Namen `A, B, C, D, E, F` hast, kannst du `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von dir angegebenen Bereich befinden. Sowohl `ersterBot` als auch `letzterBot` müssen gültige Bot-Namen sein, die von ASF erkannt werden, da sonst die Bereichs-Syntax vollständig übersprungen wird.
 
-In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. Du kannst Regex Muster aktivieren, indem du `r!<pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<pattern>` dein Regex-Muster ist. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `status r!\d{3}`, der den Befehl `status` an Bots sendet, die einen aus 3 Ziffern bestehenden Namen haben (z.B. `123` und `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
+Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://en.wikipedia.org/wiki/Regular_expression)** Übereinstimmung. Du kannst Regex Muster aktivieren, indem du `r!<pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<pattern>` dein Regex-Muster ist. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `status r!\d{3}`, der den Befehl `status` an Bots sendet, die einen aus 3 Ziffern bestehenden Namen haben (z.B. `123` und `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
 
 * * *
 
@@ -205,9 +205,9 @@ Bedenke, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Eltern
 | `app` | `a`   | `app/292030` | Spiel bestimmt durch seine einzigartige `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`. |
 
-Die Differenzierung ist wichtig, da ASF die Steam Netzwerk Aktivierung für Apps und die Steam Shop Aktivierung für Pakete verwenden wird. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
+Die Differenzierung ist wichtig, da ASF die Steam Netzwerk Aktivierung für Apps und die Steam Shop Aktivierung für Pakete verwenden wird. Diese beiden sind nicht miteinander kompatibel, normalerweise werden Apps für Spiele mit kostenlosen Wochenenden und dauerhaft kostenlose Spiele verwendet, und Packages für alles andere.
 
-We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
+Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF, wenn Sie einen ungültigen Typ angeben oder ihn ganz weglassen, davon ausgehen, dass Sie `sub` anfordern. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indem Sie die Standard ASF `,` Trennzeichen verwenden.
 
 Beispiel für einen vollständigen Befehl:
 
@@ -219,16 +219,16 @@ addlicense ASF app/292030,sub/47807
 
 ## `owns` Spiele
 
-`owns` command supports several different game types for `<games>` argument that can be used, those are:
+Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Argument genutzt werden können, diese sind:
 
-| Typ     | Alias | Beispiel         | Beschreibung                                                                                                                                                                                                                                                            |
-| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | Spiel bestimmt durch seine einzigartige `appID`.                                                                                                                                                                                                                        |
-| `sub`   | `s`   | `sub/47807`      | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`.                                                                                                                                                                                       |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `name`  | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| Typ     | Alias | Beispiel         | Beschreibung                                                                                                                                                                                                                                                                                                                   |
+| ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app`   | `a`   | `app/292030`     | Spiel bestimmt durch seine einzigartige `appID`.                                                                                                                                                                                                                                                                               |
+| `sub`   | `s`   | `sub/47807`      | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`.                                                                                                                                                                                                                                              |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** der sich auf den Namen des Spiels bezieht, Groß- und Kleinschreibung wird berücksichtigt. Siehe **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** für den vollständige Syntax und weitere Beispiele. |
+| `name`  | `n`   | `name/Witcher`   | Teil des Namens des Spiels, Groß- und Kleinschreibung wird nicht berücksichtigt.                                                                                                                                                                                                                                               |
 
-We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
+Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF wenn Sie einen ungültigen Typ angeben oder ihn komplett weglassen davon ausgehen, dass Sie `app` verlangen, wenn Ihre Eingabe eine Nummer ist, und `name` falls nicht. Sie können auch eines oder mehrere Spiele gleichzeitig abfragen, indem sie die Standard ASF `,` Trennzeichen verwenden.
 
 Beispiel für einen vollständigen Befehl:
 
@@ -269,7 +269,7 @@ Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingP
 
 Der Input-Befehl kann nur im `Headless`-Modus verwendet werden, um die angegebenen Daten über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** oder Steam-Chat einzugeben, wenn ASF ohne Unterstützung für Benutzerinteraktion läuft.
 
-General syntax is `input [Bots] <Type> <Value>`.
+Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Type>` ist Groß-/Kleinschreibung unabhängig und definiert einen von ASF unterstützten Eingabetyp. Derzeit unterstützt ASF folgende Typen:
 

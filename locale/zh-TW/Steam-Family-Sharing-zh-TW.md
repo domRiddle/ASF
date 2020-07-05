@@ -1,6 +1,6 @@
 # Steam 親友同享
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF 從 2.1.5.5+ 版開始支援 Steam 親友同享。 為了了解 ASF 如何支援 Steam 親友同享，您首先應該閱讀 Steam 商店中提供的**[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**。
 
 * * *
 
@@ -18,4 +18,4 @@ Connecting both functionalities described above allows your friends to `pause~` 
 
 ## 限制
 
-Steam network loves to mislead ASF by broadcasting false status updates, which may lead to ASF believing it's fine to resume process, and in result kick your friend too soon. This is exactly the same issue as the one already explained by us in **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.
+Steam 網路喜歡廣播錯誤的狀態更新誤導 ASF，這可能導致 ASF 認為可以恢復掛卡，導致您的朋友被踢出遊戲。 這與我們已經在 **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)** 解釋的是相同問題。 We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.

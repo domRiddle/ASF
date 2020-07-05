@@ -73,15 +73,3 @@ ASF 目前提供以下几种 OS-specific 包：
 ASF 目前指向的构建目标是 **.NET Core 3.1**（`netcoreapp3.1`），但在未来可能会指向更高版本。 `netcoreapp3.1` 自 3.1.100 SDK（3.1.0 运行时环境）以来就受到支持，但 ASF 以**编译时最新版本的运行时环境**为构建目标，所以您应该确保您的机器上有&#8203;**[最新版 SDK](https://dotnet.microsoft.com/download)**（或至少有运行时环境）。 如果您的运行时环境版本低于编译时的已知最低目标版本，Generic ASF 包将会拒绝启动。
 
 如有疑问，您可以访问我们用于编译并在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每个构建的顶端看到 `dotnet --info` 的输出。
-
-* * *
-
-## 异常情况
-
-### 在 OpenVZ 虚拟化的 Linux VPS 上运行 ASF 出现的各种与锁相关的问题
-
-OpenVZ 内核通常基于非常旧的 Linux 内核版本（2.6），此版本似乎不兼容最新的 .NET Core 运行时环境。 如果您尝试在这种环境下运行 ASF，就可能会遇到各种与锁相关的问题，并通常表现为程序卡死。 参见相关的 CoreCLR Issue：https://github.com/dotnet/coreclr/issues/26873
-
-我们的建议是放弃 OpenVZ 架构，转向更好的虚拟化方案，例如 KVM。 这里提到的问题的确是 .NET Core 运行时环境的一个漏洞，并且应当在下个版本 .NET Core 运行时环境（3.1 服务补丁）中被&#8203;**[修复](https://github.com/dotnet/coreclr/pull/26912)**，但暂无明确的时间。 如果无法迁移到更好的虚拟化方案，则在此问题被修复之前，您可以考虑使用 `mono` 运行 ASF 的 `generic-netf` 包。
-
-对于能够掌控 Linux 操作系统的高级用户，这里有一个&#8203;**[更好的解决方案](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)**，能够运行最新的 .NET Core ASF 而不会发生此问题。

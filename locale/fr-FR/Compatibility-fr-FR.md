@@ -75,15 +75,3 @@ Toutefois, si vous essayez d'exécuter le package **générique** ASF, vous deve
 ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but it may target newer platform in the future. `netcoreapp3.1` is supported since 3.1.100 SDK (3.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Des variantes génériques d'ASF pourraient refuser de se lancer si votre runtime est plus vieux que le minimum (cible) connu durant la compilation.
 
 En cas de doute, vérifiez ce que notre **[intégration continue utilise](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** pour compiler et déployer les versions ASF sur GitHub. Vous pouvez trouver la sortie `dotnet --info` au-dessus de chaque construction.
-
-* * *
-
-## Problèmes
-
-### Various lock-related issues running ASF on Linux VPS with OpenVZ virtualization
-
-OpenVZ kernel is usually based on a very old Linux kernel version (2.6) which seems incompatible with latest .NET Core runtime. If you're trying to run ASF in such environment, you may encounter various lock-related issues, usually in form of process freeze. See related CoreCLR issue: https://github.com/dotnet/coreclr/issues/26873
-
-Our recommendation is to ditch OpenVZ in favour of much better virtualization solutions, such as KVM. The issue described here is indeed a .NET Core runtime bug that is supposed to be **[fixed](https://github.com/dotnet/coreclr/pull/26912)** in the next .NET Core runtime upgrade (3.1 service patch), but there is no actual timeframe for it yet. If you're unable to move to better virtualization solution, you can consider running `generic-netf` ASF variant with `mono`, at least until new runtime version is released.
-
-For more advanced users that are not afraid of their Linux OS, there is a **[much better workaround](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)** available which makes it possible to run latest .NET Core ASF without running into this issue.

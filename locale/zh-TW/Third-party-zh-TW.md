@@ -26,7 +26,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## 庫
+## 函式庫
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
@@ -41,11 +41,11 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## 工具
 
-- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. 前往 **[GitHub repo](https://github.com/PixvIO/SKE)** 瞭解更多細節。
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)** 讓你能更方便的管理多份 ASF 設定檔。
 
 * * *
 
-## Want to find more?
+## 想瞭解更多嗎？
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** tag on GitHub for all projects that integrate with ASF.
+我們推薦為所有在GitHub上與ASF相容的專案添加 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 標籤。

@@ -73,15 +73,3 @@ Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF enton
 ASF como programa actualmente tiene como objetivo **.NET Core 3.1** (`netcoreapp3.1`), pero podría apunta a una plataforma más nueva en el futuro. `netcoreapp3.1` es soportado desde 3.1.100 SDK (3.1.0 runtime), aunque ASF está configurado para apuntar al **último runtime al momento de la compilación**, así que debes asegurarte de que tienes el **[último SDK](https://dotnet.microsoft.com/download)** (o al menos runtime) disponible para tu máquina. La variante genérica de ASF podría negarse a ejecutar si tu runtime en más antiguo que el mínimo (objetivo) conocido durante la compilación.
 
 En caso de duda, revisa nuestros **[usos de integración continua](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** para compilar y publicar versiones de ASF en GitHub. Puedes encontrar `dotnet --info` en la parte de arriba de cada compilación.
-
-* * *
-
-## Problemas
-
-### Varios problemas relacionados con el bloqueo al ejecutar ASF en Linux VPS con virtualización OpenVZ
-
-El kernel OpenVZ normalmente se basa en una versión muy antigua del kernel Linux (2.6) que parece ser incompatible con el último .NET Core runtime. Si intentas ejecutar ASF en dicho entorno, podrías encontrar varios problemas de bloqueo, normalmente en forma de congelación del proceso. Revisa el problema relacionado con CoreCLR: https://github.com/dotnet/coreclr/issues/26873
-
-Nuestra recomendación es deshacerse de OpenVZ en favor de soluciones de virtualización mucho mejores, como KVM. El problema descrito aquí es, de hecho, un bug de .NET Core runtime que se supone será **[solucionado](https://github.com/dotnet/coreclr/pull/26912)** en la siguiente actualización de .NET Core runtime (parche de actualización 3.1 ), pero todavía no hay un plazo para ello. Si no puedes cambiar a mejores soluciones de virtualización, puedes considerar ejecutar la variante `generic-netf` de ASF con `mono`, al menos hasta que se libere la nueva versión de runtime.
-
-Para usuarios más avanzados que no le tienen miedo a su sistema operativo Linux, hay disponible una **[solución mucho mejor](https://github.com/dotnet/coreclr/issues/26873#issuecomment-559854433)** que hace posible ejecutar el último .NET Core ASF sin encontrarse con este problema.

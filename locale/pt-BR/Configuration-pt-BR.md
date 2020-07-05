@@ -397,7 +397,7 @@ Oferta de troca inválida é uma oferta que não é aceita pelo módulo interno 
 
 Convite inválidos para grupos são convites que não vem do grupo definido em `SteamMasterClanID`. No modo normal o ASF ignora esses convites, como seria de esperar, dando-lhe liberdade de escolha se deseja entrar em determinado grupo Steam ou não. `RejectInvalidGroupInvites` fará com que todos os convites para grupos sejam rejeitados automaticamente, tornando impossível convidá-lo para qualquer outro grupo que não seja o `SteamMasterClanID`. A menos que você queira negar completamente todos os convites de grupo, você não deve habilitar esta opção.
 
-`DismissInventoryNotifications` is extremely useful when you start getting annoyed by constant Steam notification about receiving new items. O ASF não pode se livrar da notificação em si pois ela é embutida no seu cliente Steam, mas ele pode limpar a notificação após recebê-la, o que vai apagar a mensagem "novos itens no inventário". Se você preferir avaliar por sua conta todos os itens recebidos (principalmente as cartas coletadas pelo ASF) então você deve desabilitar essa opção. Quando você começar a enlouquecer, lembre-se dessa opção.
+`DismissInventoryNotifications` é extremamente útil quando você estiver ficando irritado com a quantidade de notificações de novos items pelo Steam. O ASF não pode se livrar da notificação em si pois ela é embutida no seu cliente Steam, mas ele pode limpar a notificação após recebê-la, o que vai apagar a mensagem "novos itens no inventário". Se você preferir avaliar por sua conta todos os itens recebidos (principalmente as cartas coletadas pelo ASF) então você deve desabilitar essa opção. Quando você começar a enlouquecer, lembre-se dessa opção.
 
 `MarkReceivedMessagesAsRead` vai marcar automaticamente **todas** as mensagens recebidas pela conta em que o ASF está sendo executado, tanto as privadas quanto em grupo. Essa opção deve ser usada normalmente em contas alternativas para limpar as notificações de "nova mensagem" provenientes, por exemplo, de comandos do ASF. Não recomendamos ativar essa opção em contas principais, a menos que você queira desativar qualquer tipo de notificações de novas mensagens, **incluindo** aquelas que chegaram quando você estava offline, assumindo que o ASF estivesse aberto durante esse período.
 
@@ -411,7 +411,7 @@ Se você está inseguro de como configurar esta opção, é melhor deixá-la pad
 
 Tipo `string` com o valor padrão `null`. Quando ASF está em processo de coleta, ele pode se mostrar como "Jogando jogo não Steam: `CustomGamePlayedWhileFarming`" ao invés do jogo que realmente esteja sendo executado. Isso é útil para o caso de você querer que seus amigos saibam que você está coletando, mas você não usar a opção `Offline` em `OnlineStatus`. Por favor, note que o ASF não pode garantir a ordem de exibição atual da rede Steam, portanto isso é apenas uma sugestão que pode, ou não, ser exibida corretamente. O valor `null` padrão desativa este recurso.
 
-ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
+O ASF fornece algumas variáveis especiais que você pode usar em seu texto. O ASF vai substituir o `{0}` pelo `AppID` do(s) jogo(s) atualmente em andamento(s), enquanto `{1}` será substituído pelo ASF por `GameName` do(s) jogo(s) atualmente em execução.
 
 * * *
 
@@ -501,6 +501,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
 | 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
 | 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
+| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                                      |
+| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                                   |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -527,6 +529,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
 | 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
 | 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
+| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                                      |
+| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                                   |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. O ASF inclui uma lógica própria para descobrir a raridade dos itens, portanto também é seguro combinar emoticons ou planos de fundo, uma vez que o ASF vai considerar justo apenas os itens do mesmo jogo e tipo, que também compartilhem a mesma raridade.
 
@@ -601,7 +605,7 @@ Habilitar `Forwarding` e `Distributing` adicionará a característica de distrib
 
 A ordem real para todos os cenários de ativação de keys é alfabética, excluindo os bots que não estão disponíveis (desconectados, parados ou afins). Por favor, tenha em mente que há um limite de tentativas de ativação por IP e por conta a cada hora, e mesmo ativações que estejam `OK` somam para tentativas falhas. O ASF fará o seu melhor para minimizar o número de falhas `AlreadyPurchased`, por exemplo, ao tentar evitar o encaminhamento de uma key para um bot que já possui esse jogo em particular, mas não há garantia de que isso sempre funcione devido a forma com que o Steam lida com licenças. Usar flags de ativação como `Forwarding` ou `Distributing` sempre aumentará a probabilidade de atingir `RateLimited`.
 
-Também tenha em mente que você não pode encaminhar ou distribuir keys para bots aos quais você não tem acesso. This should be obvious, but ensure that you're at least `Operator` of all the bots you want to include in your redeeming process, for example with `status ASF` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+Também tenha em mente que você não pode encaminhar ou distribuir keys para bots aos quais você não tem acesso. Isso deveria ser óbvio, mas certifique-se que você tem ao menos o acesso `Operator` para todos os bots que você quer incluir no processo de ativação, com o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `status ASF`, por exemplo.
 
 * * *
 
@@ -637,7 +641,7 @@ Tipo `string` com o valor padrão `null`. Essa propriedade define seu login Stea
 
 ### `SteamMasterClanID`
 
-Tipo `ulong` com o valor padrão `0`. Esta propriedade define a steamID do grupo Steam que bot deve entrar automaticamente, incluindo seu chat em grupo. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Então você pode pegar o steamID do seu grupo no resultado, ele estará entre as tags `<groupID64>`. No exemplo acima ele seria `103582791440160998`. Além de tentar entrar no grupo quando iniciado, o bot também aceitará automaticamente convites para esse grupo, o que te permite convidar o bot manualmente caso o grupo seja privado. Se você não tem nenhum grupo dedicado aos seus bots, você deve manter essa propriedade com o valor padrão `0`.
+Tipo `ulong` com o valor padrão `0`. Esta propriedade define a steamID do grupo Steam que bot deve entrar automaticamente, incluindo seu chat em grupo. Você pode verificar a steamID de seu grupo navegando até a **[página](https://steamcommunity.com/groups/archiasf)** dele e, em seguida, adicionando `/memberslistxml?xml=1` no final do link que ficará semelhante a **[este](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Então você pode pegar o steamID do seu grupo no resultado, ele estará entre as tags `<groupID64>`. No exemplo acima ele seria `103582791440160998`. Além de tentar entrar no grupo quando iniciado, o bot também aceitará automaticamente convites para esse grupo, o que te permite convidar o bot manualmente caso o grupo seja privado. Se você não tem nenhum grupo dedicado aos seus bots, você deve manter essa propriedade com o valor padrão `0`.
 
 * * *
 
@@ -720,6 +724,8 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 10    | Adesivo               | Itens especiais que podem ser usados no chat Steam                          |
 | 11    | ChatEffect            | Itens especiais que podem ser usados no chat Steam                          |
 | 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
+| 13    | AvatarProfileFrame    | Moldura do avatar especial para o perfil Steam                              |
+| 14    | AnimatedAvatar        | Avatar animado especial para o perfil Steam                                 |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 

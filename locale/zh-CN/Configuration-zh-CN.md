@@ -501,6 +501,8 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
+| 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
+| 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
@@ -527,6 +529,8 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
+| 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
+| 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
 
 当然，您应该设置的类型通常只有 `2`、`3`、`4` 和 `5`，因为 STM 只支持这些类型。 ASF 的逻辑能够正确地获取物品的稀有程度，因此匹配表情或背景也是安全的，因为 ASF 只会将来自同一游戏、同一物品类型以及稀有程度相同的物品视为相等。
 
@@ -720,6 +724,8 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
+| 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
+| 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 

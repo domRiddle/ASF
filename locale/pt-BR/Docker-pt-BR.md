@@ -106,25 +106,25 @@ Isso só tem que ser feito uma vez depois que você criou seu contêiner com `do
 
 * * *
 
-## Multiple instances synchronization
+## Sincronização de múltiplas instâncias
 
-ASF includes support for multiple instances synchronization, as stated in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** section. When running ASF in docker container, you can optionally "opt-in" into the process, in case you're running multiple containers with ASF and you'd like for them to synchronize with each other.
+O ASF inclui suporte para sincronização de múltiplas instâncias, como indicado na seção de **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR#m%C3%BAltiplas-inst%C3%A2ncias)**. Ao executar o ASF no contêiner docker, você pode opcionalmente "ligá-lo" ao processo caso você esteja executando vários contêineres com o ASF e você gostaria que eles sincronizassem um com o outro.
 
-By default, each ASF running inside a docker container is standalone, which means that no synchronization takes place. In order to enable synchronization between them, you must bind `/tmp/ASF` path in every ASF container that you want to synchronize, to one, shared path on your docker host, in read-write mode. This is achieved exactly the same as binding a volume which was described above, just with different paths:
+Por padrão, cada ASF rodando dentro de um contêiner docker é independente, o que significa que não há sincronização. Para ativar a sincronização entre eles você deve vincular o caminho `/tmp/ASF` em cada contêiner ASF que você deseja sincronizar, para um caminho compartilhado no seu host docker, em modo de leitura-escrita. Isto é feito exatamente da mesma forma que vincular um volume, como foi descrito acima, apenas com caminhos diferentes:
 
 ```shell
 mkdir -p /tmp/ASF-g1
 docker pull justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# E assim todos os contêineres ASF estarão sincronizados um com o outro
 ```
 
-We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
+Recomendamos vincular a pasta `/tmp/ASF` do ASF também à pasta `/tmp` temporária no seu computador, mas claro que você é pode escolher qualquer outra pasta a seu gosto. Cada contêiner do ASF que se espera ser sincronizado deve ter sua pasta `/tmp/ASF` compartilhada com outros contêineres que participam do mesmo processo de sincronização.
 
-As you've probably guessed from example above, it's also possible to create two or more "synchronization groups", by binding different docker host paths into ASF's `/tmp/ASF`.
+Como você provavelmente percebeu no exemplo acima, também é possível criar dois ou mais "grupos de sincronização", vinculando diferentes caminhos do host docker na pasta `/tmp/ASF` do ASF.
 
-Mounting `/tmp/ASF` is completely optional and actually not recommended, unless you explicitly want to synchronize two or more ASF containers. We do not recommend mounting `/tmp/ASF` for single-container usage, as it brings absolutely no benefits if you expect to run just one ASF container, and it might actually cause issues that could otherwise be avoided.
+Montar a pasta `/tmp/ASF` é completamente opcional e na verdade não é recomendado, a menos que você queira sincronizar explicitamente dois ou mais contêineres do ASF. Não recomendamos montar a pasta `/tmp/ASF` para uso de apenas um contêiner, já que isso não traz absolutamente nenhum benefício se você espera executar apenas um contêiner do ASF, e na verdade poderia causar problemas que, de outra forma, poderiam ser evitados.
 
 * * *
 
@@ -183,7 +183,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
 ```
 
-This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. Essa configuração também está pronta para o uso opcional do IPC se você decidiu incluir o arquivo `IPC.config` na sua pasta config com o conteúdo abaixo:
+Isso pressupõe que você usará um único contêiner do ASF, com todos os arquivos de configuração em `/home/archi/asf`. Você deve modificar o caminho de configuração para aquele que corresponde à sua máquina. Essa configuração também está pronta para o uso opcional do IPC se você decidiu incluir o arquivo `IPC.config` na sua pasta config com o conteúdo abaixo:
 
 ```json
 {
