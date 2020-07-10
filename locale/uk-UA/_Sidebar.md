@@ -28,7 +28,7 @@
 ## Розширені настройки
 
 * **[Аргументи командного рядка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-uk-UA)**
-* **[Застаріле](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-uk-UA)**
+* **[Застарівання](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-uk-UA)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-uk-UA)**
 * **[Розширені ЧаПи](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-uk-UA)**
 * **[Налаштування високої продуктивності](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-uk-UA)**

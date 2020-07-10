@@ -38,13 +38,13 @@
 * **[Настройки за ползване на възможно най-малко памет](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Плъгини / Приставки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Защита](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Плъгин за въвеждане на Steam Token](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[От трета страна](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Двуфакторно удостоверяване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## разработчици
 
 * **[Строеж](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Основни насоки за принос](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Лиценз](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Цикъл на въвеждане на нови версии](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

@@ -27,24 +27,24 @@
 
 ## Avançado
 
-* **[Argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
+* **[Argumentos da linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
 * **[Depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-pt-BR)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR)**
-* **[Perguntas Frequentes Adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**
+* **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**
 * **[Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pt-BR)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
 * **[Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)**
-* **[Registros do sistema](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-pt-BR)**
+* **[Registrando em log](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-pt-BR)**
 * **[Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)**
 * **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pt-BR)**
 * **[Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**
-* **[Plugin SteamTokenDumper](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[Terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR)**
-* **[Autenticação de dois passos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR)**
+* **[Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
 
 ## Desenvolvedores
 
 * **[Compilação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-pt-BR)**
-* **[Guias de contribuição](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Diretrizes de contribuição](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licença](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-pt-BR)**
 * **[Ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-pt-BR)**

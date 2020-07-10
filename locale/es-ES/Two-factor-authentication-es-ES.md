@@ -14,9 +14,9 @@ Independientemente de si usas o no ASF 2FA explicado abajo, ASF incluye lógica 
 
 # ASF 2FA
 
-ASF 2FA es el módulo integrado responsable de proporcionar características 2FA al proceso de ASF, tal como generar códigos y aceptar confirmaciones. Duplica tu autenticador existente, así que no hay necesidad usar ASF 2FA exclusivamente.
+ASF 2FA es un módulo integrado responsable de proveer características 2FA al proporcionar de ASF, tal como generar códigos y aceptar confirmaciones. Este duplica tu autentificador existente, para que puedas usar tu autenticador actual y ASF 2FA al mismo tiempo.
 
-Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` no serán operativos, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco es elegible para las características avanzadas de ASF que requieren que el módulo esté operativo.
+Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` no serán operativos, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco está disponible para las características avanzadas de ASF que requieren que el módulo esté operativo.
 
 Para activar ASF 2FA, necesitas tener:
 
@@ -24,7 +24,7 @@ Para activar ASF 2FA, necesitas tener:
 - o autenticador de Steam funcionando en tu iOS
 - o autenticador de Steam funcionando en **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - o autenticador de Steam funcionando en **[WinAuth](https://winauth.github.io/winauth)**
-- o cualquier otra implementación funcional del autenticador de Steam con acceso a secreto compartido/identidad y el ID de dispositivo
+- o cualquier otra implementación funcional del autenticador de Steam con acceso a secretos compartidos y de identidad
 
 * * *
 
@@ -38,7 +38,7 @@ Todas las siguientes guías requieren que ya tengas un autenticador **funcional 
 - Puedes obtener confirmaciones, y están llegando a tu autenticador móvil
 - Puedes aceptar esas confirmaciones, y son reconocidas apropiadamente por la red de Steam como confirmadas/rechazadas
 
-Asegúrate de que tu autenticador funciona comprobando si las acciones anteriores funcionan - si no lo hacen, entonces tampoco funcionarán en ASF, solo perderás tiempo y te causarás problemas.
+Asegúrate de que tu autenticador funciona comprobando si las acciones anteriores funcionan - si no lo hacen, entonces tampoco funcionarán en ASF, solo perderás tiempo y te causarás problemas adicionales.
 
 * * *
 
@@ -60,16 +60,10 @@ Si no quieres o no necesitas pasar por WinAuth, entonces solo copia el archivo `
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Convirtiendo .maFile al formato ASF...
-<1> Por favor ingrese su ID de dispositivo autenticador móvil (incluyendo "android:"):
-```
-
-Tendrás que hacer un paso más - encuentra la propiedad `DeviceID` en `shared_prefs/steam.uuid.xml`. Estará dentro de las etiquetas XML y empieza con `android:`. Copia (o escribe) y ponlo en ASF como se pide. Si hiciste todo correctamente, la importación debería estar terminada.
-
-```text
 [*] INFO: ImportAuthenticator() <1> ¡Autenticador móvil importado exitosamente!
 ```
 
-Por favor, confirma que la aceptación de confirmaciones realmente funciona. Si cometiste un error al introducir tu `DeviceID` entonces tendrás un autenticador medio roto - los códigos funcionarán, pero aceptar confirmaciones no. Puedes eliminar `Bot.db` y empezar de nuevo si es necesario.
+Eso es todo, asumiendo que has importado el archivo correcto con secretos válidos, todo debería funcionar correctamente, lo cual puedes verificar usando los comandos `2fa`. Si cometiste algún error, puedes eliminar `Bot.db` y empezar de cero si es necesario.
 
 * * *
 
@@ -112,20 +106,10 @@ Si hiciste todo correctamente, ejecuta ASF, y deberías ver:
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Convirtiendo .maFile al formato ASF...
-<1> Por favor ingrese su ID de dispositivo autenticador móvil (incluyendo "android:"):
-```
-
-Aquí viene la parte difícil. WinAuth no tiene la propiedad deviceID requerida por ASF, así que tendrás que hacer una cosa más.
-
-Regresa a "Show SteamGuard and Recovery Code" de WinAuth y deberías ver la propiedad "Device ID" sobre el código JSON que copiaste hace poco. Copia todo el ID de dispositivo android, incluyendo la parte `android:` a ASF.
-
-Si lo hiciste correctamente, ¡has terminado!
-
-```text
 [*] INFO: ImportAuthenticator() <1> ¡Autenticador móvil importado exitosamente!
 ```
 
-Por favor, comprueba que aceptar confirmaciones funciona. Si cometiste un error al introducir tu `DeviceID` entonces tendrás un autenticador medio roto - los códigos funcionarán, pero aceptar confirmaciones no. Puedes eliminar `Bot.db` y empezar de nuevo si es necesario.
+A partir de ahora, tu ASF 2FA debería estar operativo para esta cuenta.
 
 * * *
 
@@ -133,7 +117,7 @@ Por favor, comprueba que aceptar confirmaciones funciona. Si cometiste un error 
 
 Desde este momento, todos los comandos `2fa` funcionarán como si fueran generados en tu dispositivo 2FA normal. Puedes usar ambos, ASF 2fa y el autenticador de tu elección (Android, iOS, SDA o WinAuth) para generar códigos y aceptar confirmaciones.
 
-Si tienes un autenticador en tu teléfono, opcionalmente puedes eliminar SteamDesktopAuthenticator and/o WinAuth. ya que no los necesitaremos más. Sin embargo, sugiero conservarlo por si acaso, sin mencionar que es más práctico que el autenticador de Steam normal. Solo ten en cuenta que ASF 2FA **NOT** es un autenticador de propósito general y **nunca** debe ser el único que uses, ya que ni siquiera incluye toda la información que un autenticador debería. No es posible convertir ASF 2FA de vuelva al autenticador original, por lo tanto siempre asegúrate de que tienes un autenticador en otra parte, como en WinAuth/SDA, o en tu teléfono.
+Si tienes un autenticador en tu teléfono, opcionalmente puedes eliminar SteamDesktopAuthenticator and/o WinAuth. ya que no los necesitaremos más. Sin embargo, sugiero conservarlo por si acaso, sin mencionar que es más práctico que el autenticador de Steam normal. Solo ten en cuenta que ASF 2FA **NO** es un autenticador para uso general y **nunca** debe ser el único que uses, ya que ni siquiera incluye toda la información que un autenticador debería. No es posible convertir ASF 2FA de vuelva al autenticador original, por lo tanto siempre asegúrate de que tienes un autenticador en otra parte, como en WinAuth/SDA, o en tu teléfono.
 
 * * *
 
@@ -183,16 +167,13 @@ Simplemente cierra ASF y elimina el archivo `BotName.db` del bot con ASF 2FA que
 
 ## Avanzado
 
-Si eres un usuario avanzado, también puedes generar los maFile manualmente. Debe tener una **[estructura JSON válida](https://jsonlint.com)** de:
+Si eres un usuario avanzado, también puedes generar los maFile manualmente. Esto puede ser usado en caso de que quieras importar el autenticador desde fuentes distintas a las descritas anteriormente. Debe tener una **[estructura JSON válida](https://jsonlint.com)** de:
 
 ```json
 {
   "shared_secret": "STRING",
-  "identity_secret": "STRING",
-  "device_id": "STRING"
+  "identity_secret": "STRING"
 }
 ```
 
-`device_id` es opcional durante la importación, pero obligatorio para el funcionamiento de ASF - ASF lo solicitará durante la importación si lo omites. Por supuesto, necesitas reemplazar `"STRING"` con contenido válido en cada campo.
-
-Los datos de un autenticador estándar tienen más campos - son ignorados completamente por ASF durante la importación, ya que no son necesarios. Tampoco tienes que eliminarlos - ASF solo requiere un JSON válido con los 2 campos obligatorios descritos arriba, y opcionalmente también `device_id`.
+Los datos de un autenticador estándar tienen más campos - son ignorados completamente por ASF durante la importación, ya que no son necesarios. No tienes que eliminarlos - ASF solo requiere un JSON válido con los 2 campos obligatorios descritos arriba, e ignorará campos adicionales (si los hay). Por supuesto, necesitas reemplazar el `STRING` del ejemplo anterior con los valores válidos para tu cuenta.

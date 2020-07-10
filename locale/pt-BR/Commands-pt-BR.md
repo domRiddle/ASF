@@ -71,8 +71,8 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `iqrm [Bots] <AppIDs>`                                         | `Master`            | Remove os `appIDs` da lista prioritária de coleta automática nos bots indicados.                                                                                                                                                                                                                                                                                         |
 | `level [Bots]`                                                       | `Master`            | Mostra o nível da conta Steam dos bots indicados.                                                                                                                                                                                                                                                                                                                        |
 | `loot [Bots]`                                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes` dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (com o steamID mais baixo caso haja mais de um).                                                                                                                                                          |
-| `loot@ [Bots] <RealAppIDs>`                                    | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, e cujo `RealAppIDs` corresponda ao indicado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot%`.                                                                     |
-| `loot% [Bots] <RealAppIDs>`                                    | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, independentemente de o `RealAppIDs` corresponder ao indicado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot@`.                                                    |
+| `loot@ [Bots] <AppIDs>`                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, e cujo `AppIDs` corresponda ao indicado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot%`.                                                                         |
+| `loot% [Bots] <AppIDs>`                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, independentemente de os `AppIDs` corresponderem ou não ao informado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot@`.                                             |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`            | Envia todos itens Steam do `AppID` de `ContextID` indicados dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um).                                                                                                                                                                      |
 | `nickname [Bots] <Nickname>`                                   | `Master`            | Muda o apelido Steam dos bots indicados para o informado em `nickname`.                                                                                                                                                                                                                                                                                                  |
 | `owns [Bots] <Games>`                                          | `Operator`          | Verifica se os bots definidos já possuem os jogos (`games`) indicados, conforme explicado **[abaixo](#owns-jogos)**.                                                                                                                                                                                                                                                     |
@@ -92,8 +92,8 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `status [Bots]`                                                      | `FamilySharing`     | Mostra o estado dos bots indicados.                                                                                                                                                                                                                                                                                                                                      |
 | `stop [Bots]`                                                        | `Master`            | Para os bots indicados.                                                                                                                                                                                                                                                                                                                                                  |
 | `transfer [Bots] <TargetBot>`                                  | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) do bot indicado para o bot de destino.                                                                                                                                                                                                                                 |
-| `transfer@ [Bots] <RealAppIDs> <TargetBot>`              | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) cujos `RealAppIDs` coincidam com o indicado, do bot indicado para o bot de destino. Funciona como o oposto de `transfer%`.                                                                                                                                             |
-| `transfer% [Bots] <RealAppIDs> <TargetBot>`              | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) independentemente de os `RealAppIDs` coincidirem com o indicado, do bot indicado para o bot de destino. Funciona como o oposto de `transfer@`.                                                                                                                         |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) cujos `AppIDs` coincidam com o indicado, do bot indicado para o bot de destino. Funciona como o oposto de `transfer%`.                                                                                                                                                 |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`            | Envia todos os itens da comunidade Steam indicados como `TransferableTypes` (tipos transferíveis) independentemente de os `AppIDs` coincidirem com o indicado, do bot indicado para o bot de destino. Funciona como o oposto de `transfer@`.                                                                                                                             |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`            | Envia todos itens Steam do `AppID` determinado com `ContextID` dos bots indicados para o bot de destino.                                                                                                                                                                                                                                                                 |
 | `unpack [Bots]`                                                      | `Master`            | Abre todos os pacotes de cartas armazenados no inventario dos bots indicados.                                                                                                                                                                                                                                                                                            |
 | `update`                                                             | `Owner`             | Verifica atualizações para o ASF no GitHub (isso é feito automaticamente a cada `UpdatePeriod`).                                                                                                                                                                                                                                                                         |
@@ -119,14 +119,14 @@ Como você leu acima, um caractere de espaço está sendo usado como um delimita
 
 * * *
 
-Alguns comandos também estão disponíveis com seus pseudônimos, para facilitar a digitação:
+Alguns comandos também estão disponíveis através de apelidos, para facilitar a digitação:
 
-| Comando      | Pseudônimo |
-| ------------ | ---------- |
-| `owns ASF`   | `oa`       |
-| `status ASF` | `sa`       |
-| `redeem`     | `r`        |
-| `redeem^`    | `r^`       |
+| Comando      | Apelido |
+| ------------ | ------- |
+| `owns ASF`   | `oa`    |
+| `status ASF` | `sa`    |
+| `redeem`     | `r`     |
+| `redeem^`    | `r^`    |
 
 * * *
 
@@ -200,10 +200,10 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 O comando `addlicense` suporte dois tipos diferentes de licenças:
 
-| Tipo  | Pseudônimo | Exemplo      | Descrição                                                      |
-| ----- | ---------- | ------------ | -------------------------------------------------------------- |
-| `app` | `a`        | `app/292030` | `appID` do jogo desejado.                                      |
-| `sub` | `s`        | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
+| Tipo  | Apelido | Exemplo      | Descrição                                                      |
+| ----- | ------- | ------------ | -------------------------------------------------------------- |
+| `app` | `a`     | `app/292030` | `appID` do jogo desejado.                                      |
+| `sub` | `s`     | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
 
 A diferenciação é importante pois o ASF vai usar a rede Steam para ativar apps, e a loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
 
@@ -221,12 +221,12 @@ addlicense ASF app/292030,sub/47807
 
 O comando `owns` suporta diversos tipos de argumentos para definir os jogos em `<games>`, tais como:
 
-| Tipo    | Pseudônimo | Exemplo          | Descrição                                                                                                                                                                                                                                                                                                                  |
-| ------- | ---------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`        | `app/292030`     | `appID` do jogo desejado.                                                                                                                                                                                                                                                                                                  |
-| `sub`   | `s`        | `sub/47807`      | Pacote contendo um ou mais jogos, determinado por sua `subID`.                                                                                                                                                                                                                                                             |
-| `regex` | `r`        | `regex/^\d{4}:` | **[Regex](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)** aplicada ao nome do jogo, diferenciando maíusculas de minúsculas. Veja essa **[documentação](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para entender a sintaxe completa e ver exemplos. |
-| `name`  | `n`        | `name/Witcher`   | Parte do nome do jogo, sem diferenciação entre maiúsculas e minúsculas.                                                                                                                                                                                                                                                    |
+| Tipo    | Apelido | Exemplo          | Descrição                                                                                                                                                                                                                                                                                                                  |
+| ------- | ------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`     | `app/292030`     | `appID` do jogo desejado.                                                                                                                                                                                                                                                                                                  |
+| `sub`   | `s`     | `sub/47807`      | Pacote contendo um ou mais jogos, determinado por sua `subID`.                                                                                                                                                                                                                                                             |
+| `regex` | `r`     | `regex/^\d{4}:` | **[Regex](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)** aplicada ao nome do jogo, diferenciando maíusculas de minúsculas. Veja essa **[documentação](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para entender a sintaxe completa e ver exemplos. |
+| `name`  | `n`     | `name/Witcher`   | Parte do nome do jogo, sem diferenciação entre maiúsculas e minúsculas.                                                                                                                                                                                                                                                    |
 
 Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou o `app` caso sua entrada seja um número ou `name` caso contrário. Você também pode consultar um ou mais dos jogos ao mesmo tempo, usando o delimitador padrão do ASF `,`.
 
@@ -275,9 +275,8 @@ A sintaxe geral é `input [Bots] <Type> <Value>`.
 
 | Tipo                    | Descrição                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
-| DeviceID                | Identificador de dispositivo 2FA, caso esteja faltando no `.maFile`.                         |
 | Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando no arquivo config.     |
-| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
+| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando no arquivo config.  |
 | SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
 | SteamParentalCode       | Propriedade de configuração do bot `SteamParentalCode`, caso esteja faltando na config.      |
 | TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA. |

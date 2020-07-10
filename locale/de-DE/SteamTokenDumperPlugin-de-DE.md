@@ -1,12 +1,12 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
+`SteamTokenDumperPlugin` ist ein offizielles ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** seit ASF V4.2.2., wird durch uns entwickelt und erlaubt dir zum **[SteamDB](https://steamdb.info)** Projekt beizutragen, indem du Paket- und App-Tokens sowie Depot-Schlüssel, auf die dein Steam Konto Zugriff hat, teilst. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt finden Sie auf der Seite SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)**. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
 
 ---
 
 ## Aktivierung des Plugins
 
-ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
+Das `SteamTokenDumperPlugin</0 > ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Sie können das Plugin aktivieren, indem Sie die globale ASF Konfigurationseigenschaft <code>SteamTokenDumperPluginEnabled` auf `true` setzen, im JSON-Syntax:
 
 ```json
 {
@@ -14,7 +14,7 @@ ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but t
 }
 ```
 
-On the launch of the ASF program, the plugin will let you know whether it was enabled successfully through standard ASF logging mechanism. You can also enable the plugin through our web-based config generator.
+Beim Start von ASF wird das Plugin Sie mittels der Standard-Protokollierungsmethode darüber informieren, ob es erfolgreich aktiviert wurde oder nicht. Sie können das Plugin auch über unseren web-basierten Konfigurationsgenerator aktivieren.
 
 ---
 

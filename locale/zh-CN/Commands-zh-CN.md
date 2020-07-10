@@ -71,8 +71,8 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `iqrm [Bots] <AppIDs>`                                         | `Master`        | 将给定的 `AppIDs` 从指定机器人的优先挂卡队列中移除。                                                                                                                |
 | `level [Bots]`                                                       | `Master`        | 显示指定机器人的 Steam 帐户等级。                                                                                                                           |
 | `loot [Bots]`                                                        | `Master`        | 将指定机器人的所有 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                             |
-| `loot@ [Bots] <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。 此命令与 `loot%` 相反。         |
-| `loot% [Bots] <RealAppIDs>`                                    | `Master`        | 将指定机器人的所有不符合给定 `RealAppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。 此命令与 `loot@` 相反。        |
+| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 将指定机器人的所有符合给定 `AppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。 此命令与 `loot%` 相反。             |
+| `loot% [Bots] <AppIDs>`                                        | `Master`        | 将指定机器人的所有不符合给定 `AppIDs` 的 `LootableTypes` 社区物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。 此命令与 `loot@` 相反。            |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品拾取到其 `SteamUserPermissions` 属性中设置的 `Master` 用户（如果有多个则取 steamID 最小的）。                                  |
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `Nickname`。                                                                                                                       |
 | `owns [Bots] <Games>`                                          | `Operator`      | 检查指定机器人是否已拥有 `Games`，该参数解释详见&#8203;**[下文](#owns-命令的-games-参数)**。                                                                               |
@@ -92,8 +92,8 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `status [Bots]`                                                      | `FamilySharing` | 显示指定机器人的状态。                                                                                                                                    |
 | `stop [Bots]`                                                        | `Master`        | 停止指定机器人。                                                                                                                                       |
 | `transfer [Bots] <TargetBot>`                                  | `Master`        | 将指定机器人的所有 `TransferableTypes` 社区物品转移到一个目标机器人。                                                                                                  |
-| `transfer@ [Bots] <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。 此命令与 `transfer%` 相反。                                                          |
-| `transfer% [Bots] <RealAppIDs> <TargetBot>`              | `Master`        | 将指定机器人的所有不符合给定 `RealAppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。 此命令与 `transfer@` 相反。                                                         |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 将指定机器人的所有符合给定 `AppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。 此命令与 `transfer%` 相反。                                                              |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 将指定机器人的所有不符合给定 `AppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。 此命令与 `transfer@` 相反。                                                             |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品转移到一个目标机器人。                                                                                           |
 | `unpack [Bots]`                                                      | `Master`        | 拆开指定机器人库存中的所有补充包。                                                                                                                              |
 | `update`                                                             | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                               |
@@ -275,7 +275,6 @@ Input 命令仅可用于 `Headless` 模式，用来在 ASF 无法接受用户输
 
 | 类型                      | 描述                                         |
 | ----------------------- | ------------------------------------------ |
-| DeviceID                | 2FA 设备 ID，在 `.maFile` 缺少这个值时使用。            |
 | Login                   | `SteamLogin` 机器人配置属性，在配置文件缺少这个值时使用。        |
 | Password                | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |
 | SteamGuard              | 通过电子邮件发送的验证码，在您未启用 2FA 时使用。                |

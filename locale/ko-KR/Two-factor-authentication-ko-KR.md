@@ -14,9 +14,9 @@
 
 # ASF 2단계 인증(2FA)
 
-ASF 2단계 인증은 토큰 생성, 확인사항 수락과 같은 ASF 프로세스에 2단계 인증 기능을 제공하는 역할을 하는 내장 모듈입니다. 기존의 인증기를 복제하므로 ASF 2단계 인증만을 사용할 필요는 없습니다.
+ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
 
-`2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. 당신의 인증기를 ASF 2단계 인증으로 이미 불러오지 않았다면 `2fa` 명령어는 작동하지 않을 것입니다. 즉, 당신의 계정은 ASF 2단계 인증을 사용하고 있지 않고, 이 모듈의 동작을 필요로 하는 ASF의 고급기능을 사용할 수 없다는 뜻입니다.
+`2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
 ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 
@@ -24,7 +24,7 @@ ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 - 혹은 정상동작하는 iOS용 Steam 이증기
 - 혹은 정상동작하는 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)** 의 Steam 인증기
 - 혹은 정상동작하는 **[WinAuth](https://winauth.github.io/winauth)** 용 Steam 인증기
-- 혹은 공유/식별 비밀과 기기 ID에 접근가능한 정상동작하는 Steam 인증 구현
+- or any other working implementation of Steam authenticator with access to shared and identity secrets
 
 * * *
 
@@ -38,7 +38,7 @@ ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
 - 확인사항을 가져오고, 모바일 인증기에 도착할수 있어야 함
 - 확인사항을 수락하고, Steam 네트워크에서 확인/거부로 정확하게 인식될 수 있어야 함
 
-인증기가 위의 행동을 할 수 있는지 확인하십시오. 만약 안된다면 ASF에서도 동작하지 않을 것이고 시간만 낭비하고 문제가 발생할 것입니다.
+Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
 
 * * *
 
@@ -60,16 +60,10 @@ WinAuth를 사용하고 싶지 않거나 필요없다면 보호된 디렉토리�
 
 ```text
 [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
-<1> Device ID를 입력하세요. ("android:" 포함해서):
-```
-
-한 단계만 더 하면 됩니다. `shared_prefs/steam.uuid.xml`에서 `DeviceID` 속성값을 찾으십시오. `android:`로 시작하는 XML 태그 안에 있습니다. 이것을 복사해서(혹은 받아적어서) ASF가 요청하면 넣으십시오. 모든 것을 정확하게 했다면 가져오기가 완료될 것입니다.
-
-```text
 [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
 ```
 
-확인사항 수락이 실제로 동작하는지 확인하십시오. `DeviceID` 입력에서 실수했다면 반쪽자리 인증기를 갖고 있는 것입니다. 토큰은 동작하지만 확인사항 수락은 동작하지 않습니다. 필요하면 `Bot.db`를 삭제하고 다시 시작할 수 있습니다.
+That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
 
 * * *
 
@@ -112,20 +106,10 @@ ASF 환경설정 디렉토리의 `steamID.maFile` 파일을 `봇이름.maFile` �
 
 ```text
 [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...
-<1> Device ID를 입력하세요. ("android:" 포함해서):
-```
-
-까다로운 부분이 왔습니다. WinAuth는 ASF가 필요로하는 deviceID 속성값이 없습니다. 따라서 한가지를 더 해야 합니다.
-
-WinAuth의 "Show SteamGuard and Recovery Code" 메뉴로 돌아가십시오. 좀 전에 복사한 JSON 코드 위에 "Device ID" 속성값이 있을 것입니다. `android:` 부분을 포함한 안드로이드 device ID를 전부 복사해서 ASF에 넣습니다.
-
-이것도 적절히 했다면 이제 끝입니다!
-
-```text
 [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
 ```
 
-확인사항 수락이 실제로 동작하는지 확인하십시오. `DeviceID` 입력에서 실수했다면 반쪽자리 인증기를 갖고 있는 것입니다. 토큰은 동작하지만 확인사항 수락은 동작하지 않습니다. 필요하면 `Bot.db`를 삭제하고 다시 시작할 수 있습니다.
+이제부터 이 계정의 ASF 2단계 인증이 작동하게됩니다.
 
 * * *
 
@@ -133,7 +117,7 @@ WinAuth의 "Show SteamGuard and Recovery Code" 메뉴로 돌아가십시오. 좀
 
 지금부터 모든 `2fa` 명령어가 기존의 2단계 인증 기기에서 호출한 것 처럼 작동할 것입니다. 토큰을 생성하고 확인사항을 수락하는 데 ASF 2단계 인증과 당신의 인증기(안드로이드, iOS, SDA, WinAuth)를 둘다 사용할 수 있습니다.
 
-전화기에 인증기가 있다면 SteamDesktopAuthenticator 와 WinAuth는 더이상 필요가 없으므로 삭제해도 됩니다. 하지만 만일을 대비해서 남겨두길 권장합니다. 일반적인 스팀 인증기보다 더 편리한 것은 말할것도 없습니다. ASF 2단계 인증은 범용 인증기가 **아닙니다**. 따라서 **절대로** 유일한 인증기가 되어서는 안됩니다. ASF 2단계 인증은 인증기가 가지고 있어야 할 모든 데이터를 포함하고 있지도 않습니다. ASF 2단계 인증을 원래의 인증기로 변환할 수 없으므로, 범용 인증기를 WinAuth, SDA, 전화기같은 다른 곳에 가지고 있어야 합니다.
+전화기에 인증기가 있다면 SteamDesktopAuthenticator 와 WinAuth는 더이상 필요가 없으므로 삭제해도 됩니다. 하지만 만일을 대비해서 남겨두길 권장합니다. 일반적인 스팀 인증기보다 더 편리한 것은 말할것도 없습니다. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. ASF 2단계 인증을 원래의 인증기로 변환할 수 없으므로, 범용 인증기를 WinAuth, SDA, 전화기같은 다른 곳에 가지고 있어야 합니다.
 
 * * *
 
@@ -183,16 +167,13 @@ ASF 모바일 인증기는 해당 계정에 관련된 중요한 다른 데이터
 
 ## 고급
 
-고급사용자의 경우, 직접 maFile을 수동으로 생성할 수 있습니다. 파일은 **[유효한 JSON 구조](https://jsonlint.com)** 를 가져야 합니다:
+고급사용자의 경우, 직접 maFile을 수동으로 생성할 수 있습니다. This can be used in case you'd want to import authenticator from other sources than the ones we've described above. 파일은 **[유효한 JSON 구조](https://jsonlint.com)** 를 가져야 합니다:
 
 ```json
 {
   "shared_secret": "STRING",
-  "identity_secret": "STRING",
-  "device_id": "STRING"
+  "identity_secret": "STRING"
 }
 ```
 
-`device_id`는 가져오기에서는 선택사항이었지만 ASF 동작을 위해서는 필수사항입니다. 생략하는 경우 가져오기 단계에서 묻는 창이 나옵니다. 물론 `"STRING"`은 각 항목에 맞는 유효한 내용으로 대체하여야 합니다.
-
-표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목과 선택항목 `device_id`로 구성된 유효한 JSON만을 필요로 합니다.
+표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. You don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and will ignore additional fields (if any). Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.

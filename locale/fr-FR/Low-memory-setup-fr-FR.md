@@ -1,10 +1,10 @@
-# Configuration pour faible mémoire
+# Configuration avec peu de mémoire
 
-This is exact opposite of **[high-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
+C'est l'exact opposé d'une **[configuration haute performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)** et typiquement vous allez vouloir suivre ces conseils si vous souhaitez que ASF consomme moins de mémoire dans votre système, en échange de performance.
 
 * * *
 
-ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to various issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
+ASF par définition consomme extrêmement peu de resources, dépendamment de votre utilisation, même un VPS de 128 MB avec Linux installé est capable de le faire tourner, bien que de partir aussi bas n'est pas recommandé et peut créer divers problèmes. Bien que léger, ASF n'a pas peur de demander a L'OS plus de mémoire, si cette mémoire est nécessaire pour que ASF fonctionne à une vitesse optimale.
 
 ASF as an application tries to be as much optimized and efficient as possible, which also takes in mind resources being used during execution. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", that can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every extra page, which results in concurrent fetching and parsing of remaining pages. That "extra" memory usage (compared to bare minimum for operation) can dramatically speed up execution and overall performance, for the cost of increased memory usage that is needed to do all of those things in parallel. Similar thing is happening to all other general ASF tasks that can be run in parallel, e.g. with parsing active trade offers, ASF can parse all of them at once, as they're all independent of each other. On top of that, ASF (C# runtime) will **not** return unused memory back to OS immediately afterwards, which you can quickly notice in form of ASF process only taking more and more memory, but never giving that memory back to the OS. Some people may already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
 

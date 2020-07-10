@@ -29,7 +29,7 @@ On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF AP
 
 # ASF-ui
 
-ASF-ui est un projet communautaire qui vise à créer une interface Web graphique conviviale pour les utilisateurs finaux. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
+ASF-ui est un projet communautaire qui vise à créer une interface web graphique conviviale pour ses utilisateurs. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
 
 As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
 
@@ -37,7 +37,7 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 * * *
 
-# ASF API
+# API ASF
 
 Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
 
@@ -45,11 +45,11 @@ Our ASF API can be accessed by sending appropriate requests to appropriate `/Api
 
 For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
 
-![ASF API](https://i.imgur.com/yggjf5v.png)
+![API ASF](https://i.imgur.com/yggjf5v.png)
 
 * * *
 
-## Authentication
+## Authentification
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. If you continue sending requests without authentication, eventually you'll get temporarily blocked with `403 - Forbidden` error.
 
@@ -69,13 +69,13 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 * * *
 
-## Swagger documentation
+## Documentation du Swagger
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://localhost:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+![Documentation du Swagger](https://i.imgur.com/mLpd5e4.png)
 
 * * *
 
@@ -163,7 +163,7 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 * * *
 
-## Custom configuration
+## Configuration personnalisée
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 
@@ -211,9 +211,9 @@ There are 2 properties worth explanation/editing, those are `Endpoints` and `Pat
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-### Example config
+### Configuration exemple
 
-The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
+La configuration suivante autorisera l'accès a partir de toutes sources, vous devrez donc vous assurer que vous avez bel et bien lu et compris notre annonce de sécurité a propos de cela, disponible au dessus.
 
 ```json
 {
@@ -227,4 +227,4 @@ The following config will allow remote access from all sources, therefore you sh
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.*` instead of `*`. Adapt the network address appropriately if you use a different one.
+Si vous n'avez pas besoins d'y accéder a partir de toutes sources, mais pour example seulement dans votre réseau local (LAN), c'est une bien meilleure idée d'utiliser quelque-chose comme `192.168.0.*` a la place de `*`. Adaptez l'adresse réseau de manière appropriée si vous en utilisez une autre.

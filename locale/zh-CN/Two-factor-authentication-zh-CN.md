@@ -14,7 +14,7 @@
 
 # ASF 两步验证
 
-ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成令牌和确认交易。 它可以复制您已有的验证器，所以您无需仅单独使用 ASF 2FA。
+ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成令牌和确认交易。 它可以复制您已有的验证器，所以您可以同时使用原有验证器和 ASF 2FA。
 
 您可以执行 `2fa` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;来验证机器人帐户是否已经启用 ASF 2FA。 除非您已经将验证器导入为 ASF 2FA，否则所有 `2fa` 命令都是无效的，这意味着您的帐户没有启用 ASF 2FA，因此一些需要此模块的 ASF 高级功能也无法正常运行。
 
@@ -24,7 +24,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 - 或 iOS 设备上可用的 Steam 身份验证器
 - 或 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
 - 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份验证器
-- 或任何其他能够获取到 shared secret、identity secret 和 device id 的可用 Steam 验证器实现。
+- 或任何其他能够获取到 shared secret 和 identity secret 的可用 Steam 验证器实现。
 
 * * *
 
@@ -38,7 +38,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 - 您可以获取交易确认，并且您的手机验证器也可以收到这些确认
 - 您可以接受这些交易确认，并且 Steam 网络能够正确将它们识别为已接受/已拒绝
 
-检查上述操作是否正常来确保您的验证器正常工作——如果不正常，它们也不会在 ASF 中正常运作，不仅浪费您的时间还会带来麻烦。
+检查上述操作是否正常来确保您的验证器正常工作——如果不正常，它们也不会在 ASF 中正常运作，不仅浪费您的时间，还会带来其他麻烦。
 
 * * *
 
@@ -60,16 +60,10 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ```text
 [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
-<1> 请输入您的设备 ID (包括"android:"):
-```
-
-您还需要一步操作——在 `shared_prefs/steam.uuid.xml` 文件中找到您的 `DeviceID` 属性值。 这个值应该在 XML 标签中，以 `android:` 开头。 复制它（或者记下来）并将其输入 ASF。 如果您的操作完全正确，导入过程应该已完成。
-
-```text
 [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
 ```
 
-请确认接受交易确认功能能够正常工作。 如果您在输入 `DeviceID` 时出错，您的验证器将只有一半功能正常工作——验证令牌正常，但无法接受交易确认。 您可以随时删除 `Bot.db` 文件以重新开始这个过程。
+假如您导入了含有有效密钥的正确文件，一切都应该正常工作，您可以使用 `2fa` 命令来验证。 如果您不小心做错了，也可以随时删除 `Bot.db` 文件以重新开始这个过程。
 
 * * *
 
@@ -112,20 +106,10 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ```text
 [*] INFO: ImportAuthenticator() <1> 正在将 .maFile 转换为 ASF 格式……
-<1> 请输入您的设备 ID (包括"android:"):
-```
-
-现在棘手的部分来了。 WinAuth 缺少 ASF 所需的 deviceID 属性，所以您需要再做一件事。
-
-返回 WinAuth 的“Show SteamGuard and Recovery Code”界面，在您之前复制的 JSON 代码上方有一个“Device ID”属性。 复制整个 Android 设备 ID，包括开头的 `android:`，提交给 ASF。
-
-如果您的一切操作都正确，现在导入过程已完成！
-
-```text
 [*] INFO: ImportAuthenticator() <1> 成功导入手机验证器！
 ```
 
-请确认接受交易确认功能能够正常工作。 如果您在输入 `DeviceID` 时出错，您的验证器将只有一半功能正常工作——验证令牌正常，但无法接受交易确认。 您可以随时删除 `Bot.db` 文件以重新开始这个过程。
+从现在开始，此帐户的 ASF 2FA 功能已经可用。
 
 * * *
 
@@ -183,16 +167,13 @@ ASF 验证器数据被保存在配置文件文件夹的 `BotName.db` 文件里�
 
 ## 高级
 
-如果您是高级用户，也可以手动生成 maFile。 它的&#8203;**[有效 JSON 结构](https://jsonlint.com)**&#8203;如下：
+如果您是高级用户，也可以手动生成 maFile。 如果您希望从上述其他来源导入验证器，则可能需要这样做。 它的&#8203;**[有效 JSON 结构](https://jsonlint.com)**&#8203;如下：
 
 ```json
 {
   "shared_secret": "STRING",
-  "identity_secret": "STRING",
-  "device_id": "STRING"
+  "identity_secret": "STRING"
 }
 ```
 
-`device_id` 在导入过程中是可选的，但是 ASF 操作强制需要它——如果您在文件中省略了它，ASF 将会在导入过程中要求您提供。 当然，您需要将上述内容中的 `"STRING"` 替换为实际的内容。
-
-标准的身份验证器数据含有更多字段——在导入过程中，ASF 会完全忽略这些字段，因为 ASF 不需要它们。 您也不必删除它们——只要 JSON 中有上述强制要求的 2 个字段就可以，同时您还可选 `device_id` 字段。
+标准的身份验证器数据含有更多字段——在导入过程中，ASF 会完全忽略这些字段，因为 ASF 不需要它们。 您不必删除它们——只要 JSON 中有上述强制要求的 2 个字段就可以，ASF 会忽略额外提供的字段（如果存在）。 当然，您需要将上述示例中的 `STRING` 占位符替换为与您的帐号关联的实际内容。

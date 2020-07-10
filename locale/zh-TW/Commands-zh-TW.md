@@ -71,8 +71,8 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `iqrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的優先掛卡佇列。                                                                                                                        |
 | `level [Bots]`                                                       | `Master`        | 顯示指定 BOT 的 Steam 等級。                                                                                                                                   |
 | `loot [Bots]`                                                        | `Master`        | 將指定 BOT 的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。                                                   |
-| `loot@ [Bots] <RealAppIDs>`                                    | `Master`        | 將指定 BOT 所有符合指定 `RealAppIDs` 的 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（若有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。              |
-| `loot% [Bots] <RealAppIDs>`                                    | `Master`        | 將指定 BOT 所有不符合指定 `RealAppIDs` 的 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（若有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。             |
+| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將所有符合 `AppIDs` 的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。                    |
+| `loot% [Bots] <AppIDs>`                                        | `Master`        | 將所有除了 `AppIDs` 以外的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。                  |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定機器人的` ContextID` 庫存分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。                                          |
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定 BOT 的 Steam 暱稱變更為`nickname`。                                                                                                                       |
 | `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定 `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                   |
@@ -92,8 +92,8 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `status [Bots]`                                                      | `FamilySharing` | 顯示指定 BOT 的狀態。                                                                                                                                          |
 | `stop [Bots]`                                                        | `Master`        | 停止指定 BOT。                                                                                                                                              |
 | `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                          |
-| `transfer@ [Bots] <RealAppIDs> <TargetBot>`              | `Master`        | 將指定 BOT 所有符合指定 `RealAppIDs` 的 `TransferableTypes` 社群物品交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                |
-| `transfer% [Bots] <RealAppIDs> <TargetBot>`              | `Master`        | 將指定 BOT 所有不符合指定 `RealAppIDs` 的 `TransferableTypes` 社群物品交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                               |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有符合 `AppIDs` 的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                     |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有除了 `AppIDs` 以外的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                                   |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                                    |
 | `unpack [Bots]`                                                      | `Master`        | 拆開指定 BOT 物品庫中的所有補充包。                                                                                                                                   |
 | `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                          |
@@ -270,14 +270,13 @@ owns ASF app/292030,name/Witcher
 
 `<Type>` 不區分大小寫，並定義由 ASF 辨識的輸入類型。 目前，ASF 可辨識以下類型：
 
-| 類型                      | 描述                                               |
-| ----------------------- | ------------------------------------------------ |
-| DeviceID                | 兩步驟裝置驗證器，在 `.maFile` 中缺失這個值時使用。                  |
-| Login                   | `SteamLogin` BOT 設定檔屬性，在設定檔缺失這個值時使用。             |
-| Password                | `SteamPassword` BOT 設定檔屬性，在設定檔缺失這個值時使用。          |
-| SteamGuard              | 如果您未啟用兩步驟驗證，驗證碼將以電子郵件的方式發送。                      |
-| SteamParentalCode       | `SteamParentalCode` BOT 設定檔屬性，在設定檔缺失這個值時使用。      |
-| TwoFactorAuthentication | 如果您正在使用兩步驟驗證，但未使用 ASF 的兩步驟驗證，則兩步驟驗證權杖會從您的行動裝置產生。 |
+| 類型                      | 描述                                         |
+| ----------------------- | ------------------------------------------ |
+| Login                   | `SteamLogin`機器人配置屬性，在設定檔缺失這個值時使用。          |
+| 密碼                      | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
+| SteamGuard              | 如果您未啟用2FA，驗證碼將以電子郵件的方式發送。                  |
+| SteamParentalCode       | `SteamParentalCode` 機器人配置屬性，在設定檔缺失這個值時使用。  |
+| TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA 代碼 。 |
 
 `<Value>` 是要為指定類型設定的值。 目前所有的值都是字串。
 

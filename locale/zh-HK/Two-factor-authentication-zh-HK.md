@@ -14,9 +14,9 @@ ASF擁有適當的邏輯並完全適用於受標準2FA保護的帳戶，無論�
 
 # ASF 2FA
 
-ASF 2FA是負責為ASF進程提供2FA功能的內置模組，例如生成代碼和接受確認。 它複製了您現有的身份驗證器，因此無需專門使用ASF 2FA。
+ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
 
-您可以執行`2fa`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**以檢查機械人帳戶是否已啟用2FA。 除非您已將身份驗證器導入為ASF 2FA，否則所有`2fa`命令都將無法執行，當您的帳戶未使用ASF 2FA時，一些需要2FA模組支援的進階功能亦無法運行。
+您可以執行`2fa`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**以檢查機械人帳戶是否已啟用2FA。 Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
 要啟用ASF 2FA，您需要具備：
 
@@ -24,7 +24,7 @@ ASF 2FA是負責為ASF進程提供2FA功能的內置模組，例如生成代碼�
 - 或適用於iOS裝置的Steam行動驗證器
 - 或適用於**[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**的Steam行動驗證器
 - 或適用於**[WinAuth](https://winauth.github.io/winauth)**的Steam行動驗證器
-- 或其他任何能夠獲取shared/identity secret及裝置ID以實現Steam行動驗證器功能的應用
+- or any other working implementation of Steam authenticator with access to shared and identity secrets
 
 * * *
 
@@ -38,7 +38,7 @@ ASF 2FA是負責為ASF進程提供2FA功能的內置模組，例如生成代碼�
 - 您可以由流動身份驗證器獲取交易確認
 - 您可以接受這些交易確認，並且它們被Steam網絡正確地識別為確認/拒絕
 
-通過檢查上述操作是否有效來確保您的身份驗證器正常工作──如果它們不起作用，那麼它們也不能在ASF中運行，您只會浪費時間給自己添麻煩。
+Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
 
 * * *
 
@@ -60,16 +60,10 @@ If you don't want to or don't need to go through WinAuth, then simply copy `file
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-<1> 請輸入您的裝置識別碼（包括"android:"）：
-```
-
-You will need to do only one more step - find your `DeviceID` property in `shared_prefs/steam.uuid.xml`. It will be inside XML tags and starting with `android:`. Copy that (or write it down) and put it in ASF as asked. If you did everything correctly, import should be finished.
-
-```text
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
-請確認接受確認實際上可用。 If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
+That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
 
 * * *
 
@@ -112,20 +106,10 @@ Firstly create new empty `BotName.maFile` in ASF config directory, where `BotNam
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-<1> 請輸入您的裝置識別碼（包括"android:"）：
-```
-
-This is when tricky part comes in. WinAuth is missing deviceID property that is required by ASF, so you'll need to do one more thing.
-
-Go back to WinAuth's "Show SteamGuard and Recovery Code" and you should notice "Device ID" property above the JSON code you were copying not that long ago. Copy whole android device ID, including `android:` part into ASF.
-
-If you've done that properly as well, you're now done!
-
-```text
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
-請確認接受確認實際上可用。 If you made a mistake while entering your `DeviceID` then you'll have half-broken authenticator - tokens will work, but accepting confirmations will not. You can always remove `Bot.db` and start over if needed.
+從現在開始，您的ASF 2FA應該可以在此帳戶運行。
 
 * * *
 
@@ -133,7 +117,7 @@ If you've done that properly as well, you're now done!
 
 From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
 
-If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
+If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
 
 * * *
 
@@ -171,7 +155,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 ### 我將身份驗證器鏈接到SDA/WinAuth，然後導入到ASF。 我現在可以取消鏈接並在手機上再次鏈接嗎？
 
-**不**。 ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
+**從未**。 ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
 
 * * *
 
@@ -183,16 +167,13 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 ## 進階
 
-如果您是高級用戶，還可以手動生成maFile。 它應有的**[有效JSON結構](https://jsonlint.com)**如下：
+如果您是高級用戶，還可以手動生成maFile。 This can be used in case you'd want to import authenticator from other sources than the ones we've described above. 它應有的**[有效JSON結構](https://jsonlint.com)**如下：
 
 ```json
 {
   "shared_secret": "STRING",
-  "identity_secret": "STRING",
-  "device_id": "STRING"
+  "identity_secret": "STRING"
 }
 ```
 
-` device_id `在導入期間是可選的，但對於ASF操作是必需的——如果省略它，ASF將在導入期間請求它。 當然，您需要將`“STRING”`替換為每個字段中的有效內容。
-
-標準驗證器數據有更多字段——在導入期間它們完全被ASF忽略，因為它們不是必需的。 You also don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and optionally also `device_id`.
+標準驗證器數據有更多字段——在導入期間它們完全被ASF忽略，因為它們不是必需的。 You don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and will ignore additional fields (if any). Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.

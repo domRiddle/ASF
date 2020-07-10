@@ -2,19 +2,19 @@
 
 Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
-# Table of contents
+# Cuprins
 
 - [General](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Diverse](#misc)
-- [Issues](#issues)
+- [Probleme](#issues)
 
 * * *
 
 ## General
 
-### What is ASF?
+### Ce este ASF?
 
 ### Why does the program claim that there is nothing to idle on my account?
 
@@ -429,7 +429,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Probleme
 
 * * *
 

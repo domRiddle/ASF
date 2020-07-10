@@ -2,16 +2,16 @@
 
 Ця страниця присвячена налаштуванням ASF. Вона являє собою вичерпну документацію директорії `config`, цу допоможе вам налаштувати ASF під свої потреби.
 
-- **[Вступ](#introduction)**
-- **[Генератор конфігурацій на базі веб](#web-based-configgenerator)**
-- **[Налаштування вручну](#manual-configuration)**
-- **[Глобальна конфігурація](#global-config)**
-- **[Конфігурація боту](#bot-config)**
-- **[Файлова структура](#file-structure)**
-- **[Типи параметрів JSON](#json-mapping)**
-- **[Сумісність типів](#compatibility-mapping)**
-- **[Сумісність конфігурацій](#configs-compatibility)**
-- **[Автоматичне перезавантаження](#auto-reload)**
+- **[Вступ](#user-content-Вступ)**
+- **[Генератор конфігурацій на базі веб](#user-content-Генератор-конфігурацій-на-базі-веб)**
+- **[Налаштування вручну](#user-content-Налаштування-вручну)**
+- **[Глобальна конфігурація](#user-content-Глобальна-конфігурація)**
+- **[Конфігурація боту](#user-content-Конфігурація-боту)**
+- **[Файлова структура](#user-content-Файлова-структура)**
+- **[Типи параметрів JSON](#user-content-Типи-параметрів-json)**
+- **[Сумісність типів](#user-content-Сумісність-типів)**
+- **[Сумісність конфігурацій](#user-content-Сумісність-конфігурацій)**
+- **[Автоматичне перезавантаження](#user-content-Автоматичне-перезавантаження)**
 
 * * *
 
@@ -188,39 +188,39 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `LoginLimiterDelay`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts to avoid triggering rate-limit. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
+параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між послідовними спробами підключитися пройшло щонайменше `LoginLimiterDelay` секунд, для того щоб уникнути активації обмеження на частоту запитів. Значення за замовчуванням `10` було обрано на базі підключення більш ніж 100 ботів, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти збільшити/зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і підключалося до Steam значно швидше. Однак маємо вас попередити, що занадто низькі значення при великій кількості ботів **призведе** до тимчасового блокування вашого IP, і ви не зможете увійти до Steam **взагалі**, й отримаєте помилку `InvalidPassword/RateLimitExceeded` - і це також включає ваш звичайний клієнт Steam, а не тільки ASF. Так само, якщо у вас забагато ботів, особливо у поєднанні з іншими клієнтами/інструментами для Steam, які працюють з тієї ж IP-адреси, швидше за все вам знадобиться збільшити це значення, щоб рознести логіни на більший період часу.
 
-As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Додатково, це значення також використовується для буфер балансування навантаження в усіх запланованих діях ASF, наприклад таких як пропозиції обміну через `SendTradePeriod`. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
 ### `MaxFarmingTime`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. As you should know, Steam is not always working properly, sometimes weird situations can happen such as steam not being recording our playtime, despite of in fact playing a game. ASF will allow farming a single game in solo mode for maximum of `MaxFarmingTime` hours, and consider it fully farmed after that period. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `10`. Як ви маєте знати, Steam не завжди працює належним чином, іноді стаються дивні ситуації, як наприклад Steam може не записувати час, проведений у грі, навіть коли ви насправді граєте. ASF буде фармити одну гру у соло-режимі максимум `MaxFarmingTime` годин, а після цього періоду вважатиме, що фарм для неї завершений. Це необхідно щоб процес фарма не застряг у разі якихось дивних ситуацій, а також на випадок, коли Steam випустив значок, який заважає ASF працювати далі (дивись також: `Blacklist`). Значення за замовчуванням у `10` годин має бути достатньо для отримання усіх карток з однієї гри. Занадто низьке значення може призвести до пропуску дійсних ігор (так, бувають ігри у яких фарм займає до 9 годин), а занадто високе значення призведе до застрягання фарму на довгий час. Зверніть увагу, що цей параметр впливає лише на поодиноку гру у одній сесії фарму (тож після обробки всієї черги ASF повернеться до цієї гри), а також він базується не на загальному часу у грі, а на внутрішньому часі фарму в ASF, тому ASF також повернеться до цієї гри після перезапуску. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
 ### `MaxTradeHoldDuration`
 
-параметр типу `byte` зі значенням за замовчуванням `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `15`. Цей параметр визначає максимальну тривалість затримки обміну, при якій ми згодні його приймати - ASF буде відхиляти обміни, для яких затримка складає більше ніж `MaxTradeHoldDuration` діб, як описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UA)**. Ця опція має сенс лише для ботів, у яких параметр `TradingPreferences` включає значення `SteamTradeMatcher`, оскільки він не впливає ані на обміни від `Master`/`SteamOwnerID`, ані на обміни у дарунок. Затримки обміну дратують усіх, тож ніхто не бажає мати з ними справу. ASF планувався для роботи по ліберальним правилам й допомоги усім, незалежно від затримок обміну, саме тому за замовчуванням цей параметр має значення `15`. Однак, якщо ви замість цього бажаєте відхилити всі обміни з затримками, ви можете вказати тут `0`. Будь ласка, зважте той факт що що цей параметр не впливає на картки з коротким строком дії, і такі обміни автоматично відхиляються для людей з затримками обміну, як це описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UK)**, тож немає сенсу глобально відхиляти усіх лише через це. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
 ### `OptimizationMode`
 
-параметр типу `byte` зі значенням за замовчуванням `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
-### `Статистика`
+### `Statistics`
 
-параметр типу `bool` зі значенням за замовчуванням `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `bool` зі значенням за замовчуванням `true`. Цей параметр визначає, чи буде ASF збирати статистику, а також чи будуть ваші боти додані до групи ASF. Детальне пояснення, що саме робить цей параметр ви можете прочитати у розділі **[Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-uk-UA)**. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
 ### `SteamMessagePrefix`
 
-`string` type with default value of `"/me "`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
+параметр типу `string` зі значенням за замовчуванням `"/me"`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
 
 * * *
 
@@ -234,12 +234,12 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | Ім'я      | Description                                                                                      |
-| ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | Не обрано | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| Value | Ім'я      | Description                                                            |
+| ----- | --------- | ---------------------------------------------------------------------- |
+| 0     | Не обрано | No protocol                                                            |
+| 1     | TCP       | **[Transmission Control Protocol](https://uk.wikipedia.org/wiki/TCP)** |
+| 2     | UDP       | **[User Datagram Protocol](https://uk.wikipedia.org/wiki/UDP)**        |
+| 4     | WebSocket | **[WebSocket](https://uk.wikipedia.org/wiki/WebSocket)**               |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
