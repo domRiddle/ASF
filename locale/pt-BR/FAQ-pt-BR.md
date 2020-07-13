@@ -635,7 +635,7 @@ Esse problema é quase exclusivamente causado pelo serviço do windows `CNG Key 
 
 ### `System.BadImageFormatException: Could not load file or assembly`
 
-ASF is using single-file publishing in OS-specific variants, which causes the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%\.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`. The `.net` directory might not exist by default, it will be created the first time it's needed.
+O ASF usa a publicação de arquivo único em variantes específicas para Sistema Operacional, fazendo com que o aplicativo seja extraído para uma pasta temporária `<tmp>/.net` na inicialização (caso necessário). No Windows, é a pasta `%TEMP%\.net` (geralmente `C:\Users\<SeuUsuário>\AppData\Local\Temp\.net`), no Linux, é `/var/tmp/.net`. A pasta `.net` pode não existir por padrão, ela será criada na primeira vez que for necessária.
 
 First issue is caused by ASF being unable to extract its own files into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
 
