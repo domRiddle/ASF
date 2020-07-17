@@ -2,7 +2,7 @@
 
 This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
 
-Please note that below programs are **not** maintained by ASF developers and therefore we give no guarantee about any of them, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
+Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the program you're about to use is legit enough for you, as you're using all of them at your own risk.
 
 ---
 
