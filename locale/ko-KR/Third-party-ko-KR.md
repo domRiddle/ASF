@@ -2,7 +2,7 @@
 
 이 항목에는 독점적 혹은 주로 ASF와 함께 사용하도록 작성된 여러 서드 파티 애드온이 있습니다. 통합을 위한 내부 라이브러리와 간단한 웹 어플리케이션 같은 ASF 플러그인부터 다른 플랫폼을 위한 완전한 기능을 가진 봇 까지 범위가 넓습니다. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
 
-아래의 프로그램들은 ASF 개발자들이 유지보수하지 **않으므로** 보안, 안전, 스팀 서비스약관 준수 측면에서 어떠한 것도 보장하지 않음을 유의하시기 바랍니다. 이 목록은 참조용으로만 유지됩니다. 사용하려는 도구가 충분히 합법적인지 항상 확인하시고, 스스로의 책임하에 사용하십시오.
+Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 이 목록은 참조용으로만 유지됩니다. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
 
 * * *
 
@@ -21,7 +21,7 @@
 ## 통합
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF와 통합되는 python으로 작성한 텔레그램 봇입니다.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
 
 * * *

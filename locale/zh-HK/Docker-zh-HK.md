@@ -10,7 +10,7 @@ ASF 支援4種主要類型的**[ 標籤 ](https://hub.docker.com/r/justarchi/arc
 
 ### `master`
 
-此標籤始終指向從主分支中的最新提交產生的 ASF，其工作原理與**[發佈週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**中描述的實驗 AppVeyor 產生相同。 通常，您應該避免使用此標記，因為它以開發為目的，專門提供給開發人員和高級用戶，可能有大量漏洞。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 我們在此標記ASF項目的現時狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
+This tag always points to the ASF built from latest commit in master branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 通常，您應該避免使用此標記，因為它以開發為目的，專門提供給開發人員和高級用戶，可能有大量漏洞。 The image is being updated with each commit in the master GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. 我們在此標記ASF項目的現時狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
 
 ### `released`
 

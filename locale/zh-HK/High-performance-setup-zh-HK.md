@@ -42,7 +42,7 @@ export COMPlus_gcServer=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-或在 Windows 上（PowerShell）：
+Or on Windows (powershell):
 
 ```powershell
 $Env:COMPlus_gcServer=1

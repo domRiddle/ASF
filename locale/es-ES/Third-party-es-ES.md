@@ -2,7 +2,7 @@
 
 Esta sección incluye varias adiciones de terceros escritos exclusivamente (o principalmente) para usarse junto con ASF. Varian desde plugins de ASF, pasando por aplicaciones web simples y bibliotecas internas para integración, terminando con bots para otras plataformas. Si quieres añadir algo a la lista, haznoslo saber en Discord o en nuestro grupo de Steam.
 
-Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por los desarrolladores de ASF y por consiguiente no damos garantía para ninguno de ellos, especialmente en términos de seguridad, certeza o cumplimiento de los Términos de Servicio de Steam. Esta lista solo se mantiene para referencia. Siempre debes asegurarte que el programas que estás por usar es suficientemente legítimo para ti, ya que los usas bajo tu propio riesgo.
+Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por los desarrolladores de ASF y por consiguiente **no damos garantía para ninguno de ellos**, especialmente en términos de seguridad, certeza o cumplimiento de los Términos de Servicio de Steam. Esta lista solo se mantiene para referencia. Siempre debes asegurarte que la aplicación de terceros que estás por usar es suficientemente legítima para ti, ya que las usas bajo tu propio riesgo.
 
 * * *
 
@@ -21,7 +21,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 ## Integraciones
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot de telegram escrito en python con integración de ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aquellos que quieran enviar ofertas de intercambio automatizadas a los bots en nuestro **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#lista-p%C3%BAblica-asf-stm)** a través del navegador web.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aquellos que quieran enviar ofertas de intercambio automatizadas a los bots en nuestro **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#lista-p%C3%BAblica-asf-stm)** a través del navegador web, sin usar la función `MatchActively` provista por ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro (mínimo) bot de telegram escrito en python con integración de ASF.
 
 * * *

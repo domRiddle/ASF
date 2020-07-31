@@ -1,12 +1,12 @@
-# Steam Token 輸出外掛程式
+# SteamTokenDumperPlugin
 
 `SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
 
 ---
 
-## 啟用外掛程式
+## Enabling the plugin
 
-ASF 釋出時包含 `SteamTokenDumperPlugin` 外掛程式，但是外掛本身預設是關閉的。 您可以將 ASF 全域設定變數`SteamTokenDumperPluginEnabled` 設成 `true` 以啟用外掛程式。JSON 格式:
+ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
 
 ```json
 {
@@ -14,11 +14,11 @@ ASF 釋出時包含 `SteamTokenDumperPlugin` 外掛程式，但是外掛本身�
 }
 ```
 
-在開啟 ASF 時，外掛程式會以標準 ASF 日誌的形式通知是否成功啟用。 您也可以在網頁設定檔產生器中啟用外掛程式。
+On the launch of the ASF program, the plugin will let you know whether it was enabled successfully through standard ASF logging mechanism. You can also enable the plugin through our web-based config generator.
 
 ---
 
-## 技術細節
+## Technical details
 
 Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
 
@@ -28,7 +28,7 @@ The plugin uses a persistent cache database saved in `config/SteamTokenDumper.ca
 
 ---
 
-## 資料
+## Data
 
 ASF includes the contributor `steamID` in the request, which is determined as `SteamOwnerID` that you set in ASF, or in case you didn't, the Steam ID of the bot which owns the most licenses. The announced contributor might receive some additional perks from SteamDB for continuous help (e.g. donator rank on the website), but that is entirely up to SteamDB's discretion.
 

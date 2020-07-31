@@ -2,7 +2,7 @@
 
 本節包括專門（或主要）與 ASF 配合使用的各種第三方工具內容。 它們包括 ASF 外掛程式, 簡單的 Web 應用程式，用於集成的內部庫, 以及適用于各種平台的全能機械人。 如果您想在此清單中添加一些內容, 請在Discord 或我們的 Steam 群組上聯絡我們。
 
-請注意，以下程式 **并非**由 ASF 開發人員維護，因此我們對於其中任何程式的安全性或Steam ToS合規性方面𣎴提供任何擔保。 此清單僅供參考。 您應該始終確保您將要使用的程式對你來說足夠合法，因為在使用所有這些程式時，您需要自行承擔風險。
+Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 此清單僅供參考。 You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
 
 * * *
 
@@ -21,7 +21,7 @@
 ## 集成
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, 以Python 編寫、集成ASF功能的Telegram 機械人。
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, 另一個以Python 編寫、集成ASF基礎功能的(迷你）Telegram 機械人。
 
 * * *

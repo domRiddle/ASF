@@ -40,9 +40,9 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 
 除了上面提到的 Generic 包，我們也提供 `Generic-netf` 包，它基於 .NET 框架（而非 .NET Core）。 該包是一種舊式包，它補全了從 ASF V2 時代即已知的兼容性缺失，並且可以使用 **[Mono](https://www.mono-project.com)** 運行，當前來自 .NET Core 的 `Generic` 包無法用於Mono。
 
-通常，您應該**儘量避免使用此程式包**，因為大多數操作系統都完全（並且更好地）支援上面提到的` Generic `包。 事實上，這個套裝軟件只適用於缺失 .NET Core 運行時環境，但能夠運行 Mono 的平台。 這些平台包含 `linux-x86`（32 位元 i386/i686 Linux），以及 `linux-armel`（Raspberry Pi 0 & 1 等開發板所用的 ARMv6），這些平台目前官方沒有支援 .NET Core 執行階段。
+通常，您應該**儘量避免使用此程式包**，因為大多數操作系統都完全（並且更好地）支援上面提到的` Generic `包。 事實上，這個套裝軟件只適用於缺失 .NET Core 運行時環境，但能夠運行 Mono 的平台。 Examples of such platforms include `linux-x86` (32-bit i386/i686 linux), as well as `linux-armel` (ARMv6 boards found e.g. in Raspberry Pi 0 & 1), all of which do not have official working .NET Core runtime as of today.
 
-隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不兼容，`Generic-netf` 包將會在未來完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 套裝軟件，就不要使用套裝框架，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和兼容性，並且隨著時間的推移，它的功能只會變少。 我們**僅**對無法使用`通用`套件的平台提供此版本的支援（例如 `linux-x86`），並且也僅支援基於最新版本的執行階段（例如最新版 Mono）。
+隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不兼容，`Generic-netf` 包將會在未來完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 套裝軟件，就不要使用套裝框架，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和兼容性，並且隨著時間的推移，它的功能只會變少。 We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
 * * *
 
@@ -53,7 +53,7 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 ASF當前可用於以下操作系統 ：
 
 - `win-x64` 支援 64 位 Windows 操作系統。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，以及未來的版本。
-- `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 包括所有像是 Raspberry Pi 2（或更新版本）的平台可用的 GNU/Linux 作業系統（例如 Raspbian）的當前和未來版本。 This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will not work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspbian), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-x64` 適用於64 位 GNU/Linux 操作系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等操作系統以及它們的衍生版在當前和未來的版本。
 - `osx-x64` 適用於64位 OS X 操作系統。 包括 10.13 及更新版本。
@@ -70,6 +70,6 @@ ASF當前可用於以下操作系統 ：
 
 但是，如果您尝試運行 **Generic** ASF包，則必須確保 ASF 所需的對應平台的 .NET Core 運行時環境已經安裝。
 
-ASF 程式目前的目標是 **.NET Core 3.1**（`netcoreapp3.1`），但在未來可能會以更高版本為目標。 即使 ASF 以**編譯時最新版本的執行階段**為建置目標，`netcoreapp3.1` 從 3.1.100 SDK（3.1.0 執行階段）之後就受支援，所以您應該確保您的機器上有**[最新版本的 SDK](https://dotnet.microsoft.com/download)**（或至少有執行階段）。 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
+ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but it may target newer platform in the future. `netcoreapp3.1` is supported since 3.1.100 SDK (3.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的運行時環境版本低於編譯時已知的最小（目標）変數，Generic ASF 包會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署ASF版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個生成的頂部找到`dotnet--info` 輸出。

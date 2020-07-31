@@ -22,7 +22,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 * * *
 
-## ASF 設定（簡單）
+## ASF setup (easy)
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
@@ -86,7 +86,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-或在 Windows 上（PowerShell）：
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune this one if you're going to use it

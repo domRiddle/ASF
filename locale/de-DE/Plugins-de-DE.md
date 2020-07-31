@@ -44,11 +44,11 @@ Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm">
-      <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
+      <HintPath>C:\\Pfad\Zur\Heruntergeladenen\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
     <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Pfad\Zu\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```

@@ -2,7 +2,7 @@
 
 本章节包括专门或主要与 ASF 搭配使用的各种第三方项目。 其中有 ASF 插件、简单的 Web 应用程序、用于集成的内部库还有适用于各种平台的全功能机器人。 如果您希望向这个列表添加一些项目，请在 Discord 或 Steam 群组上联系我们。
 
-请注意，这些程序**并非**由 ASF 开发者维护，因此我们不会对此作出任何保证，特别是在安全性和 Steam 服务条款方面。 此列表仅供参考。 您应始终确保您要使用的程序对您来说足够合法，因为您需要自行承担使用它们的风险。
+请注意，这些程序**并非**由 ASF 开发者维护，因此**我们不会对此作出任何保证**，特别是在安全性和 Steam 服务条款方面。 此列表仅供参考。 您应始终确保您要使用的第三方工具对您来说足够合法，因为您需要自行承担使用它们的风险。
 
 * * *
 
@@ -21,7 +21,7 @@
 ## 集成
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**，用 Python 编写的，集成 ASF 功能的 Telegram 机器人。
-- **[ASF STM 用户脚本](https://greasyfork.org/zh-CN/scripts/404754-asf-stm)**，使您可以通过浏览器自动向我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)**&#8203;内的机器人发送交易报价。
+- **[ASF STM 用户脚本](https://greasyfork.org/zh-CN/scripts/404754-asf-stm)**，使您可以通过浏览器自动向我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)**&#8203;内的机器人发送交易报价，而无需使用 ASF 提供的 `MatchActively` 功能。
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**，另一个用 Python 编写的集成 ASF 最基本功能的 Telegram 机器人。
 
 * * *

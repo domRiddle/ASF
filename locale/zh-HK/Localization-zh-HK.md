@@ -83,7 +83,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 * * *
 
-## 缺少語言
+## Missing languages
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
 
@@ -91,7 +91,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 * * *
 
-## 複數形式
+## Pluralization
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -119,20 +119,20 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 * * *
 
-### 全域連結
+### Global links
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
 ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
 
-例如，ASF **[首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)** 包含了這條文本：
+For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
 > 如果您是新用戶，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。
 
-原始形式為：
+Which is originally written as:
 
 ```markdown
-如果您是新使用者，我們建議你從**新手上路（https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW）**開始。
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
 On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
@@ -202,7 +202,7 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### 本地連結
+### Local links
 
 Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
@@ -228,7 +228,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 * * *
 
-### 程式碼區塊
+### Code blocks
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 範例：
 
@@ -246,17 +246,17 @@ If you believe that something inappropriate is included in a code block, or that
 
 * * *
 
-## 名人堂
+## Hall of fame
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
-| 貢獻者                                                        | 語言       |
-| ---------------------------------------------------------- | -------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | 西班牙文     |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西） |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）   |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文  |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
+| Contributor                                                | Languages          |
+| ---------------------------------------------------------- | ------------------ |
+| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanish            |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
+| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
 
-感謝你們提升 ASF 的在地化品質！
+Thank you all for improving our ASF localization quality!

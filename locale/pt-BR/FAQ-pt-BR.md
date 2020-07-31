@@ -637,11 +637,11 @@ Esse problema é quase exclusivamente causado pelo serviço do windows `CNG Key 
 
 O ASF usa a publicação de arquivo único em variantes específicas para Sistema Operacional, fazendo com que o aplicativo seja extraído para uma pasta temporária `<tmp>/.net` na inicialização (caso necessário). No Windows, é a pasta `%TEMP%\.net` (geralmente `C:\Users\<SeuUsuário>\AppData\Local\Temp\.net`), no Linux, é `/var/tmp/.net`. A pasta `.net` pode não existir por padrão, ela será criada na primeira vez que for necessária.
 
-First issue is caused by ASF being unable to extract its own files into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
+O primeiro problema é causado por o ASF não poder extrair seus próprios arquivos na pasta, o segundo por uma extração corrompida - provavelmente você fechou o ASF antes que ele fosse capaz de extrair tudo. Geralmente, a solução mais simples para esse problema, seja no Windows ou no Linux, é excluir a pasta `.net` indicado acima e tentar de novo, o que geralmente deve resolver o problema.
 
-ASF process needs write access to the directory specified above. On Windows, this is usually not a problem, but on Linux you must ensure that the user that ASF process is running under has access to `/var/tmp/.net` folder, which is usually the case, but might require from you extra steps in case you're using non-default permissions or likewise.
+O processo do ASF precisa de permissão para gravação na pasta especificada acima. No Windows, geralmente isso não é um problema, mas no Linux você deve se assegurar que o usuário que o processo do ASF está rodando possui acesso ao diretório `/var/tmp/.net`, que é o padrão, porém pode exigir passos extras caso você não esteja usando as permissões padrões ou semelhantes.
 
-Alternatively, you can also set custom `DOTNET_BUNDLE_EXTRACT_BASE_DIR` environment variable which will point to the extraction directory of your choice. This can be especially useful if you don't want ASF to use the default directory for bundle extraction. Keep in mind that same required permissions apply to new location as well.
+Como alternativa, você também pode definir uma variável de ambiente personalizada `DOTNET_BUNDLE_EXTRACT_BASE_DIR`, que apontará para o diretório de extração de sua escolha. Isso pode ser especialmente útil se você não quiser que o ASF use a pasta padrão para extração do pacote. Tenha em mente que as mesmas permissões necessárias também se aplicam à nova localização.
 
 * * *
 

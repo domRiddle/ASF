@@ -14,11 +14,11 @@
 
 ## 常規
 
-### 什麼是 ASF？
+### What is ASF?
 
-### 為什麼程式提示「這個帳戶目前沒有需要掛卡的遊戲」？
+### Why does the program claim that there is nothing to idle on my account?
 
-### 為什麼我的帳戶受限制？
+### Why is my account limited?
 
 在嘗試了解 ASF 之前，您應該先了解什麼是交換卡片以及如何得到它們，這在官方**[常見問題](https://steamcommunity.com/tradingcards/faq)**中有很好的說明。
 
@@ -28,8 +28,8 @@ Core points are stated once again here, because people in general don't want to 
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不算數。**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 擁有免費遊戲不會讓您掉落卡片。**
-- **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 這在過去是有可能的，但現在已經不是這樣了。**
+- **You can't drop cards from F2P games without spending any money in them. 這涉及到永久免費的 F2P 遊戲，如 Team Fortress 2 或 Dota 2。 Owning F2P games does not grant you with card drops.**
+- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. 這在過去是有可能的，但現在已經不是這樣了。**
 - **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. 這在過去是有可能的，但現在已經不是這樣了。**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
@@ -645,7 +645,7 @@ Alternatively, you can also set custom `DOTNET_BUNDLE_EXTRACT_BASE_DIR` environm
 
 * * *
 
-### ASF is being detected as a malware by my AntiVirus! 這是怎麼回事？
+### ASF is being detected as a malware by my AntiVirus! What's going on?
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 

@@ -486,23 +486,23 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 預設值為 `1，3，5` 的 `ImmutableHashSet<byte>` 類型。 This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF將確保交易提案中只包含符合` LootableTypes `的物品，因此，此屬性允許您選擇要在發送給您的交易提案中收到的內容。
 
-| 值  | 名稱                    | 描述                                        |
-| -- | --------------------- | ----------------------------------------- |
-| 0  | Unknown               | 不屬於以下任何類型的類型                              |
-| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                         |
-| 2  | Emoticon              | 在Steam聊天中使用的表情符號                          |
-| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                        |
-| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                      |
-| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                   |
-| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                   |
-| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                          |
-| 8  | Consumable            | 使用後消失的特殊小玩意兒                              |
-| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                       |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                        |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                        |
-| 12 | MiniProfileBackground | Special background for Steam profile      |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile    |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile |
+| 值  | 名稱                    | 描述                                           |
+| -- | --------------------- | -------------------------------------------- |
+| 0  | Unknown               | 不屬於以下任何類型的類型                                 |
+| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                            |
+| 2  | Emoticon              | 在Steam聊天中使用的表情符號                             |
+| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                           |
+| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                         |
+| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                      |
+| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                      |
+| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                             |
+| 8  | Consumable            | 使用後消失的特殊小玩意兒                                 |
+| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                          |
+| 10 | Sticker               | Special items that can be used on Steam chat |
+| 11 | ChatEffect            | Special items that can be used on Steam chat |
+| 12 | MiniProfileBackground | Special background for Steam profile         |
+| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
+| 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
@@ -514,23 +514,23 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 預設值為 `5` 的 `ImmutableHashSet<byte>` 類型。 此屬性定義在啟用` TradingPreferences `中的` SteamTradeMatcher `選項時允許匹配的Steam物品類型。 類型的定義如下：
 
-| 值  | 名稱                    | 描述                                        |
-| -- | --------------------- | ----------------------------------------- |
-| 0  | Unknown               | 不屬於以下任何類型的類型                              |
-| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                         |
-| 2  | Emoticon              | 在Steam聊天中使用的表情符號                          |
-| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                        |
-| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                      |
-| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                   |
-| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                   |
-| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                          |
-| 8  | Consumable            | 使用後消失的特殊小玩意兒                              |
-| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                       |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                        |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                        |
-| 12 | MiniProfileBackground | Special background for Steam profile      |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile    |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile |
+| 值  | 名稱                    | 描述                                           |
+| -- | --------------------- | -------------------------------------------- |
+| 0  | Unknown               | 不屬於以下任何類型的類型                                 |
+| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                            |
+| 2  | Emoticon              | 在Steam聊天中使用的表情符號                             |
+| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                           |
+| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                         |
+| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                      |
+| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                      |
+| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                             |
+| 8  | Consumable            | 使用後消失的特殊小玩意兒                                 |
+| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                          |
+| 10 | Sticker               | Special items that can be used on Steam chat |
+| 11 | ChatEffect            | Special items that can be used on Steam chat |
+| 12 | MiniProfileBackground | Special background for Steam profile         |
+| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
+| 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
 
 當然，通常您應該僅在此屬性中選擇` 2 `，` 3 `，` 4 `和` 5 `， 因為STM只支持這些類型。 ASF包含用於判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也是安全的，因為ASF將認為來自相同遊戲和類型的物品具有相同的稀有性。
 
@@ -709,23 +709,23 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 預設值為 `1，3，5` 的 `ImmutableHashSet<byte>` 類型。 此屬性定義使用`transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**在多個機器人之間進行傳輸時應該考慮哪些Steam物品類型。 ASF將確保交易提案中僅會包含符合` TransferableTypes `的物品，因此該屬性允許您選擇要在發送給您的某個機械人的交易提案中收到的物品。
 
-| 值  | 名稱                    | 描述                                        |
-| -- | --------------------- | ----------------------------------------- |
-| 0  | Unknown               | 不屬於以下任何類型的類型                              |
-| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                         |
-| 2  | Emoticon              | 在Steam聊天中使用的表情符號                          |
-| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                        |
-| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                      |
-| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                   |
-| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                   |
-| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                          |
-| 8  | Consumable            | 使用後消失的特殊小玩意兒                              |
-| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                       |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                        |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                        |
-| 12 | MiniProfileBackground | Special background for Steam profile      |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile    |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile |
+| 值  | 名稱                    | 描述                                           |
+| -- | --------------------- | -------------------------------------------- |
+| 0  | Unknown               | 不屬於以下任何類型的類型                                 |
+| 1  | BoosterPack           | 包含3張來自同一遊戲的卡片的擴充包                            |
+| 2  | Emoticon              | 在Steam聊天中使用的表情符號                             |
+| 3  | FoilTradingCard       | 閃亮類型的`TradingCard`                           |
+| 4  | ProfileBackground     | 可在您的Steam個人資料頁中使用的背景                         |
+| 5  | TradingCard           | Steam交易卡片，可用於合成徽章 (非閃卡）                      |
+| 6  | SteamGems             | 用於製作擴充包的 Steam 寶石，包括寶石袋                      |
+| 7  | SaleItem              | Steam特賣期間獲得的特殊物品                             |
+| 8  | Consumable            | 使用後消失的特殊小玩意兒                                 |
+| 9  | 個人檔案修改器               | 可以修改Steam設定檔外觀的特殊物品                          |
+| 10 | Sticker               | Special items that can be used on Steam chat |
+| 11 | ChatEffect            | Special items that can be used on Steam chat |
+| 12 | MiniProfileBackground | Special background for Steam profile         |
+| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
+| 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
