@@ -86,7 +86,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Оператор`          | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
 | `reset [Bots]`                                                       | `Master`            | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
 | `рестарт`                                                            | `Собственик`        | Restarts ASF process.                                                                                                                                                                                                                                                                                                               |
-| `продължи [Bots]`                                                    | `FamilySharing`     | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
+| `продължи [Bots]`                                                    | `Семейно Споделяне` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
 | `стартирай [Bots]`                                                   | `Master`            | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
 | `стaтистики`                                                         | `Собственик`        | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
 | `статус [Bots]`                                                      | `Семейно Споделяне` | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
@@ -200,10 +200,10 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Пример       | Description                                                             |
+| Type  | Alias | Пример       | Описание                                                                |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| `app` | `а`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `с`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -221,7 +221,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Пример           | Description                                                                                                                                                                                                                                                             |
+| Type    | Alias | Пример           | Описание                                                                                                                                                                                                                                                                |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `а`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
 | `sub`   | `с`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
@@ -244,7 +244,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Стойност | Име                   | Description                                                                     |
+| Стойност | Име                   | Описание                                                                        |
 | -------- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK     | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD       | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
@@ -273,7 +273,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Type                    | Описание                                                                   |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Парола                  | `SteamPassword` bot config property, if missing from config.               |
