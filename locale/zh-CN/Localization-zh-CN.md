@@ -79,7 +79,7 @@
 
 您选择的语言可能有合适的审校者进行验证翻译并批准最终版本的工作。 这是一条翻译诞生后面对的最后一关，可以进一步改进本地化。
 
-ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 100% 翻译。 实际选择的文本通常是当时得票数最多的一个，除非有审校者选择了另一个（罕见）。 因而，只要在 Crowdin 上提交翻译，您就可以在下一个 ASF 版本中看到您的工作成果——通常我们会在将要发布 ASF 新版本时合并本地化更新。
+ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 100% 翻译。 实际选择的文本通常是当时得票数最多的一个，除非有审校者选择了另一个（罕见）。 Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.
 
 * * *
 

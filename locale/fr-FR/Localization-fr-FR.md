@@ -87,7 +87,7 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <p>Selected languages may have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.</p>
 
-<p>ASF will include given language <strong>as soon as possible</strong>, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts included in the very next ASF release, as soon as translation is pushed to Crowdin - we typically merge localization updates the moment we're about to release new ASF version.</p>
+<p>ASF will include given language <strong>as soon as possible</strong>, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.</p>
 
 <hr />
 

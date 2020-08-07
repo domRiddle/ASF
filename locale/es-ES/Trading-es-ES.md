@@ -6,7 +6,7 @@ ASF incluye soporte para intercambios de Steam no interactivos (offline). Tanto 
 
 ## Lógica
 
-ASF siempre aceptará todos los intercambios, independientemente de los artículos, enviados por el usuario con acceso `Master` (o superior) al bot. Esto permite no solo "lootear" fácilmente los cromos recolectados por el bot, sino también administrar fácilmente los artículos que el bot almacena en el inventario.
+ASF siempre aceptará todos los intercambios, independientemente de los artículos, enviados por el usuario con acceso `Master` (o superior) al bot. Esto permite no solo "lootear" fácilmente los cromos recolectados por el bot, sino también administrar fácilmente los artículos que el bot almacena en el inventario - incluyendo los de otros juegos (como CS:GO).
 
 ASF rechazará ofertas de intercambio, independientemente del contenido, de cualquier usuario (no master) que esté bloqueado del módulo de intercambios. La lista negra de usuarios bloqueados se almacena en la base de datos estándar `BotName.db`, y puede ser administrada por medio de los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `bl`, `bladd` y `blrm`. Esto debería funcionar como una alternativa al bloqueo de usuarios que ofrece Steam - usar con precaución.
 
@@ -35,9 +35,9 @@ Es agradable notar que ASF también soporta sobrepagos - la lógica funcionará 
 
 Los primeros 4 predicados de rechazo deberían ser obvios para todos. El último incluye lógica de duplicados que comprueba el estado actual de nuestro inventario y decide cuál es el estatus del intercambio.
 
-- Un intercambio es **bueno** si nuestro progreso hacia completar el set avanza. A A (antes) <-> A B (después)
-- Un intercambio es **neutral** si nuestro progreso hacia completar el set se mantiene intacto. A B (antes) <-> A C (después)
-- Un intercambio es **malo** si nuestro progreso hacia completar el set retrocede. A C (antes) <-> A A (después)
+- Un intercambio es **bueno** si nuestro progreso hacia completar el set avanza. Ejemplo A A (antes) <-> A B (después)
+- Un intercambio es **neutral** si nuestro progreso hacia completar el set se mantiene intacto. Ejemplo: A B (antes) <-> A C (después)
+- Un intercambio es **malo** si nuestro progreso hacia completar el set retrocede. Ejemplo: A C (antes) <-> A A (después)
 
 STM solo opera con intercambios buenos, lo que significa que un usuario utilizando STM para emparejar duplicados siempre debería sugerirnos intercambios buenos. Sin embargo, ASF es liberal, y también acepta intercambios neutrales, porque en esos intercambios realmente no estamos perdiendo nada, así que hay una razón real para rechazarlos. Esto es especialmente útil para tus amigos, ya que pueden cambiar tus cromos excesivos sin usar STM en absoluto, siempre y cuando no pierdas tu progreso hacia el set.
 

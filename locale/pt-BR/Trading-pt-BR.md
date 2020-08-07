@@ -6,7 +6,7 @@ O ASF possui suporte não interativo (offline) para trocas Steam. Tanto receber 
 
 ## Lógica
 
-O ASF sempre aceitará todas as trocas, independente dos itens, enviadas pelo usuário com acesso `Master` (ou superior) ao bot. Isso permite não apenas pegar facilmente as cartas obtidas pela conta bot como também ajuda a administrar de forma fácil os itens que o bot guarda no inventário.
+O ASF sempre aceitará todas as trocas, independente dos itens, enviadas pelo usuário com acesso `Master` (ou superior) ao bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 O ASF rejeitará a oferta de troca, independente do conteúdo, de qualquer usuário (não Master) que esteja na lista negra do módulo de trocas. A lista negra é armazenada no banco de dados padrão `BotName.db` e pode ser gerenciada através dos **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `bl`, `bladd` e `blrm`. Isso deve funcionar como um alternativa ao bloqueio de usuário padrão da Steam - use com cautela.
 
@@ -35,9 +35,9 @@ Quando o `SteamTradeMatcher` estiver ativo, o ASF usará um algorítimo um tanto
 
 Os 4 primeiros atributos devem ser óbvios para todos. A última inclui uma lógica para cartas duplicadas que analisa o estado atual do nosso inventário e decide qual é o status da troca.
 
-- A troca é **boa** se aumentar nosso progresso em busca de completar o set. A A (antes) <-> A B (depois)
-- A troca é **neutra** se nosso progresso em busca de completar o set continuar o mesmo. A B (antes) <-> A C (depois)
-- A troca é **ruim** se diminuir nosso progresso em busca de completar o set. A C (antes) <-> A A (depois)
+- A troca é **boa** se aumentar nosso progresso em busca de completar o set. Example: A A (before) <-> A B (depois)
+- A troca é **neutra** se nosso progresso em busca de completar o set continuar o mesmo. Example: A B (before) <-> A C (depois)
+- A troca é **ruim** se diminuir nosso progresso em busca de completar o set. Example: A C (before) <-> A A (depois)
 
 O STM só opera em trocas boas, o que significa que o usuário que estiver usando o STM para juntar cartas duplicadas deve sempre nos sugerir apenas trocas boas. No entanto, o ASF é liberal, e também aceita trocas neutras, já que nessas trocas não perdemos nada, então não há nenhuma razão para rejeitá-las. Isso é especialmente útil para os seus amigos, uma vez que eles podem trocar suas cartas extras sem usar o STM, contanto que você não esteja perdendo o progresso para completar a insígnia.
 

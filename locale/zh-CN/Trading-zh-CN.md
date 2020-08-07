@@ -6,7 +6,7 @@ ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）�
 
 ## 逻辑
 
-ASF 将始终接受来自机器人 `Master`（或更高权限）帐户的交易，无论交易物品是什么。 这样可以很方便地拾取由机器人实例挂到的卡牌，也可以轻松管理机器人库存内存储的物品。
+ASF 将始终接受来自机器人 `Master`（或更高权限）帐户的交易，无论交易物品是什么。 This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
 
@@ -35,9 +35,9 @@ ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `Trad
 
 前 4 种驳回条件应该是显而易见的。 最后一种条件则包含重复检查逻辑：检查我们当前的库存状态来决定交易的状态。
 
-- 如果交易倾向于增加您的卡牌套组收集进度，则视为**有利**。 A A（交易前） <-> A B（交易后）
-- 如果交易不会影响您的卡牌套组收集进度，则视为**平衡**。 A B（交易前） <-> A C（交易后）
-- 如果交易倾向于减少您的卡牌套组收集进度，则视为**不利**。 A C（交易前） <-> A A（交易后）
+- 如果交易倾向于增加您的卡牌套组收集进度，则视为**有利**。 Example: A A (before) <-> A B（交易后）
+- 如果交易不会影响您的卡牌套组收集进度，则视为**平衡**。 Example: A B (before) <-> A C（交易后）
+- 如果交易倾向于减少您的卡牌套组收集进度，则视为**不利**。 Example: A C (before) <-> A A（交易后）
 
 STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹配的用户只能向我们推荐对我们有利的交易。 然而，ASF 更加宽松，它也接受平衡交易，因为在这种交易中我们实际上并没有任何损失，所以没有理由拒绝它们。 这对朋友之间的交易特别有用，因为他们可以在不使用 STM 的情况下与您交换多余的卡牌，只要这不会导致您损失卡牌收集进度。
 

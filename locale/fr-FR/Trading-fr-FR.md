@@ -6,7 +6,7 @@ ASF inclut la prise en charge des échanges non interactifs (hors ligne) de Stea
 
 ## Logique
 
-ASF acceptera toujours tous les échanges, quels que soient les éléments, envoyés par les utilisateurs ayant un accès ` Master</ 0> (ou supérieur) au bot. Cela permet non seulement de loot facilement les cartes Steam acquises par le bot, mais également de gérer facilement les objets Steam stockés dans l'inventaire.</p>
+ASF acceptera toujours tous les échanges, quels que soient les éléments, envoyés par les utilisateurs ayant un accès ` Master</ 0> (ou supérieur) au bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).</p>
 
 <p>ASF rejettera l'offre d'échange, quel que soit le contenu, de tout utilisateur (non master) inscrit sur la liste noire à partir du système d'échange. La liste noire est stockée dans la base de données standard <code> BotName.db </ 0> et peut être gérée via les <1 > commandes</ 1> : <code> bl </ 0>, <code> bladd </ 0> et <code> blrm </ 0> . Cela devrait servir comme une alternative au blocage utilisateur standard offert par Steam - à utiliser avec prudence.</p>
 
@@ -40,9 +40,9 @@ Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez c
 <p>Les 4 premiers motifs de rejet devraient être évidents pour tout le monde. Le dernier comprend la logique des  doubles qui vérifie l’état actuel de nos stocks et décide de l’état du commerce.</p>
 
 <ul>
-<li>Le commerce est <strong> bon </ 0> si nos progrès vers l’achèvement fixé progressent. A A (avant)  <-> A B (après)</li>
-<li>Le commerce est <strong> bon </ 0> si nos progrès vers l’achèvement fixé progressent. A B (avant)  <->  A C (après)</li>
-<li>Le commerce est <strong> mauvais </ 0> si nos progrès vers l’achèvement des objectifs fixés diminuent. A C (avant)  <->  A A(après)</li>
+<li>Le commerce est <strong> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A A (before) <-> A B (après)</li>
+<li>Le commerce est <strong> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A B (before) <->  A C (après)</li>
+<li>Le commerce est <strong> mauvais </ 0> si nos progrès vers l’achèvement des objectifs fixés diminuent. Example: A C (before) <->  A A(après)</li>
 </ul>
 
 <p>STM ne fonctionne que sur des offres correct, ce qui signifie que l'utilisateur qui utilise STM pour les doubles devrait toujours suggérer que des offres correct nous. Cependant, ASF est  indulgent et accepte également les transactions neutres, car dans ces transactions, nous ne perdons rien, il n’y a donc aucune raison de les refuser. Ceci est particulièrement utile pour vos amis, car ils peuvent échanger vos cartes en trop sans utiliser la technologie STM, tant que vous ne perdez pas la progression définie.</p>

@@ -6,7 +6,7 @@ ASF支援Steam非互動式（離線）交易。 您可以即刻收到（接受/�
 
 ## 邏輯
 
-ASF 將始終接受所有來自對機械人有`Master`（或更高）訪問權限的用戶的交易項目。 這不僅可以輕鬆地拾取機械人實例的掛卡所獲（Steam卡片），還可以輕鬆地管理機械人物品庫中的Steam物品。
+ASF 將始終接受所有來自對機械人有`Master`（或更高）訪問權限的用戶的交易項目。 This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）的交易報價，無論其內容如何。 黑名單存儲在標準 `BotName.db` 數據庫中，可通過 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** 進行管理。 這應該可以替代Steam 提供的標準用戶屏蔽模塊，請謹慎使用。
 
@@ -35,9 +35,9 @@ ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）�
 
 前4個拒絕相關的判斷條件是有目共見的。 最後一個包括實際上重覆的邏輯，用於檢查我們的庫存狀態，並決定交易狀態。
 
-- 如果我們的收集度取得進展，交易**有利**。 A A（交易前） <-> A B（交易後）
-- 如果我們的收集度維持現狀，交易**中立**。 A B（交易前） <-> A C（交易後）
-- 如果我們的收集度出現倒退，交易**不利**。 A C（交易前） <-> A A（交易後）
+- 如果我們的收集度取得進展，交易**有利**。 Example: A A (before) <-> A B（交易後）
+- 如果我們的收集度維持現狀，交易**中立**。 Example: A B (before) <-> A C（交易後）
+- 如果我們的收集度出現倒退，交易**不利**。 Example: A C (before) <-> A A（交易後）
 
 STM 的運行規則僅會匹配對我們有利的交易，這意味著將 STM 用於匹配冗餘卡片的用戶總會發起對我們有利的交易。 然而，ASF 更加包容，它也接受中立的交易 ，因為在這些交易中，我們實際上並沒有任何損失，所以沒有必要拒絕它們。 這對朋友間的交易特別有用，因為他們可以在不使用 STM 的情況下交換您的冗餘卡片，而不會影響您的卡牌收集進度。
 

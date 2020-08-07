@@ -79,7 +79,7 @@ El idioma se considera **traducido** cuando su progreso de traducción alcanza e
 
 Algunos idiomas seleccionados pueden tener "proof-readers" que validen las traducciones y aprueben las versiones finales. Este es el paso final después de la traducción y permite mejorar aún más la localización.
 
-ASF incluirá un idioma determinado **tan pronto como sea posible**, esto significa que no tiene que estar aprobado, o traducido al 100%. Las cadenas actuales que serán usadas siempre son las más populares en términos de votos, a menos que el "proofreader" elegido decida lo contrario (rara vez). Por lo tanto, puedes ver tus esfuerzos incluidos en la próxima versión de ASF, tan pronto como la traducción sea llevada a Crowdin - normalmente fusionamos las actualizaciones de localización cuando estamos a punto de publicar una nueva versión de ASF.
+ASF incluirá un idioma determinado **tan pronto como sea posible**, esto significa que no tiene que estar aprobado, o traducido al 100%. Las cadenas actuales que serán usadas siempre son las más populares en términos de votos, a menos que el "proofreader" elegido decida lo contrario (rara vez). Por lo tanto, puedes ver tus esfuerzos incluidos en la próxima versión de ASF - nuestros sistemas de automatización aplican las traducciones de Crowdin al repositorio de ASF diariamente.
 
 * * *
 

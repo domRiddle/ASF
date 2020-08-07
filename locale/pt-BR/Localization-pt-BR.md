@@ -79,7 +79,7 @@ Um idioma é considerado **traduzido** quando o processo de tradução atinge 10
 
 Os idiomas selecionados podem ter revisores apropriados que validam as traduções e aprovam as versões finais. Esse é o último passo da tradução e permite melhorar ainda mais a localização.
 
-ASF incluirá determinado idioma **logo que possível**, o que significa que ele não precisa ser aprovado nem 100% traduzido. As frases que serão usadas são sempre as mais populares em termos de votos, a não ser que o revisor escolhido decida outra coisa (raramente). Portanto, você pode ver seus esforços incluídos na próxima versão do ASF, tão logo a tradução apareça no Crowdin - geralmente incluímos atualizações de localização no momento em que vamos lançar a nova versão do ASF.
+ASF incluirá determinado idioma **logo que possível**, o que significa que ele não precisa ser aprovado nem 100% traduzido. As frases que serão usadas são sempre as mais populares em termos de votos, a não ser que o revisor escolhido decida outra coisa (raramente). Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.
 
 * * *
 

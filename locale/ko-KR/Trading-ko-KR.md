@@ -6,7 +6,7 @@ ASF는 Steam 비-대화형(오프라인) 거래를 지원합니다. 거래를 �
 
 ## 논리구조
 
-ASF는 `주인(Master)` 혹은 그 이상의 봇 접근권한을 가진 사용자가 보낸 모든 거래를 항목에 상관없이 수락합니다. 이렇게 해서 봇 인스턴스에서 농사지은 Steam 카드를 쉽게 가져올 수 있고 봇이 보관함에 가지고 있는 Steam 항목을 쉽게 관리할 수 있습니다.
+ASF는 `주인(Master)` 혹은 그 이상의 봇 접근권한을 가진 사용자가 보낸 모든 거래를 항목에 상관없이 수락합니다. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF는 거래 모듈의 블랙리스트에 오른 주인이 아닌 모든 사용자로부터의 거래 제안을 내용과 상관없이 거절합니다. 블랙리스트는 표준 `봇이름.db` 데이터베이스에 저장되며 `bl`, `bladd`, `blrm` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)**로 관리할 수 있습니다. 이는 Steam이 제공하는 표준 사용자 차단의 대안으로써 작동하므로 사용에 주의하시기 바랍니다.
 
@@ -35,9 +35,9 @@ ASF가 과지급을 지원함을 알아두십시오. 이 논리구조는 위의 
 
 처음 4개의 거절 조건은 모두에게 명백해야 합니다. 마지막 거절 조건은 우리 보관함의 현재 상태를 확인하고 거래 상태를 결정하는 실제 중복 논리구조를 포함합니다.
 
-- 세트 완성 진행도가 증가했다면 이 거래는 **좋음(good)** 입니다. A A (거래 전) <-> A B (거래 후)
-- 세트 완성 진행도가 현상태 그대로라면 이 거래는 **중립(neutral)** 입니다. A B (거래 전) <-> A C (거래 후)
-- 세트 완성 진행도가 감소했다면 이 거래는 **나쁨(bad)** 입니다. A C (거래 전) <-> A A (거래 후)
+- 세트 완성 진행도가 증가했다면 이 거래는 **좋음(good)** 입니다. Example: A A (before) <-> A B (거래 후)
+- 세트 완성 진행도가 현상태 그대로라면 이 거래는 **중립(neutral)** 입니다. Example: A B (before) <-> A C (거래 후)
+- 세트 완성 진행도가 감소했다면 이 거래는 **나쁨(bad)** 입니다. Example: A C (before) <-> A A (거래 후)
 
 STM은 좋음 거래만 수행합니다. 즉, 중복 매칭을 위해 STM을 사용하는 사용자는 우리에게는 항상 좋음 거래만 제안할 것입니다. 하지만 ASF는 자유민주주의라서 중립 거래도 수락합니다. 중립 거래는 실제로 우리가 잃는것이 없기 때문에, 거절할 이유가 없습니다. 이는 당신의 친구들에게 특히 유용합니다. 그들은 STM을 전혀 사용하지 않고도 당신의 과도한 카드를 교환할 수 있습니다. 당신의 세트 완성 진행도도 떨어지지 않습니다.
 
