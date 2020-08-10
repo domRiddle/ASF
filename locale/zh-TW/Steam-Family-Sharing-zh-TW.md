@@ -18,4 +18,4 @@ Connecting both functionalities described above allows your friends to `pause~` 
 
 ## 限制
 
-Steam 網路喜歡廣播錯誤的狀態更新誤導 ASF，這可能導致 ASF 認為可以恢復掛卡，導致您的朋友被踢出遊戲。 這與我們已經在 **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)** 解釋的是相同問題。 We recommend exactly the same solutions, mainly promoting your friend to `Operator` permission (or above) and telling him to make use of `pause` and `resume` commands.
+Steam 網路喜歡廣播錯誤的狀態更新誤導 ASF，這可能導致 ASF 認為可以恢復掛卡，導致您的朋友被踢出遊戲。 這與我們已經在 **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)** 解釋的是相同問題。 We recommend exactly the same solutions, mainly promoting your friends to `Operator` permission (or above) and telling them to make use of `pause` and `resume` commands.

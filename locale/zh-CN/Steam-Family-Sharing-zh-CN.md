@@ -18,4 +18,4 @@ ASF 包括适当的逻辑，以便知道游戏库被家庭共享用户锁定，�
 
 ## 限制
 
-Steam 网络经常广播错误的状态更新误导 ASF，这可能导致 ASF 认为可以恢复挂卡过程，结果导致踢出您的朋友。 这与我们在&#8203;**[此条常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#在我玩游戏的时候asf-将我的-steam-客户端踢掉线--this-account-is-logged-on-another-pc这个帐户在另一台电脑登录)**&#8203;中解释的情况完全相同。 我们建议的解决方案也完全相同，主要是为您的好友授予 `Operator` 或更高权限，并告诉他们使用 `pause` 和 `resume` 命令。
+Steam 网络经常广播错误的状态更新误导 ASF，这可能导致 ASF 认为可以恢复挂卡过程，结果导致踢出您的朋友。 这与我们在&#8203;**[此条常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN#在我玩游戏的时候asf-将我的-steam-客户端踢掉线--this-account-is-logged-on-another-pc这个帐户在另一台电脑登录)**&#8203;中解释的情况完全相同。 We recommend exactly the same solutions, mainly promoting your friends to `Operator` permission (or above) and telling them to make use of `pause` and `resume` commands.
