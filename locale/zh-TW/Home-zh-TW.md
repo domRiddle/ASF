@@ -8,6 +8,6 @@
 
 如果您是新使用者，我們建議你從**[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)**開始。 你可以在螢幕右側的側邊欄找到其他所有相關的 Wiki 頁面。 ASF 的知識是無限的，請隨意閱讀您感興趣的內容，但我們建議從頭開始閱讀。
 
-如果您需要進一步幫助，請造訪我們用於所有問題和技術性困難的**[支援頻道](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)**。
+如果您需要進一步幫助，請造訪我們用於所有問題和技術性困難的**[支援頻道](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**。
 
-GitHub 的 **[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 頁面用於 ASF 開發，特別是程式錯誤和改善的事項。 因為 GitHub **不**是一般的支援頻道，所以對於 Issues 我們有非常嚴格的政策：Issues 頁面專用於 ASF 開發，我們不會在此答覆一般的 ASF 問題，請前往**[支援頻道](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/SUPPORT.md)**提問。 如果不確定您的問題是否與 ASF 的開發有關係，建議您使用支援頻道。 無效的 GitHub issue 將會被立即關閉且不會得到回答。
+GitHub 的 **[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 頁面用於 ASF 開發，特別是程式錯誤和改善的事項。 因為 GitHub **不**是一般的支援頻道，所以對於 Issues 我們有非常嚴格的政策：Issues 頁面專用於 ASF 開發，我們不會在此答覆一般的 ASF 問題，請前往**[支援頻道](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**提問。 如果不確定您的問題是否與 ASF 的開發有關係，建議您使用支援頻道。 無效的 GitHub issue 將會被立即關閉且不會得到回答。

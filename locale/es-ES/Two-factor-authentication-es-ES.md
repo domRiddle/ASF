@@ -2,7 +2,7 @@
 
 Hace un tiempo Valve introdujo un sistema conocido como "Escrow" que requiere autenticación adicional para varias actividades relacionadas con la cuenta. Puedes leer más al respecto **[aquí](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** y **[aquí](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Es crucial entender primero el sistema 2FA, antes de intentar entender la lógica detrás de ASF 2FA.
 
-Ahora, como puedes ver todos los intercambios son retenidos hasta por 15 días, lo que no es un problema mayor en lo que respecta a nuestro ASF, especialmente para aquellos que quieres automatización completa. Afortunadamente, ASF incluye una solución a ese problema, llamada ASF 2FA.
+Ahora, como puedes ver todos los intercambios son retenidos hasta por 15 días, lo que no es un problema mayor en lo que respecta a nuestro ASF, especialmente para aquellos que quieren una automatización completa. Afortunadamente, ASF incluye una solución a ese problema, llamada ASF 2FA.
 
 * * *
 
@@ -14,7 +14,7 @@ Independientemente de si usas o no ASF 2FA explicado abajo, ASF incluye lógica 
 
 # ASF 2FA
 
-ASF 2FA es un módulo integrado responsable de proveer características 2FA al proporcionar de ASF, tal como generar códigos y aceptar confirmaciones. Este duplica tu autentificador existente, para que puedas usar tu autenticador actual y ASF 2FA al mismo tiempo.
+ASF 2FA es un módulo integrado responsable de proveer características 2FA al proceso de ASF, tal como generar códigos y aceptar confirmaciones. Este duplica tu autentificador existente, para que puedas usar tu autenticador actual y ASF 2FA al mismo tiempo.
 
 Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` no serán operativos, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco está disponible para las características avanzadas de ASF que requieren que el módulo esté operativo.
 
