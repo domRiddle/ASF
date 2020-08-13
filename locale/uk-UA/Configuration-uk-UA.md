@@ -220,7 +220,7 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `SteamMessagePrefix`
 
-параметр типу `string` зі значенням за замовчуванням `"/me"`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
+параметр типу `string` зі значенням за замовчуванням `"/me"`. Цей параметр визначає префікс, який додаватиметься до усіх повідомлень Steam, які відправляє ASF. За замовчуванням ASF використовує префікс `"/me "`, щоб повідомлення від ботів було легше відрізнити у чаті Steam за іншим кольором. Інша гарна можливість - це префікс `"/pre "`, який дає подібний результат, але використовує інше форматування. Ви також можете встановити цьому параметру значення `null` або порожній рядок, щоб цілком вимкнути будь-які префікси та відображати повідомлення від ASF як звичайні. Варто додати, що цей параметр впливає лише на повідомлення у Steam - відповіді, отримані у інший спосіб (наприклад крізь IPC) не змінюються. Якщо ви не хочете змінювати стандартну поведінку ASF - варто залишити його значення за замовчуванням.
 
 * * *
 
