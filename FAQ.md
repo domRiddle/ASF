@@ -634,7 +634,7 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 ---
 
-### A fatal error was encountered. Could not extract contents of the bundle
+### `A fatal error was encountered. Could not extract contents of the bundle`
 
 ### `System.BadImageFormatException: Could not load file or assembly`
 
