@@ -638,6 +638,8 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 ### `System.BadImageFormatException: Could not load file or assembly`
 
+### `System.IO.FileNotFoundException: Could not load file or assembly`
+
 ASF is using single-file publishing in OS-specific variants, which causes the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%\.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`. The `.net` directory might not exist by default, it will be created the first time it's needed.
 
 First issue is caused by ASF being unable to extract its own files into the directory, second one by corrupted extraction - most likely you killed ASF before it was able to extract everything. Usually, the simplest solution to this issue, whether on Windows or Linux, is deleting the temporary `.net` directory stated above and trying again, which usually should fix the problem.
