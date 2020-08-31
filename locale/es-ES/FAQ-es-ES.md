@@ -27,7 +27,7 @@ En breve, los cromos de Steam son artículos coleccionables para los que eres el
 Los puntos principales se repiten aquí, porque la gente en general no quiere aceptarlos y le gusta pretender que no existen:
 
 - **Necesitas poseer el juego en tu cuenta de Steam para poder obtener cromos de él. El préstamo familiar no cuenta.**
-- **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, fabricado u olvidado lo que ocurrió con las cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego está terminado.**
+- **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te concede cromos obtenibles.**
 - **No puedes obtener cromos en [cuentas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), independientemente de los juegos que tengan. Antes era posible, para ya no es el caso.**
 - **Los juegos de paga que obtengas gratis durante una promoción no pueden ser recolectados para obtener cromos, independientemente de lo que se muestre en la página de la tienda. Antes era posible, para ya no es el caso.**
@@ -603,7 +603,7 @@ Finalmente, como con cada solicitud de Steam - ASF solo puede **intentar** inici
 
 Si este error ocurrió durante la entrada de ASF (por ejemplo, puedes ver `Console.ReadLine()` en el stacktrace) entonces es causado por tu entorno el cual impide que ASF lea la entrada estándar de tu consola. Esto puede ocurrir debido a muchas razones, pero la más común es que ejecutes ASF en el entorno incorrecto (por ejemplo, en `nohup` o `&` en segundo plano en lugar de `screen` en Linux). Si ASF no puede acceder a su entrada estándar, entonces verás este error registrado y la incapacidad de ASF de usar tus datos durante el tiempo de ejecución.
 
-Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en un entorno sin entrada, entonces debes indicarle explícitamente a ASF que ese es el caso, estableciendo correctamente el modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)**.
+Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en un entorno sin entrada, entonces debes indicarle explícitamente a ASF que ese es el caso, estableciendo correctamente el modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)**. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
 
 * * *
 
@@ -631,9 +631,11 @@ Este problema es casi exclusivamente causado por el servicio de Windows `CNG Key
 
 * * *
 
-### Se ha encontrado un error fatal. No se pudo extraer el contenido del paquete
+### `Se ha encontrado un error fatal. No se pudo extraer el contenido del paquete`
 
 ### `System.BadImageFormatException: Could not load file or assembly`
+
+### `System.IO.FileNotFoundException: Could not load file or assembly`
 
 ASF utiliza la publicación de un solo archivo en las variantes de sistema operativo específico, lo que causa que la aplicación sea extraída temporalmente a una ubicación `<tmp>/.net` durante el inicio (si es necesario). En Windows, esta es `%TEMP%\.net` (normalmente `C:\Users\<YourUser>\AppData\Local\Temp\.net`), en Linux, es `/var/tmp/.net`. El directorio `.net` podría no existir por defecto, será creado la primera que sea necesario.
 

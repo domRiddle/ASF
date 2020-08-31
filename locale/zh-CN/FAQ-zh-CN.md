@@ -27,7 +27,7 @@
 我需要在这里再次强调卡牌机制的核心要点，因为人们通常会反对并且无视这些事实：
 
 - **您需要在自己的 Steam 帐户上拥有相应游戏，才有资格获得此游戏掉落的卡牌。 家庭共享的游戏不算在内。**
-- **您不能无限挂卡，每款游戏只会掉落固定数量的卡牌。 一旦您挂完了所有可掉落的卡牌（整套卡牌的一半），这款游戏就无法再挂卡。 无论您是否出售、合成或对您已获得的卡牌进行任何操作，一旦卡牌掉落完毕，这款游戏就算挂完了。**
+- **您不能无限挂卡，每款游戏只会掉落固定数量的卡牌。 一旦您挂完了所有可掉落的卡牌（整套卡牌的一半），这款游戏就无法再挂卡。 不管您是否出售、合成或对您已获得的卡牌进行其他任何操作，一旦卡牌掉落完毕，这款游戏就算挂完了。**
 - **如果您不在免费游戏中消费，就无法从中获得卡牌掉落。 这一点涉及到永久免费的游戏，例如 Team Fortress 2 或 Dota 2。 拥有免费游戏不会给您带来卡牌掉落。**
 - **[受限帐户](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663)&#8203;无法掉落卡牌，无论其是否拥有游戏。 在过去不是这样，但是现在情况发生了变化。**
 - **您在促销活动期间获得的付费游戏无法掉落卡牌，无论其商店页面显示为何。 在过去不是这样，但是现在情况发生了变化。**
@@ -603,7 +603,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 如果此错误发生在 ASF 等待输入的过程中（例如，您在堆栈跟踪信息中看到了 `Console.ReadLine()`），则它是由您的环境导致的，您的环境禁止 ASF 读取控制台标准输入。 这可能由多种原因造成，但最常见的原因是您在错误的环境中运行 ASF（例如，在 Linux 上使用 `nohup` 或 `&` 符号使其在后台运行，而没有使用 `screen`）。 如果 ASF 无法访问标准输入，您就会看到此错误日志，并且 ASF 无法在运行时向您询问信息。
 
-如果您**期望**发生这种情况，即您**有意**使 ASF 在无输入环境下运行，那么您就应该正确设置 **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless)** 模式，明确地告诉 ASF 这一点。
+如果您**期望**发生这种情况，即您**有意**使 ASF 在无输入环境下运行，那么您就应该正确设置 **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless)** 模式，明确地告诉 ASF 这一点。 这将会使 ASF 在任何情况下都不会要求用户进行输入，允许您在无输入环境中安全运行 ASF。
 
 * * *
 
@@ -631,9 +631,11 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 * * *
 
-### A fatal error was encountered. Could not extract contents of the bundle（发生致命错误，无法解压包内容）
+### `A fatal error was encountered. Could not extract contents of the bundle（发生致命错误，无法解压包内容）`
 
 ### `System.BadImageFormatException: 未能加载文件或程序集`
+
+### `System.IO.FileNotFoundException：未找到文件`
 
 ASF 使用单文件发布操作系统包，导致应用如有需要，就会在在启动时将自身解压到临时的 `<tmp>/.net` 目录。 在 Windows 上，这个目录是 `%TEMP%\.net`（通常是 `C:\Users\<YourUser>\AppData\Local\Temp\.net`），在 Linux 上，这个目录是 `/var/tmp/.net`。 `.net` 目录默认不存在，程序会在第一次使用时尝试创建它。
 

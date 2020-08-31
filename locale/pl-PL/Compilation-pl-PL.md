@@ -1,8 +1,8 @@
 # Kompilacja
 
-Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
+Kompilacja to proces tworzenia pliku wykonywalnego. To jest to co chcesz zrobić, jeśli chcesz dodać własne zmiany do ASF, lub jeśli z jakiegokolwiek powodu nie ufasz plikom wykonywalnym dostarczonym w oficjalnym **[wydaniu](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. Jeśli jesteś zwykłym użytkownikiem a nie programistą, najprawdopodobniej chcesz używać już skompilowanych plików binarnych. Jeśli jednak chcesz skorzystać ze swoich własnych plików lub nauczyć się czegoś nowego, kontynuuj czytanie tego artykułu.
 
-ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
+ASF może być skompilowany na każdej aktualnie obsługiwanej platformie, o ile masz do tego potrzebne narzędzia.
 
 * * *
 
@@ -50,7 +50,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 * * *
 
-## Development
+## Rozwój
 
 If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, for Windows we recommend **[latest Visual Studio](https://visualstudio.microsoft.com/downloads)** (free community version is more than enough). We also suggest to use it together with **[ReSharper](https://www.jetbrains.com/resharper)** (optionally), although it's not a free product.
 
@@ -66,6 +66,6 @@ Of course all suggestions above are only recommendations, you can use whatever y
 
 * * *
 
-## Official releases
+## Oficjalne wydania
 
 Official ASF releases are compiled by **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed on GitHub. This also guarantees transparency, since AppVeyor always uses official public source for all builds, and you can compare checksums of AppVeyor artifacts with GitHub assets. ASF developers do not compile or publish builds themselves, except for private development process and debugging.

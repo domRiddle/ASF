@@ -1,6 +1,6 @@
 # Udostępnianie gier Steam
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF wspiera udostępnianie gier Steam od wersji 2.1.5.5+. Aby zrozumieć, jak ASF współpracuje z tym systemem, najpierw przeczytaj jak działa**[Udostępnianie gier Steam](https://store.steampowered.com/promotion/familysharing)**, które jest dostępne w sklepie Steam.
 
 * * *
 

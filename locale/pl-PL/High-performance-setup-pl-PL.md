@@ -52,7 +52,7 @@ $Env:COMPlus_gcServer=1
 
 * * *
 
-## Recommended optimization
+## Zalecana optymalizacja
 
 - Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - Enable server GC. Server GC can be immediately seen as being active by significant memory increase compared to workstation GC.

@@ -27,7 +27,7 @@ Lyhyesti sanottuna, Steamin kortit ovat kerättäviä esineitä, joita voit saad
 Tässä toistetaan jälleen kerran muutama asia, joihin ihmiset eivät usko tai haluavat teeskenneellä, ettei niitä ole olemassa:
 
 - **Jos haluat saada pelin kortteja, sinun tulee omistaa se Steam-tililläsi. Steamin Lainaamoa ei lasketa.**
-- **Ei voi farmata peliä loputtomasti, jokaisella pelillä on vain tietty määrä korttien pudotuksia. Kun kaikki kortit on pudotettu (yleensä puolet koko setistä), peli ei enää sovi idlaamiseen. Ei ole väliä oletko myynyt, luonut vai unohtanut, mitä saamillesi korteille tapahtui. Kun korttien pudotukset ovat loppuneet, peli on loppu.**
+- **Ei voi farmata peliä loputtomasti, jokaisella pelillä on vain tietty määrä korttien pudotuksia. Kun kaikki kortit on pudotettu (yleensä puolet koko setistä), peli ei enää sovi idlaamiseen. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **Ilmaispelit eivät pudota kortteja, ellet ensin käytä niihin rahaa. Tämä pätee pysyvästi ilmaisiin peleihin, kuten Team Fortress 2 tai Dota 2. Ilmaispelien omistaminen ei anna sinulle korttien pudotuksia.**
 - **[Rajoitetuilla tileillä](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663) ei voi saada korttien pudotuksia, omistetuista peleistä riippumatta. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
 - **Maksullisia pelejä, jotka olet hankkinut ilmaiseksi kampanjan aikana, ei voi käyttää korttien pudotusten idlaamiseen, riippumatta siitä, mitä kauppasivulla sanotaan. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
@@ -603,7 +603,7 @@ Finally, as with every Steam request - ASF can only **try** to log in, using you
 
 If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `nohup` or `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
 
-If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately.
+If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
 
 * * *
 
@@ -631,9 +631,11 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 * * *
 
-### A fatal error was encountered. Could not extract contents of the bundle
+### `A fatal error was encountered. Could not extract contents of the bundle`
 
 ### `System.BadImageFormatException: Could not load file or assembly`
+
+### `System.IO.FileNotFoundException: Could not load file or assembly`
 
 ASF is using single-file publishing in OS-specific variants, which causes the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%\.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`. The `.net` directory might not exist by default, it will be created the first time it's needed.
 

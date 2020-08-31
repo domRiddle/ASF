@@ -27,7 +27,7 @@ Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, für die du berech
 Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht mit ihnen einverstanden sind und so tun als ob diese nicht existieren würden:
 
 - **Du musst das Spiel auf deinem Steam Account besitzen, um für die dazu gehörigen Kartenfunde berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
-- **Du kannst nicht unendlich lange sammeln, jedes Spiel hat eine feste Anzahl an Kartenfunde. Sobald du alle Karten gesammelt hast (ungefähr die Hälfte eines vollständigen Satzes), ist das Spiel kein Idling-Kandidat mehr. It doesn't matter whether you've sold, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **Du kannst nicht unendlich lange sammeln, jedes Spiel hat eine feste Anzahl an Kartenfunde. Sobald du alle Karten gesammelt hast (ungefähr die Hälfte eines vollständigen Satzes), ist das Spiel kein Idling-Kandidat mehr. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2. Owning F2P games does not grant you with card drops.**
 - **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 - **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
@@ -603,7 +603,7 @@ Abschließend kann sich ASF, wie bei jeder Steam-Anfrage, nur **versuchen** mit 
 
 Wenn dieser Fehler während der ASF-Eingabe aufgetreten ist (z.B. wenn du `Console.ReadLine()` im Stacktrace sehen kannst), dann wird er durch deine Umgebung verursacht, die es ASF verbietet, die Standardeingabe deiner Konsole zu lesen. Das kann aus vielen Gründen passieren, aber der häufigste ist, dass du ASF in der falschen Umgebung verwendest (z.B. in `nohup` oder `&` Hintergrund anstelle von `screen` unter Linux). Wenn ASF nicht auf die Standardeingabe zugreifen kann, wird dieser Fehler protokolliert und ASF kann deine Daten während der Ausführung nicht verwenden.
 
-Wenn du **erwartest**, dass dies geschieht, also du **willst** ASF in einer eingabefreien Umgebung laufen lassen, dann solltest du ASF ausdrücklich sagen, dass es der Fall ist, indem du den **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)** Modus entsprechend einstellst.
+Wenn du **erwartest**, dass dies geschieht, also du **willst** ASF in einer eingabefreien Umgebung laufen lassen, dann solltest du ASF ausdrücklich sagen, dass es der Fall ist, indem du den **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)** Modus entsprechend einstellst. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
 
 * * *
 
@@ -631,9 +631,11 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 * * *
 
-### A fatal error was encountered. Could not extract contents of the bundle
+### `A fatal error was encountered. Could not extract contents of the bundle`
 
 ### `System.BadImageFormatException: Could not load file or assembly`
+
+### `System.IO.FileNotFoundException: Could not load file or assembly`
 
 ASF is using single-file publishing in OS-specific variants, which causes the app to be extracted to a temporary `<tmp>/.net` location on startup (if needed). On Windows, this is `%TEMP%\.net` (usually `C:\Users\<YourUser>\AppData\Local\Temp\.net`), on Linux, this is `/var/tmp/.net`. The `.net` directory might not exist by default, it will be created the first time it's needed.
 

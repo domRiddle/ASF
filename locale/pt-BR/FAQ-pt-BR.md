@@ -27,7 +27,7 @@ Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos 
 Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem concordar com eles e gostam de fingir que eles não existem:
 
 - **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
-- **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabaram as cartas disponíveis para serem obtidas, o jogo está concluído.**
+- **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
 - **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
 - **Jogos pagos que você obteve de graça durante alguma promoção não podem ser coletados, independente do que esteja escrito na página da loja. Isso foi possível no passado, mas não é mais o caso.**
@@ -603,7 +603,7 @@ Finalmente, assim como todas as solicitações Steam, o ASF pode apenas **tentar
 
 Se esse erro ocorreu durante uma entrada no ASF (por exemplo, `Console.ReadLine()` é mostrado no stacktrace) então ele foi causado por seu ambiente que não permitiu que o ASF lesse uma entrada no seu console. Isso pode ocorrer por muitos motivos, mas o mais comum é você rodar o ASF no ambiente errado (por exemplo, no segundo plano `nohup` ou `&` em vez da `screen` no Linux). Se o ASF não puder acessar sua entrada padrão, então você verá este erro no registro e a incapacidade do ASF de usar seus dados durante o tempo de execução.
 
-Se você **espera** que isso aconteça é porque você **pretende** executar o ASF em um ambiente sem entradas, então você deve explicitamente dizer isso ao ASF, definindo o modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless)** de forma apropriada.
+Se você **espera** que isso aconteça é porque você **pretende** executar o ASF em um ambiente sem entradas, então você deve explicitamente dizer isso ao ASF, definindo o modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless)** de forma apropriada. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
 
 * * *
 
@@ -631,9 +631,11 @@ Esse problema é quase exclusivamente causado pelo serviço do windows `CNG Key 
 
 * * *
 
-### Um erro fatal foi encontrado. Não foi possível extrair conteúdos do pacote
+### `Um erro fatal foi encontrado. Não foi possível extrair conteúdos do pacote`
 
 ### `System.BadImageFormatException: Could not load file or assembly`
+
+### `System.IO.FileNotFoundException: Could not load file or assembly`
 
 O ASF usa a publicação de arquivo único em variantes específicas para Sistema Operacional, fazendo com que o aplicativo seja extraído para uma pasta temporária `<tmp>/.net` na inicialização (caso necessário). No Windows, é a pasta `%TEMP%\.net` (geralmente `C:\Users\<SeuUsuário>\AppData\Local\Temp\.net`), no Linux, é `/var/tmp/.net`. A pasta `.net` pode não existir por padrão, ela será criada na primeira vez que for necessária.
 
