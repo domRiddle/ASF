@@ -55,9 +55,9 @@ Since we have all required dependencies already, the next step is downloading **
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well. Afterwards, you'll have a huge mess of folders and files. Don't worry, we'll clean it up in a second.
+After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, standard utilities like `unzip` from Linux/OS X should work without problems as well.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm`, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
 Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
@@ -71,24 +71,12 @@ C:\ASF (where you put your own things)
     ├── MyExtraScript.bat (optional)
     ├── ... (any other files of your choice, optional)
     └── Core (dedicated to ASF only, where you extract the archive)
-         ├── ArchiSteamFarm.dll
+         ├── ArchiSteamFarm(.exe)
          ├── config
+         ├── logs
+         ├── plugins
          └── (...)
 ```
-
-This is also a structure we'd recommend, so you don't need to go through a massive number of files and folders included in ASF, since for usage you only need a shortcut to config folder and main binary.
-
-Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
-
-You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". Now navigate to the place you actually want to have ASF shortcut in (such as your desktop), right click and choose "paste shortcut here". You can rename your shortcut if you'd like to, such as giving it "ASF" name. Now do the same with `config` directory that you can find in the same place as ASF binary.
-
-After a small cleanup, you'll now have a very convenient structure similar to the one below:
-
-![Structure](https://i.imgur.com/k85csaZ.png)
-
-This will allow you to easily access ASF binary and config files without much hassle. In my case I decided to use the structure mentioned above, so my ASF files are in "Core" directory directly inside. You can adapt this structure to your liking, such as having ASF + config shortcuts on the desktop and ASF directory e.g. in `C:\ASF` instead, it's up to you.
-
-Linux/OS X users are advised to do the same, you can use excellent symbolic links mechanism available through `ln -s`.
 
 ---
 
@@ -126,7 +114,7 @@ After the decision and optional details, your web page will now look similar to 
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
 
 Your `config` directory will now look like this:
 
