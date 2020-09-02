@@ -24,18 +24,18 @@
 
 ### .NET Core 必要條件
 
-第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 C# 語言編寫的，基於 .NET Core，並且可能需要你的平台上尚不可用的原生程式庫。 根據您是否使用 Windows、Linux 或 OS X，您將有不同的要求，它們都列在您應該遵循的 **[.NET Core 必要條件](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
+第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 C# 語言編寫的，基於 .NET Core，並且可能需要你的平台上尚不可用的原生程式庫。 根據您是否使用 Windows、Linux 或 OS X，您將有不同的要求，它們都列在您應該遵循的 **[.NET Core 必要條件](https://docs.microsoft.com/dotnet/core/install)** 文件中。 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
 
 由於您正在使用的第三方軟體，一些（甚至全部）相依性已經存在於您的作業系統是完全正常的。 但您仍應透過在作業系統上執行合適的安裝程式來確保這些軟體確實已經安裝——缺少這些相依性，ASF 將完全無法啟動。
 
 請注意您不需要為特定作業系統的組建做其他事，特別是安裝 .NET Core SDK 或者甚至是執行階段，因為已經全部包含在特定作業系統套件中。 您只需要 .NET Core 必要條件（相依性）以執行包括在 ASF 內的 .NET Core 執行階段。
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
 - **[Microsoft Visual C++ 2015 可轉散發套件 Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**（64 位元版本 Windows 請下載 x64，32 位元版本 Windows 請下載 x86）
 - 強烈建議確保已安裝所有Windows更新。 至少需要 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** 版本，並可能需要更新的版本。 如果您的 Windows 更新到最新版，則上述所有都已安裝。 在安裝 Visual C++ 套件之前，請確保滿足這些要求。
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-linux)**：
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
 
 套件名稱取決於您正在使用的 Linux 發行版，我們已經列出了最常見的套件。 您可以使用本地套件管理系統，為您的作業系統取得全部套件（例如 Debian 的 `apt` 或 CentOS 的 `yum`）。
 
@@ -48,7 +48,7 @@
 
 其中至少應該有幾個套件已經可用於您的系統本地了（例如現今幾乎每一個 Linux 發行版都需要 `zlib1g`）。
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-macos)**：
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**：
 
 - 暫時沒有必要條件，但你應該安裝最新的 OS X 版本，至少 10.13 以上版本。
 
@@ -60,40 +60,28 @@
 
 ![資產](https://i.imgur.com/Ym2xPE5.png)
 
-下載完成之後，從解壓縮 ZIP 檔至一個資料夾中開始。 我們建議使用 **[7-zip](https://www.7-zip.org)**，Linux/OS X 的標準工具程式（例如 `unzip`）應該也沒有問題。 解壓縮之後，您將會擁有一大堆資料夾和檔案。 別擔心，我們馬上就來整理這些資料。
+下載完成之後，從解壓縮 ZIP 檔至一個資料夾中開始。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
 
-如果您正在使用 Linux/OS X，別忘記使用 `chmod +x ArchiSteamFarm` 指令，因為權限不會自動設定在 ZIP 檔中。 此操作只需在第一次解壓縮後執行一次。
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. 此操作只需在第一次解壓縮後執行一次。
 
 建議將 ASF 解壓縮到**獨立的目錄**中而不是任何已有其他用途的目錄—— ASF 的自動更新功能將會在升級時刪除所有舊的和無關檔案，可能會使您丟失您儲存於 ASF 目錄的任何檔案。 如果您有任何想用於 ASF 的額外腳本或檔案，請將他們置放在 ASF 資料夾的上一層。
 
 一個範例結構看起來會像是這樣：
 
 ```text
-C:\ASF（存放您個人檔案的位置）
-    ├── ASF 捷徑.lnk（可省略）
-    ├── 設定檔捷徑.lnk（即下面「核心」裡的「config」資料夾，可省略）
-    ├── 指令.txt（可省略）
-    ├── 額外腳本.bat（可省略）
-    ├── ... （您選擇的任何其他檔案，可省略）
-    └── 核心（專用於 ASF，您解壓縮檔案的位置）
-         ├── ArchiSteamFarm.dll
+C:\ASF (where you put your own things)
+    ├── ASF shortcut.lnk (optional)
+    ├── Config shortcut.lnk (optional)
+    ├── Commands.txt (optional)
+    ├── MyExtraScript.bat (optional)
+    ├── (...) (any other files of your choice, optional)
+    └── Core (dedicated to ASF only, where you extract the archive)
+         ├── ArchiSteamFarm(.exe)
          ├── config
-         └──（...）
+         ├── logs
+         ├── plugins
+         └── (...)
 ```
-
-這也是我們建議的結構，這樣您就不需要仔細查看 ASF 包含的大量檔案和資料夾，因為 ASF 的使用只需要設定檔（config）資料夾和主程式的捷徑。
-
-開始準備 ASF 結構吧。 您可以跳到下一個步驟，因為整理 ASF 結構並不是必需的（特別是特定作業系統建置套件使用者），但進行此步驟可以使您的生活多一點簡單。
-
-開啟 ASF 資料夾，然後找到核心執行檔：在 Windows 上是 `ArchiSteamFarm.exe`，在 Linux/OS X 上是 `ArchiSteamFarm`。右鍵按一下它然後選取「複製」。 現在瀏覽到您想要置放 ASF 捷徑的位置（例如您的桌面），按右鍵然後選擇「貼上捷徑」。 若您想要，您可以重新命名捷徑，例如重新命名為「ASF」。 現在對設定檔目錄「`config`」資料夾做同樣的事情，您可在與 ASF 主程式同樣的位置找到它。
-
-經過簡單整理，您現在將擁有與下方圖片類似的非常方便的結構：
-
-![架構](https://i.imgur.com/k85csaZ.png)
-
-這會使您更方便存取 ASF 主程式和設定檔。 我自己是決定使用上面提到的結構，所以我的 ASF 檔案直接放在「核心」目錄裡。 您可以根據自己的喜好改造這個結構，例如在桌面建立 ASF 和設定檔捷徑然後將 ASF 目錄建立在` C:\ASF`，一切都由您決定。
-
-Linux/OS X 使用者也建議做相同的事情，您可以透過 `ln -s` 指令來使用出色的符號連結機制。
 
 * * *
 
@@ -132,7 +120,7 @@ ASF 需要您的登入認證，因為它透過內建 Steam 用戶端自行實現
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-您現在可以按下您現在可以按下「下載」按鈕了，網頁設定檔產生器將會產生一個名為您剛才輸入的名稱的 `json` 檔。 將檔案儲存到 ASF 的 `config` 目錄裡。 您可以使用您稍早建立的`設定檔`捷徑，或者直接在 ASF 檔案結構裡手動找到 `config` 目錄。
+您現在可以按下您現在可以按下「下載」按鈕了，網頁設定檔產生器將會產生一個名為您剛才輸入的名稱的 `json` 檔。 Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
 
 您的 `config` 目錄現在看來會像是這樣：
 
@@ -144,7 +132,7 @@ ASF 需要您的登入認證，因為它透過內建 Steam 用戶端自行實現
 
 ### 執行 ASF
 
-現在您已經準備好第一次啟動程式了。 只需要按兩下 ASF 捷徑或 ASF 目錄裡的 `ArchiSteamFarm` 執行檔。
+現在您已經準備好第一次啟動程式了。 Simply double-click `ArchiSteamFarm` binary in ASF directory.
 
 按下以後，如果您在第一步正確地安裝了所有相依性，ASF 應該會正確地啟動，注意您的第一個 BOT（如果您沒忘記把產生的設定檔置放在 `config` 目錄裡），然後嘗試登入：
 
@@ -260,4 +248,4 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 然而，我
 - **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**
 - 透過輔助腳本或是手動在 Shell 中執行 `dotnet /path/to/ArchiSteamFarm.dll` 指令來啟動 ASF。
 
-輔助腳本位於 `ArchiSteamFarm.dll` 二進位檔所在的位置（例如用於 Windows 的 `ArchiSteamFarm.cmd` 和 Linux/OS X 的 `ArchiSteamFarm.sh`）——這些檔案只包含在通用套件內。 如果您不想手動執行 `dotnet` 指令，請使用輔助腳本。 您也可以跟特定作業系統套件一樣，為輔助脚本建立捷徑，因為輔助腳本就是用來代替主程式的。 很明顯，如果您未安裝 .NET Core SDK 而且 `dotnet` 執行檔不在系統 `PATH` 環境變數中，輔助腳本將無法執行。 輔助腳本完全是非必要的，您永遠可以透過手動執行 `dotnet /path/to/ArchiSteamFarm.dll` 指令來啟動 ASF。
+輔助腳本位於 `ArchiSteamFarm.dll` 二進位檔所在的位置（例如用於 Windows 的 `ArchiSteamFarm.cmd` 和 Linux/OS X 的 `ArchiSteamFarm.sh`）——這些檔案只包含在通用套件內。 如果您不想手動執行 `dotnet` 指令，請使用輔助腳本。 很明顯，如果您未安裝 .NET Core SDK 而且 `dotnet` 執行檔不在系統 `PATH` 環境變數中，輔助腳本將無法執行。 輔助腳本完全是非必要的，您永遠可以透過手動執行 `dotnet /path/to/ArchiSteamFarm.dll` 指令來啟動 ASF。

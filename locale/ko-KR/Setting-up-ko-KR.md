@@ -24,18 +24,18 @@
 
 ### .NET Core 필수 구성 요소
 
-첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다.다 이 참조자료를 사용해야 하지만, 편의를 위해 아래에 필요한 모든 패키지를 설명했으므로 문서 전체를 읽을 필요는 없습니다.
+첫 번째 단계는 당신의 OS가 ASF를 제대로 실해할 수 있는지를 확인하는 것입니다. ASF는 C#으로 작성되었고 .NET Core를 기반으로 하므로 당신의 플랫폼에서 아직 사용할 수 없는 네이티브 라이브러리를 필요로 할 수도 있습니다. 윈도우, 리눅스, OS X 어떤 것을 쓰는지에 따라 필요조건이 달라지는데, **[.NET Core 필수 구성 요소](https://docs.microsoft.com/dotnet/core/install)** 문서에 모두 나열되어 있으니 따라하시기 바랍니다.다 이 참조자료를 사용해야 하지만, 편의를 위해 아래에 필요한 모든 패키지를 설명했으므로 문서 전체를 읽을 필요는 없습니다.
 
 당신의 시스템에 일부(혹은 전체) 종속성이 이미 존재하는 것은 사용하고 있는 제3자 소프트웨어가 설치했을 수 있으므로 완벽하게 정상입니다. 하지만 당신의 OS에 맞는 설치관리자가 실행중인지를 확인해야 합니다. 이 종속성 없이는 ASF가 전혀 실해되지 않습니다.
 
 특정 OS용 빌드는 이미 모든 것을 포함하고 있으므로 .NET Core SDK나 런타임의 설치 등 다른 어떤 것도 할 필요가 없다는 것을 명심하십시오. ASF에 포함된 .NET Core 런타임을 실행하기 위해서는 .NET Core 필수 구성 요소(종속 프로그램)만 필요합니다.
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - 모든 윈도우 업데이트를 미리 설치해 놓는 것을 매우 권장합니다. 적어도 **[KB2533623](https://support.microsoft.com/ko-kr/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**과 **[KB2999226](https://support.microsoft.com/ko-kr/help/2999226/update-for-universal-c-runtime-in-windows)**은 필수이고 더 많은 업데이트가 필요할 수 있습니다. 윈도우가 최신 상태라면 모든 것이 설치되어 있을 것입니다. Visual C++ 패키지를 설치하기 전에 요구사항을 충족하는지 확인하십시오.
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 
 리눅스 배포판에 따라 패키지 이름이 다릅니다. 아래에 공통적인 것들을 나열했습니다. 데비안에서는 `apt`, CentOS에서는 `yum` 등 OS에서 사용하는 자체 패키지 관리자를 통해 전부를 설치할 수 있습니다.
 
@@ -48,7 +48,7 @@
 
 At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
 - 현재는 없습니다만, 적어도 10.13 이상의 OS X 최신버전이 설치되어 있어야 합니다.
 
@@ -60,40 +60,28 @@ At least a few of those should be already natively available on your system (suc
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. 리눅스/OS X에서 문제없이 동작하는 `unzip`같은 표준 유틸리티인 **[7-zip](https://www.7-zip.org)** 의 사용을 권장합니다. 그러면 이제 폴더와 파일이 잔뜩 생길 것입니다. 걱정하지 마십시오. 1초안에 싹 정리하겠습니다.
+다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
 
-리눅스나 OS X를 사용중이라면 `chmod +x ArchiSteamFarm`를 잊지 마십시오. zip파일안에서는 자동으로 권한 부여가 되지 않습니다. 최초 압축해제시 한번만 하면 됩니다.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. 최초 압축해제시 한번만 하면 됩니다.
 
 ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
 다음은 구조도 예시입니다:
 
 ```text
-C:\ASF (필요한 스크립트나 파일은 여기에 넣으십시오)
-    ├── ASF shortcut.lnk (선택사항)
-    ├── Config shortcut.lnk (선택사항)
-    ├── Commands.txt (선택사항)
-    ├── MyExtraScript.bat (선택사항)
-    ├── ... (그외 기타 등등, 선택사항)
-    └── Core (압축을 푼 곳, ASF 전용)
-         ├── ArchiSteamFarm.dll
+C:\ASF (where you put your own things)
+    ├── ASF shortcut.lnk (optional)
+    ├── Config shortcut.lnk (optional)
+    ├── Commands.txt (optional)
+    ├── MyExtraScript.bat (optional)
+    ├── (...) (any other files of your choice, optional)
+    └── Core (dedicated to ASF only, where you extract the archive)
+         ├── ArchiSteamFarm(.exe)
          ├── config
+         ├── logs
+         ├── plugins
          └── (...)
 ```
-
-이것이 우리가 권장하는 구조입니다. 사용을 위해서 ASF에 포함된 수많은 파일과 폴더를 거칠 필요없이 설정(config) 폴더와 메인 실행파일의 바로가기만 있으면 됩니다.
-
-Let's prepare ASF structure for usage. If you want to, you can now skip to the next step, since cleaning up ASF structure is not required (especially if you're using OS-specific builds that are already bundled), but it can make your life a bit easier.
-
-You can open ASF folder and find core executable file, this will be `ArchiSteamFarm.exe` on Windows, and `ArchiSteamFarm` on Linux/OS X. Right click it and select "copy". 이제 바탕화면 같이 ASF 바로가기를 실제로 놓을 곳으로 가서 마우스 오른쪽 버튼을 누르고 "바로가기 붙여넣기"를 선택합니다. 바로가기는 "ASF" 같이 원하는 이름으로 바꿀 수 있습니다. `config` 디렉토리는 ASF 실행파일이 있는 곳에 있으며, 동일하게 해줍니다.
-
-정리가 끝나면 아래와 같이 아주 편리한 구조를 갖게 됩니다.
-
-![Structure](https://i.imgur.com/k85csaZ.png)
-
-이렇게 해서 혼란없이 ASF 실행파일과 설정 파일에 쉽게 접근할 수 있습니다. 제 경우에는 위에서 말한 구조를 사용하기로 결정했습니다. 제 ASF 파일들은 "Core" 디렉토리에 바로 들어있습니다. 구조는 원하는대로 적용할 수 있습니다. ASF와 설정 바로가기는 바탕화면에 두고 ASF 디렉토리는 예를 들어 `C:\ASF`에 놓을 수도 있습니다. 하기 나름입니다.
-
-리눅스와 OS X 이용자들도 동일하게 하는 것을 권장합니다. `ln -s`이라는 훌륭한 심볼릭 링크 메카니즘을 사용하면 됩니다.
 
 * * *
 
@@ -132,7 +120,7 @@ After the decision and optional details, your web page will now look similar to 
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory of ASF. You can use previously-created `config` shortcut, or find `config` directory manually, directly in ASF file structure.
+You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
 
 `config` 디렉토리는 다음과 같은 모습이 됩니다.
 
@@ -144,7 +132,7 @@ You can now hit "download" button and our web config generator will generate new
 
 ### ASF 실행
 
-이제 프로그램을 처음 실행할 준비가 되었습니다. Simply double-click ASF shortcut, or `ArchiSteamFarm` binary in ASF directory.
+이제 프로그램을 처음 실행할 준비가 되었습니다. Simply double-click `ArchiSteamFarm` binary in ASF directory.
 
 After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 
@@ -260,4 +248,4 @@ With extra steps:
 - **[ASF 환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. You can also make a shortcut to those scripts like showed above, since they're supposed to provide binary replacement in a script way. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

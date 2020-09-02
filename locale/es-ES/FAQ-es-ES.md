@@ -603,7 +603,7 @@ Finalmente, como con cada solicitud de Steam - ASF solo puede **intentar** inici
 
 Si este error ocurrió durante la entrada de ASF (por ejemplo, puedes ver `Console.ReadLine()` en el stacktrace) entonces es causado por tu entorno el cual impide que ASF lea la entrada estándar de tu consola. Esto puede ocurrir debido a muchas razones, pero la más común es que ejecutes ASF en el entorno incorrecto (por ejemplo, en `nohup` o `&` en segundo plano en lugar de `screen` en Linux). Si ASF no puede acceder a su entrada estándar, entonces verás este error registrado y la incapacidad de ASF de usar tus datos durante el tiempo de ejecución.
 
-Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en un entorno sin entrada, entonces debes indicarle explícitamente a ASF que ese es el caso, estableciendo correctamente el modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)**. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
+Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en un entorno sin entrada, entonces debes indicarle explícitamente a ASF que ese es el caso, estableciendo correctamente el modo **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)**. Esto le indicará a ASF que nunca pida acción del usuario bajo ninguna circunstancia, permitiéndote ejecutar ASF en entornos sin entrada de forma segura.
 
 * * *
 

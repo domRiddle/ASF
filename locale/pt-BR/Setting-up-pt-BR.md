@@ -24,18 +24,18 @@ Parece simples o bastante, certo? Então, vamos ver.
 
 ### Pré-requisitos .NET Core
 
-O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** que você deve seguir Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
+O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://docs.microsoft.com/dotnet/core/install)** que você deve seguir Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
 
 É perfeitamente normal que algumas dependências (ou mesmo todas) já tenham sido instaladas no seu sistema por algum outro software que você use. Ainda assim, você deve garantir executando o instalador apropriado para seu sistema operacional - sem essas dependências o ASF não vai nem iniciar.
 
 Você não precisa fazer mais nada para as versões para SOs específicos, especialmente instalar o .NET Core SDK ou mesmo o tempo de execução, já que o pacote específico para SO já inclui tudo. Você precisa apenas dos pré-requisitos (dependências) .NET Core para rodar o tempo de execução .NET Core incluído no ASF.
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-windows)**:
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
 - **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=53587)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
 - É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-linux)**:
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
@@ -48,7 +48,7 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 
 Pelo menos alguns desses já devem estar disponíveis nativamente no seu sistema (como o `zlib1g` que é exigido em quase todas as distribuições do Linux hoje em dia).
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31&pivots=os-macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
 - Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.13+
 
@@ -60,40 +60,28 @@ Uma vez que já tenhamos todas as dependências, o próximo passo é baixar a **
 
 ![Arquivos](https://i.imgur.com/Ym2xPE5.png)
 
-Após o download, comece extraindo o arquivo zip para sua própria pasta. Recomendamos usar o **[7-zip](https://www.7-zip.org)**, utilitários padrão como o `unzip` do Linux/OS X também devem funcionar sem problemas. Depois, você terá uma enorme confusão de pastas e arquivos. Não se preocupe, nós vamos resolver isso em um segundo.
+Após o download, comece extraindo o arquivo zip para sua própria pasta. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
 
-Se você estiver usando Linux/OS X não se esqueça do `chmod + x ArchiSteamFarm`, já que as permissões não são definidas automaticamente no arquivo zip. Isso tem que ser feito somente uma vez após descompactar.
+If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. Isso tem que ser feito somente uma vez após descompactar.
 
 Certifique-se de descompactar o ASF para a **sua própria pasta** e não para outra existente que você esteja usando para outra coisa - as atualizações automáticas do ASF vão excluir todos os arquivos velhos e não relacionados, o que vao fazer você perder qualquer coisa não relacionada que esteja na mesma pasta. Se você tiver qualquer scripts ou arquivos extras que você quer usar com o ASF, coloque-os uma pasta acima.
 
 Uma exemplo de extrutura seria assim:
 
 ```text
-C:\ASF (onde você pode colocar suas coisas)
-    ├── ASF shortcut.lnk (opcional)
-    ├── Config shortcut.lnk (opcional)
-    ├── Commands.txt (opcional)
-    ├── MyExtraScript.bat (opcional)
-    ├── ... (qualquer outro arquivo que você quiser, opcional)
-    └── Core (dedicado apenas ao ASF, onde você vai extrair o arquivo)
-         ├── ArchiSteamFarm.dll
+C:\ASF (where you put your own things)
+    ├── ASF shortcut.lnk (optional)
+    ├── Config shortcut.lnk (optional)
+    ├── Commands.txt (optional)
+    ├── MyExtraScript.bat (optional)
+    ├── (...) (any other files of your choice, optional)
+    └── Core (dedicated to ASF only, where you extract the archive)
+         ├── ArchiSteamFarm(.exe)
          ├── config
+         ├── logs
+         ├── plugins
          └── (...)
 ```
-
-Essa também é a estrutura que recomendamos, então você não precisa passar por um grande número de arquivos e pastas incluídas no ASF, já que para o uso você só precisa de um atalho para a pasta de configuração e para o executável principal.
-
-Vamos preparar a estrutura do ASF para ser usada. Caso você queira, você pode pular essas etapas, já que preparar a estrutura do ASF não é necessária (especialmente se estiver usando uma build para um SO especifico que já estiver pronta), mas pode fazer sua vida um pouco mais fácil.
-
-Você pode abrir o diretorio do ASF e achar os arquivos executaveis, eles são `ArchiSteamFarm.exe` no Windows, e `ArchiSteamFarm` no Linux/OS X. Botão direito e copie. Agora, navegue até o local que você quer colocar o atalho do ASF (por exemplo, sua área de trabalho), clique com o botão direito e escolha "colar atalho aqui". Você pode renomear o atalho se você quiser, dando-lhe o nome de "ASF" por exemplo. Agora faça o mesmo com a pasta `config` que você pode encontrar no mesmo lugar que o executável do ASF.
-
-Após uma pequena limpeza você terá uma estrutura muito conveniente, similar a essa abaixo:
-
-![Estrutura](https://i.imgur.com/k85csaZ.png)
-
-Isso te permite acessar facilmente o executável do ASF e os arquivos de configuração sem muita trabalheira. No meu caso que eu decidi usar a estrutura mencionada acima, então meus arquivos do ASF estão diretamente dentro da pasta "Core". Você pode adaptar essa estrutura ao seu gosto, tal como colocar atalhos na área de trabalho para o ASF e para a pasta config e a pasta do ASF em `C:\ASF` por exemplo, isso fica a seu critério.
-
-Aconselhamos o mesmo para usuários do Linux/OS X, você pode usar o mecanismo de links simbólicos disponível através de `ln -s`.
 
 * * *
 
@@ -132,7 +120,7 @@ Depois que você fizer suas decisões sobre dados opcionais, sua página estará
 
 ![Aba bot 2](https://i.imgur.com/yf54Ouc.png)
 
-Agora você pode clicar em "baixar" e o gerador de configuração web vai gerar um arquivo `json` com o nome que você escolheu. Salve esse arquivo na pasta `config` do ASF. Você pode usar o atalho `config` criado anteriormente, ou encontrar a pasta `config` diretamente na estrutura de arquivos do ASF.
+Agora você pode clicar em "baixar" e o gerador de configuração web vai gerar um arquivo `json` com o nome que você escolheu. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
 
 Sua pasta `config` ficará assim:
 
@@ -144,7 +132,7 @@ Parabéns! Você acabou de terminar a configuração básica de um bot ASF. Nós
 
 ### Executando o ASF
 
-Agora você está pronto para abrir o programa pela primeira vez. Simplesmente clique duas vezes no atalho do ASF ou no executável `ArchiSteamFarm` na pasta ASF.
+Agora você está pronto para abrir o programa pela primeira vez. Simply double-click `ArchiSteamFarm` binary in ASF directory.
 
 Depois disso, supondo que você instalou todas as dependências listadas na primeira etapa, o ASF deve iniciar corretamente, detectar seu primeiro bot (se você não se esqueceu de colocar o arquivo de configuração gerado na pasta `config`) e tentar se conectar:
 
@@ -260,4 +248,4 @@ Com etapas extras:
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Abra o ASF usando um script auxiliar ou executando `dotnet /path/to/ArchiSteamFarm.dll` manualmente pelo seu shell favorito.
 
-Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/OSX) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Você também pode criar um atalho para esses scripts como mostrado acima, uma vez que eles devem fornecer a substituição do executável em forma de script. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.
+Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/OSX) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.
