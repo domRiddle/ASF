@@ -6,13 +6,13 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 * * *
 
-## Import
+## Importēt
 
 The import process can be done through two ways - either by using a file, or IPC.
 
-### File
+### Fails
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. Piemēram:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -38,7 +38,7 @@ In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemI
 
 * * *
 
-## Queue
+## Rinda
 
 Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 * * *
 
-## Example
+## Piemērs
 
 Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

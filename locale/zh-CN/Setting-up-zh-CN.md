@@ -60,22 +60,22 @@
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**解压，当然Linux/macOS 提供的 `unzip` 等工具大部分情况下也能正常解压。
+下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，但 Linux/macOS 提供的 `unzip` 等标准工具也应该没有任何问题。
 
-如果您正在使用 Linux/macOS，不要忘记在解压的文件夹中先执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包中不包含权限信息。 您只需要在解压之后执行一次。
+如果您正在使用 Linux/macOS，不要忘记在解压得到的文件夹中执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包无法提供权限信息。 您只需要在解压之后执行一次。
 
 您应该将 ASF 解压到一个**独立的文件夹**中，而不是已有文件的文件夹——ASF 会在自动更新时删除文件夹中任何过时或无关的文件，您在 ASF 文件夹中存放的其他文件可能会因此丢失。 如果您需要一些与 ASF 相关的额外脚本或文件，请将它们放到上层文件夹。
 
 这是一个文件夹结构的示例：
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF (放置您自己与 ASF 相关的东西)
+    ├── ASF shortcut.lnk (可选)
+    ├── Config shortcut.lnk (可选)
+    ├── Commands.txt (可选)
+    ├── MyExtraScript.bat (可选)
+    ├── (...) (任何您选择放在这里的其他文件，可选)
+    └── Core (ASF 自身专用文件夹，也就是您解压压缩包的地方)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -120,7 +120,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-现在您可以点击“下载”按钮，配置文件生成器将会根据您输入的名称生成新的 `json` 文件。 将该文件保存到 ` config ` 目录，该目录位于您在前一步中解压 zip 文件得到的文件夹中。
+现在您可以点击“下载”按钮，配置文件生成器将会根据您输入的名称生成新的 `json` 文件。 将该文件保存到 `config` 文件夹，该文件夹位于您在上一步中解压 zip 文件得到的文件夹中。
 
 您的 `config` 文件夹现在看起来类似：
 

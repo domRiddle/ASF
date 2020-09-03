@@ -28,7 +28,7 @@ To enable ASF 2FA, you need to have:
 
 * * *
 
-## Import
+## Importēt
 
 In order to complete the steps explained below, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
 
@@ -165,7 +165,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 * * *
 
-## Advanced
+## Papildu
 
 If you're advanced user, you can also generate maFile manually. This can be used in case you'd want to import authenticator from other sources than the ones we've described above. It should have a **[valid JSON structure](https://jsonlint.com)** of:
 

@@ -4,7 +4,7 @@ ASF includes support for several command-line arguments that can affect the prog
 
 * * *
 
-## Usage
+## Lietojums
 
 Usage depends on your OS and ASF flavour.
 
@@ -66,7 +66,7 @@ Due to the nature of this property, it's also possible to set expected path by d
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
-Examples:
+Piemēri:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
