@@ -275,7 +275,7 @@ Value | Name
 1 | `AES`
 2 | `ProtectedDataForCurrentUser`
 
-You can use either a case-insensitive name, or a numeric value. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface), as otherwise sensitive details might get logged by third-parties (such as Steam servers).
+You can use either a case-insensitive name, or a numeric value. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 ---
 
