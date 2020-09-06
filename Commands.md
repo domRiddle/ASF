@@ -58,7 +58,7 @@ Command | Access | Description
 `bl [Bots]` | `Master` | Lists blacklisted users from trading module of given bot instances.
 `bladd [Bots] <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
 `blrm [Bots] <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
-`encrypt <cryptoMethod> <stringToEncrypt>` | `Owner` | Encrypts the string using provided - further explained **[below](#encrypt-command)**.
+`encrypt <cryptoMethod> <stringToEncrypt>` | `Owner` | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.
 `exit` | `Owner` | Stops whole ASF process.
 `farm [Bots]` | `Master` | Restarts cards farming module for given bot instances.
 `help` | `FamilySharing` | Shows help (link to this page).
