@@ -58,6 +58,7 @@ Command | Access | Description
 `bl [Bots]` | `Master` | Lists blacklisted users from trading module of given bot instances.
 `bladd [Bots] <SteamIDs64>` | `Master` | Blacklists given `steamIDs` from trading module of given bot instances.
 `blrm [Bots] <SteamIDs64>` | `Master` | Removes blacklist of given `steamIDs` from trading module of given bot instances.
+`encrypt <cryptoMethod> <stringToEncrypt>` | `Owner` | Encrypts the string using provided - further explained **[below](#encrypt-command)**.
 `exit` | `Owner` | Stops whole ASF process.
 `farm [Bots]` | `Master` | Restarts cards farming module for given bot instances.
 `help` | `FamilySharing` | Shows help (link to this page).
@@ -261,6 +262,20 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 `redeem^ primary FF,SI key1,key2,key3`
 
 It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
+
+---
+
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+Value | Name
+--- | ---
+0 | `PlainText`
+1 | `AES`
+2 | `ProtectedDataForCurrentUser`
+
+You can use either a case-insensitive name, or a numeric value. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface), as otherwise sensitive details might get logged by third-parties (such as Steam servers).
 
 ---
 
