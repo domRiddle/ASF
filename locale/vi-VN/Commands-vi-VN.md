@@ -59,6 +59,7 @@ Một phương pháp khác nâng cao và linh động hơn để thực thi lệ
 | `bl [Bots]`                                                          | `Master`        | Liệt kê danh sách người dùng trong danh sách đen từ mô-đun giao dịch của các phiên bản bot đã cấp.                                                                                                                                                                                                                                  |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | Danh sách đen `steamIDs` được cung cấp từ mô-đun giao dịch của các phiên bản bot đã cấp.                                                                                                                                                                                                                                            |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                   |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                       |
 | `exit`                                                               | `Owner`         | Stops whole ASF process.                                                                                                                                                                                                                                                                                                            |
 | `farm [Bots]`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                                                                                                                                              |
 | `help`                                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                                                                                                                                                     |
@@ -265,6 +266,20 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| Value | Tên                           |
+| ----- | ----------------------------- |
+| 0     | `PlainText`                   |
+| 1     | `AES`                         |
+| 2     | `ProtectedDataForCurrentUser` |
+
+You can use either a case-insensitive name, or a numeric value. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+
+* * *
+
 ## `input` command
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
@@ -276,7 +291,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Type                    | Mô tả                                                                      |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Password                | `SteamPassword` bot config property, if missing from config.               |
+| Mật khẩu                | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

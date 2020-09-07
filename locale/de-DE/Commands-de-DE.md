@@ -59,6 +59,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `bl [Bots]`                                                          | `Master`        | Listet Benutzer aus dem Handelsmodul der gegebenen Bot-Instanzen auf, die auf der schwarzen Liste stehen.                                                                                                                                                                                                                                                                |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | Setzt gegebene `steamIDs` auf die Schwarze Liste des Handelsmodul der gegebenen Bot-Instanzen.                                                                                                                                                                                                                                                                           |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | Entfernt gegebene `steamIDs` von der schwarzen Liste des Handelsmoduls der gegebenen Bot-Instanzen.                                                                                                                                                                                                                                                                      |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                                                            |
 | `exit`                                                               | `Owner`         | Stoppt den kompletten ASF-Prozess.                                                                                                                                                                                                                                                                                                                                       |
 | `farm [Bots]`                                                        | `Master`        | Startet das Karten-Sammel-Modul für gegebene Bot-Instanzen neu.                                                                                                                                                                                                                                                                                                          |
 | `help`                                                               | `FamilySharing` | Zeigt Hilfe an (Link zu dieser Seite).                                                                                                                                                                                                                                                                                                                                   |
@@ -90,8 +91,8 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `start [Bots]`                                                       | `Master`        | Startet gegebene Bot-Instanzen.                                                                                                                                                                                                                                                                                                                                          |
 | `stats`                                                              | `Owner`         | Gibt Prozessstatistiken an, wie z.B. die Nutzung des verwalteten Speichers.                                                                                                                                                                                                                                                                                              |
 | `status [Bots]`                                                      | `FamilySharing` | Gibt den Status der gegebenen Bot-Instanzen an.                                                                                                                                                                                                                                                                                                                          |
-| `stop [Bots]`                                                        | `Master`        | Stoppt gegebene Bot-Instanzen.                                                                                                                                                                                                                                                                                                                                           |
-| `transfer [Bots] <TargetBot>`                                  | `Master`        | Sendet alle `TransferableTypes` Steam Community-Gegenstände von gegebenen Bot-Instanzen an die Ziel-Bot-Instanz.                                                                                                                                                                                                                                                         |
+| `[Bots] stoppen`                                                     | `Master`        | Stoppt gegebene Bot-Instanzen.                                                                                                                                                                                                                                                                                                                                           |
+| `transfer [Bots] <TargetBot>`                                  | `Master`        | Sendet alle `TransferableTypes` Steam Community-Gegenstände von gegebenen Bot-Instanzen an den Ziel-Bot-Instanz.                                                                                                                                                                                                                                                         |
 | `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, die mit den gegebenen `AppIDs` übereinstimmen, von gegebenen Bot-Instanzen an die Ziel-Bot-Instanz. Dies ist das Gegenteil von `transfer%`.                                                                                                                                                                 |
 | `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, abgesehen von den angegebenen `AppIDs` von bestimmten Bot-Instanzen zu der Ziel-Bot-Instanz. Dies ist das Gegenteil von `transfer@`.                                                                                                                                                                        |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der gegebenen Bot-Instanzen an die Ziel-Bot-Instanz.                                                                                                                                                                                                                                                  |
@@ -265,6 +266,20 @@ Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingP
 
 * * *
 
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| Wert | Name                          |
+| ---- | ----------------------------- |
+| 0    | `PlainText`                   |
+| 1    | `AES`                         |
+| 2    | `ProtectedDataForCurrentUser` |
+
+Du kannst entweder den case-insensitiven Namen oder den numerischen Wert verwenden. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+
+* * *
+
 ## `input` Befehl
 
 Der Input-Befehl kann nur im `Headless`-Modus verwendet werden, um die angegebenen Daten über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** oder Steam-Chat einzugeben, wenn ASF ohne Unterstützung für Benutzerinteraktion läuft.
@@ -276,7 +291,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 | Typ                     | Beschreibung                                                                              |
 | ----------------------- | ----------------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.          |
-| Password                | `SteamPassword` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.       |
+| Passwort                | `SteamPassword` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.       |
 | SteamGuard              | Auth-Code, der an deine E-Mail gesendet wird, wenn du 2FA nicht benutzt.                  |
 | SteamParentalCode       | ` SteamParentalCode ` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt. |
 | TwoFactorAuthentication | 2FA-Code, der von deinem Handy generiert wurde, wenn du 2FA benutzt, aber nicht ASF 2FA.  |
@@ -287,7 +302,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
 
-Um das zu tun müssen wir folgende Befehle ausführen:
+Um das zu tun, müssen wir folgende Befehle ausführen:
 
 `start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 

@@ -59,6 +59,7 @@ A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes 
 | `bl [Bots]`                                                          | `Master`        | Listázza a tiltólistán lévő felhasználókat, melyek így nem tudnak csereajánlást küldeni a megadott bot példányok számára.                                                                                                                                                                                                           |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | Tiltólistára rakja a megadott `steamIDs`-t, így a megadott bot példányoknak nem tud csereajánlatot küldeni.                                                                                                                                                                                                                         |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | A megadott `steamIDs`-t törli a tiltólistáról, így azok tudnak csereajánlást küldeni a megadott bot példányok számára.                                                                                                                                                                                                              |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                       |
 | `exit`                                                               | `Owner`         | Leállítja a teljes ASF processzt.                                                                                                                                                                                                                                                                                                   |
 | `farm [Bots]`                                                        | `Master`        | Újraindítja a kártya farmoló modult a megadott bot példányokon.                                                                                                                                                                                                                                                                     |
 | `help`                                                               | `FamilySharing` | Megmutatja a súgót (egy linket erre az oldalra).                                                                                                                                                                                                                                                                                    |
@@ -265,6 +266,20 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| Érték | Név                           |
+| ----- | ----------------------------- |
+| 0     | `PlainText`                   |
+| 1     | `AES`                         |
+| 2     | `ProtectedDataForCurrentUser` |
+
+You can use either a case-insensitive name, or a numeric value. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+
+* * *
+
 ## `input` parancs
 
 Az input parancs kizárólag a `Headless` módban használható, hogy általa **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**-n, vagy Steam chaten keresztül lehessen adatot átadni az ASF-nek, amikor a felhasználói interakciók nem támogatottak.
@@ -276,7 +291,7 @@ A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, ami
 | Típus                   | Leírás                                                                           |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot konfigurációs beállítás, ha hiányozna a konfigurációból.        |
-| Password                | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
+| Jelszó                  | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
 | SteamGuard              | Engedélyező kód, amit az e-mail címedre küldenek, ha nem használsz 2FA-t.        |
 | SteamParentalCode       | `SteamParentalCode` bot konfigurációs beállítás, ha hiányozna a konfigurációból. |
 | TwoFactorAuthentication | 2FA token, amit a telefonod generált, ha használod a 2FA-t, de nem az ASF 2FA-t. |

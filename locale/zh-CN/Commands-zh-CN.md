@@ -59,6 +59,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `bl [Bots]`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                               |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 将给定的 `SteamIDs` 加入指定机器人的交易黑名单。                                                                                                                 |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 将给定的 `SteamIDs` 从指定机器人的交易黑名单中移除。                                                                                                               |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | 用提供的加密方法对这些字符串进行加密，更详细的解释请参见**[下文](#encrypt-command)**。                                                                                        |
 | `exit`                                                               | `Owner`         | 完全停止 ASF 进程。                                                                                                                                   |
 | `farm [Bots]`                                                        | `Master`        | 重新启动指定机器人的挂卡模块。                                                                                                                                |
 | `help`                                                               | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                                |
@@ -262,6 +263,20 @@ owns ASF app/292030,name/Witcher
 `redeem^ primary FF,SI key1,key2,key3`
 
 需要注意的是，只有您**在命令中指定的**模式才会替换 `RedeemingPreferences` 中的选项。 例如，如果您在 `RedeemingPreferences` 中启用了 `Distributing`，那么无论您是否指定 `FD` 模式，Distributing 都会生效，因为您已经在 `RedeemingPreferences` 中启用了它。 这也是为何我们针对同一种模式有启用和禁用两种选项，您可以用强制启用代码来覆盖已禁用的模式，反之亦然。
+
+* * *
+
+## ` encrypt` 命令
+
+encrypt 命令允许您使用ASF的加密方法加密任意字符串。 `<cryptoMethod>`支持以下类型：
+
+| 值 | 名称                            |
+| - | ----------------------------- |
+| 0 | `PlainText`                   |
+| 1 | `AES`                         |
+| 2 | `ProtectedDataForCurrentUser` |
+
+您可以使用它们的名称（不区分大小写）或者数字值。 加密机制在**[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**章节进行了详细的解释。 This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. 我们建议通过安全的方式 (ASF 控制台或 IPC 接口及其 API 端口) 使用此命令，因为很多敏感信息会被其它第三方记录 (例如 Steam 服务器的聊天消息记录)。
 
 * * *
 

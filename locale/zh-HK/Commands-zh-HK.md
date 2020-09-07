@@ -59,6 +59,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `bl [Bots]`                                                          | `Master`        | 列出指定機械人實例交易模組中的用戶黑名單。                                                                                                                                                                                                                                                    |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 將特定的 `steamIDs` 加入指定機械人實例交易模組的用戶黑名單。                                                                                                                                                                                                                                     |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 將特定的 `steamIDs `移出指定機械人實例交易模組的用戶黑名單。                                                                                                                                                                                                                                     |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                            |
 | `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                                                                                                                                               |
 | `farm [Bots]`                                                        | `Master`        | 重啟指定機械人實例的掛卡模組。                                                                                                                                                                                                                                                          |
 | `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                                                                                                                                          |
@@ -262,6 +263,20 @@ owns ASF app/292030,name/Witcher
 `redeem^ primary FF,SI key1,key2,key3`
 
 需要注意的是，進階激活模式只會覆蓋您**在命令中使用**的`RedeemingPreferences`選項。 舉例來說，如果您在 `RedeemingPreferences` 中啟用了 `Distributing`，則無論是否使用 `FD` 模式，都不會有任何區別，因為您已激活了`RedeemingPreferences`。 這就是為什麼每個可強制啟用的重寫也有一個可強制禁用的選項，若有需要，您可以決定在啟用的情況下強制覆蓋，反之亦然。
+
+* * *
+
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| 值 | 名稱                            |
+| - | ----------------------------- |
+| 0 | `明文`                          |
+| 1 | `AES`                         |
+| 2 | `ProtectedDataForCurrentUser` |
+
+您可以使用它們的名稱（不區分大小寫）或者數值。 The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 

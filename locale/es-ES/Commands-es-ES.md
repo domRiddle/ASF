@@ -59,6 +59,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 | `bl [Bots]`                                                          | `Master`           | Enlista los usuarios bloqueados del módulo de intercambio de instancias de bot determinadas.                                                                                                                                                                                                                                                                                                  |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`           | Bloquea ciertas `steamIDs` del módulo de intercambio de instancias de bot determinadas.                                                                                                                                                                                                                                                                                                       |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`           | Desbloquea determinadas `steamIDs` del módulo de intercambio de instancias de bot determinadas.                                                                                                                                                                                                                                                                                               |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Propietario`      | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                                                                                 |
 | `exit`                                                               | `Propietario`      | Detiene todo el proceso de ASF.                                                                                                                                                                                                                                                                                                                                                               |
 | `farm [Bots]`                                                        | `Master`           | Reinicia el módulo de recolección de cromos para determinadas instancias de bot.                                                                                                                                                                                                                                                                                                              |
 | `help`                                                               | `PréstamoFamiliar` | Muestra la ayuda (enlace a esta página).                                                                                                                                                                                                                                                                                                                                                      |
@@ -265,6 +266,20 @@ Es importante notar que la activación avanzada solo anula las `RedeemingPrefere
 
 * * *
 
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| Valor | Nombre                        |
+| ----- | ----------------------------- |
+| 0     | `PlainText`                   |
+| 1     | `AES`                         |
+| 2     | `ProtectedDataForCurrentUser` |
+
+Puedes usar un nombre, que no distingue mayúsculas, o un valor numérico. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+
+* * *
+
 ## Comando `input`
 
 El comando input solo puede utilizarse en el modo `Headless`, para introducir datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
@@ -276,7 +291,7 @@ La sintaxis general es `input [Bots] <Type> <Value>`.
 | Tipo                    | Descripción                                                                                  |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Login                   | Propiedad de configuración del bot `SteamLogin`, si está ausente en la configuración.        |
-| Password                | Propiedad de configuración del bot `SteamPassword`, si está ausente en la configuración.     |
+| Contraseña              | Propiedad de configuración del bot `SteamPassword`, si está ausente en la configuración.     |
 | SteamGuard              | Código de autenticación enviado a tu correo electrónico si no usas 2FA.                      |
 | SteamParentalCode       | Propiedad de configuración del bot `SteamParentalCode`, si está ausente en la configuración. |
 | TwoFactorAuthentication | Código 2FA generado desde tu móvil, si usas 2FA pero no ASF 2FA.                             |
@@ -285,7 +300,7 @@ La sintaxis general es `input [Bots] <Type> <Value>`.
 
 ### Ejemplo
 
-Digamos que tenemos un bot protegido por SteamGuard en modo no-2FA. Queremos ejecutar ese bot con `Headless` establecido a "true" (verdadero).
+Digamos que tenemos un bot protegido por SteamGuard en modo no-2FA. Queremos ejecutar ese bot con `Headless` establecido a "true".
 
 Para ello, necesitamos ejecutar los siguientes comandos:
 

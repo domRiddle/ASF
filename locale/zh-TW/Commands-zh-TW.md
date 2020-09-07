@@ -59,22 +59,23 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `bl [Bots]`                                                          | `Master`        | 列出指定 BOT 的使用者交易黑名單。                                                                                                                                    |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 將指定 `steamIDs` 新增至指定 BOT 的使用者交易黑名單。                                                                                                                    |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 將指定 `steamIDs` 移除自指定 BOT 的使用者交易黑名單。                                                                                                                    |
-| `exit`                                                               | `Owner`         | 完全終止 ASF 行程。                                                                                                                                           |
-| `farm [Bots]`                                                        | `Master`        | 重啟指定 BOT 的掛卡模塊。                                                                                                                                        |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                          |
+| `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                             |
+| `farm [Bots]`                                                        | `Master`        | 重啟指定機器人的掛卡模塊。                                                                                                                                          |
 | `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                        |
 | `input [Bots] <Type> <Value>`                            | `Master`        | 設定指定 BOT 為指定的輸入類型，僅在 `Headless` 模式工作──請參閱**[下文](#input-指令)**解釋。                                                                                        |
 | `ib [Bots]`                                                          | `Master`        | 列出指定 BOT 的自動掛卡黑名單。                                                                                                                                     |
 | `ibadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的自動掛卡黑名單。                                                                                                                       |
 | `ibrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的自動掛卡黑名單。                                                                                                                       |
-| `iq [Bots]`                                                          | `Master`        | 列出指定 BOT 的優先掛卡佇列。                                                                                                                                      |
+| `iq [Bots]`                                                          | `Master`        | 列出指定機器人的優先掛卡隊列。                                                                                                                                        |
 | `iqadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的優先掛卡佇列。                                                                                                                        |
 | `iqrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的優先掛卡佇列。                                                                                                                        |
-| `level [Bots]`                                                       | `Master`        | 顯示指定 BOT 的 Steam 等級。                                                                                                                                   |
-| `loot [Bots]`                                                        | `Master`        | 將指定 BOT 的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。                                                   |
+| `level [Bots]`                                                       | `Master`        | 顯示指定機器人的 Steam 等級。                                                                                                                                     |
+| `loot [Bots]`                                                        | `Master`        | 將指定機器人的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如有多個則取 steamID 最小的）。                                                      |
 | `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將所有符合 `AppIDs` 的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。                    |
 | `loot% [Bots] <AppIDs>`                                        | `Master`        | 將所有除了 `AppIDs` 以外的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。                  |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定機器人的` ContextID` 庫存分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如果有多個則取 steamID 最小的）。                                          |
-| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定 BOT 的 Steam 暱稱變更為`nickname`。                                                                                                                       |
+| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定 BOT 的 Steam 暱稱變更為自訂的`nickname`。                                                                                                                    |
 | `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定 `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                   |
 | `password [Bots]`                                                    | `Master`        | 顯示指定 BOT 加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                               |
 | `pause [Bots]`                                                       | `Operator`      | 停止指定 BOT 的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                    |
@@ -262,13 +263,27 @@ owns ASF app/292030,name/Witcher
 
 * * *
 
+## `encrypt` command
+
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+
+| 值 | 名稱                            |
+| - | ----------------------------- |
+| 0 | `PlainText（純文字）`              |
+| 1 | `AES（進階加密標準）`                 |
+| 2 | `ProtectedDataForCurrentUser` |
+
+您可以使用它們的名稱（不區分大小寫）或者數值。 The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+
+* * *
+
 ## `input` 指令
 
-輸入指令只能在 `Headless` 模式下使用，用於在 ASF 執行而不与支援使用者交互的情況下，透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 或 Steam 交談輸入給定的資料。
+輸入指令只能在 `Headless` 模式下使用, 用於在 ASF運行而不与支援使用者交互的情況下, 通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或 steam 交談輸入給定的資料。
 
 通用語法為 `input [Bots] <Type> <Value>`。
 
-`<Type>` 不區分大小寫，並定義由 ASF 辨識的輸入類型。 目前，ASF 可辨識以下類型：
+`<Type>` 不區分大小寫, 並定義由ASF識別的輸入類型。 目前, ASF可識別以下類型:
 
 | 類型                      | 描述                                         |
 | ----------------------- | ------------------------------------------ |
@@ -278,18 +293,18 @@ owns ASF app/292030,name/Witcher
 | SteamParentalCode       | `SteamParentalCode` 機器人配置屬性，在設定檔缺失這個值時使用。  |
 | TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA 代碼 。 |
 
-`<Value>` 是要為指定類型設定的值。 目前所有的值都是字串。
+`<Value>`是要為指定類型設置的值。 目前所有的值都是字元串。
 
 ### 範例
 
-假設我們有一個未啟用兩步驟驗證，僅由 SteamGuard 保護的 BOT。 我們希望在 `Headless` 模式下啟動這個 BOT 。
+假設我們有一個未啟用2FA，僅由 SteamGuard保護的機器人。 我們希望在 `Headless` 模式下啟動這個機器人。
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot` -> BOT 會嘗試登入，但缺少驗證碼會導致登入失敗，在 `Headless` 模式下，BOT 會停止執行。 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
+`start MySteamGuardBot` -> 機器人會嘗試登入，但缺少驗證碼會導致登入失敗，在`Headless` 模式下，機器人會停止運行。 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` BOT 的 `SteamGuard` 輸入設定為 `ABCDE`。 當然，在這種情況下，`ABCDE` 是我們從電子郵件中獲得的驗證代碼。
+`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` 機器人的 `SteamGuard` 輸入設置為 `ABCDE`。 當然, 在這種情況下, `ABCDE` 是我們從電子郵件中獲得的驗證代碼。
 
-`start MySteamGuardBot` ->我們重新啟動（已停止的）BOT，這一次會自動使用我們在上一步中設定的驗證碼，登入將會成功，並且之前的驗證碼輸入會被清除。
+`start MySteamGuardBot` ->我們重新啟動（已停止的）機器人，這一次會自動使用我們在上一步中設置的驗證碼，登入將會成功，並且之前的驗證碼輸入會被清除。
 
-同樣，我們可以控制受兩步驟驗證保護的 BOT（如果它們不使用 ASF 兩步驟驗證），只需在執行時設定其他必需的屬性。
+同樣, 我們可以控制受2FA 保護的機器人 (如果它們不使用 ASF 2FA), 只需在運行時設置其他必需的屬性。
