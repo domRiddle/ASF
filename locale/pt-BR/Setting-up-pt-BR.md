@@ -60,22 +60,22 @@ Uma vez que já tenhamos todas as dependências, o próximo passo é baixar a **
 
 ![Arquivos](https://i.imgur.com/Ym2xPE5.png)
 
-Após o download, comece extraindo o arquivo zip para sua própria pasta. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+Após o download, comece extraindo o arquivo zip para sua própria pasta. Recomendamos usar o **[7-zip](https://www.7-zip.org)**, mas os utilitários padrão como o `unzip` do Linux/OS X também devem funcionar sem problemas.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. Isso tem que ser feito somente uma vez após descompactar.
+Se você estiver usando Linux/OS X não se esqueça do comando `chmod + x ArchiSteamFarm` na pasta extraída, já que as permissões não são definidas automaticamente no arquivo zip. Isso tem que ser feito somente uma vez após descompactar.
 
 Certifique-se de descompactar o ASF para a **sua própria pasta** e não para outra existente que você esteja usando para outra coisa - as atualizações automáticas do ASF vão excluir todos os arquivos velhos e não relacionados, o que vao fazer você perder qualquer coisa não relacionada que esteja na mesma pasta. Se você tiver qualquer scripts ou arquivos extras que você quer usar com o ASF, coloque-os uma pasta acima.
 
 Uma exemplo de extrutura seria assim:
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF (onde você coloca suas coisas)
+    ├── ASF shortcut.lnk (opcional)
+    ├── Config shortcut.lnk (opcional)
+    ├── Commands.txt (opcional)
+    ├── MyExtraScript.bat (opcional)
+    ├── (...) (quaisquer outros arquivos que quiser, opcional)
+    └── Core (dedicado apenas ao ASF, onde você extrai os arquivos)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -120,7 +120,7 @@ Depois que você fizer suas decisões sobre dados opcionais, sua página estará
 
 ![Aba bot 2](https://i.imgur.com/yf54Ouc.png)
 
-Agora você pode clicar em "baixar" e o gerador de configuração web vai gerar um arquivo `json` com o nome que você escolheu. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
+Agora você pode clicar em "baixar" e o gerador de configuração web vai gerar um arquivo `json` com o nome que você escolheu. Salve o arquivo na pasta `config` que está localizado na pasta onde você extraiu nosso arquivo zip na etapa anterior.
 
 Sua pasta `config` ficará assim:
 
@@ -132,7 +132,7 @@ Parabéns! Você acabou de terminar a configuração básica de um bot ASF. Nós
 
 ### Executando o ASF
 
-Agora você está pronto para abrir o programa pela primeira vez. Simply double-click `ArchiSteamFarm` binary in ASF directory.
+Agora você está pronto para abrir o programa pela primeira vez. Simplesmente clique duas vezes no executável `ArchiSteamFarm` na pasta ASF.
 
 Depois disso, supondo que você instalou todas as dependências listadas na primeira etapa, o ASF deve iniciar corretamente, detectar seu primeiro bot (se você não se esqueceu de colocar o arquivo de configuração gerado na pasta `config`) e tentar se conectar:
 
@@ -209,7 +209,7 @@ Você precisa fazer só mais uma coisa: alternar para as configurações avança
 
 Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `config`. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
 
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
+![IPC 2](https://i.imgur.com/NhujZCN.png)
 
 Se você fez tudo corretamente, você será capaz de acessar a interface IPC do ASF **[nesse](http://localhost:1242)** link, enquanto ASF estiver em execução. Você pode usar a ASF-ui para muitas coisas, como por exemplo enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**. Sinta-se a vontade para dar uma olhada e descobrir todas as funcionalidade da ASF-ui.
 

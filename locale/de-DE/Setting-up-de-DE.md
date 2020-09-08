@@ -60,22 +60,22 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**, aber alle Standard-Dienstprogramme wie `unzip` unter Linux/OS X sollten ebenfalls ohne Probleme funktionieren.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. Dies muss nur nach dem initialen Entpacken gemacht werden.
+Wenn du Linux oder OS X verwendest, vergiss nicht, `chmod +x ArchiSteamFarm` in dem extrahierten Ordner anzugeben, da die Berechtigungen in der Zip-Datei nicht automatisch gesetzt werden. Dies muss nur nach dem initialen Entpacken gemacht werden.
 
 Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 
 ```text
-C:\ASF (where you put your own things)
+C:\ASF (wo du deine eigenen Sachen speicherst)
     ├── ASF shortcut.lnk (optional)
     ├── Config shortcut.lnk (optional)
     ├── Commands.txt (optional)
     ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+    ├── (...) (alle anderen Dateien deiner Wahl, optional)
+    └── Core (nur ASF gewidmet, wo du das Archiv extrahierst)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -120,7 +120,7 @@ Nach der Entscheidung und den optionalen Details wird deine Webseite nun ähnlic
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-Du kannst jetzt auf den "Download"-Button klicken und unser Web-Konfigurationsgenerator erzeugt eine neue `json` Datei basierend auf deinem gewählten Namen. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
+Du kannst jetzt auf den "Download"-Button klicken und unser Web-Konfigurationsgenerator erzeugt eine neue `json` Datei basierend auf deinem gewählten Namen. Speichere diese Datei im `config` Verzeichnis, welches sich in dem Ordner befindet, in dem du unsere Zip-Datei im vorherigen Schritt extrahiert hast.
 
 Dein `config` Verzeichnis sieht nun wie folgt aus:
 
@@ -132,7 +132,7 @@ Glückwunsch! Du hast gerade die sehr einfache ASF-Bot-Konfiguration abgeschloss
 
 ### Ausführen von ASF
 
-Du bist nun bereit, das Programm zum ersten Mal zu starten. Simply double-click `ArchiSteamFarm` binary in ASF directory.
+Du bist nun bereit, das Programm zum ersten Mal zu starten. Führe einfach einen Doppelklick auf die `ArchiSteamFarm` Binärdatei im ASF-Verzeichnis aus.
 
 Nach diesem Schritt, vorausgesetzt, du hast alle erforderlichen Abhängigkeiten im ersten Schritt installiert, sollte ASF richtig starten, deinen ersten Bot bemerken (wenn du nicht vergessen hast, die generierte Konfiguration in das Verzeichnis `config` zu legen) und versuchen, dich anzumelden:
 

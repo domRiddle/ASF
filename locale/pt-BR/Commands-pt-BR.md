@@ -59,7 +59,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `bl [Bots]`                                                          | `Master`            | Lista os usuários bloqueados no módulo de trocas dos bots indicados.                                                                                                                                                                                                                                                                                                     |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`            | Bloqueia as `steamIDs` indicadas no módulo de trocas dos bots indicados.                                                                                                                                                                                                                                                                                                 |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`            | Remove o bloqueio das `steamIDs` indicadas no módulo de trocas dos bots indicados.                                                                                                                                                                                                                                                                                       |
-| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`             | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                                                            |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`             | Criptografa a string usando o mecanismo de criptografia padrão - melhor explicado **[abaixo](#comando-encrypt)**.                                                                                                                                                                                                                                                        |
 | `exit`                                                               | `Owner`             | Interrompe todo o processo ASF.                                                                                                                                                                                                                                                                                                                                          |
 | `farm [Bots]`                                                        | `Master`            | Reinicia o modulo de coleta de cartas para os bots indicados.                                                                                                                                                                                                                                                                                                            |
 | `help`                                                               | `FamilySharing`     | Mostra a ajuda (link para esta página).                                                                                                                                                                                                                                                                                                                                  |
@@ -266,9 +266,9 @@ Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots qu
 
 * * *
 
-## `encrypt` command
+## Comando `encrypt`
 
-Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+O comando encrypt permite que você criptografe sequências arbitrárias usando os mecanismos de criptografia do ASF. O `<cryptoMethod>` deve respeitar um dos comandos abaixo:
 
 | Valor | Nome                               |
 | ----- | ---------------------------------- |
@@ -276,7 +276,7 @@ Encrypt command allows you to encrypt arbitrary strings using ASF's encryption m
 | 1     | `AES`                              |
 | 2     | `ProtectedDataForCurrentUser`      |
 
-Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, quanto um valor numérico. The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, quanto um valor numérico. Os mecanismos de encriptação são explicados na seção **[segurança.](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**. Esse comando é útil caso você queira gerar detalhes criptografados antecipadamente, por exemplo, para evitar colocar a sua senha em `PlainText` na configuração e depois usar o comando `password`. Recomendamos usar esse comando através de canais seguros (como o console do ASF ou a interface IPC, que também tem uma API endpoint dedicada a isso), uma vez que detalhes sensíveis podem, de outra forma, serem registrados por vários terceiros (como as mensagens de bate-papo registradas pelos servidores Steam).
 
 * * *
 

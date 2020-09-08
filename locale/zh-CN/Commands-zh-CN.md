@@ -59,7 +59,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `bl [Bots]`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                               |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 将给定的 `SteamIDs` 加入指定机器人的交易黑名单。                                                                                                                 |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 将给定的 `SteamIDs` 从指定机器人的交易黑名单中移除。                                                                                                               |
-| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | 用提供的加密方法对这些字符串进行加密，更详细的解释请参见**[下文](#encrypt-command)**。                                                                                        |
+| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | 以给定的加密类型加密字符串——详见&#8203;**[下文的解释](#encrypt-命令)**。                                                                                              |
 | `exit`                                                               | `Owner`         | 完全停止 ASF 进程。                                                                                                                                   |
 | `farm [Bots]`                                                        | `Master`        | 重新启动指定机器人的挂卡模块。                                                                                                                                |
 | `help`                                                               | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                                |
@@ -266,9 +266,9 @@ owns ASF app/292030,name/Witcher
 
 * * *
 
-## ` encrypt` 命令
+## `encrypt` 命令
 
-encrypt 命令允许您使用ASF的加密方法加密任意字符串。 `<cryptoMethod>`支持以下类型：
+Encrypt 命令使您能够使用 ASF 的加密类型加密任意字符串。 `<cryptoMethod>` 必须为以下类型之一：
 
 | 值 | 名称                            |
 | - | ----------------------------- |
@@ -276,7 +276,7 @@ encrypt 命令允许您使用ASF的加密方法加密任意字符串。 `<crypto
 | 1 | `AES`                         |
 | 2 | `ProtectedDataForCurrentUser` |
 
-您可以使用它们的名称（不区分大小写）或者数字值。 加密机制在**[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**章节进行了详细的解释。 This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. 我们建议通过安全的方式 (ASF 控制台或 IPC 接口及其 API 端口) 使用此命令，因为很多敏感信息会被其它第三方记录 (例如 Steam 服务器的聊天消息记录)。
+您可以使用它们的名称（不区分大小写）或者数字值。 加密类型的详细解释见&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 * * *
 

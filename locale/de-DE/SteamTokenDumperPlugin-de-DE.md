@@ -1,35 +1,35 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` ist ein offizielles ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** seit ASF V4.2.2., wird durch uns entwickelt und erlaubt dir zum **[SteamDB](https://steamdb.info)** Projekt beizutragen, indem du Paket- und App-Tokens sowie Depot-Schlüssel, auf die dein Steam Konto Zugriff hat, teilst. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt finden Sie auf der Seite SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)**. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
+`SteamTokenDumperPlugin` ist seit ASF V4.2.2.2 ein offizielles ASF-**[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**, welches von uns entwickelt wird. Dies erlaubt es dir, zum Projekt **[SteamDB](https://steamdb.info)** beizutragen, indem du Paket- und App-Tokens sowie Depot-Schlüssel, auf die dein Steam Konto Zugriff hat, teilst. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt, findest du auf der **[Token Dumper](https://steamdb.info/tokendumper)** Website von SteamDB. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
 
 ---
 
 ## Aktivierung des Plugins
 
-Das `SteamTokenDumperPlugin</0 > ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Sie können das Plugin aktivieren, indem Sie die globale ASF Konfigurationseigenschaft <code>SteamTokenDumperPluginEnabled` auf `true` setzen, im JSON-Syntax:
+Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Du kannst das Plugin aktivieren, indem du die globale ASF Konfigurationseigenschaft `SteamTokenDumperPluginEnabled` auf `true` setzt. Im JSON-Syntax:
 
 ```json
 {
-  "SteamTokenDumperPluginAktiviert": true
+  "SteamTokenDumperPluginEnabled": true
 }
 ```
 
-Beim Start von ASF wird das Plugin Sie mittels der Standard-Protokollierungsmethode darüber informieren, ob es erfolgreich aktiviert wurde oder nicht. Sie können das Plugin auch über unseren web-basierten Konfigurationsgenerator aktivieren.
+Beim Start von ASF wird das Plugin dich mittels der Standard-Protokollierungsmethode darüber informieren, ob es erfolgreich aktiviert wurde oder nicht. Du kannst das Plugin auch über unseren webbasierten Konfigurationsgenerator aktivieren.
 
 ---
 
 ## Technische Details
 
-Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
+Nach der Aktivierung verwendet das Plugin die Bots, die du in ASF betreibst, zur Datenerfassung in Form von Paket- und App-Tokens sowie Depot-Schlüsseln, auf die deine Bots Zugriff haben. Das Datenerfassungsmodul umfasst passive und aktive Routinen, die den durch die Datenerfassung verursachten zusätzlichen Aufwand minimieren sollen.
 
-In order to fulfill the planned use case, in addition to data gathering routine explained above, submission routine is initialized as being responsible for determining what data needs to be submitted to SteamDB on periodic basis. This routine will fire in up to `1` hour since your ASF start, and will repeat itself every `24` hours. The plugin will do its best to minimize the amount of data that needs to be sent, therefore it's possible that some data which the plugin will collect will be determined as useless to submit, and therefore skipped (for example app update which doesn't change the access token).
+Um den geplanten Anwendungsfall zu erfüllen, wird zusätzlich zu der oben erläuterten Datenerfassungsroutine die Einreichungsroutine initialisiert, die dafür verantwortlich ist, zu bestimmen, welche Daten auf periodischer Basis an SteamDB übermittelt werden müssen. Diese Routine wird innerhalb von `1` Stunde nach dem Start von ASF ausgelöst und wiederholt sich alle `24` Stunden. Das Plugin wird sein Bestes tun, um die Menge der zu sendenden Daten zu minimieren. Daher ist es möglich, dass einige Daten, die das Plugin sammelt, als unbrauchbar zur Übermittlung eingestuft und daher übersprungen werden (z. B. ein App-Update, das das Zugriffstoken nicht ändert).
 
-The plugin uses a persistent cache database saved in `config/SteamTokenDumper.cache` location, which serves a similar purpose to `config/ASF.db` for ASF. The file is used in order to record the gathered and submitted data and minimize the amount of work that has to be done across different ASF runs. Removing the file causes the process to be restarted from scratch, which should be avoided if possible.
+Das Plugin verwendet eine dauerhafte Cache-Datenbank, die in `config/SteamTokenDumper.cache` gespeichert ist, die einen ähnlichen Zweck wie `config/ASF.db` für ASF erfüllt. Die Datei wird verwendet, um die gesammelten und übermittelten Daten aufzuzeichnen und den Arbeitsaufwand, der bei verschiedenen ASF-Ausführungen anfällt, zu minimieren. Das Entfernen der Datei führt dazu, dass der Prozess von Grund auf neu gestartet wird, was nach Möglichkeit vermieden werden sollte.
 
 ---
 
 ## Daten
 
-ASF includes the contributor `steamID` in the request, which is determined as `SteamOwnerID` that you set in ASF, or in case you didn't, the Steam ID of the bot which owns the most licenses. The announced contributor might receive some additional perks from SteamDB for continuous help (e.g. donator rank on the website), but that is entirely up to SteamDB's discretion.
+ASF schließt die `steamID` des Mitwirkenden in die Anfrage ein, die als `SteamOwnerID` bestimmt wird, die du in ASF festgelegt hast oder, falls du das nicht getan hast, die Steam-ID des Bots, der die meisten Lizenzen besitzt. Der angegebene Mitwirkende könnte einige zusätzliche Vorteile von SteamDB für kontinuierliche Hilfe erhalten (z. B. Spenderrang auf der Website), aber das liegt ganz im Ermessen von SteamDB.
 
-In any case, SteamDB staff would like to thank you in advance for your help. The submitted data allows SteamDB to operate, in particular to track info about packages, apps and depots, which would no longer be possible without your help.
+In jedem Fall möchten sich die SteamDB-Mitarbeiter im Voraus für deine Hilfe bedanken. Die übermittelten Daten ermöglichen den Betrieb von SteamDB, insbesondere die Verfolgung von Informationen über Pakete, Anwendungen und Depots, die ohne deine Hilfe nicht mehr möglich wäre.
