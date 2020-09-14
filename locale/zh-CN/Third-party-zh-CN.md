@@ -48,4 +48,4 @@
 
 ## 了解更多?
 
-我们建议您在 GitHub 上搜索 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 标签来寻找关于 ASF 的项目。
+我们建议您在 GitHub 上搜索 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 主题来寻找关于 ASF 的项目。

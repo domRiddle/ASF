@@ -48,4 +48,4 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## 더 찾아보고 싶은가요?
 
-GitHub에서 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 태그로 ASF와 통합하는 모든 프로젝트를 찾아보기를 권합니다.
+We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.

@@ -49,4 +49,4 @@ Please note that below programs are **not** maintained by ASF developers and the
     
     ## 想要了解更多？
     
-    我們建議您在 Github 上搜索 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 標記以查詢與 ASF 集成的所有項目。
+    We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.

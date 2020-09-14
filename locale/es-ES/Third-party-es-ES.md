@@ -48,4 +48,4 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## ¿Quieres encontrar más?
 
-Recomendamos la etiqueta **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** en GitHub para todos los proyectos que se integran con ASF.
+Recomendamos el tema **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** en GitHub para todos los proyectos que se integran con ASF.

@@ -48,4 +48,4 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## Möchtest du mehr finden?
 
-Wir empfehlen allen Projekten die mit ASF interagieren **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** als Tag auf GitHub zu nutzen.
+We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.

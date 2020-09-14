@@ -48,4 +48,4 @@
 
 ## Хотите найти больше?
 
-Мы рекомендуем использовать на GitHub тег **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** для всех проектов, имеющих интеграцию с ASF.
+Мы рекомендуем использовать на GitHub метку **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** для всех проектов, имеющих интеграцию с ASF.

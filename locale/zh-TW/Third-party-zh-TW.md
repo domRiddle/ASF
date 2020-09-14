@@ -48,4 +48,4 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## 想瞭解更多嗎？
 
-我們推薦為所有在GitHub上與ASF相容的專案添加 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 標籤。
+We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
