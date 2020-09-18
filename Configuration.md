@@ -429,7 +429,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-`ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
+`ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
 Value | Name | Description
 --- | --- | ---
@@ -828,6 +828,12 @@ Example: `"SteamMasterClanID": 103582791440160998`
 `string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+
+---
+
+`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+
+Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 ---
 
