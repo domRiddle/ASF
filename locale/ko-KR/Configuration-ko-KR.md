@@ -429,7 +429,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-`ImmutableHashSet<byte>` 타입으로 기본값은 비어있습니다. 이 속성값은 해당 봇 계정에서 ASF가 사용할 **선호하는** 농사 순서를 정의합니다. 현재 가능한 농사 순서는 다음과 같습니다.
+`ImmutableList<byte>` type with default value of being empty. 이 속성값은 해당 봇 계정에서 ASF가 사용할 **선호하는** 농사 순서를 정의합니다. 현재 가능한 농사 순서는 다음과 같습니다.
 
 | 값  | 이름                                       | 설명                               |
 | -- | ---------------------------------------- | -------------------------------- |
@@ -831,7 +831,13 @@ ASF가 사용하는 타입은 네이티브 C# 타입으로, 아래에 설명되�
 
 * * *
 
-`ImmutableHashSet<valueType>` - 주어진 `valueType`의 유일한 값의 불변 집합입니다. JSON에서는 주어진 `valueType`을 요소로 하는 배열의 형태로 정의됩니다. ASF는 해당 속성값이 유일한 값을 가리키게 하는데 `HashSet`을 사용하며, 따라서 ASF는 파싱하면서 당신이 (실수로) 넣은 잠재적 중복을 내부적으로 무시합니다.
+`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. JSON에서는 주어진 `valueType`을 요소로 하는 배열의 형태로 정의됩니다. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+
+Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>` - 주어진 `valueType`의 유일한 값의 불변 집합입니다. JSON에서는 주어진 `valueType`을 요소로 하는 배열의 형태로 정의됩니다. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 `ImmutableHashSet<uint>`의 예: `"Blacklist": [267420, 303700, 335590]`
 

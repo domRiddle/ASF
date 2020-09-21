@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Event properties
 
-| Nosaukums   | Description                                                                                                                                                                                                  |
+| Nosaukums   | Apraksts                                                                                                                                                                                                     |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
 | Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |

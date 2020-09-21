@@ -429,7 +429,7 @@ Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si un bot
 
 ### `FarmingOrders`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado estando vacío. Esta propiedad define el orden de recolección **preferido** usado por ASF para una cuenta bot dada. Actualmente están disponibles los siguientes órdenes de recolección:
+Tipo `ImmutableList<byte>` con valor predeterminado estando vacío. Esta propiedad define el orden de recolección **preferido** usado por ASF para una cuenta bot dada. Actualmente están disponibles los siguientes órdenes de recolección:
 
 | Valor | Nombre                    | Descripción                                                                                            |
 | ----- | ------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -831,7 +831,13 @@ Ejemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountNam
 
 * * *
 
-`ImmutableHashSet<valueType>` - Colección (set) inmutable de valores únicos en determinado `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF usa `HashSet` para indicar que una propiedad dada solo tiene sentido para valores únicos, por lo tanto, intencionalmente ignorará cualquier posible duplicado (si por alguna razón los proporcionas).
+`ImmutableList<valueType>` - Colección inmutable (lista) de valores en determinados `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF utiliza `List` para indicar que cierta propiedad soporta múltiples valores y que su orden puede ser relevante.
+
+Ejemplo para `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>` - Colección (set) inmutable de valores únicos en determinado `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF usa `HashSet` para indicar que una propiedad dada solo tiene sentido para valores únicos y que su orden no importa, por lo tanto, intencionalmente ignorará cualquier posible duplicado (si por alguna razón los proporcionas).
 
 Ejemplo para `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 

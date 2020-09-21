@@ -11,7 +11,7 @@
 ## Basics
 
 * **[Sākums](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[Konfigurācija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 

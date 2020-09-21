@@ -429,7 +429,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-預設值為空的 `ImmutableHashSet<byte>` 類型。 此屬性定義ASF用於給定機械人帳戶的**首選**掛卡順序。 當前可選的掛卡佇列如下：
+`ImmutableList<byte>` type with default value of being empty. 此屬性定義ASF用於給定機械人帳戶的**首選**掛卡順序。 當前可選的掛卡佇列如下：
 
 | 值  | 名稱                        | 描述                       |
 | -- | ------------------------- | ------------------------ |
@@ -831,7 +831,13 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 * * *
 
-`ImmutableHashSet<valueType>` —— 給定 `valueType`中唯一值的集合。 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF使用` HashSet `來指示給定屬性僅對唯一值有意義，因此它會在解析期間故意忽略任何可能的重複（如果您碰巧提供它們）。
+`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+
+Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>` —— 給定 `valueType`中唯一值的集合。 在 JSON 中, 它被定義為給定 `valueType` 中的元素陣列。 ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 `ImmutableHashSet<uint>`的範例：`"Blacklist": [267420, 303700, 335590]`
 

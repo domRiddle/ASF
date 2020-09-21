@@ -429,7 +429,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-`ImmutableHashSet<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
+`ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
 | Wartość | Nazwa                     | Opis                                                                             |
 | ------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -831,7 +831,13 @@ Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountNam
 
 * * *
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+
+Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 

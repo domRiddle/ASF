@@ -429,7 +429,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `FarmingOrders`
 
-这是一个默认值为空的 `ImmutableHashSet<byte>` 类型属性。 该属性定义了 ASF 为此机器人帐户设定的**首选**挂卡顺序。 目前支持以下挂卡顺序：
+这是一个默认值为空的 `ImmutableList<byte>` 类型属性。 该属性定义了 ASF 为此机器人帐户设定的**首选**挂卡顺序。 目前支持以下挂卡顺序：
 
 | 值  | 名称                        | 描述                      |
 | -- | ------------------------- | ----------------------- |
@@ -831,7 +831,13 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变集合（列表）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来保证给定属性的值是唯一的，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
+`ImmutableList<valueType>`——给定 `valueType` 类型值的不可变容器（列表）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `List` 来表示给定属性支持多个值，并且其顺序有意义。
+
+`ImmutableList<byte>` 的示例：`"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变容器（集合）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来表示给定属性的值必须唯一才有意义，并且其顺序不重要，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
 
 `ImmutableHashSet<uint>` 的示例：`"Blacklist": [267420, 303700, 335590]`
 

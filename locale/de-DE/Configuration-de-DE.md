@@ -429,7 +429,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-`ImmutableHashSet<byte>` Typ mit einem leeren Standardwert. Diese Eigenschaft definiert die von ASF verwendete **bevorzugte** Sammel-Reihenfolge für ein gegebenes Bot-Konto. Derzeit sind folgende Sammel-Reihenfolgen verfügbar:
+`ImmutableList<byte>` type with default value of being empty. Diese Eigenschaft definiert die von ASF verwendete **bevorzugte** Sammel-Reihenfolge für ein gegebenes Bot-Konto. Derzeit sind folgende Sammel-Reihenfolgen verfügbar:
 
 | Wert | Name                      | Beschreibung                                                                                                       |
 | ---- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -831,13 +831,19 @@ Beispiele: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeinLogin"`
 
 * * *
 
-`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Set) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft nur für eindeutige Werte Sinn ergibt, daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls du sie trotzdem angegeben hast).
+`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+
+Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+
+* * *
+
+`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Set) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array von Elementen in gegebenem `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map) das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenke, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten Karte eindeutig ist, diesmal ebenfalls von JSON durchgesetzt.
+`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map), das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenke, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten Karte eindeutig ist, diesmal ebenfalls von JSON durchgesetzt.
 
 Beispiel für `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
