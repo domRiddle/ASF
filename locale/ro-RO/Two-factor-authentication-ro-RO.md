@@ -6,7 +6,7 @@ Now as you can see all trades are being hold for up to 15 days, which is not a m
 
 * * *
 
-# ASF logic
+# Logica ASF
 
 Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
@@ -42,7 +42,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 * * *
 
-### Android phone
+### Telefon Android
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
@@ -79,7 +79,7 @@ For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-s
 
 * * *
 
-### SteamDesktopAuthenticator
+### SteamDesktopAutentificator
 
 If you have your authenticator running in SDA already, you should notice that there is `steamID.maFile` file available in `maFiles` folder. Copy that file to `config` directory of ASF. Make sure that `.maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` character.
 
@@ -113,7 +113,7 @@ From now on, your ASF 2FA should be operational for this account.
 
 * * *
 
-## Realizat
+## Gata
 
 From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
 
