@@ -110,7 +110,15 @@ server {
 
 	location ~* /Api/NLog {
 		proxy_pass http://127.0.0.1:1242;
-#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+
+		# Only if you need to override default host
+#		proxy_set_header Host 127.0.0.1;
+
+		# X-headers should be specified in the situation where nginx is on the same machine as ASF
+		# They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+		# Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+		# Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+		# If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Host $host:$server_port;
 		proxy_set_header X-Forwarded-Proto $scheme;
@@ -125,7 +133,15 @@ server {
 
 	location / {
 		proxy_pass http://127.0.0.1:1242;
-#		proxy_set_header Host 127.0.0.1; # Only if you need to override default host
+
+		# Only if you need to override default host
+#		proxy_set_header Host 127.0.0.1;
+
+		# X-headers should be specified in the situation where nginx is on the same machine as ASF
+		# They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+		# Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+		# Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+		# If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Host $host:$server_port;
 		proxy_set_header X-Forwarded-Proto $scheme;
