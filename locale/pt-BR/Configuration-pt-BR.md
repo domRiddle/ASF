@@ -429,7 +429,7 @@ Tipo `bool` com valor padrão `false`. Essa propriedade define se o bot está ha
 
 ### `FarmingOrders`
 
-`ImmutableList<byte>` type with default value of being empty. Essa propriedade define a ordem de coleta **preferida** a ser usada pelo ASF para determinada conta bot. Atualmente existem as seguintes ordens disponíveis:
+Tipo `ImmutableList<byte>` com o valor padrão vazio. Essa propriedade define a ordem de coleta **preferida** a ser usada pelo ASF para determinada conta bot. Atualmente existem as seguintes ordens disponíveis:
 
 | Valor | Nome                      | Descrição                                                                                                |
 | ----- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -831,13 +831,13 @@ Exemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeuNomeDeUsu
 
 * * *
 
-`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. Em JSON, é definido como uma matriz de elementos de determinado `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
+`ImmutableList<valueType>` - Coleção (lista) imutável de valores de determinado `valueType`. Em JSON, é definido como uma matriz de elementos de determinado `valueType`. O ASF usa a `List` para indicar que determinada propriedade suporta vários valores e que sua ordem pode ser relevante.
 
-Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+Exemplo de `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 * * *
 
-`ImmutableHashSet<valueType>` - Coleção (conjunto) imutável de valores únicos de determinado `valueType`. Em JSON, é definido como uma matriz de elementos de determinado `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableHashSet<valueType>` - Coleção (conjunto) imutável de valores únicos de determinado `valueType`. Em JSON, é definido como uma matriz de elementos de determinado `valueType`. O ASF usa o `HashSet` para indicar que dada propriedade faz sentido apenas para valores únicos e que sua ordem não importa, portanto ele vai ignorar qualquer potencial duplicata durante a análise (se aconteceu de você colocar alguma).
 
 Exemplo de `ImmutableHashSet <uint>`: `"Blacklist": [267420, 303700, 335590]`
 
