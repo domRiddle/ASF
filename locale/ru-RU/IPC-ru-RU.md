@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # Только если вам надо переназначить хост по умолчанию
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # X-headers должны быть указаны для случая, когда nginx на той же машине, что и ASF
+        # Они критичны для правильного использования обратного прокси, позволяя ASF, например, банить атакующих а не ваш сервер nginx
+        # Их указание позволит ASF правильно определять IP-адреса пользователей, отправлявших запросы - позволяя nginx работать как обратный прокси
+        # Если их не указать это приведёт к тому, что ASF будет считать nginx клиентом, и nginx в таком случае будет работать как обычный прокси
+        # Если вы не можете запустить службу host на той же машине, что и ASF (например, она в другом контейнере docker), вам нужно закомментировать эти строки
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # Мы добавляем эти 3 дополнительный настройки для передачи по websocket, подробнее см. https://nginx.org/ru/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # Только если вам надо переназначить хост по умолчанию
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # X-headers должны быть указаны для случая, когда nginx на той же машине, что и ASF
+        # Они критичны для правильного использования обратного прокси, позволяя ASF, например, банить атакующих а не ваш сервер nginx
+        # Их указание позволит ASF правильно определять IP-адреса пользователей, отправлявших запросы - позволяя nginx работать как обратный прокси
+        # Если их не указать это приведёт к тому, что ASF будет считать nginx клиентом, и nginx в таком случае будет работать как обычный прокси
+        # Если вы не можете запустить службу host на той же машине, что и ASF (например, она в другом контейнере docker), вам нужно закомментировать эти строки
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

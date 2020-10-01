@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # 只需在您需要覆盖默认 Host 时启用
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # 如果 Nginx 与 ASF 在同一台机器上，则应该设置 X- 前缀的 HTTP 头
+        # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
+        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
+        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该注释掉这部分
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # 我们添加了这 3 个额外的选项用于 WebSockets 代理，详见 https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # 只需在您需要覆盖默认 Host 时启用
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # 如果 Nginx 与 ASF 在同一台机器上，则应该设置 X- 前缀的 HTTP 头
+        # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
+        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
+        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该注释掉这部分
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
