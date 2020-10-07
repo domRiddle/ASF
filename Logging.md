@@ -234,7 +234,7 @@ Supported in all environments used by ASF.
           layout="Layout"
           chatGroupID="Ulong"
           steamID="Ulong"
-          botName="String" />
+          botName="Layout" />
 </targets>
 ```
 
