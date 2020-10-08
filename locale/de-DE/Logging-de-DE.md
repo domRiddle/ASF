@@ -235,7 +235,7 @@ Wird in allen von ASF verwendeten Umgebungen unterstützt.
           layout="Layout"
           chatGroupID="Ulong"
           steamID="Ulong"
-          botName="String" />
+          botName="Layout" />
 </targets>
 ```
 
@@ -263,7 +263,7 @@ Lies mehr über die Verwendung der [Konfigurationsdatei](https://github.com/NLog
 
 *steamID* - SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Standardwert ist 0, wodurch das Protokollierungsziel vollständig deaktiviert wird.
 
-*botName* - Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten) des Ziel-Bots, der Nachrichten an `steamID` senden wird, die oben deklariert wurden. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, wie z.B. die Tatsache, dass du `steamID` des Ziels auf deiner Freundeliste haben musst.
+*botName* - Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten) des Ziel-Bots, der Nachrichten an `steamID` senden wird, die oben deklariert wurden. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, wie z.B. die Tatsache, dass du `steamID` des Ziels auf deiner Freundeliste haben musst. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
 
 * * *
 

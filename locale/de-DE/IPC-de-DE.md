@@ -212,6 +212,11 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
                 }
             }
         },
+        "KnownNetworks": [
+            "10.0.0.0/8",
+            "172.16.0.0/12",
+            "192.168.0.0/16"
+        ],
         "PathBase": "/"
     }
 }
@@ -222,6 +227,8 @@ Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich
 `Endpoints` - Dies ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie z.B. `example-http4`) und eine `Url` Eigenschaft, welche die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
 
 `Host` akzeptiert eine Vielzahl von Werten, einschließlich dem Wert `*`, der den http-Server von ASF an alle verfügbaren Schnittstellen bindet. Achte sehr genau darauf wenn du `Host` Werte verwendest, da sie den Fernzugriff erlauben. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Maschinen aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. In diesem Fall empfehlen wir dringend die Nutzung von `IPCPassword` (und vorzugsweise auch einer eigenen Firewall) **als Mindestmaß**.
+
+`KnownNetworks` - This variable specifies network addresses which we consider trustworthy. This property is crucial especially in combination with hosting a reverse-proxy to ASF on different machine than ASF itself - in this case, you should declare the machine's IP here, in order for ASF to respect its proxying headers and accept the requests. Specifying this variable is not required if you're not planning to use any sort of reverse-proxy with ASF, or if the reverse-proxy is located on the same machine as ASF (and therefore connecting to ASF's IPC using loopback address of `127.0.0.1`). Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack in case the trusted machine is compromised or wrongly configured.
 
 `PathBase` - Dies ist der Basispfad der von der IPC-Schnittstelle verwendet wird. Diese Eigenschaft ist optional, voreingestellt auf `/` und sollte für die meisten Anwendungsfälle nicht geändert werden müssen. Wenn du diese Eigenschaft änderst, hostest du die gesamte IPC-Schnittstelle auf einem benutzerdefinierten Präfix, zum Beispiel `http://localhost:1242/MeinPrefix` anstelle von `http://localhost:1242` allein. Die Verwendung von einem benutzerdefinierten `PathBase` könnte in Kombination mit der spezifischen Einrichtung eines Reverse-Proxy erwünscht sein, bei dem du nur eine bestimmte URL proxyen möchtest, z.B. `meinedomain.com/ASF` statt der gesamten `meinedomain.com` Domain. Normalerweise würde das erfordern, dass du eine Umschreibungsregel für deinen Webserver schreibst, die `meinedomain.com/ASF/Api/X` -> `localhost:1242/Api/X` abbilden würde. Aber stattdessen kannst du einen benutzerdefinierten `PathBase` von `/ASF` definieren und eine einfachere Einrichtung von `meinedomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X` erreichen.
 

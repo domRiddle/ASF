@@ -212,6 +212,11 @@ server {
                 }
             }
         },
+        "KnownNetworks": [
+            "10.0.0.0/8",
+            "172.16.0.0/12",
+            "192.168.0.0/16"
+        ],
         "PathBase": "/"
     }
 }
@@ -222,6 +227,8 @@ server {
 `Endpoints` - это массив конечных точек, каждая из которых имеет уникальное имя (такое как `example-http4`) и свойство `Url`, задающее адрес для ожидания запросов в формате `Protocol://Host:Port`. По умолчанию, ASF ожидает запросов по адресам http IPv4 и IPv6, но мы добавили примеры настроек для https, которые вы можете при необходимости использовать. Вам следует объявлять только те конечные точки, которые вам нужны, мы включили 4 в пример выше только чтобы вам было удобнее их редактировать.
 
 `Host` может принимать различные значение, включая значение `*` которое соединяет http сервер ASF со всеми доступными интерфейсами. Будьте предельно осторожны при использовании значений `Host`, позволяющих удалённый доступ. Это позволит доступ к интерфейсу IPC ASF с других машин, что может представлять собой угрозу безопасности. Мы настоятельно рекомендуем в данном случае использовать **как минимум** `IPCPassword` (и желательно также ваш собственный брандмауэр).
+
+`KnownNetworks` - This variable specifies network addresses which we consider trustworthy. This property is crucial especially in combination with hosting a reverse-proxy to ASF on different machine than ASF itself - in this case, you should declare the machine's IP here, in order for ASF to respect its proxying headers and accept the requests. Specifying this variable is not required if you're not planning to use any sort of reverse-proxy with ASF, or if the reverse-proxy is located on the same machine as ASF (and therefore connecting to ASF's IPC using loopback address of `127.0.0.1`). Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack in case the trusted machine is compromised or wrongly configured.
 
 `PathBase` - Это базовый путь, который будет использоваться интерфейсом IPC. Этот параметр необязательный, по умолчанию имеет значение `/` и для большинства случаев его изменение не требуется. Изменив этот параметр вы разместите весь интерфейс IPC по заданному префиксу, например по адресу `http://localhost:1242/MyPrefix` вместо `http://localhost:1242`. Использование пользовательского `PathBase` может быть желательным в комбинации с обратным прокси, если вы хотите проксировать только отдельный URL, например `mydomain.com/ASF` вместо всего домена `mydomain.com` целиком. Обычно для этого требуется создать правило rewrite для вашего веб-сервера, которое будет перенаправлять `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, но вместо этого вы можете задать пользовательский `PathBase` равным `/ASF` и получить более простую настройку `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
