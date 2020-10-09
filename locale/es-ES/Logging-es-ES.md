@@ -263,7 +263,7 @@ Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NL
 
 *steamID* - SteamID declarado como entero largo sin firmar de 64 bits del usuario de Steam objetivo (como `SteamOwnerID`), u objetivo `chatID` (cuando `chatGroupID` está establecido). Requerido. Por defecto en 0 lo que deshabilita completamente el objetivo de registro.
 
-*botName* - Nombre del bot (como es reconocido por ASF, sensible a mayúsculas) del bot objetivo que enviará mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
+*botName* - Nombre del bot (como es reconocido por ASF, sensible a mayúsculas) del bot objetivo que enviará mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. Esta variable se define como de tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), por lo tanto puedes usar sintaxis especial, como `${logger}` para usar el bot que generó el mensaje.
 
 * * *
 
