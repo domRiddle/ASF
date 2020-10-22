@@ -322,6 +322,7 @@ The bot config has following structure:
 	"AcceptGifts": false,
 	"AutoSteamSaleEvent": false,
 	"BotBehaviour": 0,
+	"CompleteTypesToSend": [],
 	"CustomGamePlayedWhileFarming": null,
 	"CustomGamePlayedWhileIdle": null,
 	"Enabled": false,
@@ -402,6 +403,25 @@ Invalid group invite is an invite that doesn't come from `SteamMasterClanID` gro
 `MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
 
 `MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
+
+If you're unsure how to configure this option, it's best to leave it at default.
+
+---
+
+### `CompleteTypesToSend`
+
+`ImmutableHashSet<byte>` type with default value being empty. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
+
+As of today, the following item types are supported in this setting:
+
+Value | Name | Description
+--- | --- | ---
+3 | FoilTradingCard | Foil variant of `TradingCard`
+5 | TradingCard | Steam trading card, being used for crafting badges (non-foil)
+
+Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis. 
 
 If you're unsure how to configure this option, it's best to leave it at default.
 
