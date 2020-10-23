@@ -322,6 +322,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -402,6 +403,25 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 `MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. 這通常僅應由備用帳戶使用，以便清除“新消息”通知，例如： 在執行ASF命令時從您那裡收到的消息。 我們不建議將此選項用於主要帳戶，除非您希望自己避免收到任何類型的新郵件通知，**包括**您在離線時，ASF仍處於開放狀態而不予理會的通知。
 
 `MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
+
+如果您不確定如何配置此選項，最好將其保留為預設值。
+
+* * *
+
+### `CompleteTypesToSend`
+
+`ImmutableHashSet<byte>` type with default value of being empty. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。
+
+As of today, the following item types are supported in this setting:
+
+| 值 | 名稱              | 描述                      |
+| - | --------------- | ----------------------- |
+| 3 | FoilTradingCard | 閃亮類型的`TradingCard`      |
+| 5 | TradingCard     | Steam交易卡片，可用於合成徽章 (非閃卡） |
+
+請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
 
 如果您不確定如何配置此選項，最好將其保留為預設值。
 

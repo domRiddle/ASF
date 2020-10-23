@@ -322,6 +322,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -402,6 +403,25 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 `MarkReceivedMessagesAsRead` 会自动将 ASF 运行的帐户收到的**所有**消息标记为已读，包括私人和群组聊天。 此功能通常用来清除子帐户的“新聊天消息”通知，这些消息可能来自于您向机器人发送的命令。 我们不建议为主帐户启用此选项，除非您希望完全无视任何新消息通知，**包括**在您离线时收到的消息，因为 ASF 仍然会在后台为您消除这些通知。
 
 `MarkBotMessagesAsRead` 的运作方式很相似，但只会将机器人的消息标记为已读。 但要注意的是，如果您的机器人和其他人都在群组聊天中，Steam 在将一条消息标记为已读时，**同样**会标记此消息**之前**的所有消息，所以如果您不希望错过这之间的其他消息，就不应该启用此功能。 显然，如果您在同一个 ASF 实例上运行了多个主帐户（例如，属于其他人的帐户），也可能会出现问题，因为您有可能错过正常的、与 ASF 无关的消息。
+
+如果您不确定如何配置此选项，最好将其保留为默认值。
+
+* * *
+
+### `CompleteTypesToSend`
+
+这是一个默认值为空的 `ImmutableHashSet<byte>` 类型属性。 When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确为用户设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户原本就能够进行交易。
+
+As of today, the following item types are supported in this setting:
+
+| 值 | 名称              | 描述                       |
+| - | --------------- | ------------------------ |
+| 3 | FoilTradingCard | 闪亮集换式卡牌（`TradingCard`）   |
+| 5 | TradingCard     | 用来合成徽章的 Steam 集换式卡牌（非闪亮） |
+
+请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
 
 如果您不确定如何配置此选项，最好将其保留为默认值。
 
@@ -527,7 +547,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 8  | Consumable            | 使用后消失的特殊消耗品               |
 | 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 | 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
 | 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
@@ -546,8 +566,8 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 | 值 | 名称                  |
 | - | ------------------- |
-| 0 | Offline（离线）         |
-| 1 | Online（在线）          |
+| 0 | 离线                  |
+| 1 | 在线                  |
 | 2 | Busy（忙碌）            |
 | 3 | Away（离开）            |
 | 4 | Snooze（打盹）          |
@@ -722,7 +742,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 8  | Consumable            | 使用后消失的特殊消耗品               |
 | 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 | 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
 | 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
@@ -837,7 +857,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 * * *
 
-`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变容器（集合）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来表示给定属性的值必须唯一才有意义，并且其顺序不重要，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
+`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变集合（列表）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来表示给定属性的值必须唯一才有意义，并且其顺序不重要，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
 
 `ImmutableHashSet<uint>` 的示例：`"Blacklist": [267420, 303700, 335590]`
 

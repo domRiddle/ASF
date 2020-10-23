@@ -322,6 +322,7 @@ La configuración del bot tiene la siguiente estructura:
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -407,6 +408,25 @@ Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su val
 
 * * *
 
+### `CompleteTypesToSend`
+
+Tipo `ImmutableHashSet<byte>` con valor predeterminado estando vacío. Cuando ASF termine de completar un set determinado del tipo de artículo especificado aquí, puede enviar automáticamente un intercambio con todos los sets terminados al usuario con permiso `Master`, lo que es conveniente si quieres usar un bot determinado para, por ejemplo, emparejamiento con STM, y al mismo tiempo mover los sets terminados a alguna otra cuenta. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar.
+
+A día de hoy, los siguientes tipos de artículos están soportados en esta configuración:
+
+| Valor | Nombre          | Descripción                                                    |
+| ----- | --------------- | -------------------------------------------------------------- |
+| 3     | FoilTradingCard | Variante reflectante de `TradingCard`                          |
+| 5     | TradingCard     | Cromo de Steam, usado para fabricar insignias (no reflectante) |
+
+Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+
+Debido a la sobrecarga adiciona del uso de esta opción, se recomienda usarla solamente en cuentas bot que tienen una posibilidad realista de completar sets - por ejemplo, no tiene sentido activarla si ya estás usando `SendOnFarmingFinished`, `SendTradePeriod` o el comando `loot` de forma habitual.
+
+Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor por defecto.
+
+* * *
+
 ### `CustomGamePlayedWhileFarming`
 
 Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "Jugando un juego no-Steam: `CustomGamePlayedWhileFarming`" en vez del juego siendo recolectado actualmente. Esto puede ser útil si quieres dejarle saber a tus amigos que estás recolectando, pero ni quieres usar el `OnlineStatus` de `Desconectado`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. Valor predeterminado de `null` desactiva esta función.
@@ -452,9 +472,9 @@ Tipo `ImmutableList<byte>` con valor predeterminado estando vacío. Esta propied
 
 Dado que esta propiedad es una matriz, permite usar diferentes configuraciones en el orden de tu elección. Por ejemplo, puedes incluir valores de `15`, `11` y `7` para ordenar primero los juegos con cromos comerciables, luego por los que tengan el nivel de insignia más bajo, y finalmente en orden alfabético. Como puedes adivinar, el orden sí importa, ya que al revés (`7`, `11` y `15`) se consigue algo completamente diferente. La mayoría de las personas probablemente usará un orden de entre todos, pero en caso de que quieras, también puedes ordenar más con parámetros adicionales.
 
-También nota la palabra "intenta" en todas las descripciones anteriores - el orden real de ASF se ve fuertemente afectado por el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** seleccionado y la ordenación solo afectará a los resultados que ASF considere con el mismo valor de rendimiento. Por ejemplo, en el algoritmo `Simple`, el `FarmingOrders` seleccionado debería ser respetado completamente en la sesión de recolección actual (ya que cada juego tiene el mismo valor de rendimiento), mientras que en el algoritmo `Complex` el orden real es afectado primero por las horas, y luego ordenados de acuerdo al `FarmingOrders` seleccionado. Esto conducirá a diferentes resultados, ya que los juegos con tiempo de juego tendrán prioridad sobre otros, de forma efectiva ASF primero preferirá los juegos que ya hayan pasado las horas requeridas en `HoursUntilCardDrops`, y solo entonces ordenará esos juegos de acuerdo a tu `FarmingOrders` elegido. Del mismo modo, una vez que ASF haya terminado con los juegos priorizados, ordenará los restantes primero por horas (ya que eso reducirá el tiempo requerido para que los títulos restantes alcancen `HoursUntilCardDrops`). Por lo tanto, esta propiedad de configuración solo es una **sugerencia** que ASF intentará respetar, siempre y cuando no afecte negativamente el rendimiento (en este caso, ASF siempre preferirá el rendimiento de la recolección sobre `FarmingOrders`).
+También nota la palabra "intenta" en todas las descripciones anteriores - el orden real de ASF se ve fuertemente afectado por el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** seleccionado y la ordenación solo afectará a los resultados que ASF considere con el mismo valor de rendimiento. Por ejemplo, en el algoritmo `Simple`, el `FarmingOrders` seleccionado debería ser respetado completamente en la sesión de recolección actual (ya que cada juego tiene el mismo valor de rendimiento), mientras que en el algoritmo `Complex` el orden real es afectado primero por las horas, y luego ordenados de acuerdo al `FarmingOrders` seleccionado. Esto conducirá a diferentes resultados, ya que los juegos con tiempo de juego tendrán prioridad sobre otros, de forma efectiva ASF primero preferirá los juegos que ya hayan pasado las horas requeridas en `HoursUntilCardDrops`, y solo entonces ordenará esos juegos de acuerdo a tu `FarmingOrders` elegido. Del mismo modo, una vez que ASF haya terminado con los juegos priorizados, ordenará los restantes primero por horas (ya que eso reducirá el tiempo requerido para que los títulos restantes alcancen `HoursUntilCardDrops`). Por lo tanto, esta propiedad de configuración solo es una **sugerencia** que ASF intentará respetar, siempre y cuando no afecte negativamente el rendimiento (en este caso, ASF siempre preferirá el rendimiento de la recolección sobre `FarmingOrders`).
 
-También hay una cola de prioridad de recolección accesible a través de los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Si se usa, el orden real de recolección se clasifica primero por rendimiento, luego por cola de recolección, y finalmente por tu `FarmingOrders`.
+También hay una cola de prioridad de recolección accesible a través de los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `iq`. Si se usa, el orden real de recolección se clasifica primero por rendimiento, luego por cola de recolección, y finalmente por tu `FarmingOrders`.
 
 * * *
 
@@ -466,13 +486,13 @@ Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
+Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto solo es una teoría, y no debe ser tomado como una regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
 
 * * *
 
@@ -484,7 +504,7 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF tie
 
 ### `LootableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
 
 | Valor | Nombre                | Descripción                                                                         |
 | ----- | --------------------- | ----------------------------------------------------------------------------------- |
@@ -497,7 +517,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
@@ -547,7 +567,7 @@ Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estado
 | Valor | Nombre                |
 | ----- | --------------------- |
 | 0     | Desconectado          |
-| 1     | En línea              |
+| 1     | En linea              |
 | 2     | Ocupado               |
 | 3     | Ausente               |
 | 4     | Snooze                |
@@ -555,7 +575,7 @@ Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estado
 | 6     | Deseando jugar        |
 | 7     | Invisible             |
 
-El estado `Desconectado` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estado de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Offline` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estado desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
+El estado `Desconectado` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estado de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Desconectado` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estado desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
 
 Además, está característica también es importante si quieres recibir notificaciones y mensaje no leídos cuando ASF se esté ejecutando, sin mantener abierto el cliente de Steam al mismo tiempo. Esto se debe a que ASF actúa como un cliente de Steam en sí, y ya sea que ASF quiera o no, Steam le envía todos esos mensajes y otros eventos. Esto no es problema si tienes ASF y el cliente de Steam ejecutándose al mismo tiempo, ya que ambos clientes reciben exactamente los mismos eventos. Sin embargo, si solo se está ejecutando ASF, la red de Steam podría marcar ciertos eventos y mensajes como "entregados", a pesar de que el cliente tradicional de Steam no los reciba debido a que no está presente. El estado desconectado también soluciona este problema, ya que ASF nunca es considerado en este caso para ningún evento de la comunidad, así que todos los mensajes no leídos y otros eventos serán marcados apropiadamente como no leídos cuando regreses.
 
@@ -585,13 +605,13 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el como
 
 | Valor | Nombre                             | Descripción                                                                                                                                                     |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                               | Sin preferencias especiales de activación, por defecto                                                                                                          |
+| 0     | Ninguno                            | Sin preferencias especiales de activación, por defecto                                                                                                          |
 | 1     | Forwarding                         | Envía a otros bots las claves no disponibles para activar                                                                                                       |
 | 2     | Distributing                       | Distribuye todas las claves entre sí y otros bots                                                                                                               |
 | 4     | KeepMissingGames                   | Conserva las claves de (potencialmente) juegos no poseídos cuando se envían, dejándolas sin usar                                                                |
 | 8     | AssumeWalletKeyOnBadActivationCode | Asume que las claves con el estado `BadActivationCode` equivalen a `CannotRedeemCodeFromClient`, y por lo tanto intenta activarlas como un código de la cartera |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 `Forwarding` causará que el bot envíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es enviar un juego `AlreadyPurchased` a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`.
 
@@ -673,7 +693,7 @@ Tipo `ImmutableDictionary<ulong, byte>` con valor predeterminado estando vacío.
 
 | Valor | Nombre           | Descripción                                                                                                                                                                                                                                       |
 | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Ninguno          | Sin permisos especiales, este principalmente es un valor de referencia asignado a las ID de Steam faltantes en este diccionario - no hay necesidad de definir a nadie con este permiso                                                            |
+| 0     | None             | Sin permisos especiales, este principalmente es un valor de referencia asignado a las ID de Steam faltantes en este diccionario - no hay necesidad de definir a nadie con este permiso                                                            |
 | 1     | PréstamoFamiliar | Proporciona acceso mínimo para usuarios del préstamo familiar. Una vez más, este es principalmente es un valor de referencia ya que ASF es capaz de descubrir automáticamente los ID de Steam a los que tenemos permitido usar nuestra biblioteca |
 | 2     | Operador         | Proporciona acceso básico a instancias de bot dadas, principalmente para agregar licencias y activar claves                                                                                                                                       |
 | 3     | Master           | Proporciona acceso total a una instancia de bot dada                                                                                                                                                                                              |
@@ -692,14 +712,14 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 
 | Valor | Nombre              | Descripción                                                                                                                                                                                                                  |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | Sin preferencias especiales de intercambio, por defecto                                                                                                                                                                      |
+| 0     | Ninguno             | Sin preferencias especiales de intercambio, por defecto                                                                                                                                                                      |
 | 1     | AcceptDonations     | Acepta intercambios en los que no estamos perdiendo nada                                                                                                                                                                     |
 | 2     | SteamTradeMatcher   | Participa pasivamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-es#steamtradematcher)** para más información |
 | 4     | MatchEverything     | Requiere que `SteamTradeMatcher` esté configurado, y en combinación - también acepta intercambios malos además de los buenos y neutrales                                                                                     |
 | 8     | DontAcceptBotTrades | No acepta automáticamente intercambios `loot` de otras instancias de bot                                                                                                                                                     |
 | 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-es#matchactively)** para más información     |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 Para más información sobre la lógica de intercambios de ASF, y descripción de cada bandera disponible, por favor, visita la sección **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**.
 
@@ -720,7 +740,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
+| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |

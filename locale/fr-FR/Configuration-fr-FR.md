@@ -323,6 +323,7 @@ La configuration du bot a la structure suivante :
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -408,6 +409,25 @@ Si vous ne savez pas comment configurer cette option, il est préférable de la 
 
 * * *
 
+### `CompleteTypesToSend`
+
+`ImmutableHashSet<byte>` type with default value of being empty. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
+
+As of today, the following item types are supported in this setting:
+
+| Valeur  | Nom              | Description                                                                    |
+| ------- | ---------------- | ------------------------------------------------------------------------------ |
+| 3       | FoilTradingCard  | Variante brillante de `TradingCard`                                            |
+| 5       | Carte à échanger | Carte Steam à échanger, utilisée dans la fabrication de badges (non-brillants) |
+
+Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+
+Si vous ne savez pas comment configurer cette option, il est préférable de la laisser par défaut.
+
+* * *
+
 ### `CustomGamePlayedWhileFarming`
 
 `chaîne` avec la valeur par défaut `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `OnlineStatus` of `Offline`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
@@ -424,7 +444,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `Enabled`
 
-`bool` avec la valeur par défaut `true</ 0>. Cette propriété définit si le bot est activé. Enabled bot instance (<code>true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
+`bool` avec la valeur par défaut `false`. Cette propriété définit si le bot est activé. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
 * * *
 
@@ -473,7 +493,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `IdlePriorityQueueOnly`
 
-`bool` avec la valeur par défaut `true</ 0>. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with <code>iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
+`bool` avec la valeur par défaut `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
 
 * * *
 
@@ -576,7 +596,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ### `Paused`
 
-`bool` avec la valeur par défaut `true</ 0>. This property defines initial state of <code>CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
+`bool` avec la valeur par défaut `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
 
 * * *
 
@@ -715,7 +735,7 @@ For further explanation of ASF trading logic, and description of every available
 | 0       | Unknown               | Tous les types qui ne correspondent à aucun des éléments ci-dessous                    |
 | 1       | BoosterPack           | Paquet de cartes contenant 3 cartes aléatoires d'un jeu                                |
 | 2       | Emoticon              | Emoji à utiliser dans le chat Steam                                                    |
-| 3       | FoilTradingCard       | Variante Foil de `TradingCard`                                                         |
+| 3       | FoilTradingCard       | Variante brillante de `TradingCard`                                                    |
 | 4       | ProfileBackground     | Fond d'écran à utiliser sur votre profil Steam                                         |
 | 5       | Carte à échanger      | Carte Steam à échanger, utilisée dans la fabrication de badges (non-brillants)         |
 | 6       | SteamGems             | Gemmes Steam utilisés dans la fabrication des paquets de cartes, sacs de gemmes inclus |
@@ -854,12 +874,12 @@ Exemple pour `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "765
 
 Par exemple, à partir des valeurs suivantes:
 
-| Valeur  | Nom    |
-| ------- | ------ |
-| 0       | Aucune |
-| 1       | A      |
-| 2       | B      |
-| 4       | C      |
+| Valeur  | Nom  |
+| ------- | ---- |
+| 0       | None |
+| 1       | A    |
+| 2       | B    |
+| 4       | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Notez également que le drapeau avec la valeur `0` est activé par définition dans toutes les autres combinaisons disponibles. Il s'agit donc très souvent d'un drapeau qui n'active rien de particulier (tel que `None`). 
 

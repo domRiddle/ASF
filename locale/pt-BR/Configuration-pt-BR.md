@@ -322,6 +322,7 @@ A configuração do bot tem a seguinte estrutura:
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -402,6 +403,25 @@ Convite inválidos para grupos são convites que não vem do grupo definido em `
 `MarkReceivedMessagesAsRead` vai marcar automaticamente **todas** as mensagens recebidas pela conta em que o ASF está sendo executado, tanto as privadas quanto em grupo. Essa opção deve ser usada normalmente em contas alternativas para limpar as notificações de "nova mensagem" provenientes, por exemplo, de comandos do ASF. Não recomendamos ativar essa opção em contas principais, a menos que você queira desativar qualquer tipo de notificações de novas mensagens, **incluindo** aquelas que chegaram quando você estava offline, assumindo que o ASF estivesse aberto durante esse período.
 
 `MarkBotMessagesAsRead` funciona de forma semelhante marcando apenas as mensagens do(s) bot(s) como lidas. No entanto, tenha em mente que ao usar essa opção em chats em grupo com seus bots e outras pessoas, a implementação do Steam que reconhece as mensagens de chat **também** reconhece todas as mensagens **anteriores** a que você decidiu marcar, então se você não quiser perder uma mensagem não relacionada que foi recebida entre as marcadas, você vai preferir não usar essa funcionalidade. Obviamente, também é arriscado quando você tem várias contas primárias (por exemplo, de usuários diferentes) executando na mesma instância do ASF, já que você também pode perder as mensagens normais fora do ASF.
+
+Se você está inseguro de como configurar esta opção, é melhor deixá-la padrão.
+
+* * *
+
+### `CompleteTypesToSend`
+
+Tipo `ImmutableHashSet<byte>` com valor padrão vazio. Quando o ASF completar o set do tipo de item especificado aqui ele pode enviar uma proposta de troca com todos os sets para o usuário com permissão `Master`, o que é conveniente se você quiser usar uma determinada conta bot para, por exemplo, fazer trocas no STM, enquanto transfere os sets completos para outra conta. Esta opção funciona da mesma forma que o comando `loot`, portanto, tenha em mente que ele requer um usuário com o conjunto de permissões `Master`, você também pode precisar de um `SteamTradeToken` válido, tanto quanto o uso de uma conta que seja, em primeiro lugar, elegível para trocas.
+
+O seguintes tipos de itens são suportados nesta configuração:
+
+| Valor | Nome            | Descrição                                                                   |
+| ----- | --------------- | --------------------------------------------------------------------------- |
+| 3     | FoilTradingCard | Versão brilhante da `Carta Colecionável`                                    |
+| 5     | TradingCard     | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
+
+Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
 
 Se você está inseguro de como configurar esta opção, é melhor deixá-la padrão.
 
@@ -488,7 +508,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 
 | Valor | Nome                  | Descrição                                                                   |
 | ----- | --------------------- | --------------------------------------------------------------------------- |
-| 0     | Unknown               | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
+| 0     | Unknown               | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
 | 1     | BoosterPack           | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
 | 2     | Emoticon              | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard       | Versão brilhante da `Carta Colecionável`                                    |
@@ -611,7 +631,7 @@ Também tenha em mente que você não pode encaminhar ou distribuir keys para bo
 
 ### `SendOnFarmingFinished`
 
-Tipo `bool` com valor padrão `false`. Quando o ASF termina a coleta em determinada conta, ele pode automaticamente enviar uma proposta de troca contendo tudo o que foi coletado até o momento para o usuário com permissão `Master`, o que é muito conveniente se você não quiser ficar se preocupando com trocas. Esta opção funciona da mesma forma que o comando `loot`, portanto, tenha em mente que ele requer um usuário com o conjunto de permissões `Master`, você também pode precisar de um `SteamTradeToken` válido, tanto quanto o uso de uma conta que seja, em primeiro lugar, elegível para trocas. Quando essa opção está ativada, além de iniciar o `loot` após terminar a coleta, o ASF também inicia o `loot` a cada notificação de novos itens (quando não estiver coletando) e depois de completar trocas que resultem em novos itens (sempre). Isso é especialmente útil para "encaminhar" itens recebidos de outras pessoas para a nossa conta.
+Tipo `bool` com valor padrão `false`. Quando o ASF termina a coleta em determinada conta, ele pode automaticamente enviar uma proposta de troca contando tudo o que foi coletado até o momento para o usuário com permissão `Master`, o que é muito conveniente se você não quiser se preocupar com trocas por sua conta. Esta opção funciona da mesma forma que o comando `loot`, portanto, tenha em mente que ele requer um usuário com o conjunto de permissões `Master`, você também pode precisar de um `SteamTradeToken` válido, tanto quanto o uso de uma conta que seja, em primeiro lugar, elegível para trocas. Quando essa opção está ativada, além de iniciar o `loot` após terminar a coleta, o ASF também inicia o `loot` a cada notificação de novos itens (quando não estiver coletando) e depois de completar trocas que resultem em novos itens (sempre). Isso é especialmente útil para "encaminhar" itens recebidos de outras pessoas para a nossa conta.
 
 Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
 
@@ -619,15 +639,15 @@ Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/
 
 ### `SendTradePeriod`
 
-Tipo `byte` com o valor padrão `0`. Essa propriedade funciona de forma muito semelhante à propriedade `SendOnFarmingFinished`, com uma diferença - em vez de enviar a troca quando a coleta terminar, podemos envia-la no intervalo de tempo, em horas, determinado em `SendTradePeriod`, independente de quanto ainda temos para coletar. Isto é útil se você quiser receber os itens de suas contas adicionais regularmente ao invés de esperar que a coleta termine. O valor padrão `0` desativa este recurso e se você quer que o seu bot envie a proposta de troca, por exemplo, todos os dias, você deve colocar o valor `24` aqui.
+Tipo `byte` com o valor padrão `0`. Essa propriedade funciona de forma muito semelhante à propriedade `SendOnFarmingFinished`, com uma diferença - em vez de enviar a troca quando a coleta terminar, podemos envia-la no intervalo de tempo, em horas, determinado em `SendTradePeriod`, independente de quanto ainda temos para coletar. Isto é útil se você desejar fazer o `loot` (pilhar) suas contas alternativas de forma habitual ao invés de esperar que a coleta termine. O valor padrão `0` desativa este recurso, se você quer o seu bot envie a proposta de troca, por exemplo, todos os dias, você deve colocar `24` aqui.
 
-Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `0`.
+Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se não tem certeza de como definir essa propriedade, deixá-lo com o valor padrão `0`.
 
 * * *
 
 ### `ShutdownOnFarmingFinished`
 
-Tipo `bool` com valor padrão `false`. O ASF "ocupa" uma conta durante todo o tempo em que o processo esteja ativo. Quando ele termina a coleta nessa conta, o ASF verifica periodicamente (a cada hora configurada em `IdleFarmingPeriod`), se algum novo jogo com cartas Steam foi adicionado, então ele pode retomar a coleta naquela conta sem a necessidade de reiniciar o processo. Isso é útil para a maioria das pessoas, já que o ASF pode retomar automaticamente a coleta quando necessário. No entanto, você pode realmente querer parar o processo quando determinada conta for totalmente explorada, e você faz isso definindo essa propriedade como `true`. Quando habilitado, o ASF vai desconectar quando a conta for totalmente explorada, o que significa que ela não será periodicamente verificada ou ocupada. Você deve decidir se você prefere que o ASF trabalhe em determinada conta bot o tempo todo, ou se o ASF deve interrompê-la quando o processo de coleta for terminado. Quando todas as contas estiverem paradas e o processo não estiver rodando no **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-pt-BR)** `--process-required`, o ASF também se desligará, colocando seu computador em espera e permitindo que você programe outras ações, tais como suspender ou desligar assim que a última carta for recebida.
+Tipo `bool` com valor padrão `false`. O ASF "ocupa" uma conta durante todo o tempo em que o processo esteja ativo. Quando ele termina a coleta nessa conta, o ASF verifica periodicamente (a cada hora configurada em `IdleFarmingPeriod`), se algum novo jogo com cartas Steam foi adicionado, então ele pode retomar a coleta naquela conta sem a necessidade de reiniciar o processo. Isso é útil para a maioria das pessoas, já que o ASF pode retomar automaticamente a coleta quando necessário. No entanto, você pode realmente querer parar o processo quando dada conta for totalmente explorada, você pode conseguir isso definindo essa propriedade como `true`. Quando habilitado, o ASF vai fazer logoff quando conta for totalmente explorada, o que significa que ela não será periodicamente verificada ou ocupada. Você deve decidir se você prefere que o ASF trabalhe em dada conta bot o tempo todo, ou se talvez o ASF deve interrompê-la quando o processo de coleta for termiando. Quando todas as contas estiverem paradas e o processo não estiver rodando no **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-pt-BR)** `--process-required`, o ASF também se desligará, colocando seu computador em espera e permitindo que você programe outras ações, tais como suspender ou desligar assim que a última carta for recebida.
 
 Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
 
@@ -655,13 +675,13 @@ Em circunstâncias limitadas, o ASF também estará apto a gerar um código por 
 
 ### `SteamPassword`
 
-Tipo `string` com o valor padrão `null`. Essa propriedade define sua senha Steam - aquela que você usa para entrar no Steam. Além de definir a senha Steam aqui, você também pode manter valor padrão `null` se desejar digitar sua senha Steam em cada inicialização do ASF em vez de colocá-lo na configuração. Isso pode ser útil para você se você não quer salvar dados confidenciais no arquivo de configuração.
+Tipo `string` com o valor padrão `null`. Essa propriedade define sua senha Steam - aquela que você usa para entrar na Steam. Além de definir a senha Steam aqui, você também pode manter valor padrão `null` se desejar digitar sua senha Steam em cada inicialização do ASF em vez de colocá-lo na configuração. Isso pode ser útil para você se você não quer salvar dados confidenciais no arquivo de configuração.
 
 * * *
 
 ### `SteamTradeToken`
 
-Tipo `string` com o valor padrão `null`. Quando você tem seu bot sua lista de amigos ele pode enviar propostas de troca para você diretamente, sem se preocupar com o token de troca, portanto você pode deixar essa propriedade com o valor padrão `null`. Se por acaso você decidir não ter seu bot na sua lista de amigos, então você precisará gerar e preencher um token de troca como o usuário para o qual esse bot está esperando para enviar trocas. Em outras palavras, essa propriedade deve ser preenchida com o token de trocas da conta do que é definida com a permissão `Master` em `SteamUserPermissions` **dessa** conta bot.
+Tipo `string` com o valor padrão `null`. Quando você tem seu bot sua lista de amigos ele pode enviar propostas de troca para você imediatamente, sem se preocupar com o token de troca, portanto você pode deixar essa propriedade com o valor padrão `null`. Se por acaso você decidir não ter seu bot na sua lista de amigos, então você precisará gerar e preencher um token de troca como o usuário para o qual esse bot está esperando para enviar trocas. Em outras palavras, essa propriedade deve ser preenchida com o token de trocas da conta do que é definida com a permissão `Master` em `SteamUserPermissions` **dessa** conta bot.
 
 Para encontrar seu token, estando conectado como o usuário com a permissão `Master`, navegue até **[aqui](https://steamcommunity.com/my/tradeoffers/privacy)** e dê uma olhada em sua URL de troca. O token que procuramos é são os 8 caracteres após `&token=` em sua URL de troca. Você deve copiar e colocar esses 8 caracteres aqui, como `SteamTradeToken`. Não inclua toda a URL de troca, nem a parte `&token=`, apenas o próprio token (8 caracteres).
 
@@ -711,13 +731,13 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 
 | Valor | Nome                  | Descrição                                                                   |
 | ----- | --------------------- | --------------------------------------------------------------------------- |
-| 0     | Unknown               | Qualquer item que não se encaixa em nenhuma das opções abaixo               |
+| 0     | Unknown               | Qualquer tipo que não se encaixa em nenhuma das opções abaixo               |
 | 1     | BoosterPack           | Pacote de cartas contendo 3 cartas aleatórias de um jogo                    |
 | 2     | Emoticon              | Emoticons para uso no Chat Steam                                            |
 | 3     | FoilTradingCard       | Versão brilhante da `Carta Colecionável`                                    |
 | 4     | ProfileBackground     | Fundo de perfil para usar em seu perfil Steam                               |
 | 5     | TradingCard           | Cartas colecionáveis Steam, usadas para fabricar insígnias (não brilhantes) |
-| 6     | SteamGems             | Gemas Steam usadas para criar pacotes de cartas, incluindo as empacotadas   |
+| 6     | SteamGems             | Gemas e pacotes de gemas Steam usadas para criar pacotes de cartas          |
 | 7     | SaleItem              | Itens especiais ganhos durante as promoções Steam                           |
 | 8     | Consumable            | Consumíveis especiais que desaparecem após serem usados                     |
 | 9     | ProfileModifier       | Itens especiais que podem modificar a aparência do perfil Steam             |

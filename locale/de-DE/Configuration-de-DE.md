@@ -322,6 +322,7 @@ Die Bot-Konfiguration hat folgende Struktur:
     "AcceptGifts": false,
     "AutoSteamSaleEvent": false,
     "BotBehaviour": 0,
+    "CompleteTypesToSend": [],
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
@@ -407,6 +408,25 @@ Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es 
 
 * * *
 
+### `CompleteTypesToSend`
+
+`ImmutableHashSet<byte>` Typ mit einem leeren Standardwert. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. Diese Option funktioniert genauso wie der Befehl `loot`, deshalb denken Sie daran, dass Sie einen Benutzer mit der Berechtigung `Master` benötigen, Sie können auch einen gültigen `SteamTradeToken` benötigen, sowie ein Konto, das überhaupt zum Handel zugelassen ist.
+
+As of today, the following item types are supported in this setting:
+
+| Wert | Name            | Beschreibung                                                                      |
+| ---- | --------------- | --------------------------------------------------------------------------------- |
+| 3    | FoilTradingCard | Folienvariante von `TradingCard`                                                  |
+| 5    | TradingCard     | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden |
+
+Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
+
+Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+
+Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
+
+* * *
+
 ### `CustomGamePlayedWhileFarming`
 
 `string` Typ mit einem Standardwert von `null`. Wenn ASF sammelt, kann es sich als "Spielt ein Steam fremdes Spiel: `CustomGamePlayedWhileFarming`" anzeigen, anstatt des aktuellen Spiels was gesammelt wird. Dies kann nützlich sein, wenn du deine Freunde darüber informieren möchtest, dass du am Sammeln bist, aber den `OnlineStatus` nicht auf `Offline` ändern möchtest. Bitte bedenke, dass ASF die tatsächliche Anzeige-Reihenfolge des Steam-Netzwerks nicht garantieren kann, daher ist dies nur ein Vorschlag, der richtig angezeigt werden kann oder auch nicht. Der Standardwert von `null` deaktiviert dieses Feature.
@@ -478,7 +498,7 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `IdleRefundableGames`
 
-`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob es ASF erlaubt ist, Spiele zu sammeln, die noch erstattungsfähig sind. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. Standardmäßig, wenn diese Option auf `true` gesetzt ist, ignoriert ASF die Steam-Rückerstattungen vollständig und Sammelt alles, wie es die meisten Benutzer erwarten würden. Du kannst diese Option jedoch auf `false` setzen, wenn du sicherstellen möchtest, dass ASF keines deiner rückerstattungsfähigen Spiele zu früh sammelt, so dass du diese Spiele selbst bewerten und bei Bedarf zurückerstatten kannst, ohne dir Sorgen zu machen, dass ASF die Spielzeit negativ beeinflusst. Bitte bedenke, dass, wenn du diese Option deaktivierst, Spiele, die du im Steam-Shop gekauft hast, bis zu 14 Tage nach dem Einlösedatum nicht von ASF gesammelt werden, was als nichts zu sammeln angezeigt wird, wenn dein Konto nichts anderes besitzt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `true`.
+`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob es ASF erlaubt ist, Spiele zu sammeln, die noch erstattungsfähig sind. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. Standardmäßig, wenn diese Option auf `true` gesetzt ist, ignoriert ASF die Steam-Rückerstattungen vollständig und Sammelt alles, wie es die meisten Benutzer erwarten würden. Du kannst diese Option jedoch auf `false` setzen, wenn du sicherstellen möchtest, dass ASF keines deiner rückerstattungsfähigen Spiele zu früh sammelt, so dass du diese Spiele selbst bewerten und bei Bedarf zurückerstatten kannst, ohne dir Sorgen zu machen, dass ASF die Spielzeit negativ beeinflusst. Bitte bedenke, dass, wenn du diese Option deaktivierst, Spiele, die du im Steam-Shop gekauft hast, bis zu 14 Tage nach dem Einlösedatum nicht von ASF gesammelt werden, was als nichts zu sammeln angezeigt wird, wenn dein Konto nichts anderes besitzt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `true`.
 
 * * *
 
@@ -486,23 +506,23 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 `ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
 
-| Wert | Name                  | Beschreibung                                                                                           |
-| ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
-| 0    | Unknown               | Jeder Typ, der nicht in eine der folgenden Kategorien passt                                            |
-| 1    | BoosterPack           | Booster Pack mit 3 zufälligen Karten aus einem Spiel                                                   |
-| 2    | Emoticon              | Emoticon zur Verwendung im Steam-Chat                                                                  |
-| 3    | FoilTradingCard       | Glanz-Variante von `TradingCard`                                                                       |
-| 4    | ProfileBackground     | Profilhintergrund zur Verwendung in deinem Steam-Profil                                                |
-| 5    | TradingCard           | Steam-Sammel-Karte, die für die Herstellung von Abzeichen (Nicht-Glanz) verwendet werden               |
-| 6    | SteamGems             | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Edelsteinsäcke |
-| 7    | SaleItem              | Spezialgegenstände, die während des Steam-Sales vergeben werden                                        |
-| 8    | Consumable            | Spezielle Verbrauchsgegenstände, die nach dem Gebrauch wieder verschwinden                             |
-| 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                             |
-| 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                                       |
-| 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                                       |
-| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
-| 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                                                                 |
-| 14   | AnimatedAvatar        | Special animated avatar for Steam profile                                                              |
+| Wert | Name                  | Beschreibung                                                                                  |
+| ---- | --------------------- | --------------------------------------------------------------------------------------------- |
+| 0    | Unknown               | Jeder Typ, der nicht in eine der folgenden Kategorien passt                                   |
+| 1    | BoosterPack           | Booster Pack mit 3 zufälligen Karten aus einem Spiel                                          |
+| 2    | Emoticon              | Emoticon zur Verwendung im Steam-Chat                                                         |
+| 3    | FoilTradingCard       | Folienvariante von `TradingCard`                                                              |
+| 4    | ProfileBackground     | Profilhintergrund zur Verwendung in deinem Steam-Profil                                       |
+| 5    | TradingCard           | Steam-Karte, die für die Herstellung von Abzeichen (Nicht-Folie) verwendet werden             |
+| 6    | SteamGems             | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Säcke |
+| 7    | SaleItem              | Spezialgegenstände, die während des Steam-Sales vergeben werden                               |
+| 8    | Consumable            | Spezielle Verbrauchsgegenstände, die nach dem Gebrauch wieder verschwinden                    |
+| 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                    |
+| 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
+| 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
+| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                      |
+| 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                                                        |
+| 14   | AnimatedAvatar        | Special animated avatar for Steam profile                                                     |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -581,7 +601,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 ### `RedeemingPreferences`
 
-`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
+`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
 
 | Wert | Name                               | Beschreibung                                                                                                                    |
 | ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -601,7 +621,7 @@ Bitte bedenke, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglic
 
 `AssumeWalletKeyOnBadActivationCode` will cause `BadActivationCode` keys to be treated as `CannotRedeemCodeFromClient`, and therefore result in ASF trying to redeem them as wallet keys. This is needed because Steam might announce wallet keys as `BadActivationCode` (and not `CannotRedeemCodeFromClient` as it used to), resulting in ASF never attempting to redeem them. However, we recommend **against** using this preference, as it'll result in ASF trying to redeem every invalid key as a wallet code, resulting in excessive amount of (potentially invalid) requests sent to the Steam service, with all the potential consequences. Instead, we recommend to use `ForceAssumeWalletKey` **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#redeem-modes)** mode while knowingly redeeming wallet keys, which will enable the needed workaround only when it's required, on as-needed basis.
 
-Wenn du sowohl `Forwarding` als auch `Distributing` aktivierst, wird zusätzlich zur Weiterleitung eine Verteilungsfunktion hinzugefügt, wodurch ASF versucht, einen Produktschlüssel auf allen Bots zuerst einzulösen (Weiterleitung), bevor es zum nächsten geht (Verteilung). Normalerweise möchtest du diese Option nur verwenden, wenn du `Forwarding` möchtest, aber mit geändertem Verhalten beim Einschalten des verwendeten Bot auf Produktschlüssel, anstatt immer mit jedem Produktschlüssel in Reihenfolge zu gehen (das wäre `Forwarding` allein). Dieses Verhalten kann von Vorteil sein, wenn du weißt, dass die Mehrheit oder sogar alle deine Produktschlüssel an das gleiche Spiel gebunden sind, denn in dieser Situation würde `Forwarding` allein versuchen, alles auf einem Bot einzulösen (was Sinn ergibt, wenn deine Produktschlüssel für einzigartige Spiele sind), und `Forwarding` + `Distributing` schaltet den Bot auf den nächsten Produktschlüssel um, "verteilt" die Aufgabe, einen neuen Produktschlüssel auf einen anderen als den ursprünglichen einzulösen (was sinnvoll ist, wenn die Produktschlüssel für das gleiche Spiel sind, überspringt einen sinnlosen Versuch pro Produktschlüssel).
+Wenn du sowohl `Forwarding` als auch `Distributing` aktivierst, wird zusätzlich zur Weiterleitung eine Verteilungsfunktion hinzugefügt, wodurch ASF versucht, einen Produktschlüssel auf allen Bots zuerst einzulösen (Weiterleitung), bevor es zum nächsten geht (Verteilung). Normalerweise möchtest du diese Option nur verwenden, wenn du `Forwarding` möchtest, aber mit geändertem Verhalten beim Einschalten des verwendeten Bot auf Produktschlüssel, anstatt immer mit jedem Produktschlüssel in Reihenfolge zu gehen (das wäre `Forwarding` allein). Dieses Verhalten kann von Vorteil sein, wenn du weißt, dass die Mehrheit oder sogar alle deine Produktschlüssel an das gleiche Spiel gebunden sind, denn in dieser Situation würde `Forwarding` allein versuchen, alles auf einem Bot einzulösen (was Sinn macht, wenn deine Produktschlüssel für einzigartige Spiele sind), und `Forwarding` + `Distributing` schaltet den Bot auf den nächsten Produktschlüssel um, "verteilt" die Aufgabe, einen neuen Produktschlüssel auf einen anderen als den ursprünglichen einzulösen (was sinnvoll ist, wenn die Produktschlüssel für das gleiche Spiel sind, überspringt einen sinnlosen Versuch pro Produktschlüssel).
 
 Die tatsächliche Reihenfolge der Bots für alle Einlöseszenarien ist alphabetisch, mit Ausnahme von Bots, die nicht verfügbar sind (nicht verbunden, gestoppt oder ähnliches). Bitte bedenke, dass es ein stündliches Limit für Einlösungsversuche pro IP und pro Konto gibt, und jeder Einlösungsversuch, der nicht mit `OK` endete, trägt zu fehlgeschlagenen Versuchen bei. ASF wird sein Bestes tun, um die Anzahl der `AlreadyPurchased` Fehler zu minimieren, z.B. indem es versucht zu vermeiden, einen Produktschlüssel an einen anderen Bot weiterzuleiten, der bereits dieses bestimmte Spiel besitzt, aber es ist nicht immer garantiert, dass es funktioniert, aufgrund dessen, wie Steam mit Lizenzen umgeht. Die Verwendung von Einlöse-Flags wie `Forwarding` oder `Distributing` erhöht immer die Wahrscheinlichkeit, dass du `RateLimited` erreichst.
 
@@ -671,12 +691,12 @@ Um deinen Code zu finden, navigiere als angemeldeter Benutzer mit der Berechtigu
 
 ` ImmutableDictionary<ulong, byte>` Typ mit einem leeren Standardwert. Diese Eigenschaft ist eine Dictionary-Eigenschaft, die den Steam-Benutzer, der durch seine 64-Bit-Steam-ID identifiziert wurde, auf die Nummer `byte` umbildet, die seine Berechtigung in ASF-Instanz angibt. Die derzeit verfügbaren Bot-Berechtigungen in ASF sind definiert als:
 
-| Wert | Name          | Beschreibung                                                                                                                                                                                                                                    |
-| ---- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None          | Keine spezielle Berechtigung, dies ist hauptsächlich ein Referenzwert, der den in diesem Verzeichnis fehlenden Steam-IDs zugeordnet wird - es ist nicht notwendig, irgendjemanden mit dieser Berechtigung zu definieren                         |
-| 1    | FamilySharing | Bietet einen minimalen Zugriff für Familienmitglieder. Auch hier handelt es sich hauptsächlich um einen Referenzwert, da ASF in der Lage ist, Steam-IDs, die wir für die Nutzung unserer Bibliothek freigegeben haben, automatisch zu entdecken |
-| 2    | Operator      | Bietet grundlegenden Zugriff auf gegebene Bot-Instanzen, hauptsächlich das Hinzufügen von Lizenzen und das Einlösen von Produktschlüsseln                                                                                                       |
-| 3    | Master        | Bietet vollen Zugriff auf die gegebene Bot-Instanz                                                                                                                                                                                              |
+| Wert | Name          | Beschreibung                                                                                                                                                                                                            |
+| ---- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | None          | Keine spezielle Berechtigung, dies ist hauptsächlich ein Referenzwert, der den in diesem Verzeichnis fehlenden Steam-IDs zugeordnet wird - es ist nicht notwendig, irgendjemanden mit dieser Berechtigung zu definieren |
+| 1    | FamilySharing | Bietet einen minimalen Zugriff für Familienmitglieder. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library                 |
+| 2    | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                                                 |
+| 3    | Master        | Provides full access to given bot instance                                                                                                                                                                              |
 
 Kurz gesagt, diese Eigenschaft ermöglicht es dir, Berechtigungen für bestimmte Benutzer zu verwalten. Berechtigungen sind vor allem für den Zugriff auf ASF **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** wichtig, aber auch für die Aktivierung vieler ASF-Funktionen, wie z.B. die Annahme von Handelsangeboten. Zum Beispiel könntest du dein eigenes Konto als `Master` einrichten und `Operator` Zugang zu 2-3 deiner Freunde geben, damit sie leicht Produktschlüssel für deinen Bot mit ASF einlösen können, während sie **nicht** berechtigt sind, z.B. ihn zu stoppen. Dank dessen kannst du bestimmten Benutzern einfach Berechtigungen zuweisen und sie deinen Bot verwenden lassen.
 
@@ -688,7 +708,7 @@ Es ist schön zu beachten, dass es noch eine weitere zusätzliche `Owner` Berech
 
 ### `TradingPreferences`
 
-`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
+`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
 | Wert | Name                | Beschreibung                                                                                                                                                                                                                     |
 | ---- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -735,7 +755,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `UseLoginKeys`
 
-`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF den Anmelde-Schlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmelde-Schlüssel-Mechanismus funktioniert sehr ähnlich wie die "Remember me"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmelde-Schlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmelde-Schlüssel gültig ist. Der Anmelde-Schlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund musst du kein Passwort/SteamGuard/2FA-Code angeben, nachdem du dich nur einmal erfolgreich mit ASF angemeldet hast.
+`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF den Anmelde-Schlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmelde-Schlüssel-Mechanismus funktioniert sehr ähnlich wie die "Remember me"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmelde-Schlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmelde-Schlüssel gültig ist. Der Anmelde-Schlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund musst du kein Passwort/SteamGuard/2FA-Code angeben, nachdem du dich nur einmal erfolgreich mit ASF angemeldet hast.
 
 Die Anmelde-Schlüssel werden standardmäßig für deine Bequemlichkeit verwendet, so dass du nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code (wenn du nicht **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendest) eingeben musst. Es ist auch eine überlegene Alternative, da der Anmelde-Schlüssel nur einmalig verwendet werden kann und dein ursprüngliches Passwort in keiner Weise offenbart. Genau die gleiche Methode wird von deinem ursprünglichen Steam-Client verwendet, der deinen Konto-Namen und Anmelde-Schlüssel für deinen nächsten Anmeldeversuch speichert, was praktisch die gleiche ist wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
 
@@ -843,7 +863,7 @@ Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
-`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map), das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenke, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten Karte eindeutig ist, diesmal ebenfalls von JSON durchgesetzt.
+`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map) das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenke, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten Karte eindeutig ist, diesmal ebenfalls von JSON durchgesetzt.
 
 Beispiel für `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
