@@ -410,9 +410,9 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `CompleteTypesToSend`
 
-这是一个默认值为空的 `ImmutableHashSet<byte>` 类型属性。 When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确为用户设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户原本就能够进行交易。
+这是一个默认值为空的 `ImmutableHashSet<byte>` 类型属性。 当 ASF 完成收集符合此处设置类型的一组物品时，它可以通过 Steam 交易自动将所有已经完成的物品套组发送给拥有 `Master` 权限的用户，如果您将机器人帐户用于 STM 匹配等需求，此功能可以非常方便地将已收集全的套组发送到另一个帐户。 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确为用户设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户原本就能够进行交易。
 
-As of today, the following item types are supported in this setting:
+目前，此设置支持以下物品类型：
 
 | 值 | 名称              | 描述                       |
 | - | --------------- | ------------------------ |
@@ -421,7 +421,7 @@ As of today, the following item types are supported in this setting:
 
 请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
 
-Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+由于启用此选项会带来额外开销，我们建议您只在确实有机会自行集齐物品的机器人上启用——例如，如果您平时已经使用 `SendOnFarmingFinished`、`SendTradePeriod` 或 `loot` 命令来收集物品，就没有必要使用此选项。
 
 如果您不确定如何配置此选项，最好将其保留为默认值。
 

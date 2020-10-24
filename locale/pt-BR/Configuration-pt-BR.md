@@ -421,7 +421,7 @@ O seguintes tipos de itens são suportados nesta configuração:
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
-Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+Devido a sobrecarga adicional causada por essa opção, recomendamos usá-la apenas em contas bot que tenhoam alguma chance real de terminar os sets por conta própria - por exemplo, não faz sentido ativar essa opção caso você use os comandos `SendOnFarmingFinished`, `SendTradePeriod` ou `loot` de forma regular.
 
 Se você está inseguro de como configurar esta opção, é melhor deixá-la padrão.
 

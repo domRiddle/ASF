@@ -410,9 +410,9 @@ ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSO
 
 ### `CompleteTypesToSend`
 
-Параметр типа `ImmutableHashSet<byte>` с пустым значением по умолчанию. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. Эта функция аналогична команде `loot`, поэтому помните что для неё нужно чтобы был установлен пользователь с правами `Master`, а также может понадобиться правильный `SteamTradeToken`, ну и конечно аккаунту должно быть разрешено совершать обмены.
+Параметр типа `ImmutableHashSet<byte>` с пустым значением по умолчанию. Когда ASF заканчивает собирать полный набор предметов указанных в этом параметре типов, оно может отправить предложение обмена в Steam пользователю с правами доступа `Master`, что очень удобно если вы хотите использовать бота для обмена по принципам STM и передавать завершённые наборы на другой аккаунт. Эта функция аналогична команде `loot`, поэтому помните что для неё нужно чтобы был установлен пользователь с правами `Master`, а также может понадобиться правильный `SteamTradeToken`, ну и конечно аккаунту должно быть разрешено совершать обмены.
 
-As of today, the following item types are supported in this setting:
+На сегодняшний день эта настройка поддерживает следующие типы:
 
 | Значение | Имя             | Описание                                                                  |
 | -------- | --------------- | ------------------------------------------------------------------------- |
@@ -421,7 +421,7 @@ As of today, the following item types are supported in this setting:
 
 Обратите внимание, что независимо от настроек выше, ASF будет отправлять только предметы из сообщества (`contextID` равно 6) Steam (`appID` равно 753), поэтому все игровые предметы, подарки, и так далее, исключены из предложений обмена по определению.
 
-Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+Из-за дополнительных накладных расходов рекомендуется использовать эту опцию только для ботов у которых есть реальные шансы завершения наборов - например, нет смысла активировать её если вы уже используете `SendOnFarmingFinished`, `SendTradePeriod` или команду `loot` на регулярной основе.
 
 Если вы не уверены, как настроить этот параметр, лучше оставить ему значение по умолчанию.
 
