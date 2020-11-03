@@ -1,60 +1,60 @@
-# Setting up
+# 初期設定
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+はじめての方、ようこそ！ 私たちのプロジェクトに興味を持ってくださる方がまた一人増えたことをとても嬉しく思います。能力に努力はつきものだ、もしあなたが** ASF の使用方法を充分学んだのなら**、ASFはSteamに関連した様々なことを行うことができます。 ここには急な学習曲線がありますので、この点に関してはwikiを読んでいただくことを期待しています。
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+あなたがまだここにいるということは、上記のテキストに耐えてくれたということですね。嬉しい。 これをサボっていたら、すぐに**[嫌な思い](https://youtu.be/LCZUMw00XHU?t=1)**をすることになりますよ… ともかく、ASFはコンソールアプリなので、プログラムには一般的に使われているようなフレンドリーなGUIは持っていません。 ASF は主にサーバ上で実行されることを想定していたので、デスクトップアプリではなくサービス（デーモン）として動作します。
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
-
-* * *
-
-## OS-specific setup
-
-In general, here is what we'll do in the next few minutes:
-
-- Install **[.NET Core prerequisites](#net-core-prerequisites)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
-
-Sounds simple enough, right? So let's get through it.
+しかし、これはあなたの PC で使用できなかったり、使用することが通常よりも複雑だったりすることを意味するものではありません。 ASF はインストールを必要としないスタンドアロンのプログラムで、OOTB（箱から出してすぐに動作します）が、使えるようにするには設定が必要です。 設定とは、ASF を起動した後に何をさせるかを指示することです。 設定なしで起動しても 、ASF は何もしません。
 
 * * *
 
-### .NET Core prerequisites
+## OS 固有の設定
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+一般的には、次のようにします。
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+- **[.NET Core の前提条件](#net-core-prerequisites)**をインストールします。
+- **[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**を適切なOS固有のバリアントでダウンロードします。
+- アーカイブファイルを展開します(Linux/OS Xの場合は`chmod +x ArchiSteamFarm`を)。
+- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+- ASF を起動し、奇跡の瞬間を目に焼き付けなさい。
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+簡単っしょ？ では、早速やってみましょう。
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
+* * *
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+### .NET Core の前提条件
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
+まず最初に、お使いのOSでASFが正しく起動できるかを確認して下さい。 ASF は .NET Core をベースに C# で書かれており、お使いのプラットフォームがまだサポートしていない、ネイティブライブラリを必要とする場合があります。 Windows、Linux、OS Xのいずれを使用しているかによって必要な要件は異なりますが、すべての要件は **[ .NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** ページに記載されています これはマイクロソフトによる説明ですが、簡単にするために、必要なものを以下にも書きますので、リンク先の全文を読む必要はありません。
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+ASFが依存するソフトは、他のソフトによってすでにインストールされたことが普通です。 それでも、ASFが確実に作動するために、.NET Core prerequisites を再度インストールすることが必要とされることもある。
+
+固有の OS-specific build（ダウンロードしたご利用の OS に対応してビルドされたソフト）に対し何もする必要はありません。特に .NET Core SDK のインストールやランタイムのインストールなど、これらは OS-specific package（ダウンロードしたやつ）に内包されています。 ご自身でやっていただくことは、 .NET Core が作動する前提条件（依存された環境）だけです。
+
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
+
+- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**（64ビットWindowsならx64、32ビットWindowsならx86）
+- すべてのWindowsアップデートがすでにインストールされていることを確認することを強くお勧めします。 最低でも **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** と **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** が必要ですが、これ以外のアップデートが必要の場合もある。 Windowsが最新の状態であれば、これらはすべてインストールされています。 Visual C++パッケージをインストールする前に、これらの要件を満たしていることを確認してください。
+
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
+
+パッケージ名は使用している Linux ディストリビューションに依存しますが、ここでは最も一般的なものをリストアップしました。 あなたの OS のネイティブのパッケージマネージャ（例えば Debian なら `apt`、CentOS なら `yum`）を使っても、これらをインストールすることが可能です。
 
 - `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (latest version for your distribution, for example `libicu60`)
+- `libicu` (ご利用のディストリビューションの最新バージョン、例えば `libicu60`)
 - `libkrb5-3` (`krb5-libs`)
 - `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
+- `libssl` (`libssl1.1`, `openssl-libs`, ご利用の OS の最新の1.1.X版)
 - `zlib1g` (`zlib`)
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+少なくとも、これらのうちのいくつかはシステム上でネイティブに利用可能なはずです（最近ではほぼすべての Linux ディストリビューションで `zlib1g` がすでに入っている）。
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
-- None for now, but you should have latest version of OS X installed, at least 10.13+
+- 今のところはありませんが、OS X の最新バージョン、少なくとも 10.13+以上が必要です。
 
 * * *
 
-### Downloading
+### ダウンロード
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
@@ -245,7 +245,7 @@ With extra steps:
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

@@ -1,4 +1,4 @@
-| [![英語](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![ドイツ語](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/de.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE) | [![es-ES](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/es.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES) |
+| [![英語](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![ドイツ語](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/de.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE) | [![スペイン語](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/es.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES) |
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |                                                                                                                                                     |                                                                                                                                                             |                                                                                                                                                              |
 
@@ -38,7 +38,7 @@
 * **[低メモリ初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[プラグイン](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[セキュリティ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Steam Token出力プラグイン](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[サードパーティー](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[2ファクタ認証](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
