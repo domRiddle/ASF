@@ -13,7 +13,7 @@
 * **[ホーム](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[よくある質問](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(ここから開始)**
+* **[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ja-JP)** **(ここから開始)**
 
 ## コア
 

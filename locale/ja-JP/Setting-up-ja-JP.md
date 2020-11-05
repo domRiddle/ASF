@@ -1,14 +1,14 @@
 # 初期設定
 
-はじめての方、ようこそ！ 私たちのプロジェクトに興味を持ってくださる方がまた一人増えたことをとても嬉しく思います。能力に努力はつきものだ、もしあなたが** ASF の使用方法を充分学んだのなら**、ASFはSteamに関連した様々なことを行うことができます。 ここには急な学習曲線がありますので、この点に関してはwikiを読んでいただくことを期待しています。
+はじめての方、ようこそ！ 私たちのプロジェクトに興味を持ってくださる方がまた一人増えたことをとても嬉しく思います。能力に努力はつきものだ、もしあなたが** ASF の使用方法を充分学んだのなら**&#8203;、ASFはSteamに関連した様々なことを行うことができます。 ここには急な学習曲線がありますので、この点に関してはwikiを読んでいただくことを期待しています。
 
-あなたがまだここにいるということは、上記のテキストに耐えてくれたということですね。嬉しい。 これをサボっていたら、すぐに**[嫌な思い](https://youtu.be/LCZUMw00XHU?t=1)**をすることになりますよ… ともかく、ASFはコンソールアプリなので、プログラムには一般的に使われているようなフレンドリーなGUIは持っていません。 ASF は主にサーバ上で実行されることを想定していたので、デスクトップアプリではなくサービス（デーモン）として動作します。
+あなたがまだここにいるということは、上記のテキストに耐えてくれたということですね。嬉しい。 これをサボっていたら、すぐに&#8203;**[嫌な思い](https://youtu.be/LCZUMw00XHU?t=1)**&#8203;をすることになりますよ… ともかく、ASFはコンソールアプリなので、プログラムには一般的に使われているようなフレンドリーなGUIは持っていません。 ASF は主にサーバ上で実行されることを想定していたので、デスクトップアプリではなくサービス（デーモン）として動作します。
 
 しかし、これはあなたの PC で使用できなかったり、使用することが通常よりも複雑だったりすることを意味するものではありません。 ASF はインストールを必要としないスタンドアロンのプログラムで、OOTB（箱から出してすぐに動作します）が、使えるようにするには設定が必要です。 設定とは、ASF を起動した後に何をさせるかを指示することです。 設定なしで起動しても 、ASF は何もしません。  
   
 訳注（用語説明）：  
-.NET Core の要件・依存関係 (.NET Core prerequisites)、.NET Coreアプリが作動する環境。  
-OS固有バリアント・OS固有パッケージ(OS-specific variant/OS-specific package)、コードをOSが実行できるよう予め作られたやつ、ユーザーがダウンロードするやつ。  
+・.NET Core の要件・依存関係 (.NET Core prerequisites)、.NET Coreアプリが作動する環境。  
+・OS固有バリアント・OS固有パッケージ(OS-specific variant/OS-specific package)、コードをOSが実行できるよう予め作られたやつ、ユーザーがダウンロードするやつ。  
 （もっといい訳し方を知っている方はぜひ拙訳を直していただきたい。）  
 
 
@@ -18,10 +18,10 @@ OS固有バリアント・OS固有パッケージ(OS-specific variant/OS-specifi
 
 一般的には、次のようにします。
 
-- **[.NET Core の前提条件](#net-core-prerequisites)**をインストールします。
-- **[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**を適切な OS 固有バリアントでダウンロードします。
+- **[.NET Core の前提条件](#net-core-prerequisites)**&#8203;をインストールします。
+- **[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;を適切な OS 固有バリアントでダウンロードします。
 - アーカイブファイルを展開します(Linux/OS X の場合は `chmod +x ArchiSteamFarm` を)。
-- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**
 - ASF を起動し、奇跡の瞬間を目に焼き付けなさい。
 
 簡単っしょ？ では、早速やってみましょう。
@@ -36,12 +36,12 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 
 既存の OS 固有ビルドに対し何もする必要はありません。特に .NET Core SDK のインストールやランタイムのインストールなど、これらは OS 固有パッケージ（ダウンロードしたやつ）に内包されています。 ご自身でやっていただくことは、.NET Core が作動する要件（依存された環境）だけです。
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**（64ビットWindowsならx64、32ビットWindowsならx86）
-- すべてのWindowsアップデートがすでにインストールされていることを確認することを強くお勧めします。 最低でも **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** と **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** が必要ですが、これ以外のアップデートが必要の場合もある。 Windowsが最新の状態であれば、これらはすべてインストールされています。 Visual C++パッケージをインストールする前に、これらの要件を満たしていることを確認してください。
+- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)**&#8203;（64ビットWindowsならx64、32ビットWindowsならx86）
+- すべてのWindowsアップデートがすでにインストールされていることを確認することを強くお勧めします。 最低でも **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** と **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** が必要ですが、これ以外のアップデートが必要の場合もある。 Windowsが最新の状態であれば、これらはすべてインストールされています。 Visual C++ パッケージをインストールする前に、これらの要件を満たしていることを確認してください。
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
+#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**
 
 パッケージ名は使用している Linux ディストリビューションに依存しますが、ここでは最も一般的なものをリストアップしました。 あなたの OS のネイティブのパッケージマネージャ（例えば Debian なら `apt`、CentOS なら `yum`）を使っても、これらをインストールすることが可能です。
 
@@ -54,7 +54,7 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 
 少なくとも、これらのうちのいくつかはシステム上でネイティブに利用可能なはずです（最近ではほぼすべての Linux ディストリビューションで `zlib1g` がすでに入っている）。
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
+#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**
 
 - ユーザーは何もせずとも、アップルが用意してくれている。ただし、OS X の最新バージョン、少なくとも 10.13 以上が必要です。
 
@@ -62,7 +62,7 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 
 ### ダウンロード
 
-前の節で必要な依存関係はすべて揃っているはずので、本節では**[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**をダウンロードします。 ASF には多くの種類がありますが、ご利用の OS やアーキテクチャに合うパッケージを選んで下さい。 例えば、`64` ビット `Win`dows を使用している場合、`ASF-win-x64` パッケージをダウンロードして下さい。 利用可能なバリアントの詳細については、**[互換性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**セクションを参照してください。 ASFは **32ビットWindows** のような、我々がOS固有パッケージを提供していないOSでも動作することができます。詳しくは、**[汎用設定](#generic-setup)**を参照して下さい。
+前の節で必要な依存関係はすべて揃っているはずので、本節では&#8203;**[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;をダウンロードします。 ASF には多くの種類がありますが、ご利用の OS やアーキテクチャに合うパッケージを選んで下さい。 例えば、`64` ビット `Win`dows を使用している場合、`ASF-win-x64` パッケージをダウンロードして下さい。 利用可能なバリアントの詳細については、&#8203;**[互換性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ja-JP)**&#8203;セクションを参照してください。 ASFは **32ビットWindows** のような、我々がOS固有パッケージを提供していないOSでも動作することができます。詳しくは、&#8203;**[汎用設定](#generic-setup)**&#8203;を参照して下さい。
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
@@ -70,9 +70,9 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 
 Linux/OS X を使っている場合は、解凍したフォルダで`chmod +x ArchiSteamFarm`を忘れずにやってください。 権限変更は解凍のあとに一回だけ必要です。
 
-ASF を**ほかに何も入っていないディレクトリ**に解凍することをお勧めします。ASF の自動更新機能はアップグレード時に古いファイルや関係のないファイルをすべて削除するようになっているので、ASF ディレクトリにある関係のないファイルが削除される可能性があります。 ASFで使用するほかのスクリプトやファイルは、親ディレクトリに入れてください。
+ASF を&#8203;**ほかに何も入っていないディレクトリ**&#8203;に解凍することをお勧めします。ASF の自動更新機能はアップグレード時に古いファイルや関係のないファイルをすべて削除するようになっているので、ASF ディレクトリにある関係のないファイルが削除される可能性があります。 ASFで使用するほかのスクリプトやファイルは、親ディレクトリに入れてください。
 
-構造はこんな感じ：
+構造はこんな感じ。
 
 ```text
 C:\ASF（ご自身のものを置く場所、例）
@@ -95,44 +95,44 @@ C:\ASF（ご自身のものを置く場所、例）
 
 これで残ったのは配置することだけだ。 このステップが結構面倒くて、新しい点も多いから、ここでは分かりやすく、例を交えて説明しますね。
 
-まず、**[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**ページでこれに関する**全て**が書かれているが、あまりにも情報量が莫大で、今はまだ読まなくていい。 代わりに、実際に必要な情報を得る方法を教えよう。
+まず、&#8203;**[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**&#8203;ページでこれに関する&#8203;**全て**&#8203;が書かれているが、あまりにも情報量が莫大で、今はまだ読まなくていい。 代わりに、実際に必要な情報を得る方法を教えよう。
 
-ASF を設定する方法には、ウェブ設定生成器と手動の 2 通りがあります。 この部分も**[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**ページで詳しく書かれている、詳しく知りたい方はそちらを。 ここではウェブ設定生成器を使おう、こっちのほうが簡単だから。
+ASF を設定する方法には、ウェブ設定生成器と手動の 2 通りがあります。 この部分も&#8203;**[設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**&#8203;ページで詳しく書かれている、詳しく知りたい方はそちらを。 ここではウェブ設定生成器を使おう、こっちのほうが簡単だから。
 
-ブラウザで**[ウェブ設定生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**のページにアクセスして下さい。javascript を手動で無効化していたら有効にして下さい。 Chrome か Firefox を使うことをお勧めしますが、他のブラウザでも問題ないはず。
+ブラウザで&#8203;**[ウェブ設定生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;のページにアクセスして下さい。javascript を手動で無効化していたら有効にして下さい。 Chrome か Firefox を使うことをお勧めしますが、他のブラウザでも問題ないはず。
 
-ページを開いたら、「ボット」タブに切り替えて下さい。 下のようなページが表示されているはずです。
+ページを開いたら、「Bot」タブに切り替えて下さい。 下のようなページが表示されているはずです。
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-もしダウンロードした ASF のバージョンがウェブ設定生成器のデフォルトのバージョンよりも古い場合は、ドロップダウンメニューからお使いの ASF のバージョンを選択してください。 This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
+もしダウンロードした ASF のバージョンがウェブ設定生成器のデフォルトのバージョンよりも古い場合は、ドロップダウンメニューからお使いの ASF のバージョンを選択してください。 これは、設定生成器は、まだ安定していないプレリリース版の ASF の設定も生成できるからである。 安定版 ASF は検証済みなので、そちらをダウンロードして下さい。
 
-Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
+まずは赤くハイライトされた入力欄にボットの名前を入力する。 ニックネーム、ユーザー名、数字、何でもよくて、お好きなように名前を付けて下さい。 但し、`ASF` とだけは名付けてはいけません。 その他にも、ASFはこれを無視するので、ボット名を「`.`」（点）で始まる名前にしてはいけません。 また、スペースの使用も避けたほうがいいと思われます。スペースの代わりに `_` を使って下さい。
 
-After you decided about your name, change `Enabled` switch to be on, this defines whether your bot is supposed to be started by ASF automatically after launch (of the program).
+名前が決まったら、`Enabled` スイッチをオンにしてください。このスイッチは、ASF 起動後に自動的にこのボットを起動するかどうかを定義するものです。
 
-Now you can decide upon two things:
+ここで、下の 2 つの中のどれにするか決めて下さい。
 
-- You can put your login in `SteamLogin` field and your password in `SteamPassword` field
-- Or you can leave them empty
+- Steamのアカウント名とパスワードをそれぞれ `SteamLogin` と `SteamPassword` 欄に入力する。
+- これらを空白のままにする。
 
-Doing the first thing will allow ASF to automatically use your account credentials during startup, so you won't need to input them manually each time ASF needs them. You can however decide to omit them, in which case they're not being saved, so ASF won't be able to automatically start without your help and you'll need to input them during runtime.
+前者を選んだ場合、ASFは起動時に自動的にあなたのアカウント認証情報を使用し、毎回毎回手動で入力する必要はありません。 後者なら、アカウント情報は保存されませんので、ASFが起動するたびに手動でこれらを入力する手間が掛かる。
 
-ASF requires your login credentials because it includes its own implementation of Steam client and needs the same details to log in as the one that you use yourself. Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section.
+ASF には Steam クライアントの独自の実装が含まれているため、Steam 公式アプリと同じくログイン認証情報を必要とします。 ログイン認証情報はユーザーの PC にある ASF の下の `config` ディレクトリ内にのみ保存されます。ウェブ設定生成器はクライアント・ベースで、ブラウザ上でローカルにコードを実行します。ユーザーの認証情報はどこにも送られませんので、ユーザー情報が知られる心配はありません。 それでも、何らかの理由で認証情報をそこに書きたくない場合は（うん、わかる）、後で生成されたファイルに手動で書き入れるか、あるいは完全に省略して、起動するたんびに ASF コマンド・プロンプトに手動で入力することもできます。 セキュリティに関する詳細は**[設定&#8203;](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**&#8203;ページを参照して下さい。
 
-You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental to unlock the account, you'll need to put it into `SteamParentalCode` field.
+また、`SteamPassword` のように 1 つだけを空欄にするのも可能だ。その場合、ASF は自動的にログインしようとするが、Steam アプリと同様にパスワードを要求してきます。 ファミリービュー（保護者による制限）が有効化されたアカウントなら、`SteamParentalCode` 欄にそれに必要な コード を入力して下さい。
 
-After the decision and optional details, your web page will now look similar to the one below:
+必要な操作をすべて完了させたら、Webページは以下のようになります。
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
+「ダウンロード」ボタンを押すと、ボットの名前に基づいて新しい `json` ファイルが生成されます。 このファイルを前に解凍したフォルダにある `config` ディレクトリに保存して下さい。
 
-Your `config` directory will now look like this:
+`config` ディレクトリはこのようになります。
 
 ![Structure 2](https://i.imgur.com/crWdjcp.png)
 
-Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+ヨシッ！ これで ASF ボットの基本的な設定が完了しました。 このあとで詳しく説明するが、今のところこれで大丈夫です。
 
 * * *
 
@@ -251,7 +251,7 @@ With extra steps:
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+- **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
