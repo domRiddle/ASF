@@ -59,9 +59,10 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `bl [Bots]`                                                          | `Master`        | 列出指定 BOT 的使用者交易黑名單。                                                                                                                                    |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 將指定 `steamIDs` 新增至指定 BOT 的使用者交易黑名單。                                                                                                                    |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 將指定 `steamIDs` 移除自指定 BOT 的使用者交易黑名單。                                                                                                                    |
-| `encrypt <cryptoMethod> <stringToEncrypt>`               | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                          |
+| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | Encrypts the string using provided cryptographic mechanism - further explained **[below](#encrypt-command)**.                                          |
 | `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                             |
 | `farm [Bots]`                                                        | `Master`        | 重啟指定機器人的掛卡模塊。                                                                                                                                          |
+| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Generated a hash of the string using provided cryptographic mechanism - further explained **[below](#hash-command)**.                                  |
 | `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                        |
 | `input [Bots] <Type> <Value>`                            | `Master`        | 設定指定 BOT 為指定的輸入類型，僅在 `Headless` 模式工作──請參閱**[下文](#input-指令)**解釋。                                                                                        |
 | `ib [Bots]`                                                          | `Master`        | 列出指定 BOT 的自動掛卡黑名單。                                                                                                                                     |
@@ -265,15 +266,13 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` command
 
-Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<cryptoMethod>` must be one of the below:
+Encrypt command allows you to encrypt arbitrary strings using ASF's encryption mechanisms. `<encryptionMethod>` must be one of the encryption mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-| 值 | 名稱                            |
-| - | ----------------------------- |
-| 0 | `PlainText（純文字）`              |
-| 1 | `AES（進階加密標準）`                 |
-| 2 | `ProtectedDataForCurrentUser` |
+* * *
 
-您可以使用它們的名稱（不區分大小寫）或者數值。 The encryption mechanisms are explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+## `hash` command
+
+Hash command allows you to generated hashes of arbitrary strings using ASF's hashing mechanisms. `<hashingMethod>` must be one of the hashing mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 

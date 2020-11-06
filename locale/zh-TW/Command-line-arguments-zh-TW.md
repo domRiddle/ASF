@@ -44,7 +44,7 @@ Linux/OS X
 
 ## 參數
 
-`--cryptkey <key>` 或 `--cryptkey=<key>` - 將以自訂的密鑰 `<key>` 啟動 ASF。 This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Keep in mind that passwords encrypted with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` 或 `--cryptkey=<key>` - 將以自訂的密鑰 `<key>` 啟動 ASF。 This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), Keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 

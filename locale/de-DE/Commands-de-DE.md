@@ -220,15 +220,13 @@ Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingP
 
 ## `encrypt` Befehl
 
-Mit dem Encrypt-Befehl kannst du beliebige Zeichenketten mit den ASF-Verschlüsselungsmechanismen verschlüsseln. `<cryptoMethod>` muss einer der folgenden Werte sein:
+Mit dem Encrypt-Befehl kannst du beliebige Zeichenketten mit den ASF-Verschlüsselungsmechanismen verschlüsseln. `<encryptionMethod>` must be one of the encryption mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. Dieser Befehl ist nützlich, wenn du im Voraus verschlüsselte Details erzeugen möchtest, z. B. um zu vermeiden, dass du zuerst dein `PlainText`-Passwort in die Konfiguration eingibst und dann den Befehl `Passwort` verwendest. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
-| Wert | Name                          |
-| ---- | ----------------------------- |
-| 0    | `PlainText`                   |
-| 1    | `AES`                         |
-| 2    | `ProtectedDataForCurrentUser` |
+* * *
 
-Du kannst entweder einen Namen ohne Berücksichtigung der Groß-/Kleinschreibung oder einen numerischen Wert verwenden. Die Verschlüsselungsmechanismen werden im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** erläutert. Dieser Befehl ist nützlich, wenn du im Voraus verschlüsselte Details erzeugen möchtest, z. B. um zu vermeiden, dass du zuerst dein `PlainText`-Passwort in die Konfiguration eingibst und dann den Befehl `Passwort` verwendest. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
+## `hash` command
+
+Hash command allows you to generated hashes of arbitrary strings using ASF's hashing mechanisms. `<hashingMethod>` must be one of the hashing mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
 * * *
 

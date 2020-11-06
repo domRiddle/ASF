@@ -1,8 +1,8 @@
 # 安全性
 
-## Encryption
+## 加密
 
-ASF currently supports the following encryption mechanisms:
+ASF 目前支持以下加密方式：
 
 | 值 | 名称                          |
 | - | --------------------------- |
@@ -10,31 +10,31 @@ ASF currently supports the following encryption mechanisms:
 | 1 | AES                         |
 | 2 | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+下文会详细解释与比较这些方式。
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+这是最简单但也最不安全的存储密码的方式，定义 `ECryptoMethod` 为 `0`。 此时 ASF 需要字符串为纯文本——即密码的原文形式。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
 * * *
 
 ### AES
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
+按照当今的标准，**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** 可以被视为安全，将 `ECryptoMethod` 设置为 `1` 即可启用这种加密存储密码。 ASF 需要相应字符串是一个由 AES 加密的字节数组转换成的 **[Base64 编码](https://en.wikipedia.org/wiki/Base64)**&#8203;的字符序列，此数据需要其包含的&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;和 ASF 内置加密密钥来解密。
 
-此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。 If used properly, guarantees decent security for safe storage.
+此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。 如果使用得当，就能保证安全存储的适当安全性。
 
 * * *
 
 ### ProtectedDataForCurrentUser
 
-Currently the most secure way of encrypting the password that ASF offers, and much safer than `AES` method explained above, is defined as `ECryptoMethod` of `2`. 这种方法的主要优点同时也是它主要的缺点——它并不使用加密密钥（像 `AES` 那样），数据会使用当前计算机登录的用户凭据加密，这意味着数据**仅**能在这台机器上进行解密，事实上，**仅仅**触发加密的计算机用户才能解密。 This ensures that even if you send your entire `Bot.json` with encrypted `SteamPassword` using this method to somebody else, he will not be able to decrypt the password without direct access to your PC. This is excellent security measure, but at the same time has a major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
+这是目前 ASF 加密密码最安全的方式，比上述 `AES` 加密安全得多，您需要将 ` ECryptoMethod` 设置为 `2`。 这种方法的主要优点同时也是它主要的缺点——它并不使用加密密钥（像 `AES` 那样），数据会使用当前计算机登录的用户凭据加密，这意味着数据**仅**能在这台机器上进行解密，事实上，**仅仅**触发加密的计算机用户才能解密。 如果您的 `Bot.json` 文件中的 `SteamPassword` 属性使用此方式加密，就可以保证即使您将整个文件发送给其他人，对方也无法在不直接接触您的计算机的情况下获得密码。 这是非常优秀的安全措施，但也有兼容性差的缺点，因为使用此方法加密的密码将不能兼容其他任何用户和计算机——假设您需要重新安装操作系统，这其中甚至包括**您自己的**计算机。 不过，这仍然是存储密码的最佳方法之一，如果您担心 `PlainText` 的安全性，也不想每次输入密码，那么只要您不会在其他机器上使用您的配置文件，这就是您最好的选择。
 
-**Please note that this option is available only for machines running Windows OS as of now.**
+**请注意，此选项目前仅适用于运行 Windows 操作系统的计算机。**
 
 * * *
 
@@ -42,12 +42,56 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 如果兼容性对您来说不是问题，并且您可以接受 `ProtectedDataForCurrentUser` 方式，我们**推荐**您以这种方式存储密码，因为它有着最好的安全性。 对于还需要在其他计算机上使用配置文件的用户来说，`AES` 方法也是一个不错的选择。而 `PlainText` 是存储密码最简单的方法，只要您不介意其他人可能会查看您的 JSON 配置文件。
 
-请注意，如果入侵者能够访问您的计算机，上述 3 种方法都**不安全**。 ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` 是其中最安全的方法，**即使使用同一台计算机的其他用户也无法解密**，但如果有人窃取了您的登录凭据、计算机信息和 ASF 配置文件，他仍然有可能解密出您的密码。
+请注意，如果入侵者能够访问您的计算机，上述 3 种方法都**不安全**。 ASF 必须能够解密已加密的密码，如果在您的计算机上运行的某个程序能够做到这一点，那么在同一计算机上运行的其他程序也能做到这一点。 `ProtectedDataForCurrentUser` 是其中最安全的方法，**即使使用同一台计算机的其他用户也无法解密**，但如果有人窃取了您的登录凭据、计算机信息和 ASF 配置文件，他仍然有可能解密出您的密码。
 
-In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). 如果这对您来说不是问题，这就是您在安全方面的最佳选择。
+除了使用上述加密方式以外，您也可以完全不填写密码，例如，将 `SteamPassword` 设置为空字符串或者 `null` 值。 ASF 将会在需要时向您询问密码，并且不会将其保存在任何地方，仅仅临时存放在当前进程分配的内存中，一旦您关闭 ASF 就会消失。 随着这是处理密码的最安全的方法（密码没有被存储在任何地方），但也是最麻烦的，因为您需要在每次 ASF 运行时手动输入密码（如果需要）。 如果这对您来说不是问题，这就是您在安全方面的最佳选择。
 
 * * *
 
-# 解密
+## 解密
 
-ASF 不支持任何解密已加密密码的方法，因为解密方法仅在内部使用，用于访问进程内的数据。 If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+ASF 不支持任何解密已加密密码的方法，因为解密方法仅在内部使用，用于访问进程内的数据。 如果您需要反转加密过程，例如，在使用 `ProtectedDataForCurrentUser` 加密的情况下，将 ASF 迁移到另一台机器，则在新环境中重新按上述流程操作即可。
+
+* * *
+
+## Hashing
+
+ASF currently supports the following hashing mechanisms:
+
+| 值 | 名称        |
+| - | --------- |
+| 0 | PlainText |
+| 1 | SCrypt    |
+| 2 | Pbkdf2    |
+
+下文会详细解释与比较这些方式。
+
+In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen encryption method.
+
+* * *
+
+### PlainText
+
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
+
+* * *
+
+### SCrypt
+
+Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. 如果使用得当，就能保证安全存储的适当安全性。
+
+* * *
+
+### Pbkdf2
+
+Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+
+* * *
+
+## 建议
+
+If you'd like to use a hashing mechanism for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

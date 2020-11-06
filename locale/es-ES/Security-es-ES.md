@@ -1,8 +1,8 @@
 # Seguridad
 
-## Encryption
+## Cifrado
 
-ASF currently supports the following encryption mechanisms:
+ASF actualmente soporta los siguientes mecanismos de cifrado:
 
 | Valor | Nombre                      |
 | ----- | --------------------------- |
@@ -10,31 +10,31 @@ ASF currently supports the following encryption mechanisms:
 | 1     | AES                         |
 | 2     | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+La descripción exacta y comparación de las mismas están disponibles a continuación.
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+Para generar una contraseña cifrada, por ejemplo, para uso de `SteamPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `encrypt` con el cifrado que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres cifrada obtenida en la propiedad de configuración del bot `SteamPassword`, y finalmente cambia `PasswordFormat` al que corresponda con el método de cifrado elegido.
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+Esta es la forma más sencilla e insegura de almacenar una contraseña, definida como `ECryptoMethod` de `0`. ASF espera que la cadena de caracteres sea texto plano - una contraseña en su forma directa. Es la más fácil de usar, y 100% compatible con todas las configuraciones, por lo tanto es una forma predeterminada de almacenar secretos, totalmente insegura para almacenamiento.
 
 * * *
 
 ### AES
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
+Considerado seguro para los estándares actuales, la forma **[AES](https://es.wikipedia.org/wiki/Advanced_Encryption_Standard)** de almacenar la contraseña es definida como `ECryptoMethod` de `1`. ASF espera que la cadena sea una secuencia de caracteres **[base64-encoded](https://es.wikipedia.org/wiki/Base64)** resultante en un "byte array" cifrado en AES después de la traducción, que luego debe ser descifrado usando el **[vector de inicialización](https://es.wikipedia.org/wiki/Vector_de_inicializaci%C3%B3n)** incluido y la clave de cifrado de ASF.
 
-El método anterior garantiza la seguridad siempre que el atacante no conozca la clave de encriptación integrada en ASF, la cual es usada tanto para la desencriptación como para la encriptación de contraseñas. ASF te permite especificar la clave a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que cualquiera puede revertir la encriptación de ASF y obtener la contraseña desencriptada. Requiere algo de esfuerzo y no es tan fácil de hacer, pero es posible, por eso casi siempre debes usar la encriptación `AES` con tu propia `--cryptkey` que es mantenida en secreto. El método AES usado en ASF proporciona seguridad que debería ser satisfactoria y tiene un balance entre la simplicidad de `PlainText` y la complejidad de `ProtectedDataForCurrentUser`, pero se recomienda mucho usarlo con una `--cryptkey` personalizada. If used properly, guarantees decent security for safe storage.
+El método anterior garantiza la seguridad siempre que el atacante no conozca la clave de encriptación integrada en ASF, la cual es usada tanto para la desencriptación como para la encriptación de contraseñas. ASF te permite especificar la clave a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que cualquiera puede revertir la encriptación de ASF y obtener la contraseña desencriptada. Requiere algo de esfuerzo y no es tan fácil de hacer, pero es posible, por eso casi siempre debes usar la encriptación `AES` con tu propia `--cryptkey` que es mantenida en secreto. El método AES usado en ASF proporciona seguridad que debería ser satisfactoria y tiene un balance entre la simplicidad de `PlainText` y la complejidad de `ProtectedDataForCurrentUser`, pero se recomienda mucho usarlo con una `--cryptkey` personalizada. Si se utiliza correctamente, garantiza una seguridad decente para el almacenamiento seguro.
 
 * * *
 
 ### ProtectedDataForCurrentUser
 
-Currently the most secure way of encrypting the password that ASF offers, and much safer than `AES` method explained above, is defined as `ECryptoMethod` of `2`. La ventaja principal de este método es al mismo tiempo la mayor desventaja - en lugar de usar una clave de encriptación (como en `AES`), la información es encriptada usando las credenciales de inicio de sesión del usuario que actualmente tiene la sesión iniciada, lo que significa que es posible desencriptar la información **solo** en la máquina en la que fue encriptada, y además **solo** por el usuario que hizo la encriptación. This ensures that even if you send your entire `Bot.json` with encrypted `SteamPassword` using this method to somebody else, he will not be able to decrypt the password without direct access to your PC. This is excellent security measure, but at the same time has a major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
+Actualmente es la forma más segura que ofrece ASF para cifrar la contraseña, y mucho más segura que el método `AES` explicado anteriormente, se define como `ECryptoMethod` de `2`. La ventaja principal de este método es al mismo tiempo la mayor desventaja - en lugar de usar una clave de encriptación (como en `AES`), la información es encriptada usando las credenciales de inicio de sesión del usuario que actualmente tiene la sesión iniciada, lo que significa que es posible desencriptar la información **solo** en la máquina en la que fue encriptada, y además **solo** por el usuario que hizo la encriptación. Esto asegura que incluso si envías todo tu `Bot.json` con `SteamPassword` cifrada usando este método a alguien más, no será capaz de descifrar la contraseña sin acceso directo a tu PC. Esta es una excelente medida de seguridad, pero al mismo tiempo tiene la gran desventaja de ser menos compatible, ya que la contraseña cifrada usando este método no será compatible con ningún otro usuario ni otra máquina - incluyendo **la tuya propia** si decides, por ejemplo, reinstalar tu sistema operativo. Aún así, es uno de los mejores método para almacenar contraseñas, y si te preocupa la seguridad de `PlainText`, y no quieres introducir tu contraseña cada vez, entonces esta es tu mejor opción siempre que no tengas que acceder a tus configuraciones desde otra máquina que no sea la tuya.
 
-**Please note that this option is available only for machines running Windows OS as of now.**
+**Por favor, ten en cuenta que actualmente esta opción solo está disponible para máquinas que ejecuten el sistema operativo Windows.**
 
 * * *
 
@@ -42,12 +42,56 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 Si la compatibilidad no es un problema para ti, y estás bien con cómo funciona el método `ProtectedDataForCurrentUser`, es la opción **recomendada** para almacenar la contraseña en ASF, ya que proporciona la mejor seguridad. El método `AES` es una buena opción para las personas que quieren usar sus configuraciones en cualquiera máquina que quieran, mientras que `PlainText` es la forma más simple de almacenar la contraseña, si no te importa que cualquiera pueda buscarla en la configuración JSON.
 
-Por favor, ten en cuenta que los 3 se consideran **insecure** si el atacante tiene acceso a tu PC. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` es la variante más segura ya que **incluso otro usuario usando la misma PC no podrá desencriptarla**, pero aún es posible desencriptar la información si alguien es capaz de robar tus credenciales de acceso e información de tu máquina además del archivo de configuración de ASF.
+Por favor, ten en cuenta que los 3 métodos se consideran **inseguros** si el atacante tiene acceso a tu PC. ASF debe poder descifrar las contraseñas cifradas, y si el programa que se ejecuta en tu máquina puede hacer eso, entonces cualquier programa que se ejecute en la misma máquina será capaz de hacerlo también. `ProtectedDataForCurrentUser` es la variante más segura ya que **incluso otro usuario usando la misma PC no podrá desencriptarla**, pero aún es posible desencriptar la información si alguien es capaz de robar tus credenciales de acceso e información de tu máquina además del archivo de configuración de ASF.
 
-In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). Si eso no es un problema para ti, esta es tu mejor apuesta en lo que se refiere a seguridad.
+Además de los métodos de cifrado especificados anteriormente, también es posible evitar especificar contraseñas completamente, por ejemplo, en `SteamPassword` al usar un cadena de caracteres vacía o el valor `null`. ASF pedirá tu contraseña cuando sea necesario, y no la guardará en ningún lugar, solo la mantendrá en la memoria del proceso actual, hasta que lo cierres. Mientras que es el método más seguro de tratar con contraseñas (no se guardan en ningún lugar), también es el más problemático ya que necesitas introducir tu contraseña manualmente en cada ejecución de ASF (cuando sea requerido). Si eso no es un problema para ti, esta es tu mejor apuesta en lo que se refiere a seguridad.
 
 * * *
 
-# Desencriptación
+## Desencriptación
 
-ASF no soporta ninguna forma de desencriptar contraseñas ya encriptadas, ya que los métodos de desencriptación solo son usados internamente para acceder a la información dentro del proceso. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+ASF no soporta ninguna forma de desencriptar contraseñas ya encriptadas, ya que los métodos de desencriptación solo son usados internamente para acceder a la información dentro del proceso. Si deseas revertir el procedimiento de cifrado, por ejemplo, para mover ASF a otra máquina al usar `ProtectedDataForCurrentUser`, entonces simplemente repite el procedimiento desde el principio en el nuevo entorno.
+
+* * *
+
+## Hashing
+
+ASF currently supports the following hashing mechanisms:
+
+| Valor | Nombre    |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
+
+La descripción exacta y comparación de las mismas están disponibles a continuación.
+
+In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen encryption method.
+
+* * *
+
+### PlainText
+
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Es la más fácil de usar, y 100% compatible con todas las configuraciones, por lo tanto es una forma predeterminada de almacenar secretos, totalmente insegura para almacenamiento.
+
+* * *
+
+### SCrypt
+
+Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. Si se utiliza correctamente, garantiza una seguridad decente para el almacenamiento seguro.
+
+* * *
+
+### Pbkdf2
+
+Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+
+* * *
+
+## Recomendación
+
+If you'd like to use a hashing mechanism for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

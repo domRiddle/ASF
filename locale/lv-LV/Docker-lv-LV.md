@@ -128,7 +128,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 
 * * *
 
-## Command-line arguments
+## Komandrindu argumenti
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
 

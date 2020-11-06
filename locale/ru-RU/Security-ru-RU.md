@@ -1,8 +1,8 @@
 # Безопасность
 
-## Encryption
+## Шифрование
 
-ASF currently supports the following encryption mechanisms:
+ASF на данный момент поддерживает следующие механизмы шифрования:
 
 | Значение | Имя                         |
 | -------- | --------------------------- |
@@ -10,9 +10,9 @@ ASF currently supports the following encryption mechanisms:
 | 1        | AES                         |
 | 2        | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+Их полное описание и сравнение вы найдёте ниже.
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+Для создания зашифрованного пароля, например для использования в `SteamPassword`, вам нужно выполнить **[команду](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `encrypt` с соответствующим типом шифрования и вашим паролем в виде открытого текста. После этого, установите полученную зашифрованную строку в качестве значения для параметра `SteamPassword`, и, наконец, измените значение параметра `PasswordFormat` на соответствующее вашему методу шифрования.
 
 * * *
 
@@ -48,6 +48,50 @@ In addition to encryption methods specified above, it's possible to also avoid s
 
 * * *
 
-# Расшифровка
+## Расшифровка
 
 ASF не содержит никаких средств для расшифровки уже зашифрованных паролей, поскольку методы расшифровки используются только для внутреннего доступа к данным внутри процесса. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+
+* * *
+
+## Hashing
+
+ASF currently supports the following hashing mechanisms:
+
+| Значение | Имя       |
+| -------- | --------- |
+| 0        | PlainText |
+| 1        | SCrypt    |
+| 2        | Pbkdf2    |
+
+Их полное описание и сравнение вы найдёте ниже.
+
+In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen encryption method.
+
+* * *
+
+### PlainText
+
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+
+* * *
+
+### SCrypt
+
+Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. If used properly, guarantees decent security for safe storage.
+
+* * *
+
+### Pbkdf2
+
+Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm.
+
+ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+
+* * *
+
+## Рекомендации
+
+If you'd like to use a hashing mechanism for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
