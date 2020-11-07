@@ -56,7 +56,7 @@ ASF no soporta ninguna forma de desencriptar contraseñas ya encriptadas, ya que
 
 ## Hashing
 
-ASF currently supports the following hashing mechanisms:
+ASF actualmente soporta los siguientes mecanismos de hashing:
 
 | Valor | Nombre    |
 | ----- | --------- |
@@ -66,32 +66,32 @@ ASF currently supports the following hashing mechanisms:
 
 La descripción exacta y comparación de las mismas están disponibles a continuación.
 
-In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen encryption method.
+Para generar un hash, por ejemplo, para uso de `IPCPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `hash` con el método de hashing que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres con hash obtenida en la propiedad de configuración de ASF `IPCPassword`, y finalmente cambia `IPCPasswordFormat` al que corresponda con el método de cifrado elegido.
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Es la más fácil de usar, y 100% compatible con todas las configuraciones, por lo tanto es una forma predeterminada de almacenar secretos, totalmente insegura para almacenamiento.
+Esta es la forma más sencilla e insegura de aplicarle hashing a una contraseña, definida como `EHashingMethod` de `0`. ASF generará un hash que coincida con la entrada original. Es la más fácil de usar, y 100% compatible con todas las configuraciones, por lo tanto es una forma predeterminada de almacenar secretos, totalmente insegura para almacenamiento.
 
 * * *
 
 ### SCrypt
 
-Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt.
+Considerado seguro para los estándares actuales, el método **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** de aplicar hash a la contraseña es definido como `EHashingMethod` de `1`. ASF usará la implementación de `SCrypt` utilizando `8` bloques, `8192` iteraciones, longitud de hash `32` y la clave de cifrado como sal.
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. Si se utiliza correctamente, garantiza una seguridad decente para el almacenamiento seguro.
+ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está codificada en la aplicación, lo que significa que el hashing será menos seguro. Si se utiliza correctamente, garantiza una seguridad decente para el almacenamiento seguro.
 
 * * *
 
 ### Pbkdf2
 
-Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm.
+Considerado débil para los estándares actuales, el método **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** de aplicar hash a la contraseña es definido como `EHashingMethod` de `2`. ASF usará la implementación de `Pbkdf2` utilizando `10000` iteraciones, longitud de hash `32` y la clave de cifrado como sal, con `SHA-256` como algoritmo hmac.
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está codificada en la aplicación, lo que significa que el hashing será menos seguro.
 
 * * *
 
 ## Recomendación
 
-If you'd like to use a hashing mechanism for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
+Si quieres usar un mecanismo de hashing par almacenar algunos secretos, tal como `IPCPassword`, recomendamos usar `SCrypt` con sal personalizada, ya que proporciona una seguridad muy decente contra intentos de fuerza bruta. `Pbkdf2` solo se ofrece por razones de compatibilidad, principalmente porque ya tenemos una implementación funcional (y necesaria) de esta para otros casos en la plataforma de Steam (por ejemplo, códigos parentales). Se considera seguro, pero débil en comparación con otras alternativas (por ejemplo, `SCrypt`).

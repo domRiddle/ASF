@@ -59,10 +59,10 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `bl [Bots]`                                                          | `Master`        | 列出指定机器人的交易黑名单用户。                                                                                                                               |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | 将给定的 `SteamIDs` 加入指定机器人的交易黑名单。                                                                                                                 |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | 将给定的 `SteamIDs` 从指定机器人的交易黑名单中移除。                                                                                                               |
-| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | 以给定的加密类型加密字符串——详见&#8203;**[下文的解释](#encrypt-命令)**。                                                                                              |
+| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | 以给定的加密方式加密字符串——详见&#8203;**[下文的解释](#encrypt-命令)**。                                                                                              |
 | `exit`                                                               | `Owner`         | 完全停止 ASF 进程。                                                                                                                                   |
 | `farm [Bots]`                                                        | `Master`        | 重新启动指定机器人的挂卡模块。                                                                                                                                |
-| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Generated a hash of the string using provided cryptographic mechanism - further explained **[below](#hash-command)**.                          |
+| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | 以指定的加密方式生成给定字符串的哈希值——详见&#8203;**[下文的解释](#hash-命令)**。                                                                                           |
 | `help`                                                               | `FamilySharing` | 显示帮助（指向此页面的链接）。                                                                                                                                |
 | `input [Bots] <Type> <Value>`                            | `Master`        | 为指定机器人填写给定的输入值，仅在 `Headless` 模式中可用——详见&#8203;**[下文的解释](#input-命令)**。                                                                           |
 | `ib [Bots]`                                                          | `Master`        | 列出指定机器人的自动挂卡黑名单。                                                                                                                               |
@@ -269,13 +269,13 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 命令
 
-Encrypt 命令使您能够使用 ASF 的加密类型加密任意字符串。 `<encryptionMethod>` must be one of the encryption mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+Encrypt 命令使您能够使用 ASF 的加密类型加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 * * *
 
-## `hash` command
+## `hash` 命令
 
-Hash command allows you to generated hashes of arbitrary strings using ASF's hashing mechanisms. `<hashingMethod>` must be one of the hashing mechanisms specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+Hash 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 * * *
 
@@ -290,7 +290,7 @@ Input 命令仅可用于 `Headless` 模式，用来在 ASF 无法接受用户输
 | 类型                      | 描述                                         |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin` 机器人配置属性，在配置文件缺少这个值时使用。        |
-| 密码                      | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |
+| Password                | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |
 | SteamGuard              | 通过电子邮件发送的验证码，在您未启用 2FA 时使用。                |
 | SteamParentalCode       | `SteamParentalCode` 机器人配置属性，在配置文件缺少这个值时使用。 |
 | TwoFactorAuthentication | 手机生成的 2FA 令牌，在您启用 2FA 但未启用 ASF 2FA 时使用。    |
