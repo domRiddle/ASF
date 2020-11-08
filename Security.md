@@ -2,7 +2,7 @@
 
 ## Encryption
 
-ASF currently supports the following encryption methods:
+ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
 Value | Name
 --- | ---
@@ -56,7 +56,7 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ## Hashing
 
-ASF currently supports the following hashing methods:
+ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
 Value | Name
 --- | ---
