@@ -63,6 +63,7 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
     "InventoryLimiterDelay": 3,
     "IPC": false,
     "IPCPassword": null,
+    "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -186,6 +187,12 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 * * *
 
+### `IPCPasswordFormat`
+
+`byte` 타입으로 기본값은 `0`입니다. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `0`을 유지하십시오.
+
+* * *
+
 ### `LoginLimiterDelay`
 
 `byte` 타입으로 기본값은 `10`입니다. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 연결 시도 사이에 적어도 `LoginLimiterDelay`초의 간격을 둡니다. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
@@ -212,7 +219,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `통계`
 
 `bool` 타입으로 기본값은 `true`입니다. 이 속성값은 ASF가 통계를 활성화할지를 정의합니다. 이 옵션이 정확하게 무엇을 하는지에 대한 자세한 설명은 **[통계](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-ko-KR)** 항목에 있습니다. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
@@ -631,7 +638,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 아이템의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 아이템을 "전달"하는데 매우 유용합니다.
+`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
 시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
@@ -673,7 +680,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 * * *
 
-### `스팀 암호(SteamPassword)`
+### `SteamPassword`
 
 `string` 타입으로 기본값은 `null`입니다. 이 속성값은 당신이 Steam에 로그인할때 사용하는 Steam 암호를 정의합니다. 여기에 Steam 암호를 정의하는 것과 더불어, 환경설정에 넣는 대신 ASF 시작시마다 Steam 암호를 입력하고 싶다면 기본값인 `null`을 유지할수도 있습니다. 민감한 데이터를 환경설정 파일에 저장하고 싶지 않다면 유용합니다.
 

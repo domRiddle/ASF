@@ -344,7 +344,7 @@ ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fe
 
 ### Stellt die Verwendung von ASF die Berechtigung zum Erhalt von Booster Packs sicher?
 
-**Ja**. ASF verwendet die gleiche Methode, um sich im Steam-Netzwerk wie der offizielle Client anzumelden, daher behält es auch die Möglichkeit, Booster Packs für die verwendeten Konten zu erhalten. Es ist jedoch nicht bestätigt, ob das Anmelden bei der Steam-Community tatsächlich erforderlich ist oder nicht, deshalb schlage ich vor, `OnlineStatus` auf `Online` zu belassen, zumindest bis jemand bestätigt, dass die Verwendung des Steam-Netzwerkes allein ausreichend ist. Es sollte so sein, aber ich bin mir nicht sicher.
+**Ja**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 * * *
 

@@ -79,7 +79,7 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 * * *
 
-# FAQ
+# Biežāk uzdotie jautājumi
 
 ### Is ASF's IPC interface secure and safe to use?
 

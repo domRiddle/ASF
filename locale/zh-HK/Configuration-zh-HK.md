@@ -63,6 +63,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
     "InventoryLimiterDelay": 3,
     "IPC": false,
     "IPCPassword": null,
+    "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -186,6 +187,12 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 * * *
 
+### `IPCPasswordFormat`
+
+這是一個預設值為`0` 的 `byte flags` 類型。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. 除非你知道自己在做什麼，否則你應該保留預設值` 0 `。
+
+* * *
+
 ### `LoginLimiterDelay`
 
 這是一個預設值為`10`的`byte`類型屬性。 ASF 將確保每兩次連接請求之間至少間隔`LoginLimiterDelay`秒以避免觸發速率限制。 預設值 `10` 是基於連接100多個機械人實例的情況設置的，應該適用於大多數（如果不是全部）用戶。 但是，您可能希望增加/減少它，如果您的機械人數量非常少，您可能甚至想將其更改為 `0 0`，這樣 ASF 將忽略延遲並更快地連接到 Steam。 不過，請注意，若是在大量機械人同時工作時，將此值設置得太低**會**導致Steam暫時封禁您的 IP，這將觸發`InvalidPassword/RateLimitExceeded` 錯誤，**徹底**阻止您的登錄──不僅是 ASF，還包括您的 Steam 客戶端。 同樣，如果您需要運行大量機械人，特別是與使用相同 IP 位址的其他 Steam 用戶端/工具一起運行，則很可能需要增加此值，以將登錄請求分散到更長的時間段。
@@ -212,7 +219,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 * * *
 
-### `統計`
+### `統計資訊`
 
 預設值為 `true` 的 `bool` 類型。 此屬性定義ASF是否啟用統計資訊。 **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** 部分詳細說明了此選項的確切作用。 除非您有充分的修改理由，否則應保持它為預設值。
 
@@ -232,7 +239,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `SteamProtocols`
 
-這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網路協議，其定義如下：
+這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網絡協議，其定義如下：
 
 | 值 | 名稱         | 描述                                                                        |
 | - | ---------- | ------------------------------------------------------------------------- |
@@ -249,7 +256,7 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 ### `UpdateChannel`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級使用者, 請保留預設 ` 1 ` (穩定) 更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的使用者--不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
+這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
 
 **除非您知道您在做什麼**，否則我們 **強烈** 建議保持它為預設值。
 
@@ -366,7 +373,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 ### `AutoSteamSaleEvent`
 
-預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
+預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值` false `。
 
 請注意，由於持續性的Valve漏洞，變更和問題，**我們無法保證此功能是否能正常運行**，因此完全有可能此選項**根本不起作用**。 我們不接受 **任何** 漏洞報告，也不支援關於此選項的請求。 它是在絕對沒有保證的情況下提供的, 一切風險將由您自行承擔。
 
@@ -410,7 +417,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 ### `CompleteTypesToSend`
 
-`ImmutableHashSet<byte>` type with default value of being empty. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。
+預設值為空的 `ImmutableHashSet<byte>` 類型。 When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。
 
 As of today, the following item types are supported in this setting:
 

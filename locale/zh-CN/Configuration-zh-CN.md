@@ -63,6 +63,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "InventoryLimiterDelay": 3,
     "IPC": false,
     "IPCPassword": null,
+    "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -186,6 +187,12 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 * * *
 
+### `IPCPasswordFormat`
+
+这是一个默认值为 `0` 的 `byte` 类型属性。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
+
+* * *
+
 ### `LoginLimiterDelay`
 
 这是一个默认值为 `10` 的 `byte` 类型属性。 ASF 会确保两个连续的连接尝试之间至少间隔 `LoginLimiterDelay` 秒，以免触发频率限制。 我们基于连接上百个机器人的数据设定了默认值 `10`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望增大或减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地连接到 Steam。 但请注意，在有很多机器人的情况下，设置过低的值**将会**导致 Steam 临时封禁您的 IP，返回 `InvalidPassword/RateLimitExceeded` 错误，并且**彻底**阻止您继续登录——不仅 ASF，还包括您的 Steam 客户端。 同样，如果您运行大量机器人，特别是在同一 IP 内还有其他 Steam 客户端/工具运行的情况下，则很可能需要增大此值，将登录过程分配到更长的时间段内。
@@ -212,7 +219,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 * * *
 
-### `Statistics`
+### `统计`
 
 这是一个默认值为 `true` 的 `bool` 类型属性。 这个属性定义了 ASF 是否启用统计功能。 我们在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节中具体解释了这个选项究竟会做什么。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
@@ -226,7 +233,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `SteamOwnerID`
 
-这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者（Owner）权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
+这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
 
 * * *
 
@@ -287,7 +294,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 如果您的代理服务器需要身份验证，您还需要设置 `WebProxyUsername` 和/或 `WebProxyPassword` 属性。 如果不需要验证，就只需要设置此属性。
 
-目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内置 Steam 客户端进行的内部 Steam 网络通信。 目前我们没有计划支持这类通信，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
+目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内部 Steam 客户端进行的内部 Steam 网络通信。 目前我们没有计划支持这类通信，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
 
 除非您有理由编辑此属性，否则应将其保留为默认值。
 

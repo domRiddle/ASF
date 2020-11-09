@@ -63,6 +63,7 @@ Die globale Konfiguration befindet sich in der Datei `ASF.json` und hat folgende
     "InventoryLimiterDelay": 3,
     "IPC": false,
     "IPCPassword": null,
+    "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -186,6 +187,12 @@ Wenn du ASF auf dem Server verwendest, solltest du diese Option zusammen mit dem
 
 * * *
 
+### `IPCPasswordFormat`
+
+`byte` Typ mit einem Standardwert von `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `0` belassen.
+
+* * *
+
 ### `LoginLimiterDelay`
 
 `byte` Typ mit einem Standardwert von `10`. ASF stellt sicher, dass zwischen zwei aufeinanderfolgenden Verbindungsversuchen mindestens `LoginLimiterDelay` Sekunden liegen, um eine Auslösung des Anfrage-Limits zu vermeiden. Der Standardwert von `10` wurde basierend auf der Verbindung von über 100 Bot-Instanzen festgelegt und sollte die meisten (wenn nicht alle) Benutzer zufrieden stellen. Du kannst es jedoch erhöhen/verringern, oder sogar zu `0` wechseln, wenn du eine sehr geringe Anzahl von Bots hast, so dass ASF die Verzögerung ignoriert und sich viel schneller mit Steam verbindet. Aber sei gewarnt, da das Setzen einer zu niedrigen Einstellung, während zu viele Bots gleichzeitig benutzt werden, **garantiert** dazu führt, dass Steam deine IP vorübergehend sperrt. Das wird dich **komplett** daran hindern, dich anzumelden, mit `InvalidPassword/RateLimitExceeded` Fehler - und das betrifft auch deinen normalen Steam-Client, nicht nur ASF. Gleichermaßen, wenn du eine übermäßige Anzahl von Bots verwendest, insbesondere zusammen mit anderen Steam-Clients/Programmen, die die gleiche IP-Adresse verwenden, musst du diesen Wert höchstwahrscheinlich erhöhen, um die Anmeldungen über einen längeren Zeitraum verteilen zu können.
@@ -212,7 +219,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 * * *
 
-### `Statistics`
+### `Statistiken`
 
 `bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF die Statistik aktiviert haben soll. Eine detaillierte Erklärung, was genau diese Option bewirkt, findest du im Abschnitt **[Statistiken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE)**. Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
@@ -232,7 +239,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 ### `SteamProtocols`
 
-`byte flags` Typ mit einem Standardwert von `7`. Diese Eigenschaft definiert Steam-Protokolle welche ASF beim Verbinden mit Steam-Servern verwendet. Sie sind wie folgt definiert:
+`byte flags` Typ mit Standardwert von `7`. Diese Eigenschaft definiert Steam-Protokolle welche ASF beim Verbinden mit Steam-Servern verwendet. Sie sind wie folgt definiert:
 
 | Wert | Name      | Beschreibung                                                                                     |
 | ---- | --------- | ------------------------------------------------------------------------------------------------ |
@@ -251,13 +258,13 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 `byte` Typ mit einem Standardwert von `1`. Diese Eigenschaft definiert den Aktualisierungskanal, der entweder für automatische Aktualisierungen verwendet wird (wenn `UpdatePeriod` größer als `0` ist) oder für Aktualisierungsbenachrichtigungen (anderweitig). Derzeit unterstützt ASF drei Aktualisierungskanäle - `0`, welcher `None` genannt wird, `1`, welcher `Stable` genannt wird, und `2`, welcher `Experimental` genannt wird. Der Kanal `Stable` ist der standardmäßige Veröffentlichungskanal, der von der Mehrheit der Benutzer verwendet werden sollte. `Experimentell` Kanal zusätzlich zu `Stable` Veröffentlichungen, beinhaltet auch **Vorveröffentlichungen** für fortgeschrittene Benutzer und andere Entwickler, um neue Funktionen zu testen, fehlerbehebungen zu bestätigen oder Rückmeldungen über geplante Verbesserungen abzugeben. **Experimentelle Versionen enthalten oft unbehobene Programmfehler, Work-in-Progress-Funktionen oder neu geschriebene Implementierungen**. Wenn du dich nicht als fortgeschrittener Benutzer betrachtest, bleibst du bitte beim Standard-Aktualisierungskanal `1` (Stable). Der Kanal `Experimental` ist für Benutzer gedacht, die wissen, wie man Fehler meldet, Probleme löst und Rückmeldung gibt - es wird keine technische Unterstützung geboten. Sieh dir den **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** von ASF an, wenn du mehr darüber erfahren möchtest. Du kannst auch `UpdateChannel` auf `0` (`None`) setzen, wenn du alle Versionsüberprüfungen vollständig deaktivieren willst. Wenn du `UpdateChannel` auf `0` stellst, wird die gesamte Funktionalität im Zusammenhang mit Aktualisierungen vollständig deaktiviert, einschließlich des Befehls `update`. Es wird **ausdrücklich** von der Verwendung des `None` Kanals **abgeraten**, weil du dich dadurch allen möglichen Problemen aussetzt (erwähnt in `UpdatePeriod` Beschreibung unten).
 
-**Wenn du nicht weißt was du tust**, empfehlen wir **ausdrücklich** es bei den Standardeinstellungen zu belassen.
+**Wenn du nicht weißt, was du tust**, empfehlen wir **ausdrücklich** es bei den Standardeinstellungen zu belassen.
 
 * * *
 
 ### `UpdatePeriod`
 
-`byte` Typ mit einem Standardwert von `24`. Diese Eigenschaft legt fest, wie oft ASF nach automatischen Aktualisierungen suchen soll. Aktualisierungen sind nicht nur für den Erhalt neuer Funktionen und kritischer Sicherheits-Patches entscheidend, sondern auch für den Erhalt von Fehlerbehebungen, Leistungssteigerungen, Stabilitätsverbesserungen und mehr. Wenn ein Wert größer als `0` eingestellt ist, lädt ASF sich automatisch herunter, ersetzt und startet sich neu (wenn `AutoRestart` es erlaubt), wenn eine neue Aktualisierung verfügbar ist. Um dies zu erreichen, wird ASF alle `UpdatePeriod` Stunden überprüfen, ob eine neue Aktualisierung in unserem GitHub Repository verfügbar ist. Ein Wert von `0` deaktiviert automatische Aktualisierungen, ermöglicht es dir aber trotzdem, den Befehl `update` manuell auszuführen. Du könntest auch daran interessiert sein, den entsprechenden `UpdateChannel` einzustellen, dem `UpdatePeriod` folgen sollte.
+`byte` Typ mit Standardwert von `24`. Diese Eigenschaft legt fest, wie oft ASF nach automatischen Aktualisierungen suchen soll. Aktualisierungen sind nicht nur für den Erhalt neuer Funktionen und kritischer Sicherheits-Patches entscheidend, sondern auch für den Erhalt von Fehlerbehebungen, Leistungssteigerungen, Stabilitätsverbesserungen und mehr. Wenn ein Wert größer als `0` eingestellt ist, lädt ASF sich automatisch herunter, ersetzt und startet sich neu (wenn `AutoRestart` es erlaubt), wenn eine neue Aktualisierung verfügbar ist. Um dies zu erreichen, wird ASF alle `UpdatePeriod` Stunden überprüfen, ob eine neue Aktualisierung in unserem GitHub Repository verfügbar ist. Ein Wert von `0` deaktiviert automatische Aktualisierungen, ermöglicht es dir aber trotzdem, den Befehl `update` manuell auszuführen. Du könntest auch daran interessiert sein, den entsprechenden `UpdateChannel` einzustellen, dem `UpdatePeriod` folgen sollte.
 
 Der Aktualisierungsprozess von ASF beinhaltet die Aktualisierung der gesamten Ordnerstruktur, die ASF verwendet, aber ohne deine eigenen Konfigurationen oder Datenbanken im Verzeichnis `config` zu berühren - das bedeutet, dass alle zusätzlichen Dateien, die nicht mit ASF in seinem Verzeichnis zusammenhängen, während des Aktualisierungsvorgangs verloren gehen können. Der Standardwert von `24` ist ein gutes Verhältnis zwischen unnötigen Prüfungen und ASF, das neu genug ist.
 
@@ -311,9 +318,9 @@ Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf d
 
 ## Bot Konfiguration
 
-Wie du bereits weißt, sollte jeder Bot eine eigene Konfiguration haben, die auf der folgenden beispielhaften JSON-Struktur basiert. Beginne damit, zu entscheiden, wie du deinen Bot benennen möchtest (z.B. `1.json`, `main.json`, `haupt.json` oder `IrgendwasAnderes.json`) und gehe zur Konfiguration über.
+Wie du bereits weißt, sollte jeder Bot eine eigene Konfiguration haben, die auf der folgenden beispielhaften JSON-Struktur basiert. Entscheide dich wie du deinen Bot benennen möchtest (z.B. `1.json`, `main.json`, `haupt.json` oder `IrgendwasAnderes.json`) und gehe zur Konfiguration über.
 
-**Hinweis:** Der Bot kann den Namen `ASF` nicht haben (da dieses Schlüsselwort für die globale Konfiguration reserviert ist), ASF ignoriert auch alle Konfigurationsdateien, die mit einem Punkt beginnen.
+**Hinweis:** Der Bot kann nicht den Namen `ASF` haben, da dieses Schlüsselwort für die globale Konfiguration reserviert ist. ASF ignoriert auch alle Konfigurationsdateien die mit einem Punkt beginnen.
 
 Die Bot-Konfiguration hat folgende Struktur:
 
@@ -374,7 +381,7 @@ Bitte bedenke, dass wir aufgrund von ständigen Steam-Problemen, Änderungen und
 
 ### `BotBehaviour`
 
-`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
+`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Bot-ähnliche Verhalten bei verschiedenen Ereignissen und ist wie folgt definiert:
 
 | Wert | Name                          | Beschreibung                                                                                             |
 | ---- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -404,7 +411,7 @@ Eine ungültige Gruppeneinladung ist eine Einladung, die nicht aus der Gruppe `S
 
 `MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Natürlich ist es ebenfalls riskant, wenn mehrere Primärkonten (z.B. von unterschiedlichen Nutzern) in der Selben ASF-Instanz laufen, besonders weil Sie die out-of-ASF Nachrichten verpassen könnten.
 
-Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
+Wenn du dir nicht sicher bist wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
 
 * * *
 
@@ -423,7 +430,7 @@ Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam 
 
 Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
 
-Wenn du dir nicht sicher bist, wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
+Wenn du dir nicht sicher bist wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
 
 * * *
 
@@ -589,7 +596,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 ### `PasswordFormat`
 
-`byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das Format der Eigenschaft `SteamPassword` und unterstützt derzeit - `0` für `PlainText`, `1` für `AES` und `2` für `ProtectedDataForCurrentUser`. Bitte lies den Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**, wenn du mehr erfahren möchtest, da du sicherstellen musst, dass die Eigenschaft `SteamPassword` tatsächlich ein Passwort im passenden `PasswordFormat` enthält. Mit anderen Worten, wenn du `PasswordFormat` änderst, dann sollte dein `SteamPassword` **bereits** in diesem Format sein und nicht nur darauf abzielen, es zu sein. Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `0` belassen.
+`byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das Format der Eigenschaft `SteamPassword` und unterstützt derzeit - `0` für `PlainText`, `1` für `AES` und `2` für `ProtectedDataForCurrentUser`. Bitte lies den Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**, wenn du mehr erfahren möchtest, da du sicherstellen musst, dass die Eigenschaft `SteamPassword` tatsächlich ein Passwort im passenden `PasswordFormat` enthält. Mit anderen Worten, wenn du `PasswordFormat` änderst, dann sollte dein `SteamPassword` **bereits** in diesem Format sein und nicht nur darauf abzielen, es zu sein. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `0` belassen.
 
 * * *
 
@@ -601,7 +608,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einrichten sollst, wird 
 
 ### `RedeemingPreferences`
 
-`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
+`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Einlösen von Produktschlüsseln und ist wie folgt definiert:
 
 | Wert | Name                               | Beschreibung                                                                                                                    |
 | ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -708,7 +715,7 @@ Es ist schön zu beachten, dass es noch eine weitere zusätzliche `Owner` Berech
 
 ### `TradingPreferences`
 
-`byte flags` Typ mit Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
+`byte flags` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
 | Wert | Name                | Beschreibung                                                                                                                                                                                                                     |
 | ---- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

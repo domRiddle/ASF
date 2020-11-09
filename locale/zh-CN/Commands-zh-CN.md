@@ -269,7 +269,7 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 命令
 
-Encrypt 命令使您能够使用 ASF 的加密类型加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+Encrypt 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 * * *
 

@@ -63,6 +63,7 @@ ASF використовує формат **[JSON](https://uk.wikipedia.org/wiki
     "InventoryLimiterDelay": 3,
     "IPC": false,
     "IPCPassword": null,
+    "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -186,6 +187,12 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 * * *
 
+### `IPCPasswordFormat`
+
+`byte` type with default value of `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+
+* * *
+
 ### `LoginLimiterDelay`
 
 параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між послідовними спробами підключитися пройшло щонайменше `LoginLimiterDelay` секунд, для того щоб уникнути активації обмеження на частоту запитів. Значення за замовчуванням `10` було обрано на базі підключення більш ніж 100 ботів, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти збільшити/зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і підключалося до Steam значно швидше. Однак маємо вас попередити, що занадто низькі значення при великій кількості ботів **призведе** до тимчасового блокування вашого IP, і ви не зможете увійти до Steam **взагалі**, й отримаєте помилку `InvalidPassword/RateLimitExceeded` - і це також включає ваш звичайний клієнт Steam, а не тільки ASF. Так само, якщо у вас забагато ботів, особливо у поєднанні з іншими клієнтами/інструментами для Steam, які працюють з тієї ж IP-адреси, швидше за все вам знадобиться збільшити це значення, щоб рознести логіни на більший період часу.
@@ -208,11 +215,11 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `OptimizationMode`
 
-параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+`byte` type with default value of `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
-### `Statistics`
+### `Статистика`
 
 параметр типу `bool` зі значенням за замовчуванням `true`. Цей параметр визначає, чи буде ASF збирати статистику, а також чи будуть ваші боти додані до групи ASF. Детальне пояснення, що саме робить цей параметр ви можете прочитати у розділі **[Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-uk-UA)**. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
@@ -410,7 +417,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ### `CompleteTypesToSend`
 
-`ImmutableHashSet<byte>` type with default value of being empty. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
+параметр типу `ImmutableHashSet<byte>` з пустим значенням за замовчуванням. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
 
 As of today, the following item types are supported in this setting:
 
@@ -639,7 +646,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 

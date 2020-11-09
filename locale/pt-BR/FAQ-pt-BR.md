@@ -344,7 +344,7 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 ### Usar o ASF mantém a elegibilidade para receber pacotes de cartas?
 
-**Sim**. O ASF usa o mesmo método para se conectar a rede Steam que o cliente oficial, então ele também preserva a habilidade de receber pacotes para as contas que estão sendo usadas. No entanto, não há confirmação de que há a necessidade de se conectar a rede Steam para isso, então para ter certeza eu sugiro manter `OnlineStatus` em `OnlineStatus`, a menos até que alguém confirme que apenas usar a rede Steam já é o suficiente. Deveria ser, mas não tenho certeza.
+**Sim**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 * * *
 

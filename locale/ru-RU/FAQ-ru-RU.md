@@ -344,7 +344,7 @@ ASF - консольное приложение, у которого нет ок
 
 ### Сохраняется ли право на получение наборов карточек при использовании ASF?
 
-**Да**. ASF использует те же методы для входа в сеть Steam что и официальный клиент, поэтому при запуске ASF сохраняется право на получение наборов карточек на используемых аккаунтах. Однако, не подтверждено, необходим ли для этого вход в сообщество Steam или нет, поэтому для надежности рекомендуется оставить `OnlineStatus` значение `Online`, как минимум пока кто-нибудь не подтвердит, что достаточно входа только в сеть Steam. Этого должно быть достаточно, но я не уверен.
+**Да**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 * * *
 

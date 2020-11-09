@@ -344,7 +344,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     ### Est-ce que le fait d’utiliser ASF préserve l’éligibilité pour recevoir des boosters?
     
-    **Oui**. ASF utilise la même méthode que le client officiel pour se connecter au réseau Steam. Par conséquent, il conserve également la possibilité de recevoir des booster pour les comptes en cours d'utilisation. Cependant, il n'est pas confirmé si la connexion à la communauté Steam est réellement nécessaire ou non. Par conséquent, afin de l'assurer je suggère de garder `OnlineStatus` sur `Online`, au moins jusqu'à ce que quelqu'un le confirme cela suffit d'utiliser le réseau Steam. Cela devrait être bon de cette manière, mais je ne suis pas sûr.
+    **Oui**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
     
     * * *
     
