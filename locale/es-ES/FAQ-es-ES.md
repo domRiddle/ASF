@@ -344,7 +344,7 @@ ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la
 
 ### ¿Usar ASF mantiene la elegibilidad para recibir packs de refuerzo?
 
-**Sí**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Sí**. ASF usa el mismo método para iniciar sesión en la red de Steam que el cliente oficial, por lo tanto también mantiene la habilidad de recibir packs de refuerzo para las cuentas usadas en ASF. Además, preservar esa habilidad no requiere iniciar sesión en la comunidad de Steam, así que puedes usar `OnlineStatus` de `Offline` si lo deseas.
 
 * * *
 

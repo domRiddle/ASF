@@ -189,7 +189,7 @@ Tipo `string` con valor predeterminado de `null`. Esta propiedad define la contr
 
 ### `IPCPasswordFormat`
 
-Tipo `byte` con valor predeterminado de `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
+Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `IPCPassword` y utiliza `EHashingMethod` como tipo subyacente. Por favor, consulta la sección **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** si deseas aprender más, ya que necesitarás asegurarte que la propiedad `IPCPassword` incluye una contraseña que coincida con `IPCPasswordFormat`. En otras palabras, cuando cambias `IPCPasswordFormat` tu `IPCPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
 
 * * *
 

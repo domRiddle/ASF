@@ -189,7 +189,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `IPCPasswordFormat`
 
-这是一个默认值为 `0` 的 `byte` 类型属性。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
+这是一个默认值为 `0` 的 `byte` 类型属性。 该属性用于定义 `IPCPassword` 属性的格式，其底层类型为 `EHashingMethod`。 如果您需要了解更多，请参考&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节，确保 `IPCPassword` 属性的值确实符合 `IPCPasswordFormat` 定义的格式。 换句话说，在您更改 `IPCPasswordFormat` 时，必须确保您的 `IPCPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
 
 * * *
 

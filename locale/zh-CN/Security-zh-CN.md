@@ -2,7 +2,7 @@
 
 ## 加密
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 | 值 | 名称                          |
 | - | --------------------------- |
@@ -56,7 +56,7 @@ ASF 不支持任何解密已加密密码的方法，因为解密方法仅在内�
 
 ## 哈希
 
-ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
+ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
 | 值 | 名称        |
 | - | --------- |
@@ -78,7 +78,7 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 
 ### SCrypt
 
-按照当今的标准，**[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** 可以被视为安全的哈希方式，指定 `EHashingMethod` 为 `1` 即可使用这种方式。 ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+按照当今的标准，**[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** 可以被视为安全的哈希方式，指定 `EHashingMethod` 为 `1` 即可使用这种方式。 ASF 的 `SCrypt` 实现采用 `8` 个块、`8192` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 
 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。 如果使用得当，就能保证安全存储的适当安全性。
 
@@ -86,7 +86,7 @@ ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArch
 
 ### Pbkdf2
 
-按照当今的标准，**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** 是一种安全性较弱的哈希方式，指定 `EHashingMethod` 为 `2` 即可使用这种方式。 ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+按照当今的标准，**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** 是一种安全性较弱的哈希方式，指定 `EHashingMethod` 为 `2` 即可使用这种方式。 ASF 的 `Pbkdf2` 实现采用 `10000` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐，`SHA-256` 作为 HMAC 算法以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 
 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。
 

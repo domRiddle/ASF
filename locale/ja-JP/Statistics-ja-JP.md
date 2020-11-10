@@ -6,7 +6,7 @@ ASF in default settings has `Statistics` global config property enabled. If you 
 
 * * *
 
-## Current privacy policy
+## 現在のプライバシー・ポリシー
 
 When `Statistics` are active, following things will happen:
 

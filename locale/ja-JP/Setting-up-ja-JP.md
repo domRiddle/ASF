@@ -136,25 +136,25 @@ ASF には Steam クライアントの独自の実装が含まれているため
 
 * * *
 
-### Running ASF
+### ASF の実行
 
-You're now ready to launch the program for the first time. Simply double-click `ArchiSteamFarm` binary in ASF directory.
+これでプログラムを初めて起動する準備ができました。 ASF ディレクトリ内の `ArchiSteamFarm` バイナリをダブルクリックして下さい。
 
-After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
+最初のステップで必要な依存関係をすべてインストールしていたら、正常なら ASF は起動します。生成された設定を `config` ディレクトリに置くのを忘れていなければ、最初のボットを検出し、ASF はログインしようとします。
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
+`SteamLogin` と `SteamPassword` を記入していたら、ASF は設定により Steamガード（メール、２ファクタ認証若しくはなし）だけを要求してくる。 それを記入していない場合、パスワードも要求してきます。
 
-Now is a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about what will happen next, as stated by ASF itself.
+ASFが表示したこれから起きることが気になる方は、&#8203;**[プライバシー・ポリシー](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-ja-JP#現在のプライバシー・ポリシー)**&#8203;の章を確認して下さい。 
 
-After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start idling using default settings that you didn't change as of now:
+入力した情報がすべて正しかったら、ログインは成功し、ASF はデフォルトの設定を使用してアイドリングを開始します。
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+つまり、ASF はあなたのアカウントを使って、正常に動作していることを意味します。プログラムを最小化にして他のことをしてもいいってわけね。 十分な時間（&#8203;**[パフォーマンス](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ja-JP)**&#8203;による）が経過すると、Steam トレーディングカードがドロップしてきます。 もちろん、そのためには、アイドリングに必要な有効なゲームが必要だ。&#8203;**[バッジ](https://steamcommunity.com/my/badges)**&#8203;ページから「残りカードドロップX枚」を確認することができます。もしアイドリング可能なゲームがない場合、ASF はなにもしません。詳しくは&#8203;**[よくある質問](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf-ja-JP)**&#8203;を参照して下さい。
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
+基本的な初期設定はここまでだ。 ASF の設定をさらにいじるのもよし、デフォルト設定のままでも使えます。 ここからはより高度的な設定になりますが、ASF を完全にマスターしたいなら、Wiki のほかのページもご覧下さい（まだ訳していないけど）。
 
 * * *
 
