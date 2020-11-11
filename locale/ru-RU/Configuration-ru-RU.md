@@ -189,7 +189,7 @@ ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSO
 
 ### `IPCPasswordFormat`
 
-Параметр типа `byte` со значением по-умолчанию `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Вам следует оставить этому параметру значение по-умолчанию `​0​`, кроме тех случаев когда вы хорошо знаете, что делаете.
+Параметр типа `byte` со значением по-умолчанию `0`. Этот параметр задаёт формат параметра `IPCPassword` и использует `EHashingMethod` как базовый тип. Пожалуйста, прочтите раздел "**[Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**" если хотите узнать больше, поскольку вам потребуется убедиться, что параметр `IPCPassword` действительно содержит пароль в формате, соответствующем `IPCPasswordFormat`. Другими словами, когда вы меняете `IPCPasswordFormat` ваш `IPCPassword` должен **уже** быть в этом формате, а не только планироваться как таковой. Вам следует оставить этому параметру значение по-умолчанию `​0​`, кроме тех случаев когда вы хорошо знаете, что делаете.
 
 * * *
 
