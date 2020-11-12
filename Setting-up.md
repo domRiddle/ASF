@@ -44,7 +44,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+At least a few of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 - None for now, but you should have latest version of OS X installed, at least 10.13+
