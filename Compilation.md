@@ -17,7 +17,7 @@ Regardless of platform, you need full .NET Core SDK (not just runtime) in order 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
 If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
@@ -29,14 +29,14 @@ If compilation ended successfully, you can find your ASF in `source` flavour in 
 You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. This build will also have updates disabled.
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.1` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
