@@ -39,7 +39,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
 - `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
-- `libkrb5-3` (`krb5-libs`)
+- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
 - `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
 - `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
