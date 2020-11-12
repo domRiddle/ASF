@@ -44,7 +44,7 @@ No entanto, esses dois estão completamente corretos:
 
 ## Argumentos
 
-`--cryptkey <key>` ou `--cryptkey=<key>` - inicializará o ASF com um valor de chave de criptografia `<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)** e fará com que o ASF use sua chave personalizada `<key>` fornecida ao invés da que está codificada no executável. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), Keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` ou `--cryptkey=<key>` - inicializará o ASF com um valor de chave de criptografia `<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)** e fará com que o ASF use sua chave personalizada `<key>` fornecida ao invés da que está codificada no executável. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 Devido à natureza desta propriedade, também é possível definir a cryptkey declarando a variável de ambiente `ASF_CRYPTKEY`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 

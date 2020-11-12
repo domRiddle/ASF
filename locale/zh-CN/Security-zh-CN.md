@@ -66,7 +66,7 @@ ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
 下文会详细解释与比较这些方式。
 
-要生成哈希值，并在如 `IPCPassword` 等属性中使用，您可以执行 `hash` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当哈希方式与您的密码原文。 然后，将您获得的哈希字符串填入 `IPCPassword` 全局配置属性，并且对应修改 `IPCPasswordFormat` 为符合哈希方式的选项。
+要生成哈希值，并在如 `IPCPassword` 等属性中使用，您可以执行 `hash` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当哈希方式与您的密码原文。 Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
 * * *
 

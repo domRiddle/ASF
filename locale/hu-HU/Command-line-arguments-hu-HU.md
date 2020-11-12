@@ -44,7 +44,7 @@ Viszont ez a két sor jó:
 
 ## Argumentumok
 
-`--cryptkey <key>` vagy `--cryptkey=<key>` - az ASF-t egyedi titkosító kulccsal fogja elindítani, melynek értéke `<key>`. Ez a beállítás a **[biztonságot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** befolyásolja, és kényszeríteni fogja az ASF-t, hogy az általad megadott `<key>` kulcsot használja az alapértelmezett helyett, ami a futtatható állományba van beleégetve. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), Keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` vagy `--cryptkey=<key>` - az ASF-t egyedi titkosító kulccsal fogja elindítani, melynek értéke `<key>`. Ez a beállítás a **[biztonságot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** befolyásolja, és kényszeríteni fogja az ASF-t, hogy az általad megadott `<key>` kulcsot használja az alapértelmezett helyett, ami a futtatható állományba van beleégetve. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKEY` környezeti változót használod, ami azon emberek számára lehet hasznos, akik nem szeretnének érzékeny adatokat argumentumokon keresztül átadni.
 

@@ -44,7 +44,7 @@ Linux/OS X
 
 ## Аргументы
 
-`--cryptkey <key>` или `--cryptkey=<key>` - запустит ASF с пользовательским значением ключа шифрования `<key>`. Эта настройка влияет на **[безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)** и ASF будет использовать данный ключ шифрования `<key>` вместо внедрённого в исполняемый файл. Поскольку эта настройка влияет на ключ шифрования по умолчанию (для шифрования), а также на соль (для хеширования), не забывайте, что для любого шифрования/хеширования этот ключ должен передаваться ASF при каждом запуске.
+`--cryptkey <key>` или `--cryptkey=<key>` - запустит ASF с пользовательским значением ключа шифрования `<key>`. Эта настройка влияет на **[безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)** и ASF будет использовать данный ключ шифрования `<key>` вместо внедрённого в исполняемый файл. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 Из-за природы этого параметра также есть возможность задавать ключ шифрования путём задания переменной среды `ASF_CRYPTKEY`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.
 
