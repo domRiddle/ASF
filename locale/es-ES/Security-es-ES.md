@@ -66,7 +66,7 @@ Actualmente ASF soporta los siguientes métodos de hashing como una definición 
 
 La descripción exacta y comparación de las mismas están disponibles a continuación.
 
-Para generar un hash, por ejemplo, para uso de `IPCPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `hash` con el método de hashing que elegiste y tu contraseña en texto plano. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
+Para generar un hash, por ejemplo, para uso de `IPCPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `hash` con el método de hashing que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres con hash obtenida en la propiedad de configuración de ASF `IPCPassword`, y finalmente cambia `IPCPasswordFormat` al que corresponda con el método de hashing elegido.
 
 * * *
 
