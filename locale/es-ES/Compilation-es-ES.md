@@ -17,7 +17,7 @@ Independientemente de la plataforma, necesita .NET Core SDK completo (no solo ru
 Suponiendo que tienes .NET Core SDK operativo y en la versión apropiada, simplemente navega al directorio fuente de ASF (repositorio de AF clonado o descargad y desempaquetado) y ejecuta:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
 Si usas Linux/OS X, en su lugar puedes usar el script `cc.sh` que hará lo mismo, de una forma un poco más compleja.
@@ -29,14 +29,14 @@ Si la compilación terminó con éxito, podrás encontrar ASF en su variante `so
 Si tienes una necesidad específica también puedes generar un paquete .NET Core específico de un sistema operativo. En general no deberías hacer eso porque acabas de compilar la variante `generic` que puedes ejecutar con el ya instalado .NET Core runtime que usaste para la compilación en primer lugar, pero en caso de que lo quieras hacer:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Por supuesto, reemplaza `linux-x64` con la arquitectura del sistema operativo que tienes por objetivo, como `win-x64`. Esta compilación también tendrá las actualizaciones deshabilitadas.
 
 ### .NET Framework
 
-En un caso muy raro en el que quieras compilar un paquete `generic-netf`, puedes cambiar framework objetivo de `netcoreapp3.1` a `net48`. Ten en cuenta que necesitarás el paquete de desarrollador **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** adecuado para compilar la variante `netf`m además de .NET Core SDK, así que lo siguiente solo funcionará en Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. Ten en cuenta que necesitarás el paquete de desarrollador **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** adecuado para compilar la variante `netf`m además de .NET Core SDK, así que lo siguiente solo funcionará en Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -52,11 +52,11 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## Desarrollo
 
-Si quieres editar el código de ASF, puedes usar cualquier IDE (entorno de desarrollo integrado) para ese propósito, aunque eso es opcional, ya que también puedes editarlo con un bloc de notas y compilarlo con el comando `dotnet` descrito arriba. Aún así, para Windows recomendamos el **[Visual Studio más reciente](https://visualstudio.microsoft.com/downloads)** (la versión free community es más que suficiente). También sugerimos usarlo junto con **[ReSharper](https://www.jetbrains.com/resharper)** (opcionalmente), aunque no es un producto gratuito.
+Si quieres editar el código de ASF, puedes usar cualquier IDE (entorno de desarrollo integrado) para ese propósito, aunque eso es opcional, ya que también puedes editarlo con un bloc de notas y compilarlo con el comando `dotnet` descrito arriba. Aún así, para Windows recomendamos el **[Visual Studio más reciente](https://visualstudio.microsoft.com/downloads)** (la versión free community es más que suficiente).
 
 Si quieres trabajar con el código de ASF en Linux/OS X, recomendamos el **[Visual Studio Code más reciente](https://code.visualstudio.com/download)**. No es tan rico como Visual Studio clásico, pero es bastante bueno.
 
-Claro, todas las sugerencias anteriores son solo recomendaciones, puedes usar lo que desees, de todas forma se reduce al comando `dotnet build`. Usamos Visual Studio + ReSharper para el desarrollo de AFS, con una pequeña parte de `tools` herramientas de terceros que puedes encontrar en el repositorio.
+Claro, todas las sugerencias anteriores son solo recomendaciones, puedes usar lo que desees, de todas forma se reduce al comando `dotnet build`. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
 
 * * *
 

@@ -53,7 +53,7 @@ Le package spécifique au système d'exploitation, outre le code géré inclus d
 <p>ASF est actuellement disponible dans les variantes suivantes spécifiques au système d'exploitation:</p>
 
 <ul>
-<li><code>win-x64` fonctionne sur les systèmes d’exploitation Windows 64 bits. Cela inclut Windows 7 (SP1 +), 8.1, 10, Server 2008 R2 (SP1 +), 2012, 2012 R2, 2016 et les versions futures.</li> 
+<li><code>win-x64` fonctionne sur les systèmes d’exploitation Windows 64 bits. This includes Windows 7 (SP1+), 8.1, 10, Server 2012 R2, 2016, as well as future versions.</li> 
 
 - `linux-arm` fonctionne sur les systèmes d'exploitation GNU/Linux ARM (ARMv7 +) 32 bits. This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will not work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspbian), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
@@ -62,7 +62,7 @@ Le package spécifique au système d'exploitation, outre le code géré inclus d
 
 Bien entendu, même si aucun package spécifique à un système d'exploitation n'est disponible pour votre combinaison architecture-système d'exploitation, vous pouvez toujours installer vous-même le runtime .NET Core approprié et exécuter la version générique ASF, ce qui est également la raison principale de son existence dans la première version. La version ASF générique est indépendante de la plate-forme et s'exécute sur toutes les plates-formes disposant d'un environnement .NET Core runtime actif. Il est important de noter que ASF nécessite le .NET Core runtime, pas un système d’exploitation ou une architecture spécifique. Par exemple, si vous utilisez Windows 32 bits, malgré l'absence de version `win-x86` ASF dédiée, vous pouvez toujours installer .NET Core SDK dans la version `win-x86` et exécutez ASF générique parfaitement. Nous ne pouvons simplement pas cibler toutes les combinaisons architecture-système existantes qui sont utilisées par quelqu'un, nous devons donc tracer une ligne quelque part. x86 est un bon exemple de cette ligne car son architecture est obsolète depuis au moins 2004.
 
-Pour obtenir une liste complète de toutes les plates-formes et systèmes d'exploitation pris en charge par .NET Core 3.1, consultez la section **[Notes de publication](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md)**.
+Pour obtenir une liste complète de toutes les plates-formes et systèmes d'exploitation pris en charge par .NET Core 5.0, consultez la section **[Notes de publication](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
 
 * * *
 
@@ -72,6 +72,6 @@ Si vous utilisez un package spécifique au système d'exploitation, vous n'avez 
 
 Toutefois, si vous essayez d'exécuter le package **générique** ASF, vous devez vous assurer que votre environnement d'exécution .NET Core prend en charge la plate-forme requise par ASF.
 
-ASF as a program is targeting **.NET Core 3.1** (`netcoreapp3.1`) right now, but it may target newer platform in the future. `netcoreapp3.1` is supported since 3.1.100 SDK (3.1.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Des variantes génériques d'ASF pourraient refuser de se lancer si votre runtime est plus vieux que le minimum (cible) connu durant la compilation.
+ASF as a program is targeting **.NET 5.0** (`net5.0`) right now, but it may target newer platform in the future. `net5.0` is supported since 5.0.100 SDK (5.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Des variantes génériques d'ASF pourraient refuser de se lancer si votre runtime est plus vieux que le minimum (cible) connu durant la compilation.
 
 En cas de doute, vérifiez ce que notre **[intégration continue utilise](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** pour compiler et déployer les versions ASF sur GitHub. Vous pouvez trouver la sortie `dotnet --info` au-dessus de chaque construction.

@@ -39,14 +39,15 @@
 
 리눅스 배포판에 따라 패키지 이름이 다릅니다. 아래에 공통적인 것들을 나열했습니다. 데비안에서는 `apt`, CentOS에서는 `yum` 등 OS에서 사용하는 자체 패키지 관리자를 통해 전부를 설치할 수 있습니다.
 
-- `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (latest version for your distribution, for example `libicu60`)
-- `libkrb5-3` (`krb5-libs`)
-- `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, latest 1.1.X version for your distribution)
+- `libc6` (`libc`)
+- `libgcc1` (`libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
 
-At least a few of those should be already natively available on your system (such as `zlib1g` that is required in almost every Linux distro nowadays).
+At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 

@@ -45,14 +45,15 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 
 パッケージ名は使用している Linux ディストリビューションに依存しますが、ここでは最も一般的なものをリストアップしました。 あなたの OS のネイティブのパッケージマネージャ（例えば Debian なら `apt`、CentOS なら `yum`）を使っても、これらをインストールすることが可能です。
 
-- `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (ご利用のディストリビューションの最新バージョン、例えば `libicu60`)
-- `libkrb5-3` (`krb5-libs`)
-- `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, ご利用の OS の最新の1.1.X版)
+- `libc6` (`libc`)
+- `libgcc1` (`libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
 
-少なくとも、これらのうちのいくつかはシステム上でネイティブに利用可能なはずです（最近ではほぼすべての Linux ディストリビューションで `zlib1g` がすでに入っている）。
+At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**
 

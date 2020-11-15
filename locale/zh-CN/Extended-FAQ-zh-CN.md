@@ -8,9 +8,9 @@
 
 ASF 是由 **[Archi](https://github.com/JustArchi)** 在 2015 年 10 月创作的。 您可能已经知道，我和您一样，是一名 **[Steam 用户](https://steamcommunity.com/profiles/76561198006963719)**。 正如您所见，除了玩游戏，我也很愿意将我的技能与意志付诸实践。 这里没有大公司参与，没有开发者团队，也没有一百万美元的预算——只有我自己维护这个项目。
 
-然而，ASF 是一个开源项目，您在这里看到的一切并非完全出自我手。 我们有一些&#8203;**[其他](https://github.com/JustArchiNET?q=ASF-)** ASF 项目，几乎全部由其他开发者开发。 即使是 ASF 核心，也有许多&#8203;**[贡献者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;参与帮助我完成。 最重要的是，有一些第三方服务支持了 ASF 的开发，特别是 **[GitHub](https://github.com)**、**[Discord](https://discordapp.com/open-source)**、**[AppVeyor](https://www.appveyor.com)**、**[Travis](https://travis-ci.com)** 与 **[Crowdin](https://crowdin.com)**。 当然也不能忘记实现 ASF 所用的优秀的库和工具，例如 **[ReSharper](https://www.jetbrains.com/resharper)**，特别是 **[SteamKit2](https://github.com/SteamRE/SteamKit)**，没有这个库，ASF 也就不复存在。 同样，如果没有 **[GitHub](https://github.com/sponsors/JustArchi)**、**[Patreons](https://github.com/sponsors/JustArchi)** 或其他渠道的支持者为我们捐款，ASF 也不会像现在这样优秀。
+然而，ASF 是一个开源项目，您在这里看到的一切并非完全出自我手。 我们有一些&#8203;**[其他](https://github.com/JustArchiNET?q=ASF-)** ASF 项目，几乎全部由其他开发者开发。 即使是 ASF 核心，也有许多&#8203;**[贡献者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;参与帮助我完成。 On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[AppVeyor](https://www.appveyor.com)**, **[Travis](https://travis-ci.com)** and **[Crowdin](https://crowdin.com)**. You also can't forget about all the awesome libraries and tools that made ASF happen, such as **[Rider](https://www.jetbrains.com/rider)** that we use as IDE and especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. 同样，如果没有 **[GitHub](https://github.com/sponsors/JustArchi)**、**[Patreons](https://github.com/sponsors/JustArchi)** 或其他渠道的支持者为我们捐款，ASF 也不会像现在这样优秀。
 
-感谢所有帮助 ASF 开发的人！
+感谢所有帮助 ASF 开发的人！ You're awesome.
 
 * * *
 

@@ -39,14 +39,15 @@ Você não precisa fazer mais nada para as versões para SOs específicos, espec
 
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
-- `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (a ultima versão para a sua distribuição, por exemplo `libicu60`)
-- `libkrb5-3` (`krb5-libs`)
-- `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, a última versão 1.1.X para a sua distribuição)
+- `libc6` (`libc`)
+- `libgcc1` (`libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
 
-Pelo menos alguns desses já devem estar disponíveis nativamente no seu sistema (como o `zlib1g` que é exigido em quase todas as distribuições do Linux hoje em dia).
+At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 

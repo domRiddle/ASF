@@ -39,14 +39,15 @@
 
 Назви пакетів залежать від обраного дистрибутиву Linux, тож ми наводимо найпоширеніші з них. Ви можете отримати усі з них через стандартний менеджер пакетів у вашій ОС (такий як `apt` для Debian чи `yum` для CentOS).
 
-- `libcurl` (`libcurl4`, `libcurl3`)
-- `libicu` (остання версія для вашого дистрибутиву, наприклад `libicu60`)
-- `libkrb5-3` (`krb5-libs`)
-- `liblttng-ust0` (`lttng-ust`)
-- `libssl` (`libssl1.1`, `openssl-libs`, остання версія 1.1.X для вашого дистрибутиву)
+- `libc6` (`libc`)
+- `libgcc1` (`libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`)
 - `zlib1g` (`zlib`)
 
-Принаймні деякі з цих пакетів мають бути вже встановлені у вашій системі (як наприклад `zlib1g`, який наразі є необхідним для майже кожного дистрибутиву Linux).
+At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 

@@ -17,7 +17,7 @@
 如果您有合適版本的 .NET Core SDK，只需瀏覽 ASF 原始目錄（複製或下載並解壓縮 ASF 儲存庫），然後執行：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
 如果您在使用 Linux/OS X，您也可以使用 `cc.sh` 腳本實現同樣的效果，此種編譯方法方式稍複雜。
@@ -29,14 +29,14 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
 如果您需要，也可以為特定作業系統產生 .NET Core 套件。 一般您不需要這樣做，因為您剛剛編譯了`通用`套件，您可以直接使用已安裝用於編譯的 .NET Core 執行階段來執行此套件。如果您還是想要使用特定作業系統套件，請執行：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 當然，您需要將 `linux-x64` 替換成您需要的目標作業系統架構，例如 `win-x64`。 這一構建也將停用自動更新。
 
 ### .NET Framework
 
-在非常罕見的情況下您會需要建置 `generic-netf` 套件，您可以將目標軟體框架從 `netcoreapp3.1` 變更到 `net48`。 請注意，您需要合適的 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** ​開發人員工具套件和 .NET Core SDK 才能編譯 `netf` 變體，所以此指令僅適用於 Windows：
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. 請注意，您需要合適的 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** ​開發人員工具套件和 .NET Core SDK 才能編譯 `netf` 變體，所以此指令僅適用於 Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -52,11 +52,11 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## 開發
 
-如果您想要編輯 ASF 程式碼，您可以使用任何與 .NET Core 相容的 IDE，但這也是非必要的，因為您甚至可以用記事本編輯程式碼並用上述 `dotnet` 指令編譯。 不過，對於 Windows 系統，我們推薦使用​**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免費的社區版即可）。 我們還建議您配合使用 **[ReSharper](https://www.jetbrains.com/resharper)**（可省略），儘管它不是一個免費軟體。
+如果您想要編輯 ASF 程式碼，您可以使用任何與 .NET Core 相容的 IDE，但這也是非必要的，因為您甚至可以用記事本編輯程式碼並用上述 `dotnet` 指令編譯。 不過，對於 Windows 系統，我們推薦使用​**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免費的社區版即可）。
 
 如果您要在 Linux/OS X 上開發 ASF 程式碼，我們推薦使用​**[最新版的 Visual Studio Code](https://code.visualstudio.com/download)**。 它沒有經典的 Visual Studio 那麼豐富的功能，但已足夠了。
 
-當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 我們使用 Visual Studio + ReSharper 進行 ASF 的開發，也使用了一部分第三方工具，您可以在repo的 `tools` 目錄中找到它們。
+當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
 
 * * *
 

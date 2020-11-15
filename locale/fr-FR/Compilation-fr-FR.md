@@ -16,7 +16,7 @@ Quelle que soit la plate-forme, vous avez besoin du SDK .NET Core complet (pas s
 
 <p>En supposant que vous avez un SDK .NET Core opérationnel dans sa version appropriée, il vous suffit de naviguer vers le répertoire source ASF (cloné ou téléchargé et dés-archivé) et d'exécuter :</p>
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
+<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 `</pre> 
 
 Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui fera de même, de manière un peu plus complexe.</p>
@@ -28,14 +28,14 @@ Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui 
 Vous pouvez également générer un package .NET Core spécifique au système d'exploitation si vous avez un besoin spécifique. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation que vous souhaitez cibler, tel que ` win-x64 `. Cette mise à jour aura également des mises à jour désactivées.
 
 ### .NET Framework 
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `netcoreapp3.1` to `net48`. N'oubliez pas que vous aurez besoin du pack de développeurs **[ .NET Framework ](https://dotnet.microsoft.com/download/visual-studio-sdks)** approprié pour la compilation de la variante ` netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. N'oubliez pas que vous aurez besoin du pack de développeurs **[ .NET Framework ](https://dotnet.microsoft.com/download/visual-studio-sdks)** approprié pour la compilation de la variante ` netf `, en plus du kit de développement .NET Core SDK, donc les éléments ci-dessous ne fonctionneront que sur Windows :
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -51,17 +51,17 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## Développement
 
-Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE compatible avec .NET Core à cette fin, même si cela reste facultatif. Vous pouvez également éditer avec un bloc-notes et compiler avec la commande  dotnet </ 0>. décrit ci-dessus. Néanmoins, pour Windows, nous recommandons la <strong><a href="https://visualstudio.microsoft.com/downloads"> dernière version de Visual Studio </ 0> (la version communautaire gratuite est largement suffisante). Nous vous suggérons également de l’utiliser avec <strong><a href="https://www.jetbrains.com/resharper"> ReSharper </a></strong> (facultatif), bien qu’il ne s’agisse pas d’un produit gratuit.</p>
+Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE compatible avec .NET Core à cette fin, même si cela reste facultatif. Vous pouvez également éditer avec un bloc-notes et compiler avec la commande ` dotnet </ 0>. décrit ci-dessus. Néanmoins, pour Windows, nous recommandons la <strong><a href="https://visualstudio.microsoft.com/downloads"> dernière version de Visual Studio </ 0> (la version communautaire gratuite est largement suffisante).</p>
 
 <p>Si vous souhaitez plutôt utiliser du code ASF sous Linux / OS X, nous vous recommandons <strong><a href="https://code.visualstudio.com/download"> le dernier Visual Studio Code</ 0>. Ce n'est pas aussi complet que le classique Visual Studio, mais c'est suffisant.</p>
 
-<p>Bien sûr, toutes les suggestions ci-dessus ne sont que des recommandations, vous pouvez utiliser ce que vous voulez, cela revient à la commande <code> dotnet build </ 0>. Nous utilisons Visual Studio + ReSharper pour le développement ASF, avec une petite partie des <code> outils tiers </ 0> que vous pouvez trouver dans le référentiel.</p>
+<p>Bien sûr, toutes les suggestions ci-dessus ne sont que des recommandations, vous pouvez utiliser ce que vous voulez, cela revient à la commande <code> dotnet build </ 0>. We use <strong><a href="https://www.jetbrains.com/rider">JetBrains Rider</a></strong> for ASF development, with a small part of third-party <code>tools` that you can find in the repo.
 
-<hr />
+* * *
 
-<h2>Tags</h2>
+## Tags
 
-<p>Il n’est pas garanti que la branche <code> master </ 0> soit dans un état permettant une compilation réussie ou une exécution sans faille du fichier ASF en premier lieu, étant donné qu’elle est une branche de développement comme l’indique notre <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle"> cycle de publication</ 1>. If you want to compile or reference ASF from source, then you should use appropriate <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/tags">tag</a></strong> for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). Pour vérifier la "santé" actuelle de l’arbre, vous pouvez utiliser nos CIs - <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm">AppVeyor</a></strong> ou <strong><a href="https://travis-ci.com/JustArchiNET/ArchiSteamFarm">Travis</a></strong>.</p>
+Il n’est pas garanti que la branche  master </ 0> soit dans un état permettant une compilation réussie ou une exécution sans faille du fichier ASF en premier lieu, étant donné qu’elle est une branche de développement comme l’indique notre <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle"> cycle de publication</ 1>. If you want to compile or reference ASF from source, then you should use appropriate <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/tags">tag</a></strong> for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). Pour vérifier la "santé" actuelle de l’arbre, vous pouvez utiliser nos CIs - <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm">AppVeyor</a></strong> ou <strong><a href="https://travis-ci.com/JustArchiNET/ArchiSteamFarm">Travis</a></strong>.</p>
 
 <hr />
 

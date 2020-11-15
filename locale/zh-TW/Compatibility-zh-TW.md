@@ -52,7 +52,7 @@ ASF 主要有兩種封裝方式——通用（Generic）套件和特定作業系
 
 ASF 目前可用於以下作業系統：
 
-- `win-x64` 支援 64 位 Windows 作業系統。 包括 Windows 7（SP1+）、8.1、10、Server 2008 R2（SP1+）、2012、2012 R2、2016，以及未來的版本。
+- `win-x64` 支援 64 位 Windows 作業系統。 This includes Windows 7 (SP1+), 8.1, 10, Server 2012 R2, 2016, as well as future versions.
 - `linux-arm`支援 32 位基於 ARM（ARMv7+）的 GNU/Linux 作業系統。 包括所有像是 Raspberry Pi 2（或更新版本）的平台可用的 GNU/Linux 作業系統（例如 Raspbian）的當前和未來版本。 This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will not work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspbian), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
 - `linux-x64` 支援 64 位 GNU/Linux 作業系統。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu/Linux Mint、OpenSUSE/SLES 等作業系統以及它們的衍生版的當前和未來版本。
@@ -60,7 +60,7 @@ ASF 目前可用於以下作業系統：
 
 當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的 .NET Core 執行階段並執行通用（Generic）ASF 套件，這也是這個套件存在的主要原因。 通用（Generic）ASF 包與平台無關，可在任何具有可用 .NET Core 執行階段的平台上執行。 需要注意——ASF 需要的是 .NET Core 執行階段，而不是特定的作業系統或架構。 例如，如果您使用的是 32 位 Windows，但 ASF 沒有 `win-x86` 版本，您仍然可以安裝 `win-x86` 版本的 .NET Core SDK，然後執行通用（Generic）版本的 ASF。 我們無法為所有作業系統和架構組合都產生一份可執行档案，所以我們為此畫下一道分隔線。 x86 就是這條線的範例之一，因為這種架構自 2004 年開始就過時了。
 
-您可以造訪​**[發行說明​](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1-supported-os.md)**來查看 .NET Core 3.1 支持的平台與作業系統的完整列表。
+您可以訪問​**[發行說明​](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**查看完整的 .NET Core 5.0 支持的平臺與作業系統列表。
 
 * * *
 
@@ -70,6 +70,6 @@ ASF 目前可用於以下作業系統：
 
 但如果您使用 **Generic**（通用）套件，則必須保證已安裝 ASF 所需的對應平台的 .NET Core 執行階段。
 
-ASF 程式目前的目標是 **.NET Core 3.1**（`netcoreapp3.1`），但在未來可能會以更高版本為目標。 即使 ASF 以**編譯時最新版本的執行階段**為建置目標，`netcoreapp3.1` 從 3.1.100 SDK（3.1.0 執行階段）之後就受支援，所以您應該確保您的機器上有**[最新版本的 SDK](https://dotnet.microsoft.com/download)**（或至少有執行階段）。 如果您的執行階段版本低於編譯時已知的最低（目標）版本，通用 ASF 套件將會拒絕啟動。
+ASF as a program is targeting **.NET 5.0** (`net5.0`) right now, but it may target newer platform in the future. `net5.0` is supported since 5.0.100 SDK (5.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的執行階段版本低於編譯時已知的最低（目標）版本，通用 ASF 套件將會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個構建的頂端找到 `dotnet --info` 的輸出。

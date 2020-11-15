@@ -17,7 +17,7 @@ ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체
 적절한 .NET Core SDK 버전이 실행되고 있다고 가정하고, ASF 리포에서 클론되었거나 다운받아 압축해제한 ASF 소스 디렉토리로 이동해서 다음을 실행합니다:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
 리눅스나 OS X를 사용한다면, 대신 `cc.sh` 스크립트를 사용할 수도 있습니다. 이는 좀 더 복잡한 방식이지만 동일하게 동작합니다.
@@ -29,14 +29,14 @@ dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/generic"
 특정한 필요가 있다면 OS 특화 .NET Core 패키지를 생성할 수도 있습니다. 일반적으로 처음에 컴파일에 사용한 기 설치된 .NET Core 런타임으로 실행 가능한 `일반` 맛을 방금 컴파일 했기 때문에 그럴일은 없습니다만, 만일 필요하다면 다음과 같이 입력하십시오.
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "netcoreapp3.1" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 물론 대상으로 하는 OS 아키텍쳐에 따라 `linux-x64`를 `win-x64` 등으로 변경하십시오. 이 빌드도 업데이트가 비활성화됩니다.
 
 ### .NET Framework
 
-드문 경우지만 `generic-netf` 패키지를 빌드하려는 경우 대상 프레임워크를 `netcoreapp3.1`에서 `net48`로 변경할 수 있습니다. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오. 따라서 아래의 내용은 오직 윈도우에서만 동작합니다:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오. 따라서 아래의 내용은 오직 윈도우에서만 동작합니다:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -52,11 +52,11 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## 개발
 
-ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://visualstudio.microsoft.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다) 또한 선택적으로 **[ReSharper](https://www.jetbrains.com/resharper)** 를 같이 사용하는 것을 권장하지만 이것은 무료 제품은 아닙니다.
+ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://visualstudio.microsoft.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다)
 
 리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. 고전 Visual Studio만큼 풍족하진 않지만, 충분히 좋습니다.
 
-물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. 우리는 ASF 개발에 Visual Studio와 ReSharper, 그리고 repo에 있는 서드 파티 `도구` 일부를 사용합니다.
+물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
 
 * * *
 
