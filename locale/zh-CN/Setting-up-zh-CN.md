@@ -39,15 +39,15 @@
 
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
-- `libc6` (`libc`)
-- `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
-- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`)
-- `zlib1g` (`zlib`)
+- `libc6`（`libc`）
+- `libgcc1`（`libgcc`）
+- `libicu`（`icu-libs`，您的发行版上的最新版，例如 `libicu67`）
+- `libgssapi-krb5-2`（`libkrb5-3`、`krb5-libs`）
+- `libssl1.1`（`libssl`、`openssl-libs`，您的发行版上的最新 `1.1.X` 或 `1.0.X` 版本）
+- `libstdc++6`（`libstdc++`）
+- `zlib1g`（`zlib`）
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
+其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu63`。
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**：
 

@@ -35,7 +35,7 @@ Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,11 +44,11 @@ Wenn du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm">
-      <HintPath>C:\\Pfad\Zur\Heruntergeladenen\ArchiSteamFarm.dll</HintPath>
+      <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
     <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Pfad\Zu\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
 ```
