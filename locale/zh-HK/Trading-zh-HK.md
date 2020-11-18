@@ -25,7 +25,7 @@ ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）�
 當啟用`steamtrademcher`時，ASF將使用複雜算法來檢查交易是否遵循 STM規則，並且結果至少對我們保持中立。 當前邏輯如下：
 
 - 如果我們失去任何`MatchableTypes`類型之外的物品，則拒絕交易。
-- 如果我們未收到每個遊戲和每種類型下相同數量的物品，則拒絕交易。
+- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
 - 如果用戶要求交易特殊的Steam夏季/冬季特賣卡片，並有交易暫掛，則拒絕交易。
 - 如果交易暫掛時間超過全域配置中`MaxTradeHoldDuration` 屬性的值，則拒絕交易。
 - 如果我們沒有啟用`MatchEverything`，則拒絕一切對我們不利的交易。
@@ -61,7 +61,7 @@ If you meet all of the requirements above, ASF will periodically communicate wit
 - 在每一輪匹配中， ASF 將獲取我們和清單中可選機械人的物品庫以找到符合 `匹配類型` 的物品。 如果找到匹配項，ASF 將自動發送並確認交易報價。
 - Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. 這樣做是為了最大限度地避免「物品不再可用」的發生，且無需在發送交易之前等待每個機械人做出反應。 It's also the primary reason why matching is composed of rounds and not one ongoing process.
 - ASF 在單個交易中發送的物品不會超過 `255`個，並且對單個用戶發送的交易將不會超過 `5` 個。 這是由 Steam 限制以及我們自己的負載平衡所決定的。
-- ASF has a limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match.
+- ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
 - If ASF determines that the matching should continue, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching session ends and repeats itself in `8` hours.
 
 此模組是完全透明的。 Matching will start in approximately `1` hour since ASF start, and will repeat itself each `8` hours (if needed). `MatchActively` 特性旨在作為一個長期的週期性措施來保障我們集齊卡片的進程持續推進，但如果我們將其作為命令使用，就會造成短期內的資源壓力。 The target users of this module are primary accounts and "stash" alt accounts, although it can be used by any bot that is not set to `MatchEverything`.

@@ -25,7 +25,7 @@ También puedes personalizar aún más las capacidades de intercambio de ASF mod
 Cuando `SteamTradeMatcher` está activo, ASF usará un algoritmo bastante complejo para comprobar si el intercambio pasa las reglas de STM y que al menos sea neutral para nosotros. La lógica es la siguiente:
 
 - Rechazará el intercambio si estamos perdiendo cualquier cosa además de los tipos de artículo especificados en `MatchableTypes`.
-- Rechazará el intercambio si no estamos recibiendo al menos el mismo número de artículos por juego y por tipo.
+- Rechazará el intercambio si no estamos recibiendo al menos el mismo número de artículos por juego, por tipo y por rareza.
 - Rechazará el intercambio si el usuario solicita cromos especiales de las ofertas de verano/invierno, y tiene una retención de intercambio.
 - Rechazará el intercambio si la duración de la retención de intercambio excede lo establecido en la propiedad de configuración global `MaxTradeHoldDuration`.
 - Rechazará el intercambio si no tenemos establecido `MatchEverything`, y es peor que neutral para nosotros.
@@ -61,7 +61,7 @@ Si cumples todos los requisitos anteriores, ASF se comunicará periódicamente c
 - En cada ronda ASF analizará nuestro inventario y el inventario de los bots seleccionados que estén listados para encontrar artículos `MatchableTypes` que pueden ser emparejados. Si se encuentra una coincidencia, ASF enviará y confirmará automáticamente la oferta de intercambio.
 - Cada set (composición de appID, tipo y rareza del objeto) puede ser emparejado en una ronda solo una vez. Esto se implementa para minimizar "los artículos ya no están disponibles para intercambiar" y evitar la necesidad de esperar a que cada bot reaccione antes de enviar todos los intercambios. También es la razón principal por la que el emparejamiento se compone de rondas y no de un proceso continuo.
 - ASF no enviará más de `255` artículos en un solo intercambio, y no más de `5` intercambios al mismo usuario en una sola ronda. Esto es impuesto por los límites de Steam, así como por nuestro propio equilibrio de carga.
-- ASF tiene un límite de `40` bots únicos que pueden ser emparejados en una ronda, si no se cancela antes por quedarse sin sets para emparejar.
+- ASF tiene un límite de `40` bots únicos que pueden emparejarse en una ronda, si no se cancela antes por haberse quedado sin sets para emparejar - en este caso, durante la siguiente ronda ASF tratará de emparejar primero los bots que no lo fueron anteriormente.
 - Si ASF determina que el emparejamiento debe continuar, la siguiente ronda comienza dentro de `5` minutos desde la anterior (para añadir un tiempo de espera y permitir que todos los bots reaccionen a nuestros intercambios), de lo contrario la sesión de emparejamiento termina y se repite en `8` horas.
 
 Se supone que este módulo sea transparente. El emparejamiento comenzará en aproximadamente `1` hora desde el inicio de ASF, y se repetirá cada `8` horas (si es necesario). La función `MatchActively` está diseñada para ser usada como una medida periódica a largo plazo, para asegurar que avanzamos activamente hacia completar sets, pero la sin presión a corto plazo de tiempo y recursos que sucedería si esto se ofreciera como un comando. Los usuarios objetivo de este módulo son cuentas principales y cuentas alternas para "almacenar", aunque puede ser usado por cualquier bot que no esté configurado a `MatchEverything`.

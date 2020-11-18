@@ -25,7 +25,7 @@ Du kannst die ASF-Handelsmöglichkeiten auch weiter anpassen, indem du die `Trad
 Wenn `SteamTradeMatcher` aktiv ist, wird ASF einen ziemlich komplexen Algorithmus verwenden, um zu überprüfen, ob das Handelsangebot die STM-Regeln erfüllt und zumindest neutral gegenüber steht. Die eigentliche Logik ist die folgende:
 
 - Lehne das Handelsangebot ab, wenn wir etwas anderes verlieren als die in unseren `MatchableTypes` angegebenen Objekttypen.
-- Lehne das Handelsangebot ab, wenn wir nicht mindestens die gleiche Anzahl an Gegenständen pro Spiel und pro Typ erhalten.
+- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
 - Lehne das Handelsangebot ab, wenn der Benutzer nach speziellen Steam Sommer/Winter-Verkaufskarten fragt und eine Handelssperre hat.
 - Lehne das Handelsangebot ab, wenn die Dauer der Handelssperre die globale Konfigurationseigenschaft `MaxTradeHoldDuration` überschreitet.
 - Lehne das Handelsangebot ab, wenn wir nicht `MatchEverything` gesetzt haben und es für uns schlimmer als neutral ist.
@@ -61,7 +61,7 @@ If you meet all of the requirements above, ASF will periodically communicate wit
 - In jeder Runde holt ASF unser Inventar und das Inventar der ausgewählten Bots, die aufgelistet sind, um `MatchableTypes` Gegenstände zu finden, die zugeordnet werden können. Wenn die passende Übereinstimmung gefunden wird, sendet und bestätigt ASF das Handelsangebot automatisch.
 - Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. Dies ist implementiert, um "nicht mehr verfügbare Artikel" zu minimieren und zu vermeiden, dass man warten muss, bis jeder Bot reagiert bevor man alle Handelsangebote versendet. It's also the primary reason why matching is composed of rounds and not one ongoing process.
 - ASF sendet nicht mehr als `255` Gegenstände in einem einzigen Handelsangebot, und nicht mehr als `5` Handelsangebote an einen einzelnen Benutzer in einer einzigen Runde. Dies wird durch Begrenzungen von Steam sowie durch unsere eigene Load-Balancing-Funktion vorgegeben.
-- ASF has a limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match.
+- ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
 - If ASF determines that the matching should continue, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching session ends and repeats itself in `8` hours.
 
 Dieses Modul soll transparent sein. Matching will start in approximately `1` hour since ASF start, and will repeat itself each `8` hours (if needed). Die Funktion `MatchActively` ist als langfristige, periodische Maßnahme gedacht, um sicherzustellen, dass wir aktiv auf dem Weg zur Fertigstellung von Sets sind, aber ohne einen kurzfristigen Zeit- und Ressourcendruck, der auftreten würde, wenn dies als Befehl angeboten werden würde. The target users of this module are primary accounts and "stash" alt accounts, although it can be used by any bot that is not set to `MatchEverything`.

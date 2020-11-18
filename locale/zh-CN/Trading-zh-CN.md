@@ -25,7 +25,7 @@ ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `Trad
 当 `SteamTradeMatcher` 启用时，ASF 将会使用一套复杂的算法检查交易是否符合 STM 规则，以及交易对我们来说是否至少公平。 具体的逻辑是：
 
 - 如果我们损失 `MatchableTypes` 以外的物品，则驳回交易。
-- 对于每款游戏、每种物品类型，如果我们收到的物品少于发出的物品，则驳回交易。
+- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
 - 如果交易者想要特殊 Steam 夏季/冬季特卖卡牌，但是有交易暂挂，则驳回交易。
 - 如果交易暂挂时间达到 `MaxTradeHoldDuration` 全局配置属性的值，则驳回交易。
 - 如果我们没有设置 `MatchEverything`（接受所有匹配交易），而交易内容对我们不利，则驳回交易。
@@ -61,7 +61,7 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 - 每一轮，ASF 将会获取我们的库存与列表中选定机器人的库存，以寻找可匹配的 `MatchableTypes` 物品。 如果找到合适的匹配，ASF 将会自动发送并确认交易报价。
 - 每套物品（相同 appID、物品类型和稀有程度的组合为一套）只能在一轮中匹配一次。 这是为了尽可能减少“物品当前不能用于交易”的情况，并且无需在发出所有交易报价之前等待每个机器人作出回应。 这也是匹配由多个轮次组成而不是持续进行的主要原因。
 - ASF 不会在单个交易报价中发送超过 `255` 个物品，每轮中不会向同一个用户发送超过 `5` 个交易报价。 这个强制限制来自于 Steam 和我们的负载平衡机制。
-- 如果匹配没有因为物品套组耗尽而取消，则 ASF 在每轮中最多匹配 `40` 个不同的机器人。
+- ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
 - 如果 ASF 认为应当继续匹配，下一轮将会在 `5` 分钟内开始（冷却一段时间使所有机器人作出回应），否则匹配流程将会结束，并且在 `8` 小时内重新开始这一过程。
 
 这一模块应该是透明的。 匹配过程会在 ASF 启动后大约 `1` 小时后开始，并且每 `8` 小时重复一次（如果有需要）。 `MatchActively` 功能旨在作为一种长期的周期性措施，确保我们向集齐卡牌套组的方向前进，但如果我们将其作为命令提供，就会造成突发的时间与资源压力。 此模块的目标用户是主帐户和用于存储的子帐户，但也可以用于任何没有设置 `MatchEverything` 的机器人。

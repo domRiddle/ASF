@@ -28,7 +28,7 @@ Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez c
 <ul>
 <li>Rejetez la transaction si nous perdons autre chose que les types d’articles spécifiés dans notre <code>MatchableTypes`. </li> 
 
-- Rejetez la transaction si nous ne recevons pas au moins le même nombre d’objets par jeu et par type.
+- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
 - Rejetez la transaction si l'utilisateur demande des cartes spéciales Soldes été / hiver de Steam et si cette transaction est suspendue.
 - Rejetez la transaction si la durée de la suspension dépasse ` la propriété de configuration globale <0>MaxTradeHoldDuration </ 0>.</li>
 <li>Rejetez la transaction si nous n'avons pas <code> MatchEverything </ 0>, et c'est pire que neutre pour nous.</li>
@@ -66,7 +66,7 @@ Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez c
     - In each round ASF will fetch our inventory and inventory of selected bots that are listed in order to find `MatchableTypes` items that can be matched. If match is found, ASF will send and confirm trade offer automatically.
     - Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades. It's also the primary reason why matching is composed of rounds and not one ongoing process.
     - ASF will send no more than `255` items in a single trade, and no more than `5` trades to a single user in a single round. This is imposed by Steam limits, as well as our own load-balancing.
-    - ASF has a limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match.
+    - ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
     - If ASF determines that the matching should continue, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching session ends and repeats itself in `8` hours.
     
     This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat itself each `8` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered as a command. The target users of this module are primary accounts and "stash" alt accounts, although it can be used by any bot that is not set to `MatchEverything`.
