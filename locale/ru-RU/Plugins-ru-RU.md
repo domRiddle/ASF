@@ -47,7 +47,7 @@ ASF загружает плагины из папки `plugins` располож
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- При сборке в качестве части дерева исходников ASF используйте эту строку вместо <Reference> выше -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
   </ItemGroup>
 </Project>
