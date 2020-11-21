@@ -39,7 +39,7 @@ If you did everything properly, your `csproj` will be similar to below:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,7 +48,7 @@ If you did everything properly, your `csproj` will be similar to below:
     </Reference>
 
     <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
