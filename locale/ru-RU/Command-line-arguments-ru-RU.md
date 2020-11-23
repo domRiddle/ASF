@@ -50,6 +50,10 @@ Linux/OS X
 
 * * *
 
+`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+
+* * *
+
 `--network-group <group>` либо `--network-group=<group>` - указывает ASF использовать ограничители запросов для пользовательской сетевой группы с именем `<group>`. Этот аргумент влияет на работу ASF при **[запуске нескольких экземпляров программы](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Запуск-нескольких-экземпляров)**, указывая что этот экземпляр зависит только от других экземпляров в той же сетевой группе, и не зависит от остальных. Обычно вам стоит указывать этот аргумент если вы перенаправляете запросы от ASF с помощью внешних механизмов (например, различных IP-адресов), и хотите сами задавать сетевую группу, не полагаясь на автоматическое определение ASF (которое на данный момент учитывает только значение `WebProxy`). Имейте в виду, что используемая сетевая группа является уникальным идентификатором в пределах данной машины, и ASF не будет учитывать прочие детали, такие как значение `WebProxy`, позволяя вам, например, запустить два экземпляра программы с разными значениями `WebProxy` и тем не менее зависящие друг от друга.
 
 Из-за природы этого параметра также есть возможность задавать его значение путём задания переменной среды `ASF_NETWORK_GROUP`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.

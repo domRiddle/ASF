@@ -39,7 +39,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,7 +48,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
     </Reference>
 
     <!-- 如果要作为 ASF 代码树的一部分构建，使用此设置代替上面的 <Reference> 标签 -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
@@ -112,11 +112,11 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 默认情况下，您的插件需要至少两个依赖项，`ArchiSteamFarm` 用于引用内部 API，以及 `System.Composition.AttributedModel` 的 `PackageReference`，这是使项目被识别为 ASF 插件所必需的。 除此之外，根据您插件的功能，您可能还需要添加更多依赖项（例如，如果您的插件需要集成 Discord，就需要 `Discord.Net` 库）。
 
-构建过程的输出包括您的核心 `YourPluginName.dll` 库和所有您引用的依赖项，其中至少包括 `ArchiSteamFarm.dll` 和 `System.Composition.AttributedModel.dll`。
+The output of your build will include your core `YourPluginName.dll` library, as well as all the dependencies that you've referenced. Since you're developing a plugin to already-working program, you don't have to, and even **shouldn't** include dependencies that ASF already includes, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`. 在构建中削减与 ASF 共享的依赖项并不是使插件运行所强制要求的，但这样做将极大地减少内存占用和插件本身的大小，同时提高性能，因为 ASF 会与您的插件共享自己的依赖项，并且只会加载它未知的库。
 
-因为您正在为已经正常工作的程序开发插件，您不需要也**不应该**打包所有在构建过程中自动生成的依赖项。 这是因为 ASF 已经包含其中的大多数内容，例如 `ArchiSteamFarm`、`SteamKit2` 或者 `Newtonsoft.Json`。 在构建中削减与 ASF 共享的依赖项并不是使插件运行所强制要求的，但这样做将极大地减少内存占用和插件本身的大小，同时提高性能，因为 ASF 会与您的插件共享自己的依赖项，并且只会加载它未知的库。
+In general, it's a recommended practice to include only those libraries that ASF either doesn't include, or includes in the wrong/incompatible version. Examples of those would be obviously `YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to depend on it, as ASF doesn't include it itself. Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance, and therefore should be carefully evaluated.
 
-因此，建议的做法是，只打包 ASF 不包含的或者与 ASF 包含版本不同/不兼容的库。 相应的例子显然有 `YourPluginName.dll`，但如果您决定集成 Discord，也就包括 `Discord.Net.dll`。 如果您希望确保 API 兼容性，打包与 ASF 共享的库仍然是有意义的（例如，确保您在插件中使用的 `Newtonsoft.Json` 始终锁死在版本 `X`，而不是 ASF 提供的版本），但显然这样做的成本是增大了内存开销和插件的大小，并且导致性能下降。
+If you know that the dependency which you need is included in ASF, you can mark it with `IncludeAssets="compile"` as we showed you in the example `csproj` above. This will tell the compiler to avoid publishing referenced library itself, as ASF already includes that one. Likewise, notice that we reference the ASF project with `ExcludeAssets="all" Private="false"` which works in a very similar way - telling the compiler to not produce any ASF files (as the user already has them). This applies only when referencing ASF project, since if you reference a `dll` library, then you're not producing ASF files as part of your plugin.
 
 如果您对上述句子感到困惑并且难以理解，请查看 `ASF-generic.zip` 包内含有的所有 `dll` 库，并确保您的插件只包含没有出现在这里的库。 对于最简单的插件来说，唯一符合条件的就是 `YourPluginName.dll`。 如果您在运行时遇到某些库出现问题，也请一并打包受到影响的库。 如果一切尝试都失败，您仍然可以自行决定打包哪些内容。
 
@@ -131,3 +131,5 @@ dotnet publish YourPluginName -c "Release" -o "out"
 此问题的解决方案非常类似于一般的插件依赖项，也就是再次在您的插件中打包 ASF 自身不包含或者版本错误/不兼容的（例如被削减掉的）依赖项。 与插件依赖项相比，您无法确认 ASF 削减版本的本机依赖项是否满足您插件的需求，所以您可以简单地将一切打包到一起，或者手动深入验证 ASF 缺少哪些组件，然后仅仅打包这部分组件。 为了获取您所需的依赖项，您首先需要为目标操作系统版本手动编译 ASF（无削减），然后复制您需要的文件让插件正常工作。
 
 这也意味着**您可能需要为每个 ASF 操作系统包都提供专门的插件构建**，因为每个特定操作系统的 ASF 构建可能会缺失您插件所需的不同功能，并且您的通用插件构建无法自行补全所有的功能。 这在很大程度上取决于您的插件的实际功能以及它的依赖，因为完全基于 ASF 功能的简单插件会在所有构建中正常工作，因为它们自身没有带来任何新的依赖项，它们所需的本机依赖项也都已完备。 更复杂的插件（尤其是本身有依赖项的插件）可能需要采取额外的措施，以确保它们确实提供了所有必须的代码组件，不仅包括高级的插件依赖项（如上节所述），还包括低级的本机依赖项。 如果一切尝试都失败，与上文相似，您仍然可以仅针对您打算使用的操作系统包编译插件，然后打包该过程生成的，以及 ASF 为相同操作系统构建生成的全部依赖项。
+
+ASF's OS-specific builds include the bare minimum of additional functionality which is required to run our official plugins. Apart of that being possible, this also slightly extends the surface to extra dependencies required for the most basic plugins. Therefore not all plugins will need to worry about native dependencies to begin with - only those that go beyond what ASF and our official plugins directly need. This is done as an extra, since if we need to include additional native dependencies ourselves for our own use cases anyway, we can as well ship them directly with ASF, making them available, and therefore easier to cover, also for you.

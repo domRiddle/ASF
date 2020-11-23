@@ -50,6 +50,10 @@ Debido a la naturaleza de esta propiedad, también es posible establecer la clav
 
 * * *
 
+`--ignore-unsupported-environment` - hará que ASF ignore la detección de un entorno no soportado, lo que normalmente se indica con un error y un cierre forzado. A partir de ahora, un entorno no soportado se clasifica como un build .NET Framework ejecutándose en una plataforma que podría estar ejecutando en su lugar un build .NET Core. Ya que se soportan builds `generic-netf` solo en escenarios muy limitados (con **[Mono](https://www.mono-project.com)**), usarlo para otros casos (como para ejecutarlo en una plataforma `win-x64`) no está soportado. Visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)** para más información.
+
+* * *
+
 `--network-group <group>` o `--network-group=<group>` - causará que ASF inicialice sus limitadores con un grupo de red personalizado con el valor `<group>`. Esta opción afecta a ASF ejecutándose en **[múltiples instancias](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#m%C3%BAltiples-instancias)** señalizando que una instancia dada es dependiente solo de instancias que compartan el mismo grupo de red, e independiente del resto. Normalmente quieres usar esta propiedad solo si estás enrutando solicitudes de ASF a través de un mecanismo personalizado (por ejemplo, diferentes direcciones IP) y quieres establecer grupos de red, sin depender de ASF para hacerlo automáticamente (lo que actualmente incluye tomar en cuenta solo `WebProxy`). Ten en cuenta que al usar un grupo de red personalizado, este es un identificador único dentro de la misma máquina, y ASF no tendrá en cuenta ningún otro detalle, tal como el valor `WebProxy`, permitiéndote, por ejemplo, iniciar dos instancias con diferentes valores `WebProxy` que siguen siendo dependientes entre sí.
 
 Debido a la naturaleza de esta propiedad, también es posible establecer el valor declarando la variable de entorno `ASF_NETWORK_GROUP`, lo que podría ser más apropiado para las personas que quieran evitar información confidencial en los argumentos del proceso.

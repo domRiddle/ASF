@@ -50,6 +50,10 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 * * *
 
+`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+
+* * *
+
 `--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.

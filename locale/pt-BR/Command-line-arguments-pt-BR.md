@@ -50,6 +50,10 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 * * *
 
+`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+
+* * *
+
 `--network-group <group>` ou `--network-group=<group>` - fará com que o ASF inicie seus limitadores com um grupo personalizado adicional com o valor `<group>`. Esta opção afeta a execução do ASF em **[múltiplas instâncias](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR#m%C3%BAltiplas-inst%C3%A2ncias)**, sinalizando que determinada instância depende apenas do compartilhamento do mesmo grupo de rede, e não do resto. Normalmente você vai querer usar essa propriedade somente se você estiver roteando pedidos do ASF através de um mecanismo personalizado (por exemplo, endereços IP diferentes) e você deseja definir grupos de rede você mesmo, sem depender do ASF para fazer isso automaticamente (o que atualmente leva em conta apenas o `WebProxy`). Tenha em mente que ao usar um grupo de rede personalizada este identificador é exclusivo dentro da máquina local, e o ASF não levará em conta nenhum outro detalhe, como o valor do `WebProxy`, permitindo que você, por exemplo, inicie duas instâncias com diferentes valores de `WebProxy` que ainda são dependentes um do outro.
 
 Devido à natureza desta propriedade, também é possível definir o valor declarando a variável de ambiente `ASF_NETWORK_GROUP`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.

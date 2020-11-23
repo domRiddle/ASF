@@ -50,6 +50,10 @@ Linux/macOS：
 
 * * *
 
+`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+
+* * *
+
 `--network-group <group>` 或 `--network-group=<group>`——使 ASF 在自定义网络组 `<group>` 内初始化限制。 此选项影响&#8203;**[多实例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)**&#8203;运行的 ASF，指定此实例仅与相同网络组的实例共享，与其他实例独立。 通常，只有在您通过自定义机制（例如不同 IP 地址）路由 ASF 请求时才需要使用此选项手动设置网络组，不再依赖 ASF 自动处理（目前仅会考虑 `WebProxy`）。 请注意，在使用自定义网络组时，这是属于本机的唯一标识符，ASF 将不再考虑其他细节，例如 `WebProxy` 的值，这使您可以运行两个 `WebProxy` 不同的实例，但仍然互相影响。
 
 由于该属性本身的性质，您也可以设置 ` ASF_NETWORK_GROUP` 环境变量来设置此值，这更适合想避免在进程参数中暴露敏感信息的用户。

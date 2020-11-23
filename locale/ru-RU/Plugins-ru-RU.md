@@ -39,7 +39,7 @@ ASF загружает плагины из папки `plugins` располож
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,8 +47,8 @@ ASF загружает плагины из папки `plugins` располож
       <HintPath>C:\\Path\To\Downloaded\ArchiSteamFarm.dll</HintPath>
     </Reference>
 
-    <!-- При сборке в качестве части дерева исходников ASF используйте эту строку вместо <Reference> выше -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" /> -->
+    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
@@ -112,11 +112,11 @@ ASF, помимо того к чему вы имеете доступ через
 
 Ваш плагин будет включать в себя по умолчанию как минимум две зависимости, ссылку на `ArchiSteamFarm` для внутренних API и `PackageReference` из `System.Composition.AttributedModel`, что необходимо чтобы ASF мог распознать ваш плагин. В добавок к этому, он может иметь больше зависимостей, если они нужны для того, что вы решили реализовать в своём плагине (например, библиотеку `Discord.Net` если вы решили сделать интеграцию с Discord).
 
-Готовый плагин будет представлять собой вашу основную библиотеку `YourPluginName.dll`, а также все зависимости, на которые вы сослались, как минимум `ArchiSteamFarm.dll` и `System.Composition.AttributedModel.dll`.
+The output of your build will include your core `YourPluginName.dll` library, as well as all the dependencies that you've referenced. Since you're developing a plugin to already-working program, you don't have to, and even **shouldn't** include dependencies that ASF already includes, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`. Удаление из вашей сборки всех зависимостей, общих с ASF, не является обязательным требованием для работы плагина, но это существенно уменьшит потребляемую память и размер вашего плагина, а также увеличит быстродействие, благодаря тому что ASF будет разделять свои зависимости с вами, и будет загружать только те библиотеки, о которых ему неизвестно.
 
-Поскольку вы разрабатываете плагин к уже работающей программы, вам нет необходимости, и даже **не следует** включать все зависимости, которые были сгенерированы в процессе сборки. Это связано с тем, что ASF уже включает в себя большинство из них, например `ArchiSteamFarm`, `SteamKit2` или `Newtonsoft.Json`. Удаление из вашей сборки всех зависимостей, общих с ASF, не является обязательным требованием для работы плагина, но это существенно уменьшит потребляемую память и размер вашего плагина, а также увеличит быстродействие, благодаря тому что ASF будет разделять свои зависимости с вами, и будет загружать только те библиотеки, о которых ему неизвестно.
+In general, it's a recommended practice to include only those libraries that ASF either doesn't include, or includes in the wrong/incompatible version. Examples of those would be obviously `YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to depend on it, as ASF doesn't include it itself. Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance, and therefore should be carefully evaluated.
 
-Поэтому, рекомендуется включать в ваш плагин только те библиотека, которые ASF либо не включает в себя, либо включает в неподходящей/несовместимой версии. Примером таких будут, очевидно, `YourPluginName.dll`, и, например, `Discord.Net.dll` если вы решите добавить такую зависимость. Сборка библиотек, общих с ASF, всё же может иметь смысл, если вы хотите обеспечить совместимость API (например, гарантировать что `Newtonsoft.Json`, от которого зависит ваш плагин, будет всегда в версии `X`, а не в той, с которой поставляется ASF), но очевидно что ценой за это будет увеличение памяти/размера на диске и ухудшение производительности.
+If you know that the dependency which you need is included in ASF, you can mark it with `IncludeAssets="compile"` as we showed you in the example `csproj` above. This will tell the compiler to avoid publishing referenced library itself, as ASF already includes that one. Likewise, notice that we reference the ASF project with `ExcludeAssets="all" Private="false"` which works in a very similar way - telling the compiler to not produce any ASF files (as the user already has them). This applies only when referencing ASF project, since if you reference a `dll` library, then you're not producing ASF files as part of your plugin.
 
 Если из-за вышесказанного вы запутались, и не знаете что делать, проверьте, какие `dll`-библиотеки включены в пакете `ASF-generic.zip`, и убедитесь что ваш плагин включает в себя только те библиотеки, которых там нет. В случае самых простых плагинов это будет только `YourPluginName.dll`. Если у вас при выполнении возникнут проблемы с какими-то библиотеками, включите в пакет также эти библиотеки. Если ничего не работает - вы всегда можете решить добавить в пакет вообще все зависимости.
 
@@ -131,3 +131,5 @@ ASF, помимо того к чему вы имеете доступ через
 Решением данной проблемы, аналогично обычным зависимостям, будет опять же включение в состав плагина зависимостей, которые в ASF отсутствуют или имеют неправильную/неполную (например урезанную) версию. По сравнению с зависимости плагинов, вы не можете знать заранее, достаточно ли вам урезанной версии платформо-специфичной зависимости ASF или нет, поэтому вы либо идёте по простому пути, и включаете в пакет с плагином всё подряд, или же по сложному пути, и вручную проверяете, каких частей не хватает в ASF и включаете только эти части. Чтобы получить необходимые зависимости вам понадобиться сначала вручную скомпилировать ASF в необходимом варианте под конкретную ОС (без урезания функций), а затем скопировать необходимые для работы вашего плагина файлы.
 
 Это также означает, что **вам может понадобится делать отдельную сборку вашего плагина под каждый вариант ASF**, поскольку в сборках под разные ОС может отсутствовать различный функционал, который вам нужно предоставить, и ваш универсальный плагин не может предоставить их все. Это в большой степени зависит от того, что именно делает ваш плагин, и какие у него зависимости, поскольку очень простые плагины, основанные исключительно на функциях ASF будут гарантировано работать во всех вариантах, поскольку они не вносят никаких собственных зависимостей, и все платформно-специфичные зависимости будут покрыты. Более сложные плагины (особенно те, у которых есть собственные зависимости) могут потребовать дополнительных мер с целью убедится, что им действительно доступны все необходимые части кода, не только высокоуровневые зависимости плагина (описанные в разделе выше), но и низкоуровневые платформо-специфичные зависимости. Если всё остальное не помогло, то, как и в случае выше, вы всегда можете скомпилировать ваш плагин в варианте под используемую конкретную ОС, а затем объединить все сгенерированные завимости с теми, которые сгенерированы при сборке ASF для варианта под ту же ОС.
+
+ASF's OS-specific builds include the bare minimum of additional functionality which is required to run our official plugins. Apart of that being possible, this also slightly extends the surface to extra dependencies required for the most basic plugins. Therefore not all plugins will need to worry about native dependencies to begin with - only those that go beyond what ASF and our official plugins directly need. This is done as an extra, since if we need to include additional native dependencies ourselves for our own use cases anyway, we can as well ship them directly with ASF, making them available, and therefore easier to cover, also for you.
