@@ -41,7 +41,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
 - `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`)
+- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
 - `zlib1g` (`zlib`)
 
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
