@@ -631,22 +631,6 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 * * *
 
-### `A fatal error was encountered. Could not extract contents of the bundle（发生致命错误，无法解压包内容）`
-
-### `System.BadImageFormatException: 未能加载文件或程序集`
-
-### `System.IO.FileNotFoundException：未能加载文件或程序集`
-
-ASF 使用单文件发布操作系统包，导致应用如有需要，就会在在启动时将自身解压到临时的 `<tmp>/.net` 目录。 在 Windows 上，这个目录是 `%TEMP%\.net`（通常是 `C:\Users\<YourUser>\AppData\Local\Temp\.net`），在 Linux 上，这个目录是 `/var/tmp/.net`。 `.net` 目录默认不存在，程序会在第一次使用时尝试创建它。
-
-第一种情况是由于 ASF 无法将自身所需文件解压到目录，第二种则是因为解压被中断——通常是因为您在 ASF 完成解压之前关闭了程序。 解决问题的最简单办法，无论是在 Windows 还是 Linux 上，都是删除上述的临时 `.net` 目录然后重试，通常就可以修复问题。
-
-ASF 需要有权限向上述目录写文件。 在 Windows 上通常不会有问题，但在 Linux 上，您必须确保运行 ASF 进程的用户有权限向 `/var/tmp/.net` 目录写入，一般情况下应该已有权限，但如果您的权限并非默认情况，就需要额外步骤。
-
-或者，您也可以设置自定义的 `DOTNET_BUNDLE_EXTRACT_BASE_DIR` 环境变量，指定您选择的目标解压目录。 如果您不希望 ASF 使用默认的解压目录，这个选项就非常有用。 请注意，新的位置也需要同样的写入权限。
-
-* * *
-
 ### 我的反病毒软件认为 ASF 是恶意软件！ 发生了什么？
 
 **确保您在可信来源下载 ASF**。 唯一官方的可信来源是 GitHub 上的 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**（这也是 ASF 的自动更新来源）——**任何其他来源都是不可信的，并且可能会被其他人添加恶意软件**——您不应该信任任何其他的下载来源，确保您的 ASF 来自于我们。
