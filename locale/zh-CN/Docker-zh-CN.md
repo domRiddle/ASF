@@ -170,7 +170,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-如果一切设置正确，上面的 `docker run` 命令将会使 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口在宿主机上正常工作，标准的 `localhost:1242` 路由已经被正确重定向到客户机上。 值得注意的是，我们没有进一步暴露此路由，因此只有 Docker 宿主机能够成功连接，确保了接口的安全性。
+如果一切设置正确，上面的 `docker run` 命令将会使 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口在宿主机上正常工作，标准的 `localhost:1242` 路由已经被正确重定向到客户机上。 值得注意的是，我们没有进一步暴露此路由，因此只有 Docker 宿主机能够成功连接，确保了接口的安全性。 当然，如果您知道您在做什么，并且确保采取适当的安全措施，也可以进一步暴露此路由。
 
 * * *
 

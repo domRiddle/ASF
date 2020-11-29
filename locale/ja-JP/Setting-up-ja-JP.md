@@ -50,7 +50,7 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 - `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
 - `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`)
+- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
 - `zlib1g` (`zlib`)
 
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
@@ -248,7 +248,7 @@ For generic package, you can follow entire OS-specific guide above, with two sma
 
 With extra steps:
 
-- Install **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- **[.NET Core の前提条件](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**&#8203;をインストールします。
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).

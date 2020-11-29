@@ -8,7 +8,7 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 ## Importēt
 
-The import process can be done through two ways - either by using a file, or IPC.
+Importēt var divos veidos - vai nu izmantojot failu, vai arī izmantojot IPC.
 
 ### Fails
 
@@ -62,7 +62,7 @@ It's also possible to add extra games to import while having some games already 
 
 * * *
 
-## Remarks
+## Piezīmes
 
 Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
 

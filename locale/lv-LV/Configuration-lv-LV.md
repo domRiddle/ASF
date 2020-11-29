@@ -2,20 +2,20 @@
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
-- **[Introduction](#introduction)**
+- **[Ievads](#introduction)**
 - **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[Manual configuration](#manual-configuration)**
-- **[Global config](#global-config)**
-- **[Bot config](#bot-config)**
-- **[File structure](#file-structure)**
+- **[Manuālā iestatīšana](#manual-configuration)**
+- **[Globālā konfigurācija](#global-config)**
+- **[Botu konfigurācija](#bot-config)**
+- **[Failu struktūra](#file-structure)**
 - **[JSON mapping](#json-mapping)**
 - **[Compatibility mapping](#compatibility-mapping)**
 - **[Configs compatibility](#configs-compatibility)**
-- **[Auto-reload](#auto-reload)**
+- **[Auto-pārlāde](#auto-reload)**
 
 * * *
 
-## Introduction
+## Ievads
 
 ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
 
@@ -43,7 +43,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 * * *
 
-## Global config
+## Globālā konfigurācija
 
 Global config is located in `ASF.json` file and has following structure:
 
@@ -93,7 +93,7 @@ If that's the case, this property if specially for you and you can set it to `fa
 
 * * *
 
-### `Blacklist`
+### `Melnais saraksts`
 
 `ImmutableHashSet<uint>` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
 
@@ -448,7 +448,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 * * *
 
-### `Enabled`
+### `Ieslēgts`
 
 `bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
@@ -551,9 +551,9 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 | 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
 | 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Consumable            | Special consumable items that disappear after being used      |
+| 8       | Izejmateriāls         | Special consumable items that disappear after being used      |
 | 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Sticker               | Special items that can be used on Steam chat                  |
+| 10      | Uzlīme                | Special items that can be used on Steam chat                  |
 | 11      | ChatEffect            | Special items that can be used on Steam chat                  |
 | 12      | MiniProfileBackground | Special background for Steam profile                          |
 | 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
@@ -575,12 +575,12 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 | ------- | -------------- |
 | 0       | Bezsaistē      |
 | 1       | Tiešsaistē     |
-| 2       | Busy           |
-| 3       | Away           |
-| 4       | Snooze         |
+| 2       | Aizņemts       |
+| 3       | Projām         |
+| 4       | Snauž          |
 | 5       | LookingToTrade |
 | 6       | LookingToPlay  |
-| 7       | Invisible      |
+| 7       | Neredzams      |
 
 `Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
@@ -600,7 +600,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 * * *
 
-### `Paused`
+### `Apstādināts`
 
 `bool` type with default value of `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
@@ -703,7 +703,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 | 0       | Nekas         | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1       | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2       | Operators     | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3       | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| 3       | Galvenais     | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -738,7 +738,7 @@ For further explanation of ASF trading logic, and description of every available
 
 | Vērtība | Nosaukums             | Apraksts                                                      |
 | ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Unknown               | Every type that doesn't fit in any of the below               |
+| 0       | Nezināms              | Every type that doesn't fit in any of the below               |
 | 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
 | 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
 | 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
@@ -770,7 +770,7 @@ However, some people could be concerned even about this little detail, therefore
 
 * * *
 
-## File structure
+## Failu struktūra
 
 ASF is using quite simple file structure.
 

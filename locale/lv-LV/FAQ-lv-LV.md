@@ -2,19 +2,19 @@
 
 Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
-# Table of contents
+# Satura rādītājs
 
 - [Vispārēji](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Misc](#misc)
-- [Issues](#issues)
+- [Problēmas](#issues)
 
 * * *
 
 ## Vispārēji
 
-### What is ASF?
+### Kas ir ASF?
 
 ### Why does the program claim that there is nothing to idle on my account?
 
@@ -126,7 +126,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Jā**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -154,7 +154,7 @@ First and foremost, you have some built-in features mentioned **[above](#is-it-w
 
 - **You can automatically receive cards from Steam events** (`AutoSteamSaleEvent` feature). ASF allows you to automate going through discovery queue during Steam sale, of course only if you'd like to make use of that. This saves enormous amount of time each day while Steam sale is on, and ensures that you'll never miss your daily card drops again.
 
-- **You can customize preferred farming order with more available options** (`FarmingOrders` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alphabetically? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
+- **You can customize preferred farming order with more available options** (`FarmingOrders` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alfabētiskā secībā? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
 
 - **ASF can help you complete your sets** (`TradingPreferences` with `SteamTradeMatcher` feature). With a bit more advanced tinkering, you can convert your ASF into fully-featured user-bot that will automatically accept **[STM](https://www.steamtradematcher.com)** offers, helping you each day to match your sets without any user interaction. ASF even includes its very own ASF 2FA module allowing you to import your Steam mobile authenticator and let you fully automate the entire process with accepting confirmations as well. Or, maybe you want to accept manually and let ASF only prepare those trades for you? That's once again, fully up to you to decide.
 
@@ -176,7 +176,7 @@ ASF is not based on steam client, it has its own steam client implementation. Th
 
 ### But is the difference really noticeable?
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
+Nē. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
 
 However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
 
@@ -202,7 +202,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### Can I play a game while ASF is farming?
 
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**Nē**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
@@ -250,7 +250,7 @@ The question is what in fact is Subscription Marketplace process. As we can read
 
 > An example of a Subscription Marketplace is the Steam Community Market
 
-We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. However...
+We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. Kaut arī...
 
 > Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).
 
@@ -344,7 +344,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Jā**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 * * *
 
@@ -356,7 +356,7 @@ Yes, through several different ways. Check out **[commands](https://github.com/J
 
 ### I'd like to help with ASF translation, what do I need to do?
 
-Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** section.
+Paldies par jūsu interesi! You can find all details in our **[localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** section.
 
 * * *
 
@@ -400,10 +400,10 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Apraksts                                                                                                                                                                                                                       |
+| Statuss                 | Apraksts                                                                                                                                                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
+| Noildze                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
 | BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
 | DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
 | AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
@@ -415,7 +415,7 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ### Are you affiliated with any cards farming/idling service?
 
-**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
+**Nē**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
 
@@ -429,7 +429,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problēmas
 
 * * *
 

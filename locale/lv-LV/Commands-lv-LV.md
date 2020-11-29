@@ -4,9 +4,9 @@ ASF supports variety of commands, which can be used to control behaviour of the 
 
 Below commands can be sent to the bot through various different ways:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Izmantojot interaktīvo ASF konsoli
+- Izmantojot Steam privāto/grupas čatu
+- Izmantojot **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** lietotājvidi
 
 Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
 
@@ -50,60 +50,60 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 | Komanda                                                              | Piekļuve        | Apraksts                                                                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
-| `2fano [Bots]`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
-| `2faok [Bots]`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                 |
+| `2fa [Bots]`                                                         | `Galvenais`     | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
+| `2fano [Bots]`                                                       | `Galvenais`     | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
+| `2faok [Bots]`                                                       | `Galvenais`     | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                 |
 | `addlicense [Bots] <Licenses>`                                 | `Operators`     | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                                                                                                                                                  |
-| `balance [Bots]`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                                                                                                                                                        |
-| `bgr [Bots]`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                                                                                                                                                     |
-| `bl [Bots]`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                                                                                                                                                 |
-| `bladd [Bots] <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                             |
-| `blrm [Bots] <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                   |
+| `balance [Bots]`                                                     | `Galvenais`     | Shows wallet balance of given bot instances.                                                                                                                                                                                                                                                                                        |
+| `bgr [Bots]`                                                         | `Galvenais`     | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                                                                                                                                                     |
+| `bl [Bots]`                                                          | `Galvenais`     | Lists blacklisted users from trading module of given bot instances.                                                                                                                                                                                                                                                                 |
+| `bladd [Bots] <SteamIDs64>`                                    | `Galvenais`     | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                             |
+| `blrm [Bots] <SteamIDs64>`                                     | `Galvenais`     | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                   |
 | `encrypt <encryptionMethod> <stringToEncrypt>`           | `Īpašnieks`     | Encrypts the string using provided cryptographic method - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                          |
 | `exit`                                                               | `Īpašnieks`     | Stops whole ASF process.                                                                                                                                                                                                                                                                                                            |
-| `farm [Bots]`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                                                                                                                                              |
+| `farm [Bots]`                                                        | `Galvenais`     | Restarts cards farming module for given bot instances.                                                                                                                                                                                                                                                                              |
 | `hash <hashingMethod> <stringToHash>`                    | `Īpašnieks`     | Generated a hash of the string using provided cryptographic method - further explained **[below](#hash-command)**.                                                                                                                                                                                                                  |
 | `help`                                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                                                                                                                                                     |
-| `input [Bots] <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                                                                                                                                                        |
-| `ib [Bots]`                                                          | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                |
-| `ibadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                               |
-| `ibrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                          |
-| `iq [Bots]`                                                          | `Master`        | Lists priority idling queue of given bot instances.                                                                                                                                                                                                                                                                                 |
-| `iqadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                                                                                                                                                |
-| `iqrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                                                                                                                                                           |
-| `level [Bots]`                                                       | `Master`        | Shows Steam account level of given bot instances.                                                                                                                                                                                                                                                                                   |
-| `loot [Bots]`                                                        | `Master`        | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                                                                                                                                             |
-| `loot@ [Bots] <AppIDs>`                                        | `Master`        | Sends all `LootableTypes` Steam community items matching given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot%`.                                                                                                    |
-| `loot% [Bots] <AppIDs>`                                        | `Master`        | Sends all `LootableTypes` Steam community items apart from given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot@`.                                                                                                  |
-| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                                                                                                                                     |
-| `nickname [Bots] <Nickname>`                                   | `Master`        | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                                                                                                                                                  |
+| `input [Bots] <Type> <Value>`                            | `Galvenais`     | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                                                                                                                                                        |
+| `ib [Bots]`                                                          | `Galvenais`     | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                |
+| `ibadd [Bots] <AppIDs>`                                        | `Galvenais`     | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                               |
+| `ibrm [Bots] <AppIDs>`                                         | `Galvenais`     | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                          |
+| `iq [Bots]`                                                          | `Galvenais`     | Lists priority idling queue of given bot instances.                                                                                                                                                                                                                                                                                 |
+| `iqadd [Bots] <AppIDs>`                                        | `Galvenais`     | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                                                                                                                                                |
+| `iqrm [Bots] <AppIDs>`                                         | `Galvenais`     | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                                                                                                                                                           |
+| `level [Bots]`                                                       | `Galvenais`     | Shows Steam account level of given bot instances.                                                                                                                                                                                                                                                                                   |
+| `loot [Bots]`                                                        | `Galvenais`     | Sends all `LootableTypes` Steam community items of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                                                                                                                                             |
+| `loot@ [Bots] <AppIDs>`                                        | `Galvenais`     | Sends all `LootableTypes` Steam community items matching given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot%`.                                                                                                    |
+| `loot% [Bots] <AppIDs>`                                        | `Galvenais`     | Sends all `LootableTypes` Steam community items apart from given `AppIDs` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one). This is the opposite of `loot@`.                                                                                                  |
+| `loot^ [Bots] <AppID> <ContextID>`                       | `Galvenais`     | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to `Master` user defined in their `SteamUserPermissions` (with lowest steamID if more than one).                                                                                                                                                     |
+| `nickname [Bots] <Nickname>`                                   | `Galvenais`     | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                                                                                                                                                  |
 | `owns [Bots] <Games>`                                          | `Operators`     | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                                                                                                                                                                                                        |
-| `password [Bots]`                                                    | `Master`        | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                                                                                                                                                    |
+| `password [Bots]`                                                    | `Galvenais`     | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                                                                                                                                                    |
 | `pārtraukt [Bots]`                                                   | `Operators`     | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.                                                                                                                                    |
 | `pause~ [Bots]`                                                      | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.                                                                                                                               |
 | `pause& [Bots] <Seconds>`                                  | `Operators`     | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                                                                                                                                                 |
-| `play [Bots] <AppIDs,GameName>`                                | `Master`        | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. In order for this feature to work properly, your Steam account **must** own a valid license to all the `AppIDs` that you specify here, this includes F2P games as well. Use `reset` or `resume` for returning. |
-| `privacy [Bots] <Settings>`                                    | `Master`        | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                               |
+| `play [Bots] <AppIDs,GameName>`                                | `Galvenais`     | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. In order for this feature to work properly, your Steam account **must** own a valid license to all the `AppIDs` that you specify here, this includes F2P games as well. Use `reset` or `resume` for returning. |
+| `privacy [Bots] <Settings>`                                    | `Galvenais`     | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                               |
 | `redeem [Bots] <Keys>`                                         | `Operators`     | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                       |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operators`     | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
-| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
+| `reset [Bots]`                                                       | `Galvenais`     | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
 | `pārstartēt`                                                         | `Īpašnieks`     | Restarts ASF process.                                                                                                                                                                                                                                                                                                               |
 | `atsākt [Bots]`                                                      | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
-| `startēt [Bots]`                                                     | `Master`        | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
+| `startēt [Bots]`                                                     | `Galvenais`     | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
 | `stats`                                                              | `Īpašnieks`     | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
 | `status [Bots]`                                                      | `FamilySharing` | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
-| `apturēt [Bots]`                                                     | `Master`        | Stops given bot instances.                                                                                                                                                                                                                                                                                                          |
-| `transfer [Bots] <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                                                                                |
-| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sends all `TransferableTypes` Steam community items matching given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.                                                                                                                                                                   |
-| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sends all `TransferableTypes` Steam community items apart from given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.                                                                                                                                                                 |
-| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                              |
-| `unpack [Bots]`                                                      | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                                                                                                                                                           |
-| `atjaunināt`                                                         | `Īpašnieks`     | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
+| `apturēt [Bots]`                                                     | `Galvenais`     | Stops given bot instances.                                                                                                                                                                                                                                                                                                          |
+| `transfer [Bots] <TargetBot>`                                  | `Galvenais`     | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                                                                                |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Galvenais`     | Sends all `TransferableTypes` Steam community items matching given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.                                                                                                                                                                   |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Galvenais`     | Sends all `TransferableTypes` Steam community items apart from given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.                                                                                                                                                                 |
+| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Galvenais`     | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                              |
+| `unpack [Bots]`                                                      | `Galvenais`     | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                                                                                                                                                           |
+| `update`                                                             | `Īpašnieks`     | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
 | `version`                                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
 
 * * *
 
-### Notes
+### Piezīmes
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -123,16 +123,16 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Komanda      | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Komanda      | Saīsinājums |
+| ------------ | ----------- |
+| `owns ASF`   | `oa`        |
+| `status ASF` | `sa`        |
+| `redeem`     | `r`         |
+| `redeem^`    | `r^`        |
 
 * * *
 
-### `[Bots]` argument
+### `[Bots]` arguments
 
 `[Bots]` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -144,19 +144,19 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `privacy` iestatījumi
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Nosaukums      | Child of   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Arguments | Nosaukums      | Child of   |
+| --------- | -------------- | ---------- |
+| 1         | Profils        |            |
+| 2         | OwnedGames     | Profils    |
+| 3         | Playtime       | OwnedGames |
+| 4         | FriendsList    | Profils    |
+| 5         | Inventory      | Profils    |
+| 6         | InventoryGifts | Inventory  |
+| 7         | Komentāri      | Profils    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
@@ -198,14 +198,14 @@ Remember that child can never have more open permission than its parent. Refer t
 
 * * *
 
-## `addlicense` licenses
+## `addlicense` licences
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Piemērs      | Apraksts                                                                |
-| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Tips  | Saīsinājums | Piemērs      | Apraksts                                                                |
+| ----- | ----------- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`         | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`         | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -219,16 +219,16 @@ addlicense ASF app/292030,sub/47807
 
 * * *
 
-## `owns` games
+## `owns` spēles
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type        | Alias | Piemērs          | Apraksts                                                                                                                                                                                                                                                                |
-| ----------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`       | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`       | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex`     | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `nosaukums` | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| Tips        | Saīsinājums | Piemērs          | Apraksts                                                                                                                                                                                                                                                                |
+| ----------- | ----------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`       | `a`         | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
+| `sub`       | `s`         | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
+| `regex`     | `r`         | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `nosaukums` | `n`         | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -240,7 +240,7 @@ owns ASF app/292030,name/Witcher
 
 * * *
 
-## `redeem^` modes
+## `redeem^` režīmi
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
@@ -261,25 +261,25 @@ owns ASF app/292030,name/Witcher
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
-`redeem^ primary FF,SI key1,key2,key3`
+`owns ASF app/292030,name/Witcher`
 
 It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
 
 * * *
 
-## `encrypt` command
+## `encrypt` komanda
 
 Encrypt command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
-## `hash` command
+## `hash` komanda
 
 Hash command allows you to generated hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
-## `input` command
+## `input` komanda
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -287,9 +287,9 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Apraksts                                                                   |
+| Tips                    | Apraksts                                                                   |
 | ----------------------- | -------------------------------------------------------------------------- |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
+| Pieteikšanās            | `SteamLogin` bot config property, if missing from config.                  |
 | Parole                  | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |

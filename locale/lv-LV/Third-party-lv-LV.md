@@ -26,7 +26,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 * * *
 
-## Libraries
+## Bibliotēkas
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 

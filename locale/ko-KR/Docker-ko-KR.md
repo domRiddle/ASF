@@ -170,7 +170,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
 ```
 
-모든 것을 정확하게 설정했다면 위의 `docker run` 명령어는 호스트 기기의 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스가 게스트 기기로 리다이렉트된 표준 `localhost:1242` 라우트에서동작하도록 할 것입니다. 이 라우트를 더 많이 노출하지 않음을 알아 두십시오. 연결은 오직 도커 호스트안에서만 이루어지고 안전하게 유지됩니다.
+모든 것을 정확하게 설정했다면 위의 `docker run` 명령어는 호스트 기기의 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스가 게스트 기기로 리다이렉트된 표준 `localhost:1242` 라우트에서동작하도록 할 것입니다. 이 라우트를 더 많이 노출하지 않음을 알아 두십시오. 연결은 오직 도커 호스트안에서만 이루어지고 안전하게 유지됩니다. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
 
 * * *
 

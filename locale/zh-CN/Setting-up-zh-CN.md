@@ -44,7 +44,7 @@
 - `libicu`（`icu-libs`，您的发行版上的最新版，例如 `libicu67`）
 - `libgssapi-krb5-2`（`libkrb5-3`、`krb5-libs`）
 - `libssl1.1`（`libssl`、`openssl-libs`，您的发行版上的最新 `1.1.X` 或 `1.0.X` 版本）
-- `libstdc++6`（`libstdc++`）
+- `libstdc++6`（`libstdc++`，`5.0` 或更高版本）
 - `zlib1g`（`zlib`）
 
 其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu63`。
