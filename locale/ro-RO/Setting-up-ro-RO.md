@@ -1,67 +1,67 @@
-# Setting up
+# Configurare
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+Dacă ai ajuns aici pentru prima dată, bine ai venit! Suntem foarte fericiţi să vedem încă un călător interesat de proiectul nostru, dar aveți în vedere faptul că, odată cu puterea mare vine și o mare responsabilitate – ASF este capabil să facă multe lucruri diferite legate de Steam; dar numai dacă **îți pasă suficient pentru a învăța cum să îl folosești**. Aici este implicată o curbă de învățare abruptă, și ne așteptăm de la dvs. să citiți wiki-ul în această privință, care explică în detaliu modul în care funcţionează totul.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Dacă încă esti aici înseamnă că ai îndurat textul de mai sus, ceea ce este de apreciat. Dacă ai sărit peste, atunci vei avea **[dificultăţi](https://www.youtube.com/watch?v=WJgt6m6njVw)** destul de curând... Oricum, ASF este o aplicație de consolă, ceea ce înseamnă că programul în sine nu are un GUI prietenos cu care ești obișnuit în general. ASF trebuia în principal să fie rulat pe servere, așa că acesta acționează ca un serviciu (daemon) și nu ca o aplicație desktop.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
-
-* * *
-
-## OS-specific setup
-
-In general, here is what we'll do in the next few minutes:
-
-- Install **[.NET Core prerequisites](#net-core-prerequisites)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
-
-Sounds simple enough, right? So let's get through it.
+Totuşi, acest lucru nu înseamnă că nu se poate folosi pe PC-ul tău sau că este într-un fel mai complicat decât de obicei, nimic de genul acesta. ASF este un program de sine stătător care nu are nevoie de instalare și care funcționează imediat după descărcare, dar necesită configurare înainte de a deveni util. Configurația ii spune ASF ce ar trebui de fapt să facă după ce il lansezi. Dacă îl lansezi fără configurație, atunci ASF nu va face nimic, simplu.
 
 * * *
 
-### .NET Core prerequisites
+## Configurare specifica fiecarui sistem de operare
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+În general, iată ce vom face în următoarele minute:
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+- Instalați **[cerințele pentru .NET Core](#net-core-prerequisites)**.
+- Descărcați **[ultima versiune ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** într-o variantă corespunzătoare specifică sistemului de operare.
+- Extrageți arhiva într-o locație nouă (și `chmod +x ArchiSteamFarm` dacă sunteți pe Linux/OS X).
+- **[Configurați ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- Lansați ASF și vedeți magia.
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+Sună destul de simplu, nu? Atunci haideți să începem.
+
+* * *
+
+### Cerințe de bază .NET Core
+
+Primul pas este să vă asigurați că sistemul dvs. de operare poate lansa ASF în mod corespunzător. ASF este scris în C#, bazat pe .NET Core și poate necesita biblioteci native care nu sunt încă disponibile pe platforma ta. În funcţie de sistemul de operare Windows, Linux sau OS X, veţi avea cerinţe diferite, deşi toate sunt listate în **[Cerințe de bază ale .NET Core](https://docs.microsoft.com/dotnet/core/install)** document pe care ar trebui să îl urmaţi. Acesta este materialul nostru de referinţă care ar trebui folosit, dar de dragul simplității am detaliat, de asemenea, toate pachetele necesare mai jos, astfel încât să nu trebuiască să citești tot documentul.
+
+Este perfect normal ca unele (sau chiar toate) dependențe să existe deja în sistemul tău datorită faptului că sunt instalate de un software terț pe care îl folosești. Totuși, ar trebui să vă asigurați că este cu adevărat cazul prin rularea programului de instalare adecvat pentru sistemul de operare - fără aceste dependențe ASF nu va putea fi lansat.
+
+Țineți cont de faptul că nu trebuie să faceți nimic altceva pentru construcțiile specifice OS, în special instalând .NET Core SDK sau chiar runtime, deoarece pachetul specific pentru fiecare sistem de operare include deja toate aceste aspecte. Aveți nevoie doar de cerințele de bază .NET Core (dependențe) pentru a rula .NET Core runtime inclus în ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- **[Actualizare Redistribuabilă Microsoft C++ 2015](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 pentru versiunea Windows 64-biți, x86 pentru versiunea Windows 32-biți)
+- Este foarte recomandat să te asiguri că toate actualizările Windows sunt deja instalate. Ai nevoie cel puţin de **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** şi **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, dar poate fi nevoie de mai multe actualizări. Toate sunt deja instalate dacă Windows este actualizat. Asigurați-vă că îndepliniți aceste cerințe înainte de a instala pachetul Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Numele pachetelor depind de distributia Linux pe care o folositi, am listat cele mai comune dintre ele. Le puteți obține pe toate cu managerul nativ de pachete pentru sistemul de operare (cum ar fi `apt` pentru Debian sau `yum` pentru CentOS).
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libicu` (`icu-libs`, ultima versiune pentru distribuția ta, de exemplu `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `libssl1.1` (`libssl`, `openssl-libs`, cea mai recentă versiune pentru distribuție, `1.1.X` sau `1.0.X`)
+- `libstdc+6` (`libstdc++`, în versiunea `5.0` sau mai mare)
 - `zlib1g` (`zlib`)
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
+Cel puţin majoritatea acestora ar trebui să fie deja disponibile pe sistemul dumneavoastră. Instalarea minimă a Debian stabil, necesită doar `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
-- None for now, but you should have latest version of OS X installed, at least 10.13+
+- Nu există momentan, dar ar trebui să instalați cea mai recentă versiune de OS X, cel puțin 10.13+
 
 * * *
 
-### Downloading
+### Descărcare
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+Deoarece avem deja toate dependențele, următorul pas este descărcarea **[ultimei versiuni ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF este disponibil în multe variante, dar ești interesat de pachetul care se potrivește cu sistemul tău de operare și arhitectura. De exemplu, dacă folosești versiunea Windows `64`-bit, atunci îți dorești `pachetul ASF-win-x64`. Pentru mai multe informații despre variantele disponibile, vizitați secțiunea **[compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**. ASF este de asemenea capabil să ruleze pe OS-uri pentru care nu construim pachetul specific OS, cum ar fi **32-bit Windows**, mergi la **[configurare generică](#generic-setup)** pentru asta.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+După descărcare, pornește extragerea fișierului zip în propriul său director. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
 
 If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
@@ -246,7 +246,7 @@ With extra steps:
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[Configurați ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

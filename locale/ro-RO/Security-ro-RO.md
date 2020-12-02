@@ -1,30 +1,30 @@
 # Securitate
 
-## Encryption
+## Criptare
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF acceptă în prezent următoarele metode de criptare ca definiție a `ECryptoMethod`:
 
-| Value | Nume                        |
-| ----- | --------------------------- |
-| 0     | PlainText                   |
-| 1     | AES                         |
-| 2     | ProtectedDataForCurrentUser |
+| Valoare | Nume                        |
+| ------- | --------------------------- |
+| 0       | PlainText                   |
+| 1       | AES                         |
+| 2       | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+Descrierea exactă și compararea acestora sunt disponibile mai jos.
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+Pentru a genera parola criptată, de ex. pentru utilizarea `SteamPassword`, ar trebui să executați **[comanda](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `encrypt` cu criptarea corespunzătoare pe care ați ales-o și parola originală. După aceea, puneți textul criptat pe care l-ati obținut ca proprietate de configurare bot `SteamPassword` și în cele din urmă schimbați `PasswordFormat` cu cea care se potrivește cu metoda de criptare aleasă.
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+Acesta este cel mai simplu și nesigur mod de a stoca o parolă, definită ca `ECryptoMethod` de `0`. ASF se așteaptă ca șirul să fie un text simplu - o parolă în formă directă. Este cel mai ușor de utilizat, 100% compatibil cu toate configurațiile, deci este un mod implicit de a stoca secrete, complet nesigur pentru stocare în siguranță.
 
 * * *
 
 ### AES
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
+Considerat securizat de standardele de azi, modul **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** de stocare a parolei este definit ca `ECryptoMethod` de `1`. ASF se așteaptă ca șirul să fie **[codat base64-](https://en.wikipedia.org/wiki/Base64)** secvență de caractere rezultând în array byte criptat AES după traducere, care apoi trebuie decriptate folosind **[vectorul de inițializare](https://en.wikipedia.org/wiki/Initialization_vector)** și cheia de criptare ASF.
 
 The method above guarantees security as long as attacker doesn't know built-in ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
 
@@ -64,7 +64,7 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 | 1     | SCrypt    |
 | 2     | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+Descrierea exactă și compararea acestora sunt disponibile mai jos.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Este cel mai ușor de utilizat, 100% compatibil cu toate configurațiile, deci este un mod implicit de a stoca secrete, complet nesigur pentru stocare în siguranță.
 
 * * *
 

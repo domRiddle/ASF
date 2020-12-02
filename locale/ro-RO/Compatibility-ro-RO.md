@@ -1,6 +1,6 @@
 # Compatibilitate
 
-ASF is a C# application that is running on .NET Core platform. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
+ASF este o aplicație C# care rulează pe platforma NET. Asta înseamnă că ASF nu este compilat direct în **[cod mașină](https://en.wikipedia.org/wiki/Machine_code)** care rulează pe procesorul tău, dar în **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** care necesită o rulare compatibilă cu CIL pentru executare.
 
 This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and OS X. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. Thanks to that, ASF can achieve superior performance and optimization, while still offering a perfect compatibility and reliability.
 

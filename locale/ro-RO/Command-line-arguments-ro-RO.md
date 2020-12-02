@@ -1,81 +1,81 @@
-# Command-line arguments
+# Argumente din linie comandă
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF include suport pentru mai multe argumente de linie de comandă care pot afecta rularea programului. Acestea pot fi folosite de utilizatorii avansați pentru a specifica cum ar trebui să ruleze programul. În comparație cu modul implicit al fișierului de configurare `ASF.json`, argumentele din linie de comanda sunt folosite pentru inițializarea de bază (de ex. `--path`), setări specifice platformei (ex. `--system-required`) sau date sensibile (ex. `--cryptkey`).
 
 * * *
 
-## Usage
+## Utilizare
 
-Usage depends on your OS and ASF flavour.
+Utilizarea depinde de sistemul de operare și versiune ASF.
 
 Generic:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --argument --altArgument
 ```
 
 Windows:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --argument --altArgument
 ```
 
 Linux/OS X
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --argument --altArgument
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Argumentele din linie de comandă sunt de asemenea acceptate în script-uri generice de ajutor cum ar fi `ArchiSteamFarm.cmd` sau `ArchiSteamFarm.sh`. În plus, atunci când utilizezi scripturi ajutătoare, poți de asemenea să folosești proprietatea de mediu `ASF_ARGS`, ca în secţiunea noastră **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Dacă argumentul tău include spații, nu uita să folosești ghilimele. Aceste două sunt greșite:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Greșit!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Greșit!
 ```
 
-However, those two are completely fine:
+Cu toate acestea, următoarele sunt complet în regulă:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Argumente
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` sau `--cryptkey=<key>` - va începe ASF cu cheia criptografică personalizată de `<key>`. Această opțiune afectează **[securitatea](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** și va face ca ASF să utilizeze cheia personalizată oferită `<key>` în loc de cea implicită codificată în executabil. Deoarece această proprietate afectează cheia de criptare implicită (în scopuri de criptare) şi valoarea salt (în scopuri de hashing), ține cont de faptul că totu ce este criptat/hashed cu această cheie necesită ca ea să fie transmisă la fiecare rulare ASF.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
-
-* * *
-
-`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_CRYPTKEY`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
 * * *
 
-`--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
-
-Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+`--ignore-unsupported-environment` - va provoca ASF să ignore detectarea mediului nesuportat, care în mod normal este semnalizată cu o eroare și ieșire forțată. Deocamdată, mediul nesuportat este clasificat ca fiind o platforma .NET Framework care ar putea funcţiona .NET Core build în schimb. Deoarece suportam `generic-netf` doar în scenarii foarte limitate (cu **[Mono](https://www.mono-project.com)**), utilizarea acestuia pentru alte cazuri (de ex. pentru lansarea pe platforme `win-x64`) nu este acceptată. Vizitați **[compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** pentru mai multe informații.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+`--network-group <group>` sau `--network-group=<group>` - va determina ASF să își inițializeze limitele cu un grup de rețea personalizat de `<group>`. Această opțiune afectează rularea ASF în **[mai multe instanțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** prin semnalizarea că o anumită instanță este dependentă doar de instanțele care partajează același grup de rețea, independent de restul. De obicei vrei să folosești această proprietate doar dacă direcționezi cereri ASF prin mecanisme personalizate (de ex. adrese IP diferite) și doriți să setați dvs. grupuri de rețea; fără a se baza pe ASF pentru a face acest lucru automat (care include în prezent doar luarea în considerare a `WebProxy`). Rețineți că atunci când utilizați un grup de rețea personalizat, acesta este un identificator unic în cadrul mașinii locale, iar ASF nu va lua în considerare alte detalii, cum ar fi valoarea `WebProxy`, care permite de ex. pornirea a două instanțe cu valori `WebProxy` diferite, care sunt încă dependente una de cealaltă.
+
+Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_NETWORK_GROUP`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
+`--no-restart` - acest comutator este folosit în principal de containere **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** şi forţează `AutoRepornire` să fie `false`. Dacă nu ai o nevoie specială, în schimb ar trebui să configurezi proprietatea `AutoRestart` direct în configurația ta. Acest comutator este aici astfel încât scriptul nostru docker nu va trebui să atingă configurația globală pentru a-l adapta la mediul său propriu. Desigur, dacă rulați ASF într-un script, puteți folosi acest comutator (altfel sunteți mai bine cu proprietatea configurării globale).
 
-Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+* * *
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+`--path <path>` sau `--path<path>` - ASF navigează întotdeauna spre propriul său director la pornire. Prin specificarea acestui argument, ASF va naviga la un anumit director după inițializare, care vă permite să utilizaţi calea personalizată pentru diferite componente ale aplicaţiei (inclusiv directoarele`config`, `plugins` și `www`, precum și fișierul `NLog.config`), fără a fi nevoie de duplicarea binarului în același loc. Poate fi folositor mai ales dacă doriţi să separaţi binarul de configurarea reală, aşa cum este făcut în ambalajul din Linux - în acest fel puteţi folosi un binar (actualizat) cu mai multe configurări diferite. Calea poate fi relativă în funcție de locul curent al sistemului binar ASF, sau absolut. Țineți cont că această comandă indică către noul "ASF home" - directorul care are aceeași structură ca ASF original, cu folderul de configurare înăuntru, vezi mai jos exemplul de explicație.
 
-Examples:
+Datorită naturii acestei proprietăți, este posibil să setezi calea așteptată prin declararea variabilei `ASF_PATH`, care ar putea fi mai potrivite pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
+
+Dacă vă gândiți să folosiți acest argument de linie de comandă pentru a rula mai multe instanțe de ASF, îți recomandăm să citești **[pagina noastră de compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** pe această cale.
+
+Exemple:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
-ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/DirectorDorit # Calea absolută
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../DirectorDorit # Calea relativă funcționează de asemenea
+ASF_PATH=/opt/DirectorDorit dotnet /opt/ASF/ArchiSteamFarm.dll # La fel ca variabila env
 ```
 
 ```text
@@ -83,24 +83,24 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 │     ├── ASF
 │     │     ├── ArchiSteamFarm.dll
 │     │     └── ...
-│     └── TargetDirectory
+│     └── DirectorDorit
 │           ├── config
-│           ├── logs (generated)
+│           ├── logs (generat)
 │           ├── plugins (optional)
 │           ├── www (optional)
-│           ├── log.txt (generated)
+│           ├── log.txt (generat)
 │           └── NLog.config (optional)
 └── ...
 ```
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required` - declarând că acest comutator va dezactiva comportamentul ASF implicit la închidere atunci când niciun bot nu rulează. Comportamentul de închidere automată dezactivată este util în special în combinație cu **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** unde majoritatea utilizatorilor se așteaptă ca serviciul lor web să fie rulat, indiferent de numărul de boți care sunt activați. Dacă utilizați opțiunea IPC sau aveți nevoie de procesul ASF pentru a rula tot timpul până când îl închideți, aceasta este opţiunea corectă.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+Dacă nu intenționezi să gestionezi IPC, această opțiune va fi mai degrabă inutilă pentru tine, pentru că poți mai simplu să pornești procesul din nou când este necesar (spre deosebire de serverul web al ASF, unde ai nevoie de el tot timpul pentru a trimite comenzi).
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--system-required` - declararea acestui întrerupător va determina ASF să încerce să semnalizeze sistemului de operare că procesul necesită ca sistemul să fie funcțional pe toată durata sa de viață. În prezent, acest comutator are efect numai pe mașinile Windows unde va interzice sistemului să intre în modul de suspendare atâta timp cât procesul rulează. Acest lucru poate fi dovedit deosebit de util în timpul nopții atunci când se farmează pe PC-ul sau laptopul tău, astfel ASF va fi capabil să îți țină sistemul treaz în timp ce farmează, odată ce ASF este terminat, se va închide ca de obicei, făcând ca sistemul tău să poată intra din nou în modul de somn, prin urmare permite economisirea de energie imediat după terminarea perioadei de ralanti.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+Rețineți că pentru închiderea automată corectă a ASF aveți nevoie de alte setări - în special evitând `--process-required` și asigurându-vă că toți roboții vor urma `ShutdownOnFarmingFinished`. Bineînțeles, închiderea automată este doar o posibilitate pentru această caracteristică, nu o cerință, deoarece se poate folosi și acest steag împreună cu `--process-required`, făcând ca sistemul să rămână pornit la infinit după pornirea ASF.

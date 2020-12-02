@@ -1,27 +1,27 @@
 # Activatorul de coduri în plan secundar
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Activatorul de coduri în plan secundar este o caracteristică ASF special încorporată care vă permite să importați un set de coduri Steam (împreună cu numele lor) pentru a fi răscumpărate în fundal. Acest lucru este util în special dacă ai o mulțime de chei pe care să le revendici și îți garantez că vei atinge statusul `RateLimited` **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** înainte de a termina cu întregul tău lot.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Activatorul de coduri în plan secundar este făcut să aibă un singur domeniu de aplicare al botului, ceea ce înseamnă că nu folosește `RedeemingPreferences`. Această caracteristică poate fi folosită împreună (sau în loc de) **[comanda](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, dacă este necesar.
 
 * * *
 
-## Import
+## Importă
 
-The import process can be done through two ways - either by using a file, or IPC.
+Procesul de import poate fi realizat prin două căi - fie prin utilizarea unui fișier sau a unui IPC.
 
-### File
+### Fișier
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF va recunoaște în directorul său `config` un fișier numit `BotName.keys` unde `BotName` este numele botului tău. Acel fișier are o structură fixă compusă din numelui jocului şi cd-key, separate unul de celălalt de un caracter tab şi se termină cu o nouă linie pentru a indica următoarea intrare. Dacă sunt folosite mai multe caractere tab, prima intrare este considerată numele jocului, ultima intrare este considerată o cheie cd-key, și totul în intervalul este ignorat. De exemplu:
 
 ```text
-POSTAL 2 ABCDE-EFGHJ-IJKLM
+POSTAL 2    ABCDE-EFGHJ-IJKLM
 Domino Craft VR 12345-67890-ZXCVB
-O săptămână de Circus Terror POIUY-KJHGD-QWERT
-Terraria ThisIsIgnoredToo ZXCVB-ASDFG-QWERT
+A Week of Circus Terror POIUY-KJHGD-QWERT
+Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternativ, poți folosi doar formatul cu valorile cheilor (cu o nouă linie între fiecare intrare). ASF în acest caz va utiliza răspunsul Steam (dacă este posibil) pentru a completa numele corect. Pentru orice fel de marcare a cheilor, vă recomandăm să vă denumiți singuri cheile, deoarece pachetele răscumpărate pe Steam nu trebuie să urmeze logica jocurilor pe care le activează, în funcție de ceea ce a pus dezvoltatorul, puteți vedea numele jocului corect, numele pachetelor personalizate (de ex. Humble Indie Bundle 18) sau complet greșite și chiar răuvoitoare (de ex. Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,40 +30,40 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+Indiferent de formatul cu care ați decis să rămâneți, ASF va importa fișierul `keys`, fie la pornirea botului, fie mai târziu în timpul execuției. După analiza cu succes a fişierului şi în cele din urmă omite intrările nevalide, toate jocurile corect detectate vor fi adăugate la coada de fundal şi fișierul `BotName.keys` în sine va fi șters din directorul `config`.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+În plus față de utilizarea cheilor menționate mai sus, ASF expune și `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** care poate fi executat de orice instrument IPC, inclusiv ASF-ui. Folosirea IPC ar putea fi mai puternică, pentru că te poți ocupa de procesare singur, cum ar fi utilizarea unui delimitator personalizat în loc să fie forțat la un caracter tab, sau chiar introducerea propriei structuri a cheilor personalizate.
 
 * * *
 
-## Queue
+## Coadă
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Odată ce jocurile au fost importate cu succes, acestea sunt adăugate la coadă. ASF trece automat prin coada sa de fundal atâta timp cât bot-ul este conectat la rețeaua Steam, iar coada nu este goală. O cheie care a încercat să fie răscumpărată și nu a rezultat în `RateLimited` a fost eliminată din coadă, cu starea sa scrisă corect într-un fișier în directorul `config` - fie `BotName.keys.used` dacă cheia a fost folosită în proces (de ex. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), sau `BotName.keys.unused` în alt caz. ASF folosește în mod intenționat numele jocului furnizat, deoarece cheia nu este garantată pentru a avea un nume semnificativ returnat de rețeaua Steam - în acest fel puteți eticheta cheile folosind chiar nume personalizate, dacă este necesar/dorit.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+Dacă în timpul procesului contul nostru lovește starea `RateLimited`, coada de așteptare este suspendată temporar pentru o oră întreagă pentru a aștepta ca procesul de cooldown să dispară. Ulterior, procesul continuă acolo unde a rămas, până când întreaga coadă este goală.
 
 * * *
 
 ## Exemplu
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Să presupunem că ai o listă de 100 de chei. În primul rând ar trebui să creați un nou fișier `BotName.keys.new` în directorul ASF `config`. Am adăugat extensia `.new` pentru a anunța ASF că nu ar trebui să preia acest fișier imediat ce este creat (deoarece este un fișier nou gol, nu este gata pentru import încă).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Acum poți deschide noul fișier și copia lista celor 100 de chei aici, reparând formatul dacă este necesar. După remediere fișierul `BotName.keys.new` va avea exact 100 (sau 101, cu ultimele noduri) linii, fiecare linie cu o structură de `NumeJoc\tcd-key\n`, unde `\t` este caracterul tab și `\n` este un caracter de linie noua.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+Acum ești gata să redenumești acest fișier din `BotName.keys.new` în `BotName.keys` pentru a informa ASF că este gata să fie preluat. În momentul în care faceți acest lucru, ASF va importa automat fișierul (fără a fi nevoie de repornire) și îl va șterge după, confirmând că toate jocurile noastre au fost procesate şi adăugate la coadă.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+În loc să utilizați fișierul `BotName.keys`, ați putea folosi și IPC API sau chiar combinarea amândurora dacă doriți.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
+După ceva timp, fișierele `BotName.keys.used` și `BotName.keys.unused` vor fi generate. Aceste fișiere conțin rezultatele procesului nostru de rambursare. De exemplu, ai putea redenumi fișierul `BotName.keys.unused` în `BotName2.keys` și, prin urmare, trimiteți cheile neutilizate pentru un alt bot, deoarece bot-ul anterior nu a folosit el însuși aceste chei. Sau ai putea pur și simplu să copiezi cheile nefolosite într-un alt fișier și să le păstrezi pentru mai târziu, decizia ta. Rețineți că, pe măsură ce ASF trece prin coadă, intrările noi vor fi adăugate la fişierele `used` şi `unused`, de aceea este recomandat să aşteptaţi golirea completă a cozii înainte de a le folosi. Dacă trebuie neapărat să accesaţi aceste fişiere înainte ca coada să fie complet golită, ar trebui în primul rând să **mutați** fișierul de ieșire pe care doriți să îl accesați într-un alt director, **apoi** să îl procesați. Asta pentru că ASF poate adăuga unele rezultate noi în timp ce faci treaba, și acest lucru ar putea duce la pierderea unor chei dacă citiți de ex. un fișier cu 3 chei înăuntru, apoi îl stergeți, ignorând complet faptul că ASF a adăugat alte 4 chei la fișierul șters între timp. Dacă doriți să accesați aceste fișiere, asigurați-vă că le mutați departe de directorul `config` din ASF înainte de a le citi, de exemplu prin redenumire.
 
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+De asemenea, este posibil să adaugi jocuri suplimentare de importat în timp ce ai unele jocuri deja în coadă prin repetarea tuturor pașilor de mai sus. ASF va adăuga corect intrările suplimentare la coada de așteptare deja în curs de desfășurare și în cele din urmă le va procesa.
 
 * * *
 
 ## Observații
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+Remiterea cheilor de fundal folosește `OrderedDictionary`, ceea ce înseamnă că tastele cd-key vor păstra ordinea specificată în fișier (sau apel IPC API). Aceasta înseamnă că puteţi (şi ar trebui) să furnizaţi o listă în care cd-key dat poate avea doar dependenţe directe de cd-keys enumerate mai sus, dar nu mai jos. De exemplu, asta înseamnă că dacă ai un DLC `D` care necesită activarea jocului `G` întâi, atunci cd-key pentru joc `G` ar trebui **întotdeauna** să fie inclus înainte de cd-key pentru DLC `D`. De asemenea, dacă DLC `D` ar avea dependenţe de `A`, `B` și `C`, toate cele 3 ar trebui incluse înainte (în orice ordine, cu excepția cazului în care acestea au singure dependențe).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+Dacă nu se urmează schema de mai sus, DLC nu va fi activat cu eroarea `DoesNotOwnRequiredApp`, chiar dacă contul dumneavoastră ar fi eligibil pentru activare după ce a trecut prin coada de așteptare. Dacă doriți să evitați acest lucru, trebuie să vă asigurați că DLC este întotdeauna inclus după jocul de bază din coada de așteptare.

@@ -8,7 +8,7 @@
 
 * * *
 
-## Basics
+## Informaţii de bază
 
 * **[Pagina principală](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -27,20 +27,20 @@
 
 ## Setări avansate
 
-* **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Argumente din linie comandă](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Versiuni vechi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[Întrebări frecvente extinse](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[Configurare de înaltă performanță](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Traducere](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[Logare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Configurare memorie redusă](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Pluginuri](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Securitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Părți terțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Autentificare în doi pași](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Dezvoltatori
 

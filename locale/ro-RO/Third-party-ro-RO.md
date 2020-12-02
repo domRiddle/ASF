@@ -1,8 +1,8 @@
-# Third-party
+# Părți terțe
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+Această secțiune include diferite adăugiri ale unor terți scrise exclusiv (sau în principal) pentru utilizare împreună cu ASF. Acestea variază de la plugin-uri ASF, prin aplicații web simple și biblioteci interne pentru integrare, terminând cu boți complet promovați pentru alte platforme. Dacă vrei să adaugi ceva în listă, anunță-ne pe Discord sau pe grupul nostru Steam.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
+Te rugăm să reții că programele de mai jos **nu sunt** menținute de către dezvoltatorii ASF și, prin urmare, **nu oferim nicio garanție despre niciuna dintre ele**, în special în ceea ce privește securitatea, siguranța sau conformitatea cu Steam ToS. Această listă este păstrată doar pentru referință. Ar trebui să te asiguri întotdeauna că utilitatea terță pe care o vei folosi este suficientă pentru tine, iar utilizarea este pe propriul risc.
 
 * * *
 
