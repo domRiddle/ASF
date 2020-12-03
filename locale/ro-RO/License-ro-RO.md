@@ -1,35 +1,35 @@
 # Licenţă
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Dacă nu se prevede altfel, ASF este licențiat sub **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Pentru o privire de ansamblu rapidă despre ce poți și ce nu poți face, poți folosi **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+Licența ASF este foarte permisivă și vă este permis să faceți mult mai mult decât în licența standard GPL, inclusiv folosirea ASF în proiecte comerciale, fără obligația de a face codul open-source. Pe scurt, conform declarației tl;dr Legal:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> Poți face ce îți place cu software-ul, cu condiția să incluzi notificările necesare. Această licență permisivă conține o licență de brevet de la contribuitorii codului.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Vă rugăm să rețineți că diferite **[componente ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluse cu `PackageReference` sunt deseori licențiate în condiții diferite, ca **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Același lucru se aplică tuturor celorlalte proiecte terțe pe care ASF le utilizează, în special tuturor `uneltelor` care au propriile licențe.
 
 * * *
 
 ## Observații
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Dacă vă creați propriul software/serviciu bazat pe ASF sau o parte din codul său, vă rugăm să revizuiți punctul 6 al licenței:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Mărci înregistrate. Această licență nu acordă permisiunea de a utiliza nume comerciale, mărci comerciale, mărci de serviciu sau nume de produse ale licențiatorului, cu excepția cazului în care acest lucru este necesar pentru o utilizare rezonabilă și uzuală în descrierea originii lucrărilor și reproducerea conținutului fișierului NOTICE.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+Nu vă acordăm permisiunea directă de a utiliza numele produsului ASF/ArchiSteamFarm în propriul dumneavoastră software, dar îl permitem în unele scenarii de bun simț:
 
-You **can**:
+**Poți**:
 
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- Revendica faptul că software/serviciul tău **este bazat pe** ASF (sau codul său)
+- Referiți software/serviciul dumneavoastră ca **ASF fork**
+- Revendicați că software/serviciul este alimentat de ASF, dacă **nu ați** făcut nicio modificare codului sursă
+- Utilizați ASF pentru diferite scopuri de referință, cum ar fi asocierea originii software/serviciu, wiki-ul nostru, sau *"așa cum este necesar pentru utilizare rezonabilă și obișnuită în descrierea originii lucrării"*
 
-You **can't**:
+**Nu poți**:
 
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+- Revendica faptul că software/serviciul tău **este** ASF
+- Referiți software/serviciul dumneavoastră ca **ASF**
+- Revendicați că software/serviciul este alimentat de ASF, dacă **ați** făcut orice modificare a codului sursă
+- Sa făci publicitate falsă, cum ar fi să spui că ASF sau dezvoltatorii săi sunt afiliați la software/serviciul tău
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+Dacă aveți dubii, vă rugăm să ne contactați și vă vom răspunde cu plăcere la întrebările legale/licențiate.
