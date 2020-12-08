@@ -1,16 +1,16 @@
-# Realizarea de schimburi
+# Tranzacționare
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF include suport pentru tranzacții Steam non-interactive (offline). Atât primirea (acceptarea/declinul), cât și trimiterea de tranzacții sunt disponibile imediat și nu necesită configurație specială, dar evident necesita un cont Steam nelimitat (cel care a cheltuit deja 5$ în magazin). Modulul de tranzacționare nu este disponibil pentru conturile restricționate.
 
 * * *
 
-## Logic
+## Logica
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF va accepta întotdeauna toate tranzacțiile, indiferent de articole, trimise de la utilizatorul cu acces `Master` (sau mai mare) la bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF va respinge oferta de tranzacționare, indiferent de conținut, de la orice utilizator (non-master) care este pe lista neagră din modulul de tranzacționare. Lista neagră este stocată în baza de date `BotName.db` și poate fi gestionată prin **[comenzile](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `bl`, `bladd` și `blrm`. Aceasta ar trebui să funcţioneze ca o alternativă la blocarea standard a utilizatorilor oferită de Steam - utilizaţi cu precauţie.
 
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
+ASF va accepta toate tranzacțiile de tip `loot` trimise între boți, cu excepția cazului în care `DontAcceptBotTrades` este specificat în `TradingPreferences`. Pe scurt, valoarea implicită pentru `TradingPreferences` de `None` va determina ASF să accepte automat tranzacții de la utilizator cu acces `Master` la bot (explicat mai sus), precum și toate donațiile de la alți roboți care participă la procesul ASF. Dacă doriți să dezactivați donațiile de la alți boți, atunci pentru asta este necesară setarea de `DontAcceptBotTrades` în `TradingPreferences`.
 
 When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
 
