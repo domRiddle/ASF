@@ -1,36 +1,36 @@
 # Comenzi
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF acceptă o varietate de comenzi, care pot fi utilizate pentru a controla comportamentul procesului și al instanțelor botului.
 
-Below commands can be sent to the bot through various different ways:
+Comenzile de mai jos pot fi trimise către bot prin diferite moduri:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Prin consola ASF interactivă
+- Prin conversație privată/grup Steam
+- Prin intermediul interfeței noastre **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Țineți cont de faptul că interacțiunea ASF necesită accesul la comandă în conformitate cu permisiunile ASF. Verificați proprietățile `SteamUserPermissions` și `SteamOwnerID` pentru mai multe detalii.
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+Comenzile executate prin chat-ul Steam sunt afectate de **[proprietatea globală de configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)** `CommandPrefix`, care este `!` implicit. Asta înseamnă că pentru executare, de ex. comanda `status`, ar trebui de fapt să scrieți `! status` (sau prefixul personalizat `CommandPrefix` setat). `CommandPrefix` nu este obligatoriu când se folosește consola sau IPC și poate fi omis.
 
 * * *
 
-### Interactive console
+### Consolă interactivă
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+Începând cu V4.0.0.9, ASF are suport pentru consola interactivă care poate fi activată prin configurarea proprietății [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid). După aceea, apăsați tasta `c` pentru a activa modul de comandă, tastați comanda și confirmați cu Enter.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 
-Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
+Consola interactivă nu este disponibilă în modul [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless).
 
 * * *
 
-### Steam chat
+### Conversație Steam
 
-You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+Puteți executa comanda pentru robotul ASF și prin chat-ul Steam. Evident, nu puteți vorbi direct cu dumneavoastră, prin urmare vei avea nevoie de cel puțin un cont de bot dacă vreți să executați comenzi care să afecteze contul principal.
 
 ![Screenshot](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
+În mod similar, puteți folosi și chat-ul de grup al unui anumit grup Steam. Țineți cont că această opțiune necesită setarea corectă a proprietății `SteamMasterClanID`, în acest caz botul va asculta comenzile și în chat-ul grupului (și i se va alatură dacă este necesar). Acest lucru poate fi folosit și pentru "a vorbi cu tine însuți" deoarece nu necesită un cont dedicat de bot, spre deosebire de chat-ul privat. Puteți seta pur și simplu proprietatea `SteamMasterClanID` pe grupul nou creat, apoi oferiți acces fie prin `SteamOwnerID` sau `SteamUserPermissions` pentru propriul bot. În acest fel, bot-ul ASF (dvs) se va alătura grupului și chat-ului grupului selectat și va asculta comenzile din propriul cont. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
 Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
 
@@ -40,7 +40,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 ### IPC
 
-The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
+Cea mai avansată și flexibilă metodă de execuție a comenzilor, perfectă pentru interacțiunea cu utilizatorul (ASF-ui), precum și instrumente terțe sau scripting (ASF API), necesită ASF să fie rulat în modul `IPC`, şi o interfaţă client care execută comanda prin **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
 ![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
@@ -48,7 +48,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## Comenzi
 
-| Command                                                              | Acces           | Description                                                                                                                                                                                                                                                                                                                         |
+| Comanda                                                              | Acces           | Descriere                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
 | `2fano [Bots]`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
@@ -123,7 +123,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Comanda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |

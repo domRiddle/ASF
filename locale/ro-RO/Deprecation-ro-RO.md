@@ -1,49 +1,49 @@
 # Versiuni vechi
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
+Începând cu ASF V3.1.2.2, vom urma o politică consecventă de depreciere pentru a face atât dezvoltarea, cât și utilizarea mult mai consecvente.
 
 * * *
 
-## What is deprecation?
+## Ce este deprecierea?
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+Deprecierea este procesul de a aduce schimbări mai mici sau mai mari care fac ca opțiunile, argumentele, funcționalitățile sau cazurile de utilizare folosite anterior să fie scoase din uz. De obicei, deprecierea înseamnă că acel lucru a fost pur și simplu rescris într-o altă formă (similară), și ar trebui să vă asigurați în timp util că veți comuta în mod corespunzător. În acest caz, se mută pur și simplu funcționalitatea dată într-un loc mai potrivit.
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
-
-* * *
-
-## Deprecation stages
-
-ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
-
-### Stage 1
-
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
-
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
-
-### Stage 2
-
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+ASF se schimbă rapid și întotdeauna încearcă să devină mai bun. Din păcate, acest lucru înseamnă că putem schimba sau muta unele funcționalități existente într-un alt segment al programului pentru a beneficia de noi caracteristici, compatibilitate sau stabilitate. Datorită acestui lucru nu trebuie să rămânem cu decizii de dezvoltare învechite sau pur și simplu greșite pe care le-am luat cu ani în urmă. Încercăm întotdeauna să oferim un înlocuitor rezonabil care să corespundă utilizării așteptate a funcționalității disponibile anterior, Din acest motiv, deprecierea este în mare parte inofensivă și necesită mici reparații în raport cu utilizarea anterioară.
 
 * * *
 
-## Summary
+## Stadii de depreciere
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+ASF va urma două etape de depreciere, făcând tranziţia mult mai uşoară şi mai puţin problematică.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
+### Etapa 1
+
+Etapa 1 are loc odată ce funcția dată devine învechită, cu disponibilitatea imediată a unei alte soluții (sau eliminarea dacă nu există planuri de reintroducere a acesteia).
+
+În această etapă, ASF va afișa un avertisment corespunzător atunci când este folosită funcția învechită. Cât timp este posibil, ASF va încerca să imite vechiul comportament și să rămână compatibil cu acesta. ASF va continua să fie în etapa 1 cu privire la această funcționalitate cel puțin până la următoarea versiune stabilă. Acesta este momentul în care, sperăm fără a rupe compatibilitatea, puteți comuta corespunzător în toate instrumentele și uneltele pentru a folosi noul comportament. Puteţi confirma dacă aţi făcut toate modificările adecvate prin faptul că nu aţi mai văzut avertismentul de depreciere.
+
+### Etapa 2
+
+Etapa 2 este programată după etapa 1 explicată mai sus şi se lansează într-o versiune stabilă. Această etapă introduce eliminarea completă a caracteristicilor învechite, ceea ce înseamnă că ASF nici măcar nu va recunoaște că încercați să folosiți o funcție învechită. ca să nu mai vorbim de respectare, pentru că pur şi simplu nu există în codul actual. ASF nu va mai tipări niciun avertisment, deoarece nu mai recunoaște ceea ce încercați să faceți.
+
+* * *
+
+## Rezumat
+
+Ai mai mult sau mai puțin o **lună întreagă** pentru a face schimbarea, care ar trebui să fie mai mult decât suficient, chiar dacă sunteți un utilizator ocazional ASF. După această perioadă, ASF nu mai garantează că vechile setări vor avea vreun efect (etapa 2), ceea ce va duce ca anumite caracteristici să nu mai funcţioneze fără a le mai observa. Dacă lansați ASF după mai mult de o lună de inactivitate, vă este recomandat să **[începeți de la zero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** din nou, sau să citiți toate modificările pe care le-ai ratat și să adaptați manual utilizarea la cea curentă.
+
+În cele mai multe cazuri, ignorarea avertismentului de depreciere nu va face funcționalitatea generală a ASF inutilizabilă, dar mai degrabă revenirea la comportamentul implicit (care poate sau nu corespunde preferinţelor dumneavoastră personale).
 
 * * *
 
 ## Exemplu
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+Am mutat **[argumentul de linie de comanda](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** pre-V3.1.2.2 `--server` în **[proprietatea globală de configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `IPC`.
 
-### Stage 1
+### Etapa 1
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+Etapa 1 s-a întâmplat în versiunea V3.1.2.2 unde am adăugat un avertisment corespunzător utilizării `--server`. Argumentul depreciat `--server` a fost mapat automat în proprietatea globală de configurare `IPC: true`, care a acţionat efectiv exact la fel ca vechiul comutator `--server` la momentul respectiv. Acest lucru a permis tuturor să comute corect înainte ca ASF să nu mai accepte vechiul argument.
 
-### Stage 2
+### Etapa 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+Etapa 2 a avut loc în versiunea V3.1.3.0, imediat după versiunea stabilă V3.1.2.9 cu etapa 1 explicată mai sus. Etapa 2 a determinat ASF să înceteze recunoașterea argumentului `--server` si tratarea lui ca orice alt argument nevalid care este trimis, care nu mai are niciun efect asupra programului. Pentru persoanele care încă nu au schimbat utilizarea `--server` în `IPC: true`, a făcut ca IPC să înceteze complet funcțional, deoarece ASF nu a mai făcut maparea adecvată.

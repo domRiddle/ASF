@@ -22,7 +22,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 
 Wenn du Linux/OS X verwendest, kannst du stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
+Wenn die Kompilierung erfolgreich beendet wurde, findest du dein ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
 
 ### Betriebssystemspezifisch
 
@@ -56,7 +56,7 @@ Wenn du ASF-Quelltext bearbeiten möchtest, kannst du zu diesem Zweck jede .NET 
 
 Wenn du stattdessen den ASF-Quelltext unter Linux/OS X bearbeiten möchtest, empfehlen wir eine **[aktuelle Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
 
-Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
+Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden **[JetBrains Rider](https://www.jetbrains.com/rider)** für die ASF Entwicklung, mit einem kleinen Teil von Drittanbieter `Werkzeugen`, die Sie im Repo finden können.
 
 * * *
 
@@ -68,4 +68,4 @@ Der `master` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche K
 
 ## Offizielle Veröffentlichungen
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. Die ASF-Entwickler kompilieren oder veröffentlichen selbst keine Builds, außer für den privaten Entwicklungsprozess und Debugging.
+Offizielle ASF-Versionen werden von **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** unter Windows mit der neuesten .NET Core SDK kompiliert, welche mit den ASF **[Laufzeitanforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** übereinstimmt. Nach dem Bestehen von Tests werden alle Pakete auf GitHub als Release bereitgestellt. Dies garantiert auch Transparenz, da GitHub immer offizielle öffentliche Quellen für alle Builds verwendet und Sie können die Prüfsummen der GitHub Artefakte mit GitHub Release-Assets abgleichen. Die ASF-Entwickler kompilieren oder veröffentlichen selbst keine Builds, außer für den privaten Entwicklungsprozess und Debugging.

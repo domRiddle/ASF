@@ -1,28 +1,28 @@
-# High-performance setup
+# Configurare de înaltă performanță
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
-
-* * *
-
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+Acest lucru este exact opusul **[setării cu memorie mică](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** și de obicei doriți să urmați aceste sfaturi dacă doriți să creșteți în continuare performanța ASF (în termeni de viteză CPU), cu potențialul cost de utilizare crescută a memoriei.
 
 * * *
 
-## Runtime tuning (advanced)
+ASF încearcă deja să prefere performanța în ceea ce privește reglarea generală echilibrată; prin urmare nu puteţi face multe pentru a-i creşte performanţa, deși aveţi anumite opţiuni care pot fi configurate. Cu toate acestea, aveți în vedere faptul că aceste opțiuni nu sunt activate în mod implicit, ceea ce înseamnă că nu sunt suficient de bune pentru a le considera echilibrate pentru majoritatea utilizărilor; de aceea trebuie să vă decideţi dacă creşterea memoriei indusă de acestea este acceptabilă pentru dumneavoastră.
 
-Below tricks **involve serious memory increase** and should be used with caution.
+* * *
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+## Reglaj Runtime (avansat)
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+Trucurile de mai jos **implică o creștere gravă a memoriei** și trebuie folosite cu precauție.
 
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
+.NET Core runtime vă permite **[să modificati colectorul de gunoi](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in multe feluri, prin ajustarea eficientă a procesului GC în funcție de nevoile dumneavoastră.
+
+Modul recomandat de aplicare al acestor setări este prin modificarea proprietății de mediu `COMPlus_`. Bineînțeles, ați putea folosi și alte metode, de ex. `runtimeconfig.json`, dar unele setări sunt imposibil de stabilit în acest fel, și pe deasupra ASF va înlocui fișierul personalizat `runtimeconfig.json` cu cel propriu la următoarea actualizare, de aceea recomandăm proprietățile de mediu pe care le puteți seta cu ușurință înainte de a lansa procesul.
+
+Consultați documentația pentru toate proprietățile pe care le puteți folosi, le vom menționa pe cele mai importante (în opinia noastră) mai jos:
 
 ### `gcServer`
 
-> Configures whether the application uses workstation garbage collection or server garbage collection.
+> Configurează dacă aplicaţia se foloseşte de colectarea gunoiului de la staţia de lucru sau de colectarea gunoiului de pe server.
 
-You can read the exact specific of the server GC at **[fundamentals of garbage collection](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)**.
+Puteti citi specificul serverului GC la **[fundamentale pentru colectarea de gunoi](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)**.
 
 ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
 
