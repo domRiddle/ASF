@@ -1,27 +1,27 @@
 # IPC
 
-ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF include propria sa interfață IPC care poate fi utilizată pentru interacțiunea suplimentară cu procesul. IPC reprezintă **[comunicarea interproces](https://en.wikipedia.org/wiki/Inter-process_communication)** şi în cea mai simplă definiţie aceasta este "interfaţa web ASF" bazată pe **[ Kestrel HTTP server](https://github. com/aspnet/KestrelHttpServer)</strong> care poate fi utilizată pentru integrarea ulterioară cu procesul, atât ca punct de contact pentru utilizatorul final (ASF-ui), cât și ca sistem backend pentru integrarea terților (ASF API).</p> 
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+IPC poate fi folosit pentru o mulțime de lucruri diferite, în funcție de nevoile și abilitățile tale. De exemplu, o poți folosi pentru preluarea statusului ASF și al tuturor roboților, trimițând comenzi ASF, preluarea și editarea configurațiilor globale/bot, adăugarea de boți noi, ștergerea boților existenți, trimiterea de chei pentru **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** sau accesarea fișierului jurnal al ASF. Toate aceste acţiuni sunt expuse de API-ul nostru, ceea ce înseamnă că poți programa propriile unelte și scripturi care vor putea comunica cu ASF și să îl influențeze în timpul rulării. În plus, acțiunile selectate (cum ar fi comenzile de trimitere) sunt, de asemenea, implementate de ASF-ui care vă permite să le accesați cu ușurință printr-o interfață web prietenoasă.
 
 * * *
 
 # Utilizare
 
-You can enable our IPC interface by enabling `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+Puteți activa interfața IPC prin activarea **[proprietății de configurare globală](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `IPC`. ASF va afișa lansarea IPC în jurnalul său, pe care îl puteți utiliza pentru a verifica dacă interfața IPC a pornit corect:
 
 ```text
-INFO|ASF|Start() Starting IPC server...
+NFO|ASF|Start() Starting IPC server...
 INFO|ASF|Start() IPC server ready!
 ```
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+Serverul web ASF ascultă acum pe interfețele selectate. Dacă nu ați furnizat un fișier de configurare personalizat pentru IPC, acestea vor fi bazate pe IPv4 **[127.0.0.](http://127.0.0.1:1242)** și IPv6 **[[:1]](http://[::1]:1242)** cu portul implicit `1242`. Poți accesa interfața IPC prin link-urile mentionate, de pe aceeași mașină ca și cea care rulează ASF.
 
-ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+Interfața IPC a ASF expune trei moduri diferite de a o accesa, în funcție de utilizarea planificată.
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
+La cel mai scăzut nivel există **[ASF API](#asf-api)** care este nucleul interfeței noastre IPC și permite tuturor celorlalte să funcționeze. Asta este ceea ce vrei să folosești în uneltele tale, utilitățile și proiectele tale pentru a comunica direct cu ASF.
 
-On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+Pe teren mediu există **[Documentația noastră de Swagger](#swagger-documentation)** care acționează ca un frontend la ASF API. Include o documentație completă pentru ASF API și, de asemenea, vă permite să o accesați mai ușor. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
 
 On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
 

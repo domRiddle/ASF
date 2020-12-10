@@ -70,13 +70,13 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 An example structure would look like this:
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF (unde pui obiectele proprii)
+    ├── Scurtatura ASF.lnk (opțional)
+    ├── Config shortcut.lnk (opțional)
+    ├── Commands.txt (opțional)
+    ├── MyExtraScript.bat (opțional)
+    ├── (...)(orice alte fișiere alese de tine, opțional)
+    └── Nucleu (dedicate doar ASF, unde extragi arhiva)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs

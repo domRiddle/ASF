@@ -1,14 +1,14 @@
 # Compilare
 
-Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
+Compilarea este procesul de creare a fișierului executabil. Asta este ceea ce vreți să faceți pentru a adăuga propriile modificări la ASF, sau dacă din orice motiv nu aveți încredere în fișierele executabile furnizate în **[versiuni](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** oficiale. Dacă sunteți utilizator și nu dezvoltator, cel mai probabil vreți să folosiți binare precompilate, dar dacă doriți să vă folosiți pe cele proprii sau să invățați ceva nou, continuați să citiți.
 
-ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
+ASF poate fi compilat pe orice platformă suportată în prezent, atâta timp cât aveți toate instrumentele necesare.
 
 * * *
 
 ## .NET Core SDK
 
-Regardless of platform, you need full .NET Core SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://dotnet.microsoft.com/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Indiferent de platformă, aveți nevoie de .NET Core SDK complet (nu doar runtime) pentru a compila ASF. Instrucţiunile de instalare pot fi găsite pe **[pagina de instalare .NET Core](https://dotnet.microsoft.com/download)**. Trebuie să instalați versiunea corespunzătoare .NET Core SDK pentru sistemul dvs. de operare. După o instalare reușită, comanda `dotnet` trebuie să fie disponibilă și să funcționeze. Puteţi verifica dacă funcţionează cu `dotnet --info`. Asigurați-vă că .NET Core SDK se potrivește cu **[cerințele de execuție](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ASF.
 
 * * *
 
