@@ -1,14 +1,14 @@
-# Two-factor authentication
+# Autentificare în doi pași
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Cu ceva timp în urmă, Valve a introdus un sistem cunoscut sub numele de „Escrow”, care necesită autentificare suplimentară pentru diferite activități legate de cont. Puteți citi mai multe despre el **[aici](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** și **[aici](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Este crucial să înţelegem sistemul 2FA în primul rând, înainte de a încerca să înţelegem logica din spatele ASF 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+După cum puteţi vedea, toate tranzacţiile se desfăşoară timp de până la 15 zile, care nu este o problemă majoră în ceea ce priveşte ASF, dar poate fi deranjant, în special pentru cei care doresc automatizarea completă. Din fericire, ASF include o soluție la această problemă, numită ASF 2FA.
 
 * * *
 
 # Logica ASF
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Indiferent dacă utilizaţi ASF 2FA explicată mai jos sau nu, ASF include logica corectă şi este pe deplin conştient de conturile protejate prin sistemul 2FA. Vă va cere detaliile necesare atunci când sunt necesare (cum ar fi în timpul conectării). Dacă utilizați ASF 2FA, programul va putea sări peste acele cereri și genera automat token-urile necesare, ceea ce economiseşte timp şi să activează funcţionalităţi suplimentare (descrise mai jos).
 
 * * *
 
