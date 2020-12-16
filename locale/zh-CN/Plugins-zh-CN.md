@@ -122,7 +122,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 ### 本机依赖项
 
-本机依赖项是作为特定操作系统构建的一部分生成的，因为此时宿主机上没有可用的 .NET Core 运行时环境，而 ASF 需要通过特定操作系统构建内自带的 .NET Core 运行时环境运行。 为了最大限度地减小构建大小，ASF 会削减其本机依赖项，使其仅包括程序中可能用到的代码，从而有效地减少运行时不会使用的部分。 This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET Core feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly, usually throwing `System.MissingMethodException` or `System.Reflection.ReflectionTypeLoadException` in the process.
+本机依赖项是作为特定操作系统构建的一部分生成的，因为此时宿主机上没有可用的 .NET Core 运行时环境，而 ASF 需要通过特定操作系统构建内自带的 .NET Core 运行时环境运行。 为了最大限度地减小构建大小，ASF 会削减其本机依赖项，使其仅包括程序中可能用到的代码，从而有效地减少运行时不会使用的部分。 这可能会给您的插件带来潜在的问题，您可能会突然发现自己的插件依赖于某些未在 ASF 中使用的 .NET Core 功能，从而使特定操作系统构建无法正确执行它，通常表现为进程抛出 `System.MissingMethodException` 异常或 `System.Reflection.ReflectionTypeLoadException` 异常。
 
 这对于 Generic 构建来说从来都不是问题，因为它们本来就不会自己处理本机依赖项（它们需要宿主机上的完整运行时环境来执行 ASF）。 这也是该问题的一个简单解决方案，**使您的插件只供 Generic 构建使用**，但其缺点也很明显，特定操作系统构建的 ASF 用户就无法使用您的插件。 如果您想知道您遇到的问题是否与本机依赖有关，也可以使用这种方法来验证，即在 ASF Generic 构建中加载您的插件，看看它是否正常工作。 如果能，则说明您的插件依赖项已完备，问题的根源在于本机依赖项。
 

@@ -1,6 +1,6 @@
 # Güvenlik
 
-## Encryption
+## Şifreleme
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
@@ -38,7 +38,7 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 * * *
 
-## Recommendation
+## Öneriler
 
 If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 
@@ -48,7 +48,7 @@ In addition to encryption methods specified above, it's possible to also avoid s
 
 * * *
 
-## Decryption
+## Şifre çözme
 
 ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 * * *
 
-## Recommendation
+## Öneriler
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
