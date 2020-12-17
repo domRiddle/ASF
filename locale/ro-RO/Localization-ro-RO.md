@@ -6,19 +6,19 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 * * *
 
-## Scope
+## Domeniul de aplicare
 
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
-
-* * *
-
-## Signing up
-
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+Platforma noastră suportă localizarea programului principal ASF, precum și întregul conținut localizat pe care îl oferim împreună cu acesta. Aceasta include în special ASF-WebConfigGeneratorul nostru, ASF-ui, precum şi wiki-ul nostru. Toate acestea sunt posibile pentru a fi traduse prin interfața convenabilă crowdin.
 
 * * *
 
-### Translating
+## Înregistrare
+
+Dacă doriţi să ajutaţi cu ASF, fie prin traducerea, revizuirea sau aprobarea traducerilor, vă rugăm să vă înscrieți pe **[pagina proiectului Crowdin](https://crowdin.com/project/archisteamfarm)**. Înregistrarea este ușoară și absolut gratuită! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
+
+* * *
+
+### Traducere
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
