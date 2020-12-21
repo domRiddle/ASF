@@ -189,7 +189,7 @@ Wenn du ASF auf dem Server verwendest, solltest du diese Option zusammen mit dem
 
 ### `IPCPasswordFormat`
 
-`byte` Typ mit einem Standardwert von `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `0` belassen.
+`byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft legt das Format der Eigenschaft `IPCPassword` fest und nutzt `EHashingMethod` als zugrunde liegenden Typ. Bitte lies den Abschnitt **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, wenn du mehr darüber erfahren möchtest, da du sicherstellen musst, dass die Eigenschaft `IPCPassword` tatsächlich ein Passwort im passenden `IPCPasswordFormat` enthält. Mit anderen Worten, wenn du `IPCPasswordFormat` änderst, dann sollte dein `IPCPassword` **bereits** in diesem Format sein und nicht nur darauf abzielen, es zu sein. Wenn du nicht weißt was du tust, solltest du es bei dem Standardwert `0` belassen.
 
 * * *
 
@@ -456,7 +456,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `FarmingOrders`
 
-`ImmutableList<byte>` type with default value of being empty. Diese Eigenschaft definiert die von ASF verwendete **bevorzugte** Sammel-Reihenfolge für ein gegebenes Bot-Konto. Derzeit sind folgende Sammel-Reihenfolgen verfügbar:
+`ImmutableList<byte>` Typ mit einem leeren Standardwert. Diese Eigenschaft definiert die von ASF verwendete **bevorzugte** Sammel-Reihenfolge für ein gegebenes Bot-Konto. Derzeit sind folgende Sammel-Reihenfolgen verfügbar:
 
 | Wert | Name                      | Beschreibung                                                                                                       |
 | ---- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
