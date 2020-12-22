@@ -18,19 +18,11 @@ ASF 2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktione
 
 Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn du deinen Authentifikator nicht bereits als ASF 2FA importiert hast, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass dein Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
 
-Um ASF 2FA zu aktivieren benötigst du:
-
-- Funktionierenden Steam-Authentifikator in deinem Android-Gerät
-- oder funktionierenden Steam-Authentifikator in deinem iOS-Gerät
-- oder funktionierenden Steam-Authentifikator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- oder funktionierenden Steam-Authentifikator in **[WinAuth](https://winauth.github.io/winauth)**
-- oder jede andere funktionierende Implementierung eines Steam-Authentifikators mit Zugriff auf gemeinsamen und identitären Geheimnissen
-
 * * *
 
 ## Import
 
-Um die unten beschriebenen Schritte abzuschließen, solltest du bereits einen verknüpften und funktionsfähigen Authentifikator haben, der von ASF unterstützt wird. ASF unterstützt derzeit einige verschiedene Quellen von 2FA - Android, iOS, SteamDesktopAuthenticator und WinAuth. Wenn du noch keinen Authentifikator hast musst du einen davon auswählen und ihn zuerst einrichten. Wenn du nicht genau weißt welchen du auswählen sollst, empfehlen wir WinAuth, aber alle der oben genannten Möglichkeiten funktionieren gut, wenn du die Anweisungen befolgst.
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Wenn du noch keinen Authentifikator hast musst du einen davon auswählen und ihn zuerst einrichten. Wenn du nicht genau weißt welchen du auswählen sollst, empfehlen wir WinAuth, aber alle der oben genannten Möglichkeiten funktionieren gut, wenn du die Anweisungen befolgst.
 
 Alle folgenden Anleitungen erfordern von dir, dass du bereits einen **funktionierenden und betriebsbereiten** Authentifikator hast, der mit dem gegebenen Programm/Anwendung verwendet wird. ASF 2FA funktioniert nicht ordnungsgemäß, wenn du ungültige Daten importierst. Stelle daher sicher, dass dein Authentifikator ordnungsgemäß funktioniert bevor du versuchst ihn zu importieren. Dies beinhaltet das Testen und Überprüfen, ob die folgenden Authentifikator-Funktionen ordnungsgemäß funktionieren:
 

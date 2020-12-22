@@ -18,19 +18,11 @@ ASF 2FA es un módulo integrado responsable de proveer características 2FA al p
 
 Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` no serán operativos, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco está disponible para las características avanzadas de ASF que requieren que el módulo esté operativo.
 
-Para activar ASF 2FA, necesitas tener:
-
-- Autenticador de Steam funcionando en tu Android
-- o autenticador de Steam funcionando en tu iOS
-- o autenticador de Steam funcionando en **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- o autenticador de Steam funcionando en **[WinAuth](https://winauth.github.io/winauth)**
-- o cualquier otra implementación funcional del autenticador de Steam con acceso a secretos compartidos y de identidad
-
 * * *
 
 ## Importar
 
-Para completar los pasos que se explican a continuación, ya debes tener un autenticador vinculado y operativo que sea soportado por ASF. Actualmente ASF soporta varias fuentes de 2FA - Android, iOS, SteamDesktopAuthenticator y WinAuth. Si aún no tienes ningún autenticador, necesitas elegir uno de ellos y configurarlo primero. Si no sabes cuál elegir, recomendamos WinAuth, pero cualquier de esos funcionará bien suponiendo que sigas las instrucciones.
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Si aún no tienes ningún autenticador, necesitas elegir uno de ellos y configurarlo primero. Si no sabes cuál elegir, recomendamos WinAuth, pero cualquier de esos funcionará bien suponiendo que sigas las instrucciones.
 
 Todas las siguientes guías requieren que ya tengas un autenticador **funcional y operativo** siendo usado con una herramienta/aplicación dada. ASF 2FA no funcionará correctamente si importas datos inválidos, por lo tanto asegúrate de que tu autenticador funciona correctamente antes de intentar importarlo. Esto incluye probar y verificar que las siguientes funciones del autenticador trabajan correctamente:
 

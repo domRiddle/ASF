@@ -18,19 +18,11 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 您可以执行 `2fa` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;来验证机器人帐户是否已经启用 ASF 2FA。 除非您已经将验证器导入为 ASF 2FA，否则所有 `2fa` 命令都是无效的，这意味着您的帐户没有启用 ASF 2FA，因此一些需要此模块的 ASF 高级功能也无法正常运行。
 
-要启用两步认证，您需要：
-
-- Android 设备上可用的 Steam 身份验证器
-- 或 iOS 设备上可用的 Steam 身份验证器
-- 或 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- 或使用 **[WinAuth](https://winauth.github.io/winauth)** 实现的 Steam 身份验证器
-- 或任何其他能够获取到 shared secret 和 identity secret 的可用 Steam 验证器实现。
-
 * * *
 
 ## 导入
 
-为了完成以下步骤，您应该已经拥有且绑定了受 ASF 支持的可用验证器。 ASF 支持导入不同来源的两步验证——Android、iOS、SteamDesktopAuthenticator 和 WinAuth。 如果您还没有任何验证器，就需要选择上述验证器之一，并首先设置好它。 如果您不知道选择哪个更好，我们推荐 WinAuth，但只要您正确按照说明操作，上述的任何一个验证器都可以正常工作。
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 如果您还没有任何验证器，就需要选择上述验证器之一，并首先设置好它。 如果您不知道选择哪个更好，我们推荐 WinAuth，但只要您正确按照说明操作，上述的任何一个验证器都可以正常工作。
 
 以下所有指南都需要您在指定的工具/应用中已有**正常工作**的验证器。 如果导入了无效数据，ASF 2FA 将无法正常运行，因此在尝试导入之前，请确保您的验证器正常工作。 这包括测试和验证以下验证器功能是否正常工作：
 
@@ -46,7 +38,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 一般情况下，从 Android 手机导入验证器需要您拥有 **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** 权限。 不同的设备有不同的 root 方法，所以我无法告诉您如何 root 您的设备。 您可以访问 **[XDA](https://www.xda-developers.com/root)** 查找相关的指南，以及关于 root 的一般信息。 如果您找不到适合您设备的指南，可以再尝试在搜索引擎中搜索。
 
-至少从官方角度来说，没有 root 权限就无法访问受保护的 Steam 文件。 目前唯一正式的无需 root 的提取 Steam 文件的方法是以某种方法制作一份未加密的 `/data` 的备份，然后在 PC 上手动提取所需的文件，但这种功能在很大程度上依赖于您的手机制造商，并且**不属于** Android 标准，因此我们不会在此讨论该方法。 如果您的设备很幸运地支持这样的功能，您可以使用它，但大多数用户没有这样的机会。
+至少从官方角度来说，没有 root 权限就无法访问受保护的 Steam 文件。 目前唯一正式的无需 root 的提取 Steam 文件的方法是以某种方法制作一份未加密的 `/data` 的备份，然后在 PC 上手动提取所需的文件，但这种功能在很大程度上依赖于您的手机制造商，并且**不属于** Android 标准，因此我们不会在此讨论该方法。 如果您的设备很幸运支持这样的功能，您可以使用它，但大多数用户没有这种东西。
 
 也有无需 root 权限的非正式方法，即安装或者降级 Steam 应用为 2.1 或者更旧版本，在此版本绑定手机验证器，然后通过 `adb backup` 命令创建一份应用的快照（包含我们所需的 `data` 文件）。 然而，由于该方法属于严重的安全漏洞以及不受支持的提取文件的方式，我们不会进一步详述这一点，Valve 在新版本中禁用了这个安全漏洞，我们在此提及此方法仅仅是把它作为一种可能性。
 

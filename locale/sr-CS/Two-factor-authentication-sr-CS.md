@@ -1,40 +1,32 @@
-# Two-factor authentication
+# Dvofaktorska autentikacija
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Pre nekog vremena Valve je uveo sistem pod nazivom "Escrow" koji zahtijeva autentikaciju za razne nalogom povezane postupke. O ovome možete pročitati više **[ovdje](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** i **[odvje](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Važno je da prvo razumijete sistem 2FA[dvofaktorske autentikacije] prije nego što razumijete logiku iza ASF-ove 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Možete primijetiti da su sve razmjene zadržane na 15 dana, što nije veliki problem za ASF, ali je ipak nezgodno, pogotovo za one koji žele punu automatizaciju. Srećom, ASF sadrži rešenje za ovaj problem, pod nazivom ASF 2FA.
 
 * * *
 
-# ASF logic
+# Logika ASF-a
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Bez obzira da li koristite ASF 2FA (objašnjenog dolje) ili ne, ASF sadrži sopstvenu logiku i svjestan je da li koristite 2FA zaštitu naloga ili ne. Pitaće vas za potrebne informacije kada su potrebne (npr. kada se prijavljujete). Ako koristite ASF 2FA, program će biti u mogućnosti da preskoči te zahtjeve i automatski napravi potrebne tokene, štedeći vas gnavaže i omogućavajući eksta funkcijonalnosti (opisane dolje).
 
 * * *
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA je ugrađena modula odgovorna za pružanje 2FA mogućnosti ASF-u, kao što je generisanje token i prihvatanje potvrda. Ono duplira vašu postojeću autentikaciju, tako da možete koristiti vašu trenutnu autentikaciju i ASF 2FA u isto vrijeme.
 
-You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
-
-To enable ASF 2FA, you need to have:
-
-- Working steam authenticator in your Android
-- or working steam authenticator in your iOS
-- or working steam authenticator in **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)**
-- or working steam authenticator in **[WinAuth](https://winauth.github.io/winauth)**
-- or any other working implementation of Steam authenticator with access to shared and identity secrets
+Možete provjeriti da li vaš bot nalog već koristi ASF 2FA izvršavanjem `2fa`**[komandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Osim ako ste već unijeli autenkaciju u ASF 2FA, sve `2fa` komande su neoperativne, što znači da vaš nalog ne koristi ASF 2FA, i zbog toga nema mogućnost izvršavanja naprednih ASF mogućnosti koje zahtijevaju ovaj modul da bi bile operativne.
 
 * * *
 
-## Import
+## Unos
 
-In order to complete the steps explained below, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Ako već nemate autentikator, morate prvo izabrati i podesiti jedan od ovih. Ako ne znate koji da izaberete, predlažmo vam WinAuth, ali bilo koji od ovih će raditi dobro ako pratite instrukcije.
 
-All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
+Sva naredna uputstva zahtijevaju da već imate **radni i operativni** autentikator koji možete koristi sa aplikacijom. ASF 2FA neće raditi propisno ako unesete nepravilne podatke, pa zbog toga budite sigurni da vaš autentikator radi prije nego što pokušate da ga unesete. To podrazumijeva testiranje i verifikaciju pravilnog rada sledećih funkcija:
 
-- You can generate tokens and those tokens are accepted by Steam network
+- možete generisati tokene koje prihvata Steam network,
 - You can fetch confirmations, and they are arriving on your mobile authenticator
 - You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
 

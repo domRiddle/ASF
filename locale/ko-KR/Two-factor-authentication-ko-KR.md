@@ -18,19 +18,11 @@ ASF 2FA is a built-in module responsible for providing 2FA features to ASF proce
 
 `2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
-ASF 2단계 인증을 활성화 하려면 다음의 조건이 필요합니다:
-
-- 정상동작하는 안드로이드용 Steam 인증기
-- 혹은 정상동작하는 iOS용 Steam 이증기
-- 혹은 정상동작하는 **[SteamDesktopAuthenticator](https://github.com/Jessecar96/SteamDesktopAuthenticator)** 의 Steam 인증기
-- 혹은 정상동작하는 **[WinAuth](https://winauth.github.io/winauth)** 용 Steam 인증기
-- or any other working implementation of Steam authenticator with access to shared and identity secrets
-
 * * *
 
 ## 가져오기
 
-아래에 설명하는 단계를 완료하려면 Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF는 현재 몇 가지의 다른 2단계 인증을 지원합니다. 안드로이드, iOS, SteamDesktopAuthenticator, WinAuth 입니다. 아직 인증기가 없다면 이것들 중 하나를 골라 먼저 설치해야 합니다. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 아직 인증기가 없다면 이것들 중 하나를 골라 먼저 설치해야 합니다. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
 
 아래의 모든 가이드는 **정상동작하고 있는** 인증기를 필요로 합니다. 유효하지 않은 데이터를 가져오면 ASF 2단계 인증은 정상적으로 동작하지 않을것이므로 데이터를 가져오기 전에 인증기가 정상 작동하는지 확인하여야 합니다. 다음의 인증기 기능이 정상 작동하는지 테스트하고 확인하십시오.
 
