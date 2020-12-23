@@ -79,7 +79,7 @@ Eine Sprache gilt als **übersetzt** wenn ihr Übersetzungsfortschritt 100% erre
 
 Gewählte Sprachen können entsprechende Korrekturleser haben, die Übersetzungen validieren und endgültige Versionen auswählen. Dies ist der letzte Schritt nach der Übersetzung und erlaubt weitere Verbesserungen.
 
-ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.
+ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Daher kannst du sehen, dass deine Bemühungen bereits im nächsten ASF-Release enthalten sind - unsere automatisierten Systeme pflegen täglich die Übersetzungen von Crowdin im ASF-Verzeichnis ein.
 
 * * *
 

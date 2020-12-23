@@ -22,7 +22,7 @@ Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos
 
 ## Importar
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Si aún no tienes ningún autenticador, necesitas elegir uno de ellos y configurarlo primero. Si no sabes cuál elegir, recomendamos WinAuth, pero cualquier de esos funcionará bien suponiendo que sigas las instrucciones.
+Para usar ASF 2FA, ya deberías haber vinculado un autenticador operacional que sea soportado por ASF. Actualmente ASF soporta varias fuentes de 2FA oficiales y no oficiales - Android, iOS, SteamDesktopAuthenticator y WinAuth. Si aún no tienes ningún autenticador, necesitas elegir uno de ellos y configurarlo primero. Si no sabes cuál elegir, recomendamos WinAuth, pero cualquier de esos funcionará bien suponiendo que sigas las instrucciones.
 
 Todas las siguientes guías requieren que ya tengas un autenticador **funcional y operativo** siendo usado con una herramienta/aplicación dada. ASF 2FA no funcionará correctamente si importas datos inválidos, por lo tanto asegúrate de que tu autenticador funciona correctamente antes de intentar importarlo. Esto incluye probar y verificar que las siguientes funciones del autenticador trabajan correctamente:
 

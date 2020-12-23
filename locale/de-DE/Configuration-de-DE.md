@@ -527,9 +527,9 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 | 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                    |
 | 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
 | 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
-| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                      |
-| 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                                                        |
-| 14   | AnimatedAvatar        | Special animated avatar for Steam profile                                                     |
+| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam-Profil                                                       |
+| 13   | AvatarProfilRahmen    | Besonderer Avatarrahmen für Steam-Profil                                                      |
+| 14   | AnimierterAvatar      | Besonders animierter Avatar für Steam-Profil                                                  |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -555,9 +555,9 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 | 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                    |
 | 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
 | 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
-| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                      |
-| 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                                                        |
-| 14   | AnimatedAvatar        | Special animated avatar for Steam profile                                                     |
+| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam-Profil                                                       |
+| 13   | AvatarProfilRahmen    | Besonderer Avatarrahmen für Steam-Profil                                                      |
+| 14   | AnimierterAvatar      | Besonders animierter Avatar für Steam-Profil                                                  |
 
 Natürlich beinhalten die Typen, die du für diese Eigenschaft verwenden solltest, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
@@ -750,9 +750,9 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 | 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                    |
 | 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
 | 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                              |
-| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                      |
-| 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                                                        |
-| 14   | AnimatedAvatar        | Special animated avatar for Steam profile                                                     |
+| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam-Profil                                                       |
+| 13   | AvatarProfilRahmen    | Besonderer Avatarrahmen für Steam-Profil                                                      |
+| 14   | AnimierterAvatar      | Besonders animierter Avatar für Steam-Profil                                                  |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 

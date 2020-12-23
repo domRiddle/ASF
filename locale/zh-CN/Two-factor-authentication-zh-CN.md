@@ -22,7 +22,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 
 ## 导入
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 如果您还没有任何验证器，就需要选择上述验证器之一，并首先设置好它。 如果您不知道选择哪个更好，我们推荐 WinAuth，但只要您正确按照说明操作，上述的任何一个验证器都可以正常工作。
+要使用 ASF 两步验证，您应该已经拥有且绑定了受 ASF 支持的可用验证器。 ASF 支持导入不同来源的、或官方或非官方的两步验证——Android、iOS、SteamDesktopAuthenticator 和 WinAuth。 如果您还没有任何验证器，就需要选择上述验证器之一，并首先设置好它。 如果您不知道选择哪个更好，我们推荐 WinAuth，但只要您正确按照说明操作，上述的任何一个验证器都可以正常工作。
 
 以下所有指南都需要您在指定的工具/应用中已有**正常工作**的验证器。 如果导入了无效数据，ASF 2FA 将无法正常运行，因此在尝试导入之前，请确保您的验证器正常工作。 这包括测试和验证以下验证器功能是否正常工作：
 

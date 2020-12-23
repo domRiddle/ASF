@@ -22,29 +22,29 @@ Možete provjeriti da li vaš bot nalog već koristi ASF 2FA izvršavanjem `2fa`
 
 ## Unos
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Ako već nemate autentikator, morate prvo izabrati i podesiti jedan od ovih. Ako ne znate koji da izaberete, predlažmo vam WinAuth, ali bilo koji od ovih će raditi dobro ako pratite instrukcije.
+Da bi koristili ASF 2FA, morate već imati postojeći i operacioni autentikator koji je podržan od strane ASF-a. ASF trenutno podržava nekoliko različitih oficijalnih i neoficijalnih izvora 2FA - Android, iOS, SteamDesktopAuthenticator i WinAuth. Ako već nemate autentikator, morate prvo izabrati i podesiti jedan od ovih. Ako ne znate koji da izaberete, predlažmo vam WinAuth, ali bilo koji od ovih će raditi dobro ako pratite instrukcije.
 
 Sva naredna uputstva zahtijevaju da već imate **radni i operativni** autentikator koji možete koristi sa aplikacijom. ASF 2FA neće raditi propisno ako unesete nepravilne podatke, pa zbog toga budite sigurni da vaš autentikator radi prije nego što pokušate da ga unesete. To podrazumijeva testiranje i verifikaciju pravilnog rada sledećih funkcija:
 
 - možete generisati tokene koje prihvata Steam network,
-- You can fetch confirmations, and they are arriving on your mobile authenticator
-- You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
+- možete primati potvrde, i one će stizati na vašem mobilnom autentikatoru,
+- možete potvrditi te potvrde, i one će biti pravilno prepoznate od strane Steam-a kao potvrđene/nepotvrđene.
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
+Potvrdite da vaš autentikator radi provjeravajući da li postupci gore navedeni rade - ako ne rade, onda neće raditi ni u ASF-u takođe, samo ćete trošiti vrijeme i zadavati sebi dodatnu brigu.
 
 * * *
 
-### Android phone
+### Android telefoni
 
-In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
+Generalno, za ubacanje autentikatora sa vašeg Android telefona morate imati **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** privilegije. Root je različit od telefona do telefona, pa vam ne mogu reći kako da rootujete vaš uređaj. Posjetite **[XDA forum](https://www.xda-developers.com/root)** radi odličnih uputstava o načinu kako to da uradite, kao i o uobičajenim informacijama o rootovanju. Ako ne možete da pronađete vaš uređaj ili uputstvo koje vam treba, pokušajte da tražite na Google-u.
 
-At least officially, it's not possible to access protected Steam files without root. The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
+Oficijalno, nije moguće da pristupite zaštićenim Steam fajlovima bez root-a. Jedini oficijalni bez-rootni način da dođete to Steam fajlova jeste da kreirate nezaštićenu `/data` kopiju na neki način i da ručno tražite potrebne fajlove u njoj na PC-u, ali pošto ta funkcija zavisi o vašeg proizvođaća uređaja i **nije** standardno na Android-u, nećemo o tome govoriti. Ako se zadesi da imate tu funkcijonalnost, možete je koristiti, ali najčešće korisnici to nemaju.
 
-Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version 2.1 (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. However, since it's a serious security breach and entirely unsupported way to extract the files, we won't elaborate further on this, Valve disabled this security hole in newer versions for a reason, and we only mention it as a possibility.
+Neoficijalno, moguće je izvući te fajlove bez root privilegija, ako instalirate Steam aplikaciju verzije 2.1(ili ranuju), postavite mobilnu autentikaciju i napravite kopiju vaše aplikacije (zajedno sa `/data` fajlovima koji su nam potrebni) pomoću `adb backup`. Ali pošto je ove ozbiljan sigurnosni problem i skroz nepodržan način da se izvuku fajlovi, ne možemo govoriti dalje o tome, Valve je onemogućijo ovo s razlogom, a mi ga pominjemo jedino kao mogućnosti.
 
-Assuming that you've successfully rooted your phone, you should afterwards download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one of your preference). You can also access the protected files through ADB (Android Debug Bridge) or any other available to you method, we'll do it through the explorer since it's definitely the most user-friendly way.
+Pretpostavljajući da ste već uspješno root-ovali vaš uređaj, trebate nakon toga preuzeti root pretraživač koji je dosupan Play prodavnici, kao što je **[ovaj](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (ili bilo koji drugi u zavisnosti od vašeg izbora). Takođe možete doći to zaštićenih fajlova pomoću ADB (Android Debug Bridge) ili drugog vama dostupnog metoda, mi ćemo objasniti pomoću pretraživača, pošto je to najdostupniji način za koristike.
 
-Once you opened your root explorer, navigate to `/data/data` folder. Keep in mind that `/data/data` directory is protected and you won't be able to access it without root access. Once there, find `com.valvesoftware.android.steam.community` folder and copy it to your `/sdcard`, which points to your built-in internal storage. Afterwards, you should be able to plug your phone to your PC and copy the folder from your internal storage like usual. If by any chance the folder won't be visible despite you being sure that you copied it to the right place, try restarting your phone first.
+Kad otvorite root pretraživač, idite u folder `/data/data`. Još jednom napominjemo da je direktorijum `/data/data` zaštićen i da mu ne možete pristupiti bez root privilegija. Kada ste u ovom direktorijumu, pronađite folder `com.valvesoftware.android.steam.community` i kopirajte ga na vašu `/sdcard`, koja je na vašoj internoj memoriji. Nakon toga, imate mogućnost da konektujete uređaj na vaš PC i kopirate folder za vaše interne memorije kao i obično. Ako je nekim slučajom folder nevidljiv i pored toga što ste ga kopirali na pravo mjesto, pokušajte restartovati uređaj prvo.
 
 Now, you can choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. First option is more friendly and allows you to duplicate your authenticator also on your PC, allowing you to make confirmations and generate tokens from 3 different places - your phone, your PC and ASF. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions by accessing the files that you've obtained above. When done, you can then import this authenticator from WinAuth to ASF, which is explained in dedicated WinAuth section below.
 
