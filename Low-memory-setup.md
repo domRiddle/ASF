@@ -77,7 +77,7 @@ You can enable all GC properties by setting appropriate `COMPlus_` environment v
 
 ```shell
 # Don't forget to tune this one if you're going to use it
-export COMPlus_GCHeapHardLimitPercent=75
+export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
