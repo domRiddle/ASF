@@ -219,7 +219,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 * * *
 
-### `Statistiken`
+### `Statistics`
 
 `bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF die Statistik aktiviert haben soll. Eine detaillierte Erklärung, was genau diese Option bewirkt, findest du im Abschnitt **[Statistiken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE)**. Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 

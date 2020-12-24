@@ -338,7 +338,7 @@ Con el módulo de recolección de cromos pausado/deshabilitado, puedes utilizar 
 
 ### ¿Se puede minimizar ASF a la bandeja del sistema?
 
-ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la ventana es creada para ti por tu sistema operativo. Sin embargo puedes usar cualquier herramienta de terceros capaz de hacer tal cosa, como **[RBTray](http://rbtray.sourceforge.net)** para Windows, o **[screen](https://linux.die.net/man/1/screen)** para Linux/OS. Estos son solo ejemplos, hay muchas otras aplicaciones con una funcionalidad similar.
+ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la ventana es creada para ti por tu sistema operativo. Sin embargo puedes usar cualquier herramienta de terceros capaz de hacer tal cosa, como **[RBTray](https://github.com/benbuck/rbtray)** para Windows, o **[screen](https://linux.die.net/man/1/screen)** para Linux/OS. Estos son solo ejemplos, hay muchas otras aplicaciones con una funcionalidad similar.
 
 * * *
 

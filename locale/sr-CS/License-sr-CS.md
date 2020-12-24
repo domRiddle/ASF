@@ -1,35 +1,35 @@
-# License
+# Licence
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Osim ako je kazano drugačije, ASF je licenciran pod **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** licencom. Za brzi pregled onog čega možete da koristite, posjetite **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+ASF licenca je veoma blaga i vi imate dozvolu da radite mnogo više od toga što je standardno u GPL licenci, uključujući i korišćenje ASF-a u komercijalne projekte bez uslova da kod bude otvoren (open-source). Ukratko, kao što je kazano i u tl;dr Legal:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> možete koristiti ovaj softver kako želite, sve dok sadrži potrebne opaške. Ova blaga licenca sadrži patent licencu od saradnika ovog koda.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Isto važi i za sve projekte trećih strana koje ASF koristi, posebno sve `alatke` koje pored naše imaju svoje licence.
 
 * * *
 
-## Remarks
+## Primedbe
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Ako kreirate vaš softver/uslugu baziranu na ASF-u ili dijelu njegovog koda, molimo vas da se osvrnete šestoj tački licence:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Zaštitni žigovi. Ova Licenca ne daje vam dozvolu da koristite tržišno imena, zaštitne žigove, oznake usluga, ili imena produkata Davaoca Licence, osim kao što je neophodno za razumno i uobičajeno za opisivanje porijekla Djelatnosti i reprodukovanje sadržaja NOTICE fajla.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+Mi vam ne dozvoljavamo da koristite ime produkta ASF/ArchiSteamFarm u vašem softveru, ali dozvoljavamo da to uradite u nekoliko zdravorazumskih scenarija:
 
-You **can**:
+**Možete**:
 
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- da tvrdite da je vaš softver/usluga **baziran na** ASF (ili njegovom kodu),
+- da govorite of vašem softveru/usluzi kao **ASF kopiji**,
+- da tvrdite da je vaš softver/usluga podržan od ASF-a, ako **niste** promijenili izvorni kod,
+- da koristite ASF za razne refrencijske upotrebe, kao što je povezivanje porijekla softvera/usluge, naše wiki-e, ili *"za ono što je razumno i uobičajeno za opisivanje porijekla Djelatnosti"*.
 
-You **can't**:
+**Ne možete**:
 
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+- reći da **je** vaš softver/usluga ASF,
+- odnositi se prema vašem softveru/usluzi kao da je **ASF**,
+- tvrdite da je vaš softver/usluga podržan od ASF-a, ako **ste** promijenili izvorni kod,
+- koristite lažne reklamiranje, kao što je tvrdnja da su ASF developeri dio vašeg softvera/usluge.
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+Ako ste nesigurni, molimo vas da nas kontaktirate, i mi ćemo biti raspoloženi da vam odgovorimo na vaša zakonska/licenska pitanja.

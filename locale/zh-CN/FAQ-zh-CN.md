@@ -338,7 +338,7 @@ ASF 真正需要关注的重点是：
 
 ### ASF 能最小化到托盘吗？
 
-ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](http://rbtray.sourceforge.net)** 或者 Linux/OS X 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
+ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](https://github.com/benbuck/rbtray)** 或者 Linux/OS X 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
 
 * * *
 

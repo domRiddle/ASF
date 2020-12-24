@@ -338,7 +338,7 @@ Wenn das Karten-Farming-Modul angehalten/deaktiviert ist, können Sie zusätzlic
 
 ### Kann ich ASF in die Taskleiste minimieren?
 
-ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Du kannst jedoch ein beliebiges Drittanbieterprogramm verwenden wie z.B. **[RBTray](http://rbtray.sourceforge.net)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
+ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Du kannst jedoch ein beliebiges Drittanbieterprogramm verwenden wie z.B. **[RBTray](https://github.com/benbuck/rbtray)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
 
 * * *
 

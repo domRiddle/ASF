@@ -148,7 +148,7 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Name           | Child of   |
+| Argument | Ime            | Child of   |
 | -------- | -------------- | ---------- |
 | 1        | Profile        |            |
 | 2        | OwnedGames     | Profile    |
@@ -162,7 +162,7 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | Name          |
+| Value | Ime           |
 | ----- | ------------- |
 | 1     | `Private`     |
 | 2     | `FriendsOnly` |
@@ -246,7 +246,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Description                                                                     |
+| Value | Ime                   | Description                                                                     |
 | ----- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
