@@ -59,7 +59,7 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
-### `GCHighMemPercent`
+### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > Memory load is indicated by the percentage of physical memory in use.
 
