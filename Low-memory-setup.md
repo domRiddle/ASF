@@ -51,7 +51,7 @@ The recommended way of applying those settings is through `COMPlus_` environment
 
 Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
-### `GCHeapHardLimitPercent`
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > Specifies the GC heap usage as a percentage of the total memory.
 
