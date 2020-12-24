@@ -82,7 +82,7 @@ This offers little improvement, but may make GC even more aggressive when system
 You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
-# Don't forget to tune this one if you're going to use it
+# Don't forget to tune those if you're planning to make use of them
 export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 export COMPlus_GCHighMemPercent=50 # 80% as hex
 
@@ -95,7 +95,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 Or on Windows (powershell):
 
 ```powershell
-# Don't forget to tune this one if you're going to use it
+# Don't forget to tune those if you're planning to make use of them
 $Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 $Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
