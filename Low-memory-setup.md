@@ -59,6 +59,12 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
+### `GCHighMemPercent`
+
+> Memory load is indicated by the percentage of physical memory in use.
+
+This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+
 ### `GCLatencyLevel`
 
 > Specifies the GC latency level that you want to optimize for.
@@ -78,6 +84,7 @@ You can enable all GC properties by setting appropriate `COMPlus_` environment v
 ```shell
 # Don't forget to tune this one if you're going to use it
 export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+export COMPlus_GCHighMemPercent=50 # 80% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
@@ -90,6 +97,7 @@ Or on Windows (powershell):
 ```powershell
 # Don't forget to tune this one if you're going to use it
 $Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
