@@ -89,7 +89,7 @@ Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune this one if you're going to use it
-$Env:COMPlus_GCHeapHardLimitPercent=75
+$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
