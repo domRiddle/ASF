@@ -46,16 +46,16 @@ Pretpostavljajući da ste već uspješno root-ovali vaš uređaj, trebate nakon 
 
 Kad otvorite root pretraživač, idite u folder `/data/data`. Još jednom napominjemo da je direktorijum `/data/data` zaštićen i da mu ne možete pristupiti bez root privilegija. Kada ste u ovom direktorijumu, pronađite folder `com.valvesoftware.android.steam.community` i kopirajte ga na vašu `/sdcard`, koja je na vašoj internoj memoriji. Nakon toga, imate mogućnost da konektujete uređaj na vaš PC i kopirate folder za vaše interne memorije kao i obično. Ako je nekim slučajom folder nevidljiv i pored toga što ste ga kopirali na pravo mjesto, pokušajte restartovati uređaj prvo.
 
-Sada možete odlučiti da li želite da ubacite vaš autentikator prvo u WinAuth, pa u ASF, ili direktno u ASF. Prvo opcija je lakša i omogućava vam da duplirate autentikator na vašem PC, što vam omogućava da prihvatate potvrde i generišete tokene sa tri različita mjesta - vašeg telefona, PC-a i ASF-a. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions by accessing the files that you've obtained above. When done, you can then import this authenticator from WinAuth to ASF, which is explained in dedicated WinAuth section below.
+Sada možete odlučiti da li želite da ubacite vaš autentikator prvo u WinAuth, pa u ASF, ili direktno u ASF. Prvo opcija je lakša i omogućava vam da duplirate autentikator na vašem PC, što vam omogućava da prihvatate potvrde i generišete tokene sa tri različita mjesta - vašeg telefona, PC-a i ASF-a. Ako želite da to uradite, otvorite WinAuth, dodajte novi Steam autentikator i izaberite opciju "importing from Android(unesite sa Android-a)", zatim pratite instrukcije i izaberite fajlove koje ste preuzeli ranije. Kada završite, možete da dodate ovaj autentikator iz WinAuth-a u ASF, a ovo je objašnjeno ispod u WinAuth odjeljku.
 
-If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
+Ako ne želite ili nemate potrebu da ovo radite pomoću WinAuth-a, ona možete kopirati fajl `files/Steamguard-SteamID` iz zaštićenog direktorijuma, gdje je 64-bitni `SteamID` Steam identifikator naloga kojeg želite da dodate (ako je samo jedan, to je zbog toga što imate samo jedan profil, i to je fajl koji vam je potreban). Treba da premjestite ovaj fajl in ASF-ov `config` direktorijum. Kada to uradite, promijenite ime fajla sa `BotName.maFile`, gdje je `BotName` isto kao ime kojim ste nazvali bota tokom konfiguracije i kojem dodajete ASF 2FA. Nakon ovog koraka, pokrenite ASF - on će zapaziti `.maFile` i iskoristiti ga.
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
+[*] INFO: PreuzimanjeAutentikatora() <1> Uspješno završeno preuzimanje mobilnog autentikatora!
 ```
 
-That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
+To je sve, pretpostavljajući da se izabrali tačan važeći fajl, sve bi trebalo da bude u redu, a to možete provjeriti koristeći `2fa` komande. Ako nešto pogriješite, uvijek možete izbrisati `Bot.db` i početi ponovo ako je potrebno.
 
 * * *
 
@@ -80,7 +80,7 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+[*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
@@ -97,7 +97,7 @@ Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGua
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+[*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
@@ -121,27 +121,27 @@ If ASF 2FA is available, ASF will use it for automatic confirmation of trades th
 
 * * *
 
-### What if I need a 2FA token?
+### Šta ako mi je potreban 2FA token?
 
 You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
 
 * * *
 
-### Can I use my original authenticator after importing it as ASF 2FA?
+### Da li mogu koristiti moj originalni autentikator nakog što je premjestim u ASF 2FA?
 
-Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
-
-* * *
-
-### Where is ASF mobile authenticator saved?
-
-ASF mobile authenticator is saved in `BotName.db` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
+Da, originalni autentikator ostaje funkcionalan i vi ga možete koristiti zajedno sa ASF 2FA. To je cijela svrha ovog procesa - mi kopiramo vaše autentikatorske kredencijale u ASF, da bi ASF mogao da ih koristi i da prihvata određene potvrde u vaše ime.
 
 * * *
 
-### How to remove ASF 2FA?
+### Gdje je ASF mobilna autentikacija sačuvana?
 
-Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
+ASF mobilni autentikator je sačuvan u `BotName.db` fajlu u config direktorijumu, zajedno sa ostalim značajnim podacima povezanim sa vašim nalogom. Ako želite da uklonite ASF 2FA, pročitajte ovo ispod.
+
+* * *
+
+### Kako da uklonite ASF 2FA?
+
+Jednostavno isključite ASF i uklonite `BotName.db` vašeg bota koji posjeduje ASF 2FA a kome želite da ga uklonite. Ova opcija će ukloniti asocirani 2FA od ASF-a, ali NEĆE razdvojiti vaš autentikator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 
 * * *
 

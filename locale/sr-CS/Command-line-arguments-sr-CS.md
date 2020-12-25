@@ -4,11 +4,11 @@ ASF includes support for several command-line arguments that can affect the prog
 
 * * *
 
-## Usage
+## Korišćenje
 
-Usage depends on your OS and ASF flavour.
+Korišćenje je drugačije u zavisnosti od OS-a i ASF varijante.
 
-Generic:
+Obična:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -28,21 +28,21 @@ Linux/OS X
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Ako vaša opcija ima odvajanja, ne zaboravite da stavite znake navoda oko nje. Ove dvije su netačne:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Loše!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Loše!
 ```
 
-However, those two are completely fine:
+Ali ove su kompletno tačne:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Opcije
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
@@ -73,9 +73,9 @@ If you're considering using this command-line argument for running multiple inst
 Examples:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
-ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Apsolutno mjesto
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relativno mjesto
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Isto kao env varijabla
 ```
 
 ```text

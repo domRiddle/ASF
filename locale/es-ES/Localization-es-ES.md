@@ -93,7 +93,7 @@ Para una lista completa de todos los idiomas disponibles a los que ASF puede ser
 
 ## Pluralización
 
-Cada idioma tiene sus propias reglas en lo que se refiere a la pluralización. Esas reglas se pueden encontrar en **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** que especifica su número y condiciones exactas del idioma.
+Cada idioma tiene sus propias reglas en lo que se refiere a la pluralización. Esas reglas se pueden encontrar en **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** que especifica su número y condiciones exactas del idioma.
 
 Hacemos todo lo posible para ofrecerte una localización flexible, y mientras sea posible, esto también incluye las reglas del plural. Por ejemplo, traduciremos la siguiente cadena al polaco:
 

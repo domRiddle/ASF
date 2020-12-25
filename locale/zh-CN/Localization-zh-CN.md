@@ -93,7 +93,7 @@ ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 10
 
 ## 复数形式
 
-每种语言都有自己独有的复数规则。 这些规则可以在 **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** 上找到，针对不同的数字和确切的语言条件。
+每种语言都有自己独有的复数规则。 这些规则可以在 **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** 上找到，针对不同的数字和确切的语言条件。
 
 我们尽力为您提供本地化的灵活性，这也尽可能包括了复数规则。 例如，假设我们需要将这条文本翻译为波兰语：
 

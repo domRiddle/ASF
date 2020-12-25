@@ -93,7 +93,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ## Pluralizacja
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
 We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
 
@@ -127,7 +127,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
 Which is originally written as:
 

@@ -1,21 +1,21 @@
-# Steam Family Sharing
+# Steam porodično dijeljenje
 
-ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF podržav Steam porodično dijeljenje od verzije 2.1.5.5+. Da bi ste razumjeli kako ASF radi sa njim, morate prvo pročitati kako **[Steam porodično dijeljenje](https://store.steampowered.com/promotion/familysharing)** radi, a to je dostupno na Steam prodavnici.
 
 * * *
 
 ## ASF
 
-Support for Steam Family Sharing feature in ASF is transparent, which means that it doesn't introduce any new bot/process config properties - it works out of the box as an extra built-in functionality.
+Podrška za Steam porodično dijeljenje je transparentna u ASF-u, što znači da se ne prave novi botovi/procesi u konfiguraciju - radi odmah kao dodatna funkcionalnost.
 
-ASF includes appropriate logic in order to be aware of library being locked by family sharing users, therefore it won't "kick" them out of playing session due to launching a game. ASF will act exactly the same as with primary account holding the lock, therefore if that lock is being held either by your steam client, or by one of your family sharing users, ASF will not attempt to farm, instead, it will wait for the lock to be released.
+ASF prepoznaje ako neko igra i neće ga izbaciti iz igrice ako pokrenete igricu. ASF će biti kao primarni profil koji ima ključ, pa ako je taj ključ u vašem posjedovanju, ili u posjedovanju nekog sa kim je podijeljen, ASF neće farmati, odnosno, čekaće da se ključ oslobodi.
 
-In addition to above, after logging in, ASF will access your **[games sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Those users are given `FamilySharing` permission to use **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, especially allowing them to use `pause~` command on bot account that is sharing games with them, which allows to pause automatic cards farming module in order to launch a game that can be shared.
+U dodatku sa ovim iznad, ASF će pristupiti vašim **[podešavanjima dijeljenja](https://store.steampowered.com/account/managedevices)**, iz kojih će moći da uzme do 5 `steamID`-ova dozvoljenih da koriste kolekciju igrica. Ovim korisnicima koji imaju dozvoli da koriste `FamilySharing` biće dostupne **[komande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, posebno komanda koja im omogućava `pause~` naredbu bot profilu koji dijeli igrice sa njima, što im omogućava da pauziraju automatsko farmanje kartica da bi mogli da pokrenu igricu koja se dijeli sa njima.
 
-Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
+Povezivanje obje funkcionalnosti dozvoljava vašim prijateljima da `pause~` vaše farmanje kartica, pokrenu igricu, igraju koliko oće, pa kad završe proces će se automatski nastaviti u ASF. Naravno, slanje `pause~` nije potrebno ako ASF ne farma nešto trenutno, zato što vaši prijatelji mogu pokrenuti igricu odmah, i oni neće biti izbačeni iz igrice.
 
 * * *
 
-## Limitations
+## Limitacije
 
-Steam network loves to mislead ASF by broadcasting false status updates, which may lead to ASF believing it's fine to resume process, and in result kick your friend too soon. This is exactly the same issue as the one already explained by us in **[this FAQ entry](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. We recommend exactly the same solutions, mainly promoting your friends to `Operator` permission (or above) and telling them to make use of `pause` and `resume` commands.
+Steam network često šalje netačne poruke za status korisnika ASF-u, što može prouzrokovati da ASF povjeruje da je moguće da nastavi sa radom, a za rezultat toga da vaš prijatelj bude izbačen. Ovo je isti problem kao onaj već pomenut u **[ovoj FAQ odrednici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**. Mi predlažemo istu rješenje, tj. davanje vašem prijatelju `Operator` dozvolu (ili veću) i obavijestiti ga da koristi `pause` i `resume` komande.

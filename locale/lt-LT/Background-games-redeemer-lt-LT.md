@@ -12,7 +12,7 @@ Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis n�
 
 ### Failas
 
-ASF pats atpažins savo `config` direktorijoje failą, pavadintą `BotName.keys` kur `BotName` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
+ASF pats atpažins savo `konfiguracija` direktorijoje failą, pavadintą `BotName.keys` kur `RobotoVardas` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM

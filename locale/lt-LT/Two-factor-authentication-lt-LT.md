@@ -22,7 +22,7 @@ You can verify whether your bot account is using ASF 2FA already by executing `2
 
 ## Įkėlimas
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
+Jeigu norite naudoti ASF 2FA, jūs turite turėti jau sujungta ir operatyvia autentifikatorių, kuris būtų palaikomas ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 
@@ -34,7 +34,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 * * *
 
-### Android phone
+### Android telefonas
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
@@ -121,7 +121,7 @@ If ASF 2FA is available, ASF will use it for automatic confirmation of trades th
 
 * * *
 
-### What if I need a 2FA token?
+### O kas jeigu man reikia 2FA kodo?
 
 You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
 
@@ -139,7 +139,7 @@ ASF mobile authenticator is saved in `BotName.db` file in your config directory,
 
 * * *
 
-### How to remove ASF 2FA?
+### Kaip pašalinti ASF 2FA?
 
 Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 

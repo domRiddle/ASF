@@ -18,7 +18,7 @@
 
 请阅读文档了解所有您能使用的属性，我们也会在此说明（在我们眼中）最重要的几个：
 
-### `gcServer`
+### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
 > 配置应用程序是使用工作站垃圾回收还是服务器垃圾回收。
 

@@ -1,8 +1,8 @@
 # Zabezpieczenia
 
-## Encryption
+## Szyfrowanie
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF obsługuje obecnie następujące metody szyfrowania jako definicję `ECryptoMethod`:
 
 | Wartość | Nazwa                       |
 | ------- | --------------------------- |
@@ -10,7 +10,7 @@ ASF currently supports the following encryption methods as a definition of `ECry
 | 1       | AES                         |
 | 2       | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+Dokładny opis i porównanie są dostępne poniżej.
 
 In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
 
@@ -64,7 +64,7 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 | 1       | SCrypt       |
 | 2       | Pbkdf2       |
 
-The exact description and comparison of them is available below.
+Dokładny opis i porównanie są dostępne poniżej.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 

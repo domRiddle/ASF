@@ -18,7 +18,7 @@ Modul recomandat de aplicare al acestor setări este prin modificarea proprietă
 
 Consultați documentația pentru toate proprietățile pe care le puteți folosi, le vom menționa pe cele mai importante (în opinia noastră) mai jos:
 
-### `gcServer`
+### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
 > Configurează dacă aplicaţia se foloseşte de colectarea gunoiului de la staţia de lucru sau de colectarea gunoiului de pe server.
 

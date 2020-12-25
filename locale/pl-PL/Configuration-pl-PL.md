@@ -45,7 +45,7 @@ I strongly recommend to use web-based ConfigGenerator, but if for some reason yo
 
 ## Ustawienia globalne
 
-Global config is located in `ASF.json` file and has following structure:
+Globalna konfiguracja znajduje się w pliku `ASF.json` i ma następującą strukturę:
 
 ```json
 {
@@ -83,7 +83,7 @@ Global config is located in `ASF.json` file and has following structure:
 
 * * *
 
-All options are explained below:
+Wszystkie opcje zostały wyjaśnione poniżej:
 
 ### `AutoRestart`
 
@@ -322,7 +322,7 @@ As you should know already, every bot should have its own config based on exampl
 
 **Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
 
-The bot config has following structure:
+Konfiguracja bota ma następującą strukturę:
 
 ```json
 {
@@ -361,7 +361,7 @@ The bot config has following structure:
 
 * * *
 
-All options are explained below:
+Wszystkie opcje zostały wyjaśnione poniżej:
 
 ### `AcceptGifts`
 
@@ -573,8 +573,8 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | Wartość | Nazwa               |
 | ------- | ------------------- |
-| 0       | Nieaktywny          |
-| 1       | Dostępny            |
+| 0       | Offline             |
+| 1       | Online              |
 | 2       | Zajęty              |
 | 3       | Nieobecny(a)        |
 | 4       | Drzemka             |
@@ -772,7 +772,7 @@ However, some people could be concerned even about this little detail, therefore
 
 ## Struktura pliku
 
-ASF is using quite simple file structure.
+ASF używa dość prostej struktury plików.
 
 ```text
 ├── config
@@ -826,19 +826,19 @@ Types used by ASF are native C# types, which are specified below:
 
 `bool` - Boolean type accepting only `true` and `false` values.
 
-Example: `"Enabled": true`
+Przykład: `"Enabled": true`
 
 * * *
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"ConnectionTimeout": 60`
+Przykład: `"ConnectionTimeout": 60`
 
 * * *
 
 `ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
 
-Example: `"WebLimiterDelay": 300`
+Przykład: `"WebLimiterDelay": 300`
 
 * * *
 
@@ -848,31 +848,31 @@ Example: `"WebLimiterDelay": 300`
 
 `ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
 
-Example: `"SteamMasterClanID": 103582791440160998`
+Przykład: `"SteamMasterClanID": 103582791440160998`
 
 * * *
 
 `string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+Przykłady: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
 * * *
 
 `ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
 
-Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+Przykład dla `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 * * *
 
 `ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
-Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
+Przykład dla `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 * * *
 
 `ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`. There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
-Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+Przykład dla `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 * * *
 
@@ -900,7 +900,7 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `B+C -> 6`
 - `A+B+C -> 7`
 
-Example: `"SteamProtocols": 7`
+Przykład: `"SteamProtocols": 7`
 
 * * *
 

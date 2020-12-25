@@ -1,4 +1,4 @@
-# Setting up
+# Postavljanje
 
 If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
 
@@ -8,17 +8,17 @@ This however doesn't mean that you can't use it on your PC or using it is in som
 
 * * *
 
-## OS-specific setup
+## OS-specifično postavljanje
 
-In general, here is what we'll do in the next few minutes:
+Opšte kazano, ovo ćete raditi nekoliko sledećih minuta:
 
-- Install **[.NET Core prerequisites](#net-core-prerequisites)**.
-- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in appropriate OS-specific variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
-- Launch ASF and see the magic.
+- instalirati **[.NET Core prerequisites](#net-core-prerequisites)**,
+- preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** u odgovarajućoj OS-specifičnoj varijanti,
+- ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm` ako ste na Linux-u/OS X-u),
+- **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- pokrenite ASF i vidite magiju.
 
-Sounds simple enough, right? So let's get through it.
+Zvuči jednostavno, zar ne? Pa počnimo.
 
 * * *
 
@@ -32,7 +32,7 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
+- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 za 64-bit Windows, x86 za 32-bit Windows)
 - It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
@@ -41,21 +41,21 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libicu` (`icu-libs`, poslednju verziju za vašu distribuciju, npr. `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `libssl1.1` (`libssl`, `openssl-libs`, poslednju verziju na vašoj distribuciji, `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`, u verziji `5.0` ili većoj)
 - `zlib1g` (`zlib`)
 
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
-- None for now, but you should have latest version of OS X installed, at least 10.13+
+- Ništa za sada, ali trebate imati poslednju verziju OS X instaliranu, najmanje 10.13+
 
 * * *
 
-### Downloading
+### Preuzimanje
 
 Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
 
@@ -70,13 +70,13 @@ Be advised to unpack ASF to **its own directory** and not to any existing direct
 An example structure would look like this:
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF (gdje stavljate vaše stvari)
+    ├── ASF shortcut.lnk (opcionalno)
+    ├── Config shortcut.lnk (opcionalno)
+    ├── Commands.txt (opcionalno)
+    ├── MyExtraScript.bat (opcionalno)
+    ├── (...) (bilo koji fajl koji vi izaberete, opcionalno)
+    └── Core (samo za ASF, ovdje ekstrakujete arhivu)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -86,7 +86,7 @@ C:\ASF (where you put your own things)
 
 * * *
 
-### Configuration
+### Konfiguracija
 
 We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 
@@ -125,13 +125,13 @@ You can now hit "download" button and our web config generator will generate new
 
 Your `config` directory will now look like this:
 
-![Structure 2](https://i.imgur.com/crWdjcp.png)
+![Struktura 2](https://i.imgur.com/crWdjcp.png)
 
 Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
 
 * * *
 
-### Running ASF
+### Pokretanje ASF-a
 
 You're now ready to launch the program for the first time. Simply double-click `ArchiSteamFarm` binary in ASF directory.
 
@@ -166,7 +166,7 @@ In other words, simply jump to configuration again and do exactly the same, just
 
 * * *
 
-#### Changing settings
+#### Mijenjanje podešavanja
 
 You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
 
@@ -220,13 +220,13 @@ Please note that ASF-ui is currently in preview state and not everything is avai
 
 * * *
 
-### Summary
+### Zaključak
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 
 * * *
 
-## Generic setup
+## Opšta podešavanja
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
@@ -246,7 +246,7 @@ With extra steps:
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in generic variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET Core SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

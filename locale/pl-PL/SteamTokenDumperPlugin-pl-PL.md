@@ -4,7 +4,7 @@
 
 ---
 
-## Enabling the plugin
+## Włączanie wtyczki
 
 ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
 
@@ -18,7 +18,7 @@ On the launch of the ASF program, the plugin will let you know whether it was en
 
 ---
 
-## Technical details
+## Szczegóły techniczne
 
 Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
 
@@ -28,7 +28,7 @@ The plugin uses a persistent cache database saved in `config/SteamTokenDumper.ca
 
 ---
 
-## Data
+## Dane
 
 ASF includes the contributor `steamID` in the request, which is determined as `SteamOwnerID` that you set in ASF, or in case you didn't, the Steam ID of the bot which owns the most licenses. The announced contributor might receive some additional perks from SteamDB for continuous help (e.g. donator rank on the website), but that is entirely up to SteamDB's discretion.
 

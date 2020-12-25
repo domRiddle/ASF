@@ -52,7 +52,7 @@ La forma recomendada de aplicar estas configuraciones es a través de las propie
 
 Consulta la documentación para todas las propiedades que puedes utilizar, a continuación mencionaremos las más importantes (en nuestra opinión):
 
-### `GCHeapHardLimitPercent`
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > Especifica el uso de la recolección de elementos no utilizados como un porcentaje de la memoria total.
 
@@ -60,13 +60,19 @@ El límite de memoria para el proceso de ASF, este parámetro ajusta la recolecc
 
 Por otro lado, establecer este valor lo suficientemente alto es una forma perfecta de asegurar que ASF nunca usará más memoria de la que puedes permitirte realmente, dando a tu máquina un respiro incluso bajo una carga pesada, y permitiendo al programa hacer su trabajo de manera tan eficiente como sea posible.
 
+### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+
+> La carga de memoria es indicada por el porcentaje de memoria física en uso.
+
+This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+
 ### `GCLatencyLevel`
 
 > Especifica el nivel de latencia de GC para el que quieres optimizar.
 
 Esta es una propiedad no documenta que resultó funcionar excepcionalmente bien para ASF, limitando los tamaños de generación del recolector de basura y en consecuencia hace que este los purgue más frecuente y agresivamente. El nivel de latencia (equilibrado) por defecto es `1`, queremos usar `0`, lo que ajustará el uso de memoria.
 
-### `gcTrimCommitOnLowMemory`
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > Cuando está establecido se recorta el espacio comprometido más agresivamente para el segmento efímero. Esto se utiliza para ejecutar muchas instancias de procesos de servidor donde quieren mantener tan poca memoria comprometida como sea posible.
 
@@ -77,8 +83,9 @@ Esto ofrece pocos beneficios, pero puede hacer que el recolector de basura (GC) 
 Puedes habilitar todas las propiedades del recolector de basura (GC) estableciendo las variables de entorno `COMPlus_` apropiadas. Por ejemplo, en Linux (shell):
 
 ```shell
-# Don't forget to tune this one if you're going to use it
-export COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+export COMPlus_GCHighMemPercent=50 # 80% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
@@ -89,8 +96,9 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 O en Windows (powershell):
 
 ```powershell
-# Don't forget to tune this one if you're going to use it
-$Env:COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1

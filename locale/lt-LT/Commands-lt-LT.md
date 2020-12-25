@@ -4,9 +4,9 @@ ASF palaiko daugybę komandų, kurias galima naudoti kontroliuoti botams ir proc
 
 Below commands can be sent to the bot through various different ways:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Per interaktyvią ASF konsolę
+- Per Steam privatų/grupės pokalbį
+- Per mūsų **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** sąsają
 
 Prisiminkite, jog ASF reikalauja jus turėti atitinkamas teises į skirtingas komandas. Pasiskaitykite `SteamUserPermissions` ir `SteamOwnerID` nustatymų skiltį, jei norite sužinoti daugiau.
 

@@ -52,7 +52,7 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 
 请阅读文档了解所有您能使用的属性，我们也会在此说明（在我们眼中）最重要的几个：
 
-### `GCHeapHardLimitPercent`
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > 以内存百分比形式指定 GC 堆空间使用量。
 
@@ -60,13 +60,19 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 
 另一方面，如果您希望 ASF 不会使用超出您可接受范围的内存，让您的设备在高负载的情况下依然有喘息的空间，但仍然允许程序尽可能高效率地完成它的任务，就可以合理调高这个选项。
 
+### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+
+> Memory load is indicated by the percentage of physical memory in use.
+
+This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+
 ### `GCLatencyLevel`
 
 > 指定您要优化的 GC 延迟级别。
 
 这个属性未公开，但实际上非常有效，它会限制 GC 代数的大小，使 GC 发生得更频繁。 默认的（平衡）延迟级别为 `1`，而我们希望它为 `0`，这将会调整内存用量。
 
-### `gcTrimCommitOnLowMemory`
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > 设置此选项时，我们会更积极地为暂时段减少提交的空间。 这可用于运行多个服务器进程的实例，这些实例需要尽可能地保持较小的内存提交。
 
@@ -77,25 +83,27 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
-# 如要使用此功能，不要忘记调整此数值
-export COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+export COMPlus_GCHighMemPercent=50 # 80% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # 针对操作系统包
+./ArchiSteamFarm # For OS-specific build
 ```
 
 或者在 Windows 上（Powershell）：
 
 ```powershell
-# 如要使用此功能，不要忘记调整此数值
-$Env:COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # 针对操作系统包
+.\ArchiSteamFarm.exe # For OS-specific build
 ```
 
 其中 `GCLatencyLevel` 将非常有用，因为我们可以验证运行时环境确实为内存优化了代码，因此即使采用服务器 GC 也会显著降低平均内存使用量。 如果您希望显著降低 ASF 的内存用量，但不希望 `OptimizationMode` 造成严重的性能下降，那么这是您可以选择的最佳技巧之一。

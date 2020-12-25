@@ -85,11 +85,11 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 │     │     └── ...
 │     └── TargetDirectory
 │           ├── config
-│           ├── logs (generated)
-│           ├── plugins (optional)
-│           ├── www (optional)
-│           ├── log.txt (generated)
-│           └── NLog.config (optional)
+│           ├── logs (wygenerowane)
+│           ├── plugins (opcjonalne)
+│           ├── www (opcjonalne)
+│           ├── log.txt (wygenerowane)
+│           └── NLog.config (opcjonalne)
 └── ...
 ```
 

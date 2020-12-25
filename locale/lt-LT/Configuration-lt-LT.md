@@ -573,8 +573,8 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | Reikšmė | Pavadinimas    |
 | ------- | -------------- |
-| 0       | Offline        |
-| 1       | Online         |
+| 0       | Išjungtas      |
+| 1       | Įjungtas       |
 | 2       | Busy           |
 | 3       | Away           |
 | 4       | Snooze         |

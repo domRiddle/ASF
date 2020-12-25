@@ -93,7 +93,7 @@ Para obter uma lista completa de todos os idiomas disponíveis para os quais o A
 
 ## Pluralização
 
-Cada idioma tem suas próprias regras em relação à pluralização. Essas regras podem ser encontradas no **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** que especifica o número e as condições exatas de linguagem.
+Cada idioma tem suas próprias regras em relação à pluralização. Essas regras podem ser encontradas no **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** que especifica o número e as condições exatas de linguagem.
 
 Estamos fazendo o melhor para lhe oferecer uma tradução flexível, e tanto quanto possível isto também irá incluir regras de plural. Por exemplo, vamos traduzir a seguinte sentença para o Polonês:
 

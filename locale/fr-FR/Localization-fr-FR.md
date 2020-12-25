@@ -101,7 +101,7 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <h2>Pluralization</h2>
 
-<p>Every language has its own rules in regards to pluralization. Those rules can be found on <strong><a href="https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html">CLDR</a></strong> which specifies their number and exact language conditions.</p>
+<p>Every language has its own rules in regards to pluralization. Those rules can be found on <strong><a href="https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html">CLDR</a></strong> which specifies their number and exact language conditions.</p>
 
 <p>We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:</p>
 

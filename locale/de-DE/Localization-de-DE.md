@@ -93,7 +93,7 @@ Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werde
 
 ## Pluralisierung
 
-Jede Sprache hat ihre eigenen Regeln in Bezug auf die Pluralisierung. Diese Regeln findest du unter **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)**, welche ihre Anzahl und genauen Sprachbedingungen angibt.
+Jede Sprache hat ihre eigenen Regeln in Bezug auf die Pluralisierung. Diese Regeln findest du unter **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)**, welche ihre Anzahl und genauen Sprachbedingungen angibt.
 
 Wir tun unser Bestes, um dir eine flexible Lokalisierung anzubieten, und so lange wie möglich, wird dies auch Regeln für Pluralisierung beinhalten. Als Beispiel werden wir heute folgende Zeichenkette ins Polnische übersetzen:
 

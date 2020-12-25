@@ -93,7 +93,7 @@ ASF 프로젝트의 번역 가능한 전체 언어 목록은 **[여기를 참고
 
 ## 복수화
 
-모든 언어는 복수화에 관한 각각의 규칙이 있습니다. 이 규칙은 숫자와 언어 상태를 특정하는 **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** 에서 찾을 수 있습니다.
+모든 언어는 복수화에 관한 각각의 규칙이 있습니다. 이 규칙은 숫자와 언어 상태를 특정하는 **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** 에서 찾을 수 있습니다.
 
 유연한 지역화를 위해 최선을 다하고 있습니다. 그리고 가능한한 복수 규칙을 포함할 것입니다. 예를 들어, 오늘은 다음의 문자열을 폴란드어로 번역할것입니다.
 

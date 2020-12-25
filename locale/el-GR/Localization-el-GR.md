@@ -93,7 +93,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ## Πληθυντικός
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
 We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
 

@@ -52,7 +52,7 @@ A forma recomendada de aplicar essas configurações é através das propriedade
 
 Consulte a documentação para todas as propriedades que você pode usar, mencionaremos as mais importantes (na nossa opinião) abaixo:
 
-### `GCHeapHardLimitPercent`
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > Especifica o montante de uso do do coletor de lixo como uma porcentagem da memória total.
 
@@ -60,13 +60,19 @@ O limite de memória "difícil" para o processo do ASF, essa propriedade liga o 
 
 Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita para garantir que o ASF nunca usará mais memória do que você pode realmente dispor, dando algum espaço para sua máquina respirar mesmo sob carga pesada, enquanto ainda permite que o programa faça seu trabalho eficientemente quando possível.
 
+### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+
+> Memory load is indicated by the percentage of physical memory in use.
+
+This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+
 ### `GCLatencyLevel`
 
 > Especifica o nível de latência do coletor de lixo que você deseja otimizar.
 
 Essa é uma propriedade não documentada que funciona excepcionalmente bem, limitando o tamanho das gerações de coleta de lixo e como resultado fazendo o coletor de lixo expurgá-los mais frequentemente e de forma mais agressiva. O atraso padrão (balanceado) de latência é `1`, devemos usar `0`, que vai reduzir o uso de memória.
 
-### `gcTrimCommitOnLowMemory`
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > Quando ativo, nós ajustamos a memória alocada de forma mais agressiva para os segmentos de curta duração. Isso é usado para rodar vários processos no servidor, onde há a necessidade do menor uso de memória possível.
 
@@ -77,25 +83,27 @@ Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agress
 Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
 ```shell
-# Não se esqueça de ajustar este se você vai usá-lo
-export COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+export COMPlus_GCHighMemPercent=50 # 80% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 
-./ ArchiSteamFarm # Para a versão específica de OS
+./ArchiSteamFarm # For OS-specific build
 ```
 
 Ou no Windows (powershell):
 
 ```powershell
-# Não se esqueça de ajustar este se você vai usá-lo
-$Env:COMPlus_GCHeapHardLimitPercent=75
+# Don't forget to tune those if you're planning to make use of them
+$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
+$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # Para a versão específica de OS
+.\ArchiSteamFarm.exe # For OS-specific build
 ```
 
 `GCLatencyLevel` será especialmente útil, pois verificamos que o tempo de execução de fato otimiza o código para a memória e portanto diminui significativamente o uso de memória, mesmo com o coletor de lixo do servidor. Esse é uma das melhores dicas que você pode aplicar se você deseja diminuir significativamente o uso de memória pelo ASF sem degradar demais o desempenho com `OptimizationMode`.

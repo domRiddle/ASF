@@ -18,7 +18,7 @@ A forma recomendada de aplicar essas configurações é através das propriedade
 
 Consulte a documentação para todas as propriedades que você pode usar, mencionaremos as mais importantes (na nossa opinião) abaixo:
 
-### `gcServer`
+### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
 > Configura se o aplicativo usa a coleta de lixo da estação de trabalho ou do servidor.
 

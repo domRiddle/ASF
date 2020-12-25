@@ -1,4 +1,4 @@
-# Commands
+# Komande
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
@@ -14,21 +14,21 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 * * *
 
-### Interactive console
+### Interaktivna konsola
 
 Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![Snimak еkrana](https://i.imgur.com/bH5Gtjq.png)
 
 Interactive console is not available in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode.
 
 * * *
 
-### Steam chat
+### Steam ćaskanje
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![Snimak еkrana](https://i.imgur.com/IvFRJ5S.png)
 
 In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
@@ -42,15 +42,15 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Snimak еkrana](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
 
 * * *
 
-## Commands
+## Komande
 
-| Command                                                              | Pristup         | Description                                                                                                                                                                                                                                                                                                                         |
+| Komanda                                                              | Pristup         | Opis                                                                                                                                                                                                                                                                                                                                |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
+| `2fa [Bots]`                                                         | `Master`        | Generiše kratkotrajni **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token za ovu bot instancu.                                                                                                                                                                                           |
 | `2fano [Bots]`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
 | `2faok [Bots]`                                                       | `Master`        | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                 |
 | `addlicense [Bots] <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                                                                                                                                                  |
@@ -99,11 +99,11 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                              |
 | `unpack [Bots]`                                                      | `Master`        | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                                                                                                                                                           |
 | `update`                                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
-| `version`                                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
+| `version`                                                            | `FamilySharing` | Prikazuje verziju ASF-a.                                                                                                                                                                                                                                                                                                            |
 
 * * *
 
-### Notes
+### Beleške
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
@@ -123,7 +123,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komanda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -132,7 +132,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-### `[Bots]` argument
+### `[Bots]` opcije
 
 `[Bots]` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -144,11 +144,11 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## `privacy` podešavanja
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Ime            | Child of   |
+| Argument | Ime            | Pripada    |
 | -------- | -------------- | ---------- |
 | 1        | Profile        |            |
 | 2        | OwnedGames     | Profile    |
@@ -158,19 +158,19 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 | 6        | InventoryGifts | Inventory  |
 | 7        | Comments       | Profile    |
 
-For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
+Za opis polja iznad, posjetite **[Steam podeđavanja privatnosti](https://steamcommunity.com/my/edit/settings)**.
 
-While valid values for all of them are:
+Dok su pravilne vrijednosti za sve njih:
 
-| Value | Ime           |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Vrijednost | Ime           |
+| ---------- | ------------- |
+| 1          | `Private`     |
+| 2          | `FriendsOnly` |
+| 3          | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Možete koristiti ili imena koja se mogu pisati i velikim i malim slovima, ili brojeve. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Example
+### Primjer
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -198,20 +198,20 @@ Remember that child can never have more open permission than its parent. Refer t
 
 * * *
 
-## `addlicense` licenses
+## `addlicense` licence
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Example      | Description                                                             |
-| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Tip   | Alias | Primjer      | Opis                                                                          |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Igrica koja je određena svojim unikatnim `appID`.                             |
+| `sub` | `s`   | `sub/47807`  | Paket koji sadrži jednu ili više igrica, određen sa svojim unikatnim `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Pun primjer komande:
 
 ```text
 addlicense ASF app/292030,sub/47807
@@ -223,16 +223,16 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                             |
-| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `name`  | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| Tip     | Alias | Primjer          | Opis                                                                                                                                                                                                                                                                                                                          |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Igrica koja je određena svojim unikatnim `appID`.                                                                                                                                                                                                                                                                             |
+| `sub`   | `s`   | `sub/47807`      | Paket koji sadrži jednu ili više igrica, određen sa svojim unikatnim `subID`.                                                                                                                                                                                                                                                 |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** koji je se odnosi na ime igrice, mora se voditi računa o tome kako su slova napisana. Pogljedajte **[dokumentaciju](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** za kompletnu sintaksu i više primjera. |
+| `name`  | `n`   | `name/Witcher`   | Dio imena igrice, ne mora se paziti kako se pišu slova.                                                                                                                                                                                                                                                                       |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Kompletan primjer komande:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -240,24 +240,24 @@ owns ASF app/292030,name/Witcher
 
 * * *
 
-## `redeem^` modes
+## `redeem^` načini
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Ime                   | Description                                                                     |
-| ----- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Vrijednost | Ime                   | Opis                                                                            |
+| ---------- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK       | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD         | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF         | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG       | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK       | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD         | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF         | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI         | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG       | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V          | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -267,19 +267,19 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
-## `encrypt` command
+## `encrypt` komande
 
 Encrypt command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
-## `hash` command
+## `hash` komande
 
 Hash command allows you to generated hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
-## `input` command
+## `input` komande
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
@@ -287,17 +287,17 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Tip                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
-| Login                   | `SteamLogin` bot config property, if missing from config.                  |
+| Lozinka                 | `SteamLogin` bot config property, if missing from config.                  |
 | Lozinka                 | `SteamPassword` bot config property, if missing from config.               |
-| SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
+| Snimak еkrana           | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
 
-`<Value>` is value set for given type. Currently all values are strings.
+`<Value>` je vrijednost postavljena za dati tip. Trenutno su sve vrijednosti stringovi.
 
-### Example
+### Primjer
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 

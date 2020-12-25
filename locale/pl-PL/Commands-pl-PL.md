@@ -2,11 +2,11 @@
 
 ASF obsługuje wiele poleceń, które mogą być użyte do kontrolowania zachowania procesu i botów.
 
-Below commands can be sent to the bot through various different ways:
+Komendy poniżej mogą być wysłane do botów na 3 różne sposoby:
 
 - Za pośrednictwem interaktywnej konsoli ASF
 - Przez prywatną/grupową wiadomość na Steam
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Przez nasz interfejs **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
 Pamiętaj że interakcja z ASF wymaga od Ciebie posiadania odpowiednich uprawnień. Sprawdź atrybuty `SteamUserPermissions` i `SteamOwnerID` pliku konfiguracyjnego aby dowiedzieć się więcej.
 
@@ -53,22 +53,22 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `2fa [Bots]`                                                         | `Master`        | Generuje tymczasowy token **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** dla danej instancji bota.                                                                                                                                                                                                                    |
 | `2fano [Bots]`                                                       | `Master`        | Odrzuca wszystkie oczekujące potwierdzenia **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** dla wskazanej instancji bota.                                                                                                                                                                                               |
 | `2faok [Bots]`                                                       | `Master`        | Akceptuje wszystkie oczekujące potwierdzenia **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** dla danej instancji bota.                                                                                                                                                                                                 |
-| `addlicense [Bots] <Licenses>`                                 | `Operator`      | Activates given `licenses`, explained **[below](#addlicense-licenses)**, on given bot instances (free games only).                                                                                                                                                                                                                                              |
-| `balance [Bots]`                                                     | `Master`        | Shows wallet balance of given bot instances.                                                                                                                                                                                                                                                                                                                    |
-| `bgr [Bots]`                                                         | `Master`        | Prints information about **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** queue of given bot instances.                                                                                                                                                                                                                 |
-| `bl [Bots]`                                                          | `Master`        | Lists blacklisted users from trading module of given bot instances.                                                                                                                                                                                                                                                                                             |
+| `addlicense [Bots] <Licenses>`                                 | `Operator`      | Aktywuje podane `licenses`, objaśnione **[poniżej](#addlicense-licenses)**, na określonych instancjach bota (tylko gry darmowe).                                                                                                                                                                                                                                |
+| `balance [Bots]`                                                     | `Master`        | Pokazuje saldo portfela dla poszczególnych instancji botów.                                                                                                                                                                                                                                                                                                     |
+| `bgr [Bots]`                                                         | `Master`        | Wyświetla informacje o kolejce **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** dla danych instancji botów.                                                                                                                                                                                                             |
+| `bl [Bots]`                                                          | `Master`        | Wyświetla listę użytkowników na czarnej liście modułu handlowego z danych instancji botów.                                                                                                                                                                                                                                                                      |
 | `bladd [Bots] <SteamIDs64>`                                    | `Master`        | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                                                         |
 | `blrm [Bots] <SteamIDs64>`                                     | `Master`        | Removes blacklist of given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                                               |
 | `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | Encrypts the string using provided cryptographic method - further explained **[below](#encrypt-command)**.                                                                                                                                                                                                                                                      |
-| `exit`                                                               | `Owner`         | Stops whole ASF process.                                                                                                                                                                                                                                                                                                                                        |
-| `farm [Bots]`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                                                                                                                                                                          |
+| `exit`                                                               | `Owner`         | Zatrzymuje cały proces ASF.                                                                                                                                                                                                                                                                                                                                     |
+| `farm [Bots]`                                                        | `Master`        | Uruchamia ponownie moduł farmienia kart dla danych instancji botów.                                                                                                                                                                                                                                                                                             |
 | `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Generated a hash of the string using provided cryptographic method - further explained **[below](#hash-command)**.                                                                                                                                                                                                                                              |
 | `help`                                                               | `FamilySharing` | Shows help (link to this page).                                                                                                                                                                                                                                                                                                                                 |
 | `input [Bots] <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                                                                                                                                                                                    |
 | `ib [Bots]`                                                          | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                                            |
 | `ibadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                           |
 | `ibrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                      |
-| `iq [Bots]`                                                          | `Master`        | Lists priority idling queue of given bot instances.                                                                                                                                                                                                                                                                                                             |
+| `iq [Bots]`                                                          | `Master`        | Wyświetla kolejkę farmienia dla poszczególnych instancji botów.                                                                                                                                                                                                                                                                                                 |
 | `iqadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to priority idling queue of given bot instances.                                                                                                                                                                                                                                                                                            |
 | `iqrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from priority idling queue of given bot instances.                                                                                                                                                                                                                                                                                       |
 | `level [Bots]`                                                       | `Master`        | Shows Steam account level of given bot instances.                                                                                                                                                                                                                                                                                                               |
@@ -88,9 +88,9 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                                                         |
 | `reset [Bots]`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                                                       |
 | `restart`                                                            | `Owner`         | Uruchamia proces ASF.                                                                                                                                                                                                                                                                                                                                           |
-| `resume [Bots]`                                                      | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                                                     |
+| `resume [Bots]`                                                      | `FamilySharing` | Wznawia automatyczne farmienie dla danych instancji botów. Zobacz również `pause`, `play`.                                                                                                                                                                                                                                                                      |
 | `start [Bots]`                                                       | `Master`        | Rozpoczyna się biorąc pod uwagę bot wystąpień.                                                                                                                                                                                                                                                                                                                  |
-| `stats`                                                              | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                                                        |
+| `stats`                                                              | `Owner`         | Wyświetla statystyki procesu, takie jak zużycie pamięci.                                                                                                                                                                                                                                                                                                        |
 | `status [Bots]`                                                      | `FamilySharing` | Stan grafiki podane bot wystąpień.                                                                                                                                                                                                                                                                                                                              |
 | `stop [Bots]`                                                        | `Master`        | Przystanki, biorąc pod uwagę bot wystąpień.                                                                                                                                                                                                                                                                                                                     |
 | `transfer [Bots] <TargetBot>`                                  | `Master`        | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                                                                                                            |
@@ -99,7 +99,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                                                          |
 | `unpack [Bots]`                                                      | `Master`        | Rozpakowuje wszystkie pakiety booster, przechowywane w magazynie podane bot wystąpień.                                                                                                                                                                                                                                                                          |
 | `update`                                                             | `Owner`         | Sprawdza, czy GitHub dla aktualizacji ASF (odbywa się automatycznie co `UpdatePeriod`).                                                                                                                                                                                                                                                                         |
-| `version`                                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                                                                                                                                                                          |
+| `version`                                                            | `FamilySharing` | Wyświetla wersję ASF.                                                                                                                                                                                                                                                                                                                                           |
 
 * * *
 
@@ -121,7 +121,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 * * *
 
-Some commands are also available with their aliases, to save you on typing:
+Niektóre polecenia są również dostępne z ich aliasami, aby uprościć ich wpisywanie:
 
 | Komenda      | Alias |
 | ------------ | ----- |
@@ -132,7 +132,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 * * *
 
-### `[Bots]` argument
+### Argument `[Bots]`
 
 `[Bots]` argument is a special variant of plural argument, as in addition to accepting multiple values it also offers extra functionality.
 
@@ -144,29 +144,29 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 * * *
 
-## `privacy` settings
+## Ustawienia prywatności `privacy`
 
 `<Settings>` argument accepts **up to 7** different options, separated as usual with standard comma ASF delimiter. Those are, in order:
 
-| Argument | Nazwa           | Child of      |
-| -------- | --------------- | ------------- |
-| 1        | Profil          |               |
-| 2        | Posiadane gry   | Profil        |
-| 3        | Czas gry        | Posiadane gry |
-| 4        | Lista znajomych | Profil        |
-| 5        | Ekwipunek       | Profil        |
-| 6        | InventoryGifts  | Ekwipunek     |
-| 7        | Komentarz       | Profil        |
+| Argument | Nazwa                | Child of      |
+| -------- | -------------------- | ------------- |
+| 1        | Profil               |               |
+| 2        | Posiadane gry        | Profil        |
+| 3        | Czas gry             | Posiadane gry |
+| 4        | Lista znajomych      | Profil        |
+| 5        | Ekwipunek            | Profil        |
+| 6        | Prezenty w ekwipunku | Ekwipunek     |
+| 7        | Komentarz            | Profil        |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
 While valid values for all of them are:
 
-| Wartość | Nazwa           |
-| ------- | --------------- |
-| 1       | `Prywatny`      |
-| 2       | `Tylko znajomi` |
-| 3       | `Publiczne`     |
+| Wartość | Nazwa         |
+| ------- | ------------- |
+| 1       | `Private`     |
+| 2       | `FriendsOnly` |
+| 3       | `Public`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -211,7 +211,7 @@ The distinction is important, as ASF will use Steam network activation for apps,
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `sub` in this case. You can also query one or more of the licenses at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Kompletny przykład polecenia:
 
 ```text
 addlicense ASF app/292030,sub/47807
@@ -232,7 +232,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Kompletny przykład polecenia:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -240,7 +240,7 @@ owns ASF app/292030,name/Witcher
 
 * * *
 
-## `redeem^` modes
+## Tryby `redeem^`
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
@@ -255,9 +255,9 @@ owns ASF app/292030,name/Witcher
 | SAWK    | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
 | SD      | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
 | SF      | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI      | Pomiń początkowe      | Skips key redemption on initial bot                                             |
+| SI      | SkipInitial           | Skips key redemption on initial bot                                             |
 | SKMG    | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V       | Potwierdź             | Validates keys for proper format and automatically skips invalid ones           |
+| V       | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -267,13 +267,13 @@ It's important to note that advanced redeem overrides only those `RedeemingPrefe
 
 * * *
 
-## `encrypt` command
+## Komenda `encrypt`
 
 Encrypt command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
-## `hash` command
+## Komenda `hash`
 
 Hash command allows you to generated hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
@@ -283,7 +283,7 @@ Hash command allows you to generated hashes of arbitrary strings using ASF's has
 
 Input command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
-General syntax is `input [Bots] <Type> <Value>`.
+Ogólna składnia to `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
@@ -301,7 +301,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to true.
 
-In order to do that, we need to execute following commands:
+Aby to zrobić, musimy wykonać następujące polecenia:
 
 `start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. We need this in order to make Steam network send us auth code on our e-mail - if there was no need for that, we'd skip this step entirely.
 

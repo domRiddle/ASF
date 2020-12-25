@@ -1,12 +1,12 @@
 # Handel
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF zawiera wsparcie dla nieinteraktywnych (offline) transakcji Steam. Zarówno odbieranie (akceptacja/odrzucenie), jak i wysyłanie transakcji jest dostępne od razu i nie wymaga specjalnej konfiguracji, ale oczywiście wymaga nieograniczonego konta Steam (które wydało już równowartość 5 dolarów amerykańskich w sklepie). Moduł handlowy jest niedostępny dla ograniczonych kont.
 
 * * *
 
 ## Logika
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF zawsze akceptuje wszystkie transakcje, niezależnie od przedmiotów, wysłane od użytkownika z dostępem `Master` (lub wyższym) do bota. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
