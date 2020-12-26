@@ -400,7 +400,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Description                                                                                                                                                                                                                    |
+| Status                  | Opis                                                                                                                                                                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |

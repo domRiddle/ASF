@@ -62,9 +62,9 @@ ASF 中使用的垃圾收集是一种非常复杂的机制，它足够智能，�
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Memory load is indicated by the percentage of physical memory in use.
+> 内存负载由正在使用的物理内存的百分比表示。
 
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+此选项设置您整个操作系统可供使用的内存上限，设置后，GC 将会更加积极，更频繁地运行 GC 进程，借此向操作系统释放更多空闲内存，以尝试帮助操作系统降低内存负载。 推荐将此属性设置为您认为将会严重影响操作系统性能的最大内存占用（百分比形式）。 默认值为 90%，通常您会希望保持其在 80-97% 范围内，因为过低的值会造成不必要的激进 GC 并降低性能，而过高的值可能会导致操作系统负担过重，应该让 ASF 释放一些内存以缓解。
 
 ### `GCLatencyLevel`
 
@@ -83,27 +83,27 @@ This setting configures the memory treshold of your whole OS, which once passed,
 您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
-export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-export COMPlus_GCHighMemPercent=50 # 80% as hex
+# 如要使用此功能，不要忘记调整此数值
+export COMPlus_GCHeapHardLimitPercent=4B # 16 进制表示的 75%
+export COMPlus_GCHighMemPercent=50 # 16 进制表示的 80%
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # 针对操作系统包
 ```
 
 或者在 Windows 上（Powershell）：
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
-$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
+# 如要使用此功能，不要忘记调整此数值
+$Env:COMPlus_GCHeapHardLimitPercent=4B # 16 进制表示的 75%
+$Env:COMPlus_GCHighMemPercent=50 # 16 进制表示的 80%
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.exe # 针对操作系统包
 ```
 
 其中 `GCLatencyLevel` 将非常有用，因为我们可以验证运行时环境确实为内存优化了代码，因此即使采用服务器 GC 也会显著降低平均内存使用量。 如果您希望显著降低 ASF 的内存用量，但不希望 `OptimizationMode` 造成严重的性能下降，那么这是您可以选择的最佳技巧之一。

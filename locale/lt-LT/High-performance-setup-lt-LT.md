@@ -18,7 +18,7 @@ The recommended way of applying those settings is through `COMPlus_` environment
 
 Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
-### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
+### [`gcServeris`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
 > Configures whether the application uses workstation garbage collection or server garbage collection.
 

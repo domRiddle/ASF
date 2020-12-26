@@ -80,20 +80,20 @@ This offers little improvement, but may make GC even more aggressive when system
 
 * * *
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Npr. na Linux (shell):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
-export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-export COMPlus_GCHighMemPercent=50 # 80% as hex
+# Ne zaboravite da podesite ova podešavanja ako planirate da ih koristite
+export COMPlus_GCHeapHardLimitPercent=4B # 75% kao hex
+export COMPlus_GCHighMemPercent=50 # 80% kao hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # Za OS-specifičnu verziju
 ```
 
-Or on Windows (powershell):
+Ili na Windowsu (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them

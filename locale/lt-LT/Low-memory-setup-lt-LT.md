@@ -60,11 +60,11 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
-### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+### [`GCDidelisAtmintiesProcentažas`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Memory load is indicated by the percentage of physical memory in use.
+> Atminties apkrova yra nurodyta naudojamos fizinės atminties procentažo.
 
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. Gera įdėja nustatyti šį nustatymą į maksimalų atminties (procentais), kurį jūs laikote "kirtinį" jūsų visai OS sistemos našumui. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
 ### `GCLatencyLevel`
 
@@ -74,13 +74,13 @@ This is undocumented property that turned out to work exceptionally well for ASF
 
 ### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
+> When set we trim the committed space more aggressively for the ephemeral seg. Tai yra naudojama, kai paleidžiama daug serverių procesų, kur jie yra laikomi kuo mažiau apkrauti atminties.
 
 This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
 
 * * *
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Pavyzdžiui, tarp Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -93,7 +93,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+Arba tarp Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -106,7 +106,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
 
-Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. Tai yra vienas iš geriausių triukų, jeigu jūs norite gerokai numažinti ASF atminties naudojima, nesumažindami jo našumo per daug su `OptimizacijosRežimas`.
 
 * * *
 
