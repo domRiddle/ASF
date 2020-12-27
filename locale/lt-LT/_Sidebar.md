@@ -38,7 +38,7 @@
 * **[Mažos atminties sąranka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Priedai](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Saugumas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[SteamTokenDumperPriedas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Trečiosios šalys](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dviejų lygių autentifikavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 

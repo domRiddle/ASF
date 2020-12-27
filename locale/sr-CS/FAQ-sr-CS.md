@@ -2,7 +2,7 @@
 
 Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
-# Table of contents
+# Sadržaj
 
 - [General](#general)
 - [Comparison with similar tools](#comparison-with-similar-tools)
@@ -12,13 +12,13 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 * * *
 
-## General
+## Osnovno
 
-### What is ASF?
+### Šta je ASF?
 
-### Why does the program claim that there is nothing to idle on my account?
+### Zašto moj program kaže da nema ničeg za idlovanje na mom nalogu?
 
-### Why is my account limited?
+### Zašto je moj nalog limitiran?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
@@ -56,13 +56,13 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### Koliko dugo treba da čekam da dobijem kartice?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**Toliko koliko je potrebno**-ozbiljno. Svaka igrica ima različito vrijeme farmanja postavljeno od strane developera/izdavača, i zavisi od njih koliko dugo je potrebno da bi se kartice dobile. Većina igrica prati rutinu od 1 kartice na 30 minuta igranja, ali ima i igrica koje zahtijevaju da igrate nekoliko sati prije nego što počnete da dobijate kartice. Dodatno tome, vaš nalog može biti imati ograničenje od strane igrica koje niste igrali dovoljno, kao što je napomenuto u **[performanse](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** sekciji. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
 
 * * *
 
-### Farming takes too long, can I somehow speed it up?
+### Farmanje traje predugo, mogu li ga kako ubrzati?
 
 The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 

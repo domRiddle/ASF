@@ -1,4 +1,4 @@
-# Performansa
+# Performanse
 
 The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
 
@@ -20,7 +20,7 @@ Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDr
 
 * * *
 
-### **There is no obvious answer which algorithm is better for you**.
+### **Ne postoji očigledan odgovor o najboljem algoritmu koji je najbolji za vas**.
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 

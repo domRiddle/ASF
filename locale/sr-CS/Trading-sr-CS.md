@@ -1,12 +1,12 @@
 # Razmjene
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF ima mogućnost Steam ne interaktivne (offline) razmjene. I primanje (prihvatanje/odbijanje) kao i slanje zahtjeva je dostupno odmah i ne zahtjeva specijalnu konfiguraciju, ali zahtijeva Steam nalog bez restrikcija (onaj koji je potrošio 5$ ili više na Steam prodavnici). Modul za razmjene je nedostupan nalogu sa restrikcijama.
 
 * * *
 
-## Logic
+## Logika
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF će uvijek prihvatiti sve razmjene, bez obzira na iteme, poslate od korisnika sa `Master` (ili većim) privilegijama botu. Ovo omogućava ne samo lako prikupljanje steam kartica koje su farmane od stane bota, nego i omogućava lako upravljanje Steam item-ima koje bot čuta u inventaru - uključujući i one iz ostalih igrica (kao što je CS:GO).
 
 ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
