@@ -44,19 +44,19 @@ Se compatibilidade não é um problema para você, e você se sente tranquilo co
 
 Tenha em mente que todos esses 3 métodos são considerados **inseguros** se um atacante tiver acesso ao seu PC. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` é a variante mais segura já que **mesmo outro usuário usando o mesmo PC não será capaz de descriptografá-lo**, mas ainda é possível descriptografar os dados se alguém for capas de roubar suas credenciais de login e informações do seu computador, juntamente com o arquivo de configuração do ASF.
 
-In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). Se isso não for um problema para você, então é sua melhor aposta em termos de segurança.
+In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. O ASF vai pedir sua senha Steam quando for necessário, e não a salvará em lugar algum, mas a manterá na memória do processo executado no momento, até que você o feche. Enquanto sendo o método mais seguro de lidar com senhas (já que não são salvas em nenhum lugar), é também o mais problemático já que você tem que entrar com sua senha manualmente cada vez que abrir o ASF (quando for necessário). Se isso não for um problema para você, então é sua melhor aposta em termos de segurança.
 
 * * *
 
 ## Descriptografar
 
-O ASF não suporta nenhuma forma de descriptografar senha já criptografadas, já que os métodos de descriptografia são usados internamente para acessar os dados dentro do processo. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+O ASF não suporta nenhuma forma de descriptografar senha já criptografadas, já que os métodos de descriptografia são usados internamente para acessar os dados dentro do processo. Se você quiser reverter o procedimento de criptografia, por exemplo, para mover o ASF para outro computador quando estiver usando o `ProtectedDataForCurrentUser`, então simplesmente repita o procedimento do início no novo ambiente.
 
 * * *
 
 ## Hashing
 
-ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
+O ASF suporta atualmente os seguintes métodos de hashing como uma definição de `EHashingMethod`:
 
 | Valor | Nome                             |
 | ----- | -------------------------------- |
@@ -64,15 +64,15 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 | 1     | SCrypt                           |
 | 2     | Pbkdf2                           |
 
-The exact description and comparison of them is available below.
+A descrição e comparação exatas estão disponíveis abaixo.
 
-In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
+Para gerar um hash, por exemplo, para uso de `IPCPassword` você deve executar `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** com o método de hash apropriado que você escolheu e sua senha de texto simples. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
 * * *
 
 ### PlainText (Texto sem formatação)
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. O ASF gerará o hash correspondente à entrada original. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
 * * *
 

@@ -43,10 +43,10 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
+    <Reference Include="ArchiSteamFarm" HintPath="C:\\Caminho\Para\Pasta\Onde\Esta\O\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <!-- Caso esteja compilando como parte da árvore raís do ASF, use isso ao invés da <Reference> acima -->
+    <!-- <ProjectReference Include="C:\\Caminho\Para\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```

@@ -1,22 +1,22 @@
 # Statistika
 
-ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
+ASF developovanje je podržano od 3 značajne stvari: donacija, povratna mišljenja korisnika i statistike. Donacije direktno utiču na našu volju da radimo na određenom projektu, povratna mišljenja korisnika su lijepa za čitanje (posebno pozitivna), dok nam statistike pružaju uvid u informacije o tome kako je naš softver iskorišćen, i koliko ga ljudi koristi - zbog toga znamo šta da poboljšamo, popravimo, i na čemu da se fokusiramo.
 
-ASF in default settings has `Statistics` global config property enabled. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, as this is what our current statistics are mainly doing. ASF does not collect or make use of any data that could be considered private and/or used against you. We keep the usage of statistics to bare minimum, and every single information being collected requires from us to precisely state it here, together with practical explanation. This gives you full insight into what we collect, for what purpose, and how it's supposed to help. All of that info can be found further below.
+ASF u opštim podešavanjima ima omogućen `Statistics` u globalnoj konfiguraciji. Ako želite da vidite šta će biti u novim verzijama, koji su bugovi popravljeni, i koje nove mogućnosti su dodate, onda omogućiti statistike, da bi smo mogli koristiti te podatke da bi omogućili bolji softver (ali ne samo to). Ovo je veoma važno jer je ASF **besplatan**, i ovo može biti način da kažete hvala - **kažete nam kako koristite ASF**, jer je to što trenutna statistika radi. ASF ne prikuplja i ne koristi podatke koji bi mogli biti privatni i/ili korišćeni protiv vas. Korišćenje statistika je minimalno, i svaka informacija koju prikupimo ima tačno objašnjenje zbog čega je potrebna, i ima praktično objašnjenje. Ovo vam pruža kompletan pregled tog što prikupljamo, za koju potrebu, i kako nam pomaže. Sve ove informacije možete pronaći ispod.
 
 * * *
 
 ## Trenutna politika privatnosti
 
-When `Statistics` are active, following things will happen:
+Kada su `Statistics` aktivirane, ove stvari će se desiti:
 
-1. Account being used in ASF will join our **[Steam group](https://steamcommunity.com/gid/103582791440160998)** upon login. This is done for three reasons:
+1. Nalog koji koristite pridružiće se našoj ASF **[Steam grupi](https://steamcommunity.com/gid/103582791440160998)** nakon prijavljivanja. Ovo radimo radi tri razloga:
 
-* It provides **you** with group announcements, especially new versions, critical issues, steam problems and other things that are important to keep community updated (no spam unrelated to ASF guaranteed)
-* It allows **you** to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements
-* It allows us to see how many actual steam accounts are being used by ASF
+* Ovo **vam** pruža obavlještenja iz grupe, posebno nove verzije, velike probleme, steam probleme i ostale stvari koje su potrebne da održe zajednicu informisanom (ne šaljemo spam i nevažne stvari za ASF)
+* Omogućava **vam** da koristite našu tehničku podršku, postavljajući pitanja, rešavajući probleme, prijavljivajući probleme ili predlažući načine da se nešto popravi
+* Omogućava nam da vidimo koliko steam naloga koristi ASF
 
-We consider Steam group as a crucial part in regards to ASF community. This is our main communication channel which we use for all important matters in regards to ASF, especially keeping you up-to-date with the development, potential issues, eventual warnings and all other matters that you should have access to as an user. We do not benefit from maintenance of that group in any way, it's the place dedicated to ASF users and we consider you part of our community. Since membership of the group in no way identifies you as ASF user, we do not consider this to be a problem in terms of privacy.
+Mi smatramo da je steam grupa važan dio ASF zajednice. This is our main communication channel which we use for all important matters in regards to ASF, especially keeping you up-to-date with the development, potential issues, eventual warnings and all other matters that you should have access to as an user. We do not benefit from maintenance of that group in any way, it's the place dedicated to ASF users and we consider you part of our community. Since membership of the group in no way identifies you as ASF user, we do not consider this to be a problem in terms of privacy.
 
 2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. Actual data consists of unique ASF ID (generated by ASF), and following account-related information:
 

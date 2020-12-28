@@ -62,9 +62,9 @@ Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita par
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Memory load is indicated by the percentage of physical memory in use.
+> A carga de memória é indicada pela porcentagem de memória física em uso.
 
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+Essa configuração ajusta o limite de memória de todo seu SO, fazendo com que o Coletor de Lixo se torne mais agressivo e tente ajudar o sistema operacional a reduzir a carga de memória executando um processo de coleta de lixo mais intenso e, em resultado disso, liberando mais memória livre de volta para o sistema operacional. É uma boa ideia definir essa propriedade para a quantidade máxima de memória (em porcentagem) que você considere "crítica" para o desempenho do SO. O padrão é 90% e vovê vai querer manter entre um intervalo de 80-97%, já que um valor muito baixo causará um agressão desnecessária do Coletor de Lixo e uma queda desnecessária de desempenho, enquanto um valor muito alto colocará uma carga desnecessária no seu SO, considerando que o ASF poderia liberar parte da memória para ajudar.
 
 ### `GCLatencyLevel`
 
@@ -83,27 +83,27 @@ Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agress
 Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
+# Não se esqueça de ajustar esses parâmetros caso vá usá-los
 export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 export COMPlus_GCHighMemPercent=50 # 80% as hex
 
 export COMPlus_GCLatencyLevel=0
 export COMPlus_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # Para OSes específicas
 ```
 
 Ou no Windows (powershell):
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
+# Não se esqueça de ajustar esses parâmetros caso vá usá-los
 $Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
 $Env:COMPlus_GCHighMemPercent=50 # 80% as hex
 
 $Env:COMPlus_GCLatencyLevel=0
 $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.exe # Para OSes específicas
 ```
 
 `GCLatencyLevel` será especialmente útil, pois verificamos que o tempo de execução de fato otimiza o código para a memória e portanto diminui significativamente o uso de memória, mesmo com o coletor de lixo do servidor. Esse é uma das melhores dicas que você pode aplicar se você deseja diminuir significativamente o uso de memória pelo ASF sem degradar demais o desempenho com `OptimizationMode`.

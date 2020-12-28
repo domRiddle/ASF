@@ -342,9 +342,9 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 * * *
 
-### Usar o ASF mantém a elegibilidade para receber pacotes de cartas?
+### Usar o ASF me mantém elegível para receber pacotes de cartas?
 
-**Sim**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Sim**. O ASF usa o mesmo método para se conectar a rede Steam que o cliente oficial, então ele também preserva a habilidade de receber pacotes para as contas que estão sendo usadas no ASF. Além disso, preservar essa habilidade não requer nem entrar na comunidade Steam, então você pode setar a configuração `OnlineStatus` para `Offline` e se manter invisível sem medo.
 
 * * *
 
