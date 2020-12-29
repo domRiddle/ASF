@@ -62,7 +62,7 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Memory load is indicated by the percentage of physical memory in use.
+> Die Speicherbelastung wird durch den Prozentsatz des verwendeten physikalischen Speichers angezeigt.
 
 This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 

@@ -1,10 +1,10 @@
-# Postavljanje
+# Podešavanje
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+Ako ste ovdje prvi put, dobro došli! Srećni smo da vidimo još nekog ko je zainteresovan za naš projekat, ali zapamtite da sa velikom moći dolazi velika odgovornost - ASF ima mogućnost da kontroliše mnogo stvari na Steam-u, ali samo ako **pazite kako da ga naučite**. Strma je linija učenja, a mi očekujemo od vas da pročitate wiki-u zbog toga, koja objašnjava u detalju kako sve radi.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+Ako ste još ovdje znači da ste izdržali tekst iznad, što je lijepo. Ako ste je preskočili, onda će vam uskoro biti **[loše](https://www.youtube.com/watch?v=WJgt6m6njVw)**... U svakom slučaju, ASF je konsolska aplikacija, što znači da program nema GUI interfejs na koji ste možda navikli. ASF je najviše namijenjen da se koristi na serveru, pa zbog toga izgleda kao servis (daemon) a ne kao desktop aplikacija.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
+Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više komplikovanom nego obično. ASF je zaseban program koji ne zahtijeva instalaciju, i odmah radi ali zahtijeva konfiguraciju da bi vam bio od koristi. Konfiguracija kazuje ASF-u šta u stvari treba da radi nakon što ga pokrenete. Ako ga pokrenete bez konfiguracije, ASF onda neće raditi ništa, tako jednostavno.
 
 * * *
 
@@ -24,20 +24,20 @@ Zvuči jednostavno, zar ne? Pa počnimo.
 
 ### .NET Core prerequisites
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+Prvo morate biti sigurni da ASF može biti pokrenut na vašem OS-u. ASF je napisan u C#, baziran na .NET Core i možda će zahtijevati dodatne nativne biblioteke koje još nisu prisutne na vašoj platformi. Razlika postoji u tome da li koristite Windows, Linux ili OS X, i zbog toga će imati različite zahtjeve, ali u svakom slučaju, svi su navedeni u **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** dokumentu kojeg trebate pratiti. Ovo je naš materijal za podsjećanje koji treba biti korišćen, ali zbog jednostavnosti mi smo naveli sve pakete ispod, pa ne morate čitati čitav dokument.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+Normalno je da neki (ili svi) zahtjevi već postoje na vašem sistemu zbog toga što ih je neki treći softver, koji već koristite, instalirao. Ipak, budite sigurni da stvarno imate potrebne zahtjeve na vašem OS-u - bez tih zahtjeva ASF se uopšte neće pokrenuti.
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+Zapamtite da, osim ovog, ne morate ništa drugo raditi na vašem OS-u, posebno ne instalirati .NET Core SDK ili runtime, jer OS paket već sadrži to sve. Potrebni su vam samo .NET Core prerequisites (zahtjevi) da bi pokrenuli .NET Core runtime koje je u ASF-u.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 za 64-bit Windows, x86 za 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- Veoma je preporučljivo da budete sigurni da su sva postojeća Windows ažurirana instalirana. Morate minimalno imati **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** i **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, ali možda i još neko ažuriranje ako bude potrebno. Sve su već instalirane ako je Windows ažuriran do kraja. Budite sigurni da ste sve ovo uradili prije nego što instalirate Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Imena paketa zavise od Linux distribucije koju koristite, mi smo naveli najčešće varijacije. Možete ih instalirati sa nativnim paket menađerom na vašoj distribuciji (kao što je `apt` za Debian ili `yum` za CentOS).
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
@@ -47,7 +47,7 @@ Package names depend on the Linux distribution that you're using, we've listed t
 - `libstdc++6` (`libstdc++`, u verziji `5.0` ili većoj)
 - `zlib1g` (`zlib`)
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
+Većina, ako ne i sve, bi trebalo da su već instalirane na vašem sistemi. Minimalna instalacija Debian stable zahtijeva samo `libicu63` od svih ovih.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
@@ -57,11 +57,11 @@ At least a majority of those should be already natively available on your system
 
 ### Preuzimanje
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+Sada kada imate sve zahtjeve ispunjene, sledeći korak je da preuzmete **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF je dostupan u raznim varijantama, ali vama je potreban paket koji je isti kao vaš operativni sistem i vaša arhitektura. Npr. ako koristite `64`-bit `Win`dows, onda izaberite `ASF-win-x64` paket. Za više informacija o dostupnim varijacijama, posjetite **[kompatabilnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** sekciju. ASF je moguće pokrenuti i na OS-ovima za koje ne pravimo OS namijenjeni paket, kao što je **32-bit Windows**, za njih izaberite **[opšta podešavanja](#generic-setup)**.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+Nakon preuzimanja, ekstraktujte zip fajl u novom folderu. Mi predlažemo koršćenje **[7-zip](https://www.7-zip.org)**, ali svi standardni programi kao `unzip` na Linux/OS X-u će takođe raditi bez problema.
 
 If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
 
