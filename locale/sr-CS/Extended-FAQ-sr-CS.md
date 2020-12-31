@@ -1,6 +1,6 @@
-# Šira najčešće postavljena pitanja
+# Proširena najčešće postavljena pitanja (FAQ)
 
-Our extended FAQ covers a bit less common questions and answers that you may have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
+Naš prošireni FAQ obuhvata rjeđe postavljena pitanja i odgovore koje možete imati. Za češće postavljena pitanja, posjetite **[osnovi FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**.
 
 * * *
 

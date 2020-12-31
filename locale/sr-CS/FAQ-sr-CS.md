@@ -1,14 +1,14 @@
-# Najčešće postavljana pitanja
+# Najčešće postavljana pitanja (FAQ)
 
-Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Naš osnovni FAQ obuhvata standardna pitanja i odgovore koje možete imati. Za rjeđa pitanja, posjetite **[prošireni FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Sadržaj
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
-- [Issues](#issues)
+- [Opšte](#general)
+- [Upoređivanje sa sličnim alatkama](#comparison-with-similar-tools)
+- [Sigurnost / Privatnost / VAC / Banovi / ToS](#security--privacy--vac--bans--tos)
+- [Razno](#misc)
+- [Problemi](#issues)
 
 * * *
 
@@ -20,23 +20,23 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 
 ### Zašto je moj nalog limitiran?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Prije nego što pokušate da razumijete šta je ASF, trebate razumjeti šta su Steam kartice, i kako se dobijaju, što je lijepo objašnjeno u oficijalnom FAQ **[ovdje](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+Ukratko, Steam kartice su itemi koji se sakupljaju i igricama koje posjedujete i koje to podržavaju, a koje mogu biti iskorišćene za pravljenje bedževa, ili prodaju istih na Steam marketu ili za bilo koju drugu vašu namjeru.
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+Glavne tačke su izložene ponovo ovdje, zato što ljudi uglavnom ne slaži sa njima i vole da se pretvaraju da ne postoje:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you with card drops.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. It was possible in the past, but it's no longer the case.**
-- **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. It was possible in the past, but it's no longer the case.**
+- **Morate posjedovati igricu na vašem Steam nalogu da bi mogli da dobijate kartice od istih. Porodično podijeljene igrice se ne računaju.**
+- **Ne možete farmati neograničen broj kartica, svaka igrica ima određen broj kartica koje možete dobiti. Kada ih dobijete sve (uglavnom pola od punog kompleta), igrica nije više kandidat za idlovanje. Nema veze da li ste ih prodali, razmijenili, napravili bedž ili zaboravili šta se sa njima desilo, kada dobijete sve kartice nećete dobiti ni jednu više.**
+- **Ne možete dobiti kartice iz F2P (besplatnih) igrica ako niste potrošili određenu količinu novca u njima. Ovo se odnosi na besplatne igrice kao što su Team Fortress 2 ili Dota 2. Samo posjedovanje F2P igrica ne daje vam mogućnost da dobijete kartice.**
+- **Ne možete dobiti kartice na [limitiranim nalozima](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), bez obzira što ih posjedujete. To je prije bilo moguće, ali nije više.**
+- **Plaćene igrice koje ste uzeli besplatno tokom promocija ne mogu dati kartice, bez obzira na to što je kazano na store stranici. To je prije bilo moguće, ali nije više.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
+Kao što vidite, Steam kartice su nagrade za igranje igrica koje ste kupili, ili F2P igrica u kojima ste potrošilu određenu količinu novca. Ako igrate kompatabilnu igricu dovoljno dugo, dobićete sve kartice, što vam omogućava da napravite bedž (nakon što skupite i drugu polovinu kompleta), da ih prodate, ili radite što vam je volja sa njima.
 
-Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
+Sada kada smo objasnili osnove Steam-a, možemo objasniti i ASF. Program je veoma kompleksan da bi se se skroz shvatio, pa umjesto traženja odgovora u tehničkim detaljima, mi ćemo pružiti jednostavno objašnjenje ispod.
 
-ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (You can get X more cards from playing this game). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF se prijavljuje na vaš Steam nalog pomoću svoje posebne implementacije Steam klijenta koristeći vaše date kredencijale. Nakon što se uspješno prijavi, on pretražuje vaše **[badževe](https://steamcommunity.com/my/badges)** da bi pronašao igrice koje se mogu idlovati (Možete dobiti još X kartica igranjem ove igrice). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
 Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
 
@@ -112,7 +112,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 * * *
 
-## Comparison with similar tools
+## Upoređivanje sa sličnim alatkama
 
 * * *
 
@@ -208,7 +208,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+## Sigurnost / Privatnost / VAC / Banovi / ToS
 
 * * *
 
@@ -304,7 +304,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 * * *
 
-## Misc
+## Razno
 
 * * *
 
@@ -429,7 +429,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## Problemi
 
 * * *
 
