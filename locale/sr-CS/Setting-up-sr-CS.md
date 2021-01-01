@@ -10,7 +10,7 @@ Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više
 
 ## OS-specifično postavljanje
 
-Opšte kazano, ovo ćete raditi nekoliko sledećih minuta:
+Opšte kazano, ovo ćete raditi u nekoliko sledećih minuta:
 
 - instalirati **[.NET Core prerequisites](#net-core-prerequisites)**,
 - preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** u odgovarajućoj OS-specifičnoj varijanti,
@@ -59,15 +59,15 @@ Većina, ako ne i sve, bi trebalo da su već instalirane na vašem sistemi. Mini
 
 Sada kada imate sve zahtjeve ispunjene, sledeći korak je da preuzmete **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF je dostupan u raznim varijantama, ali vama je potreban paket koji je isti kao vaš operativni sistem i vaša arhitektura. Npr. ako koristite `64`-bit `Win`dows, onda izaberite `ASF-win-x64` paket. Za više informacija o dostupnim varijacijama, posjetite **[kompatabilnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** sekciju. ASF je moguće pokrenuti i na OS-ovima za koje ne pravimo OS namijenjeni paket, kao što je **32-bit Windows**, za njih izaberite **[opšta podešavanja](#generic-setup)**.
 
-![Assets](https://i.imgur.com/Ym2xPE5.png)
+![Sredstva](https://i.imgur.com/Ym2xPE5.png)
 
 Nakon preuzimanja, ekstraktujte zip fajl u novom folderu. Mi predlažemo koršćenje **[7-zip](https://www.7-zip.org)**, ali svi standardni programi kao `unzip` na Linux/OS X-u će takođe raditi bez problema.
 
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. This has to be done only once after initial unpack.
+Ako koristite Linux/OS X, ne zaboravite da date privilegije pokretanja pomoću `chmod +x ArchiSteamFarm` u folderu gdje je program ekstraktovan, pošto privilegije nije moguće podesiti u zip fajlu. Ovo je potrebno samo jednom uraditi prije prvog pokretanja.
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
+ASF je potrebno ekstraktovati u **svom novom direktorijumu** a ne u nekom postojećem direktorijumu koji koristite za nešto drugo - ASF će izbrisati sve fajlove koje ne prepoznaje ili mu nisu više potrebni nakon ažuriranja, što može dovesti do brisanja vaših fajlova ako ih smjestite u istom ASF folderu. Ako imate neki script ili fajl koji želite da koristite sa ASF-om, stavite ih u folder iznad.
 
-An example structure would look like this:
+Primjer ove strukture treba da izgleda ovako:
 
 ```text
 C:\ASF (gdje stavljate vaše stvari)
@@ -88,141 +88,141 @@ C:\ASF (gdje stavljate vaše stvari)
 
 ### Konfiguracija
 
-We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
+Sada smo na poslednjem koraku, konfiguraciji. Ovo je do sad najkomplikovaniji korak, pošto sadrži dosta novih informacija koje možda još ne poznajete, pa ćemo dati nekoliko lako-razumljivih primjera i jednostavnih objašnjenja ovdje.
 
-First and foremost, there is **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** page that explains **everything** that relates to configuration, but it's a massive amount of new information, a lot of which we don't need to know right away. Instead, we'll teach you how to get the information you're actually looking for.
+Prvo i najvažnije, postoji stranica **[konfiguracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** koja objašnjava **sve** što je povezano sa konfiguracijom, ali sadrži veliku količinu informacija, od kojih je većinu ne morate odmah znati. Umjesto toga, naučićemo vas kako da nađete informacije koje su vam potrebne.
 
-ASF configuration can be done in two ways - either by using our web config generator, or manually. This is explained in-depth in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section, so refer to that if you want more detailed information. We'll use web config generator way, since it's much easier.
+ASF konfiguracija može biti napravljena pomoću dva načina - koristeći web generator konfiguracije ili ručno. Ovo je duboko objašnjena sekcija **[konfiguracije](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, pa se njom pozabavite ako želite detaljne informacije. Mi ćemo koristiti web generator konfiguracije, pošto je to mnogo lakši način.
 
-Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebConfigGenerator)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
+Pođite na našu stranicu **[web generator konfiguracije](https://justarchinet.github.io/ASF-WebConfigGenerator)** pomoću vašeg pretraživača. Ovdje morate imati JavaScript omogućen ako ste ga ručno onemogućili. Mi predlažemo Chrome ili Firefox, ali će vjerovatno raditi na svim poznatim pretraživačima.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+Nakon otvaranja ove stranice, pođite na "Bot" tab. Kada ste tu, trebalo bi da vidite stranicu sličnu ovoj ispod:
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-If by any chance the version of ASF that you've just downloaded is older than what config generator is set to use by default, simply choose your ASF version from the dropdown menu. This can happen as the config generator can be used for generating configs to newer (pre-release) ASF versions that weren't marked as stable yet. You've downloaded latest stable release of ASF that is verified to work reliably.
+Ako je nikim slučajem vaša verzija ASF-a, koju ste preuzeli, starija od one kojom je web generator konfiguracije podešen, jednostavno izaberite vašu verziju ASF menia. Ovo se može desiti pošto generator konfiguracije može praviti konfiguracije za novije (pre-objavljene) ASF verzije koje još nisu stabilne za normalno izdanje. Vi ste preuzeli poslednju stabilnu verziju ASF-a koja je potvrđena da radi kako treba.
 
-Start from putting name for your bot into the field highlighted as red. This can be any name you'd like to use, such as your nickname, account name, a number, or anything else. There is only one word that you can't use, `ASF`, as that keyword is reserved for global config file. In addition to that your bot name can't start with a dot (ASF intentionally ignores those files). We also recommend that you avoid using spaces, you can use `_` as a word separator if needed.
+Počnite tako što ćete dati ime botu u predjelu označenom crvenom bojom. Ovo može biti bilo šta, kao što je nadimak, ime naloga, broj, ili bilo šta drugo. Postoji samo jedna riječ koju ne možete koristiti, a to je `ASF`, pošto je ova riječ rezervisana za fajl globalne konfiguracije. Pored toga imena botova ne mogu početi sa tačkom (ASF namjerno ignoriše ovakve fajlove). Mi takođe predlažemo da ne odvajate između riječi, umjesto odvajanja koristite `_`.
 
-After you decided about your name, change `Enabled` switch to be on, this defines whether your bot is supposed to be started by ASF automatically after launch (of the program).
+Kada ste odlučili koje ime ćete dati botu, stisnite `Omogućeno`, ovo kazuje ASF-u da li će vaš bot biti pokrenut ili ne nakon pokrenanja programa.
 
-Now you can decide upon two things:
+Sada možete odlučuti oko dvije stvari:
 
-- You can put your login in `SteamLogin` field and your password in `SteamPassword` field
-- Or you can leave them empty
+- Možete upisati vaše kredencijale za prijavu u `SteamLogin` polju i vašu lozinku u `SteamPassword` polju
+- Ili ih možete ostaviti prazne
 
-Doing the first thing will allow ASF to automatically use your account credentials during startup, so you won't need to input them manually each time ASF needs them. You can however decide to omit them, in which case they're not being saved, so ASF won't be able to automatically start without your help and you'll need to input them during runtime.
+Ako unesete kredencijale to će omogućiti ASF-u da automatski koristi iste tokom pokretanju, i vi nećete morati da ih unosite svaki put kada želite da koristite ASF. Možete ih takođe izostaviti, a u tom slučaju oni neće biti sačuvani, i ASF će tražiti da ih unesete tokom svakog pokretanja.
 
-ASF requires your login credentials because it includes its own implementation of Steam client and needs the same details to log in as the one that you use yourself. Your login credentials are not saved anywhere but on your PC in ASF `config` directory only, our web config generator is client-based which means that the code is run locally in your browser to generate valid ASF configs, without details you're inputting ever leaving your PC in the first place, so there is no need to worry about any possible sensitive data leak. Still, if you for whatever reason don't want to put your credentials there, we understand that, and you can put them manually later in generated files, or omit them entirely and put them only in ASF command prompt. More on security matter can be found in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section.
+ASF-u su potrebni kredencijali za prijavu zato što on posjeduje svoju inplementaciju Steam klienta i zato su mu potrebni iste stvari da bi se prijavio kao što vam i Steam klient traži kada se prijavljujete. Vaši kredencijali za prijavu su sačuvani samo na vašem PC-u u ASF `config` direktorijumu, naš web generator konfiguracije je klient-baziran što znači da je kod pokrenut lokalno u vašem pretraživaču, a detalji koje unesete ne šalju se nigdje van vašeg PC-a, pa se ne morate brinuti o curenju podataka negdje drugo. Ipak, ako zbog nekog razloga ne želite da unesete vaše podatke ovdje, mi to razumijemo, pa to možete uraditi u ručno napravljenim fajlovima, ili ih skroz maći pa ih svaki put unositi u ASF komandnoj liniji. Više o pitanjima sigurnosti možete pronaći u sekciji **[konfiguracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 
-You can also decide to leave just one field empty, such as `SteamPassword`, ASF will then be able to use your login automatically, but will still ask for password (similar to Steam Client). If you're using Steam parental to unlock the account, you'll need to put it into `SteamParentalCode` field.
+Takođe možete odlučiti da ostavite samo jedno polje prazno, kao što je `SteamPassword`, ASF će u tom slučaju automatski koristiti ime vašeg naloga, ali će tražiti vašu lozinku (slično kao što to radi Steam klient). Ako koristite roditeljska podešavanja na Steam-u da bi otključali vaš nalog, morate onda popuniti i polje `SteamParentalCode`.
 
-After the decision and optional details, your web page will now look similar to the one below:
+Nakon vaših odluka i opcionih detalja, vaša web stranica bi trebala da izgleda slično ovoj ispod:
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-You can now hit "download" button and our web config generator will generate new `json` file based on your chosen name. Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
+Sada možete pritisnuti "download" dugme i naš web generator konfiguracije će napraviti novi `json` fajl baziran na imenu vašeg bota. Sačuvajte taj fajl u `config` direktorijumu koji je lociran u folderu gdje ste ekstrakovali vaš zip fajl u prethodnom koraku.
 
-Your `config` directory will now look like this:
+Vaš `config` direktorijum bi trebao da izgleda slično ovom:
 
 ![Struktura 2](https://i.imgur.com/crWdjcp.png)
 
-Congratulations! You've just finished the very basic ASF bot configuration. We'll extend this shortly, for now this is everything that you need.
+Čestitamo! Završili sve veoma jednostavnu konfiguraciju ASF bota. Ovo ćemo brzo dalje proširiti, ali za sad je to sve što vam je potrebno.
 
 * * *
 
 ### Pokretanje ASF-a
 
-You're now ready to launch the program for the first time. Simply double-click `ArchiSteamFarm` binary in ASF directory.
+Sada ste spremni da pokrenete program prvi put. Jednostavno dvokliknite `ArchiSteamFarm` fajl u ASF direktorijumu.
 
-After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
+Nakon toga, ako ste instalirali sve potrebno u prvom koraku, ASF bi trebao da se uspješno pokrene, zapamtite da će vaš prvi bot (ako niste zaboravili da stavite napravljenu konfiguraciju u `config` direktorijumu), pokušati da se prijavi:
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
+Ako ste ispunili `SteamLogin` i `SteamPassword` polje koje ASF koristi, tražiće vam se SteamGuard token (e-mail, 2FA ili ništa, u zavisnosti od vaših Steam podešavanja). Ako niste dali Steam kredencijale, onda će vam se ovdje tražiti isti.
 
-Now is a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about what will happen next, as stated by ASF itself.
+Ovo je dovro vrijeme da pregledate našu sekciju **[politiku privatnosti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** ako ste zabrinuti oko šta se sada dešava sa njima, kao što je kazano od ASF-a.
 
-After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start idling using default settings that you didn't change as of now:
+Nakon što je pošao proces prijave, ako su vaši kredencijali tačni, bićete uspješno prijavljeni, i ASF će početi da idluje koristeći opšta podešavanja ako ih niste promijenili:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-This proves that ASF is now successfully doing its job on your account, so you can now minimize the program and do something else. After enough of time (depending on **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), you'll see Steam trading cards slowly being dropped. Of course, for that to happen you must have valid games to idle, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to idle, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+Ovo pokazuje da ASF uspješno radi svoj posao na vašem nalogu, pa ga možete umanjiti i raditi nešto drugo. Nakon određenog vremena (u zavisnosti od **[performansi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), polako ćete dobijati Steam kartice. Naravno, da bi se to desilo morate imati validne igrice za idlovanje, koje kažu "možete dobiti još X kartica igrajući ovu igricu" na vašoj **[bedž stranici](https://steamcommunity.com/my/badges)** - ako nema igrica za idlovanje, onda ASF neće ništa raditi kao što je kazano u našem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
 
-This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
+Ovo je kraj našeg jednostavnog uputstva za podešavanje. Možete odlučiti da li želite da dalje konfigurišete ASF, ili da ga ostavite da radi pomoću opštih podešavanja. Proći ćemo kroz još nekoliko osnovnih stavki, a onda ćemo vam preputsiti da otkrijete ostatak wiki-e.
 
 * * *
 
-### Extended configuration
+### Šira konfiguracija
 
-#### Idling several accounts at once
+#### Idlovanje nekoliko naloga odjednom
 
-ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
+ASF ima mogućnost da idluje više od jednog naloga odjednom, što je njegova primarna funkcija. Možete dodati više od jednog naloga u ASF pomoću generisanja više od jedne bot konfiguracije, na isti način na koji ste generisali prvu konfiguraciju prije nekoliko minuta. Morate biti sigururni o ove dvije stvari:
 
-- Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
-- Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalCode` (if using Steam parental settings)
+- Različita imena botova, ako je već ime prvog bota "GlavniNalog", ne možete napraviti drugog bota sa istim imenom.
+- Pravilni detalji vašeg naloga, `SteamLogin`,<0 `SteamPassword` i `SteamParentalCode` (ako koristite Steam roditeljska podešavanja).
 
-In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
+Drugim riječima, jednostavno ponovo idite na konfiguraciju i uradite istu stvar, za vaš drugi ili treći nalog. Zapamtite da morate koristiti različita imena za svakog bota.
 
 * * *
 
 #### Mijenjanje podešavanja
 
-You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
+Možete promijeniti postojeća podešavanja na isti način - konfigurišući novi config fajl. Ako još niste zatvorili web generator konfiguracije, pritisnite "prikaži napredna podešavanja" da bi ste vidjeli šta je tu za vas da otkrijete. U ovod vodiču ćemo promijeniti podešavanje `CustomGamePlayedWhileFarming`, što omogućava da podesite ime koje će biti prikazano kada ASF idluje, umjesto prikazivanja stvarnog imena igrice.
 
-So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
+Pa uradimo to, ako pokrenete ASF i počnete idlovati, na vašem Steam nalogu ćete vidjeti da ste u igrici i ime igrice će biti prikazano ovako:
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 
-Let's change that then. Toggle advanced settings in web config generator and find `CustomGamePlayedWhileFarming`. Once you do that, put your own custom text there that you want to display, such as "Idling cards":
+Promijenimo to. Prikažite napredna podešavanja u vašem web generatoru konfiguracije i pronađite polje `CustomGamePlayedWhileFarming`. Kada to uradite, unesite tekst koji želite da bude prikazan, kao što je "Idlujem kartice":
 
 ![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
-Now download the new config file in exactly the same way, then **overwrite** your old config file with new one. You can also delete your old config file and put new one in its place of course.
+Sada preuzmite novi konfiguracioni fajl na isti način, pa ga **zamijenite** sa vašim starim. Možete takođe izbrisati stari konfiguracioni fajl i dodati novi na njegovom mjesu.
 
-Once you do that and start ASF again, you'll notice that ASF now displays your custom text in previous place:
+Nakon što to uradite, pokrenite ASF ponovo, vidjećete da ASF sada prikazuje vaš uneseni tekst na prethodnom mjestu:
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
+Ovo potvrđuje da ste uspješno uredili vašu konfiguraciju. Na isti način možete promijeniti globalna ASF podešavanja, pređite sa bot taba na "ASF" tab, konfigurišite i preuzmite napravljenu `ASF.json` konfiguraciju i sačuvajte je u `config` direktorijumu.
 
 * * *
 
-#### Using ASF-ui
+#### Korišćenje ASF-ui
 
-ASF is a console app and doesn't include a graphical user interface. However, we're actively working on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface, which can be a very decent and user-friendly way to access various ASF features.
+ASF je aplikacija u konsoli i ne sadrži grafički korisnički interfejs. Ipak, mi aktivno radimo na **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** interfejsu za naš IPC, koji je veoma lak za korišćenje i pristup raznim ASF mogućnostima.
 
-In order to use ASF-ui, you should ensure that you set up `IPC` and `SteamOwnerID` global configuration properties (ASF tab).
+Da bi koristili ASF-ui, morate omogućiti `IPC` i podesiti `SteamOwnerID` u globalnoj konfiguraciju (ASF tabu).
 
-For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, we'll use **[SteamRep](https://steamrep.com)** for that purpose. Open the website, locate sign in through Steam button in top right corner, then log in. Afterwards, in the same place, click on your avatar, and look up `steamID64` field on your profile.
+Za `SteamOwnerId`, morate unijeti vaš unikatni Steam identifikator u 64-bit-noj formi za vaš nalog. Možete ga pronaći na razne načine, mi ćemo koristiti **[SteamRep](https://steamrep.com)** za ovaj način. Otvorite sajt, locirajte "sign in throgh Steam" dugme u gornjem desnom uglu, pa se prijavite. Nakon toga, na istom mjestu, pritisnite na vaš avatar, i pronađite polje `steamID64` na vašem profilu.
 
 ![SteamRep](https://i.imgur.com/RUuJ63i.png)
 
-For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
+Za moj nalog, to je broj `76561198006963719`. Vi ćete imati sličan broj, koji takođe počine sa `7656`. Kopirajte ga.
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID.
+Sada se vratite na tab web generatora konfiguracije i unesite broj u SteamOwnerID.
 
 ![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
 
-You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
+Morate uraditi još jednu stvar, pokrenite napredna podešavanja, pronađite `IPC` opciju, i omogućite je.
 
 ![IPC](https://i.imgur.com/NhujZCN.png)
 
-Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Sada možete preuzeti vašu ASF konfiguraciju i sačuvati je u `config` direktorijumu, kao i obično. Nakon toga, pokrenite ASF ponovo, i tu bi trebalo da potvrdite da je IPC interfejs pokrenut pravilno:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
+Ako ste sve pravilno uradili, onda ćete imati pristup ASF-ovom IPC interfejsu na **[ovom](http://localhost:1242)** linku, sve dok je ASF pokrenut. Možete koristiti ASF-ui za razne svrhe, npr. slanje **[komandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Slobodno razgledajte okolo da bi pronašli razne ASF-ui funkcije.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
 
-Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
+Zapamtite da ASF-ui trenutno u preglednom stanju i da još sve nije dostupno/ili još ne radi, ali je više nego dovoljno za jednostavno korišćenje ASF-a.
 
 * * *
 
 ### Zaključak
 
-You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
+Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredili onako kako vam odgovara. Ako ste pratili naš cijeli vodič, onda ste uspjeli da pošaljete i jednostavne komande pomoću našeg ASF-ui interfejsa. Sada je dobro vrijeme da pročitate cijelu sekciju **[konfiguracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** da bi naučili razna podešavanja koja sve vidjeli u naprednom tabu, i sve ostalo što ASF ima u ponudi. Ako ste zapeli na nekom problemu ili imate neko opšte pitanje, pročitajte **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** koji bi trebao skoro sve da pokrije, ili većinu pitanja koja možete imati. Ako želite da naučite sve što postoji u ASF-u i kako vam to može pomoći, posjetite ostatak **[naše wiki-e](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Uživajte!
 
 * * *
 
@@ -240,9 +240,9 @@ However, keep in mind that you're in charge of .NET Core runtime in this case. T
 
 For generic package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
 
-With extra steps:
+Dodatni koraci:
 
-- Install **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- Instalirajte **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generic variant.
 - Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).

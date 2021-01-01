@@ -12,8 +12,8 @@
 
 * **[Početna](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[Podešavanje](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[Najčešće postavljana pitanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Namještanje](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(počnite ovdje)**
+* **[Najčešće postavljana pitanja (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Podešavanje](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(počnite ovdje)**
 
 ## Jezgro
 
@@ -30,7 +30,7 @@
 * **[Argumentni na komandnoj liniji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Zastarelo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[Proširena najčešće postavljena pitanja (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[Visoko-performansna podešavanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[Lokalizacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
@@ -39,12 +39,12 @@
 * **[Dodaci](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[Sigurnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[Treća-strane](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Treće-strane](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Dvofaktorska autentikacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
-## Programeri
+## Developeri
 
 * **[Kompilacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[Uputstva za doprinošenje](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licenca](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Ciklus objavljivanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[Ciklus izdavanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

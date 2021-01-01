@@ -18,7 +18,7 @@ ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/ar
 
 ### `latest`
 
-This tag in comparison with others, as the only one includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. 이 때문에 가능한만큼 자주 업데이트 될 필요가 없습니다. 포함된 ASF 버전은 필요하다면 스스로 업데이트될 수 있습니다. 물론 `UpdatePeriod`는 안전하게 꺼도 됩니다(`0`으로 설정). 이 경우 `A.B.C.D` 릴리스를 사용해야 할 것입니다. 마찬가지로, 그대신 자동으로 업데이트 되는 `released` 태그를 만들기 위해 기본 `UpdateChannel`을 변경할 수도 있습니다.
+This tag in comparison with others, is the only one that includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. 이 때문에 가능한만큼 자주 업데이트 될 필요가 없습니다. 포함된 ASF 버전은 필요하다면 스스로 업데이트될 수 있습니다. 물론 `UpdatePeriod`는 안전하게 꺼도 됩니다(`0`으로 설정). 이 경우 `A.B.C.D` 릴리스를 사용해야 할 것입니다. 마찬가지로, 그대신 자동으로 업데이트 되는 `released` 태그를 만들기 위해 기본 `UpdateChannel`을 변경할 수도 있습니다.
 
 Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
 
