@@ -1,12 +1,12 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker repo can be found **[here](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Od verzije 3.0.3.2, ASF je dostupan kao **[docker kontejner](https://www.docker.com/what-container)**. Pokretanje ASF-a u docker kontejneru tipično nema prednosti za obične korisnike, ali može biti odličan način korišćenja ASF na serverima, obezbjeđujući da je ASF pokrenut odvojeno od ostalih aplikacija. Naš docker repo se može pronaći **[ovdje](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
-## Tags
+## Tagovi
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF je dostupan kroz 4 glavna tipa **[tagova](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
 ### `master`
 
@@ -18,7 +18,7 @@ Very similar to the above, this tag always points to the latest **[released](htt
 
 ### `latest`
 
-This tag in comparison with others, is the only one that includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+Ovaj tag u odnosu sa drugima, je jedini koji sadrži mogućnost ASF auto-ažuriranja i tipično pokazuje stabilne verzije, ali one ne moraju biti poslednje dostupne. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
 
 Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
 
@@ -28,15 +28,15 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 * * *
 
-## Which tag is the best for me?
+## Koji je tag najbolji za mene?
 
-That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
+To zavisi od toga što tražite. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
 We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
 
 * * *
 
-## Architectures
+## Arhitekture
 
 ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
@@ -117,7 +117,7 @@ mkdir -p /tmp/ASF-g1
 docker pull justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# itd. svi ASF kontejneri su sada sinhronizovani jedan sa drugim
 ```
 
 We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.

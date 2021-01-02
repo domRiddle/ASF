@@ -1,14 +1,14 @@
 # Zastarenje
 
-Od ASF V3.1.2.2, pratićemo konstantnu politiku zastarenja da bi usavršili razvijanje i da bi napravili korišćenje mnog više konzistentnim.
+Od ASF V3.1.2.2, pratićemo konstantnu politiku zastarenja da bi usavršili razvijanje i da bi napravili korišćenje više konzistentnim.
 
 * * *
 
 ## Šta je zastarenje?
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+Zastarenje je proces dodavanja manjih ili većih promjena koji pravi prethodno korišćene opcije, komande, funkcionalnosti ili načine korišćenja zastarelim. Zastarenje najčešće znači da je postojeća opcija prebačena u drugu (sličnu) formu, i da se treba omogućiti odrešeno vrijeme da napravite prelaz ka toj formi. U tom slučaju, to je premještanje date funkcionalnosti u prikladnijem mjestu.
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+ASF se brzo mijenja i uvijek cilja da postane bolji. Ovo nažalost znači da ćemo možda promijeniti ili pomjeriti postojeće funkcionalnosti u drugi segmenat programa da bi koristio od novih mogućnosti, kompatabilnosti ili stabilnosti. Zahvaljujući tome ne moramo da se zadržavamo na zastarelim ili pogrešnim odlukama developovanja koje smo davno napravili. Uvijek pokušavamo da damo razumne zamjene koje su prikladne očekivanim već postojećim funkcionalnostima, zbog čega je zastarenje najčešće bezopasno i zahtijeva male popravke prethodnog korišćenja.
 
 * * *
 
@@ -18,21 +18,21 @@ ASF će pratiti 2 faze zastarenja, praveći tranziciju mnogo lakšom i jednostav
 
 ### Faza 1
 
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
+Faza 1 dešava se kada data mogućnost zastari, sa trenutnom dostupnošću za drugu mogućnost (ili kompletnog uklanjanja iste ako ne postoje planovi da se ponovo doda).
 
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
+Tokom ove faze, ASF će prikazivati prikladne upozorenja da je zastarela funkcija u vašoj upotrebi. Koliko god je to moguće, ASF će pokušati da oponaša staro ponašanje i da bude kompatabilna sa njim. ASF će ostati u fazi 1 bez obzira na tu funkcionalnost barem do sledećeg stabilnog izdanja. Ovo je vrijeme kad, nadamo se bez ikakvih kvarova kompatabilnosti, vi možete da napravite odgovarajući prelaz na svim vašim alatima ili načinimak korišćenja koje bi mogle da zadovolje vašu upotrebu. Možete potvrditi da li ste uradili sve potrebne promjene ako više ne vidite poruke o zastarenju.
 
 ### Faza 2
 
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+Faza 2 je zakazana nakon faze 1 objašnjene iznad i dešava se dok se ne objavi u stabilnoj verziji. Ova faza dodaje kompletno uklanjanje zastarele mogućnosti, što zači da ASF neće pokušati da prepozna da li je koristite, ili da je koristi, pošto ona više ne postoji u trenutnom kodu. ASF neće više prikazivati upozorenja, pošto više ne prepoznaje šta pokušavate da uradite.
 
 * * *
 
 ## Zaključak
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+Imaćete oko **mjesec dana** da napravite odgovarajući prelaz, što je više nego potrebno bilo da ste obični ASF korisnik ili niste. Nakon tog perioda, ASF više ne garantuje da će stara podešavanja imati ikakvog efekta (faza 2), što znači da će ta funkcija skroz prestati da radi bez vašeg zapažanja. Ako niste pokretali ASF duže od jednog mjeseca, predlažemo da **[počnete ponovo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**, ili pročitate listu promjena koju ste propusli i ručno podesite vaša podešavanja sa novim.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
+U najviše slučajeva, zanemarivanje opomena zastarenja neće napraviti ASF nefunkcionalnim, ali će ga vratiti nazad na opšta podešavanja (što možda neće odgovarati vašim ličnim potrebama i podešavanjima).
 
 * * *
 
@@ -42,8 +42,8 @@ Pomjerili smo pre-V3.1.2.2 `--server` **[komande](https://github.com/JustArchiNE
 
 ### Faza 1
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+Faza 1 je dodata u verziji V3.1.2.2 gdje smo dodali prikladna upozorenja za korišćenje `--server` komande. Sada zastarela `--server` komanda je automatski promijenjena u `IPC: true` u globalnoj konfiguraciji, koja se trenutno ponaša isto kao stara `--server` komanda. Ovo omogućava svima da naprave zamjenu prije nego ASF prestane da prihvata staru komandu.
 
 ### Faza 2
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+Faza 2 je dodata u verziji V3.1.3.0, odmah nakon V3.1.2.9 stabilne verzije sa fazom 1 objašnjenom iznad. Faza 2 napravila je to da ASF skroz prestane da prepoznaje `--server` komandu, i ponašajući se prema njoj kao prema svakoj drugom nepravilnoj komandi, koja više nema nikakvog efekta na program. Za korisnike koji nisu promijenili njihovu `--server` komandu u `IPC: true`, desilo se to da je IPC prestao da funkcioniše, zato što ASF nije imao prikladna podešavanja.
