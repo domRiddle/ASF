@@ -25,7 +25,7 @@ Você também pode personalizar a capacidade de trocas do ASF modificando `Tradi
 Quando o `SteamTradeMatcher` estiver ativo, o ASF usará um algorítimo um tanto complexo para verificar se a troca passa pelas regras do STM e é pelo menos neutra. A lógica atual é a seguinte:
 
 - Rejeitar a troca se formos perder algo além dos tipos de item especificados em nosso `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
+- Rejeitar a troca se não vamos receber ao menos a mesma quantidade de itens por jogo, por tipo e por raridade.
 - Rejeitar a troca se o usuário pedir por cartas especiais das promoções Steam de verão/inverno, e o mesmo tiver as trocas retidas.
 - Rejeitar a troca se o tempo de retenção exceder a propriedade `MaxTradeHoldDuration` da configuração global.
 - Rejeitar a troca se não tivermos configurado `MatchEverything`, e a mesma for pior que neutro para nós.
@@ -61,7 +61,7 @@ Se você cumprir todos os requisitos acima o ASF vai se comunicar periodicamente
 - A cada rodada o ASF vai buscar nosso inventário e o inventário dos bots listados selecionados para encontrar itens `MatchableTypes` que possam ser combinados. Se for encontrada uma correspondência, o ASF vai enviar e confirmar a oferta de troca automaticamente.
 - Cada conjunto (composto de appID, tipo de item e raridade do mesmo) pode ser combinado apenas uma vez em cada rodada. Isso foi implementado para minimizar o problema de "itens indisponíveis" e evitar a necessidade de esperar que cada bot reaja antes de enviar todas as trocas. É também a principal razão pela qual a correspondência é feita em rodadas e não por um processo constante.
 - O ASF não enviará mais que `255` itens em uma única troca, e não mais que `5` trocas para um mesmo usuário em uma única rodada. Isso é imposto pelos limites do Steam, bem como por nosso próprio balanceamento.
-- ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
+- O ASF tem o limite de `40` bots distintos que podem ser combinados em uma única rodada caso ela não seja cancelada antes por falta de sets para serem combinados - nesse caso, durante a próxima rodada o ASF tentará combinar bots que ainda não foram combinados.
 - Se o ASF determinar que a correspondência deve continuar, a próxima rodada começa dentro de `5` minutos desde a última (para que haja um tempo de resfriamento e permitir que todos os bots reajam às nossas trocas), além disso as sessões correspondentes terminam e recomeçam por si mesmas a cada `8` horas.
 
 Esse módulo deve ser transparente. As correspondências devem começar em aproximadamente `1` hora desde a ativação do ASF, e repetirá automaticamente a cada `8` horas (caso necessário). O recurso `MatchActively` foi feito para ser usado a longo prazo, verificando periodicamente para garantir que estamos na direção de completar o set, sem o curto espaço de tempo e a quantidade de pressão sobre os recursos necessários que ocorreria se isso fosse oferecido como um comando. Os usuários alvos desse módulo são principalmente contas principais e contas alternativas "ocultas", embora ele possa ser usado em qualquer bot que não foi configurado para `MatchEverything`.

@@ -8,20 +8,20 @@ Pozadnisko unošenje je napravljeno je da se odnosi na jednog bota, što znači 
 
 ## Unos
 
-The import process can be done through two ways - either by using a file, or IPC.
+Unošenje se može obaviti na dva načina - pomoću fajla, ili IPC-a.
 
 ### Fajl
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF prepoznaje u svojem `config` direktorijumu fajl pod nazivod `ImeBota.keys` gdje je `ImeBota` ime vašeg bota. Ovaj fajl ima određenu i fiksnu strukturu sa imenom igrice i ključem, koji su odbojeni tabom i zavšavaju se u novoj liniji kojom tako prikazuju novi unos. Ako je više tabova korišćeno, prvi strana se smatra imenom igrice, druga se smatra ključem, a sve između je ignorisano. Na primjer:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
 Domino Craft VR 12345-67890-ZXCVB
 A Week of Circus Terror POIUY-KJHGD-QWERT
-Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+Terraria    OvoJeIgnorisano   OvoJeTakođeIgnorisano    ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Takođe možete unositi samo ključeve (po jedan u svakoj liniji). ASF će u tom slučaju koristiti odgovor sa Steam (ako je moguće) da prikaže odogvarajuće ime. Za bilo koju vrstu tagovanja ključeva, mi predlažemo da ispišete imena vi sami, zato što paketi koji otključavate na Steam-u ne moraju da prate logiku imena igrica koje aktivirate, pa u zavisnosti od toga što je developer napisa, možete vidjeti tačna imena, imena paketa (npr. Humble Indie Bundle 18) ili skroz pogrešna i zlobna imena (npr. Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,25 +30,25 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+Bez obzira koji format izaberete, ASF će unijeti vaš `keys` fajl, ili tokom pokretanja, ili kasnije dok bude radio. Nakon uspješnog pregledanja vašeg fajla i izostavljanja nepravilnih unosa, sve novopronađene igrice će biti dodate u red za farmanje, i `ImeBota.keys` fajl će biti uklonjen iz `config` direktorijuma.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+U dodatku sa fajlom za ključeve iznad, ASF takođe posjeduje `GamesToRedeemInBackground` **[ASF API tačku](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** koja može biti korišćena u bilo kojoj IPC alatki, uključujući i ASF-ui. Korišćenje IPC-a može biti veoma korisno pošto možete da koristite vaš način odvajanja umjesto taba, ili da napravite neki vaš način za unošenje ključeva.
 
 * * *
 
 ## Red
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Kada su igrice uspješno upešene, biće dodate u red. ASF automatski ide kroz taj red sve doj je bot konektovan sa Steam mrežom, i dok red nije prazan. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
 * * *
 
-## Example
+## Primjer
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+Pretpostavimo da imate listu sa 100 ključeva. Prvo što trebate uraditi je da napravite novi `ImeBota.keys.new` fajl u ASF-ov `config` direktorijumu. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 
 Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
 

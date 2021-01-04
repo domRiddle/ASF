@@ -1,6 +1,6 @@
 # Docker
 
-A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Executar o ASF em um contêiner docker normalmente não tem vantagens para usuários casuais, mas pode ser uma excelente forma de usar o ASF em servidores, garantindo que a ASF esteja sendo executado em um ambiente restrito, separado de todos os outros aplicativos. Nosso repositório docker pode ser encontrado **[aqui](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Executar o ASF em um contêiner docker normalmente não tem vantagens para usuários casuais, mas pode ser uma excelente forma de usar o ASF em servidores, garantindo que a ASF esteja sendo executado em um ambiente restrito, separado de todos os outros aplicativos. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -18,7 +18,7 @@ Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](htt
 
 ### `latest`
 
-This tag in comparison with others, is the only one that includes ASF auto-updates feature and will typically point to the one of the stable versions, but not necessarily the latest one. O objetivo desse marcador é fornecer um contêiner Docker padrão que é capaz de executar a atualização automática do ASF na versão específica de OS. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
+Em comparação com os demais marcadores, esse é o único que contém o recurso de atualizações automáticas do ASF e normalmente aponta para versão estável e não necessariamente para a mais recente. O objetivo desse marcador é fornecer um contêiner Docker padrão que é capaz de executar a atualização automática do ASF na versão específica de OS. Por conta disso, a imagem não precisa ser atualizada tão frequentemente quanto possível, já que a versão inclusa do ASF será capaz de se auto atualizar sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado com segurança (definido como `0`), mas neste caso você provavelmente deverá usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
 
 Uma vez que a imagem da tag `latest` vem com capacidade de atualização automática, ela inclui apenas versão da SO determinada na versão especifica para SO, ao contrário de todas as outras tags que incluem a SO com tempo de execução .NET Core principal e versão a genérica do ASF. Isso acontece porque a versão mais recente do ASF (atualizada) também pode exigir um tempo de execução mais recente do que aquele com que a imagem possivelmente pode ter sido compilada, o que exigiria que a imagem fosse reconstruída do zero, anulando o tipo de uso planejado.
 
@@ -38,9 +38,9 @@ Nós geralmente desencorajamos o uso de compilações `master`, assim como compi
 
 ## Arquiteturas
 
-A imagem docker do ASF está disponível atualmente para 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
+ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
-Uma vez que os marcadores docker multi-arquiteturas ainda são um trabalho em andamento, compilações diferentes do padrão `x64` atualmente estão disponíveis com `-{ARCH}` no nome. Eu outras palavras, se você quer usar o marcador `latest` para a arquitetura `arm`, simpesmente use `latest-arm`.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -61,11 +61,11 @@ O comando `docker pull` garante que você está usando uma versão atualizada da
 
 Se tudo correu bem, após receber todas as camadas e iniciar o contêiner, você deverá notar que o ASF foi iniciado e nos informou que não há bots definidos, o que é bom; nós acabamos de verificar que o ASF funcionou corretamente no docker. Aperte `CTRL+P` e então `CTRL+Q` para sair do contêiner docker em primeiro plano, então pare o contêiner ASF com o comando `docker stop asf`.
 
-Se você olhar para o comando você vai notar que nós não declaramos nenhum marcador, que automaticamente usa o padrão `latest`. Se você quiser usar um marcador diferente, por exemplo `latest-arm`, então você deve declará-lo explicitamente:
+Se você olhar para o comando você vai notar que nós não declaramos nenhum marcador, que automaticamente usa o padrão `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

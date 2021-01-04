@@ -60,6 +60,10 @@ Linux/OS X
 
 * * *
 
+`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-restart` - данный параметр используется для контейнеров **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ru-RU)** и принудительно задаёт параметру `AutoRestart` значение `false`. Если у вас нет какой-то конкретной цели, вам следует вместо этого настроить параметр `AutoRestart` в конфигурационном файле. Этот аргумент нужен чтобы нашему скрипту Docker не нужно было трогать ваш файл глобальной конфигурации чтобы приспособиться к своему окружению. Разумеется, если вы запускаете ASF из скрипта, возможно вы захотите тоже воспользоваться этим аргументом (в противном случае лучше использовать параметр глобальной конфигурации).
 
 * * *

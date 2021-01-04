@@ -1,6 +1,6 @@
 # Docker
 
-從 3.0.3.2 版本開始，ASF 現在也可用於 **[Docker 容器](https://www.docker.com/what-container)**中。 Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. 我們的 Docker 儲存庫可以在**[此處](https://hub.docker.com/r/justarchi/archisteamfarm)**找到。
+從 3.0.3.2 版本開始，ASF 現在也可用於 **[Docker 容器](https://www.docker.com/what-container)**中。 Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -38,9 +38,9 @@ We generally discourage trying `master` builds, just like automated AppVeyor bui
 
 ## Architectures
 
-ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
+ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
-Since multi-arch docker tags are still work-in-progress, builds for other architectures than default `x64` are currently available with `-{ARCH}` appended to the tag name. In other words, if you want to use `latest` tag for `arm` architecture, simply use `latest-arm`.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -61,11 +61,11 @@ docker run -it --name asf --rm justarchi/archisteamfarm
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`.
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `latest-arm`, then you should declare it explicitly:
+If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

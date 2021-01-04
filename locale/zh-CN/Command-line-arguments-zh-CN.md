@@ -60,6 +60,10 @@ Linux/macOS：
 
 * * *
 
+`--no-config-watch`——默认情况下，ASF 会对您的 `config` 文件夹设置 `FileSystemWatcher` 以监视与文件变更有关的事件，因此才能动态适应这些变化。 例如，在配置文件被删除后停止机器人、配置文件被修改后重启机器人，或者在您向 `config` 文件夹添加游戏序列号之后自动加载到&#8203;**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**&#8203;中。 此开关允许您禁用这个行为，使 ASF 完全忽略 `config` 文件夹内的任何变化，您必须在需要时手动执行相关操作。 通常我们建议启用配置文件监听，但如果您有特定的禁用理由，不希望 ASF 监视事件，就可以用此开关达成目的。
+
+* * *
+
 `--no-restart`——此开关主要用于 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-CN)** 容器并将 `AutoRestart` 强制设置为 `false`。 除非有特殊的需要，否则您应该直接在配置中配置 `AutoRestart` 属性。这个开关作用是使 Docker 脚本不需要修改您的全局配置来适应它的环境。 当然，如果是在脚本中运行 ASF，您也可以使用此开关（否则您最好使用全局配置属性）。
 
 * * *

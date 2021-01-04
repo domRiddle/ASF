@@ -1,6 +1,6 @@
 # Docker
 
-Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Запуск ASF в контейнере docker обычно не имеет никаких преимуществ для обычных пользователей, он это может оказаться отличным способом использования ASF на серверах, позволяющий запускать ASF в среде, изолированной от других приложения. Наш репозиторий docker вы можете найти **[здесь](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Запуск ASF в контейнере docker обычно не имеет никаких преимуществ для обычных пользователей, он это может оказаться отличным способом использования ASF на серверах, позволяющий запускать ASF в среде, изолированной от других приложения. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -38,9 +38,9 @@ This tag in comparison with others, is the only one that includes ASF auto-updat
 
 ## Архитектуры
 
-Образы docker с ASF доступны для 3 архитектур - `x64,`, `arm` и `arm64`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**.
+ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**.
 
-Поскольку мульти-архитектурные теги Docker пока ещё в процессе разработки, сборки под архитектуры, отличающиеся от архитектуры по умолчанию `x64` на данный момент доступны доступны под тегами с суффиксом `-{ARCH}`. Другими словами, если вы хотите использовать тег `latest` для архитектуры `arm`, просто используйте тег `latest-arm`.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -61,11 +61,11 @@ docker run -it --name asf --rm justarchi/archisteamfarm
 
 Если всё завершилось успешно, после получения всех слоев и запуска контейнера вы должны увидеть что ASF успешно запустился и сообщил вам что в нём не задано ботов, это хорошо - мы проверили что ASF корректно работает в docker. Нажмите `CTRL+P` а затем `CTRL+Q` чтобы выйти контейнера docker на переднем плане, а затем остановите контейнер с ASF командой `docker stop asf`.
 
-Если вы внимательно посмотрите на команды выше, вы заметите что мы не задали тег, и поэтому по умолчанию автоматически используется тег `latest`. Если вы хотите использовать тег, отличный от `latest`, например `latest-arm`, его надо задать в явном виде:
+Если вы внимательно посмотрите на команды выше, вы заметите что мы не задали тег, и поэтому по умолчанию автоматически используется тег `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

@@ -1,4 +1,4 @@
-# Command-line arguments
+# Opcije na komandnoj liniji
 
 ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
 
@@ -35,7 +35,7 @@ Ako vaša opcija ima odvajanja, ne zaboravite da stavite znake navoda oko nje. O
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Loše!
 ```
 
-Ali ove su kompletno tačne:
+Dok su ove dvije kompletno tačne:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
@@ -60,6 +60,10 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 * * *
 
+`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
 
 * * *
@@ -70,7 +74,7 @@ Due to the nature of this property, it's also possible to set expected path by d
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
-Examples:
+Primjeri:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Apsolutno mjesto
@@ -85,11 +89,11 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Isto kao env 
 │     │     └── ...
 │     └── TargetDirectory
 │           ├── config
-│           ├── logs (generated)
-│           ├── plugins (optional)
-│           ├── www (optional)
-│           ├── log.txt (generated)
-│           └── NLog.config (optional)
+│           ├── logs (generisana)
+│           ├── plugins (opcionalna)
+│           ├── www (opcionalna)
+│           ├── log.txt (generisana)
+│           └── NLog.config (opcionalna)
 └── ...
 ```
 

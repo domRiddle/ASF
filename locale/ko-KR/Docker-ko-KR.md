@@ -1,6 +1,6 @@
 # 도커
 
-ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. ASF를 도커 컨테이너로 실행하는 것은 일반적인 사용자에게는 보통 장점이 없습니다. 하지만 ASF가 다른 모든 앱으로부터 분리된 샌드박스 환경에서 실행을 보장해주는, 서버에서 ASF 사용시에는 훌륭한 방법일 수 있습니다. 도커 repo는 **[여기에](https://hub.docker.com/r/justarchi/archisteamfarm)** 있습니다.
+ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. ASF를 도커 컨테이너로 실행하는 것은 일반적인 사용자에게는 보통 장점이 없습니다. 하지만 ASF가 다른 모든 앱으로부터 분리된 샌드박스 환경에서 실행을 보장해주는, 서버에서 ASF 사용시에는 훌륭한 방법일 수 있습니다. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -38,9 +38,9 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 ## 아키텍쳐
 
-ASF docker image is currently available for 3 architectures - `x64`, `arm` and `arm64`. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
+ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
 
-다중 아키텍처 태그는 아직 작업중이므로, 기본 `x64`가 아닌 다른 아키텍처용 빌드는 태그 이름에 `-{ARCH}`를 붙이면 됩니다. 즉, `arm` 아키텍처에서 `latest` 태그를 사용하고 싶다면 `latest-arm`를 사용하면 됩니다.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -61,11 +61,11 @@ docker run -it --name asf --rm justarchi/archisteamfarm
 
 모든것이 성공적으로 끝나면, 모든 레이어를 당기고 컨테이너를 시작한 뒤 ASF가 정상적으로 시작해서 정의된 봇이 없다고 알리고 있음을 알게 됩니다. ASF가 도커에서 정상적으로 작동하고 있습니다. `CTRL+P`와 `CTRL+Q`를 순서대로 눌러서 전경 도커 컨테이너에서 빠져나옵니다. 그리고 `docker stop asf`를 입력해 ASF를 중지합니다.
 
-명령어를 자세히 봤다면 태그를 선언하지 않았음을 알게 되었을 겁니다. 태그는 자동으로 기본값인 `latest` 가 됩니다. `latest` 말고 `latest-arm` 같은 다른 태그를 사용하고 싶다면 명시적으로 선언해야 합니다.
+명령어를 자세히 봤다면 태그를 선언하지 않았음을 알게 되었을 겁니다. 태그는 자동으로 기본값인 `latest` 가 됩니다. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

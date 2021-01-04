@@ -60,6 +60,10 @@ Debido a la naturaleza de esta propiedad, también es posible establecer el valo
 
 * * *
 
+`--no-config-watch` - por defecto ASF configura un `FileSystemWatcher` en tu directorio `config` para escuchar eventos relacionados con la modificación de archivos, y así poder adaptarse de forma interactiva a ellos. Por ejemplo, esto incluye detener bots al borrar su configuración, reiniciar bots al modificar su configuración, o cargar claves de producto (keys) en el **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-es)** una vez que las pongas en el directorio `config`. Este modificador te permite desactivar dicho comportamiento, lo que hará que ASF ignore completamente todos los cambios en el directorio `config`, requiriendo que realices dichas acciones manualmente, si lo consideras apropiado. Normalmente recomendamos mantener los eventos de configuración activados, pero si tienes una razón en particular para desactivarlos y prefieres que ASF no los detecte, puedes usar este modificador para lograr ese propósito.
+
+* * *
+
 `--no-restart` - esta opción se usa principlamente para nuestros contenedores **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es)** y fuerza `AutoRestart` al valor `false`. A menos que tengas una necesidad particular, en lugar de utilizar esta opción deberías configurar la propiedad `AutoRestart` directamente en tu configuración. Esta opción existe para que nuestro script docker no necesite modificar tu configuración globar para adaptarla a su propio entorno. Por supuesto, si estás ejecutando ASF a través de un script, también puedes utilizar esta opción (si no, es preferible emplear la propiedad de la configuración global).
 
 * * *

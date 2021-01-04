@@ -1,6 +1,6 @@
 # Docker
 
-A partir de la versión 3.0.3.2, ASF también está disponible como **[contenedor docker](https://www.docker.com/what-container)**. Ejecutar ASF en contenedor docker normalmente no tiene ventajas para los usuarios casuales, pero podría ser una excelente forma de usar ASF en servidores, asegurando que ASF se está ejecutando en un entorno sandbox separado de todas las demás aplicaciones. Nuestro repositorio docker puede ser encontrado **[aquí](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+A partir de la versión 3.0.3.2, ASF también está disponible como **[contenedor docker](https://www.docker.com/what-container)**. Ejecutar ASF en contenedor docker normalmente no tiene ventajas para los usuarios casuales, pero podría ser una excelente forma de usar ASF en servidores, asegurando que ASF se está ejecutando en un entorno sandbox separado de todas las demás aplicaciones. Nuestros paquetes docker están actualmente disponibles en **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** y en **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -38,9 +38,9 @@ Generalmente no recomendamos probar las compilaciones `master`, al igual que las
 
 ## Arquitecturas
 
-La imagen docker ASF está disponible actualmente para 3 arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
+La imagen docker ASF se compila actualmente en la plataforma `linux` con tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
 
-Puesto que las etiquetas docker multiarquitectura todavía son trabajo en proceso, las compilaciones para otras arquitecturas diferentes a la predeterminada `x64` están disponibles con `-{ARCH}` anexado al nombre de la etiqueta. En otras palabras, si quieres usar la etiqueta `latest` para la arquitectura `arm`, simplemente usa `latest-arm`.
+Desde la versión V5.0.2.2 de ASF, nuestras etiquetas utilizan un manifiesto multiplataforma, lo que significa que el Docker instalado en tu máquina seleccionará automáticamente la imagen adecuada para tu plataforma al extraer la imagen. Si por algún motivo deseas extraer una imagen de plataforma específica que no coincida con la que estás ejecutando, puedes hacerlo mediante el modificador `--platform` en los comandos docker apropiados, tal como `docker pull`. Para más información revisa la documentación docker en **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
 * * *
 
@@ -61,11 +61,11 @@ El comando `docker pull` asegura que estás usando una imagen `justarchi/archist
 
 Si todo termina exitosamente, después de quitar todas las capas e iniciar el contenedor, deberías notar que ASF inició correctamente e informó que no hay bots definidos, lo que es bueno - hemos verificado que ASF en docker funciona correctamente. Presiona `CTRL+P` y luego `CTRL+Q` para cerrar el contenedor docker en primer plano, luego detén el contenedor ASF con `docker stop asf`.
 
-Si observas más de cerca al comando entonces notarás que no declaramos ninguna etiqueta, que automáticamente se pone por defecto a `latest`. Si quieres usar otra etiqueta que no sea `latest`, por ejemplo `latest-arm`, entonces debes declararla explícitamente:
+Si observas más de cerca al comando entonces notarás que no declaramos ninguna etiqueta, que automáticamente se pone por defecto a `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

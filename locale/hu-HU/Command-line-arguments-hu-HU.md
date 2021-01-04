@@ -60,6 +60,10 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 * * *
 
+`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-restart` - ezt a kapcsolót főként a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** tárolóink használják és kikényszerítik, hogy az `AutoRestart` értéke `false` legyen. Hacsak nincs valami speciális igényed, akkor érdemesebb lehet az `AutoRestart` tulajdonságot beállítani a konfigurációdban. Ez a kapcsoló azért van itt, hogy a docker szkriptünknek ne kelljen hozzányúlnia a globális konfigurációdhoz azért, hogy átállítsa a saját környezetének megfelelően. Természetesen ha az ASF-t egy szkripten belül futtatod, akkor lehet még ennek a kapcsolónak létjogosultsága (de egyébként jobban jársz a globális konfigurációs tulajdonsággal).
 
 * * *

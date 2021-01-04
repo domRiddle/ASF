@@ -1,6 +1,6 @@
 # Docker
 
-从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**&#8203;中运行。 对于普通用户来说，在 Docker 容器中运行 ASF 并没有什么特别的好处。但对于服务器用户来说，这可能是运行 ASF 的最佳方式，因为这样可以确保 ASF 运行在与其他应用分离的沙盒中。 我们的 Docker 仓库可以在&#8203;**[这里](https://hub.docker.com/r/justarchi/archisteamfarm)**&#8203;找到。
+从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**&#8203;中运行。 对于普通用户来说，在 Docker 容器中运行 ASF 并没有什么特别的好处。但对于服务器用户来说，这可能是运行 ASF 的最佳方式，因为这样可以确保 ASF 运行在与其他应用分离的沙盒中。 我们的 Docker 仓库同时部署于 **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** 和 **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**。
 
 * * *
 
@@ -38,9 +38,9 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ## 架构
 
-ASF Docker 映像目前支持 3 种架构——`x64,`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
+ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x64`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
-由于 Docker 多架构分支仍然未完成，非 `x64` 架构的构建需要在分支名称后面加上架构名称 `-{ARCH}`。 也就是说，如果您需要使用 `arm` 架构的 `latest` 分支，则实际的分支名应为 `latest-arm`。
+从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker pull` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
 
 * * *
 
@@ -61,11 +61,11 @@ docker run -it --name asf --rm justarchi/archisteamfarm
 
 如果一切正常，在拉取所有层并启动容器后，您应该注意到 ASF 已正确启动并通知我们目前没有任何机器人，这是正常的——我们已经验证了 Docker 中的 ASF 运行正常。 按下 `CTRL+P` 和 `CTRL+Q` 以退出前台 Docker 容器，然后执行 `docker stop asf` 命令停止该容器。
 
-如果您仔细观察这些命令就会发现我们没有指定任何分支，实际上使用的是默认的 `latest` 分支。 如果您希望使用非 `latest` 分支，例如 `latest-arm`，就应该显式地指明：
+如果您仔细观察这些命令就会发现我们没有指定任何分支，实际上使用的是默认的 `latest` 分支。 如果您希望使用非 `latest` 分支，例如 `released`，就应该显式地指明：
 
 ```shell
-docker pull justarchi/archisteamfarm:latest-arm
-docker run -it --name asf --rm justarchi/archisteamfarm:latest-arm
+docker pull justarchi/archisteamfarm:released
+docker run -it --name asf --rm justarchi/archisteamfarm:released
 ```
 
 * * *

@@ -27,7 +27,7 @@
 
 ## Avançado
 
-* **[Argumentos da linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
+* **[Argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)**
 * **[Depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-pt-BR)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR)**
 * **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**

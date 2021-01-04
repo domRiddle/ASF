@@ -41,13 +41,13 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libicu` (`icu-libs`, versão mais recente para a sua distribuição, por exemplo `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `libssl1.1` (`libssl`, `openssl-libs`, versão mais recente para a sua distribuição, `1.1.X` ou `1.0.X`)
+- `libstdc++6` (`libstdc++`, na versão `5.0` ou superior)
 - `zlib1g` (`zlib`)
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
+Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. A instalação mínima do Debian estável requer apenas `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 

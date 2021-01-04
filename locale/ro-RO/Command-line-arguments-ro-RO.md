@@ -60,6 +60,10 @@ Datorită naturii acestei proprietăți, este posibilă și setarea cheii de cri
 
 * * *
 
+`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-restart` - acest comutator este folosit în principal de containere **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** şi forţează `AutoRepornire` să fie `false`. Dacă nu ai o nevoie specială, în schimb ar trebui să configurezi proprietatea `AutoRestart` direct în configurația ta. Acest comutator este aici astfel încât scriptul nostru docker nu va trebui să atingă configurația globală pentru a-l adapta la mediul său propriu. Desigur, dacă rulați ASF într-un script, puteți folosi acest comutator (altfel sunteți mai bine cu proprietatea configurării globale).
 
 * * *
