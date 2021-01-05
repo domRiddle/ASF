@@ -1,6 +1,6 @@
 # Docker
 
-A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Executar o ASF em um contêiner docker normalmente não tem vantagens para usuários casuais, mas pode ser uma excelente forma de usar o ASF em servidores, garantindo que a ASF esteja sendo executado em um ambiente restrito, separado de todos os outros aplicativos. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Executar o ASF em um contêiner docker normalmente não tem vantagens para usuários casuais, mas pode ser uma excelente forma de usar o ASF em servidores, garantindo que a ASF esteja sendo executado em um ambiente restrito, separado de todos os outros aplicativos. Nossos pacotes docker estão disponíveis atualmente no **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** e no **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -38,9 +38,9 @@ Nós geralmente desencorajamos o uso de compilações `master`, assim como compi
 
 ## Arquiteturas
 
-ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
+A imagem docker do ASF é compilada atualmente no `linux` com 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataforma, o que significa que o Docker instalado na sua máquina irá selecionar automaticamente a imagem adequada da sua plataforma ao puxar a imagem. Se por acaso você gostaria de baixar a imagem de alguma plataforma específica que não corresponde à que você está executando atualmente, você pode fazer isso através do switch `--platform` nos comandos docker apropriados, como `docker pull`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
 
 * * *
 
@@ -61,7 +61,7 @@ O comando `docker pull` garante que você está usando uma versão atualizada da
 
 Se tudo correu bem, após receber todas as camadas e iniciar o contêiner, você deverá notar que o ASF foi iniciado e nos informou que não há bots definidos, o que é bom; nós acabamos de verificar que o ASF funcionou corretamente no docker. Aperte `CTRL+P` e então `CTRL+Q` para sair do contêiner docker em primeiro plano, então pare o contêiner ASF com o comando `docker stop asf`.
 
-Se você olhar para o comando você vai notar que nós não declaramos nenhum marcador, que automaticamente usa o padrão `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
+Se você olhar para o comando você vai notar que nós não declaramos nenhum marcador, que automaticamente usa o padrão `latest`. Se você quiser usar uma tag que não seja a `latest`, a tag `released` por exemplo, então você deve declarar explicitamente:
 
 ```shell
 docker pull justarchi/archisteamfarm:released

@@ -61,7 +61,7 @@ El comando `docker pull` asegura que estás usando una imagen `justarchi/archist
 
 Si todo termina exitosamente, después de quitar todas las capas e iniciar el contenedor, deberías notar que ASF inició correctamente e informó que no hay bots definidos, lo que es bueno - hemos verificado que ASF en docker funciona correctamente. Presiona `CTRL+P` y luego `CTRL+Q` para cerrar el contenedor docker en primer plano, luego detén el contenedor ASF con `docker stop asf`.
 
-Si observas más de cerca al comando entonces notarás que no declaramos ninguna etiqueta, que automáticamente se pone por defecto a `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
+Si observas más de cerca al comando entonces notarás que no declaramos ninguna etiqueta, que automáticamente se pone por defecto a `latest`. Si quieres usar otra etiqueta que no sea `latest`, por ejemplo `released`, entonces debes declararla explícitamente:
 
 ```shell
 docker pull justarchi/archisteamfarm:released
