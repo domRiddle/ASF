@@ -1,13 +1,51 @@
-# Home
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![de-DE](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/de.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE) | [![es-ES](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/es.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES) |
+| --- | --- | --- |
 
-Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+| [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) | [![zh-CN](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/cn.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN) |
+| --- | --- | --- |
 
-You can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, you can visit **[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)** that contains home page translated into Russian (if available). Languages that are localized by our community in 90% or more will also be available on our wiki sidebar (on the right) for easy access.
+***
 
-All wiki pages always apply to **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** only, unless stated otherwise (like "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. We keep all pages available for current, as well as previous major ASF version.
+## Basics
 
-If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. You can find all other relevant wiki pages on our sidebar, on the right side of the screen. We suggest to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
+* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
-If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 
-GitHub **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** page is being used for ASF development, especially in regards to bugs and enhancements. We have a very strict policy regarding that, as GitHub is **not** a general support channel, it's dedicated exclusively to ASF development and we're not answering common ASF matters there, as we have appropriate **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)** for that. If you're not sure whether your matter relates to ASF development or not, we recommend to use a support channel instead. Invalid GitHub issues will be closed immediately and won't be answered.
+## Core
+
+* **[Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+
+
+## Advanced
+
+* **[Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+
+
+## Developers
+
+* **[Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
