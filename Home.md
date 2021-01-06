@@ -11,5 +11,3 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 
 GitHub **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** page is being used for ASF development, especially in regards to bugs and enhancements. We have a very strict policy regarding that, as GitHub is **not** a general support channel, it's dedicated exclusively to ASF development and we're not answering common ASF matters there, as we have appropriate **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)** for that. If you're not sure whether your matter relates to ASF development or not, we recommend to use a support channel instead. Invalid GitHub issues will be closed immediately and won't be answered.
-
-![test](https://raw.githubusercontent.com/hjnilsson/country-flags/master/svg/us.svg)
