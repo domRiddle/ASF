@@ -14,15 +14,15 @@
 
 # ASF 2단계 인증(2FA)
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2단계 인증은 토큰 생성, 확인사항 수락과 같은 ASF 프로세스에 2단계 인증 기능을 제공하는 역할을 하는 내장 모듈입니다. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
 
-`2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+`2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. 당신의 인증기를 ASF 2단계 인증으로 이미 불러오지 않았다면 `2fa` 명령어는 작동하지 않을 것입니다. 즉, 당신의 계정은 ASF 2단계 인증을 사용하고 있지 않고, 이 모듈의 동작을 필요로 하는 ASF의 고급기능을 사용할 수 없다는 뜻입니다.
 
 * * *
 
 ## 가져오기
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 아직 인증기가 없다면 이것들 중 하나를 골라 먼저 설치해야 합니다. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
+ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF는 현재 몇 가지의 공식적/비공식적 2단계 인증을 지원합니다. 안드로이드, iOS, SteamDesktopAuthenticator, WinAuth 입니다. 아직 인증기가 없다면 이것들 중 하나를 골라 먼저 설치해야 합니다. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
 
 아래의 모든 가이드는 **정상동작하고 있는** 인증기를 필요로 합니다. 유효하지 않은 데이터를 가져오면 ASF 2단계 인증은 정상적으로 동작하지 않을것이므로 데이터를 가져오기 전에 인증기가 정상 작동하는지 확인하여야 합니다. 다음의 인증기 기능이 정상 작동하는지 테스트하고 확인하십시오.
 
@@ -30,7 +30,7 @@ In order to use ASF 2FA, you should have already linked and operational authenti
 - 확인사항을 가져오고, 모바일 인증기에 도착할수 있어야 함
 - 확인사항을 수락하고, Steam 네트워크에서 확인/거부로 정확하게 인식될 수 있어야 함
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
+인증기가 위의 행동을 할 수 있는지 확인하십시오. 만약 안된다면 ASF에서도 동작하지 않을 것이고 시간만 낭비하고 추가적인 문제가 발생할 것입니다.
 
 * * *
 
@@ -55,7 +55,7 @@ WinAuth를 사용하고 싶지 않거나 필요없다면 보호된 디렉토리�
 [*] 정보: ImportAuthenticator() <1> 모바일 인증기 가져오기를 성공적으로 완료했습니다!
 ```
 
-That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
+That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. 실수를 했다면, 언제든 필요한만큼 `Bot.db`를 삭제하고 다시 시작할 수 있습니다.
 
 * * *
 
@@ -109,7 +109,7 @@ ASF 환경설정 디렉토리의 `steamID.maFile` 파일을 `봇이름.maFile` �
 
 지금부터 모든 `2fa` 명령어가 기존의 2단계 인증 기기에서 호출한 것 처럼 작동할 것입니다. 토큰을 생성하고 확인사항을 수락하는 데 ASF 2단계 인증과 당신의 인증기(안드로이드, iOS, SDA, WinAuth)를 둘다 사용할 수 있습니다.
 
-전화기에 인증기가 있다면 SteamDesktopAuthenticator 와 WinAuth는 더이상 필요가 없으므로 삭제해도 됩니다. 하지만 만일을 대비해서 남겨두길 권장합니다. 일반적인 스팀 인증기보다 더 편리한 것은 말할것도 없습니다. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. ASF 2단계 인증을 원래의 인증기로 변환할 수 없으므로, 범용 인증기를 WinAuth, SDA, 전화기같은 다른 곳에 가지고 있어야 합니다.
+전화기에 인증기가 있다면 SteamDesktopAuthenticator 와 WinAuth는 더이상 필요가 없으므로 삭제해도 됩니다. 하지만 만일을 대비해서 남겨두길 권장합니다. 일반적인 스팀 인증기보다 더 편리한 것은 말할것도 없습니다. ASF 2단계 인증은 범용 인증기가 **아닙니다**. 따라서 **절대로** 유일한 인증기가 되어서는 안됩니다. ASF 2단계 인증은 인증기가 가지고 있어야 할 모든 데이터를 포함하고 있지도 않습니다. ASF 2단계 인증을 원래의 인증기로 변환할 수 없으므로, 범용 인증기를 WinAuth, SDA, 전화기같은 다른 곳에 가지고 있어야 합니다.
 
 * * *
 
@@ -168,4 +168,4 @@ ASF 모바일 인증기는 해당 계정에 관련된 중요한 다른 데이터
 }
 ```
 
-표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. You don't have to remove them - ASF only requires valid JSON with 2 mandatory fields described above, and will ignore additional fields (if any). Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.
+표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목만 필요로 하고, 그외 추가 항목은 무시할 것입니다.. Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.

@@ -1,6 +1,6 @@
 # Docker
 
-Od verzije 3.0.3.2, ASF je dostupan kao **[docker kontejner](https://www.docker.com/what-container)**. Pokretanje ASF-a u docker kontejneru tipično nema prednosti za obične korisnike, ali može biti odličan način korišćenja ASF na serverima, obezbjeđujući da je ASF pokrenut odvojeno od ostalih aplikacija. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Od verzije 3.0.3.2, ASF je dostupan kao **[docker kontejner](https://www.docker.com/what-container)**. Pokretanje ASF-a u docker kontejneru tipično nema prednosti za obične korisnike, ali može biti odličan način korišćenja ASF na serverima, obezbjeđujući da je ASF pokrenut odvojeno od ostalih aplikacija. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 

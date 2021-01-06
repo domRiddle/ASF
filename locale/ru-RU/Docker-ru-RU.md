@@ -1,6 +1,6 @@
 # Docker
 
-Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Запуск ASF в контейнере docker обычно не имеет никаких преимуществ для обычных пользователей, он это может оказаться отличным способом использования ASF на серверах, позволяющий запускать ASF в среде, изолированной от других приложения. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/package/archisteamfarm)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Запуск ASF в контейнере docker обычно не имеет никаких преимуществ для обычных пользователей, он это может оказаться отличным способом использования ASF на серверах, позволяющий запускать ASF в среде, изолированной от других приложения. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 

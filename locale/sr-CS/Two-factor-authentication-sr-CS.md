@@ -61,9 +61,9 @@ To je sve, pretpostavljajući da se izabrali tačan važeći fajl, sve bi trebal
 
 ### iOS
 
-For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
+Na iOS-u možete koristiti **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. Ovo je moguće zahvaljujući činjenici da možete praviti nešifrovanu rezervnu kopiju, prebaciti je na PC i koristiti alaktu da bi ekstraktovali Steam podatke koje bi inače bilo nemoguće dobiti (ako vaš uređaj nije jailbreak-ovan, zato što je iOS enkriptovan).
 
-Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from `{` ending on `}` into `BotName.maFile` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+Otiđite na **[poslednje izdanje](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** da bi preuzeli program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from `{` ending on `}` into `BotName.maFile` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
 
 For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
