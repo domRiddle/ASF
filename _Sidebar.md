@@ -1,7 +1,7 @@
-| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![de-DE](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/de.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE) | [![es-ES](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/es.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES) |
+| [![en-US](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/us.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home) | [![de-DE](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/de.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE) | [![es-ES](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/es.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES) |
 | --- | --- | --- |
 
-| [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) | [![zh-CN](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/cn.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN) |
+| [![pt-BR](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/br.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR) | [![ru-RU](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/ru.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU) | [![zh-CN](https://raw.githubusercontent.com/hjnilsson/country-flags/master/png100px/cn.png)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN) |
 | --- | --- | --- |
 
 ***
