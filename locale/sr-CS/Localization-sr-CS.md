@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Problemi
+### Issues
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
@@ -127,7 +127,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> Ako ste novi korisnik, predlažemo da počnete sa vodičom **[podešavanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 Which is originally written as:
 
@@ -230,7 +230,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Na primjer:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 

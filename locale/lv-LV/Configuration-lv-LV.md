@@ -241,7 +241,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Vērtība | Nosaukums | Apraksts                                                                                         |
+| Vērtība | Name      | Apraksts                                                                                         |
 | ------- | --------- | ------------------------------------------------------------------------------------------------ |
 | 0       | Nekas     | No protocol                                                                                      |
 | 1       | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
@@ -383,7 +383,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Vērtība | Nosaukums                     | Apraksts                                                                                                 |
+| Vērtība | Name                          | Apraksts                                                                                                 |
 | ------- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
 | 0       | Nekas                         | No special bot behaviour, the least invasive mode, default                                               |
 | 1       | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
@@ -421,7 +421,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 As of today, the following item types are supported in this setting:
 
-| Vērtība | Nosaukums       | Apraksts                                                      |
+| Vērtība | Name            | Apraksts                                                      |
 | ------- | --------------- | ------------------------------------------------------------- |
 | 3       | FoilTradingCard | Foil variant of `TradingCard`                                 |
 | 5       | TradingCard     | Steam trading card, being used for crafting badges (non-foil) |
@@ -458,7 +458,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 `ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Vērtība | Nosaukums                 | Apraksts                                                                         |
+| Vērtība | Name                      | Apraksts                                                                         |
 | ------- | ------------------------- | -------------------------------------------------------------------------------- |
 | 0       | Unordered                 | No sorting, slightly improving CPU performance                                   |
 | 1       | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
@@ -513,23 +513,23 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Vērtība | Nosaukums             | Apraksts                                                      |
-| ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Unknown               | Every type that doesn't fit in any of the below               |
-| 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4       | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Consumable            | Special consumable items that disappear after being used      |
-| 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Sticker               | Special items that can be used on Steam chat                  |
-| 11      | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12      | MiniProfileBackground | Special background for Steam profile                          |
-| 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14      | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| Value | Name                  | Description                                                   |
+| ----- | --------------------- | ------------------------------------------------------------- |
+| 0     | Unknown               | Every type that doesn't fit in any of the below               |
+| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem              | Special items awarded during Steam sales                      |
+| 8     | Consumable            | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10    | Sticker               | Special items that can be used on Steam chat                  |
+| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -541,23 +541,23 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Vērtība | Nosaukums             | Apraksts                                                      |
-| ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Unknown               | Every type that doesn't fit in any of the below               |
-| 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4       | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Izejmateriāls         | Special consumable items that disappear after being used      |
-| 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Uzlīme                | Special items that can be used on Steam chat                  |
-| 11      | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12      | MiniProfileBackground | Special background for Steam profile                          |
-| 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14      | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| Value | Name                  | Description                                                   |
+| ----- | --------------------- | ------------------------------------------------------------- |
+| 0     | Unknown               | Every type that doesn't fit in any of the below               |
+| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem              | Special items awarded during Steam sales                      |
+| 8     | Izejmateriāls         | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10    | Uzlīme                | Special items that can be used on Steam chat                  |
+| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -571,16 +571,16 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Vērtība | Nosaukums      |
-| ------- | -------------- |
-| 0       | Bezsaistē      |
-| 1       | Tiešsaistē     |
-| 2       | Aizņemts       |
-| 3       | Projām         |
-| 4       | Snauž          |
-| 5       | LookingToTrade |
-| 6       | LookingToPlay  |
-| 7       | Neredzams      |
+| Value | Name           |
+| ----- | -------------- |
+| 0     | Offline        |
+| 1     | Online         |
+| 2     | Aizņemts       |
+| 3     | Projām         |
+| 4     | Snauž          |
+| 5     | LookingToTrade |
+| 6     | LookingToPlay  |
+| 7     | Neredzams      |
 
 `Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
@@ -610,13 +610,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Vērtība | Nosaukums                          | Apraksts                                                                                                                        |
-| ------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | Nekas                              | No special redeeming preferences, default                                                                                       |
-| 1       | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
-| 2       | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
-| 4       | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
-| 8       | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
+| Value | Name                               | Description                                                                                                                     |
+| ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                               | No special redeeming preferences, default                                                                                       |
+| 1     | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
+| 2     | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
+| 4     | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
+| 8     | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -698,12 +698,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Vērtība | Nosaukums     | Apraksts                                                                                                                                                                                           |
-| ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | Nekas         | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
-| 1       | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2       | Operators     | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3       | Galvenais     | Provides full access to given bot instance                                                                                                                                                         |
+| Value | Name          | Description                                                                                                                                                                                        |
+| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -717,14 +717,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Vērtība | Nosaukums           | Apraksts                                                                                                                                                                                             |
-| ------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | Nekas               | No special trading preferences, default                                                                                                                                                              |
-| 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
-| 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
-| 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
-| 8       | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
-| 16      | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
+| Value | Name                | Description                                                                                                                                                                                          |
+| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                | No special trading preferences, default                                                                                                                                                              |
+| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
+| 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
+| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
+| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
+| 16    | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -736,23 +736,23 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Vērtība | Nosaukums             | Apraksts                                                      |
-| ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Nezināms              | Every type that doesn't fit in any of the below               |
-| 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4       | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Consumable            | Special consumable items that disappear after being used      |
-| 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Sticker               | Special items that can be used on Steam chat                  |
-| 11      | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12      | MiniProfileBackground | Special background for Steam profile                          |
-| 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14      | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| Value | Name                  | Description                                                   |
+| ----- | --------------------- | ------------------------------------------------------------- |
+| 0     | Nezināms              | Every type that doesn't fit in any of the below               |
+| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7     | SaleItem              | Special items awarded during Steam sales                      |
+| 8     | Consumable            | Special consumable items that disappear after being used      |
+| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10    | Sticker               | Special items that can be used on Steam chat                  |
+| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12    | MiniProfileBackground | Special background for Steam profile                          |
+| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -880,12 +880,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Vērtība | Nosaukums |
-| ------- | --------- |
-| 0       | Nekas     |
-| 1       | A         |
-| 2       | B         |
-| 4       | C         |
+| Value | Name |
+| ----- | ---- |
+| 0     | None |
+| 1     | A    |
+| 2     | B    |
+| 4     | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

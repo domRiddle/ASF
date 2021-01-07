@@ -4,11 +4,11 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| Wert | Name                        |
-| ---- | --------------------------- |
-| 0    | PlainText                   |
-| 1    | AES                         |
-| 2    | ProtectedDataForCurrentUser |
+| Value | Name                        |
+| ----- | --------------------------- |
+| 0     | PlainText                   |
+| 1     | AES                         |
+| 2     | ProtectedDataForCurrentUser |
 
 The exact description and comparison of them is available below.
 
@@ -58,11 +58,11 @@ ASF unterstützt keine Möglichkeit, bereits verschlüsselte Passwörter zu ents
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Wert | Name      |
-| ---- | --------- |
-| 0    | PlainText |
-| 1    | SCrypt    |
-| 2    | Pbkdf2    |
+| Value | Name      |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
 
 The exact description and comparison of them is available below.
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 * * *
 
-## Empfehlung
+## Recommendation
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

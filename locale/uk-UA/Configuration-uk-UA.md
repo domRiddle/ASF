@@ -195,33 +195,33 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `LoginLimiterDelay`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між послідовними спробами підключитися пройшло щонайменше `LoginLimiterDelay` секунд, для того щоб уникнути активації обмеження на частоту запитів. Значення за замовчуванням `10` було обрано на базі підключення більш ніж 100 ботів, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти збільшити/зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і підключалося до Steam значно швидше. Однак маємо вас попередити, що занадто низькі значення при великій кількості ботів **призведе** до тимчасового блокування вашого IP, і ви не зможете увійти до Steam **взагалі**, й отримаєте помилку `InvalidPassword/RateLimitExceeded` - і це також включає ваш звичайний клієнт Steam, а не тільки ASF. Так само, якщо у вас забагато ботів, особливо у поєднанні з іншими клієнтами/інструментами для Steam, які працюють з тієї ж IP-адреси, швидше за все вам знадобиться збільшити це значення, щоб рознести логіни на більший період часу.
+`byte` type with default value of `10`. ASF буде забезпечувати щоб між послідовними спробами підключитися пройшло щонайменше `LoginLimiterDelay` секунд, для того щоб уникнути активації обмеження на частоту запитів. Значення за замовчуванням `10` було обрано на базі підключення більш ніж 100 ботів, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти збільшити/зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і підключалося до Steam значно швидше. Однак маємо вас попередити, що занадто низькі значення при великій кількості ботів **призведе** до тимчасового блокування вашого IP, і ви не зможете увійти до Steam **взагалі**, й отримаєте помилку `InvalidPassword/RateLimitExceeded` - і це також включає ваш звичайний клієнт Steam, а не тільки ASF. Так само, якщо у вас забагато ботів, особливо у поєднанні з іншими клієнтами/інструментами для Steam, які працюють з тієї ж IP-адреси, швидше за все вам знадобиться збільшити це значення, щоб рознести логіни на більший період часу.
 
-Додатково, це значення також використовується для буфер балансування навантаження в усіх запланованих діях ASF, наприклад таких як пропозиції обміну через `SendTradePeriod`. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Додатково, це значення також використовується для буфер балансування навантаження в усіх запланованих діях ASF, наприклад таких як пропозиції обміну через `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `MaxFarmingTime`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. Як ви маєте знати, Steam не завжди працює належним чином, іноді стаються дивні ситуації, як наприклад Steam може не записувати час, проведений у грі, навіть коли ви насправді граєте. ASF буде фармити одну гру у соло-режимі максимум `MaxFarmingTime` годин, а після цього періоду вважатиме, що фарм для неї завершений. Це необхідно щоб процес фарма не застряг у разі якихось дивних ситуацій, а також на випадок, коли Steam випустив значок, який заважає ASF працювати далі (дивись також: `Blacklist`). Значення за замовчуванням у `10` годин має бути достатньо для отримання усіх карток з однієї гри. Занадто низьке значення може призвести до пропуску дійсних ігор (так, бувають ігри у яких фарм займає до 9 годин), а занадто високе значення призведе до застрягання фарму на довгий час. Зверніть увагу, що цей параметр впливає лише на поодиноку гру у одній сесії фарму (тож після обробки всієї черги ASF повернеться до цієї гри), а також він базується не на загальному часу у грі, а на внутрішньому часі фарму в ASF, тому ASF також повернеться до цієї гри після перезапуску. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+`byte` type with default value of `10`. Як ви маєте знати, Steam не завжди працює належним чином, іноді стаються дивні ситуації, як наприклад Steam може не записувати час, проведений у грі, навіть коли ви насправді граєте. ASF буде фармити одну гру у соло-режимі максимум `MaxFarmingTime` годин, а після цього періоду вважатиме, що фарм для неї завершений. Це необхідно щоб процес фарма не застряг у разі якихось дивних ситуацій, а також на випадок, коли Steam випустив значок, який заважає ASF працювати далі (дивись також: `Blacklist`). Значення за замовчуванням у `10` годин має бути достатньо для отримання усіх карток з однієї гри. Занадто низьке значення може призвести до пропуску дійсних ігор (так, бувають ігри у яких фарм займає до 9 годин), а занадто високе значення призведе до застрягання фарму на довгий час. Зверніть увагу, що цей параметр впливає лише на поодиноку гру у одній сесії фарму (тож після обробки всієї черги ASF повернеться до цієї гри), а також він базується не на загальному часу у грі, а на внутрішньому часі фарму в ASF, тому ASF також повернеться до цієї гри після перезапуску. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `MaxTradeHoldDuration`
 
-параметр типу `byte` зі значенням за замовчуванням `15`. Цей параметр визначає максимальну тривалість затримки обміну, при якій ми згодні його приймати - ASF буде відхиляти обміни, для яких затримка складає більше ніж `MaxTradeHoldDuration` діб, як описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UA)**. Ця опція має сенс лише для ботів, у яких параметр `TradingPreferences` включає значення `SteamTradeMatcher`, оскільки він не впливає ані на обміни від `Master`/`SteamOwnerID`, ані на обміни у дарунок. Затримки обміну дратують усіх, тож ніхто не бажає мати з ними справу. ASF планувався для роботи по ліберальним правилам й допомоги усім, незалежно від затримок обміну, саме тому за замовчуванням цей параметр має значення `15`. Однак, якщо ви замість цього бажаєте відхилити всі обміни з затримками, ви можете вказати тут `0`. Будь ласка, зважте той факт що що цей параметр не впливає на картки з коротким строком дії, і такі обміни автоматично відхиляються для людей з затримками обміну, як це описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UK)**, тож немає сенсу глобально відхиляти усіх лише через це. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+`byte` type with default value of `15`. Цей параметр визначає максимальну тривалість затримки обміну, при якій ми згодні його приймати - ASF буде відхиляти обміни, для яких затримка складає більше ніж `MaxTradeHoldDuration` діб, як описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UA)**. Ця опція має сенс лише для ботів, у яких параметр `TradingPreferences` включає значення `SteamTradeMatcher`, оскільки він не впливає ані на обміни від `Master`/`SteamOwnerID`, ані на обміни у дарунок. Затримки обміну дратують усіх, тож ніхто не бажає мати з ними справу. ASF планувався для роботи по ліберальним правилам й допомоги усім, незалежно від затримок обміну, саме тому за замовчуванням цей параметр має значення `15`. Однак, якщо ви замість цього бажаєте відхилити всі обміни з затримками, ви можете вказати тут `0`. Будь ласка, зважте той факт що що цей параметр не впливає на картки з коротким строком дії, і такі обміни автоматично відхиляються для людей з затримками обміну, як це описано у розділі **[Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UK)**, тож немає сенсу глобально відхиляти усіх лише через це. Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+`byte` type with default value of `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
-### `Статистика`
+### `Statistics`
 
-параметр типу `bool` зі значенням за замовчуванням `true`. Цей параметр визначає, чи буде ASF збирати статистику, а також чи будуть ваші боти додані до групи ASF. Детальне пояснення, що саме робить цей параметр ви можете прочитати у розділі **[Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-uk-UA)**. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+`bool` type with default value of `true`. Цей параметр визначає, чи буде ASF збирати статистику, а також чи будуть ваші боти додані до групи ASF. Детальне пояснення, що саме робить цей параметр ви можете прочитати у розділі **[Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-uk-UA)**. Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -250,13 +250,13 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `UpdateChannel`
 
-параметр типу `byte` зі значенням за замовчуванням `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+`byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
 
 **Unless you know what you're doing**, we **strongly** recommend to keep it at default.
 
@@ -280,13 +280,13 @@ Default value was set based on assumption that ASF is the only tool accessing St
 
 In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it could lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that may send excessive number of requests to the same web-services that ASF is making use of. In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per `300` ms.
 
-Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `WebProxy`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF's `HttpClient`, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kinds of firewalls, especially the great firewall in China.
+`string` type with default value of `null`. This property defines a web proxy address that will be used for all internal http and https requests sent by ASF's `HttpClient`, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kinds of firewalls, especially the great firewall in China.
 
 This property is defined as uri string:
 
@@ -296,23 +296,23 @@ If your proxy requires user authentication, you will also need to set up `WebPro
 
 Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. If you need/want it to happen, I'd suggest starting from there.
 
-Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `WebProxyPassword`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+`string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
-Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
 ### `WebProxyUsername`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+`string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
-Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -361,11 +361,11 @@ The bot config has following structure:
 
 * * *
 
-Усі параметри описані нижче:
+All options are explained below:
 
 ### `AcceptGifts`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
+`bool` type with default value of `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
 
 This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
@@ -373,7 +373,7 @@ This option is recommended only for alt accounts, as it's very likely that you d
 
 ### `AutoSteamSaleEvent`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as through other event-specific activities. When this option is enabled, ASF will automatically check Steam discovery queue each `8` hours (starting in one hour since program start), and clear it if needed. This option is not recommended if you want to do that action yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place, which comes directly as Steam requirement. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as through other event-specific activities. When this option is enabled, ASF will automatically check Steam discovery queue each `8` hours (starting in one hour since program start), and clear it if needed. This option is not recommended if you want to do that action yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place, which comes directly as Steam requirement. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
@@ -436,7 +436,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ### `CustomGamePlayedWhileFarming`
 
-параметр типу `string` зі значенням за замовчуванням `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `OnlineStatus` of `Offline`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
+`string` type with default value of `null`. When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `OnlineStatus` of `Offline`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. Default value of `null` disables this feature.
 
 ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
 
@@ -444,13 +444,13 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `CustomGamePlayedWhileIdle`
 
-параметр типу `string` зі значенням за замовчуванням `null`. Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
+`string` type with default value of `null`. Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
 
 * * *
 
 ### `Enabled`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
+`bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
 * * *
 
@@ -487,25 +487,25 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `GamesPlayedWhileIdle`
 
-параметр типу `ImmutableHashSet<uint>` з пустим значенням за замовчуванням. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+`ImmutableHashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
 * * *
 
 ### `HoursUntilCardDrops`
 
-параметр типу `byte` зі значенням за замовчуванням `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
+`byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` type with default value of `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 * * *
 
 ### `IdleRefundableGames`
 
-параметр типу `bool` зі значенням за замовчуванням `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
+`bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
 
 * * *
 
@@ -569,12 +569,12 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 ### `OnlineStatus`
 
-параметр типу `byte` зі значенням за замовчуванням `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
 | Value | Ім'я           |
 | ----- | -------------- |
-| 0     | Офлайн         |
-| 1     | Онлайн         |
+| 0     | Offline        |
+| 1     | Online         |
 | 2     | Busy           |
 | 3     | Away           |
 | 4     | Snooze         |
@@ -602,7 +602,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ### `Paused`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` type with default value of `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 * * *
 
@@ -638,9 +638,9 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+`bool` type with default value of `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. Якщо ви не впевнені, яке значення встановити цьому параметру, залиште йому значення за замовчуванням `false`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `false`.
 
 * * *
 
@@ -654,15 +654,15 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `ShutdownOnFarmingFinished`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`bool` type with default value of `false`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
 
-Якщо ви не впевнені, яке значення встановити цьому параметру, залиште йому значення за замовчуванням `false`.
+If you're not sure how to set this property, leave it with default value of `false`.
 
 * * *
 
 ### `SteamLogin`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` type with default value of `null`. This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
@@ -674,7 +674,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SteamParentalCode`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` type with default value of `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
@@ -682,13 +682,13 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 ### `SteamPassword`
 
-параметр типу `string` зі значенням за замовчуванням `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` type with default value of `null`. This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 * * *
 
 ### `SteamTradeToken`
 
-параметр типу `string` зі значенням за замовчуванням `null`. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
+`string` type with default value of `null`. When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
 
 In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only the token itself (8 characters).
 
@@ -719,7 +719,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Value | Ім'я                | Description                                                                                                                                                                                          |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Не обрано           | No special trading preferences, default                                                                                                                                                              |
+| 0     | None                | No special trading preferences, default                                                                                                                                                              |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -762,7 +762,7 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 ### `UseLoginKeys`
 
-параметр типу `bool` зі значенням за замовчуванням `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
@@ -880,12 +880,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Ім'я      |
-| ----- | --------- |
-| 0     | Не обрано |
-| 1     | A         |
-| 2     | B         |
-| 4     | C         |
+| Value | Name |
+| ----- | ---- |
+| 0     | None |
+| 1     | A    |
+| 2     | B    |
+| 4     | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

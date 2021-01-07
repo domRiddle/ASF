@@ -1,6 +1,6 @@
 # Docker
 
-Od verzije 3.0.3.2, ASF je dostupan kao **[docker kontejner](https://www.docker.com/what-container)**. Pokretanje ASF-a u docker kontejneru tipično nema prednosti za obične korisnike, ali može biti odličan način korišćenja ASF na serverima, obezbjeđujući da je ASF pokrenut odvojeno od ostalih aplikacija. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Od verzije 3.0.3.2, ASF je dostupan kao **[docker kontejner](https://www.docker.com/what-container)**. Pokretanje ASF-a u docker kontejneru tipično nema prednosti za obične korisnike, ali može biti odličan način korišćenja ASF na serverima, obezbjeđujući da je ASF pokrenut odvojeno od ostalih aplikacija. Naš docker paket je trenutno dostupan na **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** kao i na **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
@@ -18,7 +18,7 @@ Very similar to the above, this tag always points to the latest **[released](htt
 
 ### `latest`
 
-Ovaj tag u odnosu sa drugima, je jedini koji sadrži mogućnost ASF auto-ažuriranja i tipično pokazuje stabilne verzije, ali one ne moraju biti poslednje dostupne. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+This tag in comparison with others, is the only one that includes ASF auto-updates feature and points to the latest **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** ASF version. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
 
 Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and generic ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
 

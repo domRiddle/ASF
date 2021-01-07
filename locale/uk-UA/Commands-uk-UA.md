@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Type                    | Description                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Пароль                  | `SteamPassword` bot config property, if missing from config.               |
+| Password                | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

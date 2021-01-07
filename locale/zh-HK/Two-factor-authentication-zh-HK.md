@@ -101,7 +101,7 @@ Firstly create new empty `BotName.maFile` in ASF config directory, where `BotNam
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
-從現在開始，您的ASF 2FA應該可以在此帳戶運行。
+From now on, your ASF 2FA should be operational for this account.
 
 * * *
 
@@ -147,7 +147,7 @@ Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2F
 
 ### 我將身份驗證器鏈接到SDA/WinAuth，然後導入到ASF。 我現在可以取消鏈接並在手機上再次鏈接嗎？
 
-**從未**。 ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
+**No**. ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
 
 * * *
 

@@ -20,7 +20,7 @@ You can verify whether your bot account is using ASF 2FA already by executing `2
 
 * * *
 
-## Importă
+## Import
 
 In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
 

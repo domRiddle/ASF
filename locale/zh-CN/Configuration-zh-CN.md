@@ -219,7 +219,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 * * *
 
-### `统计`
+### `Statistics`
 
 这是一个默认值为 `true` 的 `bool` 类型属性。 这个属性定义了 ASF 是否启用统计功能。 我们在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节中具体解释了这个选项究竟会做什么。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
@@ -541,23 +541,23 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 这是一个默认值为 Steam 物品类型 `5` 的 `ImmutableHashSet<byte>` 类型属性。 此属性定义了当您启用 `TradingPreferences` 中的 `SteamTradeMatcher` 选项时，允许用于匹配的 Steam 物品类型。 可用类型如下：
 
-| 值  | 名称                    | 描述                        |
-| -- | --------------------- | ------------------------- |
-| 0  | Unknown               | 不符合以下情况的任何类型              |
-| 1  | BoosterPack           | 包含某游戏随机 3 张卡牌的补充包         |
-| 2  | Emoticon              | Steam 聊天中使用的表情            |
-| 3  | FoilTradingCard       | 闪亮集换式卡牌（`TradingCard`）    |
-| 4  | ProfileBackground     | 在 Steam 个人资料上使用的个人资料背景    |
-| 5  | TradingCard           | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
-| 6  | SteamGems             | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
-| 7  | SaleItem              | Steam 特卖期间的特殊奖励物品         |
-| 8  | Consumable            | 使用后消失的特殊消耗品               |
-| 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
-| 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
-| 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
-| 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
+| 值  | 名称                    | Description                                                   |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | Special items that can be used on Steam chat                  |
+| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
+| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
 当然，您应该设置的类型通常只有 `2`、`3`、`4` 和 `5`，因为 STM 只支持这些类型。 ASF 的逻辑能够正确地获取物品的稀有程度，因此匹配表情或背景也是安全的，因为 ASF 只会将来自同一游戏、同一物品类型以及稀有程度相同的物品视为相等。
 
@@ -726,7 +726,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 8  | DontAcceptBotTrades | 不自动接受来自其他机器人的 `loot` 交易                                                                                                                                                      |
 | 16 | MatchActively       | 以主动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#matchactively)**&#8203;获得更多信息     |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
 若要了解 ASF 的交易逻辑，以及对于每个 flag 的详细说明，请阅读&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节。
 
@@ -734,35 +734,35 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `TransferableTypes`
 
-这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
+`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
 
-| 值  | 名称                    | 描述                        |
-| -- | --------------------- | ------------------------- |
-| 0  | Unknown               | 不符合以下情况的任何类型              |
-| 1  | BoosterPack           | 包含某游戏随机 3 张卡牌的补充包         |
-| 2  | Emoticon              | Steam 聊天中使用的表情            |
-| 3  | FoilTradingCard       | 闪亮集换式卡牌（`TradingCard`）    |
-| 4  | ProfileBackground     | 在 Steam 个人资料上使用的个人资料背景    |
-| 5  | TradingCard           | 用来合成徽章的 Steam 集换式卡牌（非闪亮）  |
-| 6  | SteamGems             | 用来制作补充包的 Steam 宝石，包括成袋的宝石 |
-| 7  | SaleItem              | Steam 特卖期间的特殊奖励物品         |
-| 8  | Consumable            | 使用后消失的特殊消耗品               |
-| 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
-| 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
-| 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
-| 14 | AnimatedAvatar        | Steam 个人资料动画头像            |
+| 值  | 名称                    | Description                                                   |
+| -- | --------------------- | ------------------------------------------------------------- |
+| 0  | Unknown               | Every type that doesn't fit in any of the below               |
+| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7  | SaleItem              | Special items awarded during Steam sales                      |
+| 8  | Consumable            | Special consumable items that disappear after being used      |
+| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10 | Sticker               | Special items that can be used on Steam chat                  |
+| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12 | MiniProfileBackground | Special background for Steam profile                          |
+| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
-请注意，无论如何设置上述选项，ASF 都只会处理 Steam 分组（`appID` 为 753）中的社区物品（`contextID` 为 6），所以所有的游戏物品、礼物等都会被排除在交易报价之外。
+Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
-默认值的设定基于机器人的最常见用法，即仅仅转移补充包和集换式卡牌（包括闪亮卡牌）。 您可以更改此属性，将机器人的行为调整至令您满意。 请记住，上表未定义的所有类型都会显示为 `Unknown`，特别是在 Valve 发布一些新 Steam 物品时，ASF 也会将它们标记为 `Unknown`，直到它们（在未来版本中）被添加到这个表格中。 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
+默认值的设定基于机器人的最常见用法，即仅仅转移补充包和集换式卡牌（包括闪亮卡牌）。 The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). 这也是为何一般不建议在 `TransferableTypes` 中包含 `Unknown` 类型，除非您了解您正在做什么，并且明白如果 Steam 网络出现故障，将所有物品当作 `Unknown`，ASF 将会在交易报价中发送整个库存内的物品。 我强烈建议您即使希望转移所有类型的物品，也不要在 `TransferableTypes` 中包含 `Unknown`。
 
 * * *
 
 ### `UseLoginKeys`
 
-这是一个默认值为 `true` 的 `bool` 类型属性。 该属性定义 ASF 是否应该为此 Steam 帐户启用登录密钥机制。 登录密钥机制的工作原理类似于 Steam 客户端的“记住我的密码”选项，使 ASF 可以保留临时的一次性登录密钥，并在下一次登录时使用，只要这个登录密钥没有失效，登录时就可以跳过输入密码、Steam 令牌或者两步验证代码的步骤。 登录密钥存储在 `BotName.db` 文件中，并且自动更新。 这就是您不需要在成功登录一次以后再输入密码、Steam 令牌或者两步验证代码的原因。
+`bool` type with default value of `true`. 该属性定义 ASF 是否应该为此 Steam 帐户启用登录密钥机制。 登录密钥机制的工作原理类似于 Steam 客户端的“记住我的密码”选项，使 ASF 可以保留临时的一次性登录密钥，并在下一次登录时使用，只要这个登录密钥没有失效，登录时就可以跳过输入密码、Steam 令牌或者两步验证代码的步骤。 登录密钥存储在 `BotName.db` 文件中，并且自动更新。 这就是您不需要在成功登录一次以后再输入密码、Steam 令牌或者两步验证代码的原因。
 
 登录密钥主要用来为您提供方便，使您无需每次登录都要输入 `SteamPassword`、Steam 令牌或者两步验证代码（当没有启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** 时）。 这也是一种先进的替代方法，因为登录密钥是一次性的，并且无法从中获得您的密码原文。 您的原版 Steam 客户端也在使用完全相同的方法，即为您的下一次登录保留用户名和登录密钥，效果等同于在 ASF 中设置 `SteamLogin` 和 `UseLoginKeys` 两个属性，并留空 `SteamPassword`。
 
@@ -806,7 +806,7 @@ ASF 采用这种很简单的文件结构：
 
 `BotName.db` 是给定机器人实例的数据库。 此文件将给定机器人实例的关键数据，例如登录密钥或者 ASF 2FA，存储在持久存储数据库内。 **您不应该编辑这个文件**。
 
-`BotName.bin` 是给定机器人实例的一个特殊文件，用于存储 Steam Sentry Hash。 Sentry Hash 用于 `SteamGuard` 机制进行认证，非常类似于 Steam 的 `ssfn` 文件。 **您不应该编辑这个文件**。
+`BotName.bin` 是给定机器人实例的一个特殊文件，用于存储 Steam Sentry Hash。 Sentry Hash 用于 `SteamGuard` 机制进行认证，非常类似于 Steam 的 `ssfn` 文件。 **You should not edit this file**.
 
 `BotName.keys` 是一个特殊文件，用于向&#8203;**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**&#8203;中导入序列号。 此文件既非必须也非由 ASF 生成，ASF 会读取此文件。 此文件将会在序列号导入成功后被自动删除。
 
@@ -880,12 +880,12 @@ ASF 使用原生的 C# 类型系统，包括：
 
 例如，给定下列值：
 
-| 值 | 名称   |
-| - | ---- |
-| 0 | None |
-| 1 | A    |
-| 2 | B    |
-| 4 | C    |
+| Value | Name |
+| ----- | ---- |
+| 0     | None |
+| 1     | A    |
+| 2     | B    |
+| 4     | C    |
 
 则选项 `B + C` 的结果是 `6`，选项 `A + C` 的结果是 `5`，选项 `C` 的结果是 `4`， 等等。 您可以启用不同的选项，创造任意可能的选项组合——如果您决定启用其中所有选项，就只需要对 `None + A + B + C` 求和，得到结果值 `7`。 还需要注意，根据定义，值为 `0` 的 Flag 会在所有组合中启用，因此这个 Flag 通常表示什么也不启用（例如 `None`）。
 

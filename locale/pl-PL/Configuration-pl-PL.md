@@ -219,7 +219,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statystyki`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -361,7 +361,7 @@ Konfiguracja bota ma następującą strukturę:
 
 * * *
 
-Wszystkie opcje zostały wyjaśnione poniżej:
+All options are explained below:
 
 ### `AcceptGifts`
 
@@ -541,7 +541,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Wartość | Nazwa                 | Opis                                                          |
+| Wartość | Nazwa                 | Description                                                   |
 | ------- | --------------------- | ------------------------------------------------------------- |
 | 0       | Unknown               | Every type that doesn't fit in any of the below               |
 | 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -736,7 +736,7 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Wartość | Nazwa                 | Opis                                                          |
+| Wartość | Nazwa                 | Description                                                   |
 | ------- | --------------------- | ------------------------------------------------------------- |
 | 0       | Unknown               | Every type that doesn't fit in any of the below               |
 | 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -880,12 +880,12 @@ Przykład dla `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76
 
 For example, given following values:
 
-| Wartość | Nazwa |
-| ------- | ----- |
-| 0       | None  |
-| 1       | A     |
-| 2       | B     |
-| 4       | C     |
+| Value | Name |
+| ----- | ---- |
+| 0     | None |
+| 1     | A    |
+| 2     | B    |
+| 4     | C    |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

@@ -232,7 +232,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Kompletny przykład polecenia:
+Complete command example:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -287,10 +287,10 @@ Ogólna składnia to `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Typ                     | Opis                                                                       |
+| Type                    | Description                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Hasło                   | `SteamPassword` bot config property, if missing from config.               |
+| Password                | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

@@ -248,7 +248,7 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben bislang mindestens über **20 Tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich, und Sie können komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
+Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich, und Sie können komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
@@ -259,4 +259,4 @@ Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Be
 | **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Deutsch              |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
 
-Vielen Dank, an euch alle, für die Verbesserung unserer ASF-Lokalisierungsqualität!
+Vielen Dank an euch alle für die Verbesserung unserer ASF-Lokalisierungsqualität!

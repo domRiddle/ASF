@@ -4,11 +4,11 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| 値 | 名前                          |
-| - | --------------------------- |
-| 0 | PlainText                   |
-| 1 | AES                         |
-| 2 | ProtectedDataForCurrentUser |
+| Value | Name                        |
+| ----- | --------------------------- |
+| 0     | PlainText                   |
+| 1     | AES                         |
+| 2     | ProtectedDataForCurrentUser |
 
 The exact description and comparison of them is available below.
 
@@ -58,11 +58,11 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| 値 | 名前        |
-| - | --------- |
-| 0 | PlainText |
-| 1 | SCrypt    |
-| 2 | Pbkdf2    |
+| Value | Name      |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
 
 The exact description and comparison of them is available below.
 

@@ -287,7 +287,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` 不區分大小寫，並定義由ASF識別的輸入類型。 當前，ASF可識別以下類型：
 
-| 類型                      | 描述                                        |
+| Type                    | Description                               |
 | ----------------------- | ----------------------------------------- |
 | Login                   | `SteamLogin`機械人配置屬性，在設定檔缺失這個值時使用。         |
 | Password                | `SteamPassword` 機械人配置屬性，在設定檔缺失這個值時使用。     |

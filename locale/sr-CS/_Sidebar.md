@@ -40,7 +40,7 @@
 * **[Sigurnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Treće-strane](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Dvofaktorska autentikacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Developeri
 

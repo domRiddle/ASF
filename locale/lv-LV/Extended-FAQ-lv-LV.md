@@ -1,4 +1,4 @@
-# Paplašināti biežāk uzdotie jautājumi
+# Extended FAQ
 
 Our extended FAQ covers a bit less common questions and answers that you may have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
 

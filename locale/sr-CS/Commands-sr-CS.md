@@ -170,7 +170,7 @@ Dok su pravilne vrijednosti za sve njih:
 
 Možete koristiti ili imena koja se mogu pisati i velikim i malim slovima, ili brojeve. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
-### Primjer
+### Example
 
 If you want to set **all** privacy settings of your bot named `Main` to `Private`, you can use either of below:
 
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Tip                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Lozinka                 | `SteamLogin` bot config property, if missing from config.                  |
-| Lozinka                 | `SteamPassword` bot config property, if missing from config.               |
+| Password                | `SteamPassword` bot config property, if missing from config.               |
 | Snimak еkrana           | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

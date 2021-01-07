@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 * * *
 
-### Problēmas
+### Issues
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
@@ -230,7 +230,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Piemēram:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 

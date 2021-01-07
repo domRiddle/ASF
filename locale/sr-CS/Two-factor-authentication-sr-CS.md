@@ -80,7 +80,7 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
@@ -97,7 +97,7 @@ Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGua
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 

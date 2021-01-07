@@ -80,7 +80,7 @@ This setting configures the memory treshold of your whole OS, which once passed,
 
 * * *
 
-Вы можете активировать все настройки сборщика мусора установив соответствующие переменные среды с префиксом `COMPlus_`. Например, для Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -93,7 +93,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Или для Windows (powershell):
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them

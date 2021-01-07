@@ -10,7 +10,7 @@ Please note that various **[ASF components](https://github.com/JustArchiNET/Arch
 
 * * *
 
-## Piezīmes
+## Remarks
 
 If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
 

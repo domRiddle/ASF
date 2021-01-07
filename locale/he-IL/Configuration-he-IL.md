@@ -219,7 +219,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `סטטיסטיקה`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -880,7 +880,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | שם   |
+| Value | Name |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

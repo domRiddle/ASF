@@ -127,7 +127,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> Dacă sunteți un utilizator nou, vă recomandăm să începeți cu **[ghidul de configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 Which is originally written as:
 
@@ -230,7 +230,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. De exemplu:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
 

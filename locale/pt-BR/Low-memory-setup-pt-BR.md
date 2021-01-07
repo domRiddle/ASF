@@ -80,7 +80,7 @@ Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agress
 
 * * *
 
-Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Não se esqueça de ajustar esses parâmetros caso vá usá-los
@@ -93,7 +93,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # Para OSes específicas
 ```
 
-Ou no Windows (powershell):
+Or on Windows (powershell):
 
 ```powershell
 # Não se esqueça de ajustar esses parâmetros caso vá usá-los

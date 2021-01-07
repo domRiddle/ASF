@@ -195,7 +195,7 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de
 
 ### `LoginLimiterDelay`
 
-Tipo `byte`con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de tarifa. El valor predeterminado de `10` fue establecido basado en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo, tal vez o quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una poca cantidad de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam restrinja temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
+Tipo `byte` con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de tarifa. El valor predeterminado de `10` fue establecido basado en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo, tal vez o quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una poca cantidad de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam restrinja temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
 
 Como nota, esto valor también es usado como un búfer balance de carga in todas las acciones de programadas de ASF, tal como intercambios en `SendTradePeriod`. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -203,7 +203,7 @@ Como nota, esto valor también es usado como un búfer balance de carga in todas
 
 ### `MaxFarmingTime`
 
-Tipo `byte`con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas como que Steam no registre tu tiempo de juego, a pesar de en efecto jugar un juego. ASF permitirá "farmear" un juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente "farmeado" después de ese período. Esto es necesario para no congelar el proceso de "farmeo" in caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impediría que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para "farmear"), mientras que establecerlo muy alto puede resultar en que se congele el proceso de "farmeo". Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de "farmeo" (por lo que después de completar toda a lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas como que Steam no registre tu tiempo de juego, a pesar de en efecto jugar un juego. ASF permitirá "farmear" un juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente "farmeado" después de ese período. Esto es necesario para no congelar el proceso de "farmeo" in caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impediría que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para "farmear"), mientras que establecerlo muy alto puede resultar en que se congele el proceso de "farmeo". Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de "farmeo" (por lo que después de completar toda a lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 * * *
 
@@ -219,7 +219,7 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el modo de op
 
 * * *
 
-### `Estadísticas`
+### `Statistics`
 
 Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF debe tener las estadísticas habilitadas. Una explicación detallada de lo que esta opción hace exactamente está disponible en la sección **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -393,7 +393,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                                           |
 | 32    | MarkBotMessagesAsRead         | Causará que ASF automáticamente marque como leídos los mensajes de otros bots de ASF (ejecutándose en la misma instancia) |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 En general, querrás modificar esta propiedad si esperas que ASF tenga cierta cantidad de automatización relacionada con su actividad, como se espera de una cuenta bot, pero no de una cuenta principal usada en ASF. Por lo tanto, cambiar esta propiedad tiene sentido principalmente para cuentas alternas, aunque también eres libre de usarla para cuentas principales.
 
@@ -493,7 +493,7 @@ Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto solo es una teoría, y no debe ser tomado como una regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
+Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
 
 * * *
 
@@ -531,7 +531,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
-Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
 La configuración por defecto de ASF está basada en el uso más común de un bot, solo "looteando" packs de refuerzo, y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en tu `LootableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la Red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en los `LootableTypes`, incluso si esperas "lootear" todo (lo demás).
 
@@ -552,7 +552,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de 
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
@@ -612,13 +612,13 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el como
 
 | Valor | Nombre                             | Descripción                                                                                                                                                     |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Ninguno                            | Sin preferencias especiales de activación, por defecto                                                                                                          |
+| 0     | None                               | Sin preferencias especiales de activación, por defecto                                                                                                          |
 | 1     | Forwarding                         | Envía a otros bots las claves no disponibles para activar                                                                                                       |
 | 2     | Distributing                       | Distribuye todas las claves entre sí y otros bots                                                                                                               |
 | 4     | KeepMissingGames                   | Conserva las claves de (potencialmente) juegos no poseídos cuando se envían, dejándolas sin usar                                                                |
 | 8     | AssumeWalletKeyOnBadActivationCode | Asume que las claves con el estado `BadActivationCode` equivalen a `CannotRedeemCodeFromClient`, y por lo tanto intenta activarlas como un código de la cartera |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 `Forwarding` causará que el bot envíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es enviar un juego `AlreadyPurchased` a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`.
 
@@ -698,12 +698,12 @@ Para encontrar tu token, inicia la sesión del usuario con permiso `Master`, dir
 
 Tipo `ImmutableDictionary<ulong, byte>` con valor predeterminado estando vacío. Esta propiedad es de tipo diccionario, la cual mapea a un usuario de Steam identificado por su ID de 64 bits, a un número `byte` que especifica sus permisos en la instancia de ASF. Los permisos de bot disponibles actualmente en ASF se definen a continuación:
 
-| Valor | Nombre           | Descripción                                                                                                                                                                                                                                       |
-| ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None             | Sin permisos especiales, este principalmente es un valor de referencia asignado a las ID de Steam faltantes en este diccionario - no hay necesidad de definir a nadie con este permiso                                                            |
-| 1     | PréstamoFamiliar | Proporciona acceso mínimo para usuarios del préstamo familiar. Una vez más, este es principalmente es un valor de referencia ya que ASF es capaz de descubrir automáticamente los ID de Steam a los que tenemos permitido usar nuestra biblioteca |
-| 2     | Operador         | Proporciona acceso básico a instancias de bot dadas, principalmente para agregar licencias y activar claves                                                                                                                                       |
-| 3     | Master           | Proporciona acceso total a una instancia de bot dada                                                                                                                                                                                              |
+| Valor | Nombre        | Descripción                                                                                                                                                                                                                                       |
+| ----- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | Sin permisos especiales, este principalmente es un valor de referencia asignado a las ID de Steam faltantes en este diccionario - no hay necesidad de definir a nadie con este permiso                                                            |
+| 1     | FamilySharing | Proporciona acceso mínimo para usuarios del préstamo familiar. Una vez más, este es principalmente es un valor de referencia ya que ASF es capaz de descubrir automáticamente los ID de Steam a los que tenemos permitido usar nuestra biblioteca |
+| 2     | Operator      | Proporciona acceso básico a instancias de bot dadas, principalmente para agregar licencias y activar claves                                                                                                                                       |
+| 3     | Master        | Proporciona acceso total a una instancia de bot dada                                                                                                                                                                                              |
 
 En resumen, esta propiedad te permite manejar los permisos para determinados usuarios. Los permisos son importantes principalmente para acceder a los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** de ASF, pero también para habilitar varias características de ASF, como aceptar intercambios. Por ejemplo, puede que quieras establecer tu propia cuenta como `Master`, y darle acceso de `Operator` a 2-3 de tus amigos para que puedan activar claves para tu bot con ASF, mientras que **no** son elegibles, por ejemplo, para detenerlo. Gracias a eso puedes asignar permisos a ciertos usuarios y dejarlos usar tu bot en un grado especificado por ti.
 
@@ -719,14 +719,14 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 
 | Valor | Nombre              | Descripción                                                                                                                                                                                                                  |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Ninguno             | Sin preferencias especiales de intercambio, por defecto                                                                                                                                                                      |
+| 0     | None                | Sin preferencias especiales de intercambio, por defecto                                                                                                                                                                      |
 | 1     | AcceptDonations     | Acepta intercambios en los que no estamos perdiendo nada                                                                                                                                                                     |
 | 2     | SteamTradeMatcher   | Participa pasivamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-es#steamtradematcher)** para más información |
 | 4     | MatchEverything     | Requiere que `SteamTradeMatcher` esté configurado, y en combinación - también acepta intercambios malos además de los buenos y neutrales                                                                                     |
 | 8     | DontAcceptBotTrades | No acepta automáticamente intercambios `loot` de otras instancias de bot                                                                                                                                                     |
 | 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-es#matchactively)** para más información     |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#json-mapping)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 Para más información sobre la lógica de intercambios de ASF, y descripción de cada bandera disponible, por favor, visita la sección **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**.
 
@@ -747,14 +747,14 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
-Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
 La configuración por defecto de ASf está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo, y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en tu `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la Red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en los `TransferableTypes`, incluso si esperas transferir todo.
 
@@ -880,12 +880,12 @@ Ejemplo para `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "765
 
 Por ejemplo, dados los siguientes valores:
 
-| Valor | Nombre  |
-| ----- | ------- |
-| 0     | Ninguno |
-| 1     | A       |
-| 2     | B       |
-| 4     | C       |
+| Valor | Nombre |
+| ----- | ------ |
+| 0     | None   |
+| 1     | A      |
+| 2     | B      |
+| 4     | C      |
 
 Usar `B + C` resultaría en el valor `6`, usar `A + C` resultaría en el valor `5`, usar `C` resultaría en el valor `4` y así sucesivamente. Esto permite crear cualquier posible combinación de valores habilitados - si decides habilitar todos, usando `Ninguno + A + B + C`, obtendrías el valor `7`. También ten en cuenta que la bandera con valor `0` está habilitada por definición en todas las otras combinaciones disponibles, por lo tanto muy a menudo es una bandera que no habilitada nada específico (como en `Ninguno`).
 

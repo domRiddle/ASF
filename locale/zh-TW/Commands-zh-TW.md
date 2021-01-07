@@ -284,10 +284,10 @@ Hash command allows you to generated hashes of arbitrary strings using ASF's has
 
 `<Type>` 不區分大小寫, 並定義由ASF識別的輸入類型。 目前, ASF可識別以下類型:
 
-| 類型                      | 描述                                         |
+| Type                    | Description                                |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin`機器人配置屬性，在設定檔缺失這個值時使用。          |
-| 密碼                      | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
+| Password                | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
 | SteamGuard              | 如果您未啟用2FA，驗證碼將以電子郵件的方式發送。                  |
 | SteamParentalCode       | `SteamParentalCode` 機器人配置屬性，在設定檔缺失這個值時使用。  |
 | TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA 代碼 。 |

@@ -13,7 +13,7 @@
 * **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)**
 * **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**
 * **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**
-* **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(fang hier an)**
+* **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(fangen Sie hier an)**
 
 ## Kernfunktionalität
 
