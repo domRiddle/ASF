@@ -610,13 +610,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | Name                               | Description                                                                                                                     |
-| ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                               | No special redeeming preferences, default                                                                                       |
-| 1     | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
-| 2     | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
-| 4     | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
-| 8     | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
+| Vrijednost | Ime                                | Opis                                                                                                                            |
+| ---------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 0          | None                               | No special redeeming preferences, default                                                                                       |
+| 1          | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
+| 2          | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
+| 4          | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
+| 8          | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -698,12 +698,12 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | Name          | Description                                                                                                                                                                                        |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
-| 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2     | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3     | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| Vrijednost | Ime           | Opis                                                                                                                                                                                               |
+| ---------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0          | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 1          | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
+| 2          | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
+| 3          | Master        | Provides full access to given bot instance                                                                                                                                                         |
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
@@ -717,14 +717,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Name                | Description                                                                                                                                                                                          |
-| ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | No special trading preferences, default                                                                                                                                                              |
-| 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
-| 2     | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
-| 4     | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
-| 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
-| 16    | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
+| Vrijednost | Ime                 | Opis                                                                                                                                                                                                 |
+| ---------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0          | None                | No special trading preferences, default                                                                                                                                                              |
+| 1          | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
+| 2          | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
+| 4          | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
+| 8          | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
+| 16         | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
 
@@ -736,23 +736,23 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | Name                  | Description                                                   |
-| ----- | --------------------- | ------------------------------------------------------------- |
-| 0     | Unknown               | Every type that doesn't fit in any of the below               |
-| 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2     | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3     | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4     | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5     | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6     | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7     | SaleItem              | Special items awarded during Steam sales                      |
-| 8     | Consumable            | Special consumable items that disappear after being used      |
-| 9     | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10    | Sticker               | Special items that can be used on Steam chat                  |
-| 11    | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12    | MiniProfileBackground | Special background for Steam profile                          |
-| 13    | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14    | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| Vrijednost | Ime                   | Opis                                                          |
+| ---------- | --------------------- | ------------------------------------------------------------- |
+| 0          | Unknown               | Every type that doesn't fit in any of the below               |
+| 1          | BoosterPack           | Booster pack containing 3 random cards from a game            |
+| 2          | Emoticon              | Emoticon to use in Steam Chat                                 |
+| 3          | FoilTradingCard       | Foil variant of `TradingCard`                                 |
+| 4          | ProfileBackground     | Profile background to use on your Steam profile               |
+| 5          | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
+| 6          | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
+| 7          | SaleItem              | Special items awarded during Steam sales                      |
+| 8          | Consumable            | Special consumable items that disappear after being used      |
+| 9          | ProfileModifier       | Special items that can modify Steam profile appearance        |
+| 10         | Sticker               | Special items that can be used on Steam chat                  |
+| 11         | ChatEffect            | Special items that can be used on Steam chat                  |
+| 12         | MiniProfileBackground | Special background for Steam profile                          |
+| 13         | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
+| 14         | AnimatedAvatar        | Special animated avatar for Steam profile                     |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 

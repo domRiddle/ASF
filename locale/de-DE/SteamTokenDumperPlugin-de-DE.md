@@ -14,13 +14,13 @@ Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch
 }
 ```
 
-Beim Start von ASF wird das Plugin dich mittels der Standard-Protokollierungsmethode darüber informieren, ob es erfolgreich aktiviert wurde oder nicht. Du kannst das Plugin auch über unseren webbasierten Konfigurationsgenerator aktivieren.
+Beim Start von ASF teilt das Plugin über den Standard-Protokollierungsmechanismus mit, ob es erfolgreich aktiviert wurde. Sie können das Plugin auch über unseren webbasierten Konfigurationsgenerator aktivieren.
 
 ---
 
 ## Technische Details
 
-Nach der Aktivierung verwendet das Plugin die Bots, die du in ASF betreibst, zur Datenerfassung in Form von Paket- und App-Tokens sowie Depot-Schlüsseln, auf die deine Bots Zugriff haben. Das Datenerfassungsmodul umfasst passive und aktive Routinen, die den durch die Datenerfassung verursachten zusätzlichen Aufwand minimieren sollen.
+Nach der Aktivierung verwendet das Plugin die Bots, die Sie in ASF betreiben, zur Datenerfassung in Form von Paket- und App-Tokens sowie Depot-Schlüsseln, auf die Ihre Bots Zugriff haben. Das Datenerfassungsmodul umfasst passive und aktive Routinen, die den durch die Datenerfassung verursachten zusätzlichen Aufwand minimieren sollen.
 
 Um den geplanten Anwendungsfall zu erfüllen, wird zusätzlich zu der oben erläuterten Datenerfassungsroutine die Einreichungsroutine initialisiert, die dafür verantwortlich ist, zu bestimmen, welche Daten auf periodischer Basis an SteamDB übermittelt werden müssen. Diese Routine wird innerhalb von `1` Stunde nach dem Start von ASF ausgelöst und wiederholt sich alle `24` Stunden. Das Plugin wird sein Bestes tun, um die Menge der zu sendenden Daten zu minimieren. Daher ist es möglich, dass einige Daten, die das Plugin sammelt, als unbrauchbar zur Übermittlung eingestuft und daher übersprungen werden (z. B. ein App-Update, das das Zugriffstoken nicht ändert).
 
@@ -30,6 +30,6 @@ Das Plugin verwendet eine dauerhafte Cache-Datenbank, die in `config/SteamTokenD
 
 ## Daten
 
-ASF schließt die `steamID` des Mitwirkenden in die Anfrage ein, die als `SteamOwnerID` bestimmt wird, die du in ASF festgelegt hast oder, falls du das nicht getan hast, die Steam-ID des Bots, der die meisten Lizenzen besitzt. Der angegebene Mitwirkende könnte einige zusätzliche Vorteile von SteamDB für kontinuierliche Hilfe erhalten (z. B. Spenderrang auf der Website), aber das liegt ganz im Ermessen von SteamDB.
+ASF schließt die `steamID` des Mitwirkenden in die Anfrage ein, die als `SteamOwnerID` bestimmt wird, die Sie in ASF festgelegt haben oder, falls Sie das nicht getan haben, die Steam-ID des Bots, der die meisten Lizenzen besitzt. Der angegebene Mitwirkende könnte einige zusätzliche Vorteile von SteamDB für kontinuierliche Hilfe erhalten (z. B. Spenderrang auf der Website), aber das liegt ganz im Ermessen von SteamDB.
 
-In jedem Fall möchten sich die SteamDB-Mitarbeiter im Voraus für deine Hilfe bedanken. Die übermittelten Daten ermöglichen den Betrieb von SteamDB, insbesondere die Verfolgung von Informationen über Pakete, Anwendungen und Depots, die ohne deine Hilfe nicht mehr möglich wäre.
+In jedem Fall möchten sich die SteamDB-Mitarbeiter im Voraus für Ihre Hilfe bedanken. Die übermittelten Daten ermöglichen den Betrieb von SteamDB, insbesondere die Verfolgung von Informationen über Pakete, Anwendungen und Depots, was ohne Ihre Hilfe nicht mehr möglich wäre.

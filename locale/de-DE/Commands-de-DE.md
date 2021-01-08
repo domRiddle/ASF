@@ -287,10 +287,10 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Type>` ist Groß-/Kleinschreibung unabhängig und definiert einen von ASF unterstützten Eingabetyp. Derzeit unterstützt ASF folgende Typen:
 
-| Type                    | Description                                                                               |
+| Typ                     | Beschreibung                                                                              |
 | ----------------------- | ----------------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.          |
-| Password                | `SteamPassword` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.       |
+| Passwort                | `SteamPassword` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt.       |
 | SteamGuard              | Auth-Code, der an deine E-Mail gesendet wird, wenn du 2FA nicht benutzt.                  |
 | SteamParentalCode       | ` SteamParentalCode ` Bot-Konfigurationseigenschaft, wenn sie in der Konfiguration fehlt. |
 | TwoFactorAuthentication | 2FA-Code, der von deinem Handy generiert wurde, wenn du 2FA benutzt, aber nicht ASF 2FA.  |

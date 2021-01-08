@@ -30,12 +30,12 @@ Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in 
 
 Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder der Runtimes, da die betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Prerequisites (Abhängigkeiten) um die .NET Core Runtime, die bereits in ASF enthalten ist, auszuführen.
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
+#### **[Windows](https://docs.microsoft.com/de-de/dotnet/core/install/windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - Wir dringend empfohlen sicherzustellen, dass alle Windows Aktualisierungen installiert sind. Du benötigst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
 
-#### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
+#### **[Linux](https://docs.microsoft.com/de-de/dotnet/core/install/linux)**:
 
 Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Du kannst alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
 
@@ -47,9 +47,9 @@ Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen
 - `libstdc++6` (`libstdc++`, Version `5.0` oder höher)
 - `zlib1g` (`zlib`)
 
-Zumindest ein Großteil davon sollte bereits nativ auf deinem System verfügbar sein. Die minimale Installation von Debian Stable erforderte nur `libicu63`.
+Zumindest ein Großteil davon sollte bereits nativ auf Ihrem System verfügbar sein. Die minimale Installation von Debian Stable erforderte nur `libicu63`.
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
+#### **[OS X](https://docs.microsoft.com/de-de/dotnet/core/install/macos)**:
 
 - Keine vorerst, aber du solltest die neueste Version von OS X installiert haben, mindestens 10.13+.
 
@@ -63,20 +63,20 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.org)**, aber alle Standard-Dienstprogramme wie `unzip` unter Linux/OS X sollten ebenfalls ohne Probleme funktionieren.
 
-Wenn du Linux oder OS X verwendest, vergiss nicht, `chmod +x ArchiSteamFarm` in dem extrahierten Ordner anzugeben, da die Berechtigungen in der Zip-Datei nicht automatisch gesetzt werden. Dies muss nur nach dem initialen Entpacken gemacht werden.
+Wenn Sie Linux oder OS X verwenden, vergessen Sie nicht, `chmod +x ArchiSteamFarm` in dem extrahierten Ordner anzugeben, da die Berechtigungen in der Zip-Datei nicht automatisch gesetzt werden. Dies muss nur nach dem initialen Entpacken gemacht werden.
 
 Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
 Eine Beispiel-Struktur würde wie folgt aussehen:
 
 ```text
-C:\ASF (wo du deine eigenen Sachen speicherst)
+C:\ASF (wo Sie Ihre eigenen Dateien speichern)
     ├── ASF shortcut.lnk (optional)
     ├── Config shortcut.lnk (optional)
     ├── Commands.txt (optional)
     ├── MyExtraScript.bat (optional)
-    ├── (...) (alle anderen Dateien deiner Wahl, optional)
-    └── Core (nur ASF gewidmet, wo du das Archiv extrahierst)
+    ├── (...) (alle anderen Dateien Ihrer Wahl, optional)
+    └── Core (nur ASF gewidmet, wo Sie das Archiv extrahieren)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -121,7 +121,7 @@ Nach der Entscheidung und den optionalen Details wird deine Webseite nun ähnlic
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-Du kannst jetzt auf den "Download"-Button klicken und unser Web-Konfigurationsgenerator erzeugt eine neue `json` Datei basierend auf deinem gewählten Namen. Speichere diese Datei im `config` Verzeichnis, welches sich in dem Ordner befindet, in dem du unsere Zip-Datei im vorherigen Schritt extrahiert hast.
+Du kannst jetzt auf den "Download"-Button klicken und unser Web-Konfigurationsgenerator erzeugt eine neue `json` Datei basierend auf deinem gewählten Namen. Speichern Sie diese Datei im `config` Verzeichnis, welches sich in dem Ordner befindet, in dem Sie unsere Zip-Datei aus dem vorherigen Schritt extrahiert haben.
 
 Dein `config` Verzeichnis sieht nun wie folgt aus:
 
@@ -133,7 +133,7 @@ Glückwunsch! Du hast gerade die sehr einfache ASF-Bot-Konfiguration abgeschloss
 
 ### Ausführen von ASF
 
-Du bist nun bereit, das Programm zum ersten Mal zu starten. Führe einfach einen Doppelklick auf die `ArchiSteamFarm` Binärdatei im ASF-Verzeichnis aus.
+Du bist nun bereit, das Programm zum ersten Mal zu starten. Führen Sie einfach einen Doppelklick auf die `ArchiSteamFarm` Binärdatei im ASF-Verzeichnis aus.
 
 Nach diesem Schritt, vorausgesetzt, du hast alle erforderlichen Abhängigkeiten im ersten Schritt installiert, sollte ASF richtig starten, deinen ersten Bot bemerken (wenn du nicht vergessen hast, die generierte Konfiguration in das Verzeichnis `config` zu legen) und versuchen, dich anzumelden:
 

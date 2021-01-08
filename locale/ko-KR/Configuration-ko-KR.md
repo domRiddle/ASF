@@ -195,33 +195,33 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `LoginLimiterDelay`
 
-`byte` type with default value of `10`. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 연결 시도 사이에 적어도 `LoginLimiterDelay`초의 간격을 둡니다. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
+`byte` 타입으로 기본값은 `10`입니다. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 연결 시도 사이에 적어도 `LoginLimiterDelay`초의 간격을 둡니다. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
 
-As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
+As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `MaxFarmingTime`
 
-`byte` type with default value of `10`. 알다시피, Steam이 항상 정상작동하는 것은 아닙니다. 실제 플레이 했음에도 플레이 시간이 기록되지 않거나 하는 이상한 상황이 가끔 벌어질 수 있습니다. ASF는 한 게임을 솔로모드로 최대 `MaxFarmingTime` 시간동안 농사지을 것입니다. 그리고 그 후에는 완전히 농사를 지은것으로 간주합니다. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` 타입으로 기본값은 `10`입니다. 알다시피, Steam이 항상 정상작동하는 것은 아닙니다. 실제 플레이 했음에도 플레이 시간이 기록되지 않거나 하는 이상한 상황이 가끔 벌어질 수 있습니다. ASF는 한 게임을 솔로모드로 최대 `MaxFarmingTime` 시간동안 농사지을 것입니다. 그리고 그 후에는 완전히 농사를 지은것으로 간주합니다. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `MaxTradeHoldDuration`
 
-`byte` type with default value of `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
+`byte` 타입으로 기본값은 `15`입니다. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `OptimizationMode`
 
-`byte` 타입으로 기본값은 `0`입니다. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` 타입으로 기본값은 `0`입니다. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
-### `Statistics`
+### `통계`
 
-`bool` type with default value of `true`. 이 속성값은 ASF가 통계를 활성화할지를 정의합니다. 이 옵션이 정확하게 무엇을 하는지에 대한 자세한 설명은 **[통계](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-ko-KR)** 항목에 있습니다. Unless you have a reason to edit this property, you should keep it at default.
+`bool` 타입으로 기본값은 `true`입니다. 이 속성값은 ASF가 통계를 활성화할지를 정의합니다. 이 옵션이 정확하게 무엇을 하는지에 대한 자세한 설명은 **[통계](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-ko-KR)** 항목에 있습니다. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
@@ -250,13 +250,13 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 일반적으로 ASF가 가능한 전체 프로토콜 대신 하나나 두개의 특정 프로토콜만 사용하도록 제한하려는 경우 이 속성값을 변경합니다. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 일반적으로 ASF가 가능한 전체 프로토콜 대신 하나나 두개의 특정 프로토콜만 사용하도록 제한하려는 경우 이 속성값을 변경합니다. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `UpdateChannel`
 
-`byte` type with default value of `1`. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `실험(Experimental)` 채널은 `안정(Stable)` 릴리스에, 새로운 기능을 테스트하고 버그수정이나 계획된 개선사항에 대한 피드백을 주기 위한 고급 사용자와 개발자용인 **사전 릴리스(pre-releases)** 를 포함합니다. **실험(Experimental) 버전은 종종 수정되지 않은 버그나 작업중인 기능이 포함되어 있습니다.**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `실험(Experimental)` 채널은 `안정(Stable)` 릴리스에, 새로운 기능을 테스트하고 버그수정이나 계획된 개선사항에 대한 피드백을 주기 위한 고급 사용자와 개발자용인 **사전 릴리스(pre-releases)** 를 포함합니다. **실험(Experimental) 버전은 종종 수정되지 않은 버그나 작업중인 기능이 포함되어 있습니다.**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
 
 **지금 하고 있는 것이 뭔지 알고 있지 않다면**, 기본값 그대로 두는 것을 **강력하게** 권장합니다.
 
@@ -280,13 +280,13 @@ Update process of ASF involves update of entire folder structure that ASF is usi
 
 In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it could lead to various IP-related blocks, some of which are possible to be permanent. 기본값은 서버에서 단일 ASF 인스턴스를 실행하는데도 충분하고, 원본 Steam 클라이언트와 함께 ASF를 정상적인 시나리오대로 사용하는데도 충분합니다. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that may send excessive number of requests to the same web-services that ASF is making use of. 즉, 단일 IP에서 단일 Steam 도메인으로 보내지는 모든 요청의 전체 숫자는 절대 `300` ms 당 1개 요청을 초과해서는 안됩니다.
 
-Unless you have a reason to edit this property, you should keep it at default.
+이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `WebProxy`
 
-`string` type with default value of `null`. 이 속성값은 ASF의 `HttpClient`가 보내는, 특히 `github.com`, `steamcommunity.com` 그리고 `store.steampowered.com` 등의 서비스로 보내는 모든 내부 http와 https 요청에 사용될 웹 프록시 주소를 정의합니다. ASF 요청을 프록시하는 것은 일반적으로 이점이 없지만 특히 중국의 만리방화벽과 같은 다양한 종류의 방화벽을 넘어가는데 특히 유용합니다.
+`string` 타입으로 기본값은 `null`입니다. 이 속성값은 ASF의 `HttpClient`가 보내는, 특히 `github.com`, `steamcommunity.com` 그리고 `store.steampowered.com` 등의 서비스로 보내는 모든 내부 http와 https 요청에 사용될 웹 프록시 주소를 정의합니다. ASF 요청을 프록시하는 것은 일반적으로 이점이 없지만 특히 중국의 만리방화벽과 같은 다양한 종류의 방화벽을 넘어가는데 특히 유용합니다.
 
 이 속성값은 아래와 같은 uri 문자열로 정의됩니다.
 
@@ -296,23 +296,23 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 지금 ASF는 `http`와 `https` 요청만을 위해 웹 프록시를 사용합니다. 이는 ASF의 내부 Steam 클라이언트에서 이루어지는 내부 Steam 네트워크 통신을 **포함하지 않습니다**. **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 기능이 없으므로 이를 지원할 계획은 현재로써는 없습니다. 만약 당신이 이를 할 필요가 있거나 하기를 원한다면 거기서부터 시작하기를 권합니다.
 
-Unless you have a reason to edit this property, you should keep it at default.
+이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `WebProxyPassword`
 
-`string` type with default value of `null`. 이 속성값은 프록시 기능을 제공하는 대상 `WebProxy` 기기에서 지원하는 기본, digest, NTLM, Kerberos 인증에 사용되는 암호 필드를 정의합니다. 프록시가 사용자 자격증명을 필요로 하지 않는다면 여기에 아무것도 넣을 필요가 없습니다. `WebProxy`가 사용될 때 이 옵션의 사용도 의미가 있고, 그외에는 효과가 없습니다.
+`string` 타입으로 기본값은 `null`입니다. 이 속성값은 프록시 기능을 제공하는 대상 `WebProxy` 기기에서 지원하는 기본, digest, NTLM, Kerberos 인증에 사용되는 암호 필드를 정의합니다. 프록시가 사용자 자격증명을 필요로 하지 않는다면 여기에 아무것도 넣을 필요가 없습니다. `WebProxy`가 사용될 때 이 옵션의 사용도 의미가 있고, 그외에는 효과가 없습니다.
 
-Unless you have a reason to edit this property, you should keep it at default.
+이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
 ### `WebProxyUsername`
 
-`string` type with default value of `null`. 이 속성값은 프록시 기능을 제공하는 대상 `WebProxy` 기기에서 지원하는 기본, digest, NTLM, Kerberos 인증에 사용되는 사용자이름 필드를 정의합니다. 프록시가 사용자 자격증명을 필요로 하지 않는다면 여기에 아무것도 넣을 필요가 없습니다. `WebProxy`가 사용될 때 이 옵션의 사용도 의미가 있고, 그외에는 효과가 없습니다.
+`string` 타입으로 기본값은 `null`입니다. 이 속성값은 프록시 기능을 제공하는 대상 `WebProxy` 기기에서 지원하는 기본, digest, NTLM, Kerberos 인증에 사용되는 사용자이름 필드를 정의합니다. 프록시가 사용자 자격증명을 필요로 하지 않는다면 여기에 아무것도 넣을 필요가 없습니다. `WebProxy`가 사용될 때 이 옵션의 사용도 의미가 있고, 그외에는 효과가 없습니다.
 
-Unless you have a reason to edit this property, you should keep it at default.
+이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 * * *
 
@@ -361,11 +361,11 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-All options are explained below:
+모든 옵션은 다음과 같습니다.
 
 ### `AcceptGifts`
 
-`bool` type with default value of `false`. 활성화 되어있으면 ASF는 자동으로 봇으로 보내지는 모든 Steam 선물(월렛 기프트카드 포함)을 수락하고 등록합니다. `SteamUserPermissions`에서 정의된 사용자 이외의 사용자가 보낸 선물도 포함됩니다. 이메일 주소로 보낸 선물은 클라이언트로 직접 전달되지 않음을 명심하십시오. ASF는 당신의 도움 없이는 그것을 받을 수 없습니다.
+`bool` 타입으로 기본값은 `false`입니다. 활성화 되어있으면 ASF는 자동으로 봇으로 보내지는 모든 Steam 선물(월렛 기프트카드 포함)을 수락하고 등록합니다. `SteamUserPermissions`에서 정의된 사용자 이외의 사용자가 보낸 선물도 포함됩니다. 이메일 주소로 보낸 선물은 클라이언트로 직접 전달되지 않음을 명심하십시오. ASF는 당신의 도움 없이는 그것을 받을 수 없습니다.
 
 이 옵션은 부계정에 권장합니다. 주 계정에 모든 선물을 자동으로 등록하지는 않기 때문입니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
@@ -373,7 +373,7 @@ All options are explained below:
 
 ### `AutoSteamSaleEvent`
 
-`bool` type with default value of `false`. Steam의 여름/겨울 세일 이벤트 기간동안 Steam은 매일 맞춤 대기열을 확인하거나 특정 이벤트 행동을 하면 추가로 카드를 제공합니다. 이 옵션이 활성화되어 있으면 ASF는 자동으로 프로그램이 시작한지 한시간안에 시작하여 `8`시간마다 Steam 맞춤 대기열을 확인하고, 필요하다면 클리어합니다. 그 행동을 직접하기 원한다면 이 옵션은 권장하지 않습니다. 일반적으로 봇 계정에만 맞는 이야기입니다. 또한, 처음으로 이 카드를 받기 원한다면 계정이 적어도 `8` 레벨 이상인지 확인해야 합니다. 이는 Steam의 직접 요구사항입니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
+`bool` 타입으로 기본값은 `false`입니다. Steam의 여름/겨울 세일 이벤트 기간동안 Steam은 매일 맞춤 대기열을 확인하거나 특정 이벤트 행동을 하면 추가로 카드를 제공합니다. 이 옵션이 활성화되어 있으면 ASF는 자동으로 프로그램이 시작한지 한시간안에 시작하여 `8`시간마다 Steam 맞춤 대기열을 확인하고, 필요하다면 클리어합니다. 그 행동을 직접하기 원한다면 이 옵션은 권장하지 않습니다. 일반적으로 봇 계정에만 맞는 이야기입니다. 또한, 처음으로 이 카드를 받기 원한다면 계정이 적어도 `8` 레벨 이상인지 확인해야 합니다. 이는 Steam의 직접 요구사항입니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 Valve의 이슈, 변화, 문제에 따라 **이 기능이 정상작동할지 보증하지 않습니다**. 따라서 이 옵션이**전혀 작동하지 않을** 수도 있습니다. 이 옵션과 관련한 **어떠한** 버그 제보, 지원 요청도 받지 않습니다. 보증을 전혀 하지 않고 제공되는 기능이므로, 위험을 감수하고 사용하시기 바랍니다.
 
@@ -393,7 +393,7 @@ Valve의 이슈, 변화, 문제에 따라 **이 기능이 정상작동할지 보
 | 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다.                                                                      |
 | 32 | MarkBotMessagesAsRead                       | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 일반적으로 ASF가 활동과 관련하여 일정량 만큼의 자동화를 해주기를 기대한다면 이 속성값을 변경하시기 바랍니다. 이는 주 계정이 아닌 봇 계정에 설정할 것을 권장합니다. 주로 부계정에서 이 속성값을 변경하겠지만 주 계정에서 이 옵션을 선택하는 것은 자유입니다.
 
@@ -421,10 +421,10 @@ ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 �
 
 As of today, the following item types are supported in this setting:
 
-| 값 | 이름              | 설명                                                            |
-| - | --------------- | ------------------------------------------------------------- |
-| 3 | FoilTradingCard | Foil variant of `TradingCard`                                 |
-| 5 | TradingCard     | Steam trading card, being used for crafting badges (non-foil) |
+| 값 | 이름                          | 설명                              |
+| - | --------------------------- | ------------------------------- |
+| 3 | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전   |
+| 5 | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님 |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
@@ -436,7 +436,7 @@ Due to additional overhead of using this option, it's recommended to use it only
 
 ### `CustomGamePlayedWhileFarming`
 
-`string` type with default value of `null`. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
+`string` 타입으로 기본값은 `null`입니다. ASF가 농사를 짓는 동안 현재 농사짓는 게임 대신 "`CustomGamePlayedWhileFarming`을 플레이중"으로 표시합니다. 이것은 친구들에게 자신이 농사를 짓는 중이라고 알려주고는 싶지만 기본 `OnlineStatus`를 `오프라인`으로 사용하고 싶지는 않을때 유용합니다. ASF는 Steam 네트워크의 실제 표시 순서를 보장하지 않습니다. 정확하게, 혹은 부정확하게 표시될 수 있는 제안일 뿐입니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
 
@@ -444,13 +444,13 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `CustomGamePlayedWhileIdle`
 
-`string` type with default value of `null`. `CustomGamePlayedWhileFarming`와 비슷하지만 농사가 끝난 계정 등 ASF가 할 일이 없을 경에 사용합니다. 기본값 `null`은 이 기능을 비활성화 합니다.
+`string` 타입으로 기본값은 `null`입니다. `CustomGamePlayedWhileFarming`와 비슷하지만 농사가 끝난 계정 등 ASF가 할 일이 없을 경에 사용합니다. 기본값 `null`은 이 기능을 비활성화 합니다.
 
 * * *
 
 ### `Enabled`
 
-`bool` type with default value of `false`. 이 속성값은 이 봇의 활성화 여부를 정의합니다. 활성화된 봇 인스턴스(`true`)는 ASF 실행시에 자동으로 시작되고, 비활성된 봇 인스턴스(`false`)는 수동으로 시작해야 합니다. 기본값으로 모든 봇이 비활성화되어 있습니다. 따라서 자동으로 시작할 모든 봇의 이 속성값을 `true`로 바꾸어야 합니다.
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 이 봇의 활성화 여부를 정의합니다. 활성화된 봇 인스턴스(`true`)는 ASF 실행시에 자동으로 시작되고, 비활성된 봇 인스턴스(`false`)는 수동으로 시작해야 합니다. 기본값으로 모든 봇이 비활성화되어 있습니다. 따라서 자동으로 시작할 모든 봇의 이 속성값을 `true`로 바꾸어야 합니다.
 
 * * *
 
@@ -487,25 +487,25 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` type with default value of being empty. ASF가 농사지을 것이 없다면 대신 특정 게임(`appIDs`)을 플레이할 수 있습니다. 이 방법으로 플레이하면 "플레이한 시간"을 늘릴 수 있지만, 그게 끝입니다. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. 이 기능은 Steam 네트워크에서 사용자정의 상태를 보여주면서 선택한 게임을 플레이하기 위해 `CustomGamePlayedWhileIdle`와 동시에 활성화 될 수 있습니다. 하지만 이 경우 `CustomGamePlayedWhileFarming`의 경우와 같이 실제 표시 순서는 보장하지 않습니다. Steam은 ASF가 총 `32`개의 `appIDs`를 플레이 할 수 있도록 허락하고 있으며, 따라서 이 속성값에 그만큼을 넣을 수 있습니다.
+`ImmutableHashSet<uint>` 타입으로 기본값은 비어있습니다. ASF가 농사지을 것이 없다면 대신 특정 게임(`appIDs`)을 플레이할 수 있습니다. 이 방법으로 플레이하면 "플레이한 시간"을 늘릴 수 있지만, 그게 끝입니다. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. 이 기능은 Steam 네트워크에서 사용자정의 상태를 보여주면서 선택한 게임을 플레이하기 위해 `CustomGamePlayedWhileIdle`와 동시에 활성화 될 수 있습니다. 하지만 이 경우 `CustomGamePlayedWhileFarming`의 경우와 같이 실제 표시 순서는 보장하지 않습니다. Steam은 ASF가 총 `32`개의 `appIDs`를 플레이 할 수 있도록 허락하고 있으며, 따라서 이 속성값에 그만큼을 넣을 수 있습니다.
 
 * * *
 
 ### `HoursUntilCardDrops`
 
-`byte` type with default value of `3`. 이 속성값은 이 계정에 카드 획득 제한이 있는지를 정의하고, 만약 제한이 있다면 최초 몇시간인지를 정의합니다. 카드 획득 제한이란, 그 계정에서 한 게임을 적어도 `HoursUntilCardDrops` 시간 동안 플레이하지 않으면 그 게임의 카드가 나오지 않는다는 의미입니다. 아쉽게도 이를 알아낼 수 있는 마법은 없으므로 ASF는 당신에게 의존합니다. 이 속성값은 사용할 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 영향을 줍니다. 이 속성값을 설정하면 이득을 극대화하고 카드농사에 필요한 시간을 최소화합니다. 어떤 값을 사용할지에 대한 명확한 정답은 없고, 오로지 자신의 계정에 달려있음을 기억하십시오. 환불을 한번도 하지 않은 오래된 계정은 제한이 없는 것으로 보이므로 `0` 값을 사용하여야 하고, 새로운 계정과 환불을 받았던 계정은 획득 제한이 있으므로 `3` 값을 사용합니다. This is however only theory, and should not be taken as a rule. 이 속성값의 기본값은 "소악(lesser evil)"과 대부분의 사용례에 근거해 설정되었습니다.
+`byte` 타입으로 기본값은 `3`입니다. 이 속성값은 이 계정에 카드 획득 제한이 있는지를 정의하고, 만약 제한이 있다면 최초 몇시간인지를 정의합니다. 카드 획득 제한이란, 그 계정에서 한 게임을 적어도 `HoursUntilCardDrops` 시간 동안 플레이하지 않으면 그 게임의 카드가 나오지 않는다는 의미입니다. 아쉽게도 이를 알아낼 수 있는 마법은 없으므로 ASF는 당신에게 의존합니다. 이 속성값은 사용할 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 영향을 줍니다. 이 속성값을 설정하면 이득을 극대화하고 카드농사에 필요한 시간을 최소화합니다. 어떤 값을 사용할지에 대한 명확한 정답은 없고, 오로지 자신의 계정에 달려있음을 기억하십시오. 환불을 한번도 하지 않은 오래된 계정은 제한이 없는 것으로 보이므로 `0` 값을 사용하여야 하고, 새로운 계정과 환불을 받았던 계정은 획득 제한이 있으므로 `3` 값을 사용합니다. 하지만 이것은 단지 이론일 뿐이고 규칙으로 받아들여서는 안됩니다. 이 속성값의 기본값은 "소악(lesser evil)"과 대부분의 사용례에 근거해 설정되었습니다.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-`bool` type with default value of `false`. 이 속성값은 ASF가 `iq` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 농사 우선 대기열에 추가한 앱만 자동으로 농사짓도록 정의합니다. 이 옵션이 활성화되어있으면 자동 ASF 농사의 열매만 효과적으로 따먹을 수 있도록 목록에 없는 모든 `appIDs`를 건너뜁니다. 대기열에 게임을 하나도 추가하지 않았다면 계정에 농사지을 것이 없는 것처럼 행동함을 명심하십시오. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 ASF가 `iq` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 농사 우선 대기열에 추가한 앱만 자동으로 농사짓도록 정의합니다. 이 옵션이 활성화되어있으면 자동 ASF 농사의 열매만 효과적으로 따먹을 수 있도록 목록에 없는 모든 `appIDs`를 건너뜁니다. 대기열에 게임을 하나도 추가하지 않았다면 계정에 농사지을 것이 없는 것처럼 행동함을 명심하십시오. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 
 ### `IdleRefundableGames`
 
-`bool` type with default value of `true`. 이 속성값은 아직 환불이 가능한 게임을 농사지어도 될지를 정의합니다. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. 기본적으로 이 옵션이 `true`로 설정되어있으면, ASF는 Steam 환불 정책을 완전히 무시하고 대부분의 사람들이 기대하는 바 처럼 모든 것을 농사짓습니다. 하지만 만약 당신이 ASF가 환불 가능한 게임을 너무 일찍 농사짓지 않기를 원한다면 이 옵션을 `false`로 변경할 수 있습니다. ASF가 플레이시간에 부정적인 영향을 끼칠 걱정 없이 이 게임을 당신이 직접 평가해보고 필요하면 환불할 수 있게 해줍니다. 만약 이 옵션을 비활성화하면 Steam 상점에서 구입한 게임은 등록일로부터 14일간 ASF가 농사짓지 않습니다. 계정에 그외에 아무것도 없다면 농사지을 것이 없는 것으로 표시됩니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `true`를 유지하십시오.
+`bool` 타입으로 기본값은 `true`입니다. 이 속성값은 아직 환불이 가능한 게임을 농사지어도 될지를 정의합니다. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. 기본적으로 이 옵션이 `true`로 설정되어있으면, ASF는 Steam 환불 정책을 완전히 무시하고 대부분의 사람들이 기대하는 바 처럼 모든 것을 농사짓습니다. 하지만 만약 당신이 ASF가 환불 가능한 게임을 너무 일찍 농사짓지 않기를 원한다면 이 옵션을 `false`로 변경할 수 있습니다. ASF가 플레이시간에 부정적인 영향을 끼칠 걱정 없이 이 게임을 당신이 직접 평가해보고 필요하면 환불할 수 있게 해줍니다. 만약 이 옵션을 비활성화하면 Steam 상점에서 구입한 게임은 등록일로부터 14일간 ASF가 농사짓지 않습니다. 계정에 그외에 아무것도 없다면 농사지을 것이 없는 것으로 표시됩니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `true`를 유지하십시오.
 
 * * *
 
@@ -531,7 +531,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
 Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 항목을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `LootableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
 
@@ -541,23 +541,23 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` 타입으로 기본값은 `5` Steam 아이템 타입입니다. 이 속성값은 `TradingPreferences`의 `SteamTradeMatcher` 옵션이 활성화 되었을 때 매칭을 허락할 Steam 아이템 타입을 정의합니다. 타입은 아래와 같이 정의됩니다.
 
-| 값  | 이름                    | Description                                                   |
-| -- | --------------------- | ------------------------------------------------------------- |
-| 0  | Unknown               | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem              | Special items awarded during Steam sales                      |
-| 8  | Consumable            | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10 | Sticker               | Special items that can be used on Steam chat                  |
-| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12 | MiniProfileBackground | Special background for Steam profile                          |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| 값  | 이름                          | 설명                                           |
+| -- | --------------------------- | -------------------------------------------- |
+| 0  | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입                      |
+| 1  | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩                  |
+| 2  | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘                         |
+| 3  | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전                |
+| 4  | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경                      |
+| 5  | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님              |
+| 6  | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함            |
+| 7  | 판매 아이템(SaleItem)            | Steam 할인기간동안 획득하는 특별한 아이템                    |
+| 8  | 소모품(Consumable)             | 사용하면 사라지는 특별한 소모 아이템                         |
+| 9  | 프로필 수정(ProfileModifier)     | Steam 프로필 모양을 수정할 수 있는 특별한 아이템               |
+| 10 | Sticker                     | Special items that can be used on Steam chat |
+| 11 | ChatEffect                  | Special items that can be used on Steam chat |
+| 12 | MiniProfileBackground       | Special background for Steam profile         |
+| 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
+| 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
 
 물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. ASF는 아이템의 희귀도를 구별하는 적절한 논리구조를 가지고 있으며, 따라서 이모티콘이나 배경을 안전하게 매치할 수 있습니다. ASF는 같은 게임의 같은 타입의 이모티콘이나 배경을 공평하다고 판단하고 동일한 희귀도를 공유합니다.
 
@@ -569,12 +569,12 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 ### `OnlineStatus`
 
-`byte` type with default value of `1`. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 스팀 네트워크에 로그인 후 스팀 네트워크에 알려줄 활동 상태를 지정합니다. 현재 선택할 수 있는 활동 상태는 다음과 같습니다.
 
 | 값 | 이름             |
 | - | -------------- |
-| 0 | Offline        |
-| 1 | Online         |
+| 0 | 오프라인           |
+| 1 | 온라인            |
 | 2 | 다른 용무 중        |
 | 3 | 자리 비움          |
 | 4 | 수면 중           |
@@ -596,19 +596,19 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 ### `PasswordFormat`
 
-`byte` type with default value of `0`. 이 속성값은 `SteamPassword` 속성값의 형식을 정의합니다. 현재 지원하는 값은 다음과 같습니다. `0`은 `평문(PlainText)`을, `1`은 `AES`를, `2`는 `ProtectedDataForCurrentUser`를 의미합니다. 더 자세한 내용은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)** 항목을 참고하십시오. `SteamPassword` 속성값은 실제로 `PasswordFormat`에 맞는 암호를 포함해야 합니다. 즉, `PasswordFormat`을 변경하면 `SteamPassword`는 그 후에 변경하는 것이 아니고 **이미** 그 형식으로 바뀌어있어야 합니다. Unless you know what you're doing, you should keep it with default value of `0`.
+`byte` 타입으로 기본값은 `0`입니다. 이 속성값은 `SteamPassword` 속성값의 형식을 정의합니다. 현재 지원하는 값은 다음과 같습니다. `0`은 `평문(PlainText)`을, `1`은 `AES`를, `2`는 `ProtectedDataForCurrentUser`를 의미합니다. 더 자세한 내용은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)** 항목을 참고하십시오. `SteamPassword` 속성값은 실제로 `PasswordFormat`에 맞는 암호를 포함해야 합니다. 즉, `PasswordFormat`을 변경하면 `SteamPassword`는 그 후에 변경하는 것이 아니고 **이미** 그 형식으로 바뀌어있어야 합니다. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `0`을 유지하십시오.
 
 * * *
 
 ### `Paused`
 
-`bool` type with default value of `false`. 이 속성값은 `CardsFarmer` 모듈의 최초상태를 정의합니다. 기본값인 `false` 상태에서, 봇이 `Enabled` 또는 `start` 명령어로 시작되면 자동으로 농사를 시작합니다. 자동 농사 프로세스를 수동으로 `resume` 하려고 할때만 이 속성값을 `true`로 변경하십시오. 예를 들어 항상 `play`만 사용하고 절대로 자동 `CardsFarmer` 모듈을 사용하지 않는 경우입니다. 이 경우는 `pause` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 와 정확하게 동일하게 동작합니다. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 `CardsFarmer` 모듈의 최초상태를 정의합니다. 기본값인 `false` 상태에서, 봇이 `Enabled` 또는 `start` 명령어로 시작되면 자동으로 농사를 시작합니다. 자동 농사 프로세스를 수동으로 `resume` 하려고 할때만 이 속성값을 `true`로 변경하십시오. 예를 들어 항상 `play`만 사용하고 절대로 자동 `CardsFarmer` 모듈을 사용하지 않는 경우입니다. 이 경우는 `pause` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 와 정확하게 동일하게 동작합니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 
 ### `RedeemingPreferences`
 
-`byte flags` type with default value of `0`. 이 속성값은 cd키 등록에서 ASF 봇의 행동을 아래와 같이 정의합니다.
+`byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 cd키 등록에서 ASF 봇의 행동을 아래와 같이 정의합니다.
 
 | 값 | 이름                                 | 설명                                                                                                                              |
 | - | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -618,7 +618,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 | 4 | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
 | 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -638,15 +638,15 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` type with default value of `false`. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
+`bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
-시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. If you're not sure how to set this property, leave it with default value of `false`.
+시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
 * * *
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. 이 속성값은 `SendOnFarmingFinished` 속성값과 매우 유사하게 동작하지만 차이가 하나 있습니다. 농사가 끝나면 거래를 보내는 대신 농사가 얼마나 남았는지와 상관없이 매 `SendTradePeriod` 시간마다 거래를 보냅니다. 부계정의 농사가 끝날때까지 기다리는 대신 평소에 `루팅` 하고 싶은 경우 유용합니다. 기본값인 `0`은 이 기능을 비활성화합니다. 예를 들어 봇이 매일 거래를 보내길 원한다면 여기에 `24`를 넣으십시오.
+`byte` 타입으로 기본값은 `0`입니다. 이 속성값은 `SendOnFarmingFinished` 속성값과 매우 유사하게 동작하지만 차이가 하나 있습니다. 농사가 끝나면 거래를 보내는 대신 농사가 얼마나 남았는지와 상관없이 매 `SendTradePeriod` 시간마다 거래를 보냅니다. 부계정의 농사가 끝날때까지 기다리는 대신 평소에 `루팅` 하고 싶은 경우 유용합니다. 기본값인 `0`은 이 기능을 비활성화합니다. 예를 들어 봇이 매일 거래를 보내길 원한다면 여기에 `24`를 넣으십시오.
 
 시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
 
@@ -654,27 +654,27 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` type with default value of `false`. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
+`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
 
-If you're not sure how to set this property, leave it with default value of `false`.
+이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
 * * *
 
 ### `SteamLogin`
 
-`string` type with default value of `null`. 이 속성값은 당신이 Steam에 로그인할때 사용하는 Steam 로그인 아이디를 정의합니다. 여기에 Steam 로그인 아이디를 정의하는 것과 더불어, 환경설정에 넣는 대신 ASF 시작시마다 Steam 로그인 아이디를 입력하고 싶다면 기본값인 `null`을 유지할수도 있습니다. 민감한 데이터를 환경설정 파일에 저장하고 싶지 않다면 유용합니다.
+`string` 타입으로 기본값은 `null`입니다. 이 속성값은 당신이 Steam에 로그인할때 사용하는 Steam 로그인 아이디를 정의합니다. 여기에 Steam 로그인 아이디를 정의하는 것과 더불어, 환경설정에 넣는 대신 ASF 시작시마다 Steam 로그인 아이디를 입력하고 싶다면 기본값인 `null`을 유지할수도 있습니다. 민감한 데이터를 환경설정 파일에 저장하고 싶지 않다면 유용합니다.
 
 * * *
 
 ### `SteamMasterClanID`
 
-`ulong` type with default value of `0`. 이 속성값은 봇이 자동으로 가입해야 하는 Steam 그룹 또는 그룹대화의 steamID를 정의합니다. 그룹의 SteamID는 **[여기](https://steamcommunity.com/groups/archiasf)** 로 이동해서 `/memberslistxml?xml=1` 을 링크의 마지막에 추가합니다. 그러면 **[이런](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)** 모양이 됩니다. 그러면 결과의 `<groupID64>` 태그에서 그룹의 SteamID를 얻을 수 있습니다. 위의 예시에서는 `103582791440160998` 입니다. 봇은 시작시에 해당 그룹에 가입을 시도하고, 또한 이 그룹의 그룹 초대를 자동으로 수락하여 이 그룹이 비공개인 경우 수동으로 봇을 초대할 수 있게 합니다. 봇을 위한 그룹이 없다면 이 속성값을 기본값인 `0`으로 유지하십시오.
+`ulong` 타입으로 기본값은 `0`입니다. 이 속성값은 봇이 자동으로 가입해야 하는 Steam 그룹 또는 그룹대화의 steamID를 정의합니다. 그룹의 SteamID는 **[여기](https://steamcommunity.com/groups/archiasf)** 로 이동해서 `/memberslistxml?xml=1` 을 링크의 마지막에 추가합니다. 그러면 **[이런](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)** 모양이 됩니다. 그러면 결과의 `<groupID64>` 태그에서 그룹의 SteamID를 얻을 수 있습니다. 위의 예시에서는 `103582791440160998` 입니다. 봇은 시작시에 해당 그룹에 가입을 시도하고, 또한 이 그룹의 그룹 초대를 자동으로 수락하여 이 그룹이 비공개인 경우 수동으로 봇을 초대할 수 있게 합니다. 봇을 위한 그룹이 없다면 이 속성값을 기본값인 `0`으로 유지하십시오.
 
 * * *
 
 ### `SteamParentalCode`
 
-`string` type with default value of `null`. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string` 타입으로 기본값은 `null`입니다. This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality. In addition to defining steam parental PIN here, you may also use value of `0` if you want to enter your steam parental PIN on each ASF startup, when needed, instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
 In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
@@ -682,13 +682,13 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 ### `SteamPassword`
 
-`string` type with default value of `null`. 이 속성값은 당신이 Steam에 로그인할때 사용하는 Steam 암호를 정의합니다. 여기에 Steam 암호를 정의하는 것과 더불어, 환경설정에 넣는 대신 ASF 시작시마다 Steam 암호를 입력하고 싶다면 기본값인 `null`을 유지할수도 있습니다. 민감한 데이터를 환경설정 파일에 저장하고 싶지 않다면 유용합니다.
+`string` 타입으로 기본값은 `null`입니다. 이 속성값은 당신이 Steam에 로그인할때 사용하는 Steam 암호를 정의합니다. 여기에 Steam 암호를 정의하는 것과 더불어, 환경설정에 넣는 대신 ASF 시작시마다 Steam 암호를 입력하고 싶다면 기본값인 `null`을 유지할수도 있습니다. 민감한 데이터를 환경설정 파일에 저장하고 싶지 않다면 유용합니다.
 
 * * *
 
 ### `SteamTradeToken`
 
-`string` type with default value of `null`. 친구 목록에 당신의 봇이 있다면, 거래 토큰을 걱정하지 않고 당신에게 즉시 거래를 보낼 수 있습니다. 따라서 이 속성값을 기본값인 `null`로 유지할 수 있습니다. 하지만 친구 목록에 당신의 봇이 없다면 이 봇이 거래를 보낼 사용자의 거래 토큰을 생성하고 채워줘야 합니다. 즉, 이 속성값은 **이** 봇 인스턴스의 `SteamUserPermissions`이 `주인(Master)` 권한으로 정의된 계정의 거래 토큰으로 채워져야 합니다.
+`string` 타입으로 기본값은 `null`입니다. 친구 목록에 당신의 봇이 있다면, 거래 토큰을 걱정하지 않고 당신에게 즉시 거래를 보낼 수 있습니다. 따라서 이 속성값을 기본값인 `null`로 유지할 수 있습니다. 하지만 친구 목록에 당신의 봇이 없다면 이 봇이 거래를 보낼 사용자의 거래 토큰을 생성하고 채워줘야 합니다. 즉, 이 속성값은 **이** 봇 인스턴스의 `SteamUserPermissions`이 `주인(Master)` 권한으로 정의된 계정의 거래 토큰으로 채워져야 합니다.
 
 토큰을 채우기 위해서는 `주인(Master)` 권한을 가진 사용자로 로그인해서, **[여기](https://steamcommunity.com/my/tradeoffers/privacy)** 를 방문해서 거래 URL을 확인하십시오. 우리가 찾는 토큰은 당신의 거래 URL의 `&token=` 뒤의 8자리 문자입니다. 그 8자리 문자를 복사해서 여기 `SteamTradeToken`에 넣으십시오. 전체 거래 URL이나 `&token=` 부분을 포함하지 말고 오직 토큰(8자리)만 넣으십시오.
 
@@ -702,8 +702,8 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 | - | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0 | 없음(None)             | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission |
 | 1 | 가족 공유(FamilySharing) | 가족 공유 사용자에 대한 최소한의 접근만 제공합니다. 이 또한 참조용 값입니다. ASF는 라이브러리를 허용한 Steam ID를 자동으로 발견할 수 있습니다.                                                                                    |
-| 2 | Operator             | 주로 라이선스 추가와 키 등록과 같은 봇 인스턴스에 대한 기본적인 권한을 제공합니다.                                                                                                                            |
-| 3 | Master               | 봇 인스턴스에 대한 전체 권한을 제공합니다.                                                                                                                                                   |
+| 2 | 운영자(Operator)        | 주로 라이선스 추가와 키 등록과 같은 봇 인스턴스에 대한 기본적인 권한을 제공합니다.                                                                                                                            |
+| 3 | 주인(Master)           | 봇 인스턴스에 대한 전체 권한을 제공합니다.                                                                                                                                                   |
 
 간단하게 말하면 주어진 사용자에 대해 권한을 부여하는 속성값입니다. 권한은 ASF **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 에 접근할 때 중요하지만, 거래를 수락하는 것 같은 많은 ASF 기능을 활성화하는데도 중요합니다. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. 사용자에게 권한을 쉽게 줄수 있으므로 당신의 봇을 특정행동을 하도록 허용할 수 있습니다.
 
@@ -715,18 +715,18 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 ### `TradingPreferences`
 
-`byte flags` type with default value of `0`. 이 속성값은 거래에서 ASF 봇의 행동을 아래와 같이 정의합니다.
+`byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 거래에서 ASF 봇의 행동을 아래와 같이 정의합니다.
 
 | 값  | 이름                           | 설명                                                                                                                                                                                 |
 | -- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | None                         | No special trading preferences, default                                                                                                                                            |
+| 0  | 없음(None)                     | No special trading preferences, default                                                                                                                                            |
 | 1  | 기부 수락(AcceptDonations)       | 잃는 것이 없다면 거래를 수락합니다.                                                                                                                                                               |
 | 2  | SteamTradeMatcher            | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 수동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#steamtradematcher)** 를 참고하십시오. |
 | 4  | 전부 매칭(MatchEverything)       | `SteamTradeMatcher` 가 설정되어 있어야 합니다. 좋음, 중립, 나쁨 거래를 수락합니다.                                                                                                                          |
 | 8  | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                                   |
-| 16 | MatchActively                | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#matchactively)** 를 참고하십시오.     |
+| 16 | 능동적 매칭(MatchActively)        | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#matchactively)** 를 참고하십시오.     |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세한 내용은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR)** 항목에서 확인할 수 있습니다.
 
@@ -734,35 +734,35 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 
 ### `TransferableTypes`
 
-`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. 이 속성값은 `transfer` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 두 봇간에 전송가능한 Steam 아이템 타입을 정의합니다. ASF는 `TransferableTypes`에 있는 아이템만 거래 제안에 포함할 것이므로, 이 속성값은 당신의 봇 중 하나에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
+`ImmutableHashSet<byte>` 타입으로 기본값은 `1, 3, 5` Steam 아이템 타입입니다. 이 속성값은 `transfer` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 두 봇간에 전송가능한 Steam 아이템 타입을 정의합니다. ASF는 `TransferableTypes`에 있는 아이템만 거래 제안에 포함할 것이므로, 이 속성값은 당신의 봇 중 하나에게 보내진 거래 제안에서 무엇을 받을지 결정할 수 있게 해줍니다.
 
-| 값  | 이름                    | Description                                                   |
-| -- | --------------------- | ------------------------------------------------------------- |
-| 0  | Unknown               | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem              | Special items awarded during Steam sales                      |
-| 8  | Consumable            | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10 | Sticker               | Special items that can be used on Steam chat                  |
-| 11 | ChatEffect            | Special items that can be used on Steam chat                  |
-| 12 | MiniProfileBackground | Special background for Steam profile                          |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| 값  | 이름                          | 설명                                           |
+| -- | --------------------------- | -------------------------------------------- |
+| 0  | 알 수 없음(Unknown)             | 아래의 어느것에도 해당하지 않는 모든 타입                      |
+| 1  | 부스터 팩(BoosterPack)          | 한 게임의 무작위 카드 3장이 들어있는 부스터 팩                  |
+| 2  | 이모티콘(Emoticon)              | Steam 대화에서 사용하는 이모티콘                         |
+| 3  | 은박 트레이딩 카드(FoilTradingCard) | `트레이딩 카드(TradingCard)`의 은박 버전                |
+| 4  | 프로필 배경(ProfileBackground)   | Steam 프로필에서 사용하는 프로필 배경                      |
+| 5  | 트레이딩 카드(TradingCard)        | Steam 트레이딩 카드. 배지 제작에 사용. 은박 아님              |
+| 6  | Steam 보석(SteamGems)         | 부스터 팩 제작에 사용되는 Steam 보석. 보석 더미 포함            |
+| 7  | 판매 아이템(SaleItem)            | Steam 할인기간동안 획득하는 특별한 아이템                    |
+| 8  | 소모품(Consumable)             | 사용하면 사라지는 특별한 소모 아이템                         |
+| 9  | 프로필 수정(ProfileModifier)     | Steam 프로필 모양을 수정할 수 있는 특별한 아이템               |
+| 10 | Sticker                     | Special items that can be used on Steam chat |
+| 11 | ChatEffect                  | Special items that can be used on Steam chat |
+| 12 | MiniProfileBackground       | Special background for Steam profile         |
+| 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
+| 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 아이템을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 여기 정의된 속성값은 당신을 만족시킬수 있도록 어떻게든 행동을 변경할 수 있게 합니다. 위에 정의되지 않은 모든 타입은 `알 수 없음(Unknown)` 타입으로 표시됨을 명심하십시오. Valve가 새로운 Steam 아이템을 내놓았을때 특히 중요한데, 향후 릴리스에서 여기에 추가되기 전까지는 ASF에서 `알 수 없음(Unknown)` 으로 표시될 것입니다. 이것이 당신이 무엇을 하고 있는지를 알고 있고, 만약 Steam 네트워크가 깨져서 모든 아이템을 `알 수 없음(Unknown)`으로 표시한다면 ASF는 전체 보관함을 거래 제안으로 보낼것이라는 점도 이해하고 있지않는 한, 일반적으로 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함시키는 것을 권장하지 않는 이유입니다. 모든 것을 전송하고 싶더라도 `알 수 없음(Unknown)` 타입을 `TransferableTypes`에 포함하지 않는 것을 강력하게 권장합니다.
 
 * * *
 
 ### `UseLoginKeys`
 
-`bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`bool` 타입으로 기본값은 `true`입니다. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
@@ -806,7 +806,7 @@ ASF를 다른 PC 등 새로운 위치로 옮기려면 `config` 디렉토리 하�
 
 `봇이름.db`는 봇 인스턴스의 데이터베이스입니다. 이 파일은 봇 인스턴스와 관련된 로그인 키나 ASF 2단계 인증과 같은 영구 저장소의 중요한 데이터를 저장하는데 사용됩니다. **이 파일을 수정해서는 안됩니다**.
 
-`봇이름.bin`은 Steam 센트리 해시 정보를 담고 있는 특별한 파일입니다. 센트리 해시는 Steam의 `ssfn`파일과 매우 유사하게 `SteamGuard` 메커니즘을 사용하여 인증하는데 사용됩니다. **You should not edit this file**.
+`봇이름.bin`은 Steam 센트리 해시 정보를 담고 있는 특별한 파일입니다. 센트리 해시는 Steam의 `ssfn`파일과 매우 유사하게 `SteamGuard` 메커니즘을 사용하여 인증하는데 사용됩니다. **이 파일을 수정해서는 안됩니다**.
 
 `봇이름.keys`는 **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 에서 불러올 키를 저장하는 특별한 파일입니다. 이 파일은 필수사항도 아니고 생성되지도 않지만 ASF가 인식은 합니다. 이 파일은 키를 성공적으로 불러온 다음 자동으로 삭제됩니다.
 
@@ -880,12 +880,12 @@ Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 예를 들어, 다음과 같은 값이 있습니다.
 
-| Value | Name |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| 값 | 이름       |
+| - | -------- |
+| 0 | 없음(None) |
+| 1 | A        |
+| 2 | B        |
+| 4 | C        |
 
 `B + C`의 값은 `6`이 되고, `A + C`는 `5`, `C` 는 `4`가 됩니다. 이렇게 해서 활성화된 값의 가능한 어느 조합이라도 생성할 수 있습니다. 전부를 활성화하고 싶다면 `None + A + B + C`를 해서 `7`의 값을 얻습니다. `0`값을 갖는 플래그는 다른 모든 가능한 조합에서 활성화되므로, `None` 처럼 특별히 어떤것도 활성화되지 않는 플래그로 사용됩니다.
 

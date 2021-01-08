@@ -206,7 +206,7 @@ Now navigate once again to our web config generator and input that number as Ste
 
 You need to do only one more thing, toggle advanced settings, find `IPC` option, and enable it.
 
-![IPC](https://i.imgur.com/NhujZCN.png)
+![Процеси на вътрешна комуникация](https://i.imgur.com/NhujZCN.png)
 
 Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
 

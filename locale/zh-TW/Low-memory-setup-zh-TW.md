@@ -93,7 +93,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+或在 Windows 上（PowerShell）：
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them

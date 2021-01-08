@@ -12,7 +12,7 @@ Regardless of platform, you need full .NET Core SDK (not just runtime) in order 
 
 * * *
 
-## Compilation
+## Kompilēšāna
 
 Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 

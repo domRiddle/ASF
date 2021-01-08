@@ -58,13 +58,13 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Value | Name      |
+| Value | Nume      |
 | ----- | --------- |
 | 0     | PlainText |
 | 1     | SCrypt    |
 | 2     | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+Descrierea exactă și compararea acestora sunt disponibile mai jos.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Este cel mai ușor de utilizat, 100% compatibil cu toate configurațiile, deci este un mod implicit de a stoca secrete, complet nesigur pentru stocare în siguranță.
 
 * * *
 

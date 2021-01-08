@@ -14,9 +14,9 @@ Unabhängig davon, ob du das unten erklärte ASF 2FA verwenden wirst oder nicht,
 
 # ASF 2FA
 
-ASF 2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie z. B. das Erzeugen von Codes und das Annehmen von Bestätigungen. Es dupliziert deinen bestehenden Authentifikator, so dass du deinen aktuellen Authentifikator und ASF 2FA gleichzeitig verwenden kannst.
+ASF 2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie z. B. das Erzeugen von Codes und das Annehmen von Bestätigungen. Es dupliziert Ihren bestehenden Authentifikator, so dass Sie Ihren aktuellen Authentifikator und ASF 2FA gleichzeitig verwenden können.
 
-Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn du deinen Authentifikator nicht bereits als ASF 2FA importiert hast, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass dein Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
+Du kannst überprüfen, ob dein Bot-Konto bereits ASF 2FA verwendet, indem du den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn Sie Ihren Authentifikator nicht bereits als ASF 2FA importiert haben, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass Ihr Konto nicht ASF 2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
 
 * * *
 
@@ -101,7 +101,7 @@ Wenn du alles richtig gemacht hast, starte ASF und du solltest folgendes sehen:
 [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+Von nun an sollte dein ASF 2FA für dieses Konto einsatzbereit sein.
 
 * * *
 
@@ -147,7 +147,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 ### Ich habe den Authentifikator in SDA/WinAuth verlinkt und dann in ASF importiert. Kann ich ihn jetzt entfernen und auf meinem Handy wieder verlinken?
 
-**No**. ASF **importiert** deine Authentifikatordaten, um sie zu verwenden. Wenn du deinen Authentifikator entfernst, dann bewirkst du auch, dass ASF 2FA nicht mehr funktioniert, egal ob du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn du deinen Authentifikator sowohl auf deinem Handy, als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF 2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn du dich dazu entscheidest, deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise - wird ASF 2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF 2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können, musst du es aus Android/iOS importieren, was oben beschrieben ist.
+**Nein**. ASF **importiert** deine Authentifikatordaten, um sie zu verwenden. Wenn du deinen Authentifikator entfernst, dann bewirkst du auch, dass ASF 2FA nicht mehr funktioniert, egal ob du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn du deinen Authentifikator sowohl auf deinem Handy, als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF 2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn du dich dazu entscheidest, deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise - wird ASF 2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF 2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können, musst du es aus Android/iOS importieren, was oben beschrieben ist.
 
 * * *
 

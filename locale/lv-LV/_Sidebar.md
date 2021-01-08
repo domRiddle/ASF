@@ -10,22 +10,22 @@
 
 ## Pamata
 
-* **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[Sākums](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[Konfigurācija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[Biežāk uzdotie jautājumi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[Iestatīšana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(sākt šeit)**
 
 ## Kodols
 
 * **[Spēļu iegūšana fonā](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[Komandas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Savienojamība](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[Veiktspēja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Statistika](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[Darījumi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-## Advanced
+## Papildu
 
 * **[Komandrindu argumenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[Atbalsta pārtraukšana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
@@ -37,14 +37,14 @@
 * **[Reģistrēšana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[Zemas atmiņas lietojuma iestatīšana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[Papildinājumi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[Drošība](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[Trešās puses](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[Divu faktoru autentifikācija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 ## Izstrādātājiem
 
-* **[Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[Kompilēšāna](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[Ieguldījumu vadlīnijas](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
 * **[Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Laidienu cikls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

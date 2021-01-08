@@ -880,7 +880,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Name |
+| Value | Namn |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

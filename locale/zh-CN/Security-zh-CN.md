@@ -4,11 +4,11 @@
 
 ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
-| Value | Name                        |
-| ----- | --------------------------- |
-| 0     | PlainText                   |
-| 1     | AES                         |
-| 2     | ProtectedDataForCurrentUser |
+| 值 | 名称                          |
+| - | --------------------------- |
+| 0 | PlainText                   |
+| 1 | AES                         |
+| 2 | ProtectedDataForCurrentUser |
 
 下文会详细解释与比较这些方式。
 
@@ -58,13 +58,13 @@ ASF 不支持任何解密已加密密码的方法，因为解密方法仅在内�
 
 ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
-| Value | Name      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| 值 | 名称        |
+| - | --------- |
+| 0 | PlainText |
+| 1 | SCrypt    |
+| 2 | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+下文会详细解释与比较这些方式。
 
 要生成哈希值，并在如 `IPCPassword` 等属性中使用，您可以执行 `hash` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当哈希方式与您的密码原文。 然后，将您获得的哈希字符串填入 `IPCPassword` 全局配置属性，并且对应修改 `IPCPasswordFormat` 为符合哈希方式的选项。
 
@@ -72,7 +72,7 @@ The exact description and comparison of them is available below.
 
 ### PlainText
 
-这是最简单但也最不安全的密码哈希方式，指定 `EHashingMethod` 为 `0`。 ASF 会生成与原文相同的哈希值。 It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+这是最简单但也最不安全的密码哈希方式，指定 `EHashingMethod` 为 `0`。 ASF 会生成与原文相同的哈希值。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
 * * *
 
@@ -80,18 +80,18 @@ The exact description and comparison of them is available below.
 
 按照当今的标准，**[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** 可以被视为安全的哈希方式，指定 `EHashingMethod` 为 `1` 即可使用这种方式。 ASF 的 `SCrypt` 实现采用 `8` 个块、`8192` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 
-ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。 If used properly, guarantees decent security for safe storage.
+ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。 如果使用得当，就能保证安全存储的适当安全性。
 
 * * *
 
 ### Pbkdf2
 
-按照当今的标准，**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** 是一种安全性较弱的哈希方式，指定 `EHashingMethod` 为 `2` 即可使用这种方式。 ASF 的 `Pbkdf2` 实现采用 `10000` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐，`SHA-256` 作为 HMAC 算法以生成字节数组。 The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+按照当今的标准，**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** 是一种安全性较弱的哈希方式，指定 `EHashingMethod` 为 `2` 即可使用这种方式。 ASF 的 `Pbkdf2` 实现采用 `10000` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐，`SHA-256` 作为 HMAC 算法以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。
 
 * * *
 
-## Recommendation
+## 建议
 
 如果您打算以哈希方式存储一些私密数据，例如 `IPCPassword`，我们建议您加盐使用 `SCrypt`，这可以提供足够的安全性对抗暴力破解尝试。 `Pbkdf2` 仅出于兼容性考虑才提供，主要是因为我们已有一种可用实现用于 Steam 平台相关用途（例如处理家庭监护代码）。 它仍然被认为是安全的，但与其替代品相比较弱（例如 `SCrypt`）。

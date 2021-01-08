@@ -219,7 +219,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `統計`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -573,8 +573,8 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | 値 | 名前             |
 | - | -------------- |
-| 0 | Offline        |
-| 1 | Online         |
+| 0 | オフライン          |
+| 1 | オンライン          |
 | 2 | Busy           |
 | 3 | Away           |
 | 4 | Snooze         |
@@ -719,7 +719,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | 値  | 名前                  | Description                                                                                                                                                                                          |
 | -- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | None                | No special trading preferences, default                                                                                                                                                              |
+| 0  | 無し                  | No special trading preferences, default                                                                                                                                                              |
 | 1  | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2  | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4  | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -880,12 +880,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Name |
-| ----- | ---- |
-| 0     | None |
-| 1     | A    |
-| 2     | B    |
-| 4     | C    |
+| 値 | 名前 |
+| - | -- |
+| 0 | 無し |
+| 1 | A  |
+| 2 | B  |
+| 4 | C  |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 

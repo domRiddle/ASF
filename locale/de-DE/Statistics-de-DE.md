@@ -1,4 +1,4 @@
-# Statistics
+# Statistiken
 
 Die ASF-Entwicklung wird durch 3 wichtige Dinge unterstützt: Spenden, Benutzer-Rückmeldungen und Statistiken. Spenden beeinflussen direkt unsere Bereitschaft an dem Projekt zu arbeiten, die Rückmeldungen der Benutzer sind immer schön zu lesen (besonders positive), und Statistiken liefern uns die Informationen, wie und von wie vielen Personen unsere Software verwendet wird - auf diese Weise können wir erfahren, was wir verbessern, was wir beheben und worauf wir uns konzentrieren können.
 

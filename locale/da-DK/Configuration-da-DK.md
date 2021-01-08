@@ -219,7 +219,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 * * *
 
-### `Statistics`
+### `Statistik`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -541,7 +541,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Værdi | Navn                  | Description                                                   |
+| Værdi | Navn                  | Beskriveslse                                                  |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -736,7 +736,7 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Værdi | Navn                  | Description                                                   |
+| Værdi | Navn                  | Beskriveslse                                                  |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -880,7 +880,7 @@ Eksempel for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "765
 
 For example, given following values:
 
-| Value | Name |
+| Værdi | Navn |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

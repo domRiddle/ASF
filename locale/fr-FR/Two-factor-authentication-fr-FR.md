@@ -99,7 +99,7 @@ Une fois que votre fichier est sur votre PC, saisissez-le sous la forme `BotName
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 `</pre> 
 
-From now on, your ASF 2FA should be operational for this account.
+Votre ASF 2FA devrait désormais être opérationnel pour ce compte.
 
 * * *
 
@@ -145,7 +145,7 @@ Si ASF 2FA est disponible, ASF l'utilisera pour la confirmation automatique des 
 
 <h3>J'ai lié l'authentifiant dans SDA / WinAuth, puis importé dans ASF. Can I now unlink it and link it again on my phone?</h3>
 
-<p><strong>No</strong>. ASF <strong> importe </ 0> vos données d'authentificateur pour pouvoir les utiliser. Si vous désactivé votre authentificateur, ASF 2FA cessera de fonctionner, que vous le supprimiez ou non comme indiqué ci-dessus. Si vous souhaitez utiliser votre authentificateur à la fois sur votre téléphone et sur ASF (plus éventuellement dans SDA / WinAuth), vous devez <strong> importer </ 0> votre authentificateur à partir de votre téléphone et ne pas en créer un nouveau dans SDA / WinAuth. Vous ne pouvez avoir seulement <strong> un </ 0> authentificateur lié, c’est pourquoi ASF <strong> importe </ 0> cet authentificateur et ses données afin de l’utiliser en tant que ASF 2FA - <strong> identique </ 0> authentificateur, juste existant à deux endroits. Si vous décidez de supprimer les informations d'identification de votre authentificateur mobile, quelle que soit la méthode utilisée, ASF 2FA cessera de fonctionner, car les informations d'identification de l'authentificateur mobile précédemment copiées ne seront plus valides. Pour utiliser ASF 2FA avec Authenticator sur votre téléphone, vous devez l'importer à partir d'Android / iOS, comme décrit ci-dessus.</p>
+<p><strong>Non</strong>. ASF <strong> importe </ 0> vos données d'authentificateur pour pouvoir les utiliser. Si vous désactivé votre authentificateur, ASF 2FA cessera de fonctionner, que vous le supprimiez ou non comme indiqué ci-dessus. Si vous souhaitez utiliser votre authentificateur à la fois sur votre téléphone et sur ASF (plus éventuellement dans SDA / WinAuth), vous devez <strong> importer </ 0> votre authentificateur à partir de votre téléphone et ne pas en créer un nouveau dans SDA / WinAuth. Vous ne pouvez avoir seulement <strong> un </ 0> authentificateur lié, c’est pourquoi ASF <strong> importe </ 0> cet authentificateur et ses données afin de l’utiliser en tant que ASF 2FA - <strong> identique </ 0> authentificateur, juste existant à deux endroits. Si vous décidez de supprimer les informations d'identification de votre authentificateur mobile, quelle que soit la méthode utilisée, ASF 2FA cessera de fonctionner, car les informations d'identification de l'authentificateur mobile précédemment copiées ne seront plus valides. Pour utiliser ASF 2FA avec Authenticator sur votre téléphone, vous devez l'importer à partir d'Android / iOS, comme décrit ci-dessus.</p>
 
 <hr />
 

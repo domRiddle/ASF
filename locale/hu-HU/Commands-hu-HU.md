@@ -287,10 +287,10 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, amit az ASF felismer. Jelenleg az ASF az alábbi típusokat ismeri:
 
-| Type                    | Description                                                                      |
+| Típus                   | Leírás                                                                           |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot konfigurációs beállítás, ha hiányozna a konfigurációból.        |
-| Password                | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
+| Jelszó                  | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
 | SteamGuard              | Engedélyező kód, amit az e-mail címedre küldenek, ha nem használsz 2FA-t.        |
 | SteamParentalCode       | `SteamParentalCode` bot konfigurációs beállítás, ha hiányozna a konfigurációból. |
 | TwoFactorAuthentication | 2FA token, amit a telefonod generált, ha használod a 2FA-t, de nem az ASF 2FA-t. |
