@@ -222,8 +222,6 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 }
 ```
 
-Es gibt 2 Eigenschaften die es wert sind erklärt/bearbeitet zu werden, nämlich `Endpoints` und `PathBase`.
-
 `Endpoints` - Dies ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie z.B. `example-http4`) und eine `Url` Eigenschaft, welche die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt die du bei Bedarf verwenden kannst. Du solltest nur die Endpunkte deklarieren die du benötigst. Wir haben oben 4 Beispiele hinzugefügt damit du sie leichter bearbeiten kannst.
 
 `Host` akzeptiert eine Vielzahl von Werten, einschließlich dem Wert `*`, der den http-Server von ASF an alle verfügbaren Schnittstellen bindet. Achte sehr genau darauf wenn du `Host` Werte verwendest, da sie den Fernzugriff erlauben. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Maschinen aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. In diesem Fall empfehlen wir dringend die Nutzung von `IPCPassword` (und vorzugsweise auch einer eigenen Firewall) **als Mindestmaß**.

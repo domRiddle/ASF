@@ -222,8 +222,6 @@ El archivo de configuración se basa en la siguiente estructura JSON:
 }
 ```
 
-Hay dos propiedades que vale la pena explicar/editar, estas son `Endpoints` y `PathBase`.
-
 `Endpoints` - Esta es una colección de endpoints, con cada endpoint teniendo nombre único (como `ejemplo-http4`) y la propiedad `Url` que especifique la dirección de escucha `Protocol://Host:Port`. Por defecto, ASF escucha en la direcciones http IPv4 y IPv6, pero hemos añadido ejemplos https para que uses, si es necesario. Solo debes declara aquellos endpoints que necesitas, hemos incluido 4 ejemplos arriba para que puedas editarlos más fácilmente.
 
 `Host` acepta una variedad de valores, incluyendo el valor `*` que enlaza el servidor http de ASF a todas las interfaces disponibles. Ten extremo cuidado cuando uses valores `Host` que permitan el acceso remoto. Si lo haces se habilitará el acceso a la interfaz IPC de ASF desde otras máquinas, lo que puede suponer un riesgo de seguridad. Recomendamos altamente usar `IPCPassword` (y de preferencia también tu propio cortafuegos) **como mínimo** en este caso.

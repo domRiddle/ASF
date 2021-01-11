@@ -63,9 +63,9 @@ To je sve, pretpostavljajući da se izabrali tačan važeći fajl, sve bi trebal
 
 Na iOS-u možete koristiti **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. Ovo je moguće zahvaljujući činjenici da možete praviti nešifrovanu rezervnu kopiju, prebaciti je na PC i koristiti alaktu da bi ekstraktovali Steam podatke koje bi inače bilo nemoguće dobiti (ako vaš uređaj nije jailbreak-ovan, zato što je iOS enkriptovan).
 
-Otiđite na **[poslednje izdanje](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** da bi preuzeli program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from `{` ending on `}` into `BotName.maFile` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+Otiđite na **[poslednje izdanje](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** da bi preuzeli program. Kada ekstrakujete podatke možete ih dodati u WinAuth, onda iz WinAuth-a u ASF (ali možete i jednostavno kopirati napravljeni json od `{` do `}` u `BotName.ma` fajl i nastaviti uobičajeno). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
 
-For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
+Za pitanja/probleme posjetite **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
 *Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly - we got a few signals that it's exporting invalid 2FA credentials - verify that confirmations work in authenticator like WinAuth prior to importing that data to ASF!*
 
@@ -77,14 +77,14 @@ If you have your authenticator running in SDA already, you should notice that th
 
 You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
-If you did everything correctly, launch ASF, and you should notice:
+Ako ste sve pravilno napravili, pokrenite ASF, i trebali bi onda da primijetite:
 
 ```text
 [*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> Uspješno završeno unošenje mobilnog autentikatora!
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+Od sada bi vaš ASF 2FA trebao da bude u upotrebi na vašem nalogu.
 
 * * *
 
@@ -94,14 +94,14 @@ Firstly create new empty `BotName.maFile` in ASF config directory, where `BotNam
 
 Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with `{`. Copy whole text into a `BotName.maFile` file created by you in previous step.
 
-If you did everything correctly, launch ASF, and you should notice:
+Ako ste sve pravilno napravili, pokrenite ASF, i trebali bi onda da primijetite:
 
 ```text
 [*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+Od sada bi vaš ASF 2FA trebao da bude u upotrebi na vašem nalogu.
 
 * * *
 
@@ -115,7 +115,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ## Najčešće postavljana pitanja
 
-### How is ASF making use of 2FA module?
+### Kako ASF koristi 2FA modul?
 
 If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
@@ -147,7 +147,7 @@ Jednostavno isključite ASF i uklonite `BotName.db` vašeg bota koji posjeduje A
 
 ### I linked authenticator in SDA/WinAuth, then imported to ASF. Can I now unlink it and link it again on my phone?
 
-**No**. ASF **imports** your authenticator data in order to use it. If you delink your authenticator then you'll also cause ASF 2FA to stop functioning, regardless if you remove it firstly like stated in above question or not. If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and its data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. In order to use ASF 2FA together with authenticator on your phone, you must import it from Android/iOS, which is described above.
+**Ne**. ASF **imports** your authenticator data in order to use it. If you delink your authenticator then you'll also cause ASF 2FA to stop functioning, regardless if you remove it firstly like stated in above question or not. If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and its data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. In order to use ASF 2FA together with authenticator on your phone, you must import it from Android/iOS, which is described above.
 
 * * *
 
