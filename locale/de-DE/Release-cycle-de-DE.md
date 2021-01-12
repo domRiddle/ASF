@@ -1,6 +1,6 @@
 # Veröffentlichungszyklus
 
-ASF uses common C# versioning with 4 numbers, written as `A.B.C.D`. Given version is always frozen, pointing to a fixed source code it was built from (bundled together with the release). We do not intend to remove any previously-published version, as long as our hosting provider (GitHub) remains fine with preserving them for indefinite future, therefore you can safely rollback to any of them without a need of making self-copies.
+ASF verwendet die gängige C# Versionierung mit 4 Zahlen, geschrieben als `A.B.C.D`. Given version is always frozen, pointing to a fixed source code it was built from (bundled together with the release). We do not intend to remove any previously-published version, as long as our hosting provider (GitHub) remains fine with preserving them for indefinite future, therefore you can safely rollback to any of them without a need of making self-copies.
 
 In general in terms of ASF versioning, we're doing our best to follow **[semver](https://semver.org)** versioning of `MAJOR.MINOR.PATCH` on the 3 least significant numbers - `B.C.D`. Those three numbers are directly related to ASF's code. The most significant `A` number indicates changes with a scope that goes beyond ASF codebase itself, usually directly affecting the foundation of the program.
 

@@ -26,16 +26,16 @@ Linux/OS X:
 ./ArchiSteamFarm --argument --anderesArgument
 ```
 
-Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus kannst du bei Verwendung eines Hilfsskripts auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es im Abschnitt **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#befehlszeilenargumente)** beschrieben ist.
+Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie bei Verwendung eines Hilfsskripts auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es im Abschnitt **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#befehlszeilenargumente)** beschrieben ist.
 
-Wenn dein Argument Leerzeichen enthält, vergiss nicht, es in Anführungszeichen zu setzen. Diese zwei sind falsch:
+Vergessen Sie nicht, Anführungszeichen zu verwenden, falls Ihr Argument Leerzeichen enthält. Diese beiden Beispiele sind falsch:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/Meine Downloads/ASF # Falsch!
 ./ArchiSteamFarm --path=/home/archi/Meine Downloads/ASF # Falsch!
 ```
 
-Aber diese beiden sind völlig in Ordnung:
+Aber diese zwei sind völlig in Ordnung:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/Meine Downloads/ASF" # OK
@@ -44,17 +44,17 @@ Aber diese beiden sind völlig in Ordnung:
 
 ## Argumente
 
-`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** aus und veranlasst ASF, den von dir bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Verschlüsselungsschlüssel (für Verschlüsselungszwecke) sowie SALT (für Hashing-Zwecke) betrifft.
+`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Verschlüsselungsschlüssel (für Verschlüsselungszwecke) sowie SALT (für Hashing-Zwecke) betrifft.
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu setzen, indem man die Umgebungsvariable `ASF_CRYPTKEY` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
 * * *
 
-`--ignore-unsupported-environment` - wird ASF die Erkennung von nicht unterstützten Umgebungen ignorieren, die normalerweise mit einem Fehler signalisiert und das Beenden erzwungen wird. Bislang gilt eine Umgebung dann als inkompatibel, wenn ein nicht unterstütztes .NET Framework auf einer Plattform verwendet wird, welche stattdessen .NET Core Build ausführen könnte. Da wir `generic-netf` nur in sehr begrenzten Szenarien unterstützen (mit **[Mono](https://www.mono-project.com)**), wird die Verwendung in anderen Fällen (z.B. für den Start auf `win-x64` Plattform) wird nicht unterstützt. Mehr Informationen finden Sie unter **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**.
+`--ignore-unsupported-environment` - wird ASF die Erkennung von nicht unterstützten Umgebungen ignorieren, die normalerweise mit einem Fehler signalisiert und das Beenden erzwingt. Bislang gilt eine Umgebung dann als inkompatibel, wenn ein nicht unterstütztes .NET Framework auf einer Plattform verwendet wird, welche stattdessen .NET Core Build ausführen könnte. Da wir `generic-netf` nur in sehr begrenzten Szenarien unterstützen (mit **[Mono](https://www.mono-project.com)**), wird die Verwendung in anderen Fällen (z.B. für den Start auf `win-x64` Plattform) nicht unterstützt. Mehr Informationen finden Sie unter **[**[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**.</strong>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)</p> 
 
 * * *
 
-`--network-group <group>` oder `--network-group=<group>` - führt dazu, dass ASF seine Begrenzer mit einer benutzerdefinierten Netzwerkgruppe mit einem Wert `<group>` initialisiert. Diese Option wirkt sich auf die Ausführung von ASF in **[mehreren Instanzen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** aus, indem signalisiert wird, dass diese Instanz nur von Instanzen abhängig ist, die dieselbe Netzwerkgruppe teilen - unabhängig vom Rest. In der Regel sollte diese Eigenschaft nur verwendet werden, wenn Sie ASF-Anfragen über einen benutzerdefinierten Mechanismus (z.b. verschiedene IP-Adressen) und wenn sie Netzwerkgruppen selbst einstellen möchten, ohne sich darauf zu verlassen, dass ASF dies automatisch macht (dies berücksichtigt derzeit nur `WebProxy`). Beachten Sie, dass es sich bei der Verwendung einer benutzerdefinierten Netzwerkgruppe um einen eindeutigen Bezeichner innerhalb des lokalen Rechners handelt und ASF keine weiteren Details berücksichtigt, wie z.B. den Wert vom `WebProxy`, wodurch Sie z.B. zwei Instanzen mit unterschiedlichen `WebProxy` Werten starten können, die noch voneinander abhängig sind.
+`--network-group <group>` oder `--network-group=<group>` - führt dazu, dass ASF seine Begrenzer mit einer benutzerdefinierten Netzwerkgruppe mit einem Wert `<group>` initialisiert. Diese Option wirkt sich auf die Ausführung von ASF in **[mehreren Instanzen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances-de-DE)** aus, indem signalisiert wird, dass diese Instanz nur von Instanzen abhängig ist, die dieselbe Netzwerkgruppe teilen - unabhängig vom Rest. In der Regel sollte diese Eigenschaft nur verwendet werden, wenn Sie ASF-Anfragen über einen benutzerdefinierten Mechanismus (z.b. verschiedene IP-Adressen) und eine Netzwerkgruppen selbst einstellen möchten, ohne sich darauf zu verlassen, dass ASF dies automatisch macht (dies berücksichtigt derzeit nur `WebProxy`). Beachten Sie, dass es sich bei der Verwendung einer benutzerdefinierten Netzwerkgruppe um einen eindeutigen Bezeichner innerhalb des lokalen Rechners handelt und ASF keine weiteren Details berücksichtigt, wie z.B. den Wert vom `WebProxy`, wodurch Sie z.B. zwei Instanzen mit unterschiedlichen `WebProxy` Werten starten können, die noch voneinander abhängig sind.
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, indem man die Umgebungsvariable `ASF_NETWORK_GROUP` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
