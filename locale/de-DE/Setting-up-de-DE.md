@@ -18,7 +18,7 @@ Folgendes werden wir in den nächsten paar Minuten machen:
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - ASF starten und der Magie ihren Lauf lassen.
 
-Hört sich einfach an, richtig? Dann lass uns anfangen.
+Hört sich einfach an, richtig? Dann lassen Sie uns beginnen.
 
 * * *
 
@@ -28,12 +28,12 @@ Der erste Schritt ist sicherzustellen, dass dein Betriebssystem ASF überhaupt r
 
 Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in deinem System existieren, weil sie mit der Software Dritter, welche du verwendest, mitinstalliert wurden. Trotzdem solltest du sicherstellen, dass dies wirklich der Fall ist indem du das entsprechende Installationsprogramm für dein Betriebssytem ausführst - Ohne diese Abhängigkeiten wird ASF nicht einmal starten.
 
-Behalte im Hinterkopf, dass du für betriebssystemspezifische ASF-Versionen nichts weiteres tun must. Insbesondere betrifft dies die Installation des .NET Core SDKs oder der Runtimes, da die betriebssytemspezifische Versionen das alles bereits beinhalten. Du benötigst nur die .NET Core Prerequisites (Abhängigkeiten) um die .NET Core Runtime, die bereits in ASF enthalten ist, auszuführen.
+Denken Sie daran, dass Sie für betriebssystemspezifische ASF-Versionen nichts weiteres tun müssen. Insbesondere betrifft dies die Installation des .NET Core SDKs oder der Runtime, da die betriebssytemspezifische Versionen das alles bereits beinhalten. Sie benötigen nur die .NET Core Prerequisites (Abhängigkeiten) um die .NET Core Runtime, die bereits in ASF enthalten ist, auszuführen.
 
 #### **[Windows](https://docs.microsoft.com/de-de/dotnet/core/install/windows)**:
 
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- Wir dringend empfohlen sicherzustellen, dass alle Windows Aktualisierungen installiert sind. Du benötigst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
+- Es wird dringend empfohlen sicherzustellen, dass alle Windows-Updates bereits installiert sind. Sie benötigen mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber es könnten weiteren Aktualisierungen benötigt werden. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
 
 #### **[Linux](https://docs.microsoft.com/de-de/dotnet/core/install/linux)**:
 
