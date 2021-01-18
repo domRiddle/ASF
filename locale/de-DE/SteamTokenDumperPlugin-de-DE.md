@@ -6,7 +6,7 @@
 
 ## Aktivierung des Plugins
 
-Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Du kannst das Plugin aktivieren, indem du die globale ASF Konfigurationseigenschaft `SteamTokenDumperPluginEnabled` auf `true` setzt. Im JSON-Syntax:
+Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Sie können das Plugin aktivieren, indem Sie die globale ASF Konfigurationseigenschaft `SteamTokenDumperPluginEnabled` auf `true` setzen. Im JSON-Syntax:
 
 ```json
 {

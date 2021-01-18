@@ -99,7 +99,7 @@ However, if you decide to change default `localhost` bind addresses to something
 
 **是的**，我們的 IPC 與此類設置完全兼容，因此如果您願意的話，您可以在使用自己的工具前自由託管它，以獲得額外的安全性和兼容性。 In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx could provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
-示例 Nginx 配置可以在下面找到。 We included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
+示例 Nginx 配置可以在下面找到。 We've included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
 
 ```nginx
 server {
