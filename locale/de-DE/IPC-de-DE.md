@@ -1,6 +1,6 @@
 # IPC
 
-ASF beinhaltet eine eigene einzigartige IPC-Schnittstelle, die für die weitere Interaktion mit dem Prozess verwendet werden kann. IPC steht für **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** und in der einfachsten Definition ist es eine "ASF-Weboberfläche" basierend auf **[Kestrel HTTP Server](https://github.com/aspnet/KestrelHttpServer)**, welches für die weitere Integration mit dem Prozess, sowohl als Frontend für Endbenutzer (ASF-ui) als auch Backend für Drittanbieter-Integrationen (ASF-API) verwendet werden kann.
+ASF beinhaltet eine eigene einzigartige IPC-Schnittstelle, die für die weitere Interaktion mit dem Prozess verwendet werden kann. IPC steht für **[inter-process communication](https://de.wikipedia.org/wiki/Interprozesskommunikation)** und in der einfachsten Definition ist es eine "ASF-Weboberfläche" basierend auf **[Kestrel HTTP Server](https://github.com/aspnet/KestrelHttpServer)**, welches für die weitere Integration mit dem Prozess, sowohl als Frontend für Endbenutzer (ASF-ui) als auch Backend für Drittanbieter-Integrationen (ASF-API) verwendet werden kann.
 
 IPC kann für viele verschiedene Dinge verwendet werden, je nach deinen Fähigkeiten und Bedürfnissen. Du kannst es beispielsweise dafür verwenden, um den Status von ASF und allen Bots abzurufen, ASF-Befehle zu senden, Globale- und Bot-Konfigurationen abzurufen und zu bearbeiten, neue Bots hinzuzufügen, bestehende Bots zu löschen, Produktschlüssel an den **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** zu senden oder auf das ASF-Protokoll zuzugreifen. Alle diese Aktionen werden durch unsere API offengelegt, was bedeutet, dass du deine eigenen Programme und Skripte schreiben kannst, die in der Lage sind, mit ASF zu kommunizieren und während der Laufzeit zu beeinflussen. Darüber hinaus sind ausgewählte Aktionen (z.B. das Senden von Befehlen) auch in unserem ASF-ui vorhanden, so dass du über eine benutzerfreundliche Weboberfläche einfach darauf zugreifen kannst.
 
@@ -99,7 +99,7 @@ Ja, wir empfehlen dafür einen Reverse-Proxy zu verwenden (siehe unten). Auf die
 
 **Ja**, unser IPC ist voll kompatibel mit einem solchen Setup, so dass wenn du möchtest du ihn auch direkt vor deinen eigenen Programmen hosten kannst, um zusätzliche Sicherheit und Kompatibilität zu gewährleisten. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z.B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
-Eine beispielhafte Nginx-Konfiguration findest du unten. We've included full `server` block, although you're interested mainly in `location` ones. Bitte lies die **[Nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
+Eine beispielhafte Nginx-Konfiguration findest du unten. Wir haben den vollen `server` Block eingefügt, obwohl du dich hauptsächlich für `location` interessierst. Bitte lies die **[Nginx-Dokumentation](https://nginx.org/en/docs)** falls du weitere Erklärungen brauchst.
 
 ```nginx
 server {

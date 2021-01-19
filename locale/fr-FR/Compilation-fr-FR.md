@@ -41,7 +41,7 @@ In a very rare case when you'd want to build `generic-netf` package, you can cha
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-Dans des cas encore plus rares, si vous ne pouvez pas installer .NET Framework ou même .NET Core SDK lui-même (par exemple, en raison de la construction sur ` linux-x86 ` avec ` mono `), vous pouvez appeler ` msbuild ` directement. Vous devrez également spécifier `ASFNetFramework` manuellement, car ASF désactive par défaut la construction netf sur les plates-formes non Windows :
+Dans des cas encore plus rares, si vous ne pouvez pas installer .NET Framework ou même .NET Core SDK lui-même (par exemple, en raison de la construction sur ` linux-x86 ` avec ` mono `), vous pouvez appeler ` msbuild ` directement. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -61,7 +61,7 @@ Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE 
 
 ## Tags
 
-Il n’est pas garanti que la branche  master </ 0> soit dans un état permettant une compilation réussie ou une exécution sans faille du fichier ASF en premier lieu, étant donné qu’elle est une branche de développement comme l’indique notre <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle"> cycle de publication</ 1>. If you want to compile or reference ASF from source, then you should use appropriate <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/tags">tag</a></strong> for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our CIs - <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/actions">GitHub</a></strong>, <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm">AppVeyor</a></strong> or <strong><a href="https://travis-ci.com/JustArchiNET/ArchiSteamFarm">Travis</a></strong>.</p>
+Il n’est pas garanti que la branche  master </ 0> soit dans un état permettant une compilation réussie ou une exécution sans faille du fichier ASF en premier lieu, étant donné qu’elle est une branche de développement comme l’indique notre <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle"> cycle de publication</ 1>. If you want to compile or reference ASF from source, then you should use appropriate <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/tags">tag</a></strong> for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our continuous integrations - <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/actions">GitHub</a></strong>, <strong><a href="https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm">AppVeyor</a></strong> or <strong><a href="https://travis-ci.com/JustArchiNET/ArchiSteamFarm">Travis</a></strong>.</p>
 
 <hr />
 

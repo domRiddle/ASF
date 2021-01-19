@@ -42,7 +42,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "li
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-В случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. Вам понадобиться вручную указать `ASFNetFramework`, поскольку ASF по умолчанию деактивирует сборку варианта netf на платформах, отличных от Windows:
+В случае, если вы не можете установить .NET Framework или даже сам .NET Core SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -62,7 +62,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## Теги
 
-Не гарантируется, что ветвь `master` будет находиться в состоянии, позволяющем произвести успешную компиляцию, или даже безошибочную работу ASF, поскольку это ветвь в которой ведётся разработка, как указано в статье **[Цикл выпуска](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**. Если вы хотите скомпилировать ASF из исходного кода, или сослаться на исходный код ASF в своём проекте, вам следует использовать для этого соответствующий **[тег](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**, что гарантирует как минимум успешную компиляцию, и скорее всего - безошибочную работу (если эта сборка отмечена как стабильная). Чтобы проверить "здоровье" текущего дерева, вы можете использовать наши средства CI — **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**,**[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** или **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
+Не гарантируется, что ветвь `master` будет находиться в состоянии, позволяющем произвести успешную компиляцию, или даже безошибочную работу ASF, поскольку это ветвь в которой ведётся разработка, как указано в статье **[Цикл выпуска](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**. Если вы хотите скомпилировать ASF из исходного кода, или сослаться на исходный код ASF в своём проекте, вам следует использовать для этого соответствующий **[тег](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**, что гарантирует как минимум успешную компиляцию, и скорее всего - безошибочную работу (если эта сборка отмечена как стабильная). In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** or **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
 
 * * *
 

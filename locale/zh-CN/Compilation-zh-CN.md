@@ -42,7 +42,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "li
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-在无法安装 .NET 框架甚至 .NET Core SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 netf：
+在无法安装 .NET 框架甚至 .NET Core SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 `netf`：
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm

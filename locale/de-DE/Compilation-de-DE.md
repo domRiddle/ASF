@@ -22,7 +22,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 
 Für Linux/OS X als Zielplattform können Sie stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
 
-Wenn die Kompilierung erfolgreich beendet wurde, finden Sie Ihr ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies gleicht sich mit dem offiziellen `generic` ASF-Build, nur ist hier der `UpdateChannel` und `UpdatePeriod` auf `0` gesetzt, womit ein überschreiben des Selbst-Builds bis zur nächsten Kompilierung vermieden wird. Sie können jederzeit zur offiziellen Version wechseln, oder manuell ein Update durch die kompilation einer aktuelleren Version durchführen.
+Wenn die Kompilierung erfolgreich beendet wurde, finden Sie Ihr ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies gleicht sich mit dem offiziellen `generic` ASF-Build, nur ist hier der `UpdateChannel` und `UpdatePeriod` auf `0` gesetzt, womit ein überschreiben des Selbst-Builds bis zur nächsten Kompilierung vermieden wird.
 
 ### Betriebssystemspezifisch
 
@@ -42,7 +42,7 @@ Im sehr seltenen Fall, dass Sie das `generic-netf`-Paket erstellen möchten, kö
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-Falls Sie das .NET Framework oder sogar die .NET Core SDK nicht selbst installieren können (z.B. weil es auf `linux-x86` mit `mono` kompiliert wurde), können Sie `msbuild` direkt aufrufen. Sie müssen auch `ASFNetFramework` manuell angeben, da ASF standardmäßig `netf` build auf Nicht-Windows-Plattformen deaktiviert:
+Falls Sie das .NET Framework oder sogar die .NET Core SDK nicht selbst installieren können (z.B. weil es auf `linux-x86` mit `mono` kompiliert wurde), können Sie `msbuild` direkt aufrufen. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -62,7 +62,7 @@ Natürlich sind alle obigen Vorschläge nur Empfehlungen, Sie können verwenden 
 
 ## Tags
 
-Der `master` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, die wird ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** benötigt, welches zumindest eine erfolgreiche kompilation, und problemlose Ausführung (falls das Build als stable release markiert wurde), zu garantieren. Um die "Gesundheit" Ihres aktuellen Builds im `UpdateChannel` zu überprüfen, können Sie unsere Quellen verwenden: **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** oder **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
+Der `master` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, die wird ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** benötigt, welches zumindest eine erfolgreiche kompilation, und problemlose Ausführung (falls das Build als stable release markiert wurde), zu garantieren. In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** or **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
 
 * * *
 

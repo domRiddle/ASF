@@ -42,7 +42,7 @@ En el raro caso de que quieras compilar un paquete `generic-netf`, puedes cambia
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-En caso de no poder instalar .NET Framework o incluso .NET Core SDK (por ejemplo, por compilar en `linux-x86` con `mono`), puedes llamar directamente `msbuild`. También necesitarás especificar `ASFNetFramework` manualmente, ya que ASF por defecto desactiva la compilación netf en plataformas que no son Windows:
+En caso de no poder instalar .NET Framework o incluso .NET Core SDK (por ejemplo, por compilar en `linux-x86` con `mono`), puedes llamar directamente `msbuild`. También necesitarás especificar `ASFNetFramework` manualmente, ya que ASF por defecto desactiva la compilación `netf` en plataformas que no son Windows:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -62,7 +62,7 @@ Claro, todas las sugerencias anteriores son solo recomendaciones, puedes usar lo
 
 ## Etiquetas
 
-La rama `master` no garantiza estar en un estado que permita una compilación exitosa o una ejecución de ASF sin fallas, ya que es una rama de desarrollo como indicamos en nuestro **[ciclo de lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**. Si quieres compilar o referenciar ASF desde la fuente, entonces debes usar la **[etiqueta](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropiada para ese fin, lo que garantiza una compilación exitosa, y muy probablemente también una ejecución sin fallas (si la compilación fue marcada como versión estable). Para comprobar la "salud" actual del árbol, puedes usar nuestra CI (integración continua) - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** o **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
+La rama `master` no garantiza estar en un estado que permita una compilación exitosa o una ejecución de ASF sin fallas, ya que es una rama de desarrollo como indicamos en nuestro **[ciclo de lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**. Si quieres compilar o referenciar ASF desde la fuente, entonces debes usar la **[etiqueta](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropiada para ese fin, lo que garantiza una compilación exitosa, y muy probablemente también una ejecución sin fallas (si la compilación fue marcada como versión estable). Para comprobar la "salud" actual del árbol, puedes usar nuestra integración continua - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** o **[Travis](https://travis-ci.com/JustArchiNET/ArchiSteamFarm)**.
 
 * * *
 
