@@ -251,7 +251,7 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 
 Contributor | Languages
 --- | ---
-**[Astaroth](https://crowdin.com/profile/ismacanto)** | Spanish
+**[Astaroth](https://crowdin.com/profile/astaroth2012)** | Spanish
 **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)** | Portuguese (BR)
 **[deluxghost](https://crowdin.com/profile/deluxghost)** | Chinese (CN)
 **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)** | Russian, Ukrainian
