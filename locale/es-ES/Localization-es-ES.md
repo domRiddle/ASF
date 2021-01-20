@@ -252,7 +252,7 @@ Nos gustaría mostrar nuestra eterna gratitud a las personas que han pasado una 
 
 | Colaborador                                                | Idiomas         |
 | ---------------------------------------------------------- | --------------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Español         |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Español         |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |

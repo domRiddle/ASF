@@ -252,7 +252,7 @@ Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande
 
 | Colaborador                                                | Idiomas          |
 | ---------------------------------------------------------- | ---------------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Espanhol         |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Espanhol         |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Português (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinês (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russo, Ucraniano |

@@ -252,7 +252,7 @@ Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Be
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Spanisch             |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Spanisch             |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugiesisch (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinesisch (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russisch, Ukrainisch |

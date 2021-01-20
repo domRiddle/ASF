@@ -252,7 +252,7 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 
 | 貢獻者                                                        | 語言       |
 | ---------------------------------------------------------- | -------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | 西班牙文     |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | 西班牙文     |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西） |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）   |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文  |

@@ -252,7 +252,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 | Співробітник                                               | Мови                    |
 | ---------------------------------------------------------- | ----------------------- |
-| **[Astaroth](https://crowdin.com/profile/ismacanto)**      | Іспанська               |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Іспанська               |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальська (BR)      |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайська (CN)          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Українська та російська |
